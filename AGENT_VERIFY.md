@@ -6,9 +6,9 @@ Verify the release of *Nobody in Charge* independently. Do not repair, reinterpr
 the project while verifying it. Report discrepancies with file and line references, preserve
 the source boundary below, and distinguish a failed check from an unresolved scientific claim.
 
-Canonical project:
-
-`<repository root>`
+Canonical project: the Git checkout containing this file. Treat its repository root as `.` and
+resolve every project path relative to that root. No verification step depends on the checkout's
+parent directory or on a particular user account, host, or workspace layout.
 
 Canonical model SHA-256:
 
@@ -266,15 +266,22 @@ inspect for clipped tables, margin overflow, broken equations, unresolved refere
 duplicated pages, malformed headings, stale generated dates, and unreadable type. Machine
 success is not visual verification.
 
-### 9. Verify the mirrored review copy
+### 9. Verify repository identity and portability
 
-After the canonical release passes, compare it with:
+Run from the repository root:
 
-`<review copy>`
+```bash
+git status --short --branch
+git rev-parse --show-toplevel
+git rev-parse HEAD
+git rev-parse origin/main
+python3 tools/check_portability.py
+```
 
-The mirror must contain the same current project files and built artifacts. Exclude unrelated
-workspace metadata from the comparison. A stale file in the mirror is a failed handoff even if
-the canonical project is correct.
+The working tree must be clean, `HEAD` must equal `origin/main`, and the portability check must
+find no tracked machine-specific absolute paths. The checkout may live anywhere. Separate
+non-Git copies are reference copies, not release authorities, and are not part of the release
+gate.
 
 ## Required verifier report
 
@@ -289,7 +296,7 @@ The report must include:
 5. expanded-screen classification comparison;
 6. prose/source-boundary findings with exact file and line references;
 7. PDF page counts and visual-QA result;
-8. mirror comparison result;
+8. repository-identity and portability result;
 9. unresolved scientific limitations, kept separate from release defects.
 
 Expected unresolved limitations are not failures: no fitted group data, failed calibration,

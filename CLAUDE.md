@@ -4,6 +4,12 @@ Read this file, `plans/RELEASE-GATE-PLAN.md`, and `AGENT_VERIFY.md` before chang
 project. Work directly in this repository. Do not delete source material or caches without
 explicit user authorization. Preserve unrelated user work.
 
+The authoritative workspace is the Git checkout containing this file. Treat its root as `.`.
+All tracked paths, commands, notebook loaders, generated manifests, and handoff instructions
+must be repository-relative or derived at runtime from `__file__`, `Path.cwd()`, or Git. Never
+commit a user home directory, workspace root, or other host-specific absolute path. Non-Git
+copies are reference copies only and are not release authorities.
+
 ## Authority and current state
 
 The source hierarchy is:
@@ -127,6 +133,7 @@ Run from the repository root:
 python3 tools/run_notebook.py
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
+python3 tools/check_portability.py
 python3 tools/check_release.py
 python3 tools/build_book.py
 ```

@@ -22,6 +22,8 @@ appendix, PDFs, and independent verification verdict are closed.
   seeds
 - Governing plan: `plans/RELEASE-GATE-PLAN.md`
 - Independent verification brief: `AGENT_VERIFY.md`
+- Canonical workspace: the current Git checkout; all documented project paths are relative to
+  the repository root and the checkout may be placed anywhere
 
 Source files and hash-linked caches are authoritative. Generated Markdown and PDFs are not
 authoritative until `tools/check_release.py` passes and their build dates follow every source.
@@ -110,6 +112,7 @@ Run from the repository root after all required caches are complete:
 python3 tools/run_notebook.py
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
+python3 tools/check_portability.py
 python3 tools/check_release.py
 python3 tools/build_book.py
 ```

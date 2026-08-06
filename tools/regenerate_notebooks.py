@@ -60,7 +60,7 @@ def check(label, got, want=True, tol=None):
 def load(name):
     return json.loads((RESEARCH / name).read_text())
 
-print("repository", ROOT)
+print("repository root", ".")
 print("model SHA-256", MODEL_HASH)
 '''
 
