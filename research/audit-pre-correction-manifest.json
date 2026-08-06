@@ -1,0 +1,938 @@
+{
+  "created_utc": "2026-08-06T11:56:45.660085+00:00",
+  "file_count": 94,
+  "files": {
+    "AGENT_VERIFY.md": {
+      "bytes": 63014,
+      "mtime_utc": "2026-08-06T11:37:53.848859+00:00",
+      "sha256": "23dff7e60bb02bbac3095fdd406d11d77dd2f5e962c35e83c587029984547de6"
+    },
+    "BOOK-PLAN.md": {
+      "bytes": 20749,
+      "mtime_utc": "2026-08-06T11:55:11.314821+00:00",
+      "sha256": "81ebbd6450b146010b618836a5996502791bbe668797ae850da6f9fe750c3ee0"
+    },
+    "CLAUDE.md": {
+      "bytes": 17554,
+      "mtime_utc": "2026-08-06T11:45:56.240277+00:00",
+      "sha256": "b16d952de94e4f8e1bec073b63268f2b5fc188c9efa1b98d12450717d6348817"
+    },
+    "README.md": {
+      "bytes": 30933,
+      "mtime_utc": "2026-08-06T11:45:56.420146+00:00",
+      "sha256": "7c46b62bb0b8cb14107fe82d2ee5c07a0403e66cce6f23b11644a0340f45906b"
+    },
+    "appendix/APPENDIX.md": {
+      "bytes": 67501,
+      "mtime_utc": "2026-08-03T16:31:43+00:00",
+      "sha256": "57e76c6c60e3bb1f0ac3b638bc38a05af8b975d9bee8bb7ccca1c35c3d4a0a56"
+    },
+    "manuscript/ch00-preface.md": {
+      "bytes": 12911,
+      "mtime_utc": "2026-08-03T15:38:05+00:00",
+      "sha256": "0206cdd4ee9fc5aa49569d5a42b20dbc35fcd58a2c5fa3af36a91678c87f4142"
+    },
+    "manuscript/ch00b-introduction.md": {
+      "bytes": 11076,
+      "mtime_utc": "2026-08-03T15:36:08+00:00",
+      "sha256": "18d5bdf90e4c9a7f9268cdd45ed7291081f1e2a749261cf5b3c099aad330af2d"
+    },
+    "manuscript/ch01-chases-tavern.md": {
+      "bytes": 50362,
+      "mtime_utc": "2026-08-06T11:44:05.481875+00:00",
+      "sha256": "0581c14c5d2b2a7462e0b6daee1ea1fda3899c2c694082d97daf0f4634c0dfca"
+    },
+    "manuscript/ch02-the-fade.md": {
+      "bytes": 49898,
+      "mtime_utc": "2026-08-03T15:36:08+00:00",
+      "sha256": "eee17c467568ecd412028295e4b66ef01d984432c43a06bee7c04435395a1977"
+    },
+    "manuscript/ch03-the-man-who-was-the-movement.md": {
+      "bytes": 26758,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "27e927b3af0490c410b949ce0d09160e8586b47e0cd79b1bfa3c55155ada6ff0"
+    },
+    "manuscript/ch04-akron.md": {
+      "bytes": 20282,
+      "mtime_utc": "2026-08-03T11:34:11+00:00",
+      "sha256": "6f1da011f4e82d6c129be14291331b2fd428eea2927699fb560677fc12ba1334"
+    },
+    "manuscript/ch05-twelve-points.md": {
+      "bytes": 26020,
+      "mtime_utc": "2026-08-06T11:42:58.830929+00:00",
+      "sha256": "9369260efd9305d6ffeb555c6555dc8d266555207fc28f4db0d1117804ba6d2c"
+    },
+    "manuscript/ch06-the-sociologist.md": {
+      "bytes": 22748,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "29b99f4dc069c1053496dccbe52ac19708bf4234856d4ebbbf0ff215782ad5f6"
+    },
+    "manuscript/ch07-how-a-room-decides.md": {
+      "bytes": 13945,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "37ed354e6b3773e35bdbc7bf7e5025f77cb24e97518dddfdfd4d0dd6180fada4"
+    },
+    "manuscript/ch08-the-condition.md": {
+      "bytes": 21282,
+      "mtime_utc": "2026-08-03T16:29:10+00:00",
+      "sha256": "d5133616c7f6f9d2cf88a22420ef5343c0c609993769ac263ac25781c7d60aad"
+    },
+    "manuscript/ch09-confident-and-wrong.md": {
+      "bytes": 13801,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "3c015562eb80590dca0152fba1f4f101718f9cc6f4f61bddb117effb7a2ca667"
+    },
+    "manuscript/ch10-rotation-has-to-be-wide.md": {
+      "bytes": 11900,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "3ab00cef640cc6ae4d6200ef7e5f1e3cda54b61f22119202373e9bbde3c8f69f"
+    },
+    "manuscript/ch11-what-the-washingtonians-lacked.md": {
+      "bytes": 16030,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "c9fb013623c8a8c014a593a06f682943a83a86852169be426d9f8f8e53625e75"
+    },
+    "manuscript/ch12-twelve-dials.md": {
+      "bytes": 18238,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "a88ad348b36aae2383416c3919208fd335d591475bc42914a7ae6c1a8db1c385"
+    },
+    "manuscript/ch13-can-you-skip-a-step.md": {
+      "bytes": 20598,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "52ee24c92c566010a5b69bbee106245af99c01609793a8a85ef1023964214dd2"
+    },
+    "manuscript/ch14-the-leaky-bucket.md": {
+      "bytes": 31080,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "1d23d389a380f971c2226b1c752e791eaa04db790c7546f18db9a4436b465c5c"
+    },
+    "manuscript/ch15-helping-is-not-the-reward.md": {
+      "bytes": 16078,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "aa4db6feb15881ab59d1053c15934e7c8cfbc0a103a466be2b7ca61cacc45e3e"
+    },
+    "manuscript/ch16-the-pairing-that-isnt.md": {
+      "bytes": 22614,
+      "mtime_utc": "2026-08-03T15:23:09+00:00",
+      "sha256": "ae243501454e18331fa48ea1bcdf3825a8a6259d20c0b00f1f3d12ab62eaccab"
+    },
+    "manuscript/ch17-what-a-tradition-carries.md": {
+      "bytes": 18318,
+      "mtime_utc": "2026-08-03T15:38:50+00:00",
+      "sha256": "8f361c22fe31110e44db269454444a0beb9d418c35b24781cc907b62ce246a15"
+    },
+    "manuscript/ch18-two-kinds-of-rule.md": {
+      "bytes": 21939,
+      "mtime_utc": "2026-08-03T15:25:53+00:00",
+      "sha256": "5d7133d7403bde2e0ce4340631d858298de40d2462eb6e732030b0dcb226985d"
+    },
+    "manuscript/ch19-you-cannot-close-the-door.md": {
+      "bytes": 15559,
+      "mtime_utc": "2026-08-03T11:34:58+00:00",
+      "sha256": "49418b145d325acc12dfc3d36ac05265fc407ace345ac8c071cb6b1f16b08ace"
+    },
+    "manuscript/ch20-three-ways-to-starve.md": {
+      "bytes": 14466,
+      "mtime_utc": "2026-08-03T11:34:58+00:00",
+      "sha256": "4f561c8e32a8928d19237520778181153ad0d077fe6643650272853b344b5888"
+    },
+    "manuscript/ch21-the-healthy-looking-corpse.md": {
+      "bytes": 14335,
+      "mtime_utc": "2026-08-03T11:34:58+00:00",
+      "sha256": "93586fa222f94eda04076f2957d417c40b94498adfdd4edc507a571b518c29f5"
+    },
+    "manuscript/ch22-what-you-cannot-engineer.md": {
+      "bytes": 14334,
+      "mtime_utc": "2026-08-03T15:36:08+00:00",
+      "sha256": "c00fa4e141ab4ba07f17a8a9b228a382a8ba14ae15893444fad3749ee320b207"
+    },
+    "manuscript/ch23-the-wrong-turns.md": {
+      "bytes": 15633,
+      "mtime_utc": "2026-08-03T15:36:08+00:00",
+      "sha256": "77f26a277682cbb01e2dc776536aca53a90c7ac92affabf27a2c7d5acafbeda5"
+    },
+    "manuscript/ch24-what-would-settle-it.md": {
+      "bytes": 13447,
+      "mtime_utc": "2026-08-03T11:37:03+00:00",
+      "sha256": "a0a969256a8f0033657abcd00bb7f786c4aa336e5d653d8b0f51cf20cea2d0bb"
+    },
+    "manuscript/ch25-what-a-model-cannot-tell-you.md": {
+      "bytes": 11258,
+      "mtime_utc": "2026-08-03T11:34:58+00:00",
+      "sha256": "813fbbdff8e9fe9dc57f10e16ad53c04d2ef40bfb09a1505d6311e7ca1d10052"
+    },
+    "model/aa_group_model.py": {
+      "bytes": 9347,
+      "mtime_utc": "2026-08-02T03:23:54+00:00",
+      "sha256": "8e06d319a3e7c7175323f147b4e0b7adb9a7588beff8f9d0bdedc5f980362c6d"
+    },
+    "model/book-calculations.ipynb": {
+      "bytes": 301810,
+      "mtime_utc": "2026-08-05T12:11:27.434270+00:00",
+      "sha256": "7906ca89d31d6d1182eb85aacc0bbe1116bac025a9bef8d94c2805651e817fe5"
+    },
+    "model/ch13_reps.py": {
+      "bytes": 2485,
+      "mtime_utc": "2026-08-02T15:09:06+00:00",
+      "sha256": "971e91f2fe2c7595441a91f35a75218bd5f4825eb81a174320cd17f9a01c6e9a"
+    },
+    "model/ch14_sweep.py": {
+      "bytes": 1603,
+      "mtime_utc": "2026-08-02T15:02:24+00:00",
+      "sha256": "0c1cf2e13a0bacae6c1cd4f7b7004575dc61712a31371475fa912d9f217c1fd3"
+    },
+    "model/ch15_service.py": {
+      "bytes": 2370,
+      "mtime_utc": "2026-08-02T18:28:27+00:00",
+      "sha256": "ee3682623600fa5828eaedb1b7859fdbbc77be08939ab64e8994c4159c553557"
+    },
+    "model/core_thresholds.py": {
+      "bytes": 4379,
+      "mtime_utc": "2026-08-03T11:03:57+00:00",
+      "sha256": "2f90594378d1e4431615cb9e0c0b286688bb396510294e19efce6b45b16ad65b"
+    },
+    "model/elicitation_compare.py": {
+      "bytes": 11721,
+      "mtime_utc": "2026-08-03T15:24:32+00:00",
+      "sha256": "c9d25c3a4887cf5911f48510d8151dbc7fe4563c709d0574c381b736919e69b4"
+    },
+    "model/mc_error.py": {
+      "bytes": 3486,
+      "mtime_utc": "2026-08-02T14:15:02+00:00",
+      "sha256": "395b6d0030b8051003632fdfbf93b22e9912d46bc03f62e9ea42f6c661ffa490"
+    },
+    "model/morris_screen.py": {
+      "bytes": 6846,
+      "mtime_utc": "2026-08-02T14:48:57+00:00",
+      "sha256": "762670ff811d5b8c93da5b9eb9d417153a6d7e655b4410fd4b22d7c1e144c988"
+    },
+    "model/part2_influence.py": {
+      "bytes": 10736,
+      "mtime_utc": "2026-08-03T10:22:44+00:00",
+      "sha256": "0b305659980fdc7247b92024ffcf59664c0b72932c3442a6611905d4d7ae42c2"
+    },
+    "model/part5_runs.py": {
+      "bytes": 8611,
+      "mtime_utc": "2026-08-03T02:52:25+00:00",
+      "sha256": "c39877cc7df8461b1de14c3f576c5f63ddc6e341006e0656f04f248bf41f5336"
+    },
+    "model/resource_list_test.py": {
+      "bytes": 5804,
+      "mtime_utc": "2026-08-03T15:21:38+00:00",
+      "sha256": "760a15bff8ec0f035882386f59f5600caa4d20e8e9b698a2301ec81d69acc97a"
+    },
+    "model/scenarios_hiseed.py": {
+      "bytes": 3090,
+      "mtime_utc": "2026-08-02T14:19:25+00:00",
+      "sha256": "e0c579199f2ab81fb90ecc6b116133cf77281416ebf1a3fdb750ddac9d523bf8"
+    },
+    "model/sensitivity_oat_full.py": {
+      "bytes": 5102,
+      "mtime_utc": "2026-08-02T13:23:12+00:00",
+      "sha256": "d2af3f3c30a57244589bd43fd4ead8902a4f04b5ee391f95b5bc39ca51878121"
+    },
+    "model/sensitivity_tiered.py": {
+      "bytes": 3078,
+      "mtime_utc": "2026-08-02T03:23:54+00:00",
+      "sha256": "8d48c47df060894fd83a16b505fda2f1861b18c182f5a2aa2e3563356e5c9672"
+    },
+    "model/sensitivity_uniform.py": {
+      "bytes": 2005,
+      "mtime_utc": "2026-08-02T03:23:54+00:00",
+      "sha256": "ef7a726dcd87380a2e994781af93b2aed0fdb194786d86f77a974ebee49ac094"
+    },
+    "model/sobol_indices.py": {
+      "bytes": 9763,
+      "mtime_utc": "2026-08-03T00:42:05+00:00",
+      "sha256": "b570d50e0b73936efa42b735d7266d7ab277d70a33c4960be6d00466a2b43f63"
+    },
+    "model/structural_variants.py": {
+      "bytes": 11183,
+      "mtime_utc": "2026-08-03T15:35:36+00:00",
+      "sha256": "d00e531b0d914b084b8309785d5d93a4145a92f8ba71e468df4874646fbebf1f"
+    },
+    "model/tradition_paired.py": {
+      "bytes": 4970,
+      "mtime_utc": "2026-08-03T11:08:18+00:00",
+      "sha256": "f6dfde69a3992272616ff7e63372ba00b46885a11c0b6f816506c454273eda0c"
+    },
+    "paper/anonymity-as-an-aggregation-condition.ipynb": {
+      "bytes": 303053,
+      "mtime_utc": "2026-08-02T03:23:55+00:00",
+      "sha256": "2871e813c826ed42ead784f508f2453f1d14fe80109f7ed0850bc5491296a65e"
+    },
+    "paper/anonymity-as-an-aggregation-condition.pdf": {
+      "bytes": 413208,
+      "mtime_utc": "2026-08-03T16:39:24+00:00",
+      "sha256": "5fb79e8b27f58b5fc4b6eb159d5fcaa632ec7951790a427b6db4749bd5d59dfe"
+    },
+    "paper/anonymity-as-an-aggregation-condition.tex": {
+      "bytes": 113000,
+      "mtime_utc": "2026-08-03T16:39:21+00:00",
+      "sha256": "ff923e14de00f30953fd6c1a46003703946d07cc6ad7aad80bbc48278d126e13"
+    },
+    "plans/PART-1-PLAN.md": {
+      "bytes": 12226,
+      "mtime_utc": "2026-08-06T11:55:11.479240+00:00",
+      "sha256": "0a31f635dd676c501821e173a8555c7a832d3349a7837342f044b7e293f3738b"
+    },
+    "plans/PART-2-PLAN.md": {
+      "bytes": 11089,
+      "mtime_utc": "2026-08-06T11:55:11.658374+00:00",
+      "sha256": "2ef0c8a71a08624ca27a6d9d769a85a0e7df7f77e948c0f8d460708494f0be5a"
+    },
+    "plans/PART-3-PLAN.md": {
+      "bytes": 19261,
+      "mtime_utc": "2026-08-06T11:55:11.832082+00:00",
+      "sha256": "95b68e2c6ae0906d7c4776577a3c5877003e48b7444b09a7a720bbb532e8257d"
+    },
+    "plans/PART-4-PLAN.md": {
+      "bytes": 18581,
+      "mtime_utc": "2026-08-06T11:55:12.034524+00:00",
+      "sha256": "cb4d561ee887e5aa3e89761126abe446e6b070ec248f0dfdf3f5de4ba9f861b9"
+    },
+    "plans/PART-5-PLAN.md": {
+      "bytes": 11223,
+      "mtime_utc": "2026-08-06T11:55:12.241414+00:00",
+      "sha256": "a1b73f977e9df21844ce821ecde459cb842b01bf7b32e00eeeb52aa18ab2f6b7"
+    },
+    "plans/RELEASE-GATE-PLAN.md": {
+      "bytes": 7821,
+      "mtime_utc": "2026-08-06T11:52:05.885381+00:00",
+      "sha256": "0b8111a4d03d78de0a6d405736c40659aa7a90cb27bd0617ec71aaffc7fc6b3d"
+    },
+    "reference/PRIMER-steps-and-traditions.md": {
+      "bytes": 45773,
+      "mtime_utc": "2026-08-06T11:42:59.065199+00:00",
+      "sha256": "0469c849151a3ca0ca3f9bb9bfe523e7bdae9e26b4346add7c09cf9ad84f7dec"
+    },
+    "reference/PRIMER-steps-and-traditions.pdf": {
+      "bytes": 94735,
+      "mtime_utc": "2026-08-06T11:43:19.688236+00:00",
+      "sha256": "d2d361504a3f64597283b360d2c4c533012bc89e6e07cbe1978b696efaab538b"
+    },
+    "research/GOVERNANCE-MATRIX-ELICITATION.md": {
+      "bytes": 7170,
+      "mtime_utc": "2026-08-03T10:26:08+00:00",
+      "sha256": "94cbefe267a2c5c8b7f2324c63be03406273089013127c63e0bdb786400d6266"
+    },
+    "research/PARAMETERS.md": {
+      "bytes": 21691,
+      "mtime_utc": "2026-08-03T11:38:10+00:00",
+      "sha256": "3598050dd39b328673f6e26c6e59f8290261147506efbca83251bffac1f779ce"
+    },
+    "research/SOURCES.md": {
+      "bytes": 42590,
+      "mtime_utc": "2026-08-06T11:37:16.620797+00:00",
+      "sha256": "9dc3cd7eeff3201721a2c8529d1521942ae002610529838f71440ce5e17a68cf"
+    },
+    "research/ch13_reps.json": {
+      "bytes": 13645,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 200,
+        "sample_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "top_level_keys": 200,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T15:09:52+00:00",
+      "sha256": "b274072eda458687be4bd1899a9865345c20a5d91ce7b44e68ec62ca0a7c0bb3"
+    },
+    "research/ch14_sweep.json": {
+      "bytes": 267577,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 3200,
+        "sample_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "top_level_keys": 3200,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T15:07:46+00:00",
+      "sha256": "cde72d34d8dbec38b29ce98e64d66df3fb18db9b90299dd53b6f090e35961cb7"
+    },
+    "research/ch15_service.json": {
+      "bytes": 256285,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 1200,
+        "sample_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "top_level_keys": 1200,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T18:30:15+00:00",
+      "sha256": "bdfecca06ca33a51030f432cdd70b2309c95cde60d4085e4d710e5385370842a"
+    },
+    "research/core_thresholds.json": {
+      "bytes": 27127,
+      "json": {
+        "has_meta": true,
+        "has_result": true,
+        "numeric_job_keys": 400,
+        "sample_keys": [
+          "meta",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18"
+        ],
+        "top_level_keys": 402,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T11:04:37+00:00",
+      "sha256": "187ae1749ff22d5e0e58bd91145fd9d4d9525cb1ac9cb091f39a419a65978111"
+    },
+    "research/incorporated/Golub_Jackson_2010/README.md": {
+      "bytes": 797,
+      "mtime_utc": "2026-08-06T11:37:15.362953+00:00",
+      "sha256": "6823b76fb3112a5893f73c4e006ec29a447b59f6b0f18823a399cfba2747db06"
+    },
+    "research/incorporated/Golub_Jackson_2010/citation.md": {
+      "bytes": 221,
+      "mtime_utc": "2026-08-04T17:50:15+00:00",
+      "sha256": "6f978ffee3be896cc343261becf825f9dc8f30e3b1f7dc29984abd864e35c87b"
+    },
+    "research/incorporated/Golub_Jackson_2010/metadata.json": {
+      "bytes": 600,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "id",
+          "title",
+          "authors",
+          "year",
+          "type",
+          "status",
+          "doi",
+          "source_url",
+          "files",
+          "note"
+        ],
+        "top_level_keys": 10,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-06T11:37:15.568367+00:00",
+      "sha256": "570c56e35ff17c1fc0a69383a34240bfd25e7f5c211fc8b21daabb7ff15b6e7e"
+    },
+    "research/incorporated/Golub_Jackson_2010/source_summary.md": {
+      "bytes": 524,
+      "mtime_utc": "2026-08-04T17:50:15+00:00",
+      "sha256": "3d36bedda26a4841dfa7a6a108d35d47451b3fbe298555120adc3c54c8b9cacd"
+    },
+    "research/incorporated/README.md": {
+      "bytes": 1516,
+      "mtime_utc": "2026-08-06T11:37:15.172111+00:00",
+      "sha256": "cfc298fcc7070272b21aaa3fa4e54941cdb922922183b7652221fcac7bf4749c"
+    },
+    "research/kurtz-1991-verification-index.json": {
+      "bytes": 142074,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "work",
+          "note",
+          "words",
+          "vocab"
+        ],
+        "top_level_keys": 4,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T21:58:06+00:00",
+      "sha256": "37dadf2df9847e96bdbe669e305eea6df1cf363562c2e1a896e08a64c8e09be6"
+    },
+    "research/mc_error.json": {
+      "bytes": 376267,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 2540,
+        "sample_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "top_level_keys": 2540,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T14:18:33+00:00",
+      "sha256": "33e8379e41ca65350d45fe940ff8f453f60b625e77cd8be2d7dc197b893e8241"
+    },
+    "research/morris.json": {
+      "bytes": 44869,
+      "json": {
+        "has_meta": true,
+        "has_result": false,
+        "numeric_job_keys": 1190,
+        "sample_keys": [
+          "meta",
+          "0_0",
+          "0_1",
+          "0_2",
+          "0_3",
+          "0_4",
+          "0_5",
+          "0_6",
+          "0_7",
+          "0_8",
+          "0_9",
+          "0_10",
+          "0_11",
+          "0_12",
+          "0_13",
+          "0_14",
+          "0_15",
+          "0_16",
+          "0_17",
+          "0_18"
+        ],
+        "top_level_keys": 1191,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T15:00:04+00:00",
+      "sha256": "5b52cf9b9e8a2221ab1a8d9df5a193834f11ae7f135811251c0a9a9dd7b338ba"
+    },
+    "research/oat_full.json": {
+      "bytes": 73405,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "baseline",
+          "scalar:delta0",
+          "scalar:psi",
+          "scalar:p_gate",
+          "scalar:hill_n",
+          "scalar:hill_k",
+          "scalar:omega",
+          "scalar:k_ident",
+          "scalar:k_proof",
+          "scalar:k_conf",
+          "scalar:k_couns",
+          "scalar:k_recip",
+          "scalar:exp_thr",
+          "scalar:act_thr",
+          "scalar:lam0",
+          "scalar:lam_exog",
+          "scalar:churn",
+          "scalar:drop0",
+          "scalar:drop_k",
+          "scalar:cap"
+        ],
+        "top_level_keys": 119,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T13:27:27+00:00",
+      "sha256": "f38f38dc5a98c170bf53a9480444164152b802c392c2a60fa79cdede7d80ca2d"
+    },
+    "research/part1-claim-register.md": {
+      "bytes": 24524,
+      "mtime_utc": "2026-08-03T00:28:04+00:00",
+      "sha256": "79dcbbc886b70d8834ab18b5cbde36ff0a06edd37d9143c8d96b2662a1f8d876"
+    },
+    "research/part2_influence.json": {
+      "bytes": 25734,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "note",
+          "dominance",
+          "clique",
+          "imbalance",
+          "speakers",
+          "scaling",
+          "rotation",
+          "random_control",
+          "identity"
+        ],
+        "top_level_keys": 9,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T15:39:21+00:00",
+      "sha256": "a1576df906177c1bd54f52e64bbe82c47d287b392f4b232d4720663184b1943d"
+    },
+    "research/part5.json": {
+      "bytes": 2134684,
+      "json": {
+        "has_meta": true,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "meta",
+          "t3|0.0|0",
+          "t3|0.0|1",
+          "t3|0.0|2",
+          "t3|0.0|3",
+          "t3|0.0|4",
+          "t3|0.0|5",
+          "t3|0.0|6",
+          "t3|0.0|7",
+          "t3|0.0|8",
+          "t3|0.0|9",
+          "t3|0.0|10",
+          "t3|0.0|11",
+          "t3|0.0|12",
+          "t3|0.0|13",
+          "t3|0.0|14",
+          "t3|0.0|15",
+          "t3|0.0|16",
+          "t3|0.0|17",
+          "t3|0.0|18"
+        ],
+        "top_level_keys": 4801,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T03:00:52+00:00",
+      "sha256": "20e83fde69a2b17b75a15961f5387ac3a5217c7d3fc590fff53c181131932ac2"
+    },
+    "research/progress-log.md": {
+      "bytes": 160622,
+      "mtime_utc": "2026-08-06T11:45:56.601835+00:00",
+      "sha256": "a644bb03f68ce2c26263d9a3bff5afd6488afca00827f9cb96f4eb94690b1d85"
+    },
+    "research/resource_list.json": {
+      "bytes": 17081,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "resources",
+          "base",
+          "leave_one_out",
+          "merge",
+          "drop_two",
+          "leave_one_out_summary",
+          "merge_summary",
+          "drop_two_summary"
+        ],
+        "top_level_keys": 8,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T15:39:19+00:00",
+      "sha256": "daa8b2e1511cc9ca2baa740e8fb4fe18709c4d39be7436aec3395bc4dc0e2bf5"
+    },
+    "research/scenarios_hiseed.json": {
+      "bytes": 260296,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 2000,
+        "sample_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "top_level_keys": 2000,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T14:22:05+00:00",
+      "sha256": "f0263122bef9d520b2a94ee904a7982850feda2f4c0a909ca413a48f21dcd13c"
+    },
+    "research/sens3.json": {
+      "bytes": 10648,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "g125",
+          "g250",
+          "g500",
+          "oat"
+        ],
+        "top_level_keys": 4,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T03:23:56+00:00",
+      "sha256": "50d2b54d8f6d4a27bdd81e6115d97fcd304ecfbf290bcfe5ac83e35c18d93dd8"
+    },
+    "research/sobol.json": {
+      "bytes": 56398,
+      "json": {
+        "has_meta": true,
+        "has_result": true,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "meta",
+          "A_0",
+          "B_0",
+          "NOISE_0",
+          "A_1",
+          "B_1",
+          "NOISE_1",
+          "A_2",
+          "B_2",
+          "NOISE_2",
+          "A_3",
+          "B_3",
+          "NOISE_3",
+          "A_4",
+          "B_4",
+          "NOISE_4",
+          "A_5",
+          "B_5",
+          "NOISE_5",
+          "A_6"
+        ],
+        "top_level_keys": 1410,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T00:58:08+00:00",
+      "sha256": "09ccf9448663f73fec65bf7973fe5454ce353c721a60a27d019d0fa5325448ad"
+    },
+    "research/structural.json": {
+      "bytes": 883844,
+      "json": {
+        "has_meta": true,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "meta",
+          "base|full|0",
+          "base|full|1",
+          "base|full|2",
+          "base|full|3",
+          "base|full|4",
+          "base|full|5",
+          "base|full|6",
+          "base|full|7",
+          "base|full|8",
+          "base|full|9",
+          "base|full|10",
+          "base|full|11",
+          "base|full|12",
+          "base|full|13",
+          "base|full|14",
+          "base|full|15",
+          "base|full|16",
+          "base|full|17",
+          "base|full|18"
+        ],
+        "top_level_keys": 10001,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T10:41:27+00:00",
+      "sha256": "0a874e3449afbfaeab9583412255658264a7d558f5027f77e195159215803927"
+    },
+    "research/tiered.json": {
+      "bytes": 6411,
+      "json": {
+        "has_meta": false,
+        "has_result": false,
+        "numeric_job_keys": 0,
+        "sample_keys": [
+          "tiered",
+          "randmat"
+        ],
+        "top_level_keys": 2,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-02T03:23:56+00:00",
+      "sha256": "1d06b86ca36cae3540828dc35e3bb0980507ac130b4cc2516e260273572b78be"
+    },
+    "research/tradition_paired.json": {
+      "bytes": 79064,
+      "json": {
+        "has_meta": true,
+        "has_result": true,
+        "numeric_job_keys": 4800,
+        "sample_keys": [
+          "meta",
+          "-1|0",
+          "-1|1",
+          "-1|2",
+          "-1|3",
+          "-1|4",
+          "-1|5",
+          "-1|6",
+          "-1|7",
+          "-1|8",
+          "-1|9",
+          "-1|10",
+          "-1|11",
+          "-1|12",
+          "-1|13",
+          "-1|14",
+          "-1|15",
+          "-1|16",
+          "-1|17",
+          "-1|18"
+        ],
+        "top_level_keys": 5202,
+        "type": "dict",
+        "valid": true
+      },
+      "mtime_utc": "2026-08-03T11:14:19+00:00",
+      "sha256": "a8340472229b20b7bc3ace6c2858ad288a82a48865d2f029cc0ca98656d7b841"
+    },
+    "tools/build_book.py": {
+      "bytes": 10056,
+      "mtime_utc": "2026-08-06T11:45:56.072698+00:00",
+      "sha256": "065c9a10db11564554ccfd86b023aee3884b511ac63c11bc816f4c3b2ecd5700"
+    },
+    "tools/check_book.py": {
+      "bytes": 22237,
+      "mtime_utc": "2026-08-06T11:37:17.069677+00:00",
+      "sha256": "d1a3e9b5a3d29ae1e3eff0c710ed7be0aebbe10b8966832d4f78f7f10e6764ef"
+    },
+    "tools/check_chapter.py": {
+      "bytes": 7631,
+      "mtime_utc": "2026-08-05T12:05:18.998606+00:00",
+      "sha256": "c6dc4b1a4c3dc224d432e615424d2863f801d3b273380c97c548ae3e1c4c6f02"
+    },
+    "tools/freeze_release_manifest.py": {
+      "bytes": 3514,
+      "mtime_utc": "2026-08-06T11:56:39.885771+00:00",
+      "sha256": "639595c4d4dc6449f6663f8da5c01af8924c1aeef76cde76fdca1d5b3568a644"
+    },
+    "tools/run_notebook.py": {
+      "bytes": 2561,
+      "mtime_utc": "2026-08-03T11:23:18+00:00",
+      "sha256": "9a23a7eac69a4e60ebe087d22d659098d1b67a67b543ff67f3c26002c8bf3a5c"
+    }
+  },
+  "label": "pre-correction",
+  "platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
+  "project_root": "/Users/melhauserc/Documents/Claude/nobody-in-charge",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "schema_version": 1
+}

@@ -1,0 +1,2858 @@
+{
+  "authored_structural_zeros": {
+    "GOV": 61,
+    "S": 47
+  },
+  "created_utc": "2026-08-06T12:33:18.458051+00:00",
+  "literal_category_counts": {
+    "authored structural zero": 108,
+    "fixed experiment or population-process choice": 45,
+    "fixed model or analysis choice": 2,
+    "fixed structural choice: protective-adherence map": 21,
+    "fixed structural choice: resource capacity": 19,
+    "fixed structural choice: state-update map": 20,
+    "implementation, derived, or numerical constant": 17,
+    "registered sensitivity value": 118
+  },
+  "model_sha256": "c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952",
+  "numeric_literals": [
+    {
+      "assignment": "NSTEP",
+      "category": "fixed model or analysis choice",
+      "column": 8,
+      "function": null,
+      "line": 22,
+      "value": 12
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 2,
+      "function": null,
+      "line": 27,
+      "value": 0.8
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 27,
+      "value": 1.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 27,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 27,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 27,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 27,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 27,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 27,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 28,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 28,
+      "value": 0.4
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 28,
+      "value": 1.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 28,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 28,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 28,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 28,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 28,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 29,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 29,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 29,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 29,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 29,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 29,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 29,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 29,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 30,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 30,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 30,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 30,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 30,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 30,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 30,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 30,
+      "value": 0.4
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 31,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 31,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 31,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 31,
+      "value": 1.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 31,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 31,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 31,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 31,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 32,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 32,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 32,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 32,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 32,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 32,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 32,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 32,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 33,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 33,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 33,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 33,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 33,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 33,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 33,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 33,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 34,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 34,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 34,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 34,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 34,
+      "value": 0.4
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 34,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 34,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 34,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 35,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 35,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 35,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 35,
+      "value": 0.3
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 35,
+      "value": 0.9
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 35,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 35,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 35,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 36,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 36,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 36,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 36,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 36,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 36,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 36,
+      "value": 0.5
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 36,
+      "value": 0.7
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 37,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 37,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 37,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 37,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 37,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 37,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 37,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 37,
+      "value": 0.4
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 2,
+      "function": null,
+      "line": 38,
+      "value": 0.2
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 38,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 38,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 38,
+      "value": 0.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 38,
+      "value": 0.1
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 22,
+      "function": null,
+      "line": 38,
+      "value": 1.0
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 38,
+      "value": 0.6
+    },
+    {
+      "assignment": "S",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 38,
+      "value": 0.3
+    },
+    {
+      "assignment": "Snorm",
+      "category": "implementation, derived, or numerical constant",
+      "column": 23,
+      "function": null,
+      "line": 40,
+      "value": 1
+    },
+    {
+      "assignment": "BETA",
+      "category": "implementation, derived, or numerical constant",
+      "column": 19,
+      "function": null,
+      "line": 41,
+      "value": 1
+    },
+    {
+      "assignment": "VIABILITY_THRESHOLD",
+      "category": "fixed model or analysis choice",
+      "column": 22,
+      "function": null,
+      "line": 42,
+      "value": 5
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 24,
+      "function": null,
+      "line": 45,
+      "value": 0.3
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 28,
+      "function": null,
+      "line": 45,
+      "value": 0.25
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 32,
+      "function": null,
+      "line": 45,
+      "value": 0.25
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 36,
+      "function": null,
+      "line": 45,
+      "value": 0.18
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 40,
+      "function": null,
+      "line": 45,
+      "value": 0.22
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 44,
+      "function": null,
+      "line": 45,
+      "value": 0.2
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 48,
+      "function": null,
+      "line": 45,
+      "value": 0.2
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 52,
+      "function": null,
+      "line": 45,
+      "value": 0.18
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 56,
+      "function": null,
+      "line": 45,
+      "value": 0.15
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 60,
+      "function": null,
+      "line": 45,
+      "value": 0.25
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 64,
+      "function": null,
+      "line": 45,
+      "value": 0.2
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 68,
+      "function": null,
+      "line": 45,
+      "value": 0.22
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 46,
+      "value": 0.06
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 46,
+      "value": 0.2
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 41,
+      "function": null,
+      "line": 46,
+      "value": 1.5
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 47,
+      "value": 3.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 29,
+      "function": null,
+      "line": 47,
+      "value": 0.12
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 43,
+      "function": null,
+      "line": 47,
+      "value": 0.75
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 48,
+      "value": 3.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 29,
+      "function": null,
+      "line": 48,
+      "value": 3.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 43,
+      "function": null,
+      "line": 48,
+      "value": 2.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 58,
+      "function": null,
+      "line": 48,
+      "value": 3.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 73,
+      "function": null,
+      "line": 48,
+      "value": 2.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 49,
+      "value": 0.5
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 49,
+      "value": 0.1
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 50,
+      "value": 0.05
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 51,
+      "value": 0.12
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 52,
+      "value": 0.004
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 53,
+      "value": 0.035
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 54,
+      "value": 4.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 55,
+      "value": 60
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 56,
+      "value": 50.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 56,
+      "value": 2.0
+    },
+    {
+      "assignment": "DEFAULTS",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 57,
+      "value": 0.55
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 2,
+      "function": null,
+      "line": 62,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 62,
+      "value": 0.5
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 62,
+      "value": 0.3
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 62,
+      "value": 0.3
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 62,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 22,
+      "function": null,
+      "line": 62,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 62,
+      "value": 0.9
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 62,
+      "value": 0.6
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 63,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 63,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 63,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 63,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 63,
+      "value": 0.9
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 63,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 63,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 63,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 2,
+      "function": null,
+      "line": 64,
+      "value": 1.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 64,
+      "value": 0.4
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 64,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 64,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 64,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 22,
+      "function": null,
+      "line": 64,
+      "value": 0.8
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 64,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 64,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 65,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 2,
+      "function": null,
+      "line": 66,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 66,
+      "value": 0.4
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 66,
+      "value": 0.5
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 66,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 66,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 22,
+      "function": null,
+      "line": 66,
+      "value": 0.9
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 66,
+      "value": 0.3
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 30,
+      "function": null,
+      "line": 66,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 67,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 68,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 69,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 69,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 69,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 69,
+      "value": 0.3
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 69,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 69,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 69,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 69,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 70,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 6,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 26,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 71,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 2,
+      "function": null,
+      "line": 72,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 72,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 10,
+      "function": null,
+      "line": 72,
+      "value": 0.7
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 14,
+      "function": null,
+      "line": 72,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 18,
+      "function": null,
+      "line": 72,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 22,
+      "function": null,
+      "line": 72,
+      "value": 0.6
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 72,
+      "value": 0.2
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 72,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 2,
+      "function": null,
+      "line": 73,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 6,
+      "function": null,
+      "line": 73,
+      "value": 0.3
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 10,
+      "function": null,
+      "line": 73,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 14,
+      "function": null,
+      "line": 73,
+      "value": 1.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 18,
+      "function": null,
+      "line": 73,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 22,
+      "function": null,
+      "line": 73,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOV",
+      "category": "registered sensitivity value",
+      "column": 26,
+      "function": null,
+      "line": 73,
+      "value": 0.1
+    },
+    {
+      "assignment": "GOV",
+      "category": "authored structural zero",
+      "column": 30,
+      "function": null,
+      "line": 73,
+      "value": 0.0
+    },
+    {
+      "assignment": "GOVW",
+      "category": "implementation, derived, or numerical constant",
+      "column": 37,
+      "function": null,
+      "line": 75,
+      "value": 0
+    },
+    {
+      "assignment": "GOVW",
+      "category": "implementation, derived, or numerical constant",
+      "column": 56,
+      "function": null,
+      "line": 75,
+      "value": 1e-12
+    },
+    {
+      "assignment": "sn",
+      "category": "implementation, derived, or numerical constant",
+      "column": 37,
+      "function": "executable_linear_coupling",
+      "line": 98,
+      "value": 1
+    },
+    {
+      "assignment": "sn",
+      "category": "implementation, derived, or numerical constant",
+      "column": 56,
+      "function": "executable_linear_coupling",
+      "line": 98,
+      "value": 1e-12
+    },
+    {
+      "assignment": "gw",
+      "category": "implementation, derived, or numerical constant",
+      "column": 37,
+      "function": "executable_linear_coupling",
+      "line": 99,
+      "value": 0
+    },
+    {
+      "assignment": "gw",
+      "category": "implementation, derived, or numerical constant",
+      "column": 56,
+      "function": "executable_linear_coupling",
+      "line": 99,
+      "value": 1e-12
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 30,
+      "function": "mean_one_lognormal",
+      "line": 106,
+      "value": 0.5
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 7,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 14,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 18,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 0.6
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 22,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 0.4
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 26,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 0.5
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 33,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 8
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 38,
+      "function": "effective_adherence",
+      "line": 112,
+      "value": 11
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 7,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 4
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 14,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 4
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 18,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 0.6
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 22,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 0.4
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 26,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 0.5
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 33,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 5
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 38,
+      "function": "effective_adherence",
+      "line": 113,
+      "value": 9
+    },
+    {
+      "assignment": "ext",
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 12,
+      "function": "effective_adherence",
+      "line": 114,
+      "value": 0.7
+    },
+    {
+      "assignment": "ext",
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 16,
+      "function": "effective_adherence",
+      "line": 114,
+      "value": 0.3
+    },
+    {
+      "assignment": "ext",
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 20,
+      "function": "effective_adherence",
+      "line": 114,
+      "value": 0.5
+    },
+    {
+      "assignment": "ext",
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 27,
+      "function": "effective_adherence",
+      "line": 114,
+      "value": 3
+    },
+    {
+      "assignment": "ext",
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 32,
+      "function": "effective_adherence",
+      "line": 114,
+      "value": 6
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 27,
+      "function": "effective_adherence",
+      "line": 115,
+      "value": 0
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: protective-adherence map",
+      "column": 30,
+      "function": "effective_adherence",
+      "line": 115,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: resource capacity",
+      "column": 20,
+      "function": "resources",
+      "line": 131,
+      "value": 0
+    },
+    {
+      "assignment": "empty",
+      "category": "fixed structural choice: resource capacity",
+      "column": 37,
+      "function": "resources",
+      "line": 132,
+      "value": 0.0
+    },
+    {
+      "assignment": "lv",
+      "category": "fixed structural choice: resource capacity",
+      "column": 30,
+      "function": "resources",
+      "line": 134,
+      "value": 1
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 45,
+      "function": "resources",
+      "line": 139,
+      "value": 1
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 12,
+      "function": "resources",
+      "line": 139,
+      "value": 1
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 14,
+      "function": "resources",
+      "line": 139,
+      "value": 2
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 72,
+      "function": "resources",
+      "line": 139,
+      "value": 1
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 53,
+      "function": "resources",
+      "line": 139,
+      "value": 1.0
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 79,
+      "function": "resources",
+      "line": 139,
+      "value": 0.0
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 32,
+      "function": "resources",
+      "line": 140,
+      "value": 0
+    },
+    {
+      "assignment": "unity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 34,
+      "function": "resources",
+      "line": 140,
+      "value": 1
+    },
+    {
+      "assignment": "recipient_ratio",
+      "category": "fixed structural choice: resource capacity",
+      "column": 55,
+      "function": "resources",
+      "line": 142,
+      "value": 1.0
+    },
+    {
+      "assignment": "recipient_capacity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 63,
+      "function": "resources",
+      "line": 145,
+      "value": 0
+    },
+    {
+      "assignment": "recipient_capacity",
+      "category": "fixed structural choice: resource capacity",
+      "column": 66,
+      "function": "resources",
+      "line": 145,
+      "value": 1
+    },
+    {
+      "assignment": "cap",
+      "category": "fixed structural choice: resource capacity",
+      "column": 8,
+      "function": "resources",
+      "line": 147,
+      "value": 1.0
+    },
+    {
+      "assignment": "cap",
+      "category": "fixed structural choice: resource capacity",
+      "column": 9,
+      "function": "resources",
+      "line": 153,
+      "value": 0.45
+    },
+    {
+      "assignment": "cap",
+      "category": "fixed structural choice: resource capacity",
+      "column": 14,
+      "function": "resources",
+      "line": 153,
+      "value": 0.55
+    },
+    {
+      "assignment": "result",
+      "category": "fixed structural choice: resource capacity",
+      "column": 28,
+      "function": "resources",
+      "line": 156,
+      "value": 0
+    },
+    {
+      "assignment": "result",
+      "category": "fixed structural choice: resource capacity",
+      "column": 31,
+      "function": "resources",
+      "line": 156,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 35,
+      "function": "step_growth",
+      "line": 167,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 55,
+      "function": "step_growth",
+      "line": 167,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 58,
+      "function": "step_growth",
+      "line": 167,
+      "value": 0
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 60,
+      "function": "step_growth",
+      "line": 167,
+      "value": 1
+    },
+    {
+      "assignment": "peer",
+      "category": "fixed structural choice: state-update map",
+      "column": 12,
+      "function": "step_growth",
+      "line": 168,
+      "value": 1
+    },
+    {
+      "assignment": "own",
+      "category": "fixed structural choice: state-update map",
+      "column": 20,
+      "function": "step_growth",
+      "line": 169,
+      "value": 9
+    },
+    {
+      "assignment": "own",
+      "category": "fixed structural choice: state-update map",
+      "column": 22,
+      "function": "step_growth",
+      "line": 169,
+      "value": 12
+    },
+    {
+      "assignment": "own",
+      "category": "fixed structural choice: state-update map",
+      "column": 36,
+      "function": "step_growth",
+      "line": 169,
+      "value": 1
+    },
+    {
+      "assignment": "Gcap",
+      "category": "fixed structural choice: state-update map",
+      "column": 49,
+      "function": "step_growth",
+      "line": 170,
+      "value": 0.0
+    },
+    {
+      "assignment": "C",
+      "category": "fixed structural choice: state-update map",
+      "column": 18,
+      "function": "step_growth",
+      "line": 171,
+      "value": 1
+    },
+    {
+      "assignment": "wgt",
+      "category": "fixed structural choice: state-update map",
+      "column": 23,
+      "function": "step_growth",
+      "line": 175,
+      "value": 0.05
+    },
+    {
+      "assignment": "wgt",
+      "category": "fixed structural choice: state-update map",
+      "column": 29,
+      "function": "step_growth",
+      "line": 175,
+      "value": 1.0
+    },
+    {
+      "assignment": "Cm",
+      "category": "fixed structural choice: state-update map",
+      "column": 11,
+      "function": "step_growth",
+      "line": 176,
+      "value": 1.0
+    },
+    {
+      "assignment": "Cm",
+      "category": "fixed structural choice: state-update map",
+      "column": 30,
+      "function": "step_growth",
+      "line": 176,
+      "value": 1.0
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 47,
+      "function": "step_growth",
+      "line": 179,
+      "value": 11
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 55,
+      "function": "step_growth",
+      "line": 179,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 67,
+      "function": "step_growth",
+      "line": 179,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 73,
+      "function": "step_growth",
+      "line": 179,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 75,
+      "function": "step_growth",
+      "line": 179,
+      "value": 12
+    },
+    {
+      "assignment": null,
+      "category": "fixed structural choice: state-update map",
+      "column": 14,
+      "function": "step_growth",
+      "line": 180,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 30,
+      "function": "simulate",
+      "line": 182,
+      "value": 520
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 38,
+      "function": "simulate",
+      "line": 182,
+      "value": 0.5
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 48,
+      "function": "simulate",
+      "line": 182,
+      "value": 0
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 58,
+      "function": "simulate",
+      "line": 182,
+      "value": 25
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 69,
+      "function": "simulate",
+      "line": 182,
+      "value": 0.55
+    },
+    {
+      "assignment": "dropout_T3",
+      "category": "fixed experiment or population-process choice",
+      "column": 25,
+      "function": "simulate",
+      "line": 199,
+      "value": 2
+    },
+    {
+      "assignment": "attraction_T11",
+      "category": "fixed experiment or population-process choice",
+      "column": 29,
+      "function": "simulate",
+      "line": 200,
+      "value": 10
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 36,
+      "function": "simulate",
+      "line": 209,
+      "value": 1
+    },
+    {
+      "assignment": "levels",
+      "category": "implementation, derived, or numerical constant",
+      "column": 36,
+      "function": "snapshot",
+      "line": 217,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 67,
+      "function": "snapshot",
+      "line": 223,
+      "value": 0.0
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 67,
+      "function": "snapshot",
+      "line": 224,
+      "value": 0
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 48,
+      "function": "snapshot",
+      "line": 226,
+      "value": 0.0
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 67,
+      "function": "snapshot",
+      "line": 227,
+      "value": 0
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 87,
+      "function": "snapshot",
+      "line": 228,
+      "value": 0.0
+    },
+    {
+      "assignment": "history",
+      "category": "fixed experiment or population-process choice",
+      "column": 24,
+      "function": "simulate",
+      "line": 231,
+      "value": 0.0
+    },
+    {
+      "assignment": "first_nonviable_week",
+      "category": "fixed experiment or population-process choice",
+      "column": 55,
+      "function": "simulate",
+      "line": 233,
+      "value": 0.0
+    },
+    {
+      "assignment": "closure_week",
+      "category": "fixed experiment or population-process choice",
+      "column": 41,
+      "function": "simulate",
+      "line": 235,
+      "value": 0
+    },
+    {
+      "assignment": "closure_week",
+      "category": "fixed experiment or population-process choice",
+      "column": 19,
+      "function": "simulate",
+      "line": 235,
+      "value": 0.0
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 14,
+      "function": "simulate",
+      "line": 239,
+      "value": 0
+    },
+    {
+      "assignment": "lv",
+      "category": "fixed experiment or population-process choice",
+      "column": 32,
+      "function": "simulate",
+      "line": 240,
+      "value": 1
+    },
+    {
+      "assignment": "solvent",
+      "category": "fixed experiment or population-process choice",
+      "column": 18,
+      "function": "simulate",
+      "line": 242,
+      "value": 1.0
+    },
+    {
+      "assignment": "solvent",
+      "category": "fixed experiment or population-process choice",
+      "column": 67,
+      "function": "simulate",
+      "line": 243,
+      "value": 0
+    },
+    {
+      "assignment": "solvent",
+      "category": "fixed experiment or population-process choice",
+      "column": 69,
+      "function": "simulate",
+      "line": 243,
+      "value": 1
+    },
+    {
+      "assignment": "X",
+      "category": "fixed experiment or population-process choice",
+      "column": 64,
+      "function": "simulate",
+      "line": 246,
+      "value": 0
+    },
+    {
+      "assignment": "X",
+      "category": "fixed experiment or population-process choice",
+      "column": 67,
+      "function": "simulate",
+      "line": 246,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 20,
+      "function": "simulate",
+      "line": 247,
+      "value": 0.0
+    },
+    {
+      "assignment": "early",
+      "category": "fixed experiment or population-process choice",
+      "column": 22,
+      "function": "simulate",
+      "line": 253,
+      "value": 3
+    },
+    {
+      "assignment": "early",
+      "category": "fixed experiment or population-process choice",
+      "column": 35,
+      "function": "simulate",
+      "line": 253,
+      "value": 1
+    },
+    {
+      "assignment": "low_practice_weight",
+      "category": "fixed experiment or population-process choice",
+      "column": 38,
+      "function": "simulate",
+      "line": 254,
+      "value": 6.0
+    },
+    {
+      "assignment": "low_practice_weight",
+      "category": "fixed experiment or population-process choice",
+      "column": 54,
+      "function": "simulate",
+      "line": 254,
+      "value": 1
+    },
+    {
+      "assignment": "t3_frict",
+      "category": "fixed experiment or population-process choice",
+      "column": 19,
+      "function": "simulate",
+      "line": 255,
+      "value": 1.0
+    },
+    {
+      "assignment": "t3_frict",
+      "category": "fixed experiment or population-process choice",
+      "column": 26,
+      "function": "simulate",
+      "line": 255,
+      "value": 1.0
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 33,
+      "function": "simulate",
+      "line": 258,
+      "value": 0.0
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 26,
+      "function": "simulate",
+      "line": 262,
+      "value": 0
+    },
+    {
+      "assignment": "time_weeks",
+      "category": "fixed experiment or population-process choice",
+      "column": 33,
+      "function": "simulate",
+      "line": 263,
+      "value": 1
+    },
+    {
+      "assignment": "att",
+      "category": "fixed experiment or population-process choice",
+      "column": 22,
+      "function": "simulate",
+      "line": 274,
+      "value": 11
+    },
+    {
+      "assignment": "att",
+      "category": "fixed experiment or population-process choice",
+      "column": 52,
+      "function": "simulate",
+      "line": 274,
+      "value": 0.0
+    },
+    {
+      "assignment": "k",
+      "category": "fixed experiment or population-process choice",
+      "column": 35,
+      "function": "simulate",
+      "line": 278,
+      "value": 0
+    },
+    {
+      "assignment": "free",
+      "category": "fixed experiment or population-process choice",
+      "column": 32,
+      "function": "simulate",
+      "line": 279,
+      "value": 0
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 34,
+      "function": "simulate",
+      "line": 280,
+      "value": 0.02
+    },
+    {
+      "assignment": "time_weeks",
+      "category": "fixed experiment or population-process choice",
+      "column": 29,
+      "function": "simulate",
+      "line": 283,
+      "value": 1
+    },
+    {
+      "assignment": null,
+      "category": "fixed experiment or population-process choice",
+      "column": 22,
+      "function": "simulate",
+      "line": 290,
+      "value": 0
+    },
+    {
+      "assignment": "lv",
+      "category": "fixed experiment or population-process choice",
+      "column": 28,
+      "function": "simulate",
+      "line": 296,
+      "value": 1
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 57,
+      "function": "simulate",
+      "line": 298,
+      "value": 0.0
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 46,
+      "function": "simulate",
+      "line": 299,
+      "value": 0
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 70,
+      "function": "simulate",
+      "line": 300,
+      "value": 0.0
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 74,
+      "function": "simulate",
+      "line": 301,
+      "value": 0.0
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 50,
+      "function": "simulate",
+      "line": 302,
+      "value": 0.0
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 40,
+      "function": "simulate",
+      "line": 303,
+      "value": 0
+    },
+    {
+      "assignment": "out",
+      "category": "fixed experiment or population-process choice",
+      "column": 32,
+      "function": "simulate",
+      "line": 310,
+      "value": 0
+    },
+    {
+      "assignment": "fields",
+      "category": "fixed experiment or population-process choice",
+      "column": 30,
+      "function": "simulate",
+      "line": 313,
+      "value": 0
+    },
+    {
+      "assignment": "FULL",
+      "category": "implementation, derived, or numerical constant",
+      "column": 15,
+      "function": null,
+      "line": 321,
+      "value": 12
+    },
+    {
+      "assignment": null,
+      "category": "implementation, derived, or numerical constant",
+      "column": 52,
+      "function": null,
+      "line": 324,
+      "value": 3
+    }
+  ],
+  "protective_index_step_consumption_cells": 17,
+  "registered_set": {
+    "GOV_nonzero_cells": 35,
+    "S_nonzero_cells": 49,
+    "scalar_default_names": [
+      "delta0",
+      "psi",
+      "p_gate",
+      "hill_n",
+      "hill_k",
+      "omega",
+      "k_ident",
+      "k_proof",
+      "k_conf",
+      "k_couns",
+      "k_recip",
+      "exp_thr",
+      "act_thr",
+      "lam0",
+      "lam_exog",
+      "churn",
+      "drop0",
+      "drop_k",
+      "cap",
+      "cost",
+      "contrib",
+      "het_sd"
+    ],
+    "scalar_defaults": 22,
+    "step_speeds": 12,
+    "total": 118
+  },
+  "scenario_specific_effective_dimension": {
+    "full_adherence_GOV_magnitudes_inert": 35,
+    "reason": "GOVW.T @ ones equals one for every governed resource"
+  },
+  "schema_version": 1,
+  "scope_note": "The 118 values are the registered numeric sensitivity set, not every simulation-effective choice. Horizons, dt, seeds, thresholds, founder state, functional forms, structural zeros, and perturbation designs are classified separately."
+}

@@ -1,0 +1,2457 @@
+HHS Public Access
+Author manuscript
+Author Manuscript
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+Published in final edited form as:
+J Psychopathol Clin Sci. 2025 January ; 134(1): 69–80. doi:10.1037/abn0000960.
+
+Modeling the Dynamics of Addiction Relapse Via the DoubleWell Potential System
+Haya Fatimah1, Michael D. Hunter2, Marina A. Bornovalova3
+1Department of Psychology, University of Notre Dame, Notre Dame, IN,
+2Department of Human Development and Family Studies, Pennsylvania State University,
+
+Author Manuscript
+
+University Park, PA United States
+3Department of Psychology, University of South Florida, Tampa, FL, United States
+
+Abstract
+
+Author Manuscript
+
+Substance use relapse is difficult to define, and previous work has used one-size-fits-all ad-hoc
+definitions. Researchers have called for a dynamic and personalized understanding of relapse as a
+concept and model, necessitating novel statistical tools. We aimed to develop and validate a novel
+statistical model of latent relapse processes: the double-well potential model (DWPM). This model
+describes post-treatment substance use in terms of a dynamical system with stable equilibria
+of abstinence and relapse, a person-specific dominant equilibria (tilt), the ease of changing
+between equilibria (steepness), and an overall relapse risk (RR). Using timeline followback data
+from N=139 adults with a substance use disorder transitioning back to the community after
+residential treatment, we examined individual differences and the criterion-related validity of
+DWPM parameters to determine the clinical utility of the double-well model. While non-use
+was the predominant stable state across participants, we found significant between-subjects
+variability steepness and RR. These individual differences were predictable via demographics,
+baseline psychopathology, treatment history, and treatment condition. Steepness and RR also
+predicted long-term outcomes, including life satisfaction and criminal behavior, above and beyond
+traditional metrics of relapse (proportion of days used, time to first use). Thus, the DWPM is a
+strong theoretical and statistical representation of the underlying relapse processes. Moreover, the
+parameters show criterion-related validity and may be useful in precision medicine.
+
+General Scientific Summary
+Author Manuscript
+
+Correspondence: Address correspondence to Marina A. Bornovalova, Department of Psychology, University of South Florida, 4202
+East Fowler Ave, PCD4118G, Tampa, FL 33620. bornovalova@usf.edu.
+Author Contributions: Author contributions: MAB/HF/MDH conceived and designed the work; MAB engaged in the acquisition
+of the data; MDH developed and extended the model; HF and MDH conducted the analyses engaged in acquisition of data; MDH
+visualized the data; HF, MAB, and MDH w engaged in data interpretation, drafting, and finalizing the manuscript. All authors had
+access to and verified the data.
+Author note: A previous paper (Hunter et al, 2022) also used the DWPM in this sample, but several key differences should be noted:
+a) it focused on forecasting substance use into the future, b) used fixed-effects version of the DWPM (no individual differences in
+parameters), c) did not validate the model via criterion-related validity. Transparency and openness: code for the models used in the
+current manuscript can be found at https://osf.io/tkg9s/. All description of the parent study protocol, detailed description of recruitment
+and consent, treatment materials, and the CONSORT diagram can be found on https://osf.io/kysdt/ (DOI 10.17605/OSF.IO/QMXBV).
+Raw data can be obtained from the corresponding author upon request. All procedures and protocols were approved by the University
+of South Florida Institutional Review Board (Pro00009634).
+Conflict of Interest: None declared.
+
+Fatimah et al.
+
+Page 2
+
+Author Manuscript
+
+Researchers have called for a dynamic and personalized understanding of relapse as a concept
+and model. We offer a non-linear dynamical system – a double-well potential model that defines
+relapse in terms of two equilibria (an abstinence well and use well) of a continuous dynamical
+system – with individual random effects as one such dynamic and personalized understanding
+of relapse. We apply this model in a sample of substance users returning to the community and
+reporting on their daily substance use. We find that model parameters show construct validity and
+have promise for clinical utility.
+
+Keywords
+addiction; substance use; relapse; dynamical systems model of relapse
+
+Author Manuscript
+
+INTRODUCTION
+
+Author Manuscript
+
+A long-standing problem in addiction research is the conceptual and empirical definition of
+relapse following treatment or a period of abstinence (Miller et al., 2001; Witkiewitz, 2005;
+Witkiewitz & Marlatt, 2004; Maisto et al., 2003; McKay et al., 2006). Recent systematic
+reviews identified up to 101 different definitions of alcohol use disorder relapse (Maisto
+et al., 2016; Sliedrecht et al., 2022), including but not limited to any drinking, any heavy
+drinking, consumption of 2+ or 4+ standard drinks, consumption of 6+ standard drinks
+on a single day, consumption on 3+ or 7+ consecutive days, return to treatment, and
+consequences of consumption. Likewise, Maisto identified seven different definitions for
+non-alcohol substance relapse including any use, more than two episodes of use, return
+to previous patterns of use and admission to treatment. This heterogeneity is unsurprising,
+because post-abstinence patterns of use vary greatly within and between individuals, ranging
+from infrequent, moderate use to daily, heavy use; discontinuities and non-linearity in
+trajectories are quite common as well (Chow et al., 2014; Maisto et al., 2020; Witkiewitz
+et al., 2010, 2017; Witkiewitz & Masyn, 2008). There is clearly a need to move away
+from post-hoc, one-size-fits-all definitions of relapse to a more nuanced understanding of
+the construct. Here, we propose to define relapse in terms of the equilibria of a dynamical
+system. In such a system, we define two stable locations, or equilibria, in continuous
+behavior space: one for abstinence and one for relapse. When a person’s latent position is
+in the vicinity of the abstinence equilibrium location, the person is likely to show no use,
+or use that does not rise to the level of relapse; when the latent position is in the vicinity of
+the relapse location, a pattern of problem use is likely. Although this latent position varies
+continuously, it is always in the vicinity of one of these two equilibrium locations.
+
+Author Manuscript
+
+In part, the definition of relapse is a theoretical issue. Maisto and colleagues (Maisto et al.,
+2016) have stated that the definition of relapse should be linked to the theoretical model
+of the phenotype in question. For instance, adopting the 12-Step model of addiction (i.e.,
+“one drink, one drunk”) suggests a framework in which even a single instance of use defines
+relapse. In contrast, models such as the Transtheoretical Model of change (Prochaska, 2020)
+and the cognitive-behavioral relapse prevention model (Marlatt, 1996; Witkiewitz & Marlatt,
+2004, 2007), draw a distinction between lapse and relapse, where lapses are occasional
+instants of use that do not necessarily lead to a full-blown relapse, but are correctable,
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 3
+
+Author Manuscript
+
+temporary setbacks. These models propose that relapse is part of a fluid and dynamic
+process of change. Although the details of these models differ, in general, both postulate
+that a single instance of use does not imply resistance to change, that change is frequently
+a function of many attempts, and that a patient may fluctuate in and out of ‘relapse’ after
+treatment – perhaps many times before achieving a desired level of abstinence or low
+risk use. A model of relapse should also have construct (in particular, criterion-related)
+validity (Maisto et al., 2016). Stated otherwise, a given definition of relapse should be
+meaningfully predicted by known addiction-related processes (e.g., negative emotionality,
+psychopathology, addiction severity, abstinence motivation), and meaningfully predict other,
+downstream clinical outcomes (e.g., legal problems, independent living, employment,
+psychopathology, life satisfaction). When these conditions are met, the model of relapse
+can be used for theory testing as well as prevention, triage, or treatment planning.
+
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+Yet, in many ways, the definition of relapse is a practical issue, limited by commonly used
+statistical tools that often fail to map on to the verbal theory. Very common are survival
+analyses predicting time to first use (Harvey et al., 2016; Kassani et al., 2015). These
+assume, implicitly, that a single use is equivalent to relapse, but do not consider patients’
+subsequent behavior after the first instance of use. Some models employ strict definitions
+of number of uses overall or per week, implicitly suggesting that once these clinical cutoffs
+are passed, the patient is at risk for severe long-term outcomes (e.g., (De Sousa, 2014).
+Other methods include negative binomial hurdle or zero-inflated Poisson regression models
+(Amirabadizadeh et al., 2021; Bowen et al., 2014), which allow one to detect and predict
+both a binary use/non-use status, as well as continuous proportion of days used. Yet, these
+models do not handle heterogeneity in the patterns or dynamics of use (i.e., when in the time
+series substance use occurred and whether a significant period(s) of abstinence appeared in
+the series). Nor do these models allow one to conceptualize relapse as a dynamic process
+where (1) both continual use and steady non-use are self-perpetuating behaviors, but also
+(2) exogenous disturbances can either lead to use or non-use. Hence, the statistical models
+applied in relapse literature are not aligned with theoretical understanding of relapse as a
+process that includes both use and non-use behaviors that change over time. Unsurprisingly,
+addiction researchers have called for the development of quantitative models that handle the
+conceptual and empirical complexity describing return to substance use following abstinence
+or treatment (Chow et al., 2014; Hufford et al., 2003; Maisto et al., 2014; Resnicow &
+Page, 2008; Witkiewitz & Marlatt, 2004, 2007). Particularly, Maisto and colleagues (Maisto
+et al., 2016) highlighted the need to describe relapse as a process and distinguish it from
+isolated instances of use. Moreover, Maisto called for utilizing dynamic, person-centered
+data and models to describe lapse and relapse as a part of a change process rather than as an
+endpoint. This is especially needed given the increasing number of studies utilizing real or
+near-real-time data collection and intensive longitudinal designs in studying post-abstinence
+patterns of use. To date, models that were developed to handle intraindividual complexity
+and nonlinear dynamics (e.g., cusp catastrophe, regime switching, damped oscillator) have
+been shown to be superior to traditional models in terms of fit and variance explained
+(Hufford et al., 2003; Witkiewitz et al., 2010; Witkiewitz & Marlatt, 2007). They are also
+flexible enough to predict sudden, nonlinear shifts between periods of use (‘relapse’) and
+relative non-use (‘abstinence’). Finally, many such models can be fit to a single patient, and
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 4
+
+Author Manuscript
+
+thus leveraged for the development of personalized forecasting and prevention tools (Hunter
+et al., 2022). However, their application to the understanding of addiction relapse has been
+rare and exclusively focused on alcohol (Chow et al., 2014; Hufford et al., 2003; Witkiewitz
+& Marlatt, 2007).
+
+Author Manuscript
+
+Previously, we developed a novel dynamical systems model to capture and forecast the
+dynamics of relapse (Hunter et al., 2022). Consistent with many current theories of relapse
+(Chow et al., 2014; Witkiewitz & Marlatt, 2007), the double-well potential model (DWPM)
+postulates that both ‘relapse’ and ‘abstinence’ can be modeled as stable attractors in a
+continuous latent space, also conceptualized as two ‘wells’ between which a patient can
+traverse. Underlying binary use and non-use data, there may be a continuous latent process
+that can shift the system from non-use to use and vice versa. Critically, the latent process
+varies smoothly over time along a continuum, but this latent process is attracted to two
+points: one that represents ‘relapse’ and one that represents ‘abstinence’. One could imagine
+a steel ball rolling on a table underneath which are two magnets of different strengths; the
+ball rolls smoothly but is attracted by the magnets. The DWPM uses the analogy of potential
+energy to describe the separation between these two stable wells. When the separation
+energy is large, a greater disturbance is required to shift the system from one well to the
+other. Based on the difference between the amount of disturbance required to push the
+system from non-use to use versus from use to non-use, we can compute personalized risk of
+relapse.
+
+Author Manuscript
+
+The DWPM provides at least two parameters of interest: the overall stability or steepness,
+indicating the absolute ease or difficulty in traversing between the stable wells, and the
+relative stability of the wells or tilt detecting whether one of them is more stable and difficult
+to leave than the other. It also provides an individualized relapse risk (RR), which is a
+function of both the steepness and tilt parameters and represents the difference in separation
+energies from each well to the other. Initially, we developed a nomothetic model, such that
+the same form and parameter values applied to all individuals in the study. However, there
+are likely predictable individual differences around both the steepness and tilt parameters.
+We examined the association of the interindividual differences in these parameters with
+exogenous variables. The goal is to allow quantitative differences between people while
+maintaining the same basic process for all people, trying to balance competing goals of
+person-specific processes and generalizable laws of human behavior (Hunter et al., 2024). If
+individual differences are longitudinally related to addiction-related clinical predictors and
+outcomes, then the DWPM of relapse may be both theoretically and clinically useful.
+
+Author Manuscript
+
+The goals of the current study were twofold: 1) to extend the DWPM to encompass
+individual differences in the steepness and tilt parameters, and 2) to examine the
+criterion-related validity of this relapse model by examining the prospective relationships
+of model parameters with clinical predictors and outcomes. In doing so, we utilized
+a longitudinal dataset of individuals with substance use disorders who were seeking
+residential addiction treatment and were followed into the community for ~six months after
+treatment completion. Given that all patients were enrolled in a randomized clinical trial
+(NCT01741415; Bornovalova et al., n.d.; Choate et al., 2021), we examined the impact of
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 5
+
+Author Manuscript
+
+treatment condition on DWPM parameter estimates as an exploratory aim. This report was
+not preregistered.
+
+METHOD
+Participants
+
+Author Manuscript
+
+We used data from 139 patients with SUD participating in a larger randomized clinical
+trial. Between April 2013 and October 2017, 374 patients at a residential treatment for
+SUD were recruited to participate in a randomized clinical trial with two conditions: Skills
+for Improving Distress Intolerance (SIDI) and Supportive Counseling (SC). Comparison of
+these two conditions on the primary outcomes of post-treatment and follow-up changes in
+distress tolerance and substance use is the focus of another report (Bornovalova et al, under
+review). The treatment facility serves as a jail diversion program for substance users but
+accepts voluntary admissions as well. Treatment involves strategies adopted from 12-step
+programs and group sessions focused on psychoeducation and relapse prevention. Before
+entry, participants are detoxified as needed, and complete abstinence (except nicotine) is
+required during the stay. Minimum stay is 30 days; beyond, participants are encouraged to
+stay until reaching psychosocial stabilization. To be eligible for the parent study, participants
+had to give informed consent, be at least 18 years old, evidence DSM-IV substance
+dependence, receive at least one treatment session in the randomized clinical trial, and
+plan to reside within the 6-county (within ≈ 2.5-hour drive) catchment area of the residential
+treatment site for at least six months after completion of treatment.
+
+Author Manuscript
+
+Of the initial sample (374), 354 participants were eligible for the parent study, and only
+those eligible were followed into the community. Of the full sample, 261 provided time
+series of substance use data upon returning to the community (see below). To be eligible
+for this study, participants had to have provided daily data via the retrospective timeline
+follow-back and have non-zero variance in use. Of the 261 participants who provided
+retrospective daily data, 1391 (98 men, 41 women; 117 White/Caucasian (12% Hispanic);
+14 African American (14.3% Hispanic), 1 Asian, and 7 Multiracial (71.4/% Hispanic) had
+variance in use and are the subjects of the current investigation. One hundred and thirteen
+were court-mandated to treatment. Thirty had less than High School diploma, 47 had high
+school or GED equivalent, and 62 had college education or higher.
+Procedure
+
+Author Manuscript
+
+Participants provided written informed consent, completed intake assessment, and were
+randomly assigned to either Skills for Improving Distress Intolerance (SIDI) and Supportive
+Counseling (SC)2. Posttest occurred 2 months later (Mdays = 59.56; SD = 11.04), after 10
+treatment sessions. Participants stayed at the residential facility for 2–4 additional months
+
+1Individuals without variance in use were more likely to be court-mandated to treatment, less likely to have alcohol or narcotics
+use disorder, less likely to be government dependent, show lower criminal behavior and psychiatric distress and have higher life
+satisfaction (Table 1). This difference was expected as most individuals with no variance in use were entirely abstinent.
+2All description of the parent study protocol, detailed description of recruitment and consent, treatment materials, and the CONSORT
+diagram can be found on https://osf.io/kysdt/ (DOI 10.17605/OSF.IO/QMXBV) (M. Bornovalova, 2020). Raw data can be obtained
+from the corresponding author upon request. Code for the models used in the current manuscript can be found at https://osf.io/tkg9s/
+(M. Bornovalova, 2022).
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 6
+
+Author Manuscript
+
+(Mdays = 69.82, SD = 44.04) until they were psychosocially stabilized. Participants then
+completed 1-, 3-, and 6-months follow-up assessments after community reintegration, during
+which they provided retrospective daily reports of substance use as well as current reporting
+on psychopathology, criminal behavior, legal problems, and social functioning.
+Measures
+
+Author Manuscript
+
+Individual and Historical Predictors—At study intake, we assessed demographics,
+number of lifetime inpatient and outpatient addiction treatment attempts, and past-year
+substance use frequency (alcohol, cannabis, cocaine/crack, methamphetamines, prescription
+drugs not prescribed to patient/not as recommended, heroin, and hallucinogens). Past
+year psychiatric diagnoses (Major Depressive Disorder, Panic Disorder, Post-Traumatic
+Stress Disorder, And Substance Use Disorders) were assessed at baseline via the
+computer-assisted Mini-International Neuropsychiatric Interview (Sheehan et al., 1998).
+The Personality Inventory for DSM-5 (Krueger et al., 2012) measured the 5 DSM-5
+Section III personality pathology higher-order domains (Negative Affectivity, Detachment,
+Disinhibition, Antagonism, and Psychoticism). The Circumstances, Motivation, and
+Readiness scales (DeLeon, 1998) assessed treatment and sobriety motivation. See Table
+1 for descriptive statistics and reliabilities.
+
+Author Manuscript
+
+Clinical Outcomes—All social, occupational, legal, and psychopathology outcomes
+were obtained from a participant’s last available community assessment. These included
+binary variables of part or full-time employment, government dependence (receiving any
+of the following: subsidized housing/group home/homeless shelter, social welfare benefits,
+Supplemental Security Income/Social Security Disability Income, armed forces disability
+or pension, unemployment, Social Security Retirement Benefits); and independent living
+(private home/apartment alone or with roommates) based on the Government Performance
+and Results Act tool assessed at 1, 3, and 6 months follow-up. Participants also self-reported
+maximum number of criminal acts over past 6 months (Institute of Behavioral Research,
+2008). Number of days in incarceration during community reintegration was obtained
+using a retrospective daily record modeled on a timeline follow-back (self-reports and
+public records search to indicate whether the participant was incarcerated on a given
+day). Participants rated satisfaction with living arrangements, financial condition, health
+status, relationships, employment/education, recreational/leisure, legal/safety, and overall
+life). Finally, participants reported on current psychiatric distress via the Brief Symptom
+Inventory-53 (BSI; Derogatis and Spencer, 1993) and post-treatment, 1-month, 3-month, and
+9-month follow-up.
+
+Author Manuscript
+
+Community Substance Use—At one, three, and six months after community
+reintegration, patients were assessed on daily drug and alcohol use (i.e., dichotomous
+variable, indicating any use of alcohol, cannabis, cocaine, hallucinogenics, heroin,
+methamphetamine, and prescription drugs on a given day) since the last assessment, via
+the drug and alcohol Timeline Follow-Back (TLFB; (Robinson et al., 2014). Given that most
+participants were involved in the criminal justice system and were understandably worried
+about reporting use, we met the participants outside of the treatment center during followups, reminded them of a certificate of confidentiality, and emphasized at all assessments that
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 7
+
+Author Manuscript
+
+we are independent of the treatment center or criminal justice system. Biological verification
+(drug wipe saliva kits and alcohol breath test) was administered for a subset of cases (n
+= 65). Conservatively, we considered concordance to mean a match between self-reported
+use and bio-verification positive test on the same day. Overall, there was 89% agreement
+of biological verification with self-report; 95% agreement at 1-month follow-up. Of the
+original sample, 69.78% (N = 261) provided TLFB data3.
+Analyses
+We modelled substance use behavior as a continuous dynamical system with two stable
+latent states of abstinence and relapse reflecting observed non-use and use, respectively. To
+this aim, we fit the double-well potential model (DWPM) to the TLFB data. The DWPM is a
+non-linear, continuous time model described by the following equation:
+
+Author Manuscript
+
+dx
+= − ax 1 − x x − b + q t
+dt
+
+Author Manuscript
+Author Manuscript
+
+The DWPM represents the rate of change of the continuous latent use propensity, dx/dt, as
+a non-linear function of the current latent use propensity, x, a dynamic noise component,
+q(t), and estimated parameters a and b. The DWPM has three fixed points or equilibria (i.e.,
+values of x such that dx/dt=0): use (x=1) and non-use (x=0) are the two stable locations in
+behavior space, or attractors represented by ‘wells’ in Figure 1; b (henceforth called tilt)
+is the unstable position or repellor represented by the hill between the two wells. Because
+locations of the two stable wells are fixed, the location of the peak between them represents
+how favored one well is over the other. An analogy is a ball rolling on top of this hill. The
+higher the hill-top between the two wells, the more difficult it would be for the ball to move
+from one well to the other (abstinence to relapse or the reverse). This difficulty in changing
+between the stable use and non-use locations in behavior space is represented by the a
+parameter (henceforth called steepness), with higher values indicating more difficulty and
+therefore higher overall stability. Note that stability is a double-edged sword: it perpetuates
+the current behavior regardless of it being use or non-use. The tilt parameter indicates the
+relative stability of the wells. It is represented by the position of the hill between the two
+wells: if the hill is closer to 0 or the non-use well, then the use well will be deeper, making
+it is easier to change from non-use to use. Likewise, if the hill is closer to 1 or the use well,
+then the non-use well will be deeper and more attractive to the ball. Figure 1a-b displays
+how the shape of the potential well will vary under different steepness and tilt parameter
+values. Of note, the DWPM estimates a continuously varying latent use propensity that
+inhabits the non-use and use wells, which is consistent with many current theories. The
+latent use propensity varies both qualitatively – inhabiting one of the two wells – and
+quantitatively – moving within one well and approaching the other.
+We fit the DWPM using the package dynr (Ou et al., 2019) in R 3.3.3 with steepness and
+tilt parameters as random effects. That is, the steepness and tilt parameters were allowed
+to vary across individuals but were assumed to stay constant over time within individuals.
+
+3Participants who did not provide community data were younger, less educated, and more likely to be female.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 8
+
+Author Manuscript
+
+As step 2, we added a set of baseline variables as covariates to the DWPM including
+demographics, psychopathology, treatment history etc., Person-specific estimates for the
+steepness and tilt parameters were extracted from the random effects model and saved for
+subsequent analyses. Based on the a and b parameters, we calculated a person-specific
+risk of relapse (RR) as the difference in the depths of the two wells with higher values
+indicating greater risk using the following equation: RR = a - 2ab/12. This RR value is a
+metric of the difference in the separation energies of the two wells. Finally, we assessed the
+associations between the person-specific a and b parameters and clinical outcomes including
+symptom severity, life satisfaction, criminal behaviors and incarceration, employment, and
+government dependence using Pearson and polyserial correlations. As this is an initial
+exploration of the utility of the DWPM, we primarily focus on the effect sizes in our
+interpretation.
+
+Author Manuscript
+
+RESULTS
+As a first step, we fit a DWPM with random effects, allowing both steepness and tilt
+parameters to vary across individuals.
+The tilt parameter value of 0.62 indicated that overall the non-use well was deeper or
+more stable than the use well. Results showed statistically significant variance across
+individuals in the steepness, but not in the tilt parameter (see Table 2). Tilt was dropped as a
+random effect in subsequent analyses due to lack of variance across individuals. Therefore,
+associations with baseline and follow-up correlates were examined for steepness only.
+
+Author Manuscript
+
+Figure 2 illustrates the distinction the DWPM makes between lapse and relapse in four
+individuals in our sample. The latent use propensity shown in a solid black line defines the
+state of an individual at any given time. If the latent state is in the use well, the individual
+has relapsed. If the latent state is in the non-use well, the individual is in recovery. Tilt is the
+border between the two wells (cf. Figure 1). The DWPM distinguished between the observed
+use/non-use of an individual from their latent location. Thus, although a person may have
+used a substance (observed state), he/she might not have fully relapsed (latent state). The
+latent state is akin to a factor score (Priestly & Subba Rao, 1975), and thus depends on the
+nomothetic and person-specific model parameters, along with the individual’s use/non-use
+history.
+
+Author Manuscript
+
+The latent state is not a simple, static rule that applies uniformly across all individuals.
+However, in certain simple situations, the latent state is equivalent to such a rule (e.g.,
+number of days with consecutive use). In simple situations like those of person 348 and
+115 in Figure 2, lapse and relapse could easily be defined in terms of days of consecutive
+use, and the latent state definition implied by the DWPM would agree with that definition.
+Even in these cases, however, the simple rule would depend on the person-specific midpoint
+parameter that defines the border between the two wells. Although the tilt parameter did not
+differ across people in our sample, if this parameter were closer to zero for some individual,
+then a smaller number of consecutive days of use would lead to relapse than a person with a
+higher tilt parameter.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 9
+
+Author Manuscript
+
+In more complicated patterns of use behavior like those of person 251 and 291 in Figure
+2, simple definitions of lapse/relapse become inappropriate. The lapses of person 251 are
+separated by enough time that the latent state estimate fully returns to the non-use well,
+whereas those of person 291 (around time 50) appear to be a building pattern leading to a
+short relapse. Because of the recent lapses of person 291, a smaller number of consecutive
+days of use are required for the latent state to cross into relapse than without those recent
+lapses. The definition of relapse in the DWPM is thus context dependent both on the person
+and on their recent use history.
+A benefit of the DWPM specifically and the dynamic approach generally is that its definition
+of lapse/relapse encompasses both the simple situation and the complicated situation under
+the same umbrella without the need for ad hoc exceptions. This model abstracts and
+generalizes the notion of lapse/relapse.
+
+Author Manuscript
+
+As a next step to assess clinical validity of the dynamical parameters, we added baseline
+variables as predictors of steepness in the DWPM. The package dynr uses FIML to handle
+missing values in the primary variable but does not allow missing values on the predictors,
+resulting in the removal of 5 participants (N = 134). In the first block, we included age, sex,
+education, whether treatment was court-mandated, and treatment condition (SIDI V. SC) as
+predictors. Female gender and SIDI treatment condition significantly, positively predicted
+the steepness parameter (Table 3). This block was retained in all subsequent models.
+
+Author Manuscript
+
+In block 2, we added baseline psychopathology variables, inpatient and outpatient treatment
+history, and motivation for treatment. The clinician-ascertained DSM-IV diagnoses versus
+dimensionally measured PID-5 pathological personality traits and substance use frequencies
+were added as two alternative sets to avoid theoretical and empirical redundancy. In set 1
+(clinician-ascertained diagnoses), panic disorder, PTSD, cocaine use disorder and inpatient
+treatment history positively predicted higher stability, whereas alcohol use disorder showed
+the reverse.
+Alternatively, in set 2 (dimensional measures of pathological personality traits and substance
+use frequencies), detachment, marijuana use frequency, and inpatient treatment history
+predicted a higher overall stability, whereas alcohol use frequency predicted lower stability.
+Across sets, individuals with higher education and those assigned to SIDI had higher overall
+stability.
+
+Author Manuscript
+
+Finally, we investigated the convergent, discriminant, and criterion-related validity of
+steepness and RR. We examined the associations of steepness and RR with typical
+indices used (proportion of days used, PDU, and time to first use, TFU). Subsequently,
+we examined associations with clinical outcomes including life satisfaction, psychiatric
+distress, employment status, independent living, government dependence, maximum number
+of reported criminal behaviors, and number of days incarcerated. We used data from the last
+available assessment for each participant for the dependent variables. Third, we examined
+the incremental utility of RR and steepness predicting outcomes significant in bivariate
+analyses over PDU and TFU, as well as vice versa, in a series of hierarchical linear
+regressions.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 10
+
+Author Manuscript
+
+Steepness was moderately associated with PDU (r = −.49, p<.001) and had small and nonsignificant associations with TFU (r = −.12, ns). Likewise, RR was moderately associated
+with PDU (r = .47, p<.001) and not associated with TFU (r = .02, ns). Next, as seen in Table
+4, steepness was positively correlated with life satisfaction and negatively with criminal
+behaviors. RR was related to criminal behaviors in the expected direction; the relationship
+with other clinical outcomes was similar in magnitude to that of overall stability but the
+confidence intervals crossed zero.
+
+Author Manuscript
+
+When examining incremental utility (Table 5), steepness accounted for an additional 2–3%
+of the variance in life satisfaction, but the reverse was not true (PDU and FDU accounted
+for .2% and <.01% of variance in life satisfaction). Similarly, steepness and RR accounted
+for an additional 10% and 5–6 % respectively in criminal behaviors over TFU, while
+the reverse was not true (1–2% of variance). When incrementing over PDU, however,
+steepness accounted for an additional 2–3% and RR accounted for ~1% of variance in
+criminal behaviors while PDU explained an additional 7–6% over steepness and 10–11%
+over RR. This pattern of results suggests that steepness and RR have unique variance that is
+non-redundant with traditional indices of relapse, and this unique variance is meaningful in
+predicting outcomes.
+
+DISCUSSION
+
+Author Manuscript
+
+Current ad-hoc definitions of relapse suffer from an insufficient link to theoretical
+underpinnings, to the between-person differences in what constitutes relapse, and to the
+within-person dynamics of use. In our sample of individuals transitioning to community
+after residential addiction treatment, we explored utility and criterion-related validity of the
+DWPM – a dynamical systems model – to understand the latent construct of relapse. The
+DWPM supposes that relapse and abstinence are two stable locations in a latent, continuous
+behavior space between which an individual can move, while accounting for individual
+differences in this process. Importantly, this model conceptually matches many current
+theories and empirical studies (Maisto et al., 2020; Witkiewitz & Marlatt, 2009), in that it
+estimates membership in use versus non-use wells on a continuous scale. It also allows a
+personalized definition of relapse, including the estimation of a personalized risk of relapse
+(RR) based on the personalized dynamic model parameters.
+
+Author Manuscript
+
+In our sample, we found abstinence to be a more stable state than relapse, with the individual
+differences in this parameter (tilt) being non-significant. However, individuals differed
+significantly in steepness, or the overall stability or the ease/difficulty in traversing between
+the two wells, once again underscoring the utility of personalized approach to definitions of
+relapse. Therefore, the model accounts for varying implications of a single instance of use
+for different individuals. For instance, the model suggests that if an individual had a more
+stable abstinence state (tilt > 0.5) and a high overall stability (larger value of steepness), a
+single lapse may not tip the system into relapse. In contrast, a single drink or instance of use
+may have a much larger impact to an individual with a lower overall steepness, as it is easier
+for them to traverse between the stable states.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 11
+
+Author Manuscript
+Author Manuscript
+
+Additionally, we were able to predict these dynamic properties using distal risk factors.
+Individuals with higher education levels, baseline diagnoses of PTSD, panic disorder,
+cocaine use disorder, greater marijuana use frequency, PID-5 detachment, and a history of
+inpatient treatment were more likely to have higher steepness or overall stability. In contrast,
+baseline alcohol use disorder and frequency predicted lower steepness or an overall ease
+of changing between states. Generally, a high steepness is not inherently indicative of high
+or low risk of relapse as that depends on which stable state the individual is in. However,
+in our sample the abstinence well was deeper for most participants and steepness was
+highly correlated with a lower risk of relapse. Therefore, the findings that certain baseline
+diagnoses predicted steepness are in contrast with the large body of research that documents
+a positive association between psychopathology and previous substance use on the risk of
+SUD relapse (Andersson et al., 2023; Nguyen et al., 2020). However, a few studies do
+show that internalizing symptoms and polysubstance use may serve as a protective factor in
+substance use and relapse (Colder et al., 2013; Wang et al., 2021).
+
+Author Manuscript
+
+The current study demonstrates clinical utility of the DWPM as its parameters, and the
+resulting personalized risk of relapse (RR), may help predict future clinical outcomes. Our
+findings show that steepness and lower RR were prospectively associated with higher life
+satisfaction and lower criminal behaviors, important markers of substance use outcomes (Di
+Maggio et al., 2022; Laudet et al., 2009; Laudet & Stanick, 2010). Moreover, steepness
+and RR were non-redundant with typical indices of relapse (proportion of days used, time
+to first use), and incrementally predicted life satisfaction and criminal behaviors above and
+beyond these typical indices. Thus, as recommended in development of relapse models,
+we demonstrate criterion validity and clinical utility of the DWPM at the between-person
+level in the current sample. An additional clinical implication is the ability to differentiate
+lapse and relapse, as the nature of the clinical intervention differs between the two (Abed
+& Ansari Shahidi, 2019). Post-lapse, a clinician would perhaps focus on ‘lessons learned’;
+post-relapse, a more intensive level of care may be warranted.
+Relatedly, it is worth noting that we accounted for treatment condition in all models, and
+higher stability was predicted by SIDI. This suggests that SIDI may have potential not
+just to reduce overall levels of use but the latent underlying process. We are hesitant to
+overinterpret this finding, as a) the current study was not intended to be a treatment outcome
+analysis, and b) our analyses were focused on individuals with variance in community
+substance use. Nevertheless, it is worth noting that the effect of condition is theoretically
+and empirically consistent (Bowen et al., 2014; Ellis et al., 2022) and robust to covariates,
+suggesting a promising avenue for future studies. On a broader note, the DWPM parameters
+may be interesting outcomes in clinical trials.
+
+Author Manuscript
+
+Seven limitations should be considered. First, we used a range of established predictors
+of relapse such as baseline substance use, personality, and psychopathology. However,
+these did not cover the full relapse matrix of distal variables proposed by modern theories
+of relapse (Witkiewitz & Marlatt, 2004) such as family history, self-efficacy, and social
+support. Second, just as the relapse process is dynamic, the factors promoting or protecting
+against relapse can also be dynamic (Van Zundert et al., 2010; Witkiewitz & Marlatt, 2004).
+Future developments will incorporate the proximal, time-varying risk and protective factors.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 12
+
+Author Manuscript
+Author Manuscript
+
+Third, our sample contained only ~25% individuals of minoritized racial or ethnic identities,
+and only collected information on sex assigned at birth but not gender identity. Fourth, the
+limitations – as well as the benefits – of the retrospective TLFB (relative to prospective
+daily methods) should be considered. Indeed, when examining longer timeframes, the TLFB
+tends to give weekly patterns rather than precise daily use (Barringer et al., 2022; Dulin
+et al., 2017), although it is reasonably precise with shorter time series (Hoeppner et al.,
+2010). With that said, the retrospective TLFB is still the better method to use in a criminal
+justice-involved population of polydrug users then prospective daily monitoring; indeed,
+many of our participants did not have a stable housing situation, or a flip phone; some
+were reincarcerated at the time of follow-ups. Most importantly, data in prospective daily
+assessments are generally missing systematically, i.e., on days participants are planning
+to use, using, or experiencing high levels of negative affect. Moreover, compliance with
+daily prospective protocols in criminal justice-involved samples tends to be quite low, and
+overtaxing participants with daily assessments can lead to study dropout (Tonkin et al.,
+2023). In the future, a combination protocol might be preferred in such samples (e.g.,
+‘bursts’ of daily assessment, and weekly, biweekly, or monthly retrospective assessments via
+the TLFB).
+
+Author Manuscript
+
+Fifth, we evaluated the predictive utility of the parameters by testing their associations
+with a range of clinically relevant outcomes such as criminal behaviors, and social and
+occupational functioning. Ideally, we would have included the long-term patterns of use
+over two to three years. Sixth, the model in its current iteration can only be estimated in
+participants with variance in use patterns rather than participants showing exclusively a
+single well of use or non-use. As with virtually all statistical models, the DWPM is unable
+to handle constant behavior and it is better suited to sporadic use rather than exclusive
+abstinence. A treatment sample dominated by the non-use well is interesting (and can
+suggest the treatment worked); however, it is not clear how the dynamics will replicate in a
+different, non-treatment-seeking sample. Likewise, the nomothetic associations between the
+dynamic parameters and outcome variables may be different in other samples.
+
+Author Manuscript
+
+Seventh, we assumed the parameters of the DWPM to be constant within person over
+time. Yet, the underlying dynamic processes immediately following treatment may be very
+different from processes that happen later when routines, setbacks, and stressors occur.
+Future work will incorporate the time-varying nature of these parameters. Future studies
+should also use data collected on different timescales as this can have nontrivial effect
+on the resulting dynamics (Boker et al., 2009). Another future direction is to examine
+the dynamics separately by type of substance, as different substances may have different
+patterns depending on their unique properties such as the intensity and duration of effect.
+Finally, collecting data on dose and timing (e.g., amount or length of within-day use) would
+allow us to differentiate controlled use from problem use.
+In sum, the present study introduces a viable tool to model substance use relapse as a
+dynamic process. On a broader theoretical level, the DWPM is consistent with modern
+conceptualizations of relapse: relapse is a dynamic (rather than static) process where
+changing between states of use and non-use is expected (Witkiewitz & Marlatt, 2004). In
+contrast with the nomothetic, arbitrary definitions of relapse, the DWPM offers an empirical,
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 13
+
+Author Manuscript
+Author Manuscript
+
+personalized definition of relapse based on their current latent state and its history. The
+DWPM describes the relapse process using the analogy of separation energy, or the amount
+of disturbance required to move the system from abstinence to relapse and vice versa. Based
+on this separation energy, we can determine individualized risk of relapse. This feature is
+absent in other dynamical systems models applied to substance use such as cusp catastrophe
+and regime switching models. Moreover, the DWPM has the additional benefit of flexibility,
+such that this model can be fit to a single individual, a group (with fixed effects), or as a
+random effects model; this flexibility is patently absent in other dynamical systems models.
+Additionally, the DWPM can assist in efforts to distinguish a single use event (lapse) from
+relapse based on the person-specific dynamic process (Maisto et al., 2016). Traditionally,
+lapse is defined as the initial use after an attempt to quit while relapse is returning to
+previous patterns of use. We, by contrast, regard this as the difference between an observed
+state of use and a latent state of use. That is, single or occasional use is regarded as
+measurement error, or perhaps a dynamic innovation that fails to move the latent state out
+of the abstinence well and into the relapse well; whereas relapse is when the latent state is
+in the use well. Finally, the model and associated personalized definitions of relapse use all
+available data in the time series, rather than just a few datapoints of use to determine relapse.
+Thus, the present study represents a step forward in understanding relapse as a latent process
+and moves the field towards personalized addiction medicine.
+
+Acknowledgements:
+We would like to thank Mr. Asif Zaarur for his thoughtful suggestions during the manuscript preparation phase.
+Role of Funding Source:
+The work was supported by DA032582 (NIDA).
+
+Author Manuscript
+
+References
+
+Author Manuscript
+
+Abed M, & Ansari Shahidi M (2019). Mindfulness-based relapse prevention to reduce lapse and
+craving. Journal of Substance Use, 24(6), 638–642. 10.1080/14659891.2019.1640305
+Amirabadizadeh A, Nakhaee S, Ghasemi S, Benito M, Bazzazadeh Torbati V, & Mehrpour O (2021).
+Evaluating drug use relapse event rate and its associated factors using Poisson model. Journal of
+Substance Use, 26(1), 60–66. 10.1080/14659891.2020.1779359
+Andersson HW, Mosti MP, & Nordfjaern T (2023). Inpatients in substance use treatment with cooccurring psychiatric disorders: A prospective cohort study of characteristics and relapse predictors.
+BMC Psychiatry, 23(1), 152. 10.1186/s12888-023-04632-z [PubMed: 36894934]
+Barringer A, Papp LM, & Blumenstock SM (2022). Comparing Reported Prescription Drug Misuse
+between Ecological Momentary Assessment versus Timeline Follow-Back among College Students.
+Substance Use & Misuse, 57(11), 1743–1746. 10.1080/10826084.2022.2107668 [PubMed:
+35946138]
+Boker SM, Molenaar PCM, & Nesselroade JR (2009). Issues in intraindividual variability: Individual
+differences in equilibria and dynamics over multiple time scales. Psychology and Aging, 24, 858–
+862. 10.1037/a0017912 [PubMed: 20025401]
+Bornovalova M (2020). RCT protocol, CONSORT, retention, and general grant information. https://
+osf.io/kysdt/
+Bornovalova M (2022). Double-Well Potential Model of Relapse. https://osf.io/tkg9s/
+Bornovalova MA, Lane K, & Rappaport L (n.d.). Efficacy of Skills for Improving Distress Intolerance
+in Substance Users: A Randomized Clinical Trial.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 14
+
+Author Manuscript
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+Bowen S, Witkiewitz K, Clifasefi SL, Grow J, Chawla N, Hsu SH, Carroll HA, Harrop E, Collins SE,
+Lustyk MK, & Larimer ME (2014). Relative Efficacy of Mindfulness-Based Relapse Prevention,
+Standard Relapse Prevention, and Treatment as Usual for Substance Use Disorders: A Randomized
+Clinical Trial. JAMA Psychiatry, 71(5), 547–556. 10.1001/jamapsychiatry.2013.4546 [PubMed:
+24647726]
+Choate AM, Gorey C, Rappaport LM, Wiernik BM, & Bornovalova MA (2021). Alternative model of
+personality disorders traits predict residential addictions treatment completion. Drug and Alcohol
+Dependence, 228, 109011. 10.1016/j.drugalcdep.2021.109011 [PubMed: 34521057]
+Chow S-M, Witkiewitz K, Grasman R, Hutton RS, & Maisto SA (2014). A regime-switching
+longitudinal model of alcohol lapse-relapse. Handbook of Developmental Systems Theory and
+Methodology, 397–422.
+Colder CR, Scalco M, Trucco EM, Read JP, Lengua LJ, Wieczorek WF, & Hawk LW (2013).
+Prospective Associations of Internalizing and Externalizing Problems and Their Co-Occurrence
+with Early Adolescent Substance Use. Journal of Abnormal Child Psychology, 41(4), 667–677.
+10.1007/s10802-012-9701-0 [PubMed: 23242624]
+De Sousa A (2014). A comparative study using Disulfiram and Naltrexone in alcohol-dependent
+adolescents. Journal of Substance Use, 19(5), 341–345. 10.3109/14659891.2013.813084
+DeLeon G (1998). Circumstances, Motivation, Readiness and Suitability (CMRS) Scales for Substance
+Abuse Treatment 1993, October 1998 Revision.
+Derogatis LR, & Spencer P (1993). Brief symptom inventory: BSI. Pearson Upper Saddle River, NJ:
+Di Maggio I, Montenegro E, Little TD, Nota L, & Ginevra MC (2022). Career Adaptability, Hope,
+and Life Satisfaction: An Analysis of Adults with and Without Substance Use Disorder. Journal of
+Happiness Studies, 23(2), 439–454. 10.1007/s10902-021-00405-1
+Dulin PL, Alvarado CE, Fitterling JM, & Gonzalez VM (2017). Comparisons of alcohol consumption
+by timeline follow back vs.smartphone-based daily interviews. Addiction Research & Theory,
+25(3), 195–200. 10.1080/16066359.2016.1239081 [PubMed: 29170622]
+Ellis JD, Mun CJ, Epstein DH, Phillips KA, Finan PH, & Preston KL (2022). Intra-individual
+variability and stability of affect and craving among individuals receiving medication treatment for
+opioid use disorder. Neuropsychopharmacology, 47(10), Article 10. 10.1038/s41386-022-01352-y
+Farley M, Golding JM, Young G, Mulligan M, & Minkoff JR (2004). Trauma history and relapse
+probability among patients seeking substance abuse treatment. Journal of Substance Abuse
+Treatment, 27(2), 161–167. 10.1016/j.jsat.2004.06.006 [PubMed: 15450649]
+Harvey R, Jason LA, & Ferrari JR (2016). Substance Abuse Relapse in Oxford House
+Recovery Homes: A Survival Analysis Evaluation. Substance Abuse, 37(2), 281–285.
+10.1080/08897077.2015.1080786
+Hayes AM, Laurenceau J-P, Feldman G, Strauss JL, & Cardaciotto L (2007). Change is not always
+linear: The study of nonlinear and discontinuous patterns of change in psychotherapy. Clinical
+Psychology Review, 27(6), 715–723. 10.1016/j.cpr.2007.01.008 [PubMed: 17316941]
+Hoeppner BB, Stout RL, Jackson KM, & Barnett NP (2010). How good is fine-grained Timeline
+Follow-back data? Comparing 30-day TLFB and repeated 7-day TLFB alcohol consumption
+reports on the person and daily level. Addictive Behaviors, 35(12), 1138–1143. 10.1016/
+j.addbeh.2010.08.013 [PubMed: 20822852]
+Hufford M, Witkiewitz K, Shields A, Kodya S, & Caruso J (2003). Relapse as a nonlinear dynamic
+system: Application to patients with alcohol use disorders. Journal of Abnormal Psychology, 112,
+219–227. 10.1037/0021-843X.112.2.219 [PubMed: 12784831]
+Hunter MD, Fatimah H, & Bornovalova MA (2022). Two Filtering Methods of Forecasting Linear
+and Nonlinear Dynamics of Intensive Longitudinal Data. Psychometrika, 87(2), 477–505. 10.1007/
+s11336-021-09827-5 [PubMed: 35064891]
+Hunter MD, Fisher ZF, & Geier CF (2024). What ergodicity means for you. Developmental Cognitive
+Neuroscience, 68, 101406. 10.1016/j.dcn.2024.101406 [PubMed: 38909566]
+Institute of Behavioral Research. (2008). TCU Criminal History Risk Assessment (TCU CRHSForm).
+Texas Christian University, Institute of Behavioral Research.
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 15
+
+Author Manuscript
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+Kassani A, Niazi M, Hassanzadeh J, & Menati R (2015). Survival Analysis of Drug Abuse Relapse
+in Addiction Treatment Centers. International Journal of High Risk Behaviors & Addiction, 4(3),
+e23402. 10.5812/ijhrba.23402 [PubMed: 26495256]
+Krueger RF, Derringer J, Markon KE, Watson D, & Skodol AE (2012). Initial construction of a
+maladaptive personality trait model and inventory for DSM-5. Psychological Medicine, 42(9),
+1879–1890. 10.1017/S0033291711002674 [PubMed: 22153017]
+Laudet AB, Becker JB, & White WL (2009). Don’t Wanna Go Through That Madness No More:
+Quality of Life Satisfaction as Predictor of Sustained Remission from Illicit Drug Misuse.
+Substance Use & Misuse, 44(2), 227–252. 10.1080/10826080802714462 [PubMed: 19142823]
+Laudet AB, & Stanick V (2010). Predictors of motivation for abstinence at the end of outpatient
+substance abuse treatment. Journal of Substance Abuse Treatment, 38(4), 317–327. 10.1016/
+j.jsat.2010.01.007 [PubMed: 20185267]
+Maisto SA, Hallgren KA, Roos CR, Swan JE, & Witkiewitz K (2020). Patterns of transitions between
+relapse to and remission from heavy drinking over the first year after outpatient alcohol treatment
+and their relation to long-term outcomes. Journal of Consulting and Clinical Psychology, 88(12),
+1119–1132. 10.1037/ccp0000615 [PubMed: 33370135]
+Maisto SA, Kirouac M, & Witkiewitz K (2014). Alcohol Use Disorder Clinical Course Research:
+Informing Clinicians’ Treatment Planning Now and in the Future. Journal of Studies on Alcohol
+and Drugs, 75(5), 799–807. 10.15288/jsad.2014.75.799 [PubMed: 25208198]
+Maisto SA, Pollock NK, Cornelius JR, Lynch KG, & Martin CS (2003). Alcohol relapse as a function
+of relapse definition in a clinical sample of adolescents. Addictive Behaviors, 28(3), 449–459.
+10.1016/S0306-4603(01)00267-2 [PubMed: 12628618]
+Maisto SA, Witkiewitz K, Moskal D, & Wilson AD (2016). Is the Construct of Relapse Heuristic,
+and Does It Advance Alcohol Use Disorder Clinical Practice? Journal of Studies on Alcohol and
+Drugs, 77(6), 849–858. 10.15288/jsad.2016.77.849 [PubMed: 27797685]
+Marlatt GA (1996). Models of relapse and relapse prevention: A commentary. Experimental and
+Clinical Psychopharmacology, 4(1), 55–60. 10.1037/1064-1297.4.1.55
+McKay JR, Franklin TR, Patapis N, & Lynch KG (2006). Conceptual, methodological, and
+analytical issues in the study of relapse. Clinical Psychology Review, 26(2), 109–127. 10.1016/
+j.cpr.2005.11.002 [PubMed: 16371242]
+Miller WR, Walters ST, & Bennett ME (2001). How effective is alcoholism treatment in the United
+States? Journal of Studies on Alcohol, 62(2), 211–220. 10.15288/jsa.2001.62.211 [PubMed:
+11327187]
+Nguyen L-C, Durazzo TC, Dwyer CL, Rauch AA, Humphreys K, Williams LM, & Padula
+CB (2020). Predicting relapse after alcohol use disorder treatment in a high-risk cohort:
+The roles of anhedonia and smoking. Journal of Psychiatric Research, 126, 1–7. 10.1016/
+j.jpsychires.2020.04.003 [PubMed: 32403028]
+Prochaska JO (2020). Transtheoretical Model of Behavior Change. In Gellman MD (Ed.),
+Encyclopedia of Behavioral Medicine (pp. 2266–2270). Springer International Publishing.
+10.1007/978-3-030-39903-0_70
+Resnicow K, & Page SE (2008). Embracing Chaos and Complexity: A Quantum Change for
+Public Health. American Journal of Public Health, 98(8), 1382–1389. 10.2105/AJPH.2007.129460
+[PubMed: 18556599]
+Robinson SM, Sobell LC, Sobell MB, & Leo GI (2014). Reliability of the Timeline Followback for
+cocaine, cannabis, and cigarette use. Psychology of Addictive Behaviors, 28(1), 154–162. 10.1037/
+a0030992 [PubMed: 23276315]
+Sheehan DV, Lecrubier Y, Sheehan KH, Amorim P, Janavs J, Weiller E, Hergueta T, Baker
+R, & Dunbar GC (1998). The Mini-International Neuropsychiatric Interview (M.I.N.I): The
+development and validation of a structured diagnostic psychiatric interview for DSM-IV and
+ICD-10. The Journal of Clinical Psychiatry, 59(Suppl 20), 22–33.
+Sliedrecht W, Roozen H, de Waart R, Dom G, & Witkiewitz K (2022). Variety in Alcohol Use
+Disorder Relapse Definitions: Should the Term “Relapse” Be Abandoned? Journal of Studies on
+Alcohol and Drugs, 83(2), 248–259. 10.15288/jsad.2022.83.248 [PubMed: 35254248]
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 16
+
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+Tonkin S, Gass J, Wray J, Maguin E, Mahoney M, Colder C, Tiffany S, & Jr LWH (2023). Evaluating
+Declines in Compliance With Ecological Momentary Assessment in Longitudinal Health Behavior
+Research: Analyses From a Clinical Trial. Journal of Medical Internet Research, 25(1), e43826.
+10.2196/43826 [PubMed: 37347538]
+Van Zundert RMP, Ferguson SG, Shiffman S, & Engels RCME (2010). Dynamic effects of selfefficacy on smoking lapses and relapse among adolescents. Health Psychology, 29, 246–254.
+10.1037/a0018812 [PubMed: 20496978]
+Wang M, Pinilla G, Leung C, Peddada A, Yu E, Akmal S, Cha Y, Dyson L, Kumar A, & Kaplin A
+(2021). Relapse risk factors for patients with comorbid affective disorders and substance abuse
+disorders from an intensive treatment unit. The American Journal on Addictions, 30(5), 461–467.
+10.1111/ajad.13192 [PubMed: 34075661]
+Witkiewitz K (2005). Defining Relapse from a Harm Reduction Perspective. Journal of EvidenceBased Social Work, 2(1–2), 191–206. 10.1300/J394v02n01_11
+Witkiewitz K, Maisto SA, & Donovan DM (2010). A Comparison of Methods for Estimating Change
+in Drinking following Alcohol Treatment. Alcoholism: Clinical and Experimental Research,
+34(12), 2116–2125. 10.1111/j.1530-0277.2010.01308.x [PubMed: 20860611]
+Witkiewitz K, & Marlatt GA (2004). Relapse Prevention for Alcohol and Drug Problems: That Was
+Zen, This Is Tao. American Psychologist, 59(4), 224–235. 10.1037/0003-066X.59.4.224 [PubMed:
+15149263]
+Witkiewitz K, & Marlatt GA (2007). Modeling the complexity of post-treatment drinking: It’s a rocky
+road to relapse. Clinical Psychology Review, 27(6), 724–738. 10.1016/j.cpr.2007.01.002 [PubMed:
+17355897]
+Witkiewitz K, & Marlatt GA (2009). Relapse prevention for alcohol and drug problems: That was Zen,
+this is Tao (p. 427). American Psychological Association. 10.1037/11855-016
+Witkiewitz K, & Masyn KE (2008). Drinking Trajectories Following an Initial Lapse. Psychology
+of Addictive Behaviors : Journal of the Society of Psychologists in Addictive Behaviors, 22(2),
+157–167. 10.1037/0893-164X.22.2.157 [PubMed: 18540713]
+Witkiewitz K, Pearson MR, Hallgren KA, Maisto SA, Roos CR, Kirouac M, Wilson AD, Montes KA,
+& Heather N (2017). Who Achieves Low Risk Drinking During Alcohol Treatment? An Analysis
+of Patients in Three Alcohol Clinical Trials. Addiction (Abingdon, England), 112(12), 2112–2121.
+10.1111/add.13870 [PubMed: 28511286]
+
+Author Manuscript
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 17
+
+Author Manuscript
+Author Manuscript
+Figure 1:
+
+Author Manuscript
+
+Shape of relapse and abstinence wells under various steepness and tilt parameter values
+Note: There are two stable fixed points at 0 (non-use/abstinence) and 1 (use/relapse), and
+one unstable fixed point represented by the solid dot. (a) Potential field varying the a
+(steepness) parameter between the mean (darkest gray) and ±1.96 standard deviations of the
+random effect estimated from our data. (b) Potential field varying the b (tilt) parameter
+between the mean (darkest gray) and ±1.96 standard deviations of the random effect
+estimated from our data.
+
+Author Manuscript
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 18
+
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+Figure 2:
+
+Examples of distinguishing lapse versus relapse in four patients
+Note: Binary observed use/non-use, latent location/state estimate, and person-specific tilt
+(b) parameter for four individuals in our sample. Relapse occurs when the latent state is
+higher than the tilt parameter, whereas lapse is an instance of use with the latent state below
+the tilt parameter. Person 348: two lapses without relapse. Person 115: single relapse and
+then recovery. Person 251: two lapses followed by relapse and recovery. Person 291: several
+lapses, two relapses, recovery, and further lapses.
+
+Author Manuscript
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Author Manuscript
+—
+—
+—
+—
+
+Education (% < High School)
+
+Condition (%Supportive Counseling)
+
+Court Mandated
+
+0.93
+0.94
+0.93
+0.96
+
+Detachment
+
+Antagonism
+
+Disinhibition
+
+Psychoticism
+
+—
+
+Past Outpatient Treatment
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+.86
+.96
+
+Life Satisfaction
+
+Brief Symptom Inventory
+
+Major depressive disorder
+
+0.74
+
+—
+
+Number days in incarceration
+
+Baseline psychopathology diagnoses
+
+16.97
+
+Number criminal behaviors
+
+17.37%
+
+0.69
+
+1.72
+
+50.39
+
+36.59%
+—
+
+Independent Living
+
+57.72%
+
+43.85%
+
+1.11 (1.72)
+
+2.05 (3.07)
+
+71.63 (12.67)
+
+0.97 (0.65)
+
+1.26 0.59)
+
+0.92 (0.59)
+
+0.96 (0.54)
+
+1.37 (0.67)
+
+86.21%
+
+48.46%
+
+20.69%
+
+66.28%
+
+65.51%
+
+34.83 (10.7)
+
+Government Dependence
+
+Employment
+
+—
+
+—
+
+Past Inpatient Treatment
+
+Clinical Outcomes
+
+0.87
+
+Circumstances, Motivation, Readiness Scale
+
+Other Social-Cognitive Predictors
+
+0.96
+
+Negative Affectivity
+
+Pathological Personality Traits
+
+—
+
+Race/Ethnicity (% White non-Hispanic)
+
+—
+
+Sex (% Male)
+
+Age
+
+Demographic variables
+
+Mean (SD)/% Diagnosed,
+Combined (N = 261)
+
+Author Manuscript
+α/κ
+
+Author Manuscript
+
+Demographics and Reliabilities
+
+14.60%
+
+0.79
+
+1.55
+
+53.96
+
+30.09
+
+34.85%
+
+50.76%
+
+42.11%
+
+1.22 (1.82)
+
+2.01 (3.05)
+
+71.93 (12.22)
+
+0.98 (0.67)
+
+1.27 (0.60)
+
+0.97 (0.56)
+
+0.94 (0.52)
+
+1.36 (0.68)
+
+81.29%
+
+43.17%
+
+21.58%
+
+72.79%
+
+70.50%
+
+34.38 (10.37)
+
+Mean (SD)/% Diagnosed, Patients
+w/Variance (N = 139)
+
+20.49%
+
+0.56
+
+1.91
+
+46.29
+
+2.5
+
+38.60%
+
+65.79%
+
+45.95%
+
+0.98 (1.60)
+
+2.10 (3.11)
+
+71.28 (13.21)
+
+0.97 (0.64)
+
+1.26 (0.62)
+
+0.87 (0.62)
+
+0.99 (0.56)
+
+1.38 (0.66)
+
+91.80%
+
+54.54%
+
+19.67%
+
+59.02%
+
+59.84%
+
+35.35 (11.09)
+
+Mean (SD)/%, Patients w/o
+Variance (N = 122)
+
+1.18
+
+-2.58*
+
+3.84***
+
+-0.83
+
+-3.13**
+
+0.23
+
+5.06*
+
+0.22
+
+-1.16
+
+0.22
+
+-0.42
+
+-0.09
+
+-0.09
+
+-1.37
+
+0.76
+
+0.21
+
+5.18*
+
+2.91
+
+4.21
+
+8.06*
+
+2.81
+
+0.73
+
+t/X2 w and w/o variance
+
+Author Manuscript
+
+Table 1:
+Fatimah et al.
+Page 19
+
+0.83
+0.97
+0.99
+
+Alcohol use disorder
+
+Stimulant use disorder
+
+Cocaine use disorder
+
+0.9
+0.92
+
+Marijuana use disorder
+
+Tranquilizer use disorder
+
+p<.001
+
+***
+
+p<.01,
+
+**
+
+p<.05;
+
+1
+
+Hallucinogenic use disorder
+
+0.96
+
+0.82
+
+Narcotics use disorder
+
+0.71
+
+Post-traumatic stress disorder
+
+Author Manuscript
+
+*
+
+Author Manuscript
+
+Panic disorder
+
+18.07%
+
+40%
+
+11.54%
+
+40.38%
+
+38.46%
+
+30.38%
+
+43.46%
+
+13.67%
+
+16.54%
+
+22.46%
+
+36.96%
+
+15.22%
+
+47.10%
+
+38.41
+
+29.71%
+
+50.00%
+
+9.56%
+
+16.67%
+
+Mean (SD)/% Diagnosed, Patients
+w/Variance (N = 139)
+
+Author Manuscript
+
+Mean (SD)/% Diagnosed,
+Combined (N = 261)
+
+13.11%
+
+43.44%
+
+7.38%
+
+32.79%
+
+38.52%
+
+31.15%
+
+36.07%
+
+18.33%
+
+16.39%
+
+Mean (SD)/%, Patients w/o
+Variance (N = 122)
+
+3.22
+
+0.88
+
+3.17
+
+4.93*
+
+0.00
+
+0.01
+
+4.57*
+
+3.45
+
+1.18
+
+t/X2 w and w/o variance
+
+Author Manuscript
+
+α/κ
+
+Fatimah et al.
+Page 20
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 21
+
+Table 2:
+
+Author Manuscript
+
+Double well potential model with random effects and no covariates
+Estimate (SE)
+
+t-value
+
+95% CI
+
+Use mean
+
+0.11 (0.03) ***
+
+3.33
+
+(0.04, 0.17)
+
+b mean
+
+0.64 (0.05) ***
+
+13.12
+
+(0.55, 0.74)
+
+a mean
+
+0.28 (0.04) ***
+
+6.55
+
+(0.20, 0.37)
+
+Use variance
+
+0.09 (0.02) ***
+
+4.90
+
+(0.05, 0.12)
+
+b variance
+
+0.03 (0.03)
+
+1.04
+
+(−0.02, 0.08)
+
+a variance
+
+0.02 (0.01) ***
+
+3.34
+
+(0.01, 0.04)
+
+Dynamic noise
+
+0.01 (0.00) ***
+
+8.82
+
+(0.00, 0.01)
+
+N=139.
+
+Author Manuscript
+
+***
+
+p<.001
+
+Author Manuscript
+Author Manuscript
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 22
+
+Table 3:
+
+Author Manuscript
+
+Double well potential model with baseline predictors
+
+Author Manuscript
+Author Manuscript
+
+Estimate (SE)
+
+t-value
+
+95% CI
+
+b
+
+0.61 (0.02)***
+
+25.90
+
+(0.56, 0.65)
+
+Use mean
+
+0.11 (0.03)***
+
+3.46
+
+(0.05, 0.18)
+
+a mean
+
+0.19 (0.06)***
+
+6.25
+
+(0.18, 0.34)
+
+Age
+
+0.00 (0.001)
+
+-1.60
+
+(0.00, 0.00)
+
+Gender
+
+0.06 (0.03)**
+
+2.59
+
+(0.02, 0.12)
+
+Education
+
+0.02 (0.01)
+
+1.50
+
+(−0.01, 0.05)
+
+Court mandate
+
+-0.02 (0.03)
+
+-0.68
+
+(−0.08, 0.04)
+
+Condition
+
+0.06 (0.02)**
+
+2.48
+
+(0.01, 0.10)
+
+Use variance
+
+0.08 (0.01)***
+
+5.34
+
+(0.05, 0.10)
+
+a variance
+
+0.02 (0.01)**
+
+3.03
+
+(0.01, 0.03)
+
+Dynamic noise
+
+0.01 (0.001)***
+
+8.66
+
+(0.00, 0.01)
+
+b
+
+0.64 (0.03)***
+
+25.64
+
+(0.59, 0.69)
+
+Use mean
+
+0.12 (0.03)***
+
+3.71
+
+(0.06, 0.19)
+
+a mean
+
+0.12 (0.09)
+
+1.33
+
+(−0.06, 0.29)
+
+Age
+
+0.002 (0.002)
+
+-1.27
+
+(−0.01, 0.001)
+
+Gender
+
+0.05 (0.04)
+
+1.22
+
+(−0.03, 0.12)
+
+Education
+
+0.04 (0.02)*
+
+2.17
+
+(0.004, 0.08)
+
+Court Mandate
+
+0.06 (0.04)
+
+1.47
+
+(−0.02, 0.14)
+
+Condition
+
+0.08 (0.03)**
+
+2.56
+
+(0.02, 0.15)
+
+Major depressive disorder
+
+0.03 (0.05)
+
+0.61
+
+(−0.07, 0.13)
+
+Panic disorder
+
+0.12 (0.05)**
+
+2.45
+
+(0.02, 0.21)
+
+Post-traumatic stress disorder
+
+0.35 (0.09)***
+
+4.09
+
+(0.18, 0.52)
+
+Alcohol
+
+-0.08 (0.03)**
+
+-2.54
+
+(−0.15, −0.02)
+
+Stimulants
+
+-0.03 (0.04)
+
+-0.74
+
+(−0.10, 0.05)
+
+Marijuana
+
+-0.02 (0.03)
+
+-0.45
+
+(−0.08, 0.05)
+
+Cocaine
+
+0.10 (0.04)**
+
+2.67
+
+(0.03, 0.18)
+
+Narcotics
+
+0.03 (0.04)
+
+0.78
+
+(−0.04, 0.10)
+
+Tranquilizers
+
+Block 1
+
+Block 2: Set 1
+
+Substance use disorder
+
+Author Manuscript
+
+-0.04 (0.04)
+
+-1.01
+
+(−0.13, 0.04)
+
+CMR
+
+0.002 (0.001)
+
+-1.20
+
+(−0.01, 0.001)
+
+In-patient treatment
+
+0.08 (0.004)***
+
+18.64
+
+(0.07, 0.09)
+
+Out-patient treatment
+
+-0.01 (0.01)
+
+-1.11
+
+(−0.03, 0.01)
+
+Use variance
+
+0.09 (0.02)***
+
+5.30
+
+(0.05, 0.12)
+
+a variance
+
+0.05 (0.01)***
+
+3.61
+
+(0.02, 0.07)
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 23
+
+Estimate (SE)
+
+t-value
+
+95% CI
+
+0.01 (0.001)***
+
+7.67
+
+(0.01, 0.01)
+
+b
+
+0.63 (0.02)***
+
+29.59
+
+(0.59, 0.67)
+
+Use mean
+
+0.12 (0.03)***
+
+3.58
+
+(0.05, 0.19)
+
+a mean
+
+0.24 (0.09)**
+
+2.70
+
+(0.07, 0.42)
+
+Age
+
+0.0003 (0.002)
+
+-0.15
+
+(−0.004, 0.004)
+
+Gender
+
+0.02 (0.04)
+
+0.63
+
+(−0.05, 0.10)
+
+Education
+
+0.05 (0.02)*
+
+2.25
+
+(0.01, 0.09)
+
+Court mandate
+
+-0.001 (0.05)
+
+-0.02
+
+(−0.09, 0.09)
+
+Condition
+
+0.09 (0.03)**
+
+2.57
+
+(0.02, 0.15)
+
+Negative Affectivity
+
+-0.02 (0.03)
+
+-0.57
+
+(−0.08, 0.05)
+
+Detachment
+
+0.08 (0.04)*
+
+2.01
+
+(0.002, 0.15)
+
+Antagonism
+
+-0.06 (0.04)
+
+-1.57
+
+(−0.13, 0.01)
+
+Psychoticism
+
+-0.02 (0.04)
+
+-0.56
+
+(−0.09, 0.05)
+
+Disinhibition
+
+0.05 (0.04)
+
+1.15
+
+(−0.03, 0.13)
+
+Alcohol
+
+-0.04 (0.01)***
+
+-3.38
+
+(−0.06, −0.02)
+
+Marijuana
+
+0.02 (0.01)*
+
+2.15
+
+(0.002, 0.04)
+
+Cocaine
+
+0.01 (0.01)
+
+1.40
+
+(−0.01, 0.03)
+
+Heroine
+
+-0.03 (0.01)
+
+-0.25
+
+(−0.02, 0.02)
+
+Amphetamines
+
+-0.01 (0.01)
+
+-0.60
+
+(−0.02, 0.01)
+
+Prescription drugs
+
+Dynamic noise
+
+Author Manuscript
+
+Block 2: Set 2
+
+Author Manuscript
+
+Substance use frequency
+
+Author Manuscript
+
+-0.001 (0.01)
+
+0.13
+
+(−0.02, 0.02)
+
+CMR
+
+-0.001 (0.002)
+
+-0.93
+
+(0.01, 0.002)
+
+In-patient treatment
+
+0.07 (0.005)***
+
+14.15
+
+(0.06, 0.08)
+
+Out-patient
+
+0.01 (0.01)
+
+0.45
+
+(−0.02, 0.03)
+
+Use variance
+
+0.09 (0.02)
+
+5.14
+
+(0.06, 0.12)
+
+a variance
+
+0.05 (0.01)
+
+3.68
+
+(0.02, 0.08)
+
+Dynamic noise
+
+0.01 (0.001)***
+
+9.08
+
+(0.01, 0.01)
+
+Note: N=134.
+
+*
+
+p<.05
+
+**
+p<.01
+***
+p<.001
+
+Author Manuscript
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Fatimah et al.
+
+Page 24
+
+Table 4:
+
+Author Manuscript
+
+Correlations of steepness and relapse risk with outcome variables
+Steepness
+
+95% CI
+
+Relapse Risk
+
+95% CI
+
+Type of correlation
+
+Employment
+
+0.16
+
+(−0.06, 0.36)
+
+-0.07
+
+(−0.28, 0.15)
+
+Polyserial
+
+Independent living
+
+-0.07
+
+(−0.28, 0.15)
+
+0.14
+
+(−0.07, 0.35)
+
+Polyserial
+
+Government dependence
+
+0.04
+
+(−0.15, 0.23)
+
+-0.03
+
+(−0.22, 0.17)
+
+Polyserial
+
+Days incarcerated
+
+-0.05
+
+(−0.24, 0.15)
+
+-0.03
+
+(−0.23, 0.17)
+
+Polyserial
+
+Criminal behaviors
+
+-0.36 ***
+
+(−0.51, −0.19)
+
+0.26**
+
+(0.08, 0.42)
+
+Polyserial
+
+Life satisfaction
+
+0.17*
+
+(0.03, 0.33)
+
+-0.14
+
+(−0.31, 0.03)
+
+Pearson
+
+Psychiatric distress
+
+-0.09
+
+(−0.25, 0.08)
+
+0.04
+
+(−0.13, 0.20)
+
+Pearson
+
+N=139.
+
+*
+
+p<.05
+
+Author Manuscript
+
+**
+p<.01
+***
+p<.001
+
+Author Manuscript
+Author Manuscript
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+
+Author Manuscript
+
+Author Manuscript
+
+Author Manuscript
+
+J Psychopathol Clin Sci. Author manuscript; available in PMC 2026 January 01.
+----
+
+Step 2: TFU
+Step 2: RR
+
+--
+
+Step 2: TFU
+Step 1: TFU
+
+--
+
+Step 2: RR
+
+1.71 (0.86)*
+
+Step 2: Steepness
+--
+
+0.00 (0.00)
+
+Step 1: RR
+
+0.00 (0.001)
+
+0.00 (0.00)
+
+Step 2: TFU
+
+Step 2: TFU
+
+1.71 (0.86)*
+
+Step 2: Steepness
+
+Step 1: TFU
+
+1.70 (0.84)*
+
+--
+
+Step 2: RR
+Step 1: Steepness
+
+--
+
+Step 2: PDU
+
+--
+
+--
+
+-Step 1: PDU
+
+--
+
+--
+
+--
+
+--
+
+--
+
+--
+
+--
+
+--
+
+.03
+
+0.00
+
+--
+
+--
+
+--
+
+--
+
+--
+
+Step 2: PDU
+
+--
+
+.022
+
+Step 2: RR
+
+1.48 (0.97)
+
+Step 2: Steepness
+--
+
+-0.14 (0.31)
+
+.002
+
+Step 1: RR
+
+-0.37 (0.27)
+
+Step 2: PDU
+
+-0.14 (.31)
+
+Step 1: PDU
+
+1.48 (0.97)
+
+Step 2: PDU
+
+1.70 (.84)*
+
+Step 2:Steepness
+
+Step 1: Steepness
+
+Δr2
+
+--
+
+--
+
+--
+
+--
+
+--
+
+--
+
+.030
+
+.0002
+
+.030
+
+.030
+
+--
+
+--
+
+--
+
+--
+
+--
+
+--
+
+--
+
+.032
+
+.01
+
+.032
+
+0.03
+
+Total r2
+
+104.42 (37.42)**
+
+-.003 (.002)
+
+-.003 (.002)
+
+-.003 (.002)
+
+104.42 (37.42)**
+
+104.14(37.60)**
+
+-5.15(1.36)***
+
+-.002 (0.002)
+
+-.003 (0.002)
+
+-.002 (0.002)
+
+-5.15(1.36)***
+
+-5.34 (1.34)***
+
+25.84 (40.42)
+
+1.98 (.49)***
+
+2.13 (.43)***
+
+1.98 (.49)***
+
+25.84 (40.42)
+
+104.14 (37.60)**
+
+-2.86 (1.48)
+
+1.68 (.48)***
+
+2.13 (.43)***
+
+1.68 (.48)***
+
+-2.86 (1.48)
+
+-5.34 (1.34)***
+
+Estimate (SE)
+
+.056
+
+.017
+
+.099
+
+.007
+
+.002
+
+.107
+
+.023
+
+.076
+
+Δr2
+
+Criminal Behaviors
+
+.072
+
+.016
+
+.072
+
+.055
+
+.115
+
+.016
+
+.115
+
+.108
+
+.162
+
+.160
+
+.162
+
+.055
+
+.183
+
+.160
+
+.183
+
+.108
+
+Total r2
+
+PDU= Proportion of days used; TFU= Time to first use; RR= Relapse risk; Categories of Criminal behavior: none=0, 1= 1, 2–6= 2, 7 or more.
+
+Increment of RR to TFU
+
+Increment of TFU to RR
+
+Increment of Steepness to TFU
+
+Increment of TFU to Steepness
+
+Increment of RR to PDU
+
+Increment of PDU to RR
+
+Increment of Steepness to PDU
+
+Increment of PDU to Steepness
+
+Estimate (SE)
+
+Life Satisfaction
+
+Incremental contribution of steepness and relapse risk over proportion days used and time to first use
+
+Author Manuscript
+
+Table 5
+Fatimah et al.
+Page 25
+
+

@@ -1,0 +1,186 @@
+#!/usr/bin/env python3
+"""AST-assisted inventory of numeric choices in the executable group model."""
+from __future__ import annotations
+
+import ast
+import hashlib
+import json
+from collections import Counter
+from datetime import datetime, timezone
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MODEL = ROOT / "model" / "aa_group_model.py"
+JSON_OUT = ROOT / "research" / "model-choice-inventory.json"
+MD_OUT = ROOT / "research" / "MODEL-CHOICE-INVENTORY.md"
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+class Visitor(ast.NodeVisitor):
+    def __init__(self):
+        self.function = None
+        self.assignment = None
+        self.rows = []
+
+    def visit_FunctionDef(self, node):
+        old = self.function
+        self.function = node.name
+        self.generic_visit(node)
+        self.function = old
+
+    def visit_Assign(self, node):
+        old = self.assignment
+        names = [t.id for t in node.targets if isinstance(t, ast.Name)]
+        self.assignment = names[0] if names else old
+        self.generic_visit(node)
+        self.assignment = old
+
+    def visit_AnnAssign(self, node):
+        old = self.assignment
+        self.assignment = node.target.id if isinstance(node.target, ast.Name) else old
+        self.generic_visit(node)
+        self.assignment = old
+
+    def visit_Constant(self, node):
+        if isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+            if self.assignment in {"S", "GOV"}:
+                category = "authored structural zero" if node.value == 0 else "registered sensitivity value"
+            elif self.assignment == "DEFAULTS":
+                category = "registered sensitivity value"
+            elif self.function == "effective_adherence":
+                category = "fixed structural choice: protective-adherence map"
+            elif self.function == "resources":
+                category = "fixed structural choice: resource capacity"
+            elif self.function == "step_growth":
+                category = "fixed structural choice: state-update map"
+            elif self.function == "simulate":
+                category = "fixed experiment or population-process choice"
+            elif self.assignment in {"NSTEP", "VIABILITY_THRESHOLD"}:
+                category = "fixed model or analysis choice"
+            else:
+                category = "implementation, derived, or numerical constant"
+            self.rows.append({
+                "value": node.value,
+                "line": node.lineno,
+                "column": node.col_offset,
+                "function": self.function,
+                "assignment": self.assignment,
+                "category": category,
+            })
+
+
+def load_model():
+    namespace = {"__name__": "choice_inventory_model"}
+    exec(compile(MODEL.read_text(), str(MODEL), "exec"), namespace)
+    return namespace
+
+
+def build():
+    tree = ast.parse(MODEL.read_text())
+    visitor = Visitor()
+    visitor.visit(tree)
+    ns = load_model()
+    S, GOV, defaults = ns["S"], ns["GOV"], ns["DEFAULTS"]
+    scalar_defaults = [k for k, v in defaults.items() if np.isscalar(v)]
+    registered = {
+        "scalar_defaults": len(scalar_defaults),
+        "scalar_default_names": scalar_defaults,
+        "step_speeds": len(defaults["a"]),
+        "S_nonzero_cells": int(np.count_nonzero(S)),
+        "GOV_nonzero_cells": int(np.count_nonzero(GOV)),
+    }
+    registered["total"] = sum(
+        registered[k] for k in ("scalar_defaults", "step_speeds", "S_nonzero_cells", "GOV_nonzero_cells")
+    )
+    protective_rows = [3, 5, 6, 8, 9]
+    relevant_cells = int(sum(np.count_nonzero(S[i]) for i in protective_rows))
+    summary = {
+        "schema_version": 1,
+        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "model_sha256": sha(MODEL),
+        "registered_set": registered,
+        "authored_structural_zeros": {
+            "S": int(S.size - np.count_nonzero(S)),
+            "GOV": int(GOV.size - np.count_nonzero(GOV)),
+        },
+        "scenario_specific_effective_dimension": {
+            "full_adherence_GOV_magnitudes_inert": int(np.count_nonzero(GOV)),
+            "reason": "GOVW.T @ ones equals one for every governed resource",
+        },
+        "protective_index_step_consumption_cells": relevant_cells,
+        "numeric_literals": visitor.rows,
+        "literal_category_counts": dict(Counter(r["category"] for r in visitor.rows)),
+        "scope_note": (
+            "The 118 values are the registered numeric sensitivity set, not every "
+            "simulation-effective choice. Horizons, dt, seeds, thresholds, founder state, "
+            "functional forms, structural zeros, and perturbation designs are classified separately."
+        ),
+    }
+    return summary
+
+
+def markdown(data):
+    r = data["registered_set"]
+    z = data["authored_structural_zeros"]
+    lines = [
+        "# Model Choice Inventory",
+        "",
+        "Generated by tools/inventory_model_choices.py from the executable model.",
+        f"Model SHA-256: {data['model_sha256']}.",
+        "",
+        "## What 118 means",
+        "",
+        f"The registered sensitivity set is exactly **{r['total']} numeric values**:",
+        "",
+        f"- {r['scalar_defaults']} scalar defaults;",
+        f"- {r['step_speeds']} Step growth speeds;",
+        f"- {r['S_nonzero_cells']} nonzero entries in S; and",
+        f"- {r['GOV_nonzero_cells']} nonzero entries in GOV.",
+        "",
+        "It is not an inventory of every simulation-effective choice. The model also contains",
+        "fixed functional coefficients, founder and arrival states, time and horizon choices,",
+        "the endpoint viability threshold, random-seed designs, and authored structural zeros.",
+        "",
+        "## Structural and effective dimensions",
+        "",
+        f"- S contains {z['S']} authored zero cells; GOV contains {z['GOV']} authored zero cells.",
+        "- Multiplicative sensitivity cannot test whether those zeros should be nonzero.",
+        f"- At full adherence all {data['scenario_specific_effective_dimension']['full_adherence_GOV_magnitudes_inert']} "
+        "nonzero GOV magnitudes cancel from governance quality and are inert in that scenario.",
+        f"- The five protective Traditions' index Steps contain {data['protective_index_step_consumption_cells']} "
+        "nonzero consumption cells, not 35.",
+        "",
+        "## Classification",
+        "",
+        "| Category | Numeric literal occurrences |",
+        "|---|---:|",
+    ]
+    for category, count in sorted(data["literal_category_counts"].items()):
+        lines.append(f"| {category} | {count} |")
+    lines += [
+        "",
+        "The occurrence table is a code-audit aid, not a parameter count: repeated zero and one",
+        "literals are shown separately because their locations can encode different choices.",
+        "The machine-readable file records every literal with its line, function, assignment,",
+        "value, and classification.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def main():
+    data = build()
+    JSON_OUT.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+    MD_OUT.write_text(markdown(data))
+    print(f"wrote {JSON_OUT}")
+    print(f"wrote {MD_OUT}")
+
+
+if __name__ == "__main__":
+    main()
