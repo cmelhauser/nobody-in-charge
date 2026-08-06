@@ -1,7 +1,7 @@
 # Project handoff — expanded robustness and synchronized release
 
 **Written:** 2026-08-06  
-**Canonical project:** `<repository root>`  
+**Canonical project:** the Git checkout containing this file; its repository root is `.`
 **Status:** Paused at the user's request because of usage limits. No analysis process is running. The work is substantial but not release-complete.
 
 ## 1. Objective and decisions that must not change
@@ -109,10 +109,10 @@ scalar:p_gate
 scalar:psi
 ```
 
-This is 64 of the planned 944 OAT perturbation points. Its metadata remains `status: incomplete`, as it should. Resume with:
+This is 64 of the planned 944 OAT perturbation points. Its metadata remains `status: incomplete`,
+as it should. Resume from the repository root:
 
 ```bash
-cd <repository root>
 python3 model/sensitivity_oat_full.py 8
 ```
 
@@ -204,6 +204,7 @@ python3 tools/run_notebook.py
 python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
+python3 tools/check_portability.py
 python3 tools/build_book.py
 tectonic --outdir paper paper/anonymity-as-an-aggregation-condition.tex
 pandoc reference/PRIMER-steps-and-traditions.md \
@@ -225,18 +226,21 @@ The PDFs currently on disk predate the latest source edits and must not be treat
 
 After rebuilding, use `pdfinfo` to record page counts and sizes; render every page with Poppler; inspect contact sheets for all pages; and inspect representative or suspicious pages at high/original resolution. Check for clipped equations, bad page breaks, overflow, missing glyphs, stale tables, blank pages, and inconsistent headers. The release gate also requires each PDF to be nontrivial and newer than its public sources.
 
-## 10. Final synchronization
+## 10. Repository and working-copy policy
 
-The canonical project is the Claude folder named above. The intended mirror is:
+The authoritative project is the Git checkout containing this file. All paths in project
+documentation, scripts, notebooks, and commands are repository-relative. Determine the root
+when needed with `git rev-parse --show-toplevel`; never encode its parent directory in a tracked
+file. Work on `main` only when explicitly authorized, keep `origin` pointed at the project
+repository, and verify `HEAD` against `origin/main` before release.
 
-```text
-<review copy>
-```
-
-That mirror has **not** been brought up to date with this paused state. After the canonical release passes, perform a read-only `rsync --dry-run` comparison, then synchronize carefully, and verify that the mirror matches. Do not delete user material or unrelated metadata merely to force equality.
+Untracked copies may be retained for external tools to read, but they are reference copies only.
+Do not maintain mirror paths in project documentation or make mirror synchronization a release
+criterion. Transfer a reference copy from the current checkout only when explicitly requested,
+excluding `.git/`.
 
 ## 11. Current release condition
 
 `tools/check_release.py` is expected to fail at this checkpoint because OAT is incomplete; Morris, Sobol, and `research/ROBUSTNESS-RESULTS.md` are not final; notebooks have not been regenerated; and PDFs have not been rebuilt. This is intentional and is the correct fail-closed state.
 
-The next agent should resume at section 5, preserve all completed caches, update every dependent claim from the completed results, then run the full notebook, source, PDF, release, and mirror checks before calling the project finished.
+The next agent should resume at section 5, preserve all completed caches, update every dependent claim from the completed results, then run the full notebook, source, PDF, release, repository-identity, and portability checks before calling the project finished.

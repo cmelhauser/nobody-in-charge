@@ -103,7 +103,8 @@ execution order. Source files remain authoritative over caches and rendered arti
 
 ## 4. Release criteria
 
-- Every identity, cache, numeric, prose, source-boundary, notebook, PDF, and mirror check in
+- Every identity, cache, numeric, prose, source-boundary, notebook, PDF, repository-identity,
+  and portability check in
   `AGENT_VERIFY.md` has a reproducible result.
 - No public prose calls semantic `B` executable, calls low practice tenure, calls mixed T11 loss
   pure attraction, or calls endpoint `N>5` an absorbing death event.

@@ -11,6 +11,7 @@ import hashlib
 import importlib.util
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -168,6 +169,17 @@ def main() -> int:
     }
     for pattern, label in banned.items():
         require(re.search(pattern, joined, re.I | re.S) is None, label)
+
+    portability = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "check_portability.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    require(portability.returncode == 0,
+            "tracked project text contains no machine-specific absolute paths")
+    if portability.returncode:
+        failures.extend(f"FAIL: {line}" for line in portability.stdout.splitlines())
 
     # Rendered artifacts must not predate their public sources.
     artifacts = {

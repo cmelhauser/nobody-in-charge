@@ -931,8 +931,9 @@
     }
   },
   "label": "pre-correction",
+  "path_semantics": "repository-relative",
   "platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
-  "project_root": "<repository root>",
+  "project_root": ".",
   "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
   "schema_version": 1
 }
