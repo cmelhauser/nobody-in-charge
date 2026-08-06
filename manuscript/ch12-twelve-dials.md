@@ -1,0 +1,203 @@
+# Chapter Twelve
+## Twelve Dials
+
+There is a question people in AA ask each other that sounds like small talk and is not. Where are you in the steps?
+
+The expected answer is a number. I am on four. I finished my ninth last spring. It is a natural way to talk, and it treats the programme as a list with boxes down the side. You work through them, you tick them off, and the tick stays ticked.
+
+Everyone who has been around a while knows this is not quite how it goes. People who finished all twelve years ago come back looking like they have not done any of them. People stuck on the fourth for a decade are plainly doing something, and the something is working. A man who made his amends in 1994 has not, in any useful sense, still made them. The list-with-boxes account cannot express that, and the rooms have a whole vocabulary for working around it: you are as sick as your secrets, it works if you work it, we do not graduate.
+
+This chapter takes that vocabulary seriously enough to write it down. The proposal is small and everything in Part Three rests on it. **A person is not a position in a list. A person is twelve quantities, each of which can be high or low, and each of which moves.**
+
+Saying "I did Step Four" and saying "Step Four is at 0.8" are different kinds of statement. The first is about the past and is permanent. The second is about now and is perishable. If the second is the right description, three consequences follow immediately, and the rest of the chapter is those three consequences.
+
+---
+
+The first is that everything leaks.
+
+Left alone, a dial falls. This is not a moral claim and it is not about willpower. It is the standard structure of every model of accumulated human capability since Ben-Porath wrote his in 1967, and it is there because it is obviously true of skills, languages, fitness and relationships. A thing you built and then stopped doing does not stay where you left it.
+
+In the model each dial loses about six per cent of its current value per week when nothing is holding it up. That gives a half-life of a bit under three months: a practice at 0.8, entirely unattended, is at 0.4 in twelve weeks. I want to be clear that six per cent is a number I chose. What I did not choose is the shape, which is proportional decay, because that is what depreciation looks like in every literature that has measured anything like it.
+
+The immediate payoff is that the model can distinguish two people who would score identically on a checklist. Both have done all twelve steps. One is doing them; one did them. In a list the two are the same person. In twelve dials they are nowhere near each other, and the model will predict quite different futures for them, which is the minimum you would want from a description of a programme whose members insist on exactly this distinction.
+
+There is a second decay term, smaller and stranger. A dial falls faster when the dial *after* it is low. Practice on the ninth step erodes more quickly in someone whose tenth is empty. That is a modelling choice with a clear intuition behind it, which is that the later steps are partly what maintains the earlier ones, and it is worth flagging as a choice rather than a finding.
+
+---
+
+The second consequence is that the steps are gated.
+
+A dial cannot rise much while the one before it sits near zero. In the model the growth of each step is multiplied by the level of its predecessor, raised to a power. Set that power high and the gate is strict: nothing moves until the previous step is well established. Set it low and the gate is loose, and a person can make progress on the eighth while the fourth is barely started.
+
+This is the assumption most likely to be wrong, and it is also the one doing the most work, which is an uncomfortable combination. Chapter Thirteen is entirely about whether it is true, and states plainly that nobody has tested it, so Chapter Twelve should not pretend the matter is settled. What this chapter contributes is only that the folk rule is expressible: the claim that you cannot skip a step is a claim about the value of one exponent, and writing it that way is what makes it checkable.
+
+There is also a fact about that exponent I did not expect, which comes from the sensitivity work rather than from any argument. Of the hundred and eighteen numbers in this model, the step-ordering exponent is the one with the largest single influence on how a group ends up. Moved alone by a quarter in either direction, it swings the group's daily practice by three times its own baseline value, which is more than the decay rate does and more than anything else does. The strictness of the ordering is the most consequential thing in the apparatus and it is a number nobody has measured. That is worth saying plainly, and it is a better argument for Chapter Thirteen's research programme than anything Chapter Thirteen says on its own behalf.
+
+---
+
+The third consequence is the one that connects a person to a room, and it is where the chapter has something genuinely non-obvious to report.
+
+Some steps need other people and some do not. That much is obvious from reading them. What is not obvious is how uneven the difference is, or which steps fall where.
+
+In the model this is not a judgement. It is derived. I asked, for each step, what a person actually needs from a group in order to do it. Somewhere to walk in. Other people who identify themselves as alcoholic, and visible evidence that recovery happens. Confidentiality, and counsel from someone further along. Somebody to help. Continuity week to week, and a certain amount of gentle pressure. Eight things. Each step consumes some combination of them, and a step's dependence on the group is just how much it consumes in total.
+
+Run that through and the answer is a spread of about six to one, from the least social step to the most. The two that need a group most, both at the maximum, are the first and the last: admitting the problem, and carrying the message. Everything in the middle needs less, and the least social of all is the seventh, at about a sixth of the maximum, which in most tellings is the one conducted alone and in silence.
+
+That is a claim about what a meeting is for, and it is worth stating in the form a member might recognise. **The group is most necessary at the two ends and least necessary in the middle.** You need a room to arrive in and you need a room to be useful to. In between there is a stretch of work that is largely yours, done in your own time, and the room's job during that stretch is mostly to still be there when you come back.
+
+I have some confidence in the shape of that result, because it fell out of asking what each step requires rather than out of deciding what the answer should be. I have much less confidence in the exact coefficients, and the honest position is that the ordering of the twelve is more trustworthy than any individual value in it.
+
+---
+
+Now a correction that matters for Part Four.
+
+A person's practice contributes to what the group can supply, and what the group
+supplies contributes to a person's practice. I had described those flows as two
+linear weights, one upward and beta downward. The code does not contain that pair.
+Member states enter through means, threshold counts, sums, dispersion and
+saturation. The return path passes through resource capacities, normalized
+bundles, beta, sequential gates, maintenance capacity and remaining headroom.
+
+Beta is still useful as a within-model dependence index: it controls the blend of
+autonomous and resource-supported peer growth for each Step. Its reciprocal is not
+a transmission ratio. Any directional comparison would have to name a state,
+perturbation and derivative, or use a paired trajectory contrast.
+
+---
+
+I should be exact about what this apparatus is, because the preface promised a proper description and because everything in Parts Three, Four and Five is downstream of it.
+
+A member is twelve numbers between zero and one. A group is a collection of members, plus eight supply quantities computed from their states, plus the twelve Traditions expressed as levels of adherence between zero and one. Members arrive from two channels and leave through two. Time runs in half-weeks for thirty years. Steps grow at a rate that is a product of four things: a top speed for that step, the gate, the group's supply of what that step needs, and the person's own maintenance capacity, which is Chapter Fourteen's subject. Against growth runs the leak.
+
+That is the central machine. It has **one hundred and eighteen registered numeric
+values**: twenty-two scalar defaults, twelve Step speeds, forty-nine nonzero
+entries in the consumption matrix and thirty-five nonzero entries in the
+governance matrix. That is not every simulation-effective choice. Functional
+coefficients, founder and arrival states, horizons, the time step, the viability
+threshold, perturbation ranges and the one hundred and eight structural zeros are
+separate choices. None was fitted to AA group data.
+
+Two things follow that a reader should hold onto.
+
+The first is that a model like this can show a set of ideas is consistent. It cannot show they are true. Everything Part Three claims is of the form *if the world works like this, then that follows*, and the antecedent has not been checked against a single real person.
+
+The second is methodological. The expanded one-at-a-time screen moves each of
+those 118 registered values in both directions at ten, twenty-five, fifty and
+seventy-five per cent, producing 944 parameter-direction-distance endpoints. It
+uses only three stochastic seeds per endpoint and cannot establish universality
+or test structural zeros. Its strict orderings, ties, reversals and unresolved
+comparisons must be reported separately. Confirmatory claims in this revision use
+400 paired seeds and named mechanism contrasts.
+
+---
+
+One last observation, which is the strangest thing the sensitivity work turned up and which belongs here rather than anywhere else, because it is a fact about the apparatus rather than about recovery.
+
+Thirty-five of those hundred and eighteen numbers record which Traditions govern the supply of which group resource. All of Part Four is built on them. And they have no effect at all on a group that follows the Traditions completely.
+
+This is arithmetic and not a result. Each column of that matrix is scaled to sum to one before it is used, so at full adherence the scaling undoes the entries exactly and every resource comes out at quality one, no matter what I put in the cells. Those thirty-five numbers begin to bite only when adherence is partial, and even then a quarter's change in any one of them shifts nothing you could measure.
+
+This cancellation is scenario-specific, not reassurance that the governance
+matrix is unimportant. At partial adherence its magnitudes matter, and Part Four's
+semantic-overlap claims also depend on them. The blank pattern is authored too,
+and multiplicative sensitivity cannot test whether a blank should be filled.
+
+---
+
+## The Machinery
+
+### 1. What the model says
+
+A member is a vector x of twelve step-practice levels in [0, 1]. Growth in each step is the product of four terms and is opposed by depreciation. The three properties the chapter rests on are all in that one equation: depreciation makes practice perishable, the gate term makes it ordered, and the group-supply term makes it social to a degree that varies by step.
+
+The group-dependence coefficients are calculated from, but not independently
+validated against, the authored consumption matrix. Each Step's row in S is
+summed and normalized by the largest row sum. Steps 1 and 12 are 1.00, Step 7 is
+0.17, and the mean is 0.53.
+
+These coefficients blend autonomous and resource-supported peer growth. The code
+does not implement their reciprocals as member-to-group weights, so no one-to-six
+transmission claim follows.
+
+### 2. The technical version
+
+Per-step growth, in full, for member *m* and step *i*:
+
+> dx(i)/dt = h(m) * a(i) * gate(i) * peer(i) * Cm(i) * (1 - x(i))  -  d(i) * x(i)
+
+with
+
+> gate(i) = x(i-1) ^ p_gate,  and gate(1) = 1
+>
+> peer(i) = (1 - beta(i)) + beta(i) * G(i),  G = Snorm * R
+>
+> Cm(i) = 1 - w(i) * (1 - C),   w(i) = 0.05 + (i - 1) * (1 - 0.05) / 11
+>
+> d(i) = delta0 * (1 + psi * (1 - x(i+1))) for i < 12,  d(12) = delta0
+
+Two terms in that equation belong to other chapters and are written here so this one is
+complete rather than referring outward. **C is the maintenance capacity** and Chapter Fourteen
+derives it; all that matters here is that it lies in [0, 1] and is the same number for every
+step of a given member. **w(i) is the per-step exposure to it**, rising linearly from 0.05 at
+Step One to 1.00 at Step Twelve, so that Cm(1) is essentially 1 whatever C is and Cm(12) is C
+itself. That weighting is the formal content of the claim that an arrival has nothing to
+maintain and a veteran has a great deal. **h(m) is member heterogeneity**, a lognormal draw
+parameterized as exp(N(-het_sd^2/2, het_sd)) and fixed after arrival. Its arithmetic mean is
+one, so changing het_sd changes dispersion without mechanically changing average capability.
+
+**Parameters.** delta0 = 0.06 per week, giving an unattended half-life of 11.6 weeks. psi = 0.20 is the backward complementarity. p_gate = 1.5 is the ordering exponent. Top speeds a run from 0.15 at Step 9 to 0.30 at Step 1.
+
+**The eight group resources:** somewhere to be admitted, others who identify as alcoholic, visible proof of recovery, confidentiality, counsel, somebody to help, week-to-week continuity, and gentle pressure.
+
+**Derived group-dependence, beta:**
+
+| Step | beta | Step | beta |
+|---|---|---|---|
+| 1 admit | 1.00 | 7 ask | 0.17 |
+| 2 believe | 0.71 | 8 list harms | 0.33 |
+| 3 decide | 0.29 | 9 amends | 0.62 |
+| 4 inventory | 0.33 | 10 daily | 0.62 |
+| 5 tell someone | 0.71 | 11 connect | 0.33 |
+| 6 willing | 0.25 | 12 carry it | 1.00 |
+
+Maximum 1.00 at Steps 1 and 12, minimum 0.17 at Step 7, mean 0.53, ratio of extremes 6.0.
+
+**Registered sensitivity inventory:** 22 continuous scalars, 12 step speeds, 49 non-zero cells in S, 35 in the governance matrix. These 118 values are not every authored model choice; fixed constants, structural zeros, equations and experiment-design settings are inventoried separately. None is fitted.
+
+**From the targeted sweep** (`research/oat_full.json`, notebook section 9): the ordering exponent p_gate has the largest single influence on group maintenance of any parameter, swinging it from 0.4386 to 0.0045 against a baseline of 0.1458, a range of 2.98 times baseline. The decay rate is second at 1.83 and member heterogeneity third at 1.69. All 35 governance cells produce exactly zero change in every outcome at full adherence, because the column-normalised governance quality is identically 1 when every tradition is at 1.0.
+
+### 3. Notes on sources
+
+**The functional forms are borrowed; the values are not.** Depreciating human capital with endogenous investment is Ben-Porath (1967), read at source. The multiplicative production of a stage from several inputs, and the idea that early stocks condition later growth, are from Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010), also read at source. The saturation form used for the participatory resources is Iannaccone's (1992), read at source.
+
+**Nothing here is calibrated to AA data**, because none exists at the required resolution. Inflow, dropout and churn were originally set to target a steady state near forty-five members with an experienced core near nine, roughly a healthy urban meeting. After correcting the lognormal capability draw to have mean one, 400 runs deliver 17.80 ± 0.88 members overall. Among the 394 viable endpoints, the established count above 0.1 is 14.13 ± 0.79 and the experienced count above 0.5 is 1.25 ± 0.20. The calibration therefore fails rather than merely undershooting. I report that failure instead of retuning after seeing the results; absolute levels should not be interpreted as estimates of AA groups.
+
+**The resource list is mine.** The eight group resources were arrived at by asking what each step requires from other people, and no source proposes this list. Someone who knows the programme better would produce a different eight, and the group-dependence coefficients would move with it. What I would expect to survive is the shape: the entry step and the service step depending most, the interior steps depending least.
+
+**Not read.** I have not consulted the literature on skill depreciation rates in adults, which would at least tell me whether six per cent a week is the right order of magnitude for anything comparable. It is the most easily improved number in the model and I have not tried.
+
+**The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
+
+### 4. References
+
+**Read in full:**
+
+Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. The depreciation structure and the treatment of a capability as a stock with investment and decay.
+
+Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *American Economic Review* 97(2): 31-47. Self-productivity, and the conditioning of later growth on earlier stocks.
+
+Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology whose substitution parameter is Chapter Thirteen's subject.
+
+Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2): 271-291. The saturation form for goods produced by participation.
+
+**Cited at a remove:**
+
+Nothing.
+
+**Internal, and reproducible from this repository:**
+
+The derived group-dependence coefficients, the transmission ratio, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`.
+
+**What was not read:**
+
+The empirical literature on depreciation rates of adult skills and habits, which bears directly on the decay rate and was not searched.

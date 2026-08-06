@@ -1,0 +1,12 @@
+[
+  {"id":"ATU_Report_1840","status":"acquired","type":"primary_historical","topics":["temperance","Washingtonian movement","organizational history"],"path":"sources/acquired/American_Temperance_Union_Report_1840"},
+  {"id":"ATU_Annual_Report_1841","status":"acquired","type":"primary_historical","topics":["temperance","Washingtonian movement","organizational history"],"path":"sources/acquired/American_Temperance_Union_Annual_Report_1841"},
+  {"id":"ATU_Almanac_1849","status":"acquired","type":"primary_historical","topics":["temperance","public education","organizational history"],"path":"sources/acquired/American_Temperance_Union_Almanac_1849"},
+  {"id":"Pagano_2004","status":"verified_online","type":"empirical_research","topics":["AA-related helping","Project MATCH","relapse"],"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3008319/"},
+  {"id":"Greenfield_Tonigan_2013","status":"verified_online","type":"empirical_research","topics":["12-step practices","GAATOR","AA"],"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3707937/"},
+  {"id":"Grosh_1842","status":"pending","type":"primary_historical","topics":["Washingtonian societies","meeting organization"],"url":"https://hdl.handle.net/2027/hvd.32044004487591"},
+  {"id":"Kurtz_Not_God","status":"restricted","type":"secondary_history","topics":["AA history","Oxford Group","Twelve Steps"]},
+  {"id":"AA_Tradition_P17","status":"acquired","type":"primary_organizational_text","topics":["Traditions 2, 9, 12","AA history","anonymity"],"path":"sources/acquired/AA_Tradition_P17","url":"https://www.aa.org/sites/default/files/literature/P-17_0724.pdf"},
+  {"id":"DeGroot_1974","status":"restricted","type":"formal_network_theory","topics":["consensus","opinion dynamics"],"doi":"10.1080/01621459.1974.10480137"},
+  {"id":"Heelas_1999","status":"verified_online","type":"secondary_sociology","topics":["AA ethics","anonymity","nonalignment"],"doi":"10.1111/1468-4446.00116"}
+]
