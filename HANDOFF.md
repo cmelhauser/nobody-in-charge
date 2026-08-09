@@ -158,7 +158,7 @@ The following source documents have received major corrections and synchronizati
 - `appendix/APPENDIX.md`: replaced with a concise, current, self-contained technical appendix. Section A7.5 still awaits final OAT/Morris/Sobol results.
 - `research/PARAMETERS.md`: replaced with the current audit and robustness designs. Section 8 awaits final OAT/Morris/Sobol results.
 - `AGENT_VERIFY.md`: replaced with a read-only, fail-closed independent verification brief. It needs final OAT/Morris/Sobol expectations and artifact status.
-- `reference/PREFACE.md`: global, tiered, matrix, and structural sensitivity claims corrected.
+- `manuscript/ch00-preface.md`: global, tiered, matrix, and structural sensitivity claims corrected.
 - `paper/anonymity-as-an-aggregation-condition.tex`: abstract, conclusion, structural analysis, design language, source boundary, trajectories, and old reversal claims corrected.
 - Manuscript chapters 1, 2, 6, 16, 18, 21, 23, and 24: counts, dating, source locations, structural-history wording, outcome definitions, and unsupported contemporary membership claims corrected.
 - `reference/PRIMER-steps-and-traditions.md`: stale model values, registered-value language, Maxwell provenance, and staged-corpus boundary corrected.
