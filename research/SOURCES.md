@@ -57,7 +57,7 @@ the two journal articles on 10 August:
 | ATU, *Report of the Executive Committee* (1840) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
 | ATU, *Annual Report* (1841) | public domain, pre-1929 | PDF and OCR | read for the Washingtonian passages; p. 39 verified against the page image |
 | ATU, *Almanac for 1849* (1848) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
-| AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images |
+| AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images; supplies the 1946 Twelve Points text for Chapter 5 |
 | Pagano et al., "Helping Other Alcoholics" (2004) | NIH author manuscript, open access | PDF and extracted text | read in full; figures checked against the results section |
 | Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
 
