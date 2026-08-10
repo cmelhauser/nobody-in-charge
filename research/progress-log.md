@@ -2573,3 +2573,62 @@ overflowed the appendix's first page, Table 48 had lost its final two columns, t
 dead `[eq:err]` and `[prop:one]` cross-references where the paper prints numbers, and the mapping
 table had lost the `1.` from its Common welfare row because pandoc's LaTeX reader reads a leading
 `1.` as an ordered-list marker and drops it.
+
+---
+
+## The staged corpus, worked through
+
+The deferred corpus turned out to be six items, not the twenty-eight the file count suggested:
+three American Temperance Union documents, the 2024 AA pamphlet P-17, and two journal articles
+that were never actually downloaded. Four are now incorporated and two are not.
+
+**A licensing problem had to be settled first.** This repository is public, and it was carrying
+the complete 4.8 MB PDF of P-17 plus a full OCR transcript. The corpus's own metadata calls it
+"copyrighted AA literature distributed as an official free PDF" and says to preserve the copyright
+notice and not redistribute beyond the authorized source context; the staged README said the
+pamphlet was "subject to the project's source-policy and licensing review," and no such review had
+happened. It had been public since the initial import. At the user's direction the PDF and OCR
+were deleted and replaced by a record holding the citation, the official aa.org URL, the SHA-256
+of the July 2024 file, and the passages the project relies on. Citing the pamphlet was never the
+problem; mirroring it was.
+
+**P-17 turned out to matter more than expected.** It reproduces Bill W.'s original 1946 "Twelve
+Points to Assure Our Future" beside the modern short forms, and states that in all but the Second
+Tradition the original language has been modified or shortened. The 1946 Tradition 9 reads "Each
+A.A. group needs the least possible organization. Rotating leadership is the best," and goes on to
+"the large group its rotating committee." The modern short form on the same page says only that
+A.A. ought never be organized but may create service boards or committees. The primer asserts, in
+as many words, that the Traditions say to rotate but do not say how many people. Checked against
+the short form alone the first half of that sentence is unsupported, because the short form never
+mentions rotation. The 1946 long form supplies it outright, and supplies "they do not govern" as
+well, which the project had been attributing to Tradition 2 alone. The second half is confirmed:
+neither wording gives a number, a fraction, or any scaling rule, which is the gap the deliberation
+model fills. Both passages were verified against rendered page images before the file was deleted.
+
+**The 1841 ATU annual report is the earliest contemporary witness the project now holds.**
+Chapter 1's founding narrative rested on Harrison (1860), Maxwell (1950) and, through Krout, the
+Maryland state report of 1842, all of them later and two of them in disagreement. The ATU appendix
+at printed page 39, verified against the page image, describes the Baltimore society within a year
+of its founding: six men, a public tavern, a simple total-abstinence pledge, the name, the 5 April
+1840 date, and more than a thousand members inside the year. It also records two mechanisms this
+project models, in 1841 language: "at their successive meetings, each man to bring a man," which
+is inflow through existing members, and "a public relation by each individual of his own
+experience and history," which is the supply of identification and of visible proof that recovery
+happens. That corroborates Krout's bring-a-friend agreement a year earlier and from a different
+organisation. It is a description of a practice, not evidence that the practice caused the growth,
+and it bears on nothing in Part Two.
+
+That find forced a status correction in the same chapter. The ATU annual reports were listed under
+"Cited at a remove," known only through Maxwell. Three volumes are now held, so the entry says so
+and the remove is narrowed to the years still unheld.
+
+**Two articles stay unread, and are labelled unread.** Greenfield and Tonigan (2013) and Pagano et
+al. (2004) are `verified_online` with stable PMC locations, and retrieval returned a reCAPTCHA
+challenge. The project does not work around access controls, so both remain unusable as claim
+support and their recorded summaries are expectations rather than findings. Pagano is the
+consequential one: it bears on Chapter 15 and on the recipient resource, whose contrast is
+already unresolved, and a reader who wants that argument strengthened will have to fetch it by
+hand.
+
+The 1840 report and the 1849 almanac are obtained and consulted but support no claim. They are
+recorded as looked at and set aside, which is a different thing from overlooked.

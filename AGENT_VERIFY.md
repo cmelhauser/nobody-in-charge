@@ -25,15 +25,25 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** Maxwell (1950) and Golub and Jackson (2010) are under
-   `research/incorporated/` because both were already used before the acquired corpus arrived.
-3. **Staged/not incorporated.** `research/staged/` is the remaining next-round corpus. Its
-   presence does not make a source read, cited, or available as current evidence.
+2. **Incorporated local copies.** `research/incorporated/` holds Maxwell (1950) and Golub and
+   Jackson (2010), which were already used before the acquired corpus arrived, and the four items
+   promoted out of the staged corpus on 9 August 2026: the three American Temperance Union
+   documents and the source record for AA pamphlet P-17.
+3. **Staged/not incorporated.** `research/staged/` now holds two journal articles only,
+   Greenfield and Tonigan (2013) and Pagano et al. (2004). Both are `verified_online` and
+   **unread**: open-access retrieval returned a reCAPTCHA challenge and the project does not work
+   around access controls. Presence does not make a source read, cited, or available as evidence.
 
-Do not use staged material to fix a claim during this verification. If a staged item might
-answer a finding, label the finding `deferred corpus may resolve`. Do not recommend the staged
-item as an accidentally omitted source. The user has explicitly reserved it for the next
-iteration.
+Do not use either remaining staged article to fix a claim during this verification, and do not
+treat their recorded summaries as findings. If one of them might answer a finding, label the
+finding `deferred corpus may resolve` and note that it requires manual retrieval from PMC.
+
+**AA pamphlet P-17 is cited but deliberately not mirrored.** It is copyrighted AAWS literature
+distributed as a free official PDF, and this repository is public, so the PDF and its OCR were
+removed on 9 August 2026. The record keeps the citation, the official aa.org URL, the SHA-256 of
+the July 2024 file, and the two verified quotations. A verifier checking those quotations should
+download the pamphlet from aa.org. **The absence of the file is intentional and is not a missing
+source.** Do not report it as one, and do not restore it.
 
 The Maxwell copy remains a retyped reproduction with visible transcription errors, not a scan
 of the journal. Moving the original project PDF and text to `research/incorporated/Maxwell_1950/`

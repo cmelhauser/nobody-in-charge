@@ -2,7 +2,7 @@
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author: "Anonymous"
-date: "Draft of 9 August 2026"
+date: "Draft of 10 August 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -475,6 +475,12 @@ Hawkins, W. G. (1862). *Life of John H. W. Hawkins.* Compiled by his son. Boston
 
 Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. **Read at source**; saved as `research/krout-1925-origins-of-prohibition.txt`. Used here for the officers, the independent corroboration of the officers, fee and dues, the bring-a-friend agreement, the rejected Jefferson proposal, and Mitchell's rule admitting no outside speakers except reformed men relating their experience. Krout takes these from the Maryland State Temperance Society's annual report of 1842.
 
+American Temperance Union (1841). *Annual Report of the American Temperance Union.* Appendix, page 39. **Read at source**; public-domain Internet Archive scan `annualreportamer00amer_5`, stored with its citation and metadata in `research/incorporated/American_Temperance_Union_Annual_Report_1841/`. The quotation below was verified against the page image rather than the OCR. This is the earliest source in this chapter and the only contemporary institutional one: a national body describing the Baltimore society within a year of its founding, and independent of Harrison, of Maxwell, and of the Maryland state report Krout used. It gives the founding date as 5 April 1840, confirms the six men, the public tavern, the simple total-abstinence pledge and the name, and reports that the society passed a thousand members inside a year, most of them formerly "grossly intemperate." Its account of how the room worked is the reason it is quoted rather than merely cited:
+
+> They also resolved to form a society to be called the Washington Temperance Society, and at their successive meetings, each man to bring a man. These meetings soon attracted attention, through a public relation by each individual of his own experience and history.
+
+Both halves of that sentence are mechanisms this book later models. *Each man to bring a man* is inflow through existing members, which is the attraction path; *a public relation by each individual of his own experience and history* is the supply of identification and of visible proof that recovery happens, which are two of the eight group resources in Part Four. It is worth being clear about what this does and does not license. It is a contemporary description of a practice, not evidence that the practice is what made the movement grow, and certainly not evidence for anything in Part Two. It corroborates Krout's bring-a-friend agreement from a year earlier and from a different organisation, which is all a second witness can do.
+
 Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion: containing a choice collection of temperance hymns, songs, &c. With brief directions for commencing, organizing, and conducting the meetings of Washingtonian Temperance Societies; and for the private action of Washingtonians.* Second edition. Utica, N.Y.: B. S. Merrell. **Read at source**; saved as `research/grosh-1842-washingtonian-pocket-companion.txt` and `.pdf`. Harvard copy, digitised by Google, from HathiTrust, https://hdl.handle.net/2027/hvd.32044004487591. Public domain. Used here for the definition of principles and its three numbered contrasts with the older societies, the independence and non-subordination clause, the clause on nothing political or sectarian in periodicals, lectures, meetings or proceedings, the contents of the model constitution including Articles 2, 3, 4 and 9, the footnote recording the Utica mass convention of 22 February 1842 and its publication, the directions for taking names publicly, the president's power to call a member to order, the preference for reformed inebriates as officers, and the section on differences between societies.
 
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner & Co. **Read at source**; saved as `research/marsh-1866-temperance-recollections.txt`. Used here for the second version of the founding scene, taken by Marsh from the eleventh annual report of the Maryland State Temperance Society, and for the contemporary dispute over whether a sermon triggered it at all.
@@ -485,7 +491,7 @@ The pledge text dates from 1840 and is in the public domain.
 
 **Cited at a remove:**
 
-American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The membership and pledge claims; also, through their year-by-year language, Maxwell's index of declining interest.
+American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The membership and pledge claims; also, through their year-by-year language, Maxwell's index of declining interest. **Status partly upgraded.** Three of these volumes are now held at source and are listed above rather than here: the 1841 annual report, read for its Washingtonian passages, and the 1840 report and 1849 almanac, obtained but consulted only. The series is still cited at a remove for every other year, and Maxwell's index of declining interest still rests on his reading of the run as a whole rather than on mine.
 
 
 
