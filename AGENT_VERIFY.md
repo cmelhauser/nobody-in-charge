@@ -27,16 +27,15 @@ Three statuses must remain distinct.
    `research/SOURCES.md`.
 2. **Incorporated local copies.** `research/incorporated/` holds Maxwell (1950) and Golub and
    Jackson (2010), which were already used before the acquired corpus arrived, and the four items
-   promoted out of the staged corpus on 9 August 2026: the three American Temperance Union
-   documents and the source record for AA pamphlet P-17.
-3. **Staged/not incorporated.** `research/staged/` now holds two journal articles only,
-   Greenfield and Tonigan (2013) and Pagano et al. (2004). Both are `verified_online` and
-   **unread**: open-access retrieval returned a reCAPTCHA challenge and the project does not work
-   around access controls. Presence does not make a source read, cited, or available as evidence.
-
-Do not use either remaining staged article to fix a claim during this verification, and do not
-treat their recorded summaries as findings. If one of them might answer a finding, label the
-finding `deferred corpus may resolve` and note that it requires manual retrieval from PMC.
+   promoted out of the staged corpus: the three American Temperance Union documents and the
+   source record for AA pamphlet P-17 on 9 August 2026, and Pagano et al. (2004) and Greenfield
+   and Tonigan (2013) on 10 August 2026.
+3. **Staged/nothing outstanding.** `research/staged/` no longer holds any unread source. Both
+   journal articles were obtained by hand on 10 August 2026 and read in full, and are under
+   `research/incorporated/`. What remains staged is the acquisition report and metadata, which are
+   provenance rather than evidence. If new material is ever staged, presence does not make a
+   source read, cited, or available as evidence, and a finding it might answer should be labelled
+   `deferred corpus may resolve`.
 
 **No source document is committed, and their absence is intentional.** This repository is public.
 As of 9 August 2026 `.gitignore` excludes every `.pdf`, `.txt`, `.djvu` and `.epub` under

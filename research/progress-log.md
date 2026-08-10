@@ -2849,3 +2849,46 @@ The copy held is the NIH author manuscript, so its pagination is not the journal
 page-specific citation may be taken from it.
 
 One item is left staged: Greenfield and Tonigan (2013), behind the same kind of challenge page.
+
+---
+
+## Greenfield and Tonigan read, and the staged corpus closes
+
+The last staged article was behind the same challenge page as Pagano, so it arrived the same way,
+by hand. With it the staged corpus is fully incorporated: six sources acquired on 4 August, all
+six now read or consulted and entered in the ledger. What is left under `research/staged/` is the
+acquisition report and metadata, which are provenance rather than evidence and stay for that
+reason.
+
+**The staged record had the citation slightly wrong.** It gave *Psychology of Addictive Behaviors*
+27(2): 553-560; the article's own front matter reads 27(3): 553-561. Both the issue number and the
+end page. That is a small thing and it is exactly the class of error that survives indefinitely
+when a citation is recorded from a search result rather than from the document.
+
+**The finding is an objection to the model, not support for it, and that is the more useful
+outcome.** The study is a measurement paper: 130 new AA affiliates at intake and at three, six and
+nine months, comparing a face-valid step-work instrument against an indirect one. Two things in it
+matter here.
+
+First, the two instruments disagreed about whether step-work had happened for nine of the twelve
+steps. That is direct external support for a caveat the book had been making on its own authority,
+that the practice scale is cardinal only inside the model and corresponds to no validated
+instrument.
+
+Second, and less comfortably, their factor analysis found step-work is not one thing. It separates
+into behavioural and spiritual components with different predictors, different time paths and
+different relationships to outcome: behavioural step-work held steady and was predicted by having
+a sponsor, spiritual step-work declined over time, and only the spiritual component predicted
+percent days abstinent. Behavioural step-work predicted nothing.
+
+This model gives each step a single level. It cannot represent the member their data describes,
+whose behavioural practice holds while the spiritual part falls away, and it averages into one
+number the only component that predicted an outcome. Chapter 12 now says so, in the chapter that
+introduces the dials rather than buried in a limitations list.
+
+Worth being precise about what kind of problem this is. It is not a calibration error and no
+sensitivity design in this project can reach it. Every screen here varies the values of the
+dials; none varies the decision to have one dial per step. Testing that would take a second model,
+not another sweep. The study is also small, nine months long and observational, so it is an
+objection to the shape of the apparatus rather than a refutation of it, and the chapter says that
+too.

@@ -7,13 +7,14 @@ when they are explicitly marked superseded.
 
 ---
 
-## Staged corpus, not incorporated
+## Staged corpus, now fully incorporated
 
-`research/staged/` contains a separately acquired working corpus dated 2026-08-04: source
-files and OCR, per-item metadata and citations, pending-source records, an acquisition
-report, and future incorporation instructions. These materials are **not part of this
-source register and are not evidence used by the manuscript** unless an item is reviewed
-and entered into the appropriate category below in a later session.
+`research/staged/` held a separately acquired working corpus dated 2026-08-04: source files and
+OCR, per-item metadata and citations, pending-source records, an acquisition report, and
+incorporation instructions. Every source in it has now been reviewed and entered in the categories
+below. The rule it existed to enforce still stands for anything acquired in future: material is
+**not part of this source register and is not evidence used by the manuscript** until it is
+reviewed and entered here.
 
 The staged corpus preserves its own provenance in
 `research/staged/reports/ACQUISITION_REPORT.md` and
@@ -27,22 +28,21 @@ status. Their active source files are now under `research/incorporated/`; the du
 staged Maxwell package was discarded while the project's original Maxwell PDF and text were
 kept.
 
-On 9 August 2026 the staged corpus was worked through at the user's direction and is now
-mostly incorporated. Four of its six items moved to `research/incorporated/`: the three
-American Temperance Union documents and the source record for AA pamphlet P-17. Pagano et al.
-(2004) followed on 10 August 2026, once the article was obtained by hand. What remains staged is
-a single journal article, described below. The staged boundary is therefore much narrower than it
-was, and it is nearly closed.
+On 9 August 2026 the staged corpus was worked through at the user's direction. Four of its six
+items moved to `research/incorporated/` that day: the three American Temperance Union documents
+and the source record for AA pamphlet P-17. The two journal articles followed on 10 August 2026,
+once each had been obtained by hand. All six are now incorporated, so the staged boundary that
+governed the release round is closed rather than merely narrowed.
 
-**One item remains staged and unread.** Greenfield and Tonigan (2013) is recorded as
-`verified_online`: the citation and a stable open-access PMC location are confirmed, but no full
-text was obtained. Retrieval on 9 August 2026 returned a reCAPTCHA challenge, and the project does
-not work around access controls. It remains **unread and unusable as claim support**; its recorded
-summary describes what the article is expected to contain and is not a substitute for reading it.
+**The staged corpus is now empty of unread material.** Both journal articles were obtained by
+hand on 10 August 2026, after automated retrieval returned a reCAPTCHA challenge that this project
+would not work around. Pagano et al. (2004) and Greenfield and Tonigan (2013) are read in full and
+are under `research/incorporated/`. Their entries below record what each supports and what it does
+not.
 
-Pagano et al. (2004) was the other, and it has since been obtained and read: see the entry below.
-Its acquisition is the model for the remaining one. The challenge page blocks automated retrieval,
-not a person with a browser, so the article was downloaded by hand and added to the corpus.
+What remains under `research/staged/` is the acquisition record itself: the report, the metadata,
+and the incorporation instructions. Those are provenance, not evidence, and they stay because they
+document how the corpus arrived.
 
 ---
 
@@ -58,6 +58,7 @@ the staged acquisition package, and as of 9 August 2026 the four items promoted 
 | ATU, *Almanac for 1849* (1848) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
 | AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images |
 | Pagano et al., "Helping Other Alcoholics" (2004) | NIH author manuscript, open access | PDF and extracted text | read in full; figures checked against the results section |
+| Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
 
 The P-17 document itself is deliberately absent. It is copyrighted AAWS literature distributed
 as a free official PDF, and this repository is public, so mirroring the full PDF and a full OCR

@@ -118,7 +118,7 @@ manuscript/             Preface, introduction, and Chapters 1 to 25
 model/                  Canonical model and all analysis scripts
 research/               Caches, parameters, source ledger, claim register, and results
 research/incorporated/  One directory per source: records committed, documents git-ignored
-research/staged/        Two unread articles that could not be lawfully retrieved
+research/staged/        Acquisition report and metadata: provenance, not evidence
 reference/              Steps-and-Traditions primer and standalone PDF
 appendix/               Technical appendix source
 paper/                  LaTeX paper, companion notebook, and PDF
@@ -178,9 +178,10 @@ Temperance Union documents and the source record for AA pamphlet P-17. The 1841 
 is the earliest contemporary account the project holds of the Washingtonian founding, and is
 independent of the three later narratives Chapter 1 had been relying on.
 
-`research/staged/` now holds two journal articles only. Both are `verified_online` and unread,
-because open-access retrieval returned a reCAPTCHA challenge and the project does not work around
-access controls. They are not evidence and are not cited.
+The two journal articles that could not be retrieved automatically were obtained by hand on
+10 August 2026 and read in full, so the staged corpus is now fully incorporated. What remains
+under `research/staged/` is the acquisition report and metadata, which are provenance rather than
+evidence.
 
 **No source document is committed.** This repository is public, several sources are in copyright,
 and the public-domain ones are large scans that are not project outputs. Every source lives in
@@ -215,8 +216,10 @@ sit at or below the Monte Carlo noise floor, and the practice first-order column
 Every horizon is finite and membership is still moving at 100 years, so no steady-state or
 indefinite-persistence claim is available.
 
-Two journal articles remain unread under `research/staged/`: retrieval returned an access
-challenge and this project does not work around access controls. Pagano et al. (2004) is the
-consequential one, because it bears on Chapter 15 and on the recipient resource.
+Greenfield and Tonigan (2013) raise a limitation no sensitivity analysis in this project can
+reach: the model gives each step one practice level, while their factor analysis separates
+behavioural from spiritual step-work, with different predictors, different time paths, and only
+the spiritual component predicting abstinence. Every design here varies the values of the dials;
+none varies the decision to have one dial. Chapter 12 states the objection.
 
 Nothing in this repository should be used to assess an individual's recovery.
