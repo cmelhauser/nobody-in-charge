@@ -159,7 +159,7 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 ### 3. Notes on sources
 
-**The empirical literature is read at one remove.** Greenfield and Tonigan's study reaches me through its published abstract and through summaries of its findings, not through the full paper. The specific claims used here are the two-factor structure, the differing predictors and time trends of the two factors, the finding that only spiritual step work predicted percent days abstinent, and the discrepancy between instruments on nine of twelve steps. All are stated in the abstract. **The full paper should be read before this chapter is final**, and it may well qualify things the abstract states baldly.
+**The empirical literature has now been read in full, and it did not qualify what the abstract stated.** Greenfield and Tonigan's study previously reached this chapter through its abstract and secondary summaries, and this note recorded that the full paper should be read before the chapter was final. It was obtained and read on 10 August 2026. Every specific claim used here survives: the two-factor structure, the differing predictors and time trends of the two factors, the finding that only spiritual step work predicted percent days abstinent, and the discrepancy between instruments on nine of twelve steps. What full reading adds is scale and design rather than correction, and both are worth stating beside the findings: 130 new AA affiliates, assessed at intake and at three, six and nine months, observationally. That is a small sample over a short horizon, so the two-factor result is a finding to build on rather than a settled fact.
 
 **Cloud and colleagues' definition of twelve-step affiliation** as attendance plus self-identification plus sum of steps completed reaches me through a later methodological paper citing it, not from the original.
 
@@ -181,7 +181,7 @@ Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology 
 
 **Cited at a remove:**
 
-Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. Read via abstract and secondary summary; full text not obtained.
+Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Source for the two-factor structure, the predictors and time paths of each factor, spiritual step-work predicting percent days abstinent where behavioural step-work did not, the instrument discrepancy on nine of twelve steps, and the sample of 130 affiliates over nine months. **Note the copy**: the author manuscript's pagination is not the journal's.
 
 Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
 
@@ -193,6 +193,6 @@ The substitution table and cross-partial series are checked in `model/book-calcu
 
 **What was not read:**
 
-Greenfield and Tonigan in full, which is the one study that bears directly on this chapter's question and which is described here from an abstract. Also unread: any work estimating a substitution parameter for a sequential practice of this kind in any domain. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it, here or elsewhere, and the chapter should not be read as implying that anybody has.
+Any work estimating a substitution parameter for a sequential practice of this kind in any domain. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it, here or elsewhere, and the chapter should not be read as implying that anybody has.
 
 Carroll, S. (1993). On adherence to the twelve steps.

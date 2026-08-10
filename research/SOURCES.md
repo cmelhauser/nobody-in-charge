@@ -49,7 +49,8 @@ document how the corpus arrived.
 ## Incorporated source storage
 
 `research/incorporated/` contains Maxwell (1950) and Golub and Jackson (2010), which overlapped
-the staged acquisition package, and as of 9 August 2026 the four items promoted out of it:
+the staged acquisition package, and the six items promoted out of it, four on 9 August 2026 and
+the two journal articles on 10 August:
 
 | Item | Rights | Local files | Read status |
 |---|---|---|---|
@@ -256,6 +257,27 @@ also supplied a limitation the news release did not carry, and which now appears
 the authors' first stated limitation is that only 8 per cent of the sample were coded as helping,
 on a measure they call crude. **Chapter 15's sourcing is no longer the weakest in the book.** The
 copy held is the author manuscript, so its pagination is not the journal's.
+
+*Greenfield, B. L. and J. S. Tonigan (2013).* **Obtained and read in full on 10 August 2026**, as
+the NIH author manuscript, PMCID PMC3707937, supplied by the project's author after automated
+retrieval was blocked by a challenge page. Stored in
+`research/incorporated/Greenfield_Tonigan_2013/`. The staged record's citation was wrong in two
+places, giving 27(2): 553-560 where the article reads 27(3): 553-561, and is corrected here and in
+the manuscript.
+
+Reading it confirmed rather than corrected what Chapters 13 and 24 had taken from the abstract:
+the two-factor structure of step-work, the differing predictors and time paths of the two factors,
+spiritual step-work predicting percent days abstinent where behavioural step-work did not, and the
+instrument disagreement on nine of twelve steps. What it added is scale and design, 130 affiliates
+over nine months, observational, which is now stated beside the findings.
+
+It also supports a caveat the project had been making on its own authority, that the practice scale
+corresponds to no validated instrument, and it raises an objection the project cannot answer: the
+model gives each step one practice level, while this study finds step-work is at least
+two-dimensional with only one dimension predicting outcome. Chapter 12 states the objection. No
+sensitivity design here can reach it, because every design varies the values of the dials rather
+than the decision to have one dial per step. The copy held is the author manuscript, so its
+pagination is not the journal's.
 
 *Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group
 Membership."* Located and not acquired. It is the group-and-member series by year that Chapter
@@ -720,7 +742,10 @@ book at two removes and is therefore confined to Chapter 14's notes on sources r
 used in the main text.
 
 **Greenfield, B. L., and J. S. Tonigan (2013).** *Psychology of Addictive Behaviors* 27(3):
-553-561. See Chapter 13. Abstract and secondary summary only; full text still wanted.
+553-561. **Status upgraded: read in full on 10 August 2026** and moved out of this section's
+limited status. The full entry is under "Obtained and read in full" below. Kept here as a pointer
+because Chapters 13 and 24 cited it while it was abstract-only, and a reader tracing those
+citations should land on the current status rather than the old one.
 
 ---
 

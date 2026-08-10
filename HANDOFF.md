@@ -31,7 +31,7 @@ the frozen model; the Sobol design alone costs about four hours to regenerate.
 
 ## 2. What the project now contains
 
-A 25-chapter manuscript in six parts, plus preface and introduction, at 261 pages. A 32-page
+A 25-chapter manuscript in six parts, plus preface and introduction, at 262 pages. A 32-page
 paper. A 17-page primer. A technical appendix. The executable model and twenty analysis scripts.
 Eighteen hash-linked caches. Two verification notebooks. Seven checkers and builders.
 
@@ -46,7 +46,7 @@ Eighteen hash-linked caches. Two verification notebooks. Seven checkers and buil
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/run_notebook.py` | CLEAN, 8 cells, 71 assertions |
 | `tools/run_notebook.py --paper` | CLEAN, 10 cells, 95 assertions |
-| PDFs | 261 / 32 / 17 pages, 0 blank, 0 margin overflow, no undefined references |
+| PDFs | 262 / 32 / 17 pages, 0 blank, 0 margin overflow, no undefined references |
 
 The 39 repetition warnings are overlapping n-grams of one phrase, the registered-set
 decomposition, restated in the preface and Chapter 12 because both need it. They are intentional.
@@ -118,9 +118,9 @@ project folder, git-ignored. It is the rollback path. Delete it when you are sat
 
 ## 7. What actually remains
 
-**Needs a person, not a computation.**
+**Needs a person, not a computation.** Both remaining items are outside the repository.
 
-1. **The elicitation round.** Part Four rests on a twelve-by-eight matrix one person built, and no
+1. **The elicitation round.** This is the only outstanding item that could change a conclusion. Part Four rests on a twelve-by-eight matrix one person built, and no
    further computation can test it. The instrument exists and is waiting:
    `research/GOVERNANCE-MATRIX-ELICITATION.md` is a form for a naive second reader, and
    `model/elicitation_compare.py` was written before any form came back, so the analysis is fixed
