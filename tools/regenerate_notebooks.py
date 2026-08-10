@@ -659,8 +659,197 @@ def emit():
             show(f'gate base minus {c} {fld} lo', dd.mean() - h2)
             show(f'gate base minus {c} {fld} hi', dd.mean() + h2)
 
+def emit_paper_extras():
+    """Figures the paper prints that the chapters do not, or prints at other precision."""
+    # Wilson intervals on the decline table's viable fractions. The chapters print the
+    # fraction; the paper prints the interval beside it.
+    def _wilson(k_, n_, z=1.96):
+        p = k_ / n_
+        den = 1 + z * z / n_
+        c = (p + z * z / (2 * n_)) / den
+        h = z * math.sqrt(p * (1 - p) / n_ + z * z / (4 * n_ * n_)) / den
+        return max(0.0, c - h), min(1.0, c + h)
+
+    d = load("part5.json")
+    traj = collections.defaultdict(list)
+    for key, row in d.items():
+        if key == "meta" or not key.startswith("traj|"):
+            continue
+        traj[key.split("|")[1]].append(row)
+    for cond, rows in sorted(traj.items()):
+        yr = np.zeros((len(rows), 31))
+        for i, r in enumerate(rows):
+            s = [0.0 if x is None else x for x in r["yrN"]][:31]
+            yr[i, :len(s)] = s
+        for y in (5, 10, 20, 30):
+            for lab, mask in (("viable", yr[:, y] > 5), ("exists", yr[:, y] > 0)):
+                lo, hi = _wilson(int(mask.sum()), len(rows))
+                show(f"part5 {cond} y{y} {lab} Wilson lo", lo, pct=True)
+                show(f"part5 {cond} y{y} {lab} Wilson hi", hi, pct=True)
+
+    # Structural variants and the horizon series, to two decimals.
+    d, rs = rows_of("structural.json")
+    g = collections.defaultdict(list)
+    for key, row in d.items():
+        if key == "meta":
+            continue
+        variant, scenario, _seed = key.split("|")
+        g[(variant, scenario)].append(row)
+    for (variant, scenario), rows in sorted(g.items()):
+        for fld in ("N", "exists", "viable"):
+            show(f"structural {variant} {scenario} {fld}",
+                 np.mean([r[fld] for r in rows]), pct=fld in ("exists", "viable"))
+
+    mc = load("mc_error.json")
+    mcrows = [v for k, v in mc.items() if k != "meta"]
+    hg = collections.defaultdict(list)
+    for row in mcrows:
+        hg[tuple(row["job"][:3])].append(row)
+    for key in sorted(hg, key=lambda x: (x[0], x[2], x[1])):
+        rows = hg[key]
+        show(f"mc {key[0]} dt={key[1]} h={key[2]} N", np.mean([r["N"] for r in rows]))
+
+    sob = load("sobol.json")["result"]
+    for outcome in ("membership", "mean_practice"):
+        show(f"sobol {outcome} sum S1", sum(sob[outcome]["S1"]))
+        show(f"sobol {outcome} sum ST", sum(sob[outcome]["ST"]))
+
+    # Governance sparsity pricing: flip k cells confined to the enabling rows, so the
+    # two-tier split is held fixed, and ask how often each Part Four claim survives.
+    # This is the paper's table and has no cache; it is seeded and recomputed here.
+    spec = importlib.util.spec_from_file_location("ec", str(ROOT / "model" / "elicitation_compare.py"))
+    ec = importlib.util.module_from_spec(spec)
+    sys.modules["ec"] = ec
+    spec.loader.exec_module(ec)
+    live = [(j, r) for j in range(12) for r in range(8) if j not in ec.PROTECTIVE]
+    check("enabling cells available to flip", float(len(live)), 56.0, tol=0.01)
+    rng = np.random.default_rng(20260802)
+    ND = 2000
+    for k in (1, 2, 3, 4, 6, 8, 12, 16):
+        c = dict(all12=0, t1=0, s5=0, s12=0)
+        for _ in range(ND):
+            G = m.GOV.copy()
+            for i in rng.choice(len(live), k, replace=False):
+                j, r = live[i]
+                G[j, r] = 0.0 if G[j, r] > 0 else 0.5
+            q = ec.consequences(m.S, G)
+            c["all12"] += q["all12"]; c["t1"] += q["t1_top"]
+            c["s5"] += q["s5_to_t12"]; c["s12"] += q["s12_to_t5"]
+        for lab, v in c.items():
+            show(f"sparsity {k} flips {lab}", v / ND, pct=True)
+
+
 emit()
+emit_paper_extras()
 print("published figures block complete")
+'''
+
+
+PAPER_TRACEABILITY = r'''
+print("Paper traceability")
+print("Every decimal the paper prints must be reachable from the model source, a hash-linked")
+print("cache, or the derived block above. tools/check_book.py enforces this for the chapters;")
+print("nothing enforced it for the paper until this cell, which is why the paper notebook is no")
+print("longer a copy of the book notebook.")
+
+import glob as _glob, io as _io, os as _os, re as _re
+from contextlib import redirect_stdout as _redirect
+
+_buf = _io.StringIO()
+with _redirect(_buf):
+    emit()
+    emit_paper_extras()
+_derived = _buf.getvalue()
+
+_corpus = [MODEL.read_text()]
+for _f in sorted(_glob.glob(str(RESEARCH / "*.json"))):
+    if _os.path.basename(_f) == "audit-pre-correction-manifest.json":
+        continue
+    _corpus.append(open(_f, errors="ignore").read())
+_corpus.append(_derived)
+_blob = "\n".join(_corpus)
+_cands = _re.findall(r"\d+\.\d+", _blob)
+
+def _reachable(n):
+    if n in _blob:
+        return True
+    d = len(n.split(".")[1])
+    _target = float(n)
+    for c in _cands:
+        try:
+            if round(float(c), d) == _target:
+                return True
+        except ValueError:
+            pass
+    return False
+
+_tex = (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
+_tex = _re.sub(r"(?<!\\)%.*", "", _tex)                      # LaTeX comments are not claims
+_tex = _re.sub(r"doi:\S+|10\.\d{4,}/\S+|ISBN[\s:0-9X-]+", " ", _tex, flags=_re.I)
+_SOURCE_FIGURES = {"14.3", "4.9", "0.053", "0.061", "0.055"}  # quoted from cited literature
+_nums = sorted(set(_re.findall(r"\d+\.\d+", _tex)) - _SOURCE_FIGURES)
+_missing = [n for n in _nums if not _reachable(n)]
+print(f"  INFO decimals printed in the paper: {len(_nums)}")
+check("every paper decimal traces to the model, a cache, or a derivation", _missing, [])
+'''
+
+
+PAPER_CLAIMS = r'''
+print("Paper headline claims against the caches")
+
+_gate = load("release_gate_results.json")
+_rows = [v for k, v in _gate.items() if k != "meta" and isinstance(v, dict) and "condition" in v]
+_by = collections.defaultdict(dict)
+for _r in _rows:
+    _by[_r["condition"]][_r["seed"]] = _r
+check("release gate holds 3,200 runs", len(_rows), 3200)
+check("eight conditions", len(_by), 8)
+
+for _cond, _want in (("base", 17.8000), ("t3_friction_loss", 14.8375),
+                     ("t3_governance_loss", 11.7725), ("t3_combined_loss", 6.7550),
+                     ("t11_attraction_loss", 12.3800), ("t11_governance_loss", 15.5150),
+                     ("t11_combined_loss", 11.9200), ("recipient_unconstrained", 18.8275)):
+    _n = float(np.mean([r["N"] for r in _by[_cond].values()]))
+    check(f"paper table: {_cond} mean final N", round(_n, 4), _want)
+
+_base = _by["base"]
+def _paired(cond):
+    _s = sorted(set(_base) & set(_by[cond]))
+    _d = np.asarray([_base[k]["N"] - _by[cond][k]["N"] for k in _s], float)
+    _hw = 1.96 * _d.std(ddof=1) / math.sqrt(len(_d))
+    return _d.mean(), _d.mean() - _hw, _d.mean() + _hw
+
+for _cond, _eff in (("t3_combined_loss", 11.045), ("t11_attraction_loss", 5.420)):
+    _m, _lo, _hi = _paired(_cond)
+    check(f"paper: baseline minus {_cond}", round(_m, 3), _eff)
+    check(f"paper: {_cond} interval excludes zero", bool(_lo > 0), True)
+
+_s = sorted(set(_base) & set(_by["recipient_unconstrained"]))
+_d = np.asarray([_by["recipient_unconstrained"][k]["N"] - _base[k]["N"] for k in _s], float)
+_hw = 1.96 * _d.std(ddof=1) / math.sqrt(len(_d))
+check("paper: recipient contrast is unresolved, interval crosses zero",
+      bool(_d.mean() - _hw < 0 < _d.mean() + _hw), True)
+
+_sob = load("sobol.json")
+check("paper: Sobol runs on eight factors", len(_sob["meta"]["factors"]), 8)
+check("paper: membership first-order column is admissible, no S1 above its ST",
+      any(a > b for a, b in zip(_sob["result"]["membership"]["S1"],
+                                _sob["result"]["membership"]["ST"])), False)
+check("paper: practice first-order column is withheld, delta0 inverts",
+      _sob["result"]["mean_practice"]["S1"][1] > _sob["result"]["mean_practice"]["ST"][1], True)
+
+_st = load("structural.json")
+_sg = collections.defaultdict(list)
+for _k, _r in _st.items():
+    if _k == "meta":
+        continue
+    _v, _sc, _ = _k.split("|")
+    _sg[(_v, _sc)].append(_r)
+for _v in _st["meta"]["variants"]:
+    _a, _rf = _sg[(_v, "attraction")], _sg[(_v, "referral")]
+    check(f"paper: referral loss is worse than attraction loss in {_v}",
+          all(np.mean([x[f] for x in _a]) > np.mean([x[f] for x in _rf])
+              for f in ("N", "exists", "viable")), True)
 '''
 
 
@@ -671,10 +860,10 @@ print("CLEAN CACHE-BACKED VERIFICATION NOTEBOOK")
 '''
 
 
-def notebook(title: str) -> dict:
+def notebook(title: str, blurb: str, extra: tuple = ()) -> dict:
     return {
         "cells": [
-            markdown(f"# {title}\n\nGenerated by `tools/regenerate_notebooks.py`. Expensive analyses are cache-backed and hash-checked."),
+            markdown(f"# {title}\n\n{blurb}\n\nGenerated by `tools/regenerate_notebooks.py`. Expensive analyses are cache-backed and hash-checked."),
             code(SETUP),
             code(MODEL_CHECKS),
             code(CACHE_CHECKS),
@@ -682,6 +871,7 @@ def notebook(title: str) -> dict:
             code(SECONDARY_RESULTS),
             code(ROBUSTNESS_RESULTS),
             code(PUBLIC_FIGURES),
+            *[code(c) for c in extra],
             code(FINAL),
         ],
         "metadata": {
@@ -695,9 +885,21 @@ def notebook(title: str) -> dict:
 
 def main() -> None:
     outputs = {
-        ROOT / "model" / "book-calculations.ipynb": notebook("Nobody in Charge: released calculations"),
-        ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb":
-            notebook("Anonymity as an Aggregation Condition: verification notebook"),
+        ROOT / "model" / "book-calculations.ipynb": notebook(
+            "Nobody in Charge: released calculations",
+            "Verifies the model's identity and semantics, every registered cache's completeness "
+            "and provenance, the released results, and the derivation of every figure the "
+            "chapters print. `tools/check_book.py` checks the chapters against this notebook's "
+            "output."),
+        ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb": notebook(
+            "Anonymity as an Aggregation Condition: verification notebook",
+            "Everything the book notebook verifies, and then two things specific to the paper. "
+            "It re-derives the paper's headline claims from the caches, and it checks that every "
+            "decimal the paper prints is reachable from the model source, a hash-linked cache, or "
+            "a derivation shown here. Nothing enforced that for the paper before: the chapters "
+            "have `tools/check_book.py` and the paper had no equivalent, which is why this "
+            "notebook used to be a copy of the book's.",
+            extra=(PAPER_CLAIMS, PAPER_TRACEABILITY)),
     }
     for path, data in outputs.items():
         path.write_text(json.dumps(data, indent=1) + "\n")

@@ -1,222 +1,137 @@
-# Project handoff — expanded robustness complete, all checkers passing
+# Project handoff
 
-**Written:** 2026-08-09
+**Written:** 2026-08-10
 **Canonical project:** the Git checkout containing this file; its repository root is `.`
-**Status:** All analysis is complete and every checker passes. Both notebooks execute clean, all
-three PDFs are rebuilt and visually inspected with no blank pages and no margin overflow. What
-remains is the unresolved *scientific* limitations listed in section 9, which are expected and are
-not release defects.
+**Status:** Release-complete. Every checker passes, both notebooks execute clean, all three PDFs
+are built and visually inspected, the source corpus is normalized, and the repository is
+published and in sync with `origin/main`.
 
-## 1. Objective and decisions that must not change
+Nothing here is blocked on engineering. What remains is listed in section 7 and is either a
+scientific limitation that cannot be closed by more computation, or a task that needs a human to
+do something outside this repository.
 
-Finish a rigorous, internally synchronized release of the model, manuscript, paper, primer,
-appendix, notebooks, plans, PDFs, and independent verification brief.
+---
 
-- Modeled room capacity stays **60**.
-- Confirmatory stochastic analyses stay at **400 paired seeds**.
+## 1. Decisions that must not change
+
+- The modeled room capacity is **60**.
+- Confirmatory stochastic analyses use **400 paired seeds**.
 - Expanded robustness comes from more draws, distances, variants, trajectories, horizons, and
   integration steps. Not from 1,000 modeled members and not from a blanket 1,000-seed rule.
+- The executable model is frozen at
+  `c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`.
 
-The executable model remains frozen:
+Every interpretation decision in `CLAUDE.md` still holds: semantic overlap is not executable
+coupling, the recipient resource is opportunity per high-practice potential helper rather than a
+tenure cohort, T3 and T11 each have two separable paths, existence and endpoint viability and
+closure are different outcomes, and the practice scale is cardinal only inside the model.
 
-```text
-model/aa_group_model.py
-SHA-256 c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952
-```
+Do not restart a completed analysis. Every cache in `research/` is complete and hash-linked to
+the frozen model; the Sobol design alone costs about four hours to regenerate.
 
-All interpretation decisions recorded in `CLAUDE.md` continue to hold unchanged. Nothing in this
-round altered the model, the confirmatory estimands, or any 400-seed result.
+## 2. What the project now contains
 
-## 2. Source boundary
+A 25-chapter manuscript in six parts, plus preface and introduction, at 260 pages. A 32-page
+paper. A 17-page primer. A technical appendix. The executable model and twenty analysis scripts.
+Eighteen hash-linked caches. Two verification notebooks. Seven checkers and builders.
 
-**Changed after this round, on 9 August 2026.** The staged corpus was worked through and is now
-mostly incorporated; the sections below describe the state during the robustness round, when
-nothing staged was used.
-
-Four of the corpus's six items moved to `research/incorporated/`: the three American Temperance
-Union documents and the source record for AA pamphlet P-17. What remains staged is two journal
-articles, Greenfield and Tonigan (2013) and Pagano et al. (2004), which are `verified_online` and
-unread because retrieval returned a reCAPTCHA challenge and the project does not work around
-access controls.
-
-No source document is committed at all now. Each source is a directory under
-`research/incorporated/<ShortAuthor>_<Year>/` publishing a citation, a rights position, a
-provenance URL, a SHA-256 and a vocabulary-only verification index; the documents are local
-working files excluded by `.gitignore`. Citation checking was tested with every document removed
-from the tree and still verified all 55 citation-subject pairs. See `research/SOURCES.md` and
-`research/incorporated/README.md`.
-
-## 3. What this round completed
-
-The three screens that were outstanding are done, hash-current, and `complete`:
-
-- `research/oat_full.json`: 118 parameter jobs, 944 perturbation points, 19,824 finite values.
-- `research/morris.json`: 20 trajectories, 118 factors, 2,380 points, reference adherence 0.85.
-- `research/sobol.json`: 1,024-row base, 11,264 evaluations, eight factors, 2,000-resample
-  bootstrap intervals, noise replicate included.
-
-`research/ROBUSTNESS-RESULTS.md` is generated from them by `tools/summarize_robustness.py`.
-
-### Findings that changed the project
-
-1. **Three of the eight Sobol factors were wrong.** `model/sobol_indices.py` carried a `FACTORS`
-   list from the retired ten-trajectory screen. At twenty trajectories `a:8` falls to rank 15,
-   `a:4` to 27, and `omega` to 37. They are replaced by `lam_exog`, `a:5`, and `a:11`. The cut is
-   untied, 15.87 against 14.34 at the ninth factor. The list was corrected before the Sobol run.
-2. **The Sobol evaluator could not have handled a matrix factor.** It wrote every non-`a:` id into
-   the parameter dictionary, which is a silent no-op for an `S` or `GOV` cell. It now mutates the
-   matrix, rebuilds every derived quantity, matches the OAT and Morris evaluators, and raises on an
-   unknown id. No matrix cell reached the top eight; the highest is `S:8,6` at rank 17.
-3. **The membership first-order Sobol column became usable.** At the retired 128 rows it failed
-   three diagnostics and was withheld. At 1,024 rows no membership factor has `S1` above its `ST`
-   and the sum is 0.693. The practice column is still withheld: `delta0` gives `S1 = 0.421` against
-   `ST = 0.417`, and the practice sum is 1.074.
-4. **The OAT screen resolved much more strongly than the global designs**, 931/2/11 on membership
-   across 944 points, with nine of the eleven reversals concentrated in large downward moves of
-   `p_gate`, `delta0`, and `churn`.
-5. **Two older claims were wrong and are corrected.** Chapter One said more than half the
-   parameters could move referral-starved survival alone; it is 26 of 118. Chapters One and Six
-   said the ordering held in all 236 one-at-a-time cases, which was the retired design.
-6. **The primer miscounted unresolved Tradition rows.** Seven of twelve resolve, so five are
-   unresolved, of which three are protective. It said four.
-7. **The appendix rewrite had left eleven dangling cross-references.** All prose references were
-   retargeted and `A10.1` now records the mapping, because the docstrings of hash-linked analysis
-   scripts cannot be edited without invalidating their caches.
-8. **The appendix had silently dropped the resource-list test.** It is restored as `A7.6`.
-
-## 4. Current checker state
+## 3. Verification state
 
 | Command | Result |
 |---|---|
-| `tools/check_release.py` | **136 checks passed, 0 failed** |
-| `tools/check_portability.py` | pass |
+| `tools/check_release.py` | 136 checks passed, 0 failed |
+| `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | all clear, 9 long-sentence warnings |
-| `tools/run_notebook.py` and `--paper` | both CLEAN, 8 cells, 70 assertions each |
-| `tools/check_book.py` | **0 failures, 39 warnings** |
+| `tools/check_portability.py` | clear |
+| `tools/build_corpus.py --check` | 0 corpus problems |
+| `tools/run_notebook.py` | CLEAN, 8 cells, 71 assertions |
+| `tools/run_notebook.py --paper` | CLEAN, 10 cells, 95 assertions |
+| PDFs | 260 / 32 / 17 pages, 0 blank, 0 margin overflow, no undefined references |
 
-## 5. How the figure traceability failure was closed
+The 39 repetition warnings are overlapping n-grams of one phrase, the registered-set
+decomposition, restated in the preface and Chapter 12 because both need it. They are intentional.
 
-`tools/check_book.py` had been failing since before this round: 55 failures at the starting
-commit, rising to 102 once the notebooks were regenerated. `check_figures` requires every decimal
-in a chapter to be reachable from the notebook, the model source, or a cache, and the compact
-regenerated notebook printed far fewer figures than the 38-cell notebook it replaced.
+The reproduction sequence is in `README.md` and is complete: it now includes
+`inventory_model_choices.py` and `summarize_release_gate.py`, whose outputs the release check
+requires and which were previously omitted, so a fresh clone could not regenerate everything the
+gate demands.
 
-The old notebook could not be restored. Executed against the current caches it reported
-`Morris trajectories: got 20.0000, book says 10.0`, had three cells producing no output, never
-contained the required `CLEAN CACHE-BACKED VERIFICATION NOTEBOOK` sentinel, and finished
-`NOT CLEAN`.
+## 4. The two notebooks are different artifacts
 
-`tools/regenerate_notebooks.py` now emits a published-figures cell that **derives** the quoted
-values from the caches and the model matrices rather than restating them. It covers the part5
-trajectories and dose sweeps, the ch14 decay sweep and its environment-matched individual test,
-ch15 service, ch13 proxy averaging with Wilson intervals, the OAT influence ranges, the release
-gate with Wilson intervals and paired contrasts, the Chapter 7 DeGroot worked example, the
-Chapter 13 CES cross-partials, the Part Four semantic-overlap algebra with its seeded jitter and
-structural tests, the Chapter 17 reassignment test, and the Chapter 22 founder constants.
+The paper notebook used to be byte-identical to the book notebook apart from its title. That
+satisfied the release gate mechanically while verifying nothing specific to the paper, and the
+release plan's section 3.4 had asked for it to be a real verification or explicitly retired.
 
-Three things had to be handled to reach zero, and they are worth knowing before editing that cell:
+It is now a real verification. Beyond everything the book notebook does, it re-derives the paper's
+headline tables from the caches and requires every decimal the paper prints, 420 of them, to be
+reachable from the model source, a hash-linked cache, or a derivation shown in the notebook. That
+is the paper's equivalent of the figure check `check_book.py` performs for the chapters.
 
-1. **Rounding convention.** The prose rounds half away from zero; Python rounds half to even. The
-   book prints 57.71 for a cached 57.705, which `round()` renders 57.70. The cell prints a half-up
-   rendering alongside the plain one.
-2. **Percentages.** Chapters quote a stored proportion as a percentage, so both are printed.
-3. **Scientific notation.** The Chapter 14 maintenance figures are stored as `3.03e-08`, which no
-   decimal search can match, so they are also printed in plain decimal.
+If the two notebooks are ever identical again, that is a regression.
 
-Do not satisfy this check by pasting literals. Its purpose is that no published figure is
-untraceable, and hard-coded constants would defeat it.
+## 5. Source corpus
 
-**One genuine error surfaced.** Chapter 20 and the paper both printed the invisible condition's
-year-ten membership as 12.99. Every other cell in that row reproduces exactly, and the correct
-derivation is 12.9849, so both now read 12.98.
+Every source is a directory under `research/incorporated/<ShortAuthor>_<Year>/` holding
+`citation.md`, `metadata.json` with rights and provenance URL and per-file SHA-256,
+`source_summary.md`, and a vocabulary-only verification index.
 
-The two `intervals` failures were real house-style violations predating this round. Chapter 13's
-Machinery now labels the substitution table and cross-partials as exact algebra and gives Wilson
-intervals for the proxy-averaging proportions; Chapter 14's decay sweep now carries the 95 per
-cent half-widths beside its membership series.
+**No source document is committed.** This repository is public, several sources are in copyright,
+and the public-domain ones are large scans that are not project outputs. `.gitignore` excludes
+every `.pdf`, `.txt`, `.djvu` and `.epub` under `research/`. Documents are local working files.
+Normalize and rebuild with `python3 tools/build_corpus.py`; audit with `--check`.
 
-## 6. PDF state
+Citation checking does not depend on the documents. Each index records the source's vocabulary
+and, because a vocabulary set has no word order, which registered subjects the document contains,
+decided against the real text at build time and stamped with that file's SHA-256. This was tested
+by moving every document out of the tree: all 55 citation-subject pairs still verified.
 
-Built and visually inspected. Page images were rendered at 55 to 110 dpi and scanned
-programmatically for blank pages and margin overflow, with contact sheets and full-resolution
-inspection of every flagged page.
+Two items remain staged and unread: Greenfield and Tonigan (2013) and Pagano et al. (2004).
+Retrieval returned a reCAPTCHA challenge and this project does not work around access controls.
+Their recorded summaries are expectations, not findings, and neither may be cited.
 
-| Artifact | Pages | Size | Result |
-|---|---:|---|---|
-| `build/nobody-in-charge.pdf` | 260 | A4 | 0 blank, 0 margin overflow |
-| `paper/anonymity-as-an-aggregation-condition.pdf` | 32 | A4 | clean; no undefined references |
-| `reference/PRIMER-steps-and-traditions.pdf` | 17 | Letter | clean |
+AA pamphlet P-17 is cited but has no document here at all, by decision. Keep the citation, the
+aa.org URL and the file hash; do not restore the PDF or its OCR.
 
-Fixed this round, all in `tools/build_book.py` unless noted:
+## 6. Repository and credentials
 
-- long typewriter filenames overflowed the right margin and were cut mid-word, for example
-  `research/krout-1925-origins-of-prohibit`; fixed with `hyphenat[htt]` and `xurl`;
-- the 64-character model hash overflowed the appendix's first page; reformatted as a code block
-  in `appendix/APPENDIX.md`;
-- Table 48 in the decline chapter lost its final two columns; fixed by setting `longtable` in
-  `\footnotesize` via `etoolbox`;
-- the book printed dead cross-references `[eq:err]` and `[prop:one]` where the paper prints
-  numbers, because the paper's LaTeX labels do not survive the LaTeX to markdown to LaTeX round
-  trip; now resolved to plain wording by `resolve_paper_crossrefs`;
-- the paper's mapping table lost the `1.` from its Common welfare row, because pandoc's LaTeX
-  reader treats a leading `1.` as an ordered-list marker and drops it; now restored.
+`main` is published at `github.com/cmelhauser/nobody-in-charge` and the working tree is clean.
+Pushes from an analysis sandbox use a repository-scoped SSH deploy key with write access, stored
+as `.git-deploy-key` in the project folder and git-ignored. If it is ever exposed, delete the
+deploy key on GitHub and generate a new pair; nothing account-wide is involved.
 
-Table 41, the paper's mapping table reproduced inside the book, was clipped on page 230 with its
-caption and second column cut. The cause was that pandoc emitted it as a **simple** table, one
-line per row, which cannot wrap; it therefore converted to a 211-character table whose relative
-column widths were computed against the default 72-column reference, putting it about three line
-widths wide. `--columns` on either pass does not fix it: on the conversion pass the simple-table
-width is unaffected, and on the PDF pass it rescales every table in the book and took the count of
-overflowing pages from 2 to 9. The fix is `-t markdown-simple_tables --columns=90` on the
-conversion, which emits a wrapping grid table. Book margin overflow is now zero pages.
+## 7. What actually remains
 
-That change moved table cells from an indented opening to a pipe opening, so the enumerator
-restoration described above had to accept both.
+**Needs a person, not a computation.**
 
-## 7. Repository state
+1. **The elicitation round.** Part Four rests on a twelve-by-eight matrix one person built, and no
+   further computation can test it. The instrument exists and is waiting:
+   `research/GOVERNANCE-MATRIX-ELICITATION.md` is a form for a naive second reader, and
+   `model/elicitation_compare.py` was written before any form came back, so the analysis is fixed
+   in advance. It reports whether a respondent leaves the same five governance rows empty; if they
+   leave four or six, Chapter 18 is wrong and says so. This is the highest-value outstanding item
+   and it is blocked on recruiting readers.
+2. **Pagano et al. (2004).** Needs a manual download from PMC. It bears on Chapter 15 and on the
+   recipient resource, whose contrast is currently unresolved, so it is the one staged item that
+   could change an argument.
+3. **A decision about git history.** The copyrighted Maxwell article and the AA pamphlet are no
+   longer tracked, but they remain reachable at older commits in a public repository. Removing
+   them requires a history rewrite and a force-push, which has not been authorized. The pack is
+   about 54 MB, most of it a 22 MB Grosh scan.
 
-The working tree is clean and `HEAD` equals `origin/main`. Everything described here, plus the
-corpus round that followed it, is committed and pushed.
+**Unresolved scientific limitations, which are not defects.** No parameter is fitted to
+longitudinal AA data and the original calibration fails at 17.80 members and 1.25 experienced
+against targets of 45 and 9, un-retuned. The mapping from Traditions to the theorem's assumptions
+is a reading of three sentences. Part Four degrades smoothly with disagreement about magnitudes
+and is largely gone under structural randomization, where index-pairing fails on all twelve in
+40.6 per cent of draws. The recipient and both founder-composition contrasts are unresolved rather
+than null. Chapter 14's separation is rare, 7 of 400 endpoint environments. Two Sobol factors sit
+at or below the Monte Carlo noise floor and the practice first-order column is withheld. Every
+horizon is finite and membership is still moving at 100 years.
 
-`research/ROBUSTNESS-RESULTS.md` is tracked. `.gitignore` now excludes the LaTeX build artifacts
-the paper emits, so a paper build no longer dirties the tree.
+## 8. If you change anything
 
-## 8. Generating-platform note
-
-The three screens ran on Linux x86-64 under NumPy 2.2.6; earlier caches were generated on macOS.
-Re-executing a macOS-generated OAT job on Linux reproduced every discrete outcome exactly and
-differed on continuous outcomes only in the last representable digit, about 1e-16. No
-classification changed. Provenance is recorded in `research/PARAMETERS.md` section 8.4 and in
-`AGENT_VERIFY.md`. Expect agreement to reported precision, not bit-identical reproduction.
-
-## 9. Unresolved scientific limitations
-
-These are expected and are not release defects. They are the honest boundary of what the project
-may claim.
-
-- No simulation parameter is fitted to longitudinal AA group data, and the original calibration
-  targets of 45 members and 9 experienced members fail at 17.80 and 1.25. They were not retuned.
-- The `S` and `GOV` matrices are one person's judgment. Part Four's conclusions degrade smoothly
-  with disagreement about the magnitudes and are essentially gone under structural randomization,
-  where index-pairing fails on all twelve in only 40.6 per cent of draws.
-- The mapping from the Traditions to the theorem's assumptions is a reading of three sentences.
-  Nobody has a method for testing it.
-- The recipient contrast, 1.028 [-0.259, 2.314], and both founder-composition contrasts remain
-  unresolved. No equivalence margin was prespecified.
-- Chapter 14 separation is rare rather than typical: 7 of 400 endpoint environments.
-- `a:5` and `a:11` sit at or below the Sobol membership noise floor and are not separated from
-  Monte Carlo error. The practice first-order column remains withheld.
-- Every horizon is finite and the membership series is still moving at 100 years. No steady-state
-  or indefinite-persistence claim is available.
-- `research/staged/` is intentionally deferred and was not used.
-
-## 10. Notes for the next agent
-
-The paper verification notebook is byte-identical to the book notebook apart from its title, and
-both are generated from one cell set by `tools/regenerate_notebooks.py`. That satisfies the
-release gate, which asks only that both execute clean with stored output, but it is not a distinct
-verification of the paper's own claims. Making it one, or explicitly retiring it as the release
-plan's section 3.4 allows, is the obvious next editorial decision.
-
-Do not restart any completed analysis. Every cache in `research/` is complete and hash-current,
-and rerunning the Sobol design alone costs about four hours.
+Read `CLAUDE.md` first. Its synchronization rule is the one that matters: a change to the model or
+to any public number must be propagated in the same session to the caches, both notebooks, the
+manuscript, the appendix, the paper, the primer, the ledgers, the plans, the README, the progress
+log, this file, `AGENT_VERIFY.md`, and all three PDFs. Then run the full sequence in `README.md`
+and close with `AGENT_VERIFY.md`.

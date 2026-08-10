@@ -285,6 +285,24 @@ traceback or failed assertion, check model/cache identities, and finish with:
 The notebooks verify committed caches; they do not pretend to rerun the entire expensive Monte
 Carlo suite interactively.
 
+**The two notebooks are no longer the same artifact, and a verifier should confirm that.** Until
+9 August 2026 the paper notebook was byte-identical to the book notebook apart from its title,
+which satisfied this section mechanically while verifying nothing specific to the paper. The book
+notebook now runs 8 cells and about 71 assertions; the paper notebook runs 10 and about 95. Its
+two extra cells:
+
+1. **Paper headline claims.** Re-derives the paper's principal tables from the caches: all eight
+   release-gate conditions, the paired T3 and T11 contrasts, the recipient contrast's interval
+   crossing zero, the Sobol first-order admissibility split between membership and practice, and
+   the structural ordering in all five architectures.
+2. **Paper traceability.** Every decimal the paper prints, currently 420 of them after excluding
+   DOIs and the five figures quoted from cited literature, must be reachable from the model
+   source, a hash-linked cache, or a derivation shown in the notebook. This is the paper's
+   equivalent of the figure check `tools/check_book.py` performs for the chapters, which the paper
+   previously had no counterpart for. It fails closed and names the offending numbers.
+
+If a verifier finds the two notebooks identical again, that is a regression, not a simplification.
+
 ### 7. Audit public prose
 
 Check every file under `manuscript/`, the paper TeX, the primer, the appendix, README, plans,
