@@ -106,6 +106,9 @@ The staged corpus was worked through on 9 August 2026 and is now mostly incorpor
 moved to `research/incorporated/`: the three American Temperance Union documents and the source
 record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were already there.
 
+Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
+sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three are record only.
+
 Both journal articles, Pagano et al. (2004) and Greenfield and Tonigan (2013), were obtained by
 hand on 10 August 2026 and read in full; they are under `research/incorporated/`. The staged
 corpus is therefore fully incorporated, and what is left under `research/staged/` is the
@@ -128,13 +131,28 @@ decided against the real text at build time. With no documents present, every ci
 pair still verifies. If a re-acquired file's hash differs from the record, the index is stale and
 must be rebuilt rather than trusted.
 
-**Four sources are held as record only, with no document at any time.** This is a distinct
+**Seven sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
 store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
 from scans whose posting authorization is unverified, and the project's own rights review directs
 that they be cited and quoted within limits rather than archived. Each record keeps the citation,
 the rights position, the hash of the scan consulted, and the passages verified from it.
+
+Three more were added on 10 August 2026 on the same footing: AAWS *Twelve Steps and Twelve
+Traditions* (1953), Rohr (2011), and the Kurtz talk of about 1984. Rohr carries a stronger
+provenance objection than any other source, recorded in full in its `metadata.json`: the copy
+consulted was an unauthorized posting of a current in-print title. It was not retained, its
+bibliographic record was confirmed independently of it, and both claims drawn from it are absence
+claims. Any Rohr citation must be confirmed against a lawfully obtained edition before release.
+
+**Reading a copyrighted work and holding one are different acts, and the project rule is about
+holding.** Several chapters formerly said "this project does not acquire AA copyright material"
+and treated that as a reason not to read it. That was a category error and it cost the argument
+evidence: the 1953 commentary turned out to contain the book's own thesis in Wilson's words, the
+strongest objection to it, and the disproof of the index-pairing conjecture. The rule now reads:
+read what is lawfully readable, hold nothing, quote nothing at length, and record the provenance.
+Do not restore the old wording anywhere.
 
 Do not restore a document to any of those four. Adding a source of any kind means running
 `python3 tools/build_corpus.py`, and a directory's leading token must be at least three characters

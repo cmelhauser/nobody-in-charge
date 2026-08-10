@@ -5,7 +5,15 @@ There are twelve Steps and there are twelve Traditions, and for more than sevent
 
 So the thought arrives on its own, usually within a week of somebody first seeing the two lists together. If there are twelve of each, perhaps they go together. Step One and Tradition One. Step Two and Tradition Two. A programme for the person and a matching programme for the room, aligned all the way down.
 
-It is not a stupid thought. Numbered lists of equal length invite pairing, the two documents share an author and a vocabulary, and there are places where the correspondence looks real. Step Twelve is about carrying the message and Tradition Five is about carrying the message, which is not a pairing but is close enough to keep the idea alive. AA's own literature occasionally gestures at the parallel without asserting it.
+It is not a stupid thought. Numbered lists of equal length invite pairing, the two documents share an author and a vocabulary, and there are places where the correspondence looks real. Step Twelve is about carrying the message and Tradition Five is about carrying the message, which is not a pairing but is close enough to keep the idea alive.
+
+For a long time this chapter said that AA's own literature gestures at the parallel without asserting it, and admitted in its notes that it could not say how strongly, because the literature in question was copyright and unread. It has now been read, and the answer is that it does not gesture at all.
+
+The book to check is the obvious one. *Twelve Steps and Twelve Traditions*, published in 1953, is the only work that treats both lists at length, one chapter each, bound together, by the same author. If the pairing were intended by anyone it would show up there.
+
+Across the twelve Tradition chapters, not one refers to the Step of its own number. Not once in twelve. Across the twelve Step chapters, the word *Tradition* does not appear at all, in any of them, at any point. The single indexed cross-reference in the whole book runs the wrong way for the conjecture: the chapter on Tradition Eight mentions the Twelfth Step, and mentions it to explain that a paid worker's job is not to do Twelfth Step work but to make Twelfth Step work possible.
+
+That is a stronger result than the chapter previously claimed and it costs nothing to obtain. The man who wrote both lists wrote a book about both lists and never once connected them by number.
 
 This chapter is a test of that thought, and the test comes out negative on every count. But the count is not twelve, whatever the summary says, and getting from twelve to the number it actually is turns out to be the most useful thing in the chapter.
 
@@ -172,14 +180,24 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used for any result in this chapter; named because the governance matrix was built for Part Two's argument and not for this one, which is what makes the test here meaningful.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. All twenty-four chapters, for the cross-reference count in the main text. Copyright AAWS; held as a record with no document.
+
+Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited for containing no discussion of the Traditions.
+
 **Cited at a remove:**
 
-Nothing. This chapter cites no source it has not read, because it cites almost no sources at all.
+Nothing.
 
 **Internal, and reproducible from this repository:**
 
 `model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A7.1, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
+The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
+
 **What was not read:**
 
-There is no literature on the coupling between AA's Steps and its Traditions, because as far as I can find nobody has proposed one to be tested. I searched for a prior statement of the index-pairing conjecture strong enough to quote and did not find one; what exists is AA literature gesturing at the parallel without asserting it, which is why the main text says the conjecture arrives on its own rather than attributing it. So this chapter refutes a thing people believe rather than a thing somebody published, and a reader is entitled to think that a weaker target. I have not read the AA literature that gestures at the parallel, because it is AA copyright and this project does not acquire it, which means I cannot say how strongly it gestures.
+There is still no literature on the coupling between AA's Steps and its Traditions, because as far as I can find nobody has proposed one to be tested. I searched for a prior statement of the index-pairing conjecture strong enough to quote and did not find one, which is why the main text says the conjecture arrives on its own rather than attributing it. So this chapter refutes a thing people believe rather than a thing somebody published, and a reader is entitled to think that a weaker target.
+
+**The previous version of this paragraph said something I have had to withdraw.** It said the AA literature gestures at the parallel, and that I could not judge how strongly because the literature was copyright and unacquired. Having read the one book that treats both lists, the honest statement is that it does not gesture at all, and I should not have characterised the contents of a source I had not opened. The conjecture appears to be entirely a reader's inference from the two lists having the same length, which makes it a weaker target than the old wording implied and a cleaner one.
+
+What remains genuinely unread is the rest of the AA canon: the Twelve Concepts, the service manual, and seventy years of *Grapevine*. Any of those could contain an assertion of the pairing, and the claim here is about the 1953 book rather than about everything AA has ever printed.

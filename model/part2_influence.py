@@ -100,6 +100,41 @@ def rotation(n, pool, alpha):
     return A / A.sum(1, keepdims=True)
 
 
+def elders(n, e, alpha_elder, pool=0, alpha_office=0.0):
+    """A non-rotating class of `e` elder statesmen alongside an optional rotating office pool.
+
+    Added 10 August 2026, after reading what AA's own commentary says about Tradition Two.
+    The Twelve and Twelve describes the group's rotating committee as "sharply limited" in
+    authority, unable in any sense to govern or direct, and then locates the fellowship's real
+    influence in a different set of people: deposed founders who mature into "elder statesmen",
+    who are called "the real and permanent leadership of A.A.", who "become the voice of the
+    group conscience", and to whom a perplexed group "inevitably turns". Those people do not
+    rotate, because they hold no office to rotate out of.
+
+    That is a different structure from anything Chapter 10 modelled, and it is worth computing
+    rather than arguing about. `e` members hold `alpha_elder` of every row's attention between
+    them and never change. Separately, `pool` members rotate through an office carrying
+    `alpha_office`, time-averaged over the cycle exactly as `rotation` does. Setting
+    alpha_office low is the case the source text actually describes.
+
+    The point of the construction is that the elders' share does not depend on n, so maximum
+    influence floors at roughly alpha_elder / e however large the group grows and however wide
+    the rotation pool is. Widening the pool cannot fix a concentration that is not in the pool.
+    """
+    rest = 1.0 - alpha_elder - alpha_office
+    if rest < 0:
+        raise ValueError('alpha_elder + alpha_office must not exceed 1')
+    A = np.full((n, n), rest / n)
+    if e:
+        A[:, :e] += alpha_elder / e
+    elif alpha_elder:
+        raise ValueError('alpha_elder requires at least one elder')
+    if pool:
+        # Time-averaged over a cycle: each of `pool` members holds the office for one term.
+        A[:, e:e + pool] += alpha_office / pool
+    return A / A.sum(1, keepdims=True)
+
+
 def bipartite_speakers(n, k, share, back=0.0):
     """Chapter 11's unsimulated structure, simulated.
 
@@ -218,6 +253,44 @@ def main():
             r[str(n)] = [float(s.max()), err(s)]
         rows.append(r)
     out['rotation'] = rows
+
+    # 5b. The elder-statesman structure. Chapter 10 prices a rotation pool that is too narrow;
+    #     this prices the case where the rotation is irrelevant because the influence is not in
+    #     the rotating positions. Both the level sweep and the "does the prescription help"
+    #     contrast are computed, because the second is the decision-relevant one.
+    rows = []
+    for e, a in [(1, 0.10), (1, 0.20), (1, 0.35), (3, 0.10), (3, 0.20), (3, 0.35),
+                 (5, 0.20), (5, 0.35), (10, 0.35), (25, 0.35)]:
+        r = {'elders': e, 'alpha_elder': a, 'floor_predicted': a / e}
+        for n in NS:
+            if n <= e * 2: continue
+            s = influence(elders(n, e, a))
+            flat_err = err(influence(flat(n)))
+            # The error RATIO is quoted in Chapter 8, the primer and the paper, so it is
+            # stored rather than left to be divided out of two other numbers. A figure a
+            # reader has to compute is a figure tools/check_book.py cannot trace.
+            r[str(n)] = [float(s.max()), err(s), float(s[:e].sum()),
+                         float(err(s) / flat_err)]
+        rows.append(r)
+    out['elders'] = rows
+
+    # 5c. Does Chapter 10's twenty-six per cent prescription rescue a group that has an elder
+    #     class? The pool is set to 26 per cent of the group at every size, which is the
+    #     chapter's own recommendation, and the officeholder's share is set low because the
+    #     source text says the rotating committee cannot govern or direct.
+    rows = []
+    for e, a_eld, a_off in [(0, 0.0, 0.35), (3, 0.10, 0.05), (3, 0.20, 0.05),
+                            (3, 0.10, 0.35), (5, 0.20, 0.05)]:
+        r = {'elders': e, 'alpha_elder': a_eld, 'alpha_office': a_off,
+             'pool_rule': 'twenty-six per cent of the group, per Chapter 10'}
+        for n in NS:
+            pool = max(1, int(round(0.26 * n)))
+            if n <= (e + pool) * 2: continue
+            s = influence(elders(n, e, a_eld, pool=pool, alpha_office=a_off))
+            flat_s = influence(flat(n))
+            r[str(n)] = [float(s.max()), err(s), float(s.max() / flat_s.max())]
+        rows.append(r)
+    out['elders_vs_prescription'] = rows
 
     # 6. Random control: is the relationship between max influence and error an artefact of
     #    the hand-built families? Under the closed form it cannot be, since error depends only

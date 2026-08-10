@@ -404,6 +404,19 @@ per cent of everyone's attention, which is not much and would not look like a pr
 from inside, nearly doubles how wrong a large group ends up. The damage starts long
 before anybody would call it a problem.
 
+*The objection AA itself raises.* The fellowship's 1953 commentary on this Tradition
+describes a group's committee as sharply limited, unable in any sense to govern or
+direct, and then says where the influence actually is: with elder statesmen, former
+officeholders it calls the real and permanent leadership, who become the voice of the
+group conscience and to whom a perplexed group inevitably turns. They hold no office, so
+nothing rotates them out. Three such members holding a tenth of the attention between
+them cost a group of ten almost nothing, one per cent, and cost a group of a thousand a
+factor of 2.08 on error, with their share settling at 0.034 against a flat benchmark of
+0.001. Widening the rotation does not touch it, because the concentration is not in the
+rotation. This is a claim about a described practice and not about the Tradition, which
+still satisfies the condition; but a group following AA's own commentary faithfully will
+build the thing the condition forbids. *Deliberation model.*
+
 ## Tradition 3, the open door
 
 *Technical.* Raw semantic load 2.69, governing four resources, with admission at 0.37
@@ -526,15 +539,26 @@ the divergence does not. *Algebra, deliberation and simulation.*
 importance. On that column Tradition 9 does nothing measurable, and it carries one of
 the three headline results in the book.
 
-Rotation is where the model knows something AA does not say. The Traditions say to
-rotate. They do not say how many people. The model says the answer is a fraction of the
-group and not a headcount, and that the difference is not a matter of degree. A group of
-fifty rotating twelve people through its service positions is fine. A group of eight
-hundred rotating twelve is a permanent oligarchy, whoever those twelve are and whatever
-anybody intends, and from inside it looks exactly like the healthy small group did.
-Roughly a quarter of the group needs to be in the pool. Treat the quarter as an order of
-magnitude rather than a target, and treat the underlying question as the durable one: if
-this group doubled, would the same people still be running it?
+Rotation is where the model knows something AA does not say. The long form of this
+Tradition says rotating leadership is best, and the 1953 commentary warns against
+entrenched power, but neither says how many people. The model says the answer is a
+fraction of the group and not a headcount, and that the difference is not a matter of
+degree. A group of fifty rotating twelve people through its service positions is fine. A
+group of eight hundred rotating twelve is a permanent oligarchy, whoever those twelve are
+and whatever anybody intends, and from inside it looks exactly like the healthy small
+group did. Roughly a quarter of the group needs to be in the pool. Treat the quarter as
+an order of magnitude rather than a target, and treat the underlying question as the
+durable one: if this group doubled, would the same people still be running it?
+
+*And a limit on that advice, from AA's own commentary.* The quarter is necessary and it
+is not sufficient. The same 1953 text that recommends rotation says the rotating
+positions carry no governing authority, and locates real influence in elder statesmen who
+hold no position at all. A group rotating a quarter of itself but deferring to three such
+members sits at 2.5 times the flat benchmark at fifty, 9.2 at two hundred and fifty, and
+34.2 at a thousand. A service roster cannot detect this, because a roster records offices
+and nothing records deference. The second question a group would have to ask is: when
+something difficult comes up, how many different people does this room turn to, and is
+that number growing as the room does?
 
 ## Tradition 10, no outside issues
 
@@ -588,6 +612,15 @@ it stops the group's decisions concentrating on one person, which is the conditi
 those decisions being reliable at all. Tradition 9 shares the second job and not the
 first, which is exactly why anonymity scores higher in the membership comparison and why
 that higher score says nothing about the part that matters most.
+
+That two-job reading was arrived at from the model and has since been found in the
+source. AA's 1953 commentary on this Tradition tells the two as separate lessons learned
+at different times: first that a member's name and story had to be confidential, after
+members repeated each other's stories and trust broke; and later, once national publicity
+arrived, that anonymity had to be absolute at press, radio, film and television, so that
+no self-appointed member could present himself as a messiah representing AA. The first is
+confidentiality. The second is the structural job. Nobody had to reconcile them because
+the fellowship never treated them as one thing.
 
 Maxwell wrote in 1950 that anonymity had "sheer survival value" and could not say why.
 This is the why, and the point worth keeping is that it is two whys rather than one. The
@@ -737,8 +770,10 @@ sections carry the full designs and estimands for every figure quoted above.
 
 **What was not read:**
 
-The AA literature that gestures at a parallel between the Steps and the Traditions.
-It is AA copyright and this project does not acquire it, which means the index-pairing
+The AA literature was said here to gesture at a parallel between the Steps and the
+Traditions. That was written without having read it. *Twelve Steps and Twelve Traditions*
+was read in full on 10 August 2026, and no Tradition chapter refers to the Step of its own
+number, while the word "Tradition" does not appear in any Step chapter at all. So the
 conjecture is refuted as a thing people believe rather than as a thing somebody
 published, and I cannot say how strongly the literature gestures.
 

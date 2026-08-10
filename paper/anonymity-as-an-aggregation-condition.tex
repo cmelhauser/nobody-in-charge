@@ -480,6 +480,55 @@ concentrated cases and is closer to flat on both measures, against a caucus of
 three at 0.167 and 0.231. It is a real but moderate permanent cost, not a failure
 of the same kind as a caucus.}
 
+\subsection{Rotation may be aimed at the wrong positions}
+\label{sec:elders}
+
+The rotation result prices a pool that is too narrow. A separate objection, raised
+by the fellowship's own commentary, is that the pool may be irrelevant.
+\emph{Twelve Steps and Twelve Traditions} (AAWS 1953) describes a group's
+rotating committee as sharply limited in
+authority, states that in no sense whatever can its members govern or direct the
+group, and then locates leadership elsewhere: in ``elder statesmen,'' former
+officeholders who are called the real and permanent leadership, who are said to
+become the voice of the group conscience, and to whom a perplexed group inevitably
+turns. Those members hold no office and therefore rotate out of nothing.
+
+We model this directly. Let $e$ members hold share $\alpha_e$ of every row
+collectively, with no rotation, and let the remaining attention be flat. This is
+not the dominant-agent family reparameterised: the share is collective and there
+is no cycle to time-average.
+
+\begin{proposition}[Advisory concentration]
+Under the structure above, $\max_j s_j \to \alpha_e / e$ as $N \to \infty$, which
+is bounded away from zero for any $\alpha_e > 0$. The wisdom condition fails
+independently of the rotation pool $R$, since the concentration lies outside it.
+\end{proposition}
+
+With $e = 3$ and $\alpha_e = 0.10$, maximum influence is 0.1233, 0.0513, 0.0369 and
+0.0342 at $N = 10, 50, 250$ and 1000, against the predicted floor of 0.0333 and a
+flat benchmark falling to 0.0010. Expected consensus error is 0.2552, 0.1214,
+0.0681 and 0.0525 against flat values of 0.2523, 0.1128, 0.0505 and 0.0252: a
+penalty of one per cent at $N = 10$ rising to a factor of 2.08 at $N = 1000$.
+
+The decision-relevant contrast is whether the twenty-six per cent corollary
+rescues such a group. It does not. Fixing $R = \lceil 0.26 N \rceil$ at every size
+and reporting $\max_j s_j$ as a multiple of the flat benchmark: rotation alone
+holds at 2.0, 2.0, 2.0 at $N = 50, 250, 1000$, which is a self-consistency check
+since twenty-six per cent was defined as the within-a-factor-of-two pool. Adding
+three elders at $\alpha_e = 0.10$ gives 2.5, 9.2, 34.2. At $\alpha_e = 0.20$,
+4.1, 17.4, 67.4. With five elders at $\alpha_e = 0.20$, 2.7, 10.7, 40.7.
+
+\smallnote{\textbf{Scope, and what these numbers are not.} The parameters are
+illustrative, not estimated. No source counts how many members a group defers to
+on difficult questions or measures the attention they receive, so $e = 3$ and
+$\alpha_e = 0.10$ were chosen to be conservative rather than fitted. The
+qualitative result is parameter-free, since $\alpha_e/e > 0$ for any positive
+$\alpha_e$; every specific multiple is not. Note also that this is a claim about a
+practice AA's commentary describes and endorses, not about the Traditions, which
+continue to satisfy the criterion in Proposition~\ref{prop:one}. The two are
+consistent, and the distinction is the paper's recurring one between what a rule
+specifies and what a fellowship does.}
+
 \subsection{Touring speakers: a closed form}
 
 A movement's attention structure can be modeled as bipartite: flat attention
@@ -514,11 +563,25 @@ had that defect and reporting it would have been a vacuous-robustness error.}
 
 \subsection{A natural conjecture, tested}
 
+\label{sec:conjecture}
 Two ordered lists of twelve, printed in a single volume, invite the conjecture
 that Step $i$ draws on Tradition $i$. The conjecture merits testing rather than
 adoption. The historical record gives grounds for doubt: the Traditions were
 codified from 1946 essays written roughly a decade after the Steps, in response to
-specific organizational crises, and no AA doctrine pairs the lists by index. The
+specific organizational crises, and no AA doctrine pairs the lists by index.
+
+That last clause was previously an assertion about literature the project had not
+read. It has since been checked. \textit{Twelve Steps and Twelve Traditions}
+(AAWS 1953) is the only work treating both lists at length, one chapter each, by
+the same author, and is therefore where an intended pairing would surface. Across
+its twelve Tradition chapters, none cites the Step of its own number; across its
+twelve Step chapters, the word \emph{Tradition} does not occur at all. The single
+indexed cross-reference in the volume runs off-index: the chapter on Tradition~8
+mentions the Twelfth Step, to distinguish paid service work from twelfth-step work
+itself. The count is reproducible in minutes from the files AAWS publishes free,
+and the procedure is stated here rather than only its result: in each Tradition
+chapter, count references to the same-numbered Step; in each Step chapter, count
+occurrences of \emph{Tradition}. The
 stakes are concrete. Under index-pairing, Step~5 (telling one's inventory to
 another person) would depend on Tradition~5 (primary purpose), though what the
 step plainly requires is confidentiality, which is Tradition~12; and Step~12
@@ -731,8 +794,11 @@ conditional on two assignments and on nothing else in the matrix. Notably, the
 single resource-list variant that breaks it (Design 4) drops continuity and
 pressure together, which is exactly the pair this test identifies: two independent
 designs agreeing on which two resources carry a result is worth more than either
-alone. The passage Kurtz names as decisive is in an AA-copyright work this project
-does not acquire, so the source identified as settling the question is unread.
+alone. The passage Kurtz names as decisive is in an AA-copyright work that has not
+been obtained, so the source identified as settling the question is unread.
+The 1953 commentary, read in full on 10 August 2026, keeps unity and singleness
+of purpose apart across its chapters on Traditions 1 and 5, which corroborates
+the assignment without being the passage Kurtz cited.
 
 \paragraph{Design 6, sparsity perturbation.} Every design above varies magnitudes
 and holds the sparsity pattern fixed; a second reader would disagree about the
@@ -1401,8 +1467,9 @@ entanglement; the full text of Pagano et al.\ (2004), which is cited at a remove
 White's \emph{Slaying the Dragon}. Maxwell (1950) was read in full, but the copy
 available to us is a retyped web reproduction with visible transcription errors,
 not a scan of the journal, so every Maxwell citation here has been checked against
-a transcription rather than against the journal. AA's own literature was
-deliberately not acquired.
+a transcription rather than against the journal. \emph{Twelve Steps and Twelve Traditions} (1953) was read in
+full on 10 August 2026 and is held as a record with no document; the rest of AA's
+own literature has not been obtained.
 \end{enumerate}
 
 \section{Falsifiable Predictions}
@@ -1589,11 +1656,17 @@ verification index.
 
 \item Marsh, J. (1866). \textit{Temperance Recollections.} New York: Charles Scribner. \textbf{Read at source}; public domain.
 
+\item Alcoholics Anonymous World Services (1953). \textit{Twelve Steps and Twelve Traditions.} New York: AAWS. \textbf{Read in full} 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. Source for the elder-statesman structure of Section~\ref{sec:elders} (Tradition 2, printed pp.\ 132-138), the statement that rotating leadership is best and the warning against entrenched power (Tradition 9, pp.\ 174-178), the two functions of anonymity (Tradition 12, pp.\ 187-191), and the unity/singleness-of-purpose distinction (Traditions 1 and 5, pp.\ 129-131 and 151-155). Also the cross-reference count reported in Section~\ref{sec:conjecture}. \textbf{In copyright; no copy is held in the project repository.}
+
+\item Kurtz, E. (c.\ 1984). ``A Talk About the History of Alcoholics Anonymous From the Letters of Bill Wilson.'' Undated recorded talk; transcript restored by historyofrecovery.com. \textbf{Read in full} 10 August 2026. The year is inferred from internal evidence and is given as approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted within it from memory and without page citations, so anything attributed to Wilson through this source is at a remove. \textbf{No copy is held.}
+
 \item Maxwell, M. A. (1950). ``The Washingtonian Movement.'' \textit{Quarterly Journal of Studies on Alcohol} 11: 410-452. \textbf{Read in full}, with a caution: the available copy is a retyped web reproduction carrying visible transcription errors, not a scan of the journal. Every citation to Maxwell in this paper has been checked against that transcription rather than against the journal.
 
 \item Ostrom, E. (1990). \textit{Governing the Commons: The Evolution of Institutions for Collective Action.} Cambridge: Cambridge University Press.
 
 \item Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). ``Helping other alcoholics in Alcoholics Anonymous and drinking outcomes.'' \textit{Journal of Studies on Alcohol} 65(6): 766-773. \textbf{Read in full}; NIH author manuscript, PMCID PMC3008319, obtained 10 August 2026. Source for the 40 against 22 per cent abstinence contrast, its independence from meeting attendance, and the authors' 8 per cent helping-rate limitation.
+
+\item Rohr, R. (2011). \textit{Breathing Under Water: Spirituality and the Twelve Steps.} Cincinnati: Franciscan Media. \textbf{Read in full} 10 August 2026. Cited only for its reading of anonymity as confidentiality and for containing no discussion of the Traditions. The copy consulted was an unauthorised posting; the bibliographic record was confirmed independently of it, no copy is held, and nothing is quoted at length. See \texttt{research/incorporated/Rohr\_2011/} for the rights position in full.
 
 \item Riessman, F. (1965). ``The `helper' therapy principle.'' \textit{Social Work} 10(2): 27-32.
 
@@ -1618,10 +1691,12 @@ verification index.
 \medskip
 \noindent\textbf{Referenced but not reproduced.} The Twelve Steps and Twelve
 Traditions of Alcoholics Anonymous, paraphrased throughout. The text is copyright
-Alcoholics Anonymous World Services, Inc.\ and is not reproduced here. AA's own
-publications (\textit{Alcoholics Anonymous Comes of Age}, \textit{Pass It On},
-\textit{Twelve Steps and Twelve Traditions}, the \textit{Grapevine} essays of
-1946, and service pamphlets) were deliberately not acquired for this project.
+Alcoholics Anonymous World Services, Inc.\ and is not reproduced here. \textit{Twelve Steps
+and Twelve Traditions} (1953) was read in full on 10 August 2026 from the files
+AAWS publishes free at aa.org; no copy is held, and it is paraphrased rather than
+quoted at length. AA's other publications (\textit{Alcoholics Anonymous Comes of
+Age}, \textit{Pass It On}, the \textit{Grapevine} essays of 1946, and service
+pamphlets) have not been obtained.
 
 \medskip
 \noindent\textbf{What was not read.} Any work testing whether real deliberating

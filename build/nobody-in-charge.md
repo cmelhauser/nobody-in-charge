@@ -801,7 +801,7 @@ Encyclopaedia entries on the Sons of Temperance (Case Western *Encyclopedia of C
 
 Blumberg, L. U. (1980). "The Significance of the Alcohol Prohibitionists for the Washingtonian Temperance Societies, with Special Reference to Paterson and Newark, New Jersey." *Journal of Studies on Alcohol* 41(1): 37-77. The specific test of this chapter's political-entanglement argument. Largely relieved by Marsh 1866, Blair 1888 and Grosh 1842, all read at source, but not replaced by them: Blumberg would add the local detail none of those carry.
 
-Alcoholics Anonymous World Services publications on the Washingtonians, including *Alcoholics Anonymous Comes of Age* and the twelve *Grapevine* articles Kurtz counts between 1945 and 1976. AA copyright; this project does not acquire them, so AA's own account of the movement reaches this chapter through Kurtz and Maxwell rather than directly.
+Alcoholics Anonymous World Services publications on the Washingtonians, including *Alcoholics Anonymous Comes of Age* and the twelve *Grapevine* articles Kurtz counts between 1945 and 1976. AA copyright, and not obtained. The 1953 commentary was read in full on 10 August 2026 and says nothing about the Washingtonians, so AA's own account of the movement still reaches this chapter through Kurtz and Maxwell rather than directly.
 
 How widely the Utica model constitution was actually adopted. Grosh urges societies to procure a copy; whether they did is not in the manual and I have found no source that settles it.
 
@@ -1842,6 +1842,54 @@ The first says office does not buy weight. The second says weight cannot accumul
 
 ---
 
+That is the argument, and the fellowship's own book says something that damages it.
+
+In 1953 AA published *Twelve Steps and Twelve Traditions*, a chapter of commentary on each of the twenty-four rules, written by Bill Wilson. It is the closest thing the fellowship has to an authoritative statement of what the Traditions mean. Until late in the writing of this book I had not read it, on the grounds that it is copyright and the project does not acquire what it cannot hold. That was a bad reason and it cost me something, because the chapter on Tradition 2 contains both the strongest support for the argument above and the strongest objection to it, and I would rather have found the objection myself.
+
+The support first, since it is easy to state. Wilson's chapter ends the story of a group's first election with a sentence that is this book's thesis in his words: the group conscience, well advised by its elders, will in the long run be wiser than any single leader. He arrives at it the way he arrives at everything, by telling what happened. A hospital owner offers him a salaried job as a lay therapist. It is ethical, he needs the money badly, and on the train home he receives what he takes to be divine guidance telling him to accept. He puts it to the group that evening and they tell him no. He obeys. The most influential man in the fellowship is overruled by a room, records that the room was right, and prints the story as the reason the rule exists.
+
+Now the objection.
+
+Two pages earlier, the same chapter explains what becomes of a founder after the election that removes him. Some sour into what Wilson calls bleeding deacons. The rest mature into elder statesmen, and of those he says: they become the real and permanent leadership of AA, they are the voice of the group conscience, and when a group is sorely perplexed it inevitably turns to them for advice.
+
+Read that against the condition. Permanent. A fixed set of people whose judgment the group returns to whenever a question is hard. They hold no office, so there is nothing for them to rotate out of, and the passage is not a warning. It is the chapter's account of how a healthy group is supposed to work.
+
+That is a concentration of influence that does not shrink as the group grows, which is the one thing the condition forbids.
+
+---
+
+It is worth pricing rather than conceding, because how much it costs turns out to matter more than whether it exists.
+
+Put three such people in a room and give them, between them, a tenth of the attention in every member's row. That is a modest assumption, well short of the dominant old-timer at thirty-five per cent, and it describes something most people who have sat in a long-running meeting will recognise.
+
+At ten members this arrangement is invisible. The group's error is 0.255 against 0.252 for a room where everyone counts equally, a penalty of about one per cent, which no one could detect from a chair. At fifty it is 0.121 against 0.113. At two hundred and fifty, 0.068 against 0.051. At a thousand, 0.053 against 0.025, and the group is now twice as inaccurate as it could be.
+
+The three elders' largest share settles at 0.034 and stops moving, against a flat benchmark of 0.001 at that size. The predicted floor is a tenth divided by three, which is 0.033. The computation lands on it.
+
+So the elder statesmen are an obstruction in the exact technical sense, and the damage follows the same curve as everything else in this part of the book: nothing at all while the group is small, and unbounded relative cost as it grows.
+
+---
+
+There is a second and worse consequence, which Chapter Ten takes up properly.
+
+The same chapter of the Twelve and Twelve that describes the elder statesmen also describes the committee, and it is blunt about how little the committee matters. Its members are sharply limited in authority. In no sense whatever can they govern or direct the group. They are servants, not senators, and their work is looking after the chores.
+
+So the fellowship rotates its offices faithfully, and the offices it rotates are the ones its own commentary says carry no weight, while the people the commentary says carry the weight hold no office and rotate out of nothing. If that is right, then rotation is aimed at the wrong target, and widening the rotation, which is Chapter Ten's prescription, cannot help. A pool is only a remedy for a concentration that is inside the pool.
+
+The arithmetic agrees, and it is not close. Take a group following Chapter Ten's recommendation exactly, rotating a quarter of its members through service, and give it three elder statesmen at a tenth. At fifty members its largest share is two and a half times the flat benchmark. At two hundred and fifty it is nine times. At a thousand it is thirty-four times, and climbing, in a group doing the recommended thing correctly.
+
+---
+
+I do not think this sinks the argument, and I want to say precisely why not, because the temptation to rescue one's own thesis is strongest exactly here.
+
+The condition is a claim about what a rule does, not a claim that the fellowship obeys it. Traditions 2, 9 and 12 satisfy the criterion; a group that also maintains a permanent advisory class does not, and both of those can be true at once, because AA's practice is not identical to AA's rules. That is not a dodge. It is the difference the whole book turns on, and Part Six is about how easily the two get confused.
+
+What the passage does establish is that the failure this book describes is not hypothetical and not rare. It is described approvingly in the fellowship's own literature, which means any group following that literature faithfully will build one. A reader who wanted to argue that the Traditions are self-defeating in practice now has the better evidence for it, and it came from the movement rather than from me.
+
+The honest summary is that AA wrote down three rules that satisfy the condition and one paragraph of commentary that undoes a good deal of their effect, and did not notice, because there was no reason to expect anyone would ever put the two beside a theorem.
+
+---
+
 I want to be careful here, because this is the centre of the book and it would be easy to say more than the evidence carries.
 
 **The claim is that these three Traditions satisfy a mathematical condition for reliable group deliberation.** That is not an interpretation or an analogy. The condition is precisely stated, the Traditions map onto it precisely, and the mapping can be checked by anyone.
@@ -1913,6 +1961,28 @@ So what makes a practice dangerous is not its severity but whether it scales. A 
 
 That is the same finding this book reaches from another direction when it comes to rotation, and it is worth carrying forward as the general form of the argument: the question a group should ask about any concentration of attention is not how large it is but whether it would still be there if the group doubled.
 
+**The elder-statesman structure, added 10 August 2026.** A non-rotating class of *e* members holds share alpha of every row between them; the rest of the group attends flat. This is not the dominant-member family with a different label, because the share is held collectively and because nothing rotates: there is no office and therefore no cycle to average over. Maximum influence converges to alpha over *e*.
+
+| N | max influence, 3 elders at 0.10 | flat benchmark | error, elders | error, flat |
+|---|---|---|---|---|
+| 10 | 0.1233 | 0.1000 | 0.2552 | 0.2523 |
+| 50 | 0.0513 | 0.0200 | 0.1214 | 0.1128 |
+| 250 | 0.0369 | 0.0040 | 0.0681 | 0.0505 |
+| 1000 | 0.0342 | 0.0010 | 0.0525 | 0.0252 |
+
+The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0.0342, approaching it from above. The error ratio runs 1.01, 1.08, 1.35, 2.08 across those four sizes, which is the invisible-while-small pattern again and is why no group detects this by introspection.
+
+**Whether Chapter Ten's prescription helps.** It does not, and this is the practically important row. Setting the rotation pool to twenty-six per cent of the group at every size, as Chapter Ten recommends, and giving the officeholder a deliberately small share because the source text says the committee cannot govern or direct:
+
+| structure | N = 50 | N = 250 | N = 1000 |
+|---|---|---|---|
+| rotation only, pool at 26 per cent | 2.0 | 2.0 | 2.0 |
+| plus 3 elders at 0.10 | 2.5 | 9.2 | 34.2 |
+| plus 3 elders at 0.20 | 4.1 | 17.4 | 67.4 |
+| plus 5 elders at 0.20 | 2.7 | 10.7 | 40.7 |
+
+Entries are maximum influence as a multiple of the flat benchmark. The first row holding at exactly 2.0 is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
+
 And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the appendix and it starts hurting almost immediately.
 
 ### 3. Notes on sources
@@ -1920,6 +1990,12 @@ And on severity, one correction to what the table above suggests. The illustrati
 **The theorem is read at source**, not reported. Golub and Jackson's paper is the origin of every formal claim in this chapter.
 
 **The mapping to the Traditions is mine**, and it is an interpretation rather than a finding. Someone could reasonably argue that Tradition 2's "trusted servants" language is about humility rather than about weighting, or that anonymity is primarily protective of individuals and only incidentally structural. I think the structural reading is correct and I have argued for it, but a reader should know it is a reading.
+
+**That objection is no longer hypothetical, and it has a name.** Richard Rohr's *Breathing Under Water* is a book-length devotional reading of the Steps that treats anonymity exactly as the protective reading has it: as confidentiality, as a discipline against gossip, as the principle that not everybody has a right to know everything. He asks in so many words whether that is part of why the word appears in AA's title. He is a serious reader arriving at a different answer, and the fair thing is to say so rather than to keep the objection abstract where it is easier to dismiss.
+
+The two readings turn out not to compete, which I did not expect. The Twelve and Twelve's own chapter on Tradition 12 describes both functions and treats them as separate lessons learned at different times: first that a member's name and story had to be confidential, which is Rohr's reading, and later, after the fellowship's first taste of national publicity, that anonymity had to be absolute at press, radio, film and television so that no self-appointed member could present himself as a messiah representing AA. The second is the structural reading, and it is in the source text. What this chapter should not claim is that the structural function is the *only* one, or the original one. It is neither.
+
+**Reading the Twelve and Twelve changed this chapter rather than confirming it**, which is worth recording because the reverse would have been suspicious. It supplied the thesis in Wilson's own words and, three pages away, the best objection anyone has raised to it.
 
 **DeGroot averaging is a strong simplification of how a group conscience works.** Real members argue rather than average. They defer selectively, on some questions and not others. They abstain. They update out of order, and sometimes they harden rather than converge. The model captures a room settling toward a shared view and captures nothing about the texture of how that happens. Golub and Jackson's result is a statement about naive averaging specifically, and a group that deliberated some other way would need a different analysis.
 
@@ -1935,21 +2011,27 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 DeGroot, M. H. (1974). "Reaching a Consensus." *Journal of the American Statistical Association* 69(345): 118-121. The updating model.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. The chapters on Traditions 2, 9 and 12, at printed pages 132 to 138, 174 to 178, and 187 to 191. Source of the group-conscience claim, the founding story of Tradition 2, the elder statesmen and bleeding deacons, the description of the committee as sharply limited, the warning against entrenched power, and the two functions of anonymity. Copyright AAWS; held as a record with no document, and paraphrased rather than quoted at length.
+
+Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited only for its reading of anonymity as confidentiality, and for containing no discussion of the Traditions.
+
 **Cited at a remove:**
 
 Nothing.
 
 **Referenced but not reproduced:**
 
-The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here.
+The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here. The same applies to the 1953 commentary on them: the passages above are paraphrased or quoted in fragments short enough to identify the claim, and a reader who wants the argument in Wilson's words should read the chapters, which AAWS gives away.
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for flat, rotating, dominant and clique regimes at N = 10, 50, 250 and 500. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
+Influence weights and consensus errors for flat, rotating, dominant and clique regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
 
 **What was not read:**
 
 Nothing in the mathematics is at a remove; the theorem was read at source. What has not been read is any work testing whether real deliberating groups behave like DeGroot updaters. Golub and Jackson prove a result about a model, this chapter applies it to a fellowship, and the step between the two is an assumption about how people in a room revise their views. That assumption is not tested here or anywhere else in the book.
+
+Nor has anything been read on whether real groups in fact maintain an elder-statesman class, how large it is, or how much attention it attracts. The 1953 commentary says such people exist and are turned to; it does not count them, and neither has anyone else that I can find. The three-elders-at-a-tenth figure above is an illustration chosen to be modest, not an estimate, and Chapter Twenty-Four's proposed survey would be the way to replace it with one.
 
 # Chapter Nine: Confident and Wrong
 
@@ -2121,6 +2203,8 @@ Any measurement of attention or influence inside a real mutual-aid group. The th
 
 The Traditions say that service positions rotate. They do not say how many people should be in the rotation, and it turns out that this is the number that matters.
 
+The instruction is more explicit than the short form of the Traditions suggests. The long form of Tradition 9 states in five words that rotating leadership is the best, and then describes the shape of it: the small group elects its secretary, the large group its rotating committee, the metropolitan area its intergroup committee. The 1953 commentary adds the reason, warning the fellowship away from the dangers of great wealth, prestige and entrenched power. Entrenched is the right word and it is theirs, not mine.
+
 The instruction itself is clear enough and is followed almost everywhere. Terms are typically one or two years. The secretary hands over to somebody else, the treasurer hands over, the group service representative hands over, and the fellowship is unusually firm about it: rotating out of a job you are good at is treated as part of the discipline rather than a waste of talent. Chapter Eight explained why. Rotation stops influence accumulating in anybody, which is one of the three ways AA prevents any single member from holding a fixed share of the group's judgment.
 
 But there is a hole in that argument, and it opens as a group grows.
@@ -2168,6 +2252,24 @@ Fifty members needs thirteen people in the rotation. A hundred needs twenty-six.
 That is a usable number, and it is the most directly checkable thing in this book. It says: **look at how many different people have held any service position in your group over the last few years, and compare it with how many people are in the group.** If the answer is a quarter or more, the rotation is doing what the Tradition intends. If it is a dozen names in a group of four hundred, it is not, however faithfully the terms are being observed.
 
 Nobody needs a mathematician for this. It needs a service roster and some arithmetic, and both already exist.
+
+---
+
+Before that number gets used, it has to survive an objection that would make it beside the point, and the objection comes from AA's own commentary on the Tradition.
+
+Chapter Eight sets it out with the source and the arithmetic, so I will not repeat either. The short form is that AA's own 1953 commentary denies the premise this chapter starts from. It says the committee that rotates cannot govern or direct anything, and it puts the fellowship's real influence in a class of former officeholders it calls elder statesmen, who hold nothing and therefore rotate out of nothing.
+
+If that is accurate, this chapter has been measuring the wrong quantity. A pool is a remedy for influence held inside it.
+
+So I priced the combination, and the result is in Chapter Eight's Machinery rather than here. What it comes to is this: a group that adopts the recommendation below in full, and also defers to a small permanent advisory class, diverges from an evenly weighted room anyway, and diverges faster the larger it gets. Following the advice correctly does not close the gap, because the advice does not reach what is opening it.
+
+Two conclusions follow, and I would rather state both than the comfortable one.
+
+The twenty-six per cent stands as far as it goes. A group that rotates a dozen people is worse off than a group that rotates a quarter of itself, and that comparison is unaffected by anything above. What does not stand is the implication a reader would reasonably draw, that a group meeting the proportion has dealt with the problem this book is about. It has dealt with one channel. The commentary describes another, larger one, running through people the rotation never touches.
+
+And the practical advice has to change shape accordingly. Counting names on a service roster is still worth doing, and it is still the most checkable thing in this book. But a group that wanted to know whether it satisfies the condition would have to ask a second question, which no roster can answer: when something difficult comes up, how many different people does this room turn to, and is that number growing as the room does?
+
+I do not know how to measure that without asking members, which is why Chapter Twenty-Four's survey now has a second thing to ask about.
 
 ---
 
@@ -2233,6 +2335,10 @@ For comparison, at N = 400 a caucus of three holding half the influence between 
 
 **The rotation construction is a simplification and the shape of the result depends on it.** I model an officeholder as attracting a fixed share of attention during their term, and I average over a cycle. Real service positions differ enormously in how much attention they attract: a group service representative is not a coffee maker. A more careful model would give each position its own share and would probably show that what matters is the pool for the few positions that carry weight, not the pool across all positions. That refinement would sharpen the practical advice and I have not done it.
 
+**That paragraph stood for weeks before I read the source that answers it, and the answer is worse than the guess.** I supposed the weight would concentrate in a few of the rotating positions. AA's own commentary says the rotating positions carry no governing weight at all, and puts the influence with a class of people who hold no position. So the refinement I described would not have found the problem, because it varies the share across offices and the structure that matters has no office in it. The elder-statesman family in `model/part2_influence.py` section 5b is the construction that does reach it, and the twenty-six-per-cent contrast in section 5c is what it costs. Both are reported in Chapter Eight rather than duplicated here.
+
+**The elder-statesman parameters are illustrative and are not estimates.** Three people at a tenth was chosen to be modest rather than fitted to anything, because there is nothing to fit it to: no one has counted how many people a group turns to on hard questions, or measured how much attention they get. The qualitative result does not depend on the choice, since alpha over *e* fails to vanish for any positive alpha, but every specific multiple quoted in Chapter Eight does depend on it and should be read as an illustration of a mechanism.
+
 **The twenty-six per cent is a property of my parameter choices**, specifically alpha = 0.35 and the within-a-factor-of-two criterion. Both are judgement calls. What does not depend on them is the qualitative result, that a fixed pool floors while the benchmark falls, and that the required pool scales with the group rather than being a fixed headcount. Treat the proportion as an order of magnitude, not a threshold.
 
 **On the historical claim.** The suggestion that this failure mode is absent from the Traditions because AA had few very large groups in 1946 is my inference, not something I have found stated anywhere. It is consistent with the account in Chapter Five of how the Traditions were compiled, but I have not verified it against the record of what groups actually wrote to New York about.
@@ -2243,21 +2349,25 @@ For comparison, at N = 400 a caucus of three holding half the influence between 
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. The vanishing-influence criterion, and the requirement that maximum influence go to zero as the society grows, which is what a fixed rotation pool fails.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a record with no document.
+
 **Cited at a remove:**
 
 Nothing.
 
 **Referenced but not reproduced:**
 
-The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here.
+The Twelve Traditions of Alcoholics Anonymous, paraphrased, and the 1953 commentary on them. Both are copyright Alcoholics Anonymous World Services, Inc. and neither is reproduced here beyond fragments short enough to identify the claim.
 
 **Internal, and reproducible from this repository:**
 
-The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in `model/book-calculations.ipynb`, section 2.
+The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in `model/book-calculations.ipynb`, section 2. The elder-statesman family and the twenty-six-per-cent contrast quoted above are computed in `model/part2_influence.py`, sections 5b and 5c, and cached to `research/part2_influence.json`.
 
 **What was not read:**
 
-Anything about how AA groups in fact rotate service. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The Twelve Concepts of World Service, which is where the fellowship's own thinking about rotation is set out at length, are AA copyright and have not been read.
+Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
+
+The Twelve Concepts of World Service, which is where the fellowship's own thinking about rotation is set out at greatest length, are AA copyright and have still not been read. That gap is now conspicuous rather than incidental: the last time this chapter left an AA text unread on those grounds, the text turned out to contain the strongest objection to the chapter's own argument.
 
 # Chapter Eleven: What the Washingtonians Lacked
 
@@ -3269,7 +3379,15 @@ There are twelve Steps and there are twelve Traditions, and for more than sevent
 
 So the thought arrives on its own, usually within a week of somebody first seeing the two lists together. If there are twelve of each, perhaps they go together. Step One and Tradition One. Step Two and Tradition Two. A programme for the person and a matching programme for the room, aligned all the way down.
 
-It is not a stupid thought. Numbered lists of equal length invite pairing, the two documents share an author and a vocabulary, and there are places where the correspondence looks real. Step Twelve is about carrying the message and Tradition Five is about carrying the message, which is not a pairing but is close enough to keep the idea alive. AA's own literature occasionally gestures at the parallel without asserting it.
+It is not a stupid thought. Numbered lists of equal length invite pairing, the two documents share an author and a vocabulary, and there are places where the correspondence looks real. Step Twelve is about carrying the message and Tradition Five is about carrying the message, which is not a pairing but is close enough to keep the idea alive.
+
+For a long time this chapter said that AA's own literature gestures at the parallel without asserting it, and admitted in its notes that it could not say how strongly, because the literature in question was copyright and unread. It has now been read, and the answer is that it does not gesture at all.
+
+The book to check is the obvious one. *Twelve Steps and Twelve Traditions*, published in 1953, is the only work that treats both lists at length, one chapter each, bound together, by the same author. If the pairing were intended by anyone it would show up there.
+
+Across the twelve Tradition chapters, not one refers to the Step of its own number. Not once in twelve. Across the twelve Step chapters, the word *Tradition* does not appear at all, in any of them, at any point. The single indexed cross-reference in the whole book runs the wrong way for the conjecture: the chapter on Tradition Eight mentions the Twelfth Step, and mentions it to explain that a paid worker's job is not to do Twelfth Step work but to make Twelfth Step work possible.
+
+That is a stronger result than the chapter previously claimed and it costs nothing to obtain. The man who wrote both lists wrote a book about both lists and never once connected them by number.
 
 This chapter is a test of that thought, and the test comes out negative on every count. But the count is not twelve, whatever the summary says, and getting from twelve to the number it actually is turns out to be the most useful thing in the chapter.
 
@@ -3436,17 +3554,27 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used for any result in this chapter; named because the governance matrix was built for Part Two's argument and not for this one, which is what makes the test here meaningful.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. All twenty-four chapters, for the cross-reference count in the main text. Copyright AAWS; held as a record with no document.
+
+Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited for containing no discussion of the Traditions.
+
 **Cited at a remove:**
 
-Nothing. This chapter cites no source it has not read, because it cites almost no sources at all.
+Nothing.
 
 **Internal, and reproducible from this repository:**
 
 `model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A7.1, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
+The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
+
 **What was not read:**
 
-There is no literature on the coupling between AA's Steps and its Traditions, because as far as I can find nobody has proposed one to be tested. I searched for a prior statement of the index-pairing conjecture strong enough to quote and did not find one; what exists is AA literature gesturing at the parallel without asserting it, which is why the main text says the conjecture arrives on its own rather than attributing it. So this chapter refutes a thing people believe rather than a thing somebody published, and a reader is entitled to think that a weaker target. I have not read the AA literature that gestures at the parallel, because it is AA copyright and this project does not acquire it, which means I cannot say how strongly it gestures.
+There is still no literature on the coupling between AA's Steps and its Traditions, because as far as I can find nobody has proposed one to be tested. I searched for a prior statement of the index-pairing conjecture strong enough to quote and did not find one, which is why the main text says the conjecture arrives on its own rather than attributing it. So this chapter refutes a thing people believe rather than a thing somebody published, and a reader is entitled to think that a weaker target.
+
+**The previous version of this paragraph said something I have had to withdraw.** It said the AA literature gestures at the parallel, and that I could not judge how strongly because the literature was copyright and unacquired. Having read the one book that treats both lists, the honest statement is that it does not gesture at all, and I should not have characterised the contents of a source I had not opened. The conjecture appears to be entirely a reader's inference from the two lists having the same length, which makes it a weaker target than the old wording implied and a cleaner one.
+
+What remains genuinely unread is the rest of the AA canon: the Twelve Concepts, the service manual, and seventy years of *Grapevine*. Any of those could contain an assertion of the pairing, and the claim here is about the 1953 book rather than about everything AA has ever printed.
 
 # Chapter Seventeen: What a Tradition Carries
 
@@ -3504,7 +3632,13 @@ So the finding is exactly as secure as one judgement, stated plainly: that it is
 
 I think that judgement is right, and I think it is the most defensible cell in the whole governance matrix, because it is close to a paraphrase of the sentence. The First Tradition says that common welfare comes first and that personal recovery depends on AA unity. That is a claim about the group persisting and cohering. The Fifth says each group has one primary purpose, to carry its message to the alcoholic who still suffers. That is a claim about what the group does while it persists. Continuity belongs to the first and the recipient resource, which is what carrying the message needs, belongs to the second, and the matrix assigns them that way.
 
-But I want to be exact about what has and has not been established. Kurtz's charge is that the terms were conflated in some later literature, and my defence is that my assignment tracks the published wording rather than the later usage. I have not read the wording of the Traditions as Wilson commented on them. His discussion of the First Tradition, which Kurtz cites as the place where the distinction is clarified, is in a book this project does not acquire because it is AA copyright. So I have answered the objection with a sensitivity test and with the short text of the Traditions, and not with the document that would settle it.
+But I want to be exact about what has and has not been established. Kurtz's charge is that the terms were conflated in some later literature, and my defence is that my assignment tracks the published wording rather than the later usage.
+
+That defence has since acquired a second leg, and the source is Wilson himself. *Twelve Steps and Twelve Traditions* gives each Tradition a chapter, and the two chapters keep the terms apart about as cleanly as prose can. The chapter on Tradition 1 is about the fellowship holding together: unity is the most cherished quality the Society has, without it the heart of AA would stop, the group must survive or the individual will not. The chapter on Tradition 5 opens with the shoemaker sticking to his last and argues that a group should do one thing supremely well rather than many badly. Counting the words is cruder than reading them and says the same thing: the Tradition 1 chapter uses "unity" five times and "purpose" once, and the Tradition 5 chapter reverses it exactly.
+
+So in the fellowship's own commentary the First Tradition is about persisting and the Fifth is about what you do while you persist, which is the distinction the matrix encodes.
+
+I do not want to overstate what that settles. Kurtz named a specific passage in a different book, *Alcoholics Anonymous Comes of Age*, pages 97 to 98, as the place where the clarification occurs, and I still have not read it. What I have is Wilson making the same distinction elsewhere, at length, in the year the commentary was published, which is good evidence that he held it and not proof about the passage Kurtz cited. The objection is now answered by a sensitivity test, by the short text of the Traditions, and by the 1953 commentary, and still not by the document Kurtz named.
 
 ---
 
@@ -3594,7 +3728,11 @@ The structural figure is the highest of any Part Four claim on that test, agains
 
 **The conflation objection was raised in the plan before the chapter was written**, and it is Kurtz's, not mine. `plans/PART-4-PLAN.md` records it as something to settle before drafting, on the ground that it might make the chapter's central finding an artefact. The reassignment test above is the answer and it was run for that purpose.
 
-**What the answer does not include.** Kurtz points at Wilson's own discussion of the First Tradition in *AA Comes of Age*, pages 97 to 98, as the place where the distinction between unity and singleness of purpose is clarified. That book is AA copyright and this project does not acquire it, so the source Kurtz names as decisive is the one source I have not read. The objection is therefore answered by sensitivity analysis and by the published short text of the two Traditions, and not by the document that would settle it. A reader who has *Comes of Age* to hand can close this in five minutes and I would want to know the result either way.
+**What the answer now includes, and what it still does not.** The 1953 commentary was read in full on 10 August 2026 and its chapters on Traditions 1 and 5 keep unity and singleness of purpose distinct, in the terms the main text describes. That is real corroboration and it did not exist when this chapter was drafted.
+
+It is not the document Kurtz named. He points at Wilson's discussion of the First Tradition in *AA Comes of Age*, pages 97 to 98, and that book has still not been read. The difference matters: the 1953 chapters show that Wilson held the distinction, which is what the matrix needs, while the passage Kurtz cites is where he says it is *clarified*, which is a claim about a specific piece of text I cannot check. A reader who has *Comes of Age* to hand can close this in five minutes and I would want to know the result either way.
+
+**The reason it remains unread has changed and should be stated accurately.** It is no longer that the project declines to read AA copyright material; it read the 1953 commentary and was better for it. It is simply that this particular book has not been obtained. That is a smaller and more embarrassing reason, and the correct one.
 
 **A second thing I cannot check.** Kurtz says the conflation appears in *some later AA literature*. He does not say which, and I have not identified an instance. So I am answering a charge whose extent I have not been able to measure.
 
@@ -3605,6 +3743,8 @@ The structural figure is the highest of any Part Four claim on that test, agains
 **Read in full:**
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Note 16 to Chapter Five, for the charge that the concept conveyed by *single-purposed* was obfuscated by substituting *unity*, and that AA itself at times fell into this after Wilson's death; and the main text of Chapter Five for Wilson's August 1945 *Grapevine* sentence about being strong enough and single-purposed enough from within. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
+
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The chapters on Tradition 1 and Tradition 5, spanning printed pages 129 to 131 and 151 to 155, for Wilson keeping unity and singleness of purpose apart. Copyright AAWS; held as a record with no document.
 
 **Cited at a remove:**
 
@@ -3793,7 +3933,7 @@ The wording of the Twelve Traditions themselves. They are AA copyright, this pro
 
 **What was not read:**
 
-Any discussion by AA of why these five Traditions are phrased as they are. *Alcoholics Anonymous Comes of Age* contains Wilson's own commentary on each Tradition and would be the obvious place to test whether he understood the five as second-order rules; it is AA copyright and this project does not acquire it. So the claim that the split is visible in the grammar rests on my reading of twelve sentences and on nobody else's.
+Any discussion by AA of why these five Traditions are phrased as they are. *Alcoholics Anonymous Comes of Age* contains Wilson's own commentary on each Tradition and would be the obvious place to test whether he understood the five as second-order rules; it has not been obtained. *Twelve Steps and Twelve Traditions*, which was read in full on 10 August 2026, gives each Tradition a chapter and is the nearer parallel, but its chapters argue for each rule rather than classifying the rules against one another, so it does not test the split either. The claim that the split is visible in the grammar therefore still rests on my reading of twelve sentences and on nobody else's.
 
 
 \clearpage
@@ -4767,6 +4907,22 @@ I started this to find out whether an argument worked. What the work actually di
 
 That is what it is supposed to feel like, and it took me longer than it should have to recognise it.
 
+---
+
+There is a person who answered this book's question before I asked it, and answered it differently, and he had better standing to do so than anyone.
+
+Ernest Kurtz wrote the history of Alcoholics Anonymous. He had the archives in New York and Akron, he interviewed the surviving old-timers, he listened to the tapes. In a talk given about 1984 he says that at the end of those interviews the old-timers would turn the question back on him: how long will AA last, is it changing so that in another fifty years it will no longer be AA, is it still AA now.
+
+That is Maxwell's question and it is mine. Kurtz's answer contains no structure at all.
+
+He says AA lasts so long as somewhere a sober alcoholic, meeting another alcoholic, drinking or sober, sees not a believer or an unbeliever, not a Baptist or a Catholic, not a man or a woman, but another alcoholic he has to reach out to in order to stay well himself. That is the whole of it. No Traditions, no rotation, no anonymity as a structural device. The historian with the fullest access anyone has had to the record locates the fellowship's survival in the character of a single encounter.
+
+I do not think he is wrong, and I do not think it contradicts anything computed here. A model of resource supply and influence weighting is a description of the conditions under which that encounter keeps being available to people, and Kurtz is describing the thing the conditions are for. Both can be true.
+
+But I notice that his answer is the one that would console someone and mine is not, and that this is not an accident of temperament. He was asked by people who had built the thing and wanted to know if it would survive them. I was asking whether a theorem applies. Those questions have different right answers, and a reader who came here for his and got mine should know that the substitution happened and that it was mine, not his, that narrowed.
+
+---
+
 The Washingtonians wrote their principles down in 1842, in a pocket manual, with directions for starting a society and a section admitting how much their societies disagreed with each other. They had four of the five rules this book calls protective and none of the seven it calls enabling, and they were gone within a decade. Alcoholics Anonymous wrote twelve points in 1946 which its author insisted were not rules and could never become law, and it is still here.
 
 I have spent a long time on why. I am fairly sure the answer is in this book. I am not sure it is the part I think it is.
@@ -4809,15 +4965,19 @@ The characterisation of the Washingtonians' written code in the closing section 
 
 **Read in full:**
 
-Nothing new to this chapter. All sources named are cited in the chapters the material comes from.
+Kurtz, E. (about 1984). "A Talk About the History of Alcoholics Anonymous From the Letters of Bill Wilson." Undated recorded talk; transcript restored by historyofrecovery.com. Read in full 10 August 2026. Source of the closing question put to Kurtz by the old-timers and of his answer to it. The year is inferred from internal evidence and must always be given as "about"; the basis is recorded at `research/incorporated/KurtzTalk_c1984/citation.md`.
 
 **Cited at a remove:**
 
-Nothing.
+Wilson's letters, throughout the Kurtz talk. Kurtz quotes them from memory and without page citations, so nothing attributed to Wilson through that talk has been checked against a letter.
 
 **What was not read:**
 
-Anything written by the fellowship about itself for its own members, all of which is in copyright and none of which this project acquires. So the book's account of what AA thinks it is doing comes from an independent historian reading AA's archives, and its account of what AA's rules say comes from the short published text, and at no point does the institution speak here in its own voice.
+**The previous version of this paragraph is withdrawn.** It said that nothing written by the fellowship about itself for its own members had been read, that the project does not acquire such material, and that at no point does the institution speak here in its own voice. That was true when written and is no longer. *Twelve Steps and Twelve Traditions* was read in full on 10 August 2026, and it changed Chapters Eight, Ten and Sixteen: it supplied the book's own thesis in Wilson's words, the best objection to that thesis, and the disproof of the index pairing. The institution now speaks in its own voice in three chapters, and the book is better for it.
+
+The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is stored, nothing is committed, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
+
+What genuinely remains unread is most of the canon: the Twelve Concepts of World Service, the service manual, the daily reflections, and seventy years of *Grapevine*. Each is available and none has been opened.
 
 
 \clearpage
@@ -5843,6 +6003,19 @@ per cent of everyone's attention, which is not much and would not look like a pr
 from inside, nearly doubles how wrong a large group ends up. The damage starts long
 before anybody would call it a problem.
 
+*The objection AA itself raises.* The fellowship's 1953 commentary on this Tradition
+describes a group's committee as sharply limited, unable in any sense to govern or
+direct, and then says where the influence actually is: with elder statesmen, former
+officeholders it calls the real and permanent leadership, who become the voice of the
+group conscience and to whom a perplexed group inevitably turns. They hold no office, so
+nothing rotates them out. Three such members holding a tenth of the attention between
+them cost a group of ten almost nothing, one per cent, and cost a group of a thousand a
+factor of 2.08 on error, with their share settling at 0.034 against a flat benchmark of
+0.001. Widening the rotation does not touch it, because the concentration is not in the
+rotation. This is a claim about a described practice and not about the Tradition, which
+still satisfies the condition; but a group following AA's own commentary faithfully will
+build the thing the condition forbids. *Deliberation model.*
+
 ## Tradition 3, the open door
 
 *Technical.* Raw semantic load 2.69, governing four resources, with admission at 0.37
@@ -5965,15 +6138,26 @@ the divergence does not. *Algebra, deliberation and simulation.*
 importance. On that column Tradition 9 does nothing measurable, and it carries one of
 the three headline results in the book.
 
-Rotation is where the model knows something AA does not say. The Traditions say to
-rotate. They do not say how many people. The model says the answer is a fraction of the
-group and not a headcount, and that the difference is not a matter of degree. A group of
-fifty rotating twelve people through its service positions is fine. A group of eight
-hundred rotating twelve is a permanent oligarchy, whoever those twelve are and whatever
-anybody intends, and from inside it looks exactly like the healthy small group did.
-Roughly a quarter of the group needs to be in the pool. Treat the quarter as an order of
-magnitude rather than a target, and treat the underlying question as the durable one: if
-this group doubled, would the same people still be running it?
+Rotation is where the model knows something AA does not say. The long form of this
+Tradition says rotating leadership is best, and the 1953 commentary warns against
+entrenched power, but neither says how many people. The model says the answer is a
+fraction of the group and not a headcount, and that the difference is not a matter of
+degree. A group of fifty rotating twelve people through its service positions is fine. A
+group of eight hundred rotating twelve is a permanent oligarchy, whoever those twelve are
+and whatever anybody intends, and from inside it looks exactly like the healthy small
+group did. Roughly a quarter of the group needs to be in the pool. Treat the quarter as
+an order of magnitude rather than a target, and treat the underlying question as the
+durable one: if this group doubled, would the same people still be running it?
+
+*And a limit on that advice, from AA's own commentary.* The quarter is necessary and it
+is not sufficient. The same 1953 text that recommends rotation says the rotating
+positions carry no governing authority, and locates real influence in elder statesmen who
+hold no position at all. A group rotating a quarter of itself but deferring to three such
+members sits at 2.5 times the flat benchmark at fifty, 9.2 at two hundred and fifty, and
+34.2 at a thousand. A service roster cannot detect this, because a roster records offices
+and nothing records deference. The second question a group would have to ask is: when
+something difficult comes up, how many different people does this room turn to, and is
+that number growing as the room does?
 
 ## Tradition 10, no outside issues
 
@@ -6027,6 +6211,15 @@ it stops the group's decisions concentrating on one person, which is the conditi
 those decisions being reliable at all. Tradition 9 shares the second job and not the
 first, which is exactly why anonymity scores higher in the membership comparison and why
 that higher score says nothing about the part that matters most.
+
+That two-job reading was arrived at from the model and has since been found in the
+source. AA's 1953 commentary on this Tradition tells the two as separate lessons learned
+at different times: first that a member's name and story had to be confidential, after
+members repeated each other's stories and trust broke; and later, once national publicity
+arrived, that anonymity had to be absolute at press, radio, film and television, so that
+no self-appointed member could present himself as a messiah representing AA. The first is
+confidentiality. The second is the structural job. Nobody had to reconcile them because
+the fellowship never treated them as one thing.
 
 Maxwell wrote in 1950 that anonymity had "sheer survival value" and could not say why.
 This is the why, and the point worth keeping is that it is two whys rather than one. The
@@ -6176,8 +6369,10 @@ sections carry the full designs and estimands for every figure quoted above.
 
 **What was not read:**
 
-The AA literature that gestures at a parallel between the Steps and the Traditions.
-It is AA copyright and this project does not acquire it, which means the index-pairing
+The AA literature was said here to gesture at a parallel between the Steps and the
+Traditions. That was written without having read it. *Twelve Steps and Twelve Traditions*
+was read in full on 10 August 2026, and no Tradition chapter refers to the Step of its own
+number, while the word "Tradition" does not appear in any Step chapter at all. So the
 conjecture is refuted as a thing people believe rather than as a thing somebody
 published, and I cannot say how strongly the literature gestures.
 
@@ -6520,6 +6715,39 @@ The pool required to come within a factor of two of flat is 13 at $N=50$, 26 at 
 200, 104 at 400 and 208 at 800: **twenty-six per cent of the membership throughout**,
 which is the operational form of the corollary.
 
+### Rotation may be aimed at the wrong positions {#sec:elders}
+
+The rotation result prices a pool that is too narrow. A separate objection, raised by the
+fellowship's own commentary, is that the pool may be irrelevant. *Twelve Steps and Twelve
+Traditions* (AAWS 1953) describes a group's rotating committee as sharply limited in
+authority, states that in no sense whatever can its members govern or direct the group,
+and then locates leadership elsewhere: in "elder statesmen," former officeholders who are
+called the real and permanent leadership, who are said to become the voice of the group
+conscience, and to whom a perplexed group inevitably turns. Those members hold no office
+and therefore rotate out of nothing.
+
+We model this directly. Let $e$ members hold share $\alpha_e$ of every row collectively,
+with no rotation, and let the remaining attention be flat. This is not the dominant-agent
+family reparameterised: the share is collective and there is no cycle to time-average.
+
+Under the structure above, $\max_j s_j \to \alpha_e / e$ as $N \to \infty$, which is
+bounded away from zero for any $\alpha_e > 0$. The wisdom condition fails independently of
+the rotation pool $R$, since the concentration lies outside it.
+
+With $e = 3$ and $\alpha_e = 0.10$, maximum influence is 0.1233, 0.0513, 0.0369 and 0.0342
+at $N = 10, 50, 250$ and 1000, against the predicted floor of 0.0333 and a flat benchmark
+falling to 0.0010. Expected consensus error is 0.2552, 0.1214, 0.0681 and 0.0525 against
+flat values of 0.2523, 0.1128, 0.0505 and 0.0252: a penalty of one per cent at $N = 10$
+rising to a factor of 2.08 at $N = 1000$.
+
+The decision-relevant contrast is whether the twenty-six per cent corollary rescues such a
+group. It does not. Fixing $R = \lceil 0.26 N \rceil$ at every size and reporting
+$\max_j s_j$ as a multiple of the flat benchmark: rotation alone holds at 2.0, 2.0, 2.0 at
+$N = 50, 250, 1000$, which is a self-consistency check since twenty-six per cent was
+defined as the within-a-factor-of-two pool. Adding three elders at $\alpha_e = 0.10$ gives
+2.5, 9.2, 34.2. At $\alpha_e = 0.20$, 4.1, 17.4, 67.4. With five elders at
+$\alpha_e = 0.20$, 2.7, 10.7, 40.7.
+
 ### Touring speakers: a closed form
 
 A movement's attention structure can be modeled as bipartite: flat attention within local
@@ -6541,18 +6769,30 @@ applies it.
 Deriving the Step--Tradition Coupling
 -------------------------------------
 
-### A natural conjecture, tested
+### A natural conjecture, tested {#sec:conjecture}
 
 Two ordered lists of twelve, printed in a single volume, invite the conjecture that Step
 $i$ draws on Tradition $i$. The conjecture merits testing rather than adoption. The
 historical record gives grounds for doubt: the Traditions were codified from 1946 essays
 written roughly a decade after the Steps, in response to specific organizational crises,
-and no AA doctrine pairs the lists by index. The stakes are concrete. Under index-pairing,
-Step 5 (telling one's inventory to another person) would depend on Tradition 5 (primary
-purpose), though what the step plainly requires is confidentiality, which is Tradition 12;
-and Step 12 (carrying the message) would couple to anonymity, though Tradition 5 states
-nearly the same sentence. We therefore derive the coupling from first principles and test
-the conjecture against the result.
+and no AA doctrine pairs the lists by index.
+
+That last clause was previously an assertion about literature the project had not read. It
+has since been checked. *Twelve Steps and Twelve Traditions* (AAWS 1953) is the only work
+treating both lists at length, one chapter each, by the same author, and is therefore
+where an intended pairing would surface. Across its twelve Tradition chapters, none cites
+the Step of its own number; across its twelve Step chapters, the word *Tradition* does not
+occur at all. The single indexed cross-reference in the volume runs off-index: the chapter
+on Tradition 8 mentions the Twelfth Step, to distinguish paid service work from
+twelfth-step work itself. The count is reproducible in minutes from the files AAWS
+publishes free, and the procedure is stated here rather than only its result: in each
+Tradition chapter, count references to the same-numbered Step; in each Step chapter, count
+occurrences of *Tradition*. The stakes are concrete. Under index-pairing, Step 5 (telling
+one's inventory to another person) would depend on Tradition 5 (primary purpose), though
+what the step plainly requires is confidentiality, which is Tradition 12; and Step 12
+(carrying the message) would couple to anonymity, though Tradition 5 states nearly the
+same sentence. We therefore derive the coupling from first principles and test the
+conjecture against the result.
 
 ### Method
 
@@ -6738,8 +6978,10 @@ assignments and on nothing else in the matrix. Notably, the single resource-list
 that breaks it (Design 4) drops continuity and pressure together, which is exactly the
 pair this test identifies: two independent designs agreeing on which two resources carry a
 result is worth more than either alone. The passage Kurtz names as decisive is in an
-AA-copyright work this project does not acquire, so the source identified as settling the
-question is unread.
+AA-copyright work that has not been obtained, so the source identified as settling the
+question is unread. The 1953 commentary, read in full on 10 August 2026, keeps unity and
+singleness of purpose apart across its chapters on Traditions 1 and 5, which corroborates
+the assignment without being the passage Kurtz cited.
 
 ##### Design 6, sparsity perturbation.
 
@@ -7340,7 +7582,9 @@ this limitation is listed first.
     Dragon*. Maxwell (1950) was read in full, but the copy available to us is a retyped
     web reproduction with visible transcription errors, not a scan of the journal, so
     every Maxwell citation here has been checked against a transcription rather than
-    against the journal. AA's own literature was deliberately not acquired.
+    against the journal. *Twelve Steps and Twelve Traditions* (1953) was read in full on
+    10 August 2026 and is held as a record with no document; the rest of AA's own
+    literature has not been obtained.
 
 Falsifiable Predictions
 -----------------------
@@ -7571,6 +7815,24 @@ Association for the Study of Religion, Economics and Culture. **Cited at a remov
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner. **Read at
 source**; public domain.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions.* New
+York: AAWS. **Read in full** 10 August 2026, from the per-chapter files AAWS publishes
+free at aa.org. Source for the elder-statesman structure of
+Section [3.6](#sec:elders){reference-type="ref" reference="sec:elders"} (Tradition 2,
+printed pp. 132-138), the statement that rotating leadership is best and the warning
+against entrenched power (Tradition 9, pp. 174-178), the two functions of anonymity
+(Tradition 12, pp. 187-191), and the unity/singleness-of-purpose distinction (Traditions 1
+and 5, pp. 129-131 and 151-155). Also the cross-reference count reported in
+Section [4.1](#sec:conjecture){reference-type="ref" reference="sec:conjecture"}. **In
+copyright; no copy is held in the project repository.**
+
+Kurtz, E. (c. 1984). "A Talk About the History of Alcoholics Anonymous From the Letters of
+Bill Wilson." Undated recorded talk; transcript restored by historyofrecovery.com. **Read
+in full** 10 August 2026. The year is inferred from internal evidence and is given as
+approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted
+within it from memory and without page citations, so anything attributed to Wilson through
+this source is at a remove. **No copy is held.**
+
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on
 Alcohol* 11: 410-452. **Read in full**, with a caution: the available copy is a retyped
 web reproduction carrying visible transcription errors, not a scan of the journal. Every
@@ -7585,6 +7847,13 @@ alcoholics in Alcoholics Anonymous and drinking outcomes." *Journal of Studies o
 65(6): 766-773. **Read in full**; NIH author manuscript, PMCID PMC3008319, obtained 10
 August 2026. Source for the 40 against 22 per cent abstinence contrast, its independence
 from meeting attendance, and the authors' 8 per cent helping-rate limitation.
+
+Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps.* Cincinnati:
+Franciscan Media. **Read in full** 10 August 2026. Cited only for its reading of anonymity
+as confidentiality and for containing no discussion of the Traditions. The copy consulted
+was an unauthorised posting; the bibliographic record was confirmed independently of it,
+no copy is held, and nothing is quoted at length. See `research/incorporated/Rohr_2011/`
+for the rights position in full.
 
 Riessman, F. (1965). "The 'helper' therapy principle." *Social Work* 10(2): 27-32.
 
@@ -7618,9 +7887,11 @@ drinking." *Clinical Psychology Review* 27(6): 724-738.
 
 **Referenced but not reproduced.** The Twelve Steps and Twelve Traditions of Alcoholics
 Anonymous, paraphrased throughout. The text is copyright Alcoholics Anonymous World
-Services, Inc. and is not reproduced here. AA's own publications (*Alcoholics Anonymous
-Comes of Age*, *Pass It On*, *Twelve Steps and Twelve Traditions*, the *Grapevine* essays
-of 1946, and service pamphlets) were deliberately not acquired for this project.
+Services, Inc. and is not reproduced here. *Twelve Steps and Twelve Traditions* (1953) was
+read in full on 10 August 2026 from the files AAWS publishes free at aa.org; no copy is
+held, and it is paraphrased rather than quoted at length. AA's other publications
+(*Alcoholics Anonymous Comes of Age*, *Pass It On*, the *Grapevine* essays of 1946, and
+service pamphlets) have not been obtained.
 
 **What was not read.** Any work testing whether real deliberating groups behave like
 DeGroot updaters. Any literature on peer-group composition in voluntary mutual-aid

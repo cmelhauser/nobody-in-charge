@@ -25,11 +25,15 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds 23 sources: those the project
-   used before the acquired corpus arrived, the six promoted out of the staged corpus, and three
-   added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), and the 1939
-   Big Book text in a 1999 reprint. A directory's leading token must be at least three characters
+2. **Incorporated local copies.** `research/incorporated/` holds 26 sources: those the project
+   used before the acquired corpus arrived, the six promoted out of the staged corpus, and six
+   added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
+   Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
+   and the Kurtz talk of about 1984. A directory's leading token must be at least three characters
    and distinctive, because `check_book.py` identifies a source in prose by that token.
+   `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
+   already taken by P-17 and by Kurtz (1991), and two directories sharing a leading token would
+   collide.
 3. **Staged/nothing outstanding.** `research/staged/` no longer holds any unread source. Both
    journal articles were obtained by hand on 10 August 2026 and read in full, and are under
    `research/incorporated/`. What remains staged is the acquisition report and metadata, which are
@@ -47,13 +51,20 @@ vocabulary-only verification index.
 **Do not report a missing document as a missing source, and do not restore one.** To check a
 source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256.
 
-**Four sources are held as record only, with no document at any time.** This is a distinct
+**Seven sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
 store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
 from scans whose posting authorization is unverified, and the project's own rights review directs
-that they be cited and quoted within limits rather than archived. Each record keeps the citation,
-the rights position, the hash of the scan consulted, and the passages verified from it.
+that they be cited and quoted within limits rather than archived. Three more were added on
+10 August 2026: AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011) and the Kurtz talk
+of about 1984. Each record keeps the citation, the rights position, the hash of the copy
+consulted, and the passages verified from it.
+
+Rohr (2011) carries the corpus's strongest provenance objection, recorded in its `metadata.json`:
+the copy consulted was an unauthorized posting of a current in-print title. It was not retained,
+its bibliographic record was confirmed independently, and both claims drawn from it are absence
+claims. Confirm any Rohr citation against a lawfully obtained edition before release.
 
 **Citation checking must still pass with no documents present.** Each verification index records
 the source's vocabulary and, because a vocabulary set has no word order, which registered subjects
