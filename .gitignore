@@ -5,6 +5,12 @@ __pycache__/
 .venv/
 build/pandoc.log
 
+# Local git deploy key. Never commit it. It is scoped to this repository, and if it is ever
+# exposed the fix is to delete the deploy key on GitHub and generate a new pair, not to rotate
+# anything else.
+.git-deploy-key
+.git-deploy-key.pub
+
 # Source documents are not committed.
 #
 # Every source lives in research/incorporated/<ShortAuthor>_<Year>/ or research/staged/.
