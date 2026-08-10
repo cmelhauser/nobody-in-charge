@@ -25,11 +25,11 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds Maxwell (1950) and Golub and
-   Jackson (2010), which were already used before the acquired corpus arrived, and the four items
-   promoted out of the staged corpus: the three American Temperance Union documents and the
-   source record for AA pamphlet P-17 on 9 August 2026, and Pagano et al. (2004) and Greenfield
-   and Tonigan (2013) on 10 August 2026.
+2. **Incorporated local copies.** `research/incorporated/` holds 23 sources: those the project
+   used before the acquired corpus arrived, the six promoted out of the staged corpus, and three
+   added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), and the 1939
+   Big Book text in a 1999 reprint. A directory's leading token must be at least three characters
+   and distinctive, because `check_book.py` identifies a source in prose by that token.
 3. **Staged/nothing outstanding.** `research/staged/` no longer holds any unread source. Both
    journal articles were obtained by hand on 10 August 2026 and read in full, and are under
    `research/incorporated/`. What remains staged is the acquisition report and metadata, which are
@@ -45,16 +45,22 @@ As of 9 August 2026 `.gitignore` excludes every `.pdf`, `.txt`, `.djvu` and `.ep
 vocabulary-only verification index.
 
 **Do not report a missing document as a missing source, and do not restore one.** To check a
-source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256. AA
-pamphlet P-17 has never had a document here at all; it is copyrighted AA literature and the record
-keeps its citation, aa.org URL, hash and two page-image-verified quotations.
+source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256.
+
+**Four sources are held as record only, with no document at any time.** This is a distinct
+category from the git-ignored documents, and a verifier should not report either as a missing
+source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
+store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
+from scans whose posting authorization is unverified, and the project's own rights review directs
+that they be cited and quoted within limits rather than archived. Each record keeps the citation,
+the rights position, the hash of the scan consulted, and the passages verified from it.
 
 **Citation checking must still pass with no documents present.** Each verification index records
 the source's vocabulary and, because a vocabulary set has no word order, which registered subjects
 the document contains, decided against the real text at build time and stamped with that file's
 SHA-256. Confirm this rather than assume it: move the documents aside and rerun
-`tools/check_book.py`. It reported 55 citation-subject pairs across 15 sources, all supported, with
-zero documents present. If a re-acquired file's hash differs from its index, the index is stale;
+`tools/check_book.py`. It reported 55 citation-subject pairs across 18 indexed sources, all supported,
+with zero documents present. If a re-acquired file's hash differs from its index, the index is stale;
 rebuild with `python3 tools/build_corpus.py` rather than trusting it, and `--check` reports drift.
 
 Two limitations are declared rather than hidden: the subject matcher is deliberately tolerant of

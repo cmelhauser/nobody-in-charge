@@ -90,8 +90,19 @@ by moving every document out of the tree: all 55 citation-subject pairs still ve
 under `research/incorporated/`. What remains under `research/staged/` is the acquisition report and
 metadata, which are provenance rather than evidence.
 
-AA pamphlet P-17 is cited but has no document here at all, by decision. Keep the citation, the
-aa.org URL and the file hash; do not restore the PDF or its OCR.
+**Four sources are held as record only, with no document at any time.** This is a distinct
+category from the git-ignored documents, and a verifier should not report either as a missing
+source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
+store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
+from scans whose posting authorization is unverified, and the project's own rights review directs
+that they be cited and quoted within limits rather than archived. Each record keeps the citation,
+the rights position, the hash of the scan consulted, and the passages verified from it.
+
+The corpus holds 23 sources. Three arrived on 10 August 2026 after the rest of this file was
+written: the April 1946 *A.A. Grapevine* article, which settled a citation problem Chapter 5 had
+recorded as unresolvable; DeGroot (1974), which supplies a corpus record for the updating rule
+Part Two rests on; and the 1939 Big Book text in a 1999 reprint, held but not yet used as claim
+support.
 
 ## 6. Repository and credentials
 
