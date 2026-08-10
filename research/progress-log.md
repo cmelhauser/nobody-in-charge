@@ -2517,3 +2517,59 @@ around 1e-16. That is far below reported precision and changed no classification
 hash-linked to the model and script rather than to a platform, so the provenance is now recorded in
 the parameter ledger and the verification brief. An independent verifier should expect agreement to
 reported precision, not bit-identical reproduction.
+
+---
+
+## The figure checker was failing, and it had caught a real error
+
+`tools/check_book.py` requires every decimal printed in a chapter to be reachable from the
+notebook, the model source, or a cache. It was reporting 102 failures. Fifty-five of those predate
+this round; the rest appeared when the notebooks were regenerated, because the compact cache-identity
+notebook prints far fewer figures than the 38-cell notebook it replaced.
+
+Restoring the old notebook was not an option. Run against the current caches it reports
+`Morris trajectories: got 20.0000, book says 10.0`, has three cells that produce no output, never
+contained the sentinel the verification brief requires, and finishes `NOT CLEAN`. It was written
+for the pre-correction model and still checks against 41.7 baseline members.
+
+So `tools/regenerate_notebooks.py` now emits a published-figures cell that derives the quoted
+values rather than restating them: the part5 trajectories and sweeps, the Chapter 14 decay sweep
+and its environment-matched test, service, proxy averaging with Wilson intervals, the OAT influence
+ranges, the release gate with Wilson intervals and paired contrasts, the Chapter 7 DeGroot example,
+the Chapter 13 cross-partials, the Part Four overlap algebra with its seeded jitter and structural
+tests, the Chapter 17 reassignment test, and the Chapter 22 founder constants. That took the count
+from 100 untraceable decimals to zero.
+
+Three obstacles were worth recording. The prose rounds half away from zero and Python rounds half
+to even, so a cached 57.705 prints 57.70 from `round()` and 57.71 in the book; the cell prints both.
+Chapters quote stored proportions as percentages, so both are printed. And the Chapter 14
+maintenance figures are stored as `3.03e-08`, which no decimal search can match, so they are also
+printed in plain decimal.
+
+**The checker was right about one number.** Chapter 20 and the paper printed the invisible
+condition's year-ten membership as 12.99. Every other cell in that row reproduces exactly, and the
+correct derivation is 12.9849, so both now read 12.98. That is the whole value of the check: it
+does not care that the number looks reasonable.
+
+The two remaining failures were real house-style violations. Chapter 13's Machinery presented
+400-replication output with no interval; it now labels the substitution table and cross-partials as
+exact algebra and gives Wilson intervals for the proxy-averaging proportions. Chapter 14's decay
+sweep now carries 95 per cent half-widths beside its membership series.
+
+## The last clipped table, and why --columns made it worse
+
+Table 41, the paper's mapping table as reproduced inside the book, was cut off on the right. The
+cause was not width in the ordinary sense: pandoc emitted it as a **simple** table, one line per
+row, which cannot wrap, so it converted to a 211-character table whose relative column widths were
+then computed against the default 72-column reference. That put it about three line widths wide.
+
+Setting `--columns` looked like the fix and was not. On the conversion pass it does not change a
+simple table's width at all. On the PDF pass it rescales every table in the book, and it took the
+count of overflowing pages from two to nine. The actual fix is `-t markdown-simple_tables` on the
+conversion, which emits a wrapping grid table. Book margin overflow is now zero pages across 259.
+
+Earlier in the same pass: typewriter filenames were being cut mid-word, the 64-character model hash
+overflowed the appendix's first page, Table 48 had lost its final two columns, the book printed
+dead `[eq:err]` and `[prop:one]` cross-references where the paper prints numbers, and the mapping
+table had lost the `1.` from its Common welfare row because pandoc's LaTeX reader reads a leading
+`1.` as an ordered-list marker and drops it.

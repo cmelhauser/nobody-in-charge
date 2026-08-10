@@ -1,10 +1,11 @@
-# Project handoff — expanded robustness complete, one checker still failing
+# Project handoff — expanded robustness complete, all checkers passing
 
 **Written:** 2026-08-09
 **Canonical project:** the Git checkout containing this file; its repository root is `.`
-**Status:** All analysis is complete. `check_release`, `check_portability`, and `check_chapter`
-pass. `check_book` does not. The release is therefore **not** closeable yet, and the remaining
-work is documentation-side, not computational.
+**Status:** All analysis is complete and every checker passes. Both notebooks execute clean, all
+three PDFs are rebuilt and visually inspected with no blank pages and no margin overflow. What
+remains is the unresolved *scientific* limitations listed in section 9, which are expected and are
+not release defects.
 
 ## 1. Objective and decisions that must not change
 
@@ -77,35 +78,49 @@ The three screens that were outstanding are done, hash-current, and `complete`:
 | `tools/check_release.py` | **136 checks passed, 0 failed** |
 | `tools/check_portability.py` | pass |
 | `tools/check_chapter.py` on the primer | all clear, 9 long-sentence warnings |
-| `tools/run_notebook.py` and `--paper` | both CLEAN, 7 cells, 70 assertions each |
-| `tools/check_book.py` | **102 failures, 39 warnings** |
+| `tools/run_notebook.py` and `--paper` | both CLEAN, 8 cells, 70 assertions each |
+| `tools/check_book.py` | **0 failures, 39 warnings** |
 
-## 5. The one blocking defect
+## 5. How the figure traceability failure was closed
 
-`tools/check_book.py` fails with 100 `figures` failures, 2 `intervals` failures, and 1 other.
+`tools/check_book.py` had been failing since before this round: 55 failures at the starting
+commit, rising to 102 once the notebooks were regenerated. `check_figures` requires every decimal
+in a chapter to be reachable from the notebook, the model source, or a cache, and the compact
+regenerated notebook printed far fewer figures than the 38-cell notebook it replaced.
 
-**Cause.** `check_figures` requires every decimal in a chapter to be traceable to the notebook
-source or output, the model, or a cache. `tools/regenerate_notebooks.py` builds a compact
-seven-cell cache-identity notebook that prints far fewer figures than the 38-cell notebook it
-replaced. At `HEAD` the same checker reported 55 failures, so the checker was already failing
-before this round; regenerating the notebooks raised it to 102.
+The old notebook could not be restored. Executed against the current caches it reported
+`Morris trajectories: got 20.0000, book says 10.0`, had three cells producing no output, never
+contained the required `CLEAN CACHE-BACKED VERIFICATION NOTEBOOK` sentinel, and finished
+`NOT CLEAN`.
 
-**Why the old notebook cannot simply be restored.** It is stale and invalid. Executed against the
-current caches it reports `Morris trajectories: got 20.0000, book says 10.0`, has three cells
-producing no output, never contained the required `CLEAN CACHE-BACKED VERIFICATION NOTEBOOK`
-sentinel, and finishes `NOT CLEAN`. `AGENT_VERIFY.md` section 6 and `check_release` both require
-the regenerated form, and they pass with it.
+`tools/regenerate_notebooks.py` now emits a published-figures cell that **derives** the quoted
+values from the caches and the model matrices rather than restating them. It covers the part5
+trajectories and dose sweeps, the ch14 decay sweep and its environment-matched individual test,
+ch15 service, ch13 proxy averaging with Wilson intervals, the OAT influence ranges, the release
+gate with Wilson intervals and paired contrasts, the Chapter 7 DeGroot worked example, the
+Chapter 13 CES cross-partials, the Part Four semantic-overlap algebra with its seeded jitter and
+structural tests, the Chapter 17 reassignment test, and the Chapter 22 founder constants.
 
-**The fix.** Extend `tools/regenerate_notebooks.py` with a public-figures cell that derives and
-prints, from the caches, the figures the chapters actually quote, then regenerate and re-run. The
-missing figures by chapter are listed by running the checker; they are all cache-derivable, for
-example the ch14 decay sweep from `ch14_sweep.json`, the ch20 to ch22 values from `part5.json`,
-the ch15 values from `ch15_service.json`, and the ch12 values 12.98 and 14.64 from `oat_full.json`.
-**Derive them; do not paste literals.** The point of the check is that no figure in the book is
-untraceable, and satisfying it with hard-coded constants would defeat it.
+Three things had to be handled to reach zero, and they are worth knowing before editing that cell:
 
-The 2 `intervals` failures, in ch13 and ch14, are separate: those chapters present simulation
-output without an interval, which is a house-style violation predating this round.
+1. **Rounding convention.** The prose rounds half away from zero; Python rounds half to even. The
+   book prints 57.71 for a cached 57.705, which `round()` renders 57.70. The cell prints a half-up
+   rendering alongside the plain one.
+2. **Percentages.** Chapters quote a stored proportion as a percentage, so both are printed.
+3. **Scientific notation.** The Chapter 14 maintenance figures are stored as `3.03e-08`, which no
+   decimal search can match, so they are also printed in plain decimal.
+
+Do not satisfy this check by pasting literals. Its purpose is that no published figure is
+untraceable, and hard-coded constants would defeat it.
+
+**One genuine error surfaced.** Chapter 20 and the paper both printed the invisible condition's
+year-ten membership as 12.99. Every other cell in that row reproduces exactly, and the correct
+derivation is 12.9849, so both now read 12.98.
+
+The two `intervals` failures were real house-style violations predating this round. Chapter 13's
+Machinery now labels the substitution table and cross-partials as exact algebra and gives Wilson
+intervals for the proxy-averaging proportions; Chapter 14's decay sweep now carries the 95 per
+cent half-widths beside its membership series.
 
 ## 6. PDF state
 
@@ -115,7 +130,7 @@ inspection of every flagged page.
 
 | Artifact | Pages | Size | Result |
 |---|---:|---|---|
-| `build/nobody-in-charge.pdf` | 259 | A4 | 0 blank; 1 clipped table remains |
+| `build/nobody-in-charge.pdf` | 259 | A4 | 0 blank, 0 margin overflow |
 | `paper/anonymity-as-an-aggregation-condition.pdf` | 32 | A4 | clean; no undefined references |
 | `reference/PRIMER-steps-and-traditions.pdf` | 17 | Letter | clean |
 
@@ -133,26 +148,25 @@ Fixed this round, all in `tools/build_book.py` unless noted:
 - the paper's mapping table lost the `1.` from its Common welfare row, because pandoc's LaTeX
   reader treats a leading `1.` as an ordered-list marker and drops it; now restored.
 
-**Still open.** Table 41, the paper's mapping table as reproduced inside the book, is clipped on
-the right on book page 230; its caption and second column are cut. The paper's own PDF renders it
-correctly, so this is a book-build defect only. Cause: pandoc converts it to a 211-character
-multiline table and computes relative column widths against the default 72-column reference, so
-the widths sum to roughly 2.9 line widths. Setting `--columns` on either pandoc pass was tried and
-rejected: on the conversion pass it does not change the emitted width, and on the PDF pass it
-rescales every table in the book and took the count of overflowing pages from 2 to 9. A per-table
-fix is needed, such as wrapping over-wide tables in `adjustbox` with `max width=\textwidth`.
+Table 41, the paper's mapping table reproduced inside the book, was clipped on page 230 with its
+caption and second column cut. The cause was that pandoc emitted it as a **simple** table, one
+line per row, which cannot wrap; it therefore converted to a 211-character table whose relative
+column widths were computed against the default 72-column reference, putting it about three line
+widths wide. `--columns` on either pass does not fix it: on the conversion pass the simple-table
+width is unaffected, and on the PDF pass it rescales every table in the book and took the count of
+overflowing pages from 2 to 9. The fix is `-t markdown-simple_tables --columns=90` on the
+conversion, which emits a wrapping grid table. Book margin overflow is now zero pages.
+
+That change moved table cells from an indented opening to a pipe opening, so the enumerator
+restoration described above had to accept both.
 
 ## 7. Repository state
 
-Working tree is **not** clean; this round's changes are uncommitted and unpushed. `HEAD` is
-`de7a70b8a4ad96d1d632cf52fd3a52159bdefebf` and equals `origin/main`.
+The working tree is clean and this round is committed on `main`. Nothing has been pushed; `main`
+is ahead of `origin/main`. Push is deliberately left to the author.
 
-A stale `.git/index.lock` is present. It blocks `git add` and `git commit`. Remove it with
-`rm .git/index.lock` before committing. It could not be removed from the analysis sandbox, which
-has create and write but not unlink permission on the mount.
-
-`research/ROBUSTNESS-RESULTS.md` is new and untracked and must be added. `.gitignore` now excludes
-the LaTeX build artifacts the paper emits.
+`research/ROBUSTNESS-RESULTS.md` is tracked. `.gitignore` now excludes the LaTeX build artifacts
+the paper emits, so a paper build no longer dirties the tree.
 
 ## 8. Generating-platform note
 
@@ -162,15 +176,34 @@ differed on continuous outcomes only in the last representable digit, about 1e-1
 classification changed. Provenance is recorded in `research/PARAMETERS.md` section 8.4 and in
 `AGENT_VERIFY.md`. Expect agreement to reported precision, not bit-identical reproduction.
 
-## 9. Next agent, in order
+## 9. Unresolved scientific limitations
 
-1. Fix `check_book` as described in section 5. This is the only blocking item.
-2. Decide the ch13 and ch14 interval failures: either add the interval and design, or move the
-   figure into The Machinery where the house style allows it.
-3. Fix the Table 41 clipping in section 6.
-4. Re-run the full sequence in `README.md`, rebuild all three PDFs, re-inspect.
-5. Remove the stale lock, commit, and confirm `HEAD` against `origin/main`.
-6. Close the verdict using `AGENT_VERIFY.md`.
+These are expected and are not release defects. They are the honest boundary of what the project
+may claim.
+
+- No simulation parameter is fitted to longitudinal AA group data, and the original calibration
+  targets of 45 members and 9 experienced members fail at 17.80 and 1.25. They were not retuned.
+- The `S` and `GOV` matrices are one person's judgment. Part Four's conclusions degrade smoothly
+  with disagreement about the magnitudes and are essentially gone under structural randomization,
+  where index-pairing fails on all twelve in only 40.6 per cent of draws.
+- The mapping from the Traditions to the theorem's assumptions is a reading of three sentences.
+  Nobody has a method for testing it.
+- The recipient contrast, 1.028 [-0.259, 2.314], and both founder-composition contrasts remain
+  unresolved. No equivalence margin was prespecified.
+- Chapter 14 separation is rare rather than typical: 7 of 400 endpoint environments.
+- `a:5` and `a:11` sit at or below the Sobol membership noise floor and are not separated from
+  Monte Carlo error. The practice first-order column remains withheld.
+- Every horizon is finite and the membership series is still moving at 100 years. No steady-state
+  or indefinite-persistence claim is available.
+- `research/staged/` is intentionally deferred and was not used.
+
+## 10. Notes for the next agent
+
+The paper verification notebook is byte-identical to the book notebook apart from its title, and
+both are generated from one cell set by `tools/regenerate_notebooks.py`. That satisfies the
+release gate, which asks only that both execute clean with stored output, but it is not a distinct
+verification of the paper's own claims. Making it one, or explicitly retiring it as the release
+plan's section 3.4 allows, is the obvious next editorial decision.
 
 Do not restart any completed analysis. Every cache in `research/` is complete and hash-current,
 and rerunning the Sobol design alone costs about four hours.

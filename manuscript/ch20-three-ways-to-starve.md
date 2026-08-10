@@ -98,7 +98,7 @@ Survival carries a 95 per cent Wilson interval; membership and quality carry a 9
 | Condition | Viable y10 | Members if viable, y10 | Established practice y10 | Viable y30 | 95% interval | Established practice y30 |
 |---|---|---|---|---|---|---|
 | nothing wrong | 0.9975 | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968 to 0.993 | 0.2648 ± 0.0058 |
-| invisible | 0.9925 | 12.99 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968 to 0.993 | 0.2592 ± 0.0071 |
+| invisible | 0.9925 | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968 to 0.993 | 0.2592 ± 0.0071 |
 | unreferred | 0.660 | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015 to 0.049 | 0.3642 ± 0.0443 |
 | unwelcoming, combined T3 loss | 0.905 | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499 to 0.596 | 0.3211 ± 0.0134 |
 

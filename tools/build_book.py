@@ -182,7 +182,12 @@ def convert_paper():
     """
     try:
         md = subprocess.run(
-            ['pandoc', PAPER_TEX, '-t', 'markdown', '--wrap=none',
+            # `-simple_tables` matters. As a simple table the paper's mapping table is one
+            # line per row, so nothing can wrap and it converts to a 211-character table
+            # whose relative column widths are then computed against a 72-column reference,
+            # putting it about three line widths wide and off the page. Disabling simple
+            # tables emits a grid table whose cells wrap at --columns instead.
+            ['pandoc', PAPER_TEX, '-t', 'markdown-simple_tables', '--columns=90',
              '--shift-heading-level-by=1'],
             capture_output=True, text=True, check=True).stdout
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
@@ -220,9 +225,18 @@ def resolve_paper_crossrefs(md):
     # reader escapes every number except 1, which is the default list start and is dropped
     # outright, so the paper's mapping table lost the "1." from its Common welfare row.
     # Escape the survivors, then restore the one that was eaten.
-    md = re.sub(r'(\n\s{2,})(\d{1,2})\.(\s+\S)',
+    # The replacements above are noun phrases, so a preceding "Equation" or "equation ("
+    # left over from the LaTeX would read "Equation the consensus-error equation above".
+    md = re.sub(r'\b[Ee]quation\s+\((the [^)]*? above)\)', r'\1', md)
+    md = re.sub(r'\b[Ee]quation\s+(the [a-z-]+ equation above)', r'\1', md)
+    md = re.sub(r'\b[Ee]quation\s+(the proposition above)', r'\1', md)
+
+    # Cells arrive either indented (simple and multiline tables) or after a pipe (grid and
+    # pipe tables), so both openings have to be handled.
+    md = re.sub(r'(\n(?:\s{2,}|\|\s*))(\d{1,2})\.(\s+\S)',
                 lambda m: f'{m.group(1)}{m.group(2)}\\.{m.group(3)}', md)
-    md = re.sub(r'(\n\s{2,})\.(\s+\S)', lambda m: f'{m.group(1)}1\\.{m.group(2)}', md)
+    md = re.sub(r'(\n(?:\s{2,}|\|\s*))\.(\s+\S)',
+                lambda m: f'{m.group(1)}1\\.{m.group(2)}', md)
     return md
 
 
