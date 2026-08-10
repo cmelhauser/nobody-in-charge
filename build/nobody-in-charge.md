@@ -2,7 +2,7 @@
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author: "Anonymous"
-date: "Draft of 6 August 2026"
+date: "Draft of 9 August 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -19,6 +19,10 @@ header-includes:
   - \usepackage{booktabs}
   - \usepackage{longtable}
   - \setlength{\emergencystretch}{3em}
+  - \usepackage[htt]{hyphenat}
+  - \usepackage{xurl}
+  - \usepackage{etoolbox}
+  - \AtBeginEnvironment{longtable}{\footnotesize}
   - \usepackage{titlesec}
   - \titleformat{\chapter}[display]{\normalfont\Large\bfseries}{}{0pt}{\Large}
   - \titlespacing*{\chapter}{0pt}{0pt}{28pt}
@@ -42,9 +46,9 @@ The third kind is a **simulation result**, and this is where the caution belongs
 
 Underneath Parts Three, Four and Five sits a computer model of a mutual-aid group: members with twelve dials each, the resources a group produces, the traditions that govern the supply of those resources, and people arriving and leaving over thirty years. It is described properly in Chapter Twelve.
 
-The model has **118 numbers in it that I chose**. Twenty-two settings governing how fast things grow and decay, twelve more for the speed of each step, and two matrices, one recording what each step consumes from a group and one recording which traditions govern the supply of each thing consumed. There are 226 cells in the model altogether. The rest are empty, and they are empty because a step consumes nothing of that resource, which is a structural fact rather than a number I picked.
+The registered sensitivity set contains **118 numeric values**: twenty-two scalar defaults, twelve step speeds, forty-nine nonzero consumption cells and thirty-five nonzero governance cells. That is not a count of every choice in the model. Fixed coefficients, founder and arrival states, the time step, the horizon, the viability threshold, equations and 108 structural zeros are choices too. The blanks encode the author's claim that a relationship is absent; they are not facts discovered by the model.
 
-Not one of those numbers was fitted to data. There is no dataset of AA members' step practice over time to fit them to. Some are borrowed from literatures where analogous quantities have been estimated, some are set so the model produces a group of roughly the size a healthy meeting actually is, and some are simply my judgement about what seemed reasonable. The two matrices are the most judgemental objects of all, and everything in Part Four inherits from them.
+Not one of those numbers was fitted to data. There is no dataset of AA members' step practice over time to fit them to. Some are borrowed from literatures where analogous quantities have been estimated, some were set to target a stylized group size, and some are simply my judgement about what seemed reasonable. The target now fails: after correcting member heterogeneity to have mean one, 400 runs average 17.80 members and only 1.25 experienced members above the stated threshold, against targets of 45 and 9. I did not retune after seeing the failure. The two matrices are the most judgemental objects of all, and everything in Part Four inherits from them.
 
 A model like that can show that a set of ideas fits together. It cannot show that the ideas are true, and it certainly cannot be run backwards to tell you anything about an individual person.
 
@@ -52,33 +56,17 @@ A model like that can show that a set of ideas fits together. It cannot show tha
 
 So I did the obvious thing, which is to perturb everything and see what survives.
 
-Every one of those numbers was jittered by up to twelve and a half per cent, then twenty-five, then fifty, in either direction, thirty times at each level, with the model rebuilt from scratch each time. Running three levels rather than one gives a degradation curve, and the shape of that curve turns out to be more informative than any single pass. A claim that holds steady across all three is structural. A claim that falls away gradually has a breaking point you can name. A claim that is already shaky at the mildest level was probably never there.
+Every registered value is now examined in several designs. The global screen uses 1,002 independent perturbation draws, 334 at each of twelve and a half, twenty-five and fifty per cent. The multi-level one-at-a-time screen uses 944 endpoints, moving each registered value in both directions at four distances. A tiered screen and a randomized-matrix screen use 1,000 draws each; Morris uses twenty trajectories; the Sobol base sample is 1,024 rows. Those are screens over stated ranges, not proofs that a claim is structural or universal.
 
-The results sort the book's simulation claims into three piles, and I would rather hand you the sorting than let you assume the piles are alike.
+The expanded global screen demonstrates why the results cannot be sorted into one robust and one fragile pile. Each draw compares referral loss with pure attraction loss on three separate outcomes. At 12.5 per cent perturbation, final membership is ordered, tied and reversed in 301, 0 and 33 of 334 draws; endpoint viability in 323, 10 and 1; and existence in 318, 16 and 0. At 25 per cent the corresponding counts are 251/1/82, 269/64/1 and 262/72/0. At 50 per cent they are 213/17/104, 201/117/16 and 215/117/2. A sentence saying only that the ordering "survives" would conceal both the outcome and the failures.
 
-**Claims that held at every level.** A group following the Traditions closely persists over thirty years: true in ninety-seven per cent of draws at the mildest perturbation and still seventy-three per cent when every number in the model is allowed to move by half. And losing the stream of newcomers who arrive from outside the group's own efforts, from courts and hospitals and treatment programmes, is more damaging than losing the group's ability to attract people through its own members. That ordering held in every single draw at twelve and a half and at twenty-five per cent, and in eighty-seven per cent at fifty. It is the most robust thing the simulation says.
+Full adherence has the same qualification. It is endpoint-viable in all three common seeds in 302, 291 and 256 of the 334 draws at the three amplitudes, while existence in all three seeds holds in 334, 325 and 287. Those are screening counts from three seeds per parameter point, not estimates of a population probability.
 
-**A claim that holds for the group it is about.** Groups in demographic decline maintain the quality of practice among the members who remain. Among perturbed runs where such a group survived at all, practice stayed within fifteen per cent of a healthy group's in fifty-eight to ninety-four per cent of cases depending on the perturbation level. But that figure is conditional on survival, and only about half of the perturbed runs produced a surviving starved group in the first place. Both halves of that sentence are needed; the first alone would mislead.
+At the unperturbed point, where the estimate does use 400 seeds, the baseline ends at 17.80 members, exists in every run, is endpoint-viable in 98.5 per cent and closes in none. Referral loss ends at 0.51 members, exists in 10.5 per cent, is viable in 2.75 per cent and closes in 89.5 per cent. Pure attraction loss ends at 12.38 members, exists in every run, is viable in 98.5 per cent and closes in none. These are finite thirty-year model outcomes, not historical rates.
 
-**A claim that did not survive, and which I had been stating too confidently.** Earlier drafts said a group cut off from outside referrals dies in four runs out of five. Two separate things are wrong with that.
+The structural audit then changes four choices one at a time and compares them with the base architecture, 400 paired seeds for every condition. Under the corrected mean-one capability model, referral loss has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five architectures. The old result in which the size ordering reversed under three variants came from the retired capability-inflated model and does not reproduce. Agreement across five architectures is useful evidence inside the model, not a theorem about every architecture somebody might write.
 
-The first is arithmetic and I am embarrassed by it. The figure came from ten simulation runs, and ten is not enough for a quantity whose run-to-run spread is a third of its own average. Recomputed over four hundred runs, a referral-starved group survives about a third of the time, not a fifth. The old number was not imprecise; it was outside the range the larger sample allows.
-
-The second is the deeper problem. Even the corrected figure is worth nothing, because it moves under perturbation: it held in only seventy-three per cent of draws at the mildest level, fifty-seven at the middle, fifty at the largest, with the survival rate covering the whole interval from zero to one at every level. It fails at the gentlest shake, which is the damning case.
-
-Varying parameters one at a time shows why, and the picture got worse when I did it properly. Three of them, moved alone by a quarter, each take the outcome from certain death to certain survival: the rate at which practice decays, the strictness of step ordering, and how strongly early practice protects against dropping out. But an early version of that test covered only twenty-one of the hundred and eighteen numbers. Running it over all of them, fifty-three lift the outcome off the floor and only sixty-five leave it alone. Referral-starved survival is not a quantity this model estimates. It is not even a knife-edge balanced on three numbers. It is a knife-edge that almost half the model can nudge.
-
-So where earlier drafts said a referral-starved group dies, they now say it is the more dangerous of the two ways a group can be starved, which is what the evidence supports.
-
-Two further tests deserve mention, because they cut the other way.
-
-The two matrices are the most judgemental things in the model. I replaced every number in them with a random value, keeping only the pattern of which entries are zero, and re-ran everything thirty times. The conclusions barely moved. The ordering held in every draw, and the claim about referral starvation actually held *better* than when the other parameters were perturbed.
-
-For one of the two matrices I can now say something stronger than "barely moved". The matrix recording which Traditions govern the supply of what turns out to have no effect on a fully adherent group whatever, and this is arithmetic rather than a result. The weights are normalised down each column before use, so when every Tradition is being followed completely they all cancel and the quality of governance comes out at one for every resource, no matter what I wrote in the cells. Thirty-five of the hundred and eighteen numbers are, in that case, doing nothing at all. Where adherence is partial they do something, and it is small: changing one of them by a quarter moves the outcome not at all.
-
-The second test is the one that most strengthened the book. Moving each of the hundred and eighteen numbers alone by a quarter gives two hundred and thirty-six perturbations, and the claim that losing referrals is worse than losing attraction survived every single one of them. That is a harder test than jittering everything at once, because a claim can survive random jitter by averaging while still hanging on one number. This one hangs on no number in the model. Meanwhile the claim that a group following the Traditions persists survived two hundred and thirty-five of the two hundred and thirty-six. The one exception was the parameter I had already flagged as the least defensible thing in the model, which is at least the right place to find a weakness.
-
-Then I had to say what worse means, and saying it cost half the claim. A group that loses its referrals is far more likely to die, and that survives every parameter perturbation and four changes to the model's architecture besides. Whether it also ends up *smaller* is architecture-dependent, and under three of those four changes the ordering reverses. **The claim in this book is about dying, and it says so in those words wherever it appears.** It had been stated without a measure for a long time, and an ambiguity is a comfortable place for a claim to live.
+The two matrices remain the most judgemental objects in the model. One exact result is worth separating from every screen: the governance matrix is column-normalised, so at full adherence its thirty-five nonzero cells cancel and governance quality is one for every resource. A perturbation design that moves those cells while scoring only a fully adherent group has not tested their magnitudes at all. At partial adherence they are live, and the matrix and sparsity audits report them separately.
 
 ---
 
@@ -86,7 +74,7 @@ Which brings me to the sentence this preface used to end on, and why it is no lo
 
 It said that what the model rests on is not the magnitudes in those two matrices but their structure, and that the structure is the part of the apparatus I would defend hardest. That is true of some of the book and false of the rest, and the difference is now the most important thing in this section.
 
-**The survival claims of Parts One and Three do rest on structure.** Replace every non-zero entry of both matrices with a random number, keep only the pattern of which cells are empty, and the ordering claim still holds in every draw.
+**One endpoint comparison does rest on the matrix sparsity pattern rather than its nonzero magnitudes.** Replace every nonzero entry of both matrices with an independent random value and keep only the empty cells: pure attraction loss still ends larger and more viable than referral loss in all 1,000 draws; existence is strictly higher in 999 and tied in one. That does not make the fully adherent group uniformly robust: it is viable in all three screening seeds in 784 of those 1,000 draws. A comparison and an absolute persistence claim are different results.
 
 **The coupling claims of Part Four do not.** Run the same test on the central one, that the numbering does not indicate which Tradition serves which Step, and it holds in 40.6 per cent of draws. It fails more often than it holds. Part Four rests on the magnitudes, the magnitudes are my judgement, and the chapters there argue for them one at a time instead of borrowing a robustness figure earned somewhere else.
 
@@ -106,7 +94,7 @@ If you are reading this because of your own recovery or somebody else's, the mod
 
 The last thing to say is what would make the book wrong.
 
-If a historian shows the Washingtonian movement declined for reasons other than the ones in Part Two, most of Part One fails. If it turns out that AA members do not in fact work the steps in order, the whole chain structure in Part Three should be discarded rather than patched. And if the model's threshold result turns out to depend on one parameter, then it does. There is a level below which recovery collapses rather than merely declining; but raising the decay rate by under three per cent does not move that level, it abolishes the healthy state entirely. Chapter Fourteen says so where the claim is made, rather than in a footnote.
+If a historian shows the Washingtonian movement declined for reasons other than the ones in Part Two, most of Part One fails. If it turns out that AA members do not in fact work the steps in order, the whole chain structure in Part Three should be discarded rather than patched. And the release audit has already falsified Chapter Fourteen's original typical-member threshold result: its frozen environment came from the retired capability-inflated model. Under 400 corrected endpoint environments, high and low starts separate in only seven. The external case for nonlinear relapse dynamics remains worth testing; this simulation does not establish the claimed typical-member bistability.
 
 I have tried throughout to state what would falsify each claim alongside the claim itself. A book that cannot be wrong about anything is not saying much.
 
@@ -114,7 +102,7 @@ I have tried throughout to state what would falsify each claim alongside the cla
 
 In 1840, six drunks in a Baltimore tavern founded a society to keep each other sober. Within four years there were societies like it across the United States and the movement claimed to have reached hundreds of thousands of people. Within ten years it was gone, so completely that a century later almost nobody had heard of it.
 
-In 1935, in Akron, two more drunks founded another one. It is still here. It has roughly two million members across some 120,000 groups, and its constitution has stood essentially unchanged since 1950.
+In 1935, in Akron, two more drunks founded another one. It is still here, a worldwide fellowship of autonomous groups, and its constitution has stood essentially unchanged since 1950. I do not give a current membership or group count because the AA service document that would support one has been located but not read.
 
 The obvious question is what the second one had that the first one did not, and the obvious answer is a set of twelve rules that the second one wrote down in 1946. This book is about whether that answer is right, and it arrives at a smaller version of it than I set out to prove.
 
@@ -146,7 +134,7 @@ Two other things follow, and both came out differently from how I expected.
 
 The first is about rotation. AA rotates its service positions, and the usual explanation is that this prevents anyone becoming important. The theorem says something sharper: the condition requires the largest share of attention to *shrink as the group grows*, and rotating through a fixed pool of twelve people does not shrink. It flattens out, so a room of eight hundred rotating a dozen people is further from the requirement than a room of fifty doing exactly the same thing. Rotation has to be proportional, and the figure is about a quarter of the membership at every size the model was run at.
 
-The second is about the relationship between the Steps and the Traditions. There are twelve of each, published side by side for seventy years, and the natural guess is that they pair off by number. They do not pair off. Not one Step is chiefly served by the Tradition sharing its number, and the two correspondences anyone would guess are reversed: Step Five, telling another human being, is served principally by Tradition Twelve, anonymity; Step Twelve, carrying the message, by Tradition Five, singleness of purpose.
+The second is about the relationship between the Steps and the Traditions. There are twelve of each, published side by side for more than seventy years, and the natural guess is that they pair off by number. They do not pair off. Not one Step is chiefly served by the Tradition sharing its number, and the two correspondences anyone would guess are reversed: Step Five, telling another human being, is served principally by Tradition Twelve, anonymity; Step Twelve, carrying the message, by Tradition Five, singleness of purpose.
 
 That third result is the weakest of the three and Part Four spends most of its length saying why. Five of the twelve counts follow from a prior fact rather than standing alone. The whole thing rests on the magnitudes in two matrices I built, and it does not survive replacing those magnitudes with random numbers. A reader who thinks the matrices are arbitrary should not be persuaded, and the chapters say so rather than borrowing a robustness argument that was established for something else.
 
@@ -154,7 +142,7 @@ That third result is the weakest of the three and Part Four spends most of its l
 
 There is a simulation running underneath most of this, and it is worth being plain about what it is for.
 
-It represents a fellowship group as twelve perishable capabilities per member, eight things the room produces, twelve adherence dials, and a population that turns over. It has a hundred and eighteen hand-chosen numbers in it and nothing to fit them to, because the longitudinal data such a model would need has never been collected.
+It represents a fellowship group as twelve perishable capabilities per member, eight things the room produces, twelve adherence dials, and a population that turns over. It has a hundred and eighteen registered sensitivity values, plus fixed constants, structural zeros and design choices, and nothing to fit them to because the longitudinal data such a model would need has never been collected.
 
 A model like that cannot show that anything is true. It can show that a set of ideas is consistent, that a mechanism is available, and that certain things follow from certain assumptions and certain other things cannot. That is worth having and it is not evidence about the world.
 
@@ -372,7 +360,9 @@ Ninety-five years after Chase's Tavern, in a house in Akron, a failed stockbroke
 
 The Washingtonians had that insight first, executed it beautifully, and reached six hundred thousand people with it.
 
-Alcoholics Anonymous has around two million members and has been running for ninety years.
+Alcoholics Anonymous has been running for more than ninety years. This project has not read
+the current service document needed to support a present membership count, so it does not
+state one.
 
 The difference between those two outcomes is not the insight, because the insight was the same. It is not the founders' talent; Mitchell and Hawkins were formidable and Bill Wilson said so. It is not the era, or the medicine, or the money.
 
@@ -402,7 +392,7 @@ That is a group operating on one engine. And a one-engine group has a property t
 
 I did not go looking for this. It fell out of noticing what the model needed and what 1840 could supply, and it reframes the growth in this chapter: the six hundred thousand is not only evidence of how well the thing worked. It is evidence of how completely everything depended on one mechanism.
 
-The other model connection here is the Worcester number, and I will only gesture at it. In the model, one of the resources a group produces, and one of its members consumes, is *somebody to help*. A newcomer is not only a beneficiary; he is the raw material for the twelfth-step work that keeps the person helping him sober. A society of five hundred containing fifty alcoholics has a supply problem that is invisible from inside the room, because the room is full.
+The other model connection here is the Worcester number, and I will only gesture at it. In the model, one of the resources a group produces is an *opportunity to help*. Its proxy is the number of low-practice members per high-practice potential helper. That is not a count of newcomers: the model contains no tenure or sponsorship state and cannot know who arrived when. A society of five hundred containing fifty alcoholics can therefore illustrate the intuition, but the historical example is not something the simulation measures.
 
 ### 2. The technical version
 
@@ -412,22 +402,22 @@ Inflow in the model is
 
 where λ_exog is the referral floor, Σx12 is total twelfth-step practice summed across members, and T11 is adherence to the attraction principle. Setting λ_exog = 0, the 1840 condition, makes inflow strictly proportional to current member activity, with no additive term.
 
-The consequence appears in the model's decline runs, over a thirty-year horizon with four hundred random seeds. Survival is the fraction of runs ending above five members, and mean size counts a dead group as zero; both are given with a ninety-five per cent interval.
+The consequence appears in the model's decline runs, over a thirty-year horizon with four hundred paired random seeds. Endpoint viability means more than five members; existence means at least one; closure is permanent once membership reaches zero. Mean size counts a closed group as zero.
 
-| Configuration | Survival | 95% interval | Mean size |
-|---|---|---|---|
-| Both channels intact | 0.995 | 0.982 to 0.999 | 41.7 ± 1.5 |
-| Attraction lost, referrals intact | 0.998 | 0.986 to 1.000 | 13.5 ± 0.4 |
-| Referrals lost, attraction intact | 0.360 | 0.314 to 0.408 | 9.9 ± 1.6 |
-| Both lost | 0.000 | 0.000 to 0.010 | 0.0 |
+| Configuration | Endpoint viable | Exists | Closed | Mean size ± 95% half-width |
+|---|---:|---:|---:|---:|
+| Both channels intact | 0.985 | 1.000 | 0.000 | 17.80 ± 0.88 |
+| Attraction lost, referrals intact | 0.985 | 1.000 | 0.000 | 12.38 ± 0.34 |
+| Referrals lost, attraction intact | 0.0275 | 0.105 | 0.895 | 0.51 ± 0.23 |
+| Both lost | 0.000 | 0.0025 | 0.9975 | 0.0025 ± 0.0049 |
 
 A one-engine group is therefore not merely smaller. It sits on the fragile branch: no floor, and extinction when the engine falters.
 
-**How far to trust these numbers.** Two things need saying and the first is a correction. This table was computed from ten seeds until August 2026, and ten seeds is not enough. The cross-run spread of final membership is about fifteen members against a mean near forty-two, so a ten-seed average carries a standard error near five and a ten-seed survival fraction can only take the values zero, a tenth, two tenths and so on. The referral-starved row previously read 0.20 and 2.9. At four hundred seeds it reads 0.36 and 9.9, and the old figures lie far outside the interval. They were not imprecise; they were wrong.
+**How far to trust these numbers.** They are Monte Carlo estimates inside a constructed model, not historical rates. The 95 per cent Wilson interval for endpoint viability is 0.968 to 0.993 in the baseline and 0.015 to 0.049 without referrals. The latter condition closes in 358 of 400 runs. These corrected results are much more severe than the earlier cache because the individual heterogeneity draw is now mean-centred; the old lognormal implementation silently raised average capability above one and cannot be compared to this release.
 
-The second is what survives that. Under a global perturbation of every model parameter by up to twenty-five per cent, the ordering in this table is robust: losing the referral channel kills more groups than losing attraction in every draw. That is the survival column and it is the column the claim is about; the mean-size column behaves differently under changes to the model's architecture and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by a quarter in each direction, holding in all two hundred and thirty-six cases. The survival probability for the referral-starved case is robust to nothing at all, and more than half the model's parameters can move it on their own. Read the ranking, not the figures.
+The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
 
-The recipient resource is defined as newcomers *per available helper*, saturating in that ratio rather than in raw newcomer count, so a room whose newcomers are mostly not alcoholics supplies the resource to nobody, however crowded it feels. Worcester in June 1841 is that condition, arriving 180 years before anyone wrote it as an equation.
+The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. Worcester in June 1841 motivates the idea of a crowded room with few relevant recipients; it does not validate the proxy.
 
 **Caveat, stated plainly:** the model has no term for a competing organisation. That absence matters enormously in the next chapter, and I flag it here so it does not arrive as a surprise.
 
@@ -671,7 +661,7 @@ AA forbade **respectability**: anonymity at the level of press and public, princ
 
 Every single innovation the Sons of Temperance introduced to fix the Washingtonians' retention problem, AA specifically prohibited.
 
-The Sons of Temperance today is a vestige. Alcoholics Anonymous has around two million members in something like 120,000 groups, in more than 180 countries, still operating under rules it has not substantially amended since 1950.
+The Sons of Temperance today is a vestige. Alcoholics Anonymous remains a worldwide fellowship of autonomous groups, still operating under Traditions it has not substantially amended since 1950. The current group and membership counts appear in an AA service document that this project has located but not read, so I do not reproduce them.
 
 ---
 
@@ -729,21 +719,21 @@ I do not think this is fatal to the argument, because AA's meetings have run on 
 
 ### 2. The technical version
 
-The relevant simulation results, thirty-year horizon, four hundred seeds, with a group at full adherence as the baseline. Practice is the mean level among established members of surviving runs.
+The relevant simulation results use a thirty-year horizon and four hundred paired seeds, with a group at full adherence as the baseline. Practice is the mean level among established members, with closed runs contributing zero to the displayed all-run mean. Endpoint viability means more than five members.
 
-| Scenario | Survival | Mean size | Practice among survivors |
-|---|---|---|---|
-| Full adherence | 0.995 | 41.7 ± 1.5 | 0.354 ± 0.006 |
-| Attraction lost (T11 = 0) | 0.998 | 13.5 ± 0.4 | 0.312 ± 0.009 |
-| Referrals lost (λ_exog = 0) | 0.360 | 9.9 ± 1.6 | 0.372 ± 0.011 |
-| Both lost | 0.000 | 0.0 | n/a |
-| Gatekeeping culture (T3 = 0) | 0.940 | 27.5 ± 1.7 | 0.400 ± 0.008 |
+| Scenario | Endpoint viable | Exists | Closed | Mean size | Established practice |
+|---|---:|---:|---:|---:|---:|
+| Full adherence | 0.985 | 1.000 | 0.000 | 17.80 ± 0.88 | 0.2645 ± 0.0058 |
+| Attraction path lost (T11 attraction = 0) | 0.985 | 1.000 | 0.000 | 12.38 ± 0.34 | 0.2580 ± 0.0070 |
+| Referrals lost (λ_exog = 0) | 0.0275 | 0.105 | 0.895 | 0.51 ± 0.23 | 0.0292 ± 0.0091 |
+| Both lost | 0.000 | 0.0025 | 0.9975 | 0.0025 ± 0.0049 | 0.0013 ± 0.0026 |
+| T3 friction and governance lost | 0.5475 | 0.750 | 0.250 | 6.76 ± 0.59 | 0.2246 ± 0.0160 |
 
-This table was recomputed from ten seeds to four hundred in August 2026 and several entries moved by more than their old values suggested was possible. The referral-starved row read 0.20 and 2.9; it now reads 0.36 and 9.9. Ten seeds could not resolve a quantity whose run-to-run spread is a third of its mean.
+The cache uses common random streams across conditions, so effects are estimated with paired contrasts. The corrected, mean-one heterogeneity distribution changes the level of every row materially; values from the earlier non-centred lognormal cache are not release evidence.
 
 The row that matters for this chapter is the third, and specifically its last column. Groups dying of inflow starvation do not show degraded practice on the way down. The prediction is that decline is invisible to its participants, detectable only by counting arrivals and returns, never by asking how the meetings feel.
 
-One caution about that last column, which the larger sample makes unavoidable. Practice among survivors is *higher* in the starved case than in the healthy one, and higher still under gatekeeping. That is not resilience. It is selection: among four hundred starved runs only a hundred and forty-four survived, and the ones that survived are the ones that were doing well to begin with. The correct statement is that decline does not announce itself through falling practice, not that starvation improves anybody.
+One caution about that last column is unavoidable. In the referral-starved condition only eleven runs finish viable and forty-two contain any member at all. The all-run practice mean therefore falls almost to zero. Any claim about how the rare surviving room feels must display how heavily it conditions on those selected runs; the correct unconditional result is mass closure, not hidden health.
 
 The gatekeeping row is the model's nearest analogue to what the Sons of Temperance did, and it is a poor one. In the model, exclusionary culture operates on *retention*: an AA group cannot refuse membership to an alcoholic who wants it, whatever it does about attendance at a given meeting, so unwelcoming behaviour raises early dropout rather than blocking entry. Formally, the Tradition 3 term multiplies the early-tenure dropout hazard, weighted by how new a member is, so veterans are insulated from door-culture and arrivals are not. The result is a group about a third smaller that survives comfortably.
 
@@ -755,7 +745,7 @@ The Sons did something the model genuinely cannot represent: they screened *at t
 
 **A priority problem I have to state plainly.** Having now read Maxwell in full, I find that he made a substantial part of this book's argument in 1950. His final section compares the Washingtonians with AA point by point and concludes that AA's advantages are exclusively alcoholic membership, singleness of purpose, a definite programme of recovery, anonymity, and what he calls hazard-avoiding traditions. On anonymity he is explicit that it has *sheer survival value*, and he reaches that conclusion by exactly the route I intended to take in the next chapter: Gough's relapse, and what it cost a movement whose credibility sat in named men. He also identifies the tradition of keeping authority in principles rather than in offices and personalities, and connects it to rotating leadership.
 
-He did not have the mathematics. The formal claim in Part Two, that three Traditions implement a specific and provable condition for group decision-making, is not in Maxwell, and could not have been in 1950. But "AA's traditions are why it survived where the Washingtonians did not, and anonymity in particular is structural rather than merely modest" is Maxwell's thesis, published seventy-five years ago, and this book is in that respect a formalisation rather than a discovery. Saying otherwise would be a straightforward misrepresentation of the record.
+He did not have the mathematics. The formal claim in Part Two, that three Traditions implement a specific and provable condition for group decision-making, is not in Maxwell, and could not have been in 1950. But "AA's traditions are why it survived where the Washingtonians did not, and anonymity in particular is structural rather than merely modest" is Maxwell's thesis, published more than seventy-five years ago, and this book is in that respect a formalisation rather than a discovery. Saying otherwise would be a straightforward misrepresentation of the record.
 
 **Maxwell is not a neutral party either.** He wrote as a sociologist, but he wrote partly to address a worry then circulating among AA members that their fellowship was destined for the Washingtonians' fate, and his conclusion is reassuring: he sees no inherent reason why AA should not continue indefinitely. His doctoral work was a study of AA. This does not make his historical analysis unreliable, it is careful, and it repeatedly contradicts the movement literature, but a reader should know that the man debunking AA's version of Washingtonian history was himself sympathetic to AA.
 
@@ -963,15 +953,24 @@ The model treats a group as members who weight each other's judgment. Each membe
 
 The result in Chapter Seven says that such a group gets reliably closer to the truth as it grows if and only if the largest single influence weight shrinks toward zero. If one person permanently holds a fixed share of the outcome, adding members stops helping, because that person's errors never average away.
 
-Gough is what a large influence weight looks like in a real institution.
+Gough is a historical analogy for what concentrated public prominence can look
+like, not a measurement of a stationary influence weight.
 
 He was not a member of a deliberating committee, so this is an extension past the model's literal setting and I want to flag that rather than slide it past you. But the extension is natural. A movement's public credibility is a collective belief, held by outsiders, about whether the thing works. The Washingtonians had concentrated a large share of that belief in a few named speakers. When the largest holder failed, the aggregate failed, and a thousand quiet successes elsewhere could not average it out.
 
-The model also says something specific about direction, and this chapter is the clearest case of it I have found. Damage travels from member to group at full strength, because the group state is built out of member states and nothing else. Damage travels from group back to member at reduced strength, because the group is only one input to any individual. That asymmetry is why Gough survived the Washingtonians and the Washingtonians did not survive Gough.
+The dynamical model does not supply a state-free ratio for damage moving from a
+member to a group and back. Group resources are nonlinear summaries of member
+states, while their effects on members also depend on capacities, gates, remaining
+headroom and the current population. It therefore cannot establish that Gough
+survived the Washingtonians for a single directional reason.
 
 And there is a design implication. If you want to stop any member acquiring a large influence weight, you can either manage prominence after it appears, which means arguing with newspapers, as the temperance press spent October 1845 doing and losing; or you can remove the raw material from which prominence is built, which is surnames, occupations, titles and public identification. The second is much easier. It is what Tradition 12 does.
 
-The two relapses give the model an unusually clean natural experiment. Same man, same illness, same candour, twenty-nine months apart. In 1843 his influence weight was small and the response was internal and fast. In 1845 it was large and the response was an investigation, a press war and eventually a court case. The model's claim is that the second outcome follows from the weight rather than from the man, and here the man is held constant.
+The two relapses give a revealing same-person contrast, not a natural experiment.
+Same man and illness, twenty-nine months apart; a small internal response in 1843,
+then investigation, press war and eventually a court case in 1845. Prominence is a
+plausible mechanism, but the episodes differ in circumstances besides the man and
+do not identify influence weight as the cause.
 
 ### 2. The technical version
 
@@ -995,7 +994,11 @@ These are exact rather than simulated. If each member receives the truth plus in
 
 The flat group becomes about seven times more accurate as it grows. The dominated group improves by about fifteen per cent and stops. Both reach consensus equally readily, which is the trap. The other governance arrangements, rotation and the collective forms of concentration, belong to Part Two, where they are the subject rather than the background.
 
-**On the asymmetry.** In the dynamical model, group state is an aggregate of member states, so a member's collapse enters group state with weight 1. The reverse path enters multiplied by a step-specific coefficient bounded by 1 and usually well below it. This was a property of the equations before I had any historical case in mind.
+**On direction.** The model contains no pair of reciprocal linear weights. Member
+states enter resource capacities through means, counts, sums, dispersion and
+saturation; resources enter growth through normalized bundles, beta, gates and
+state. A directional comparison would require a named perturbation, state,
+outcome and derivative. None is estimated here.
 
 **Limits of the extension.** The theorem concerns members averaging beliefs about a shared question. Public reputation is not that. I claim a structural analogy, not an application. It would fail if outsiders' beliefs about a movement were formed by some process very unlike weighted averaging over its visible members. I think that is unlikely and I have not shown it.
 
@@ -1123,12 +1126,12 @@ Chapter One noted that the Washingtonians ran on attraction alone, and that the 
 
 AA ran on attraction alone from 1935 to 1939. The 1939 book, the *Liberty* article and above all the 1941 *Saturday Evening Post* piece created the second channel. A person who read Jack Alexander's article and wrote to a post office box in New York had not been recruited by anybody. In model terms, AA acquired a non-zero referral floor in 1941, and it has never lost it: the modern equivalents are treatment programmes, courts, hospitals, and doctors.
 
-Running the model at a thirty-year horizon over ten random seeds, with everything else held at full adherence:
+Running the corrected model at a thirty-year horizon over four hundred paired random seeds, with everything else held at full adherence:
 
-- Both channels intact: the group survives in every run, at around 45 members.
-- Attraction lost, referrals intact: survives in every run, but shrinks to a remnant of about 13.
-- Referrals lost, attraction intact: survives in about a third of runs, average size 9.9 counting deaths as zero. **This specific figure is the least robust number in the book, and it has already been wrong once.** It read one run in five at an average size of 2.9 until the table was recomputed from ten seeds to four hundred; the old figures fell well outside the interval the larger sample gives. Beyond that sampling error, a global perturbation of every parameter by up to twenty-five per cent leaves the direction universal but the magnitude ranging across the whole interval from certain death to certain survival. Moving each parameter alone by a quarter is no kinder: fifty-three of the hundred and eighteen shift this outcome on their own. What survives all of it is the ordering, and it has to be stated on the right measure: losing referrals kills more groups than losing attraction, in every draw of the global sweep, in every one of the two hundred and thirty-six targeted perturbations, and under all four of the structural variants in appendix A9. The corresponding ordering on average size is not architecture-robust and reverses under three of those four, which is why the sentence above says kills rather than shrinks.
-- Both lost: never survives.
+- Both channels intact: 98.5 per cent finish above five members, none close, and mean endpoint size is 17.80.
+- Attraction lost, referrals intact: the same 98.5 per cent finish viable, none close, and mean size is 12.38.
+- Referrals lost, attraction intact: 2.75 per cent finish viable, 10.5 per cent still exist, 89.5 per cent close, and mean size is 0.51 counting closures as zero.
+- Both lost: none finish viable; one run in 400 still contains one member and 399 close.
 
 The asymmetry is the point. A group with only referrals becomes small and stays alive. A group with only attraction stays large while its members are working and then has nothing underneath it.
 
@@ -1144,7 +1147,7 @@ where x_12 is a member's twelfth-step practice level, T_11 is adherence to the a
 
 With lambda_exog = 0, expected arrivals are strictly proportional to current aggregate member activity, so the population dynamics have an absorbing state at zero with no restoring force: if activity falls, arrivals fall proportionately, which lowers future activity. With lambda_exog > 0 the origin is no longer absorbing, and a group reduced to near-zero members still receives a trickle. That is what produces the stable remnant in the second scenario above.
 
-The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 = 0.05. Neither is estimated from anything. They were chosen so that a fully adherent group holds a thirty-year steady state near 45 members with an experienced core near 9, which is roughly the size of a healthy urban meeting. At 400 seeds the model actually delivers 41.7 members and an experienced core of 7.7 with a half-width of 0.5, so it undershoots both targets, by about eight per cent on the first and fourteen on the second. Every quantitative claim in this section inherits from that choice and from that shortfall. Note also that "core" here means practice above 0.5, which is a stricter test than the "established" count of 37.2 that Part Five's tables report; the two differ by a factor of nearly five and the appendix now names them separately.
+The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 = 0.05. Neither is estimated from data. They were originally chosen to target a group near 45 members with an experienced core near 9, but the corrected model no longer meets that calibration. Across all 400 runs its mean endpoint size is 17.80 ± 0.88. Among the 394 viable endpoints, the mean established count above 0.1 is 14.13 ± 0.79 and the experienced count above 0.5 is 1.25 ± 0.20. Every quantitative claim in this section inherits from these author-chosen rates and from the failed original calibration; no real meeting-size estimate should be read from them.
 
 ### 3. Notes on sources
 
@@ -1310,28 +1313,28 @@ Protective Traditions enter as multipliers on effective adherence, applied once 
 
 with the external factor multiplying all of them. The functional forms are chosen, not estimated. The one substantive constraint is that they are additive within each bracket and applied once, because an earlier version of the model multiplied adherence terms repeatedly and produced an artefact: a group at uniform 0.8 adherence collapsed in every parameterisation tested, because a twenty per cent shortfall compounded through four or five multiplications into something closer to fifty.
 
-Under common random numbers with **four hundred** paired replications, degrading each Tradition singly from 0.85 to 0.50 and measuring membership at a twenty-year horizon against a reference group of 23.4 members:
+Under common random numbers with **four hundred** paired replications, degrading each Tradition singly from 0.85 to 0.50 and measuring membership at a twenty-year horizon against a reference group of 13.10 members:
 
 | Tradition | Tier | Members lost | 95% half-width | t |
 |---|---|---|---|---|
-| T11 attraction | enabling | 7.90 | 1.20 | 12.9 |
-| T3 open door | enabling | 5.16 | 1.25 | 8.1 |
-| T1 unity | enabling | 4.47 | 1.30 | 6.7 |
-| T2 group conscience | enabling | 3.43 | 1.30 | 5.2 |
-| T4 autonomy | protective | 2.82 | 1.37 | 4.0 |
-| T7 self-support | protective | 2.82 | 1.37 | 4.0 |
-| T12 anonymity | enabling | 2.56 | 1.24 | 4.1 |
-| T5 one purpose | enabling | 2.27 | 1.33 | 3.4 |
-| T8 non-professional | enabling | 1.02 | 1.20 | 1.7 |
-| T9 no organisation | protective | 0.89 | 1.15 | 1.5 |
-| T6 no endorsement | protective | 0.71 | 1.13 | 1.2 |
-| T10 no outside opinion | protective | 0.71 | 1.13 | 1.2 |
+| T3 mixed adherence | enabling | 2.99 | 0.65 | 9.1 |
+| T11 mixed adherence | enabling | 1.88 | 0.60 | 6.1 |
+| T1 unity | enabling | 1.65 | 0.65 | 4.9 |
+| T12 anonymity | enabling | 0.99 | 0.58 | 3.3 |
+| T5 one purpose | enabling | 0.96 | 0.61 | 3.1 |
+| T4 autonomy | protective | 0.88 | 0.62 | 2.8 |
+| T7 self-support | protective | 0.88 | 0.62 | 2.8 |
+| T2 group conscience | enabling | 0.48 | 0.62 | 1.5 |
+| T6 no endorsement | protective | 0.23 | 0.46 | 1.0 |
+| T10 no outside opinion | protective | 0.23 | 0.46 | 1.0 |
+| T9 no organisation | protective | 0.02 | 0.43 | 0.1 |
+| T8 non-professional | enabling | -0.20 | 0.51 | -0.8 |
 
-Eight of the twelve clear conventional significance. Four are unresolved and are reported as unresolved rather than ranked on point estimates the variance does not support.
+Seven of the twelve have intervals excluding zero. Five are unresolved and are reported as unresolved rather than ranked on point estimates the variance does not support. The T3 and T11 rows are mixed adherence interventions affecting both of each Tradition's executable paths; the release-gate factorials report those paths separately.
 
 **This table replaced an earlier one computed from thirty replications, and the ordering changed completely.** The thirty-replication version reported that only Traditions 4 and 7 cleared significance, at 5.5 members each with t = 2.6, with unity tied on the point estimate and six comparisons unresolved. That put the two protective Traditions at the top, and the paragraph beneath it noted the coincidence with their derived role while warning that it was not strong evidence, because a multiplier on several things will tend to matter.
 
-The caution was right and the table was wrong. At four hundred replications the top of the table is enabling rather than protective. Attraction leads by a wide margin, then the open door, then unity, then group conscience. Autonomy and self-support are still significant and rank fifth and sixth.
+The caution was right and the table was wrong. Under the corrected mean-one capability model, the top of the table is enabling rather than protective. Mixed Tradition 3 adherence leads, followed by mixed Tradition 11, unity, anonymity and singleness of purpose. Autonomy and self-support remain resolved and tied below them.
 
 So the honest reading of this comparison is the opposite of what it was: **the Traditions that supply something to a member directly matter more, in this model, than the ones that protect the supply**, and the earlier appearance to the contrary was a small-sample artefact. That does not touch the derivation in Part Four, which is about which Traditions govern which resources and is exact algebra; it touches only what the simulation says about degrading them one at a time.
 
@@ -1415,7 +1418,7 @@ Read that again with Part Two in mind. Keeping authority out of persons. Rotatio
 
 What Maxwell did not have was any way to say why those particular mechanisms, out of everything AA does, should be the ones that matter.
 
-His argument is comparative and historical. Two movements, one dead and one alive, differing in these respects, and here is a plausible story about how each difference contributed. That is a good argument. It is the argument a careful sociologist could make in 1950 and it has held up for seventy-five years.
+His argument is comparative and historical. Two movements, one dead and one alive, differing in these respects, and here is a plausible story about how each difference contributed. That is a good argument. It is the argument a careful sociologist could make in 1950 and it has held up for more than seventy-five years.
 
 But it cannot distinguish a mechanism from a correlate. AA differs from the Washingtonians in dozens of ways, and Maxwell picked five. He picked well, I think, but the picking was judgment. Nothing in his method tells you whether anonymity is doing structural work or whether it merely accompanies something else that is. Nothing tells you what would happen to a group that kept anonymity and dropped rotation, or kept both and grew ten times larger.
 
@@ -1487,7 +1490,7 @@ Three weaker objections deserve naming, since none of them is fully answered by 
 
 **The disease concept and the medical alliance.** AA arrived alongside a scientific reframing of alcoholism that the Washingtonians never had, and benefited from it enormously. This is true and Part One does not dispute it. But note that the alliance was available precisely because of the Yale group, and note what nearly happened when AA got close to it.
 
-**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. That held in every one of thirty perturbed parameterisations at the two milder levels, and in eighty-seven per cent when every number was allowed to move by half. It also held in all two hundred and thirty-six cases when each parameter was moved alone, which is the more demanding test. Single-tradition degradations, by contrast, mostly cannot be resolved at all. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
+**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 931 of the 944 points at which each parameter was moved alone, which is the more demanding test. Single-tradition degradations, by contrast, mostly cannot be resolved at all. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
 
 **Survivorship bias.** We are examining the one mutual-aid movement that lasted and reasoning backward from its features, which is exactly the procedure that produces spurious explanations. The defence is not that Part One escapes this. It is that Part Two does not depend on it: the argument there is that three Traditions satisfy a criterion provable in advance, not that they correlate with survival after the fact.
 
@@ -1503,7 +1506,7 @@ Maxwell listed five differences between AA and the Washingtonians and argued eac
 
 It can answer it partly, and the size of the sample decides how much.
 
-At four hundred paired replications under common random numbers, eight of the twelve single-Tradition comparisons reach conventional significance and four do not. Attraction is the largest by a wide margin, costing 7.90 members against a reference group of 23.4, then the open door at 5.16, unity at 4.47 and group conscience at 3.43. Autonomy and self-support follow at 2.82 each. Non-professionalism, no organisation, no endorsement and no outside opinion are all unresolved.
+At four hundred paired replications under common random numbers, seven of the twelve single-Tradition comparisons have intervals excluding zero and five do not. Mixed Tradition 3 adherence is largest, costing 2.99 members against a reference group of 13.10, followed by mixed Tradition 11 at 1.88 and unity at 1.65. Anonymity, singleness of purpose, autonomy and self-support also resolve. Group conscience, no endorsement, non-professionalism, no organisation and no outside opinion are unresolved. The T3 and T11 rows each move both of that Tradition's executable paths, so they are not path-specific effects.
 
 **This paragraph read the opposite way until 2 August 2026 and the reason is worth more than the result.** At thirty replications only two comparisons cleared significance, six were indistinguishable from nothing, and the two that cleared were the protective Traditions rather than the enabling ones. I drew a methodological moral from that: if a simulation with no measurement error cannot rank these mechanisms, then comparative history certainly cannot. The moral was sound and the premise was a small sample. At four hundred replications the ranking resolves, and it resolves the other way up.
 
@@ -1511,15 +1514,15 @@ So the honest version of the methodological point is narrower and less comfortab
 
 What remains true, and it is the part that bears on Maxwell, is that a comparative study of two historical movements has no replications at all. It has one of each. Whatever this model can or cannot resolve at four hundred runs, the historical method cannot resolve any of it, and that asymmetry is the chapter's actual subject.
 
-What the model does establish is narrower and I think more useful. It shows that the mechanisms Maxwell grouped as hazard-avoiding are the ones with a provable function, and that one specific failure, loss of the channels that bring newcomers in, produces decline that is invisible from inside the room. Those are claims that can be checked against real groups. What it no longer supports is the suggestion that the guard Traditions dominate the ranking: they sit fifth and sixth.
+What the model does establish is narrower and I think more useful. It shows that the mechanisms Maxwell grouped as hazard-avoiding have explicit functions in the authored model, and that loss of outside referrals produces the highest closure rate among the tested decline paths. Conditional practice can mask that decline, though room-size loss is visible. Those are claims that can be checked against real groups. What the comparison no longer supports is the suggestion that the guard Traditions dominate the ranking.
 
 ### 2. The technical version
 
-Common random numbers means running every configuration on the identical sequence of random seeds, so that differences between configurations are not contaminated by differences in the random draws. At four hundred replications the cross-seed standard deviation of final membership at the reference adherence level is 11.93 members, and the paired standard error under CRN runs from 0.57 to 0.70 members depending on the comparison, which is a reduction of about nineteen times against the unpaired standard deviation.
+Common random numbers means running every configuration on the identical sequence of random seeds, so that differences between configurations are not contaminated by differences in the random draws. At four hundred replications the cross-seed standard deviation of final membership at the reference adherence level is 5.67 members, and the paired standard error under CRN runs from 0.22 to 0.33 members depending on the comparison. The pairing improves precision, but it does not reduce the replication count.
 
-The full table is in Chapter Five's Machinery and is asserted in `model/book-calculations.ipynb` section 3, computed by `model/tradition_paired.py`. Eight comparisons at |t| > 2.5, from 12.9 down to 3.4; four below 1.8.
+The full table is in Chapter Five's Machinery and is asserted in `model/book-calculations.ipynb`, computed by `model/tradition_paired.py`. Seven comparisons have |t| above 2.5, from 9.1 down to 2.8; five are unresolved.
 
-Final membership at a twenty-year horizon remains a high-variance quantity in a model with stochastic arrivals, stochastic dropout and individual heterogeneity in growth capability. The earlier version of this section concluded from thirty replications that the model was a poor instrument for ranking similar effects. **That conclusion was drawn from the sample size rather than from the model.** At four hundred replications the instrument ranks eight of twelve, and the four it cannot rank are the four whose true effects are genuinely small: they are the ones the derivation in Part Four says govern no consumed resource, which is a coherent result rather than a failure of resolution.
+Final membership at a twenty-year horizon remains a high-variance quantity in a model with stochastic arrivals, stochastic dropout and individual heterogeneity in growth capability. The earlier version of this section concluded from thirty replications that the model was a poor instrument for ranking similar effects. **That conclusion was drawn from the sample size rather than from the model.** At four hundred replications the instrument resolves seven of twelve. The unresolved set crosses the enabling/protective distinction, so the results do not support the earlier claim that only protective mechanisms remain uncertain.
 
 One methodological note that generalises beyond this project. An earlier version of this analysis, run without common random numbers, produced an apparent complete ranking of all twelve Traditions. It was noise. The ranking was stable enough across a handful of seeds to look real, and it disappeared entirely when the variance was properly measured. That is the kind of error that is invisible unless you go looking for it, and the only defence is to measure the noise floor before reporting any comparison.
 
@@ -2002,13 +2005,17 @@ He relapsed twice, in 1843 and 1845, and the first time nothing happened. Chapte
 
 One more thing, and it is the reason the Traditions are addressed to groups rather than to individuals.
 
-In the model underneath this book, a group's state is built out of its members' states and nothing else. There is no group spirit floating above the room; the room is the people in it. So when a member falls apart, that damage enters the group's condition at full strength, immediately, with no discount.
+In the model underneath this book, group resources are built from member states,
+but not with one common linear weight. They use means, threshold counts, sums,
+dispersion and saturation. The return path is nonlinear too: resources are
+normalized into Step bundles and then pass through beta, sequential gates,
+maintenance capacity and remaining headroom. So the earlier shorthand that
+damage travels upward at weight one and downward at beta was wrong.
 
-The reverse path is not symmetrical. What the group gives back to any individual member is multiplied by how much that particular piece of the work depends on other people, and that number is never more than one and is usually well below it. Admitting you are beaten and carrying the message to somebody else are almost entirely social, so they come through at full strength. Deciding to change, asking for that change, sitting alone with a notebook writing an inventory: those run at a quarter or a third. The average across all twelve is about half.
-
-So damage travels upward at full strength and downward attenuated.
-
-That asymmetry is worth sitting with, because it cuts against a comfortable reading of the whole enterprise. A healthy group is real protection, but it is partial protection, and it is not protection at all for the parts of the work that are done alone. Meanwhile a single member's collapse hits the group with no discount whatever.
+What remains defensible is narrower. The authored consumption matrix gives some
+Steps a larger resource-supported share of growth than others. That is a
+within-model dependence index. It is not a reciprocal transmission ratio and it
+does not say that a single member's collapse reaches the group without discount.
 
 Which is why the Traditions are addressed to groups. An individual's recovery is his own; the Steps are for that. What the Traditions protect is the thing that no individual can repair on his own, and that everyone's recovery draws on.
 
@@ -2026,7 +2033,9 @@ Imbalance is qualitatively worse than the other two and I did not expect that be
 
 The practical reading is that the dangerous question about a group's core is not whether it is respected. It is whether it listens.
 
-On the asymmetry: the model computes group state as an aggregate of member states, so member-to-group transmission carries weight 1 by construction. Group-to-member transmission is multiplied by a per-step coefficient derived in Part Four from what each step actually consumes from a group. This was a property of the equations before any historical case was in view.
+On direction: no state-free transmission ratio is implemented. A local effect
+would need a specified state, perturbation and derivative; a long-run effect would
+need a paired trajectory contrast.
 
 ### 2. The technical version
 
@@ -2054,7 +2063,10 @@ Constructions: dominant, one member receives 0.35 of every row, remainder split 
 
 The analytic limits confirm the tables. Dominant tends to 0.35 times the square root of two over pi, which is 0.279. The caucus tends to 0.230. The closed core sits at exactly the square root of two over pi divided by the square root of five, which is 0.357, the error of a five-member group: the influence of the outside members is identically zero at every N, which is why that column does not vary.
 
-**Asymmetry.** The per-step group-dependence coefficients derived in Part Four run from 0.17 for Step 7 to 1.00 for Steps 1 and 12, with a mean of 0.53. Member-to-group transmission is 1 by construction. So the ratio of upward to downward transmission ranges from 1 to about 5.9 depending on which part of the work is in question, averaging about 1.9.
+**Dependence index.** Normalized row sums of the authored consumption matrix run
+from 0.17 for Step 7 to 1.00 for Steps 1 and 12, with a mean of 0.53. They blend
+autonomous and resource-supported peer growth inside the Step equation. Their
+reciprocals are not implemented member-to-group weights.
 
 ### 3. Notes on sources
 
@@ -2064,7 +2076,8 @@ The analytic limits confirm the tables. Dominant tends to 0.35 times the square 
 
 **The extension from group deliberation to public reputation, in the Gough passage, is an analogy and not an application.** The theorem concerns members averaging beliefs about a shared question. What the outside world believed about the Washingtonians was not formed that way. I have flagged this in the text rather than relying on the reader to notice.
 
-**The asymmetry claim depends on the coupling derivation in Part Four**, which rests on two hand-written matrices. Those are the most judgemental objects in the whole model and everything downstream of them inherits that. Part Four says so at length.
+**The dependence index rests on a hand-written matrix.** It is a normalized
+summary of the author's resource assignments and inherits their uncertainty.
 
 ### 4. References
 
@@ -2410,7 +2423,7 @@ A dial cannot rise much while the one before it sits near zero. In the model the
 
 This is the assumption most likely to be wrong, and it is also the one doing the most work, which is an uncomfortable combination. Chapter Thirteen is entirely about whether it is true, and states plainly that nobody has tested it, so Chapter Twelve should not pretend the matter is settled. What this chapter contributes is only that the folk rule is expressible: the claim that you cannot skip a step is a claim about the value of one exponent, and writing it that way is what makes it checkable.
 
-There is also a fact about that exponent I did not expect, which comes from the sensitivity work rather than from any argument. Of the hundred and eighteen numbers in this model, the step-ordering exponent is the one with the largest single influence on how a group ends up. Moved alone by a quarter in either direction, it swings the group's daily practice by three times its own baseline value, which is more than the decay rate does and more than anything else does. The strictness of the ordering is the most consequential thing in the apparatus and it is a number nobody has measured. That is worth saying plainly, and it is a better argument for Chapter Thirteen's research programme than anything Chapter Thirteen says on its own behalf.
+There is also a fact about that exponent I did not expect, which comes from the sensitivity work rather than from any argument. Of the hundred and eighteen numbers in this model, the step-ordering exponent is the one with the largest single influence on how a group ends up, and it holds that position on all three outcomes the sweep scores. Moved alone by a quarter in either direction, it swings the group's daily practice by about one and a quarter times its own baseline value, its maintenance by five and a half times, and its final membership by two and a half times, which is more than the decay rate does and more than anything else does. The strictness of the ordering is the most consequential thing in the apparatus and it is a number nobody has measured. That is worth saying plainly, and it is a better argument for Chapter Thirteen's research programme than anything Chapter Thirteen says on its own behalf.
 
 ---
 
@@ -2428,11 +2441,19 @@ I have some confidence in the shape of that result, because it fell out of askin
 
 ---
 
-Now the transmission asymmetry, which is short and matters for Part Four.
+Now a correction that matters for Part Four.
 
-A person's practice contributes to what the group can supply, and what the group supplies contributes to a person's practice. These two flows are not the same size. Member to group carries full weight by construction, because the group's capacity simply is an aggregate of its members' states. Group to member is scaled by that dependence coefficient, and the coefficient is below one for ten of the twelve steps.
+A person's practice contributes to what the group can supply, and what the group
+supplies contributes to a person's practice. I had described those flows as two
+linear weights, one upward and beta downward. The code does not contain that pair.
+Member states enter through means, threshold counts, sums, dispersion and
+saturation. The return path passes through resource capacities, normalized
+bundles, beta, sequential gates, maintenance capacity and remaining headroom.
 
-So influence runs upward more strongly than downward, by a factor that varies from one to six across the steps and averages about two. A person gives more to a room than a room gives back to them, step for step. This is not a complaint about rooms. It is a structural feature of the way the model is built, and it is the reason a group's health tracks its members' states more tightly than its members' states track the group's health.
+Beta is still useful as a within-model dependence index: it controls the blend of
+autonomous and resource-supported peer growth for each Step. Its reciprocal is not
+a transmission ratio. Any directional comparison would have to name a state,
+perturbation and derivative, or use a paired trajectory contrast.
 
 ---
 
@@ -2440,13 +2461,25 @@ I should be exact about what this apparatus is, because the preface promised a p
 
 A member is twelve numbers between zero and one. A group is a collection of members, plus eight supply quantities computed from their states, plus the twelve Traditions expressed as levels of adherence between zero and one. Members arrive from two channels and leave through two. Time runs in half-weeks for thirty years. Steps grow at a rate that is a product of four things: a top speed for that step, the gate, the group's supply of what that step needs, and the person's own maintenance capacity, which is Chapter Fourteen's subject. Against growth runs the leak.
 
-That is the whole machine. It has **one hundred and eighteen numbers in it that I chose**, out of two hundred and twenty-six cells. The remaining cells are blank, and a blank is a statement that the step in question wants nothing of that kind from a room. Those blanks are assertions about how the programme works, not quantities. None of the hundred and eighteen was fitted, since the measurements that would let anyone fit them have never been taken.
+That is the central machine. It has **one hundred and eighteen registered numeric
+values**: twenty-two scalar defaults, twelve Step speeds, forty-nine nonzero
+entries in the consumption matrix and thirty-five nonzero entries in the
+governance matrix. That is not every simulation-effective choice. Functional
+coefficients, founder and arrival states, horizons, the time step, the viability
+threshold, perturbation ranges and the one hundred and eight structural zeros are
+separate choices. None was fitted to AA group data.
 
 Two things follow that a reader should hold onto.
 
 The first is that a model like this can show a set of ideas is consistent. It cannot show they are true. Everything Part Three claims is of the form *if the world works like this, then that follows*, and the antecedent has not been checked against a single real person.
 
-The second is more specific and more encouraging. Because none of the numbers is measured, the only claims worth making are the ones that survive the numbers being wrong. Every parameter in this model has now been moved on its own, by a quarter in each direction, which is two hundred and thirty-six separate perturbations. Almost nothing the model says survives that. Two things do, and Chapters One and Four have already reported them. The apparatus in this chapter exists to generate claims of that kind, and it should be judged on how few it produces rather than on how many.
+The second is methodological. The expanded one-at-a-time screen moves each of
+those 118 registered values in both directions at ten, twenty-five, fifty and
+seventy-five per cent, producing 944 parameter-direction-distance endpoints. It
+uses only three stochastic seeds per endpoint and cannot establish universality
+or test structural zeros. Its strict orderings, ties, reversals and unresolved
+comparisons must be reported separately. Confirmatory claims in this revision use
+400 paired seeds and named mechanism contrasts.
 
 ---
 
@@ -2456,7 +2489,10 @@ Thirty-five of those hundred and eighteen numbers record which Traditions govern
 
 This is arithmetic and not a result. Each column of that matrix is scaled to sum to one before it is used, so at full adherence the scaling undoes the entries exactly and every resource comes out at quality one, no matter what I put in the cells. Those thirty-five numbers begin to bite only when adherence is partial, and even then a quarter's change in any one of them shifts nothing you could measure.
 
-I find this reassuring rather than embarrassing. The most judgemental object in the apparatus turns out not to be carrying the argument; the pattern of blanks is. Which Traditions turn out to supply nothing at all is the question Part Four is built on, and it is a question about the pattern rather than about the magnitudes. The preface makes the same point about both matrices together and I will not repeat the case here.
+This cancellation is scenario-specific, not reassurance that the governance
+matrix is unimportant. At partial adherence its magnitudes matter, and Part Four's
+semantic-overlap claims also depend on them. The blank pattern is authored too,
+and multiplicative sensitivity cannot test whether a blank should be filled.
 
 ---
 
@@ -2466,9 +2502,14 @@ I find this reassuring rather than embarrassing. The most judgemental object in 
 
 A member is a vector x of twelve step-practice levels in [0, 1]. Growth in each step is the product of four terms and is opposed by depreciation. The three properties the chapter rests on are all in that one equation: depreciation makes practice perishable, the gate term makes it ordered, and the group-supply term makes it social to a degree that varies by step.
 
-The group-dependence coefficients are **derived, not chosen**. Each step's row in the consumption matrix S is summed and normalised by the largest row sum. Steps 1 and 12 come out at 1.00, Step 7 at 0.17, and the mean is 0.53. That the two extremes are the entry step and the service step is a consequence of the resource assignment rather than an input to it.
+The group-dependence coefficients are calculated from, but not independently
+validated against, the authored consumption matrix. Each Step's row in S is
+summed and normalized by the largest row sum. Steps 1 and 12 are 1.00, Step 7 is
+0.17, and the mean is 0.53.
 
-The transmission asymmetry follows directly: member-to-group weight is 1 by construction, group-to-member weight is the coefficient, so the ratio runs from 1 to 6.0 across the steps and averages 1.9.
+These coefficients blend autonomous and resource-supported peer growth. The code
+does not implement their reciprocals as member-to-group weights, so no one-to-six
+transmission claim follows.
 
 ### 2. The technical version
 
@@ -2493,8 +2534,8 @@ step of a given member. **w(i) is the per-step exposure to it**, rising linearly
 Step One to 1.00 at Step Twelve, so that Cm(1) is essentially 1 whatever C is and Cm(12) is C
 itself. That weighting is the formal content of the claim that an arrival has nothing to
 maintain and a veteran has a great deal. **h(m) is member heterogeneity**, a lognormal draw
-with standard deviation het_sd made once when a member arrives and fixed thereafter; it is the
-parameter appendix A6 calls the least defensible in the model.
+parameterized as exp(N(-het_sd^2/2, het_sd)) and fixed after arrival. Its arithmetic mean is
+one, so changing het_sd changes dispersion without mechanically changing average capability.
 
 **Parameters.** delta0 = 0.06 per week, giving an unattended half-life of 11.6 weeks. psi = 0.20 is the backward complementarity. p_gate = 1.5 is the ordering exponent. Top speeds a run from 0.15 at Step 9 to 0.30 at Step 1.
 
@@ -2513,15 +2554,15 @@ parameter appendix A6 calls the least defensible in the model.
 
 Maximum 1.00 at Steps 1 and 12, minimum 0.17 at Step 7, mean 0.53, ratio of extremes 6.0.
 
-**Parameter inventory:** 22 continuous scalars, 12 step speeds, 49 non-zero cells in S, 35 in the governance matrix. 118 chosen by hand out of 226 cells. None fitted.
+**Registered sensitivity inventory:** 22 continuous scalars, 12 step speeds, 49 non-zero cells in S, 35 in the governance matrix. These 118 values are not every authored model choice; fixed constants, structural zeros, equations and experiment-design settings are inventoried separately. None is fitted.
 
-**From the targeted sweep** (`research/oat_full.json`, notebook section 9): the ordering exponent p_gate has the largest single influence on group maintenance of any parameter, swinging it from 0.4386 to 0.0045 against a baseline of 0.1458, a range of 2.98 times baseline. The decay rate is second at 1.83 and member heterogeneity third at 1.69. All 35 governance cells produce exactly zero change in every outcome at full adherence, because the column-normalised governance quality is identically 1 when every tradition is at 1.0.
+**From the multi-level sweep** (`research/oat_full.json`, notebook section 9): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on every scored outcome. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-10 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
 
 ### 3. Notes on sources
 
 **The functional forms are borrowed; the values are not.** Depreciating human capital with endogenous investment is Ben-Porath (1967), read at source. The multiplicative production of a stage from several inputs, and the idea that early stocks condition later growth, are from Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010), also read at source. The saturation form used for the participatory resources is Iannaccone's (1992), read at source.
 
-**Nothing here is calibrated to AA data**, because none exists at the required resolution. Inflow, dropout and churn were set so that a fully adherent group holds a steady state near forty-five members with an experienced core near nine, which is roughly a healthy urban meeting. At 400 seeds it delivers 41.7 members with a 95 per cent half-width of 1.5, and an experienced core of 7.7 with a half-width of 0.5, so it undershoots both and the shortfall on the core is larger than its own interval. That is calibration to a stylised fact, not to a dataset, and it does not even hit the stylised fact exactly; the difference matters twice over.
+**Nothing here is calibrated to AA data**, because none exists at the required resolution. Inflow, dropout and churn were originally set to target a steady state near forty-five members with an experienced core near nine, roughly a healthy urban meeting. After correcting the lognormal capability draw to have mean one, 400 runs deliver 17.80 ± 0.88 members overall. Among the 394 viable endpoints, the established count above 0.1 is 14.13 ± 0.79 and the experienced count above 0.5 is 1.25 ± 0.20. The calibration therefore fails rather than merely undershooting. I report that failure instead of retuning after seeing the results; absolute levels should not be interpreted as estimates of AA groups.
 
 **The resource list is mine.** The eight group resources were arrived at by asking what each step requires from other people, and no source proposes this list. Someone who knows the programme better would produce a different eight, and the group-dependence coefficients would move with it. What I would expect to survive is the shape: the entry step and the service step depending most, the interior steps depending least.
 
@@ -2617,19 +2658,30 @@ The last piece is a design requirement, and it is the practical contribution.
 
 Latent practice, how much of a step somebody is actually living, is not observable. What is observable is a questionnaire answer, which is a noisy proxy. AA research already has several: an involvement scale, an affiliation scale, a practices scale, direct step counts.
 
-I simulated the estimation to see how well the parameter can be recovered from data of the kind that already exists. Generate a population from a known value, produce noisy proxies, try to recover it, and repeat the whole exercise twenty-five times so that what comes out is a distribution rather than an anecdote.
+I ran a deliberately modest proxy-averaging exercise. The simulation supplies the true
+inputs and the proxy loadings, adds noise only to output proxies, and repeats each cell
+400 times. That is not the empirical problem, where the inputs are latent and group help
+is endogenous to member state. It asks only how averaging three noisy outputs changes
+the behaviour of this oracle estimator.
 
-The estimator turns out to be close to unbiased whether you use one proxy or three. From a true value of minus four the three-proxy estimates average minus 4.02 and the single-proxy estimates minus 4.21. From zero they average 0.02 and 0.06. Nothing systematic goes wrong.
+The answer is precision, roughly by a factor of two. Near the boundary, estimates have a
+standard deviation of 0.07 with three proxies and 0.15 with one. At a true value of minus
+four, the figures are 0.31 and 0.65. At a true value of plus 0.5, 399 of 400 one-proxy
+runs and all 400 three-proxy runs return a positive estimate. At exactly zero, the sign
+splits near half in both designs, as it should.
 
-What three proxies buy is precision, and it is roughly a factor of two. Near the boundary the estimates scatter with a standard deviation of 0.08 using three measures and 0.17 using one. Far from it, at a true value of minus four, the figures are 0.23 and 0.59.
+That result does not establish that three measures are sufficient, necessary, or even
+identifying in real data. It shows that averaging several noisy readings can improve
+precision when the difficult parts of the measurement problem have already been solved
+by assumption. A real study would need a prespecified precision target, a model of error
+in the inputs, justified loadings, an anchored latent scale, and a strategy for endogenous
+group attention. The practical contribution of this chapter is the estimand and the list
+of obstacles, not a three-measure rule.
 
-That matters because of where the question sits. If the truth is exactly zero, no design tells you the sign, and it is worth being clear that this is not a defect of the instrument. An unbiased estimator sitting precisely on a boundary lands on either side of it about half the time, and in the replications it did: with three proxies the sign came out non-positive in forty-four per cent of runs, with one proxy thirty-six per cent. You cannot fix that with more measures, because there is nothing there to detect.
-
-What you can fix is resolution. **One measure cannot distinguish a chain from a menu unless the truth is at least about 0.3 away from zero. Three measures halve that to about 0.15.** Move a little further out and both do fine: at a true value of 0.5, every replication returned a positive sign, with one proxy or three.
-
-So the design requirement is concrete but it is not the one I first wrote down. At least three separate measures of step practice, per person, per wave, not because one measure gets the sign wrong, but because one measure leaves a band around zero twice as wide inside which the study simply cannot speak. Anything inside that band is a result the field cannot currently reach, and a study should say in advance how wide its own band is.
-
-I had this wrong in an earlier draft, on the strength of a single simulated dataset that happened to put the one-proxy estimate on the far side of zero. One draw of an estimator says nothing about the estimator. It is the same error, in miniature, as the one described in the preface about ten-seed averages.
+An earlier draft drew a design rule from one simulated dataset, and the first correction
+enlarged that to twenty-five replications without fixing the mismatch between the exercise
+and the claim. Four hundred replications now describe this estimator more precisely. They
+cannot turn an oracle proxy exercise into validation of a latent-variable design.
 
 Greenfield and Tonigan's result quietly makes the same point from the other direction. They used two instruments on the same people and got materially different answers, with significantly more participants endorsing step work on the indirect measure than the direct one for nine of the twelve steps. Which questionnaire you hand out changes what you conclude. That is not a nuisance to be averaged away. It is the reason the design has to be built around it.
 
@@ -2679,24 +2731,24 @@ with weights summing to one and elasticity of substitution 1/(1 - rho). Weights 
 
 **Cross-partial in prior-step stock and group input**, evaluated at (0.7, 0.4, 0.5, 0.6): +1.729 at rho = -4, +0.523 at -1, +0.199 at 0, +0.084 at +0.5. Positive throughout, larger the more complementary the technology.
 
-**Measurement.** Latent practice is observed through proxies Z(j) = mu(j) + lambda(j) * ln x + error, with identification following the nonlinear factor-model results of Schennach and of Hu and Schennach as applied by Cunha, Heckman and Schennach. The latent scale is arbitrary under monotone transformation and must be anchored in an interpretable outcome; percentage of days abstinent at follow-up is the natural anchor here and is already standard in the field.
+**Measurement.** A future empirical version would observe latent practice through proxies Z(j) = mu(j) + lambda(j) * ln x + error. The nonlinear factor-model results of Schennach and of Hu and Schennach, as applied by Cunha, Heckman and Schennach, explain what a real identification design would have to solve. The exercise below does not implement that design: it supplies the four regressors and the proxy loadings without error and adds noise only to the output proxies. It is therefore a resolution check under oracle information, not validation of a latent-variable estimator. Any real latent scale would also have to be anchored in an interpretable outcome.
 
-**Recovery exercise.** Estimand: the substitution parameter rho. Estimator: grid search over 300 points on [-8, 0.95], fitting a factor score from the available proxies against predicted log output with an affine transformation absorbing scale and location. Design: n = 1200 per draw, proxy loadings evenly spaced on [0.8, 1.2], measurement noise standard deviation 0.35, and **25 independent replications per cell**, each with its own seed. Mean and standard deviation across replications:
+**Proxy-averaging exercise.** Estimand: the substitution parameter rho within the simulated oracle design. Estimator: grid search over 300 points on [-8, 0.95], fitting the rescaled mean of the output proxies against predicted log output with an affine transformation absorbing scale and location. Design: n = 1200 per replication, proxy loadings evenly spaced on [0.8, 1.2], measurement noise standard deviation 0.35, and **400 independent replications per cell**, each with its own seed. Mean and standard deviation across replications:
 
 | true rho | one proxy | sd | three proxies | sd |
 |---|---|---|---|---|
-| -4.0 | -4.21 | 0.59 | -4.02 | 0.23 |
-| -1.0 | -1.02 | 0.15 | -1.00 | 0.07 |
-| 0.0 | +0.06 | 0.17 | +0.02 | 0.08 |
-| +0.5 | +0.49 | 0.17 | +0.48 | 0.08 |
+| -4.0 | -4.09 | 0.65 | -4.02 | 0.31 |
+| -1.0 | -1.02 | 0.16 | -1.00 | 0.08 |
+| 0.0 | -0.00 | 0.15 | +0.00 | 0.07 |
+| +0.5 | +0.49 | 0.17 | +0.50 | 0.08 |
 
-Bias never exceeds 0.21 in any cell, with one proxy or three. The gain from three proxies is precision: the standard deviation roughly halves everywhere.
+Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging: with oracle-known inputs and loadings, three output proxies roughly halve the standard deviation. It does not follow that three proxies are sufficient, necessary, or identifying in real data.
 
-**Sign recovery.** At a true rho of +0.5, every one of the 25 replications returned a positive sign, with one proxy and with three. At a true rho of exactly zero, the sign came out non-positive in 36 per cent of single-proxy replications and 44 per cent of three-proxy ones, which is what an approximately unbiased estimator sitting on a boundary must do and is not a defect of the design.
+**Sign recovery.** At a true rho of +0.5, 399 of 400 one-proxy replications and all 400 three-proxy replications returned a positive sign. At a true rho of exactly zero, the estimate was non-positive in 53.5 per cent of one-proxy replications and 55.5 per cent of three-proxy replications. That near-half split is what an approximately centred estimator at zero should produce; it is not evidence that the empirical sign has been identified.
 
-**The resulting design requirement**, stated as resolution rather than as sign: a single proxy leaves a band of roughly ±0.3 around zero inside which the sign is not determined at conventional confidence; three proxies halve it to roughly ±0.15. A study should state the width of its own band in advance.
+**The resulting design lesson**, stated narrowly: averaging three output proxies improved precision in this oracle exercise. A real study would have to pre-specify its desired resolution, model measurement error in the inputs, justify the loadings, and solve endogeneity. This calculation supplies none of those things.
 
-**A correction, recorded rather than tidied away.** This table previously reported one draw per cell, at a single seed, to three significant figures: -3.45, -1.12, -0.10, +0.35 for one proxy and -3.99, -1.00, +0.02, +0.56 for three. That draw happened to put the single-proxy estimate on the far side of zero at a true value of zero, which the chapter read as one proxy returning the wrong sign. Over 25 replications that is not what the estimator does. One realisation of an estimator says nothing about the estimator, and the earlier version of this section was an inference from a sample of one.
+**A correction, recorded rather than tidied away.** This table first reported one draw per cell and was then enlarged to twenty-five replications. The release gate found that even the larger version was being described as validation of a latent-variable estimator it did not implement. The current 400-replication version narrows the Monte Carlo error and the prose narrows the claim. Replication can describe the behaviour of this estimator under its assumptions; it cannot repair a mismatch between the exercise and the empirical identification problem.
 
 **The unsolved obstacle.** Group input is endogenous to member state. Groups direct attention toward members who are struggling, and members who are doing well attract sponsees. Estimating this technology without handling that will attribute to the technology what is really selection. Cunha, Heckman and Schennach face the identical problem with parental investment and solve it; adapting their approach is necessary before any of this touches real data, and I have not done it.
 
@@ -2732,7 +2784,7 @@ Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error.
 
 **Internal, and reproducible from this repository:**
 
-The substitution table, the cross-partial series, and the recovery exercise. Code and assertions in `model/book-calculations.ipynb`.
+The substitution table and cross-partial series are checked in `model/book-calculations.ipynb`. The 3,200 proxy-averaging jobs, 400 replications for each of four true values and two proxy counts, are in `research/ch13_reps.json`, generated by `model/ch13_reps.py`.
 
 **What was not read:**
 
@@ -2748,7 +2800,7 @@ Anyone who has been around a group for a few years has watched this happen. Some
 
 The folk description of this is that he was drunk before he drank. It is meant as a claim about sequence: the drinking is the last event, not the first. What it does not say is why the collapse should be sudden. If practice simply wears away when you stop practising, you would expect a slope. What people describe is a floor giving way.
 
-This chapter asks whether that shape falls out of the model, what would have to be true for it to be real, and how much of it I am entitled to claim. The short answer, given here rather than saved for the end, is that the shape survives and the location does not. The model produces a cliff. It has no idea where the cliff is, and neither do I.
+This chapter asks whether that shape falls out of the model, what would have to be true for it to be real, and how much of it I am entitled to claim. The release audit changed the answer. The equation can produce a cliff under a sufficiently supportive frozen group environment, but the corrected model's typical endpoint environment usually does not. The old chapter demonstrated a conditional mechanism and reported it as a baseline result. That claim is retired here rather than preserved by retuning.
 
 ---
 
@@ -2770,23 +2822,23 @@ Maintenance does not scale the other steps in proportion to itself. It passes th
 
 And maintenance is one of the things maintenance gates. Steps Ten, Eleven and Twelve are themselves near the top of the range where the gate binds hardest. So the loop closes on itself. A person with a live daily practice is well placed to keep having one. A person whose daily practice has fallen below the transition is not merely doing less; the machinery that would rebuild it is the thing that has gone.
 
-A loop like that has two resting places rather than one, and the model duly has two. Put a typical member in a healthy group and start them near the top, and they settle with maintenance at about 0.32 on the zero-to-one scale. Start the same person, in the same group, with the same everything, near the bottom, and they settle with maintenance at zero. Not low. Zero to four decimal places.
+A loop like that can have two resting places rather than one. The old diagnostic fixed group resources at constants taken from the capability-inflated model. Under those obsolete constants, a high start settled with maintenance near 0.32 and a low start near zero.
 
-Both are genuine equilibria. Neither is drifting towards the other. Where a person ends up is not determined by their circumstances, because their circumstances are identical. It is determined by which side of the divide they started on.
+Both were genuine equilibria of that frozen diagnostic. They are not two typical equilibria of the corrected released model. Re-estimating the environment from 400 corrected full-adherence endpoints finds this high-start/low-start separation in seven, or 1.75 per cent. In the mean corrected environment both starts converge to maintenance of about three times ten to the minus eight.
 
 ---
 
-The interesting part is what the collapsed state looks like from outside, and computing it produced something I had not anticipated.
+The old frozen-environment diagnostic also produced a distinctive collapsed profile, which is retained here as a record of the proposed mechanism rather than as a release result.
 
 The collapsed member has not lost everything. Averaged over all twelve dials they are at 0.27 against the healthy member's 0.50, which is a bit under half. That sounds like a person in obvious trouble. Look at the dials one at a time and it is stranger than that.
 
 Step One, the admission, sits at 0.758 in the collapsed state against 0.766 in the healthy one. It is essentially untouched. Step Two and Step Three are down by a few per cent. Step Four, the inventory, has gone from 0.56 to 0.44, which you would have to be looking for. From there it falls off a shelf: Step Eight from 0.46 to 0.06, Step Nine from 0.36 to 0.01, and the three daily steps to nothing at all.
 
-So the model says the collapse is back to front. What survives untouched is the knowledge that you are an alcoholic. What goes is everything that knowledge was supposed to lead to.
+Under that obsolete environment the collapse was back to front: early Steps remained high while the back end disappeared. The current model does not establish that as a typical trajectory.
 
-That result is easy to over-read, so it is worth saying where it came from. It was not put in by hand. It comes out of the gate weighting, which was chosen for a different reason entirely, namely that a person on their first night has nothing to maintain and should not be modelled as failing to maintain it. That the same assumption produces a collapse profile matching what people in the rooms describe is either a small piece of corroboration or a coincidence, and one run of one model cannot tell you which.
+The profile came from the gate weighting, but it also depended on a hand-copied resource vector and group-capacity constant. Calling it emergent without naming those frozen inputs was an error. At most it shows what the architecture can generate under one supportive environment.
 
-What it does do is make a prediction that could be checked. If this is right, then a person sliding towards relapse should show almost no change on the items that ask whether they accept they have a problem, and large changes on the items about daily practice, and the second should move first. That is a testable ordering, and the instruments to test it already exist.
+It still suggests a prediction that could be checked: early recognition items should move less than daily-practice items before relapse. But that prediction now comes from a conditional mechanism demonstration and outside literature, not from the corrected baseline simulation.
 
 ---
 
@@ -2794,15 +2846,15 @@ Where is the edge?
 
 This is the question everybody wants answered and it is the one I have to refuse.
 
-The divide between the two basins can be located precisely inside the model. Take the healthy state and scale every dial down by the same factor, then let the person go. Down to seventy-five per cent of healthy, they climb back. Down to seventy-three, they do not. The boundary sits at about seventy-four per cent, which puts the tipping point at a maintenance level of roughly 0.24 against a healthy 0.32.
+The divide between the two basins could be located precisely inside the old frozen diagnostic. Scaling its healthy state uniformly put the boundary near seventy-four per cent, or maintenance near 0.24 against 0.32. The corrected mean endpoint environment has no corresponding pair of basins and therefore no such boundary to locate.
 
 Those numbers are worth nothing, and I need to say why with some force, because they are the most quotable thing in this book and they are the thing I would least like to see quoted.
 
-The model contains a decay rate, a single number setting how fast an unpractised step wears away. I chose it. Raise it by under three per cent and the healthy equilibrium does not merely move, it stops existing. Above that point the model says a typical member cannot hold a daily practice at all, from any starting position, in a fully healthy group. Lower the same number by a fifth and the healthy state climbs to 0.56 and sits there comfortably.
+The diagnostic contains a decay rate, a single number setting how fast an unpractised step wears away. I chose it. Under the old frozen inputs, raising it by under three per cent destroyed the high equilibrium and lowering it by a fifth raised that equilibrium to 0.56. Those are sensitivity facts about the diagnostic, not thresholds for the released baseline or for people.
 
 That is not a caveat. It is a statement that the model has no quantitative content on this question whatever. The distance between a world where a typical person can maintain a recovery and a world where nobody can is smaller than my ability to guess a parameter, and I would not claim to know that number to within twenty per cent, let alone three.
 
-The plan for this chapter, written before the sweep was run, said five per cent. The real figure is under three, and the failure is worse than a shift in a boundary, because what disappears is the healthy state itself rather than the bistability. I have corrected it here rather than in a note.
+The plan for this chapter, written before the first sweep, said five per cent. The old diagnostic returned under three. The release audit found the larger failure: after updating its state-dependent environment, a typical high equilibrium is already absent in 393 of 400 endpoint environments.
 
 ---
 
@@ -2810,9 +2862,9 @@ So what is left, and is it enough for a chapter?
 
 What is left is the shape, and the case for the shape is different in kind from the case for the numbers.
 
-That a system with a self-gating loop has two stable states and a divide between them is a property of that class of equations. It is not a finding about alcoholics. It follows from the structure whatever the constants are, provided the loop exists at all, which is why the bistability survives large changes in the gate's steepness and its midpoint while dying to a three per cent nudge in the decay rate. The decay rate does not change the shape. It moves the whole picture until one of the two states falls off the edge of the feasible region.
+A self-gating loop can create two stable states and a divide between them, but it does not do so for every set of inputs. The old text slid from possibility to necessity. The corrected environment check is the counterexample inside this project: the loop remains in the code while the two-attractor result is rare.
 
-The claim, then, is conditional and it is worth stating exactly. If maintenance gates its own recovery, then relapse has a threshold, and a person can be past the point of self-recovery while still looking, and feeling, more or less fine. Whether maintenance gates its own recovery is an empirical question I have not answered.
+The remaining claim is more conditional. If maintenance gates its own recovery strongly enough, and if the surrounding resource environment is sufficiently supportive of a high state, then the system may have a threshold and hysteresis. Whether either premise holds for people is empirical, and the corrected baseline simulation does not supply it.
 
 There is outside support for the shape, and it is a great deal better than it was when I drafted this chapter.
 
@@ -2828,7 +2880,7 @@ Three things in that paper bear directly on this chapter.
 
 **Their central quantity is the one this chapter calls the separatrix.** They describe the relapse process in terms of separation energy: the amount of disturbance required to move the system from abstinence to relapse, and, separately, from relapse back to abstinence. Two different energies, one each way. That asymmetry is the hysteresis this chapter argues for, arrived at by people fitting curves to real drinking histories rather than by me building a mechanism.
 
-**And they find real between-person variation in it.** Steepness and relapse risk varied significantly across participants, and the variation was predictable from demographics, baseline psychopathology and treatment history. That matters more to this chapter than anything else in the paper. Heterogeneity is the weakest number in my model: I chose the spread of member capability because it converted individual cliffs into a group slope, which is a mechanism I wanted rather than a quantity I measured. Somebody has now measured something like it and found it is really there.
+**And they find real between-person variation in it.** Steepness and relapse risk varied significantly across participants, and the variation was predictable from demographics, baseline psychopathology and treatment history. I chose the spread of member capability hoping it would convert individual cliffs into a group slope, rather than from a measured quantity. The corrected audit does not recover that intended mechanism in most endpoint environments. The paper supports heterogeneity in relapse landscapes, not this parameter value or this implementation.
 
 Now the limits, and they are not small.
 
@@ -2840,7 +2892,7 @@ Their sample is not an AA meeting. It is a criminal-justice-involved, largely po
 
 And one finding of theirs cuts against the dramatic reading of this chapter: non-use was the predominant stable state across their participants. Most people's landscape is tilted toward staying well. The two wells exist; they are not of equal depth.
 
-So the position is this. When I wrote this chapter the shape rested on two small samples and a cusp model I had read only in abstract. It now rests on a fitted, validated, person-specific double-well model with a hundred and thirty-nine people behind it, which independently reproduces the separatrix and the asymmetry and finds the between-person variation I had assumed. That is a real upgrade and I would rather record it than pretend the chapter was always this well supported. What has not changed at all is the second half of the argument: none of this locates anybody's threshold, and my model still cannot say where the edge is.
+So the position is this. The external case for a nonlinear, person-specific relapse landscape now rests on a fitted double-well model with a hundred and thirty-nine people behind it. That is a real upgrade in the literature. It does not rescue the model result: the object, mechanism and environment differ, and the corrected simulation rarely produces the typical-member bistability this chapter originally claimed.
 
 ---
 
@@ -2848,29 +2900,23 @@ There is one more property of a system like this, and it is the one with the sha
 
 Suppose the pressure that pushed somebody over is removed. They come back to the group. The meetings are the same meetings, the sponsor is available again, the circumstances are restored exactly. Does the person come back with them?
 
-In the model, no, and there is a clean line where the answer changes. Take a healthy member and remove the group entirely, then put everything back and wait five years. Away for eight weeks, they recover fully. Away for eleven weeks, they recover fully. Away for twelve weeks, they settle at zero and stay there, with the same group, the same sponsor, and five years to work with.
+In the old frozen diagnostic, no, and there was a clean line. Remove support from its high state and restore it five years later: eight or eleven weeks away recovered; twelve did not. The transition occurred near eleven and a half weeks.
 
-This is hysteresis, and it is the formal version of something the rooms say constantly without the vocabulary: the door out and the door back in are not the same width. What made a person well is not sufficient to make them well again, because the conditions were never what was holding the state up. The state was holding itself up, and the group was helping. Once the state is gone, the same help arrives at something with nothing to attach to.
+That is hysteresis in the diagnostic. It is also the formal version of something the rooms say constantly without the vocabulary: the door out and the door back in are not the same width. The outside literature supports taking that shape seriously. The corrected simulation does not establish that its typical member occupies a high basin from which this experiment can begin.
 
-The eleven weeks is worthless as a number, for the reason already given, and I would be embarrassed to see it in a pamphlet. The asymmetry is not worthless. It follows from having two basins at all, and it is what I would defend if pressed on only one thing here.
+The eleven weeks is retired as a model result. The asymmetry remains a property of a two-basin system and a hypothesis supported more directly by the fitted double-well literature than by this release.
 
 ---
 
-Now the correction that matters most, because it cuts against the way the rest of the chapter reads.
+Now the correction that matters most, because it changes the chapter rather than qualifying it.
 
-Everything above is about one person. Groups are not one person, and the difference is not a matter of degree.
+The old calculation drew capability from an uncentred lognormal distribution and froze group support at values produced by that inflated population. Correcting the draw to arithmetic mean one reduces the experienced core and the resource environment sharply. A new audit takes the endpoint resources and group capacity from each of 400 full-adherence runs, then places the same capability-one test member at high and low initial practice in each frozen environment.
 
-Members in the model differ in how readily practice takes hold, drawn from a spread wide enough that the top of the distribution is four times the bottom. Work out each member's own critical decay rate, the value above which they have no healthy state, and the answers scatter across a factor of four. The tenth percentile member tips at roughly half the baseline rate. The ninetieth holds out to twice it. Each of them, individually, has a hard edge. The edges are in different places.
+Only seven environments, 1.75 per cent, retain two attractors separated by more than 0.05 maintenance. Across environments the median high-start maintenance is 1.4 times ten to the minus nine, indistinguishable in substance from the low start. In the mean environment the two endpoints agree to displayed precision. The chapter's typical-member cliff is therefore not a result of the corrected baseline.
 
-The consequence is that the group has no edge at all. Push the decay rate up by a tenth and the fraction of members who can hold a practice goes from about a half to about 0.45. Push it up by half and it falls to about a quarter. Double it and roughly one in nine is still standing. Every one of those steps is smooth. Run the full group simulation over thirty years and four hundred seeds across the same range, and the group survives in at least ninety-three per cent of runs everywhere from thirty per cent below the baseline to fifty per cent above. Average maintenance slides gently from 0.33 down to 0.01 without a single reversal.
+The full group still responds smoothly to the decay-rate sweep. From thirty per cent below baseline through fifty per cent above, endpoint viability is 1.000, 1.000, 0.9925, 0.985, 0.980, 0.980, 0.9175 and 0.8675. Mean maintenance falls monotonically from 0.226 to 0.006. That smoothness no longer supports the story that it averages many individual cliffs: the released audit finds few such cliffs for a capability-one member in its own endpoint environments.
 
-So: each member has a cliff, and the room has a slope. Heterogeneity converts a discontinuity into a gradient, and it does so by averaging over people who fell at different moments.
-
-I think this is the most useful thing in the chapter, and it is not a result about alcoholism. It is a result about what a group can see. A group perceives itself through its members' reports, and a group whose members are individually going over a cliff at staggered times will report, accurately, that things are gradually getting a bit worse. Nobody is lying. Nobody is even wrong. The aggregate genuinely is smooth. It is smooth because it is an average of step functions, and averaging destroys exactly the information that would tell the room somebody has already gone.
-
-Part Two showed that a group deciding by discussion can be reliably right only if no one member's view dominates. This is the complementary failure and it has nothing to do with influence. A room can be perfectly balanced, listen beautifully and aggregate faithfully, and still be unable to see what is happening to the people in it. What happens to each of them is invisible in the average of all of them.
-
-And it suggests, though the model cannot establish it, why the recovering back end of a group is worth attending to individually rather than in aggregate. The average will not tell you. It cannot.
+What remains useful is methodological. A structural story must be tested under the state-dependent environment produced by the same released model. Freezing old inputs can create a clean mechanism that the full system no longer occupies. The group slope is real model output; the explanation previously attached to it is not established.
 
 ---
 
@@ -2878,7 +2924,7 @@ A last thing, which is not a result and is the reason for the whole chapter's ca
 
 Nobody should try to locate themselves on any of these curves. None of the numbers apply to a person, not approximately and not as a rough guide. The model has never been compared against a single real person, and the parameter that would set where your threshold sits is a number I chose because it made a simulation behave. Anybody who tells you they can locate you on a curve like this is selling something, and if the person telling you is a book, it is still selling something.
 
-What the chapter offers is smaller and I think worth having. There is a reasonable case that recovery has a floor rather than a slope, and that the floor is invisible from above. There is a reasonable case that the daily practice is what holds the rest up, rather than what you do once the rest is done. And there is a reasonable case that a group looking at its own averages will not see any of this happening. Whether any of it is true of real people is a question for somebody with data.
+What the chapter offers is smaller and I think worth having. The outside literature gives a reasonable case for nonlinear relapse dynamics and hysteresis. This model contains one possible self-gating mechanism, but its corrected typical environment rarely produces the claimed pair of attractors. The discrepancy is a result, not an embarrassment to hide: structural plausibility does not establish that a simulated system actually occupies the regime the story requires.
 
 ---
 
@@ -2886,15 +2932,15 @@ What the chapter offers is smaller and I think worth having. There is a reasonab
 
 ### 1. What the model says
 
-Maintenance capacity is the mean of the practice levels on Steps Ten, Eleven and Twelve. It enters every step's growth rate through a Hill gate, weighted by step index so that it barely touches Step One and fully binds Step Twelve. Because Steps Ten to Twelve are themselves at the heavy end of that weighting, maintenance gates its own accumulation, and the resulting loop is bistable.
+Maintenance capacity is the mean of the practice levels on Steps Ten, Eleven and Twelve. It enters every step's growth rate through a Hill gate, weighted by step index so that it barely touches Step One and fully binds Step Twelve. Because Steps Ten to Twelve are themselves at the heavy end of that weighting, maintenance gates its own accumulation. Such a loop can be bistable; the corrected model usually is not bistable for a capability-one member in its own endpoint environments.
 
-Two claims are made and they are not equally good.
+Two findings replace the old claims.
 
-**The shape is claimed.** For a typical member in a group at full-adherence equilibrium, the system has two stable states: maintenance at 0.3205 and maintenance at zero. Between them is a separatrix, and the collapsed state is reached and held under conditions identical to those that sustain the healthy one. Removing the group for long enough moves a member across the separatrix, after which restoring the group does not restore the member. This is hysteresis and it is structural.
+**The old frozen-environment demonstration is not the released baseline.** Its high state, separatrix and hysteresis are reproducible under its recorded constants, but those constants came from the retired capability-inflated population.
 
-**The location is not claimed, and cannot be.** The separatrix sits at about 74 per cent of the healthy state, and a total absence of about eleven and a half weeks crosses it. Both figures are artefacts of the decay rate `delta0`, which is a number I chose. Raising it by 2.79 per cent destroys the healthy equilibrium altogether, so that no starting position leads anywhere but collapse. The one-at-a-time sweep in `research/PARAMETERS.md` independently found the same parameter to be one of three that, moved alone by a quarter, flip a group's survival from certain to impossible.
+**The environment-matched test mostly has one low attractor.** Across 400 corrected full-adherence endpoint environments, only seven yield a high-start/low-start maintenance difference above 0.05 for a capability-one member. The mean environment yields maintenance of approximately 0.00000003 from either start.
 
-**Individual bistability does not imply group discontinuity.** Member capability is lognormal with standard deviation 0.55, which spreads individual critical decay rates over a factor of four. The population's response to a change in the decay rate is therefore smooth at every point, and the full group simulation survives across the entire swept range. A room composed of individually bistable members behaves, in aggregate, as though nothing discontinuous were happening to anybody.
+**The group response is smooth but its old explanation is unsupported.** The decay sweep produces a monotone decline in mean maintenance and endpoint viability remains 0.8675 or higher over the registered range. The current test does not show that this smoothness is an average of individual cliffs.
 
 ### 2. The technical version
 
@@ -2917,7 +2963,7 @@ Step One the gate is almost inoperative whatever C is; at Step Twelve it binds f
 Twelve states the same two lines, because each chapter's Machinery is meant to be readable
 without the other.
 
-**The two attractors**, typical member (capability 1.0), group resources at the full-adherence equilibrium, Gcap = 0.245:
+**Retired frozen-environment diagnostic**, capability 1.0, obsolete resource vector and Gcap = 0.245. These values reproduce the prior chapter but are not current baseline outputs:
 
 | quantity | healthy | collapsed |
 |---|---|---|
@@ -2928,9 +2974,9 @@ without the other.
 | Step 8 | 0.459 | 0.056 |
 | Step 12 | 0.250 | 0.000 |
 
-**Separatrix.** Scaling the healthy state uniformly by f: recovery for f >= 0.742, collapse below. Maintenance at the boundary is 0.2378.
+**Retired separatrix.** Under those obsolete constants only, scaling the high state uniformly gives recovery for f >= 0.742 and collapse below; maintenance at the boundary is 0.2378.
 
-**Fragility in the decay rate**, baseline 0.06:
+**Retired diagnostic's fragility in the decay rate**, baseline 0.06:
 
 | delta0 | change | healthy state | bistable |
 |---|---|---|---|
@@ -2941,9 +2987,9 @@ without the other.
 | 0.0617 | +2.79% | collapses | no |
 | 0.0630 | +5% | 0.0001 | no |
 
-The failure is asymmetric. Below baseline the healthy state strengthens; above it, the healthy state is annihilated rather than merged with the collapsed one.
+The failure is asymmetric within that diagnostic. It is retained to document how the conditional mechanism behaved, not as a statement about the current endpoint environment.
 
-**Hysteresis.** Total withdrawal of group support for D weeks, then full restoration and five years:
+**Retired hysteresis diagnostic.** Total withdrawal of its frozen group support for D weeks, then restoration and five years:
 
 | D | maintenance at end of absence | after five years back |
 |---|---|---|
@@ -2952,13 +2998,13 @@ The failure is asymmetric. Below baseline the healthy state strengthens; above i
 | 12 | 0.2047 | 0.0003 |
 | 26 | 0.1060 | 0.0003 |
 
-Critical absence 11.50 weeks by bisection.
+Critical absence 11.50 weeks by bisection under the retired constants. This is not a current model threshold.
 
-**Heterogeneity.** Critical decay rate across 2,000 members with capability lognormal, sd 0.55: tenth percentile 0.0307, median 0.0605, ninetieth 0.1236, that is 0.51, 1.01 and 2.06 times baseline. Fraction of members retaining a healthy state: 0.507 at baseline, 0.448 at +10 per cent, 0.383 at +20, 0.238 at +50, 0.111 at +100.
+**Environment-matched test.** Each of 400 corrected full-adherence endpoints supplies its own resource vector and mean group capacity. A capability-one member is integrated from 0.95 and 0.02 on every Step with that environment held fixed. Seven of 400 environments produce a maintenance separation above 0.05. High-start maintenance has tenth, median and ninetieth percentiles approximately 0.0000000002, 0.0000000014 and 0.0000071; the low-start quantiles are the same to displayed precision. Mean resource supply is [1.000, 0.556, 0.191, 0.233, 0.191, 0.532, 0.520, 0.717] and mean group capacity is 0.0451. Code and raw environments are in `model/ch14_individual.py` and `research/ch14_individual.json`.
 
-**Group simulation**, 400 seeds, thirty years, full Tradition adherence, decay rate swept from -30 to +50 per cent. Survival stays at or above 0.927 throughout, falling only at the top of the range: 1.000, 1.000, 1.000, 0.995, 1.000, 0.995, 0.970, 0.927 across -30, -20, -10, 0, +5, +10, +30, +50 per cent, with Wilson intervals no wider than 0.05. Mean maintenance among survivors falls 0.3299, 0.2563, 0.1883, 0.1158, 0.0881, 0.0651, 0.0220, 0.0096, each to within about 0.006 at 95 per cent. The decline is smooth, continuous and strictly monotone.
+**Group simulation**, 400 seeds, thirty years, full Tradition adherence, decay rate swept from -30 to +50 per cent. Endpoint viability is 1.000, 1.000, 0.9925, 0.985, 0.980, 0.980, 0.9175 and 0.8675 across -30, -20, -10, 0, +5, +10, +30 and +50 per cent. Mean endpoint membership is 57.71, 47.47, 29.07, 17.80, 14.67, 13.52, 10.48 and 8.91. All-run mean maintenance is 0.2262, 0.1468, 0.0761, 0.0380, 0.0258, 0.0234, 0.0094 and 0.0062. The maintenance decline is monotone.
 
-This table was computed from ten seeds until August 2026, and six of its eight maintenance figures then lay outside the interval the larger sample gives. The ten-seed curve also contained two reversals which were pure sampling noise; at four hundred seeds it is clean. Nothing qualitative changed, which is the reason for reporting the correction rather than quietly restating the table.
+The group sweep is a sensitivity curve, not evidence for individual bistability. At +50 per cent, 2.75 per cent of groups close and 86.75 per cent remain viable; existence, viability and maintenance are separate outcomes.
 
 ### 3. Notes on sources
 
@@ -2972,11 +3018,11 @@ This table was computed from ten seeds until August 2026, and six of its eight m
 
 **Witkiewitz and Marlatt (2007) is also read via abstract only.** It is cited here for the general argument that post-treatment drinking is nonlinear, not for any specific result. A passage of theirs quoted in Hunter-Reel and colleagues (2009) describes relapse as a feedback loop running until a steady state of drinking or not drinking is reached, which is bistability in their own words; I have that quotation at two removes and have not used it in the main text for that reason.
 
-**The Hill function is borrowed, not fitted.** Its use for switch-like behaviour is standard, and n = 3 gives a moderately sharp switch. Neither n nor k was chosen from data, and the bistability is comparatively insensitive to both: it survives a fifth off k and holds for n at or above 2.5.
+**The Hill function is borrowed, not fitted.** Its use for switch-like behaviour is standard, and n = 3 gives a moderately sharp switch. Neither n nor k was chosen from data. Sensitivity of the retired frozen-environment diagnostic does not establish bistability in the corrected baseline environment.
 
 **No part of this chapter has been tested against a person.** There is no longitudinal dataset of step practice with the resolution this would need, which is the same gap Chapter Thirteen ran into from the other direction.
 
-**The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
+**The numbers are computed, not cited.** The corrected environment test is generated by `model/ch14_individual.py`; the group sweep by `model/ch14_sweep.py`. The retired constants remain displayed so the superseded calculation can be reproduced and distinguished from the release result.
 
 ### 4. References
 
@@ -3000,7 +3046,7 @@ Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Ea
 
 **Internal, and reproducible from this repository:**
 
-The two attractors and the step profile, the separatrix, the decay-rate fragility sweep, the hysteresis run, the distribution of individual critical decay rates, and the group simulation sweep. Code and assertions in `model/book-calculations.ipynb`.
+`model/ch14_individual.py` and `research/ch14_individual.json` for the 400 corrected endpoint environments and frozen-member tests. `model/ch14_sweep.py` and `research/ch14_sweep.json` for the corrected group curve. The companion notebook reports these caches and labels the older fixed-environment calculations as retired.
 
 **What was not read:**
 
@@ -3014,7 +3060,7 @@ Eleven steps of difficult interior work, and then, having had a spiritual awaken
 
 Almost everyone outside the rooms reads it that way, and a fair number of people inside them do too. It is the natural reading and I think it is exactly backwards.
 
-The best-evidenced finding in this entire book says so, and it is not mine.
+The strongest clinical clue discussed in this chapter says so, and it is not mine. I have read its abstract but not yet the paper's full tables, so the claim remains evidence at one remove.
 
 ---
 
@@ -3038,13 +3084,13 @@ In the model, service is not a separate activity bolted onto recovery. It is a s
 
 You can test that inside the model by simply switching it off: set the growth rate of the twelfth step to zero, so that members can never build any service practice at all, change nothing else, and run four hundred groups for thirty years.
 
-The result is not subtle. Membership falls by two thirds, from about forty-two to about fourteen. Average practice across all twelve steps falls by a sixth. Maintenance capacity falls by nearly half.
+The corrected result is smaller than the earlier draft reported but still clear on membership. Mean endpoint size falls by 5.33 members, from 17.80 to 12.48, a paired reduction of 30 per cent with a 95 per cent interval of 4.44 to 6.21 members. Average practice falls by 0.015 and maintenance capacity by 0.0135.
 
-But the number that makes the point is a different one. **The ninth step falls by twenty-eight per cent.** Making amends has nothing whatever to do with carrying the message. Nobody's apology to their sister depends on whether they sponsor anybody. And yet in the model it degrades badly, because it is downstream of a maintenance capacity that the twelfth step was helping to hold up.
+The more ambitious cross-step claim does not survive correction. Step Nine is lower by 0.0055, about twelve per cent of its baseline value, but its paired 95 per cent interval runs from a decrease of 0.0125 to an increase of 0.0015. Making amends has no direct dependence on carrying the message, and this experiment is too imprecise to say that disabling Step Twelve degrades it specifically. What is resolved is the aggregate maintenance change: 0.0135 with a paired interval of 0.0079 to 0.0192.
 
-That is what load-bearing means. Not that the twelfth step is important, which everyone agrees about, but that removing it damages things it has no direct connection to.
+That is weaker than the result I wanted. Inside this model Step Twelve is load-bearing for membership and the maintenance aggregate. The evidence does not isolate damage to a particular Step with no direct connection to it.
 
-And notice what does *not* happen. The groups do not die. Survival stays at one hundred per cent across all four hundred runs. A group with no service practice in it persists indefinitely at a third of its size and a sixth less practice, which is to say it looks like a small, quiet, slightly flat meeting that has been going for years. It does not look like a failure. It looks like a lot of real meetings.
+And notice what does *not* happen within the thirty-year experiment. The same 394 of 400 runs finish endpoint-viable in the baseline and with Step Twelve disabled. That is a finite-horizon result, not proof that a group with no service practice persists indefinitely. Within the modeled horizon it looks smaller without changing the estimated viability fraction.
 
 ---
 
@@ -3052,19 +3098,36 @@ Now the part that connects this chapter to the rest of the book, and it is the r
 
 Everything else on the list you can do alone or with one other person. You can take an inventory in a room by yourself. You can make amends to somebody who wants nothing to do with the programme. But you cannot carry the message to a person who is not there.
 
-The twelfth step requires a recipient, and a recipient is not something a person can supply for themselves. It has to come from outside the individual entirely, in the form of somebody new walking through the door.
+The twelfth step requires a recipient, and a recipient is not something a person can supply for themselves. The model approximates that opportunity with low-practice members already in the population; it does not establish that they are new arrivals.
 
-The model treats this as a resource like any other, and it is the only one of the eight whose supply does not come from the members. It is measured as newcomers *per available helper*, not as a raw count, which matters more than it sounds. A room with forty newcomers and two experienced members is not richly supplied with opportunities to help; it is overwhelmed. A room with two newcomers and forty experienced members is not richly supplied either; most of those forty have nobody. The resource is a ratio, and both ends of it are ways of running short.
+The model treats this as a resource like any other, but its name needs care. It
+stores no tenure, sponsorship or matching. The numerator counts members at or
+below the low-practice threshold and the denominator counts members above the
+high-practice threshold. The ratio is therefore **opportunity per potential
+helper**, not newcomer supply or helper capacity. Forty low-practice members and
+two high-practice members produce a high value; two and forty produce a low one.
+The formula does not model overload, match quality or whether any pair actually
+works together.
 
-You can check whether this constraint is doing real work by relaxing it: let the twelfth step proceed without needing anybody to help, and see whether the group notices. It does. Membership rises by about nine per cent and service practice rises by a fifth, which means that in the ordinary run of the model the shortage of people to help is holding established members back. The constraint binds.
+You can check whether this capacity is doing real work by forcing only it to one
+while holding the consumption matrix, beta and the realized group process fixed.
+Across 400 paired seeds, final membership rises by 1.03 members, but the 95 per
+cent interval runs from -0.26 to 2.31. The clean ablation is unresolved. The older
+8.7 per cent claim came from deleting a consumption cell, renormalizing the rest
+of Step Twelve and changing beta at the same time; it could not identify the
+recipient mechanism.
 
-That is the recipient problem, and it sets up something the last part of this book has to deal with. A group short of newcomers is not merely a group that is shrinking. It is a group whose established members are being quietly deprived of the thing the evidence says protects them best. The shortage arrives first as a demographic fact and only later as a clinical one, and by the time it is clinical it has been true for years.
+That is the recipient-opportunity hypothesis, and it is more limited than the
+earlier wording. A group with few low-practice members per high-practice member
+has less modeled opportunity for Step Twelve. Whether real helpers are short of
+recipients, overloaded by them or matched at all is an empirical question the
+model cannot answer.
 
 ---
 
 Which returns me to where the book started, and to the difference between the two inflow channels.
 
-Chapters One and Four distinguished attraction, newcomers who arrive because of what members do, from referral, newcomers sent by courts, hospitals and treatment programmes regardless of what the group does. The model's most robust claim, and the only quantitative thing in it I would defend, is that starving a group of referrals hurts it more than starving it of attraction.
+Chapters One and Four distinguished attraction, arrivals generated by members' practice, from referrals sent by courts, hospitals and treatment programmes regardless of what the group does. One repeatedly supported within-model ordering is that referral loss and attraction loss have different consequences. The corrected analysis reports closure, endpoint viability and membership separately and does not turn finite sensitivity ranges into a universal claim.
 
 This chapter says why, and the reason is not the obvious one. It is not simply that referrals are more numerous. It is that referrals are the channel that does not depend on the group's own health. Attraction is generated by members' twelfth-step practice, so a group whose practice is slipping attracts fewer people, which supplies fewer recipients, which degrades practice further. That loop closes on itself. Referral does not run through the loop at all. It is the term that keeps arriving when the group has stopped deserving anybody.
 
@@ -3086,41 +3149,51 @@ What the two together do support is narrower and still worth having. If you are 
 
 ### 1. What the model says
 
-The twelfth step consumes seven of the eight group resources and has the maximum group-dependence coefficient, 1.00, tied with Step One. It is the only step that consumes the **recipient** resource, and the recipient resource is the only one of the eight not produced by the members themselves.
+The twelfth step consumes seven of the eight group resources and has the maximum
+group-dependence coefficient, 1.00, tied with Step One. It is the only Step that
+consumes the **recipient opportunity** proxy, a ratio computed from low- and
+high-practice member counts.
 
 Three results, all at 400 seeds, thirty-year horizon, full Tradition adherence.
 
-**Service is load-bearing rather than terminal.** Setting the twelfth step's growth rate to zero costs 66 per cent of membership and 16 per cent of average practice, and degrades Step Nine by 28 per cent even though Step Nine has no direct dependence on service. The degradation propagates through maintenance capacity, of which Steps Ten to Twelve are the average.
+**Service is load-bearing rather than terminal inside the model.** Setting the twelfth step's growth rate to zero costs 5.33 members [4.44, 6.21], or 30 per cent of baseline membership, and lowers maintenance capacity by 0.0135 [0.0079, 0.0192]. Average practice falls by 0.0150, with paired interval [0.0076, 0.0223].
 
-**Losing it does not kill the group.** Survival is 400 of 400 with the twelfth step disabled. The result is a persistent, smaller, flatter group, which is a shape the model says is stable and which the book should not describe as failure.
+**Losing it does not change endpoint viability in these runs.** In each condition 394 of 400 runs finish above five members. The result is a smaller group over thirty modeled years; it is not proof of permanence or survival forever.
 
-**The recipient constraint binds.** Removing the twelfth step's dependence on the recipient resource, and changing nothing else, *raises* membership by 8.7 per cent and service practice by a fifth. In the ordinary configuration the availability of newcomers is limiting what established members can practise.
+**The clean recipient override is unresolved.** Forcing recipient capacity to one
+raises final membership by 1.03 members relative to baseline, with paired 95 per
+cent interval [-0.26, 2.31]. It changes no matrix weight or beta. The former 8.7
+per cent estimate came from a compound structural change and is retired.
 
 ### 2. The technical version
 
 **The recipient resource.** Supply is
 
-> R(recipient) = sat(n_new / max(n_exp, 1), k_recip) * q(recipient),  sat(c, k) = c / (c + k)
+> R(recipient) = sat(n_low / max(n_high, 1), k_recip) * q(recipient),  sat(c, k) = c / (c + k)
 
-with k_recip = 2.0, n_new the members below the established threshold and n_exp those above the experienced threshold. Half supply is reached at two newcomers per experienced member; nine tenths would need eighteen. The ratio construction means both a shortage of newcomers and a shortage of helpers reduce it.
+with k_recip = 2.0, n_low the members at or below the established-practice
+threshold and n_high those above the experienced-practice threshold. Half capacity
+is reached at two low-practice members per high-practice member; nine tenths needs
+eighteen. Lower helper count increases the ratio rather than reducing it, so this
+is opportunity per potential helper and not helper capacity.
 
 Four traditions govern its supply, with column-normalised weights: single purpose 0.375, open membership 0.333, attraction 0.250, unity 0.042.
 
 Step 12 is the only consumer: S[12, recipient] = 1.0, which is 0.417 of that step's normalised resource bundle.
 
-**Results**, 400 seeds each, survival as a fraction with Wilson intervals, means with 1.96 standard errors:
+**Results**, 400 paired seeds each. Endpoint viability is a fraction; means show 95 per cent half-widths:
 
-| Configuration | Survival | Mean N | Practice | Step 1 | Step 9 | Step 12 | Maintenance |
+| Configuration | Endpoint viable | Mean N | Practice | Step 1 | Step 9 | Step 12 | Maintenance |
 |---|---|---|---|---|---|---|---|
-| Baseline | 0.995 | 41.7 ± 1.5 | 0.320 ± 0.006 | 0.753 | 0.134 | 0.103 | 0.1158 |
-| Twelfth step disabled | 1.000 | 14.2 ± 0.4 | 0.269 ± 0.008 | 0.739 | 0.097 | 0.002 | 0.0597 |
-| Recipient dependence removed | 1.000 | 45.4 ± 1.5 | 0.327 ± 0.006 | 0.754 | 0.140 | 0.123 | 0.1264 |
+| Baseline | 0.985 | 17.80 ± 0.88 | 0.2198 ± 0.0054 | 0.7135 | 0.0471 | 0.0347 | 0.0380 |
+| Twelfth step disabled | 0.985 | 12.48 ± 0.35 | 0.2049 ± 0.0055 | 0.7046 | 0.0416 | 0.0026 | 0.0245 |
+| Recipient capacity forced to one | 0.9875 | 18.83 ± 1.05 | 0.2198 ± 0.0054 | 0.7136 | 0.0458 | 0.0371 | 0.0382 |
 
-The baseline-to-disabled difference in membership is 27.5 members against a combined standard error of 0.79, giving z = 34.6, so it is not a sampling artefact. The baseline-to-relaxed difference is 3.6 members against a combined standard error of 1.08, giving z = 3.4, which is smaller but still resolved.
+Because conditions use common random streams, uncertainty is computed on paired differences. Baseline minus disabled membership is 5.33 [4.44, 6.21]. Forced-capacity minus baseline membership is 1.03 [-0.26, 2.31] and is unresolved. The Step Nine change under disabled service is likewise unresolved; the membership and maintenance effects are not.
 
-**Sensitivity.** `k_recip`, the saturation constant, is one of the four parameters the targeted sweep found to have no effect at either end on referral-starved survival, and it sits well below the resolution limit in the Morris screen. The recipient mechanism is therefore *structural* in the model rather than tuned: what matters is that the resource is a ratio consumed only by Step 12, not the value of the constant. See `appendix/APPENDIX.md` A5.
+**Sensitivity.** The expanded release suite varies `k_recip` at four distances in the multi-level OAT design and includes it in the global, tiered and Morris screens. A weak effect on one endpoint, especially referral-starved viability, would not establish that the recipient mechanism is structural or untuned. The clean recipient override is the direct mechanism comparison; the sensitivity designs describe dependence on its authored parameters.
 
-**What is not claimed.** The 66 per cent figure is a within-model quantity and inherits every caveat in the appendix. What survives perturbation is the direction and the propagation, not the magnitude.
+**What is not claimed.** The 30 per cent figure is a within-model quantity and inherits every caveat in the appendix. A lower endpoint size in this authored system is not evidence that helping causes recovery in people, and the specific cross-Step propagation claim is unresolved.
 
 ### 3. Notes on sources
 
@@ -3130,7 +3203,7 @@ The baseline-to-disabled difference in membership is 27.5 members against a comb
 
 **Riessman (1965) is cited for the name and the idea, not read at source.** It is behind a subscription at *Social Work*. The principle as stated here, that the helper in a shared-condition relationship often benefits most, is not in dispute and is reported in many places, but I have not read the original article.
 
-**The recipient resource is my construction.** No source proposes measuring opportunity to help as newcomers per available helper. The ratio form follows from asking what a person needs in order to do twelfth-step work, and the saturation form is borrowed from Iannaccone's treatment of participatory goods, but the object itself is an invention of this model and should be read as such.
+**The recipient resource is my construction.** No source proposes measuring opportunity to help as low-practice members per high-practice potential helper. The ratio form follows from asking what a person needs in order to do twelfth-step work, and the saturation form is borrowed from Iannaccone's treatment of participatory goods, but the object itself is an invention of this model and should be read as such.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -3144,7 +3217,7 @@ Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology 
 
 **Cited at a remove:**
 
-Pagano, M. E. K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH." *Journal of Studies on Alcohol* 65(6): 766-773. Read via abstract; the forty and twenty-two per cent figures via a 2011 Case Western Reserve University news release. Full text not obtained.
+Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH." *Journal of Studies on Alcohol* 65(6): 766-773. Read via abstract; the forty and twenty-two per cent figures via a 2011 Case Western Reserve University news release. Full text not obtained. A pending acquisition record exists under `research/staged/`, but that record is not incorporated evidence and the paper remains unread in full.
 
 Riessman, F. (1965). "The 'Helper' Therapy Principle." *Social Work* 10(2): 27-32. Cited for the naming of the principle; not read at source.
 
@@ -3170,7 +3243,7 @@ Zemore, S. E. and colleagues on giving and receiving help in recovery settings, 
 
 # Chapter Sixteen: The Pairing That Isn't
 
-There are twelve Steps and there are twelve Traditions, and for seventy years they have been printed on facing pages.
+There are twelve Steps and there are twelve Traditions, and for more than seventy years they have been printed on facing pages.
 
 So the thought arrives on its own, usually within a week of somebody first seeing the two lists together. If there are twelve of each, perhaps they go together. Step One and Tradition One. Step Two and Tradition Two. A programme for the person and a matching programme for the room, aligned all the way down.
 
@@ -3321,9 +3394,9 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 **Why Step 12 is the weak row.** In the unperturbed coupling, Step 12's top two are T5 at 1.25 and T3 at 1.10, a margin of 0.15 on a value of 1.25. Both Traditions govern the recipient resource, T5 at 0.9 and T3 at 0.8, so a perturbation that moves them in opposite directions flips the winner. The margin, not the level, is what makes the row fragile.
 
-**What no design here can test.** Neither perturbation can move a structural zero, so no figure in this chapter is evidence about the two-tier split. Neither can test whether a differently-minded person would place the zeros where I placed them. Those are the threats named in appendix A5.6 and neither is addressed here.
+**What no design here can test.** Neither perturbation can move a structural zero, so no figure in this chapter is evidence about the two-tier split. Neither can test whether a differently-minded person would place the zeros where I placed them. Those are the threats named in appendix A7.1 and neither is addressed here.
 
-**The eight resources have since been tested and the result is in the main text.** Appendix A9.5 deletes each resource, merges each pair and deletes each pair, sixty-four variants in all, and finds that only Step 1 and Step 2 ever regain their index-mates, in fifteen and one variants respectively. That establishes the list is no *finer* than it needs to be. It cannot establish that the list is fine *enough*, because inventing a ninth resource requires a judgement about what it contains and cannot be done by rearranging the eight.
+**The eight resources have since been tested and the result is in the main text.** Appendix A7.6 deletes each resource, merges each pair and deletes each pair, sixty-four variants in all, and finds that only Step 1 and Step 2 ever regain their index-mates, in fifteen and one variants respectively. That establishes the list is no *finer* than it needs to be. It cannot establish that the list is fine *enough*, because inventing a ninth resource requires a judgement about what it contains and cannot be done by rearranging the eight.
 
 ### 3. Notes on sources
 
@@ -3347,7 +3420,7 @@ Nothing. This chapter cites no source it has not read, because it cites almost n
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A5.6, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A7.1, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 **What was not read:**
 
@@ -3423,7 +3496,7 @@ Compare that with the rest of the part on the same test: 40.6 per cent for index
 
 That is not a hundred per cent and I will not round it up. A quarter of the time it does not. But it is the difference between a claim that rests mainly on structure and a claim that rests mainly on judgement, and Part Four contains one of the first and several of the second.
 
-A second design agrees, and it agrees on the interesting part. Appendix A9.5 rebuilds the coupling on sixty-four alternative resource lists, formed by removing resources singly and in pairs and by combining pairs into one, and unity leads on sixty-three of them. **The one failure is the variant that removes continuity and pressure together**, which is precisely the pair the reassignment test above identifies as the only two whose transfer can flip the result. Two tests built for different purposes, one moving a resource from one Tradition to another and one deleting resources outright, converging on the same two columns of the matrix, is worth more than either on its own. It means the finding has one point of failure and both instruments can see it.
+A second design agrees, and it agrees on the interesting part. Appendix A7.6 rebuilds the coupling on sixty-four alternative resource lists, formed by removing resources singly and in pairs and by combining pairs into one, and unity leads on sixty-three of them. **The one failure is the variant that removes continuity and pressure together**, which is precisely the pair the reassignment test above identifies as the only two whose transfer can flip the result. Two tests built for different purposes, one moving a resource from one Tradition to another and one deleting resources outright, converging on the same two columns of the matrix, is worth more than either on its own. It means the finding has one point of failure and both instruments can see it.
 
 ---
 
@@ -3633,7 +3706,7 @@ The two-tier split is a property of the governance matrix G, which is twelve Tra
 
 They are not absent from the simulation. They enter it as multipliers on the effective adherence of the Traditions they guard, described in Part One's last chapter and specified in appendix A2. That is a modelling choice and not a derivation: the derivation says only that the five govern no consumed resource, and says nothing about how they should act instead. The multiplier form is the simplest thing that gives them a role, and it is the reason they appear near the top of the degradation comparison, which is noted there as consistent with their derived role rather than as evidence for it.
 
-One consequence worth naming because it is algebra and not simulation: because the governance matrix is column-normalised, at full adherence to every Tradition it cancels exactly, and 35 of the model's 118 hand-chosen numbers cannot affect a fully adherent group at all. The split is therefore a statement about groups that are not fully adherent, which is every real group.
+One consequence worth naming because it is algebra and not simulation: because the governance matrix is column-normalised, at full adherence to every Tradition it cancels exactly, and 35 of the model's 118 registered sensitivity values cannot affect a fully adherent group at all. The count is not a census of every authored choice. The split is therefore informative only away from the full-adherence corner; the model does not measure the adherence of real groups.
 
 ### 2. The technical version
 
@@ -3678,7 +3751,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
-**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A5.4e also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 53 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
+**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 53 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
 
 ### 4. References
 
@@ -3734,55 +3807,27 @@ Everything a gatekeeping group does, it does to someone already inside.
 
 Nobody is turned away at the threshold because there is no threshold and no one standing at it. What happens instead is a hundred small things that are not decisions: the seat nobody moves along to make, the conversation that closes when the newcomer approaches, the shorthand that is not explained, the coffee rota that is already staffed, the phone list that is not offered. None of that is a policy. All of it is a message, and the message is received.
 
-So the open door does not govern who arrives. It governs who is still there in six weeks.
+So the open door does not govern who arrives in the default model. It has two other paths.
 
-The model implements it that way, and the implementation is where the chapter's numbers come from. Arrivals are unaffected by how welcoming a group is, because in the model as in the Tradition a group cannot decline them. What varies is early attrition: an unwelcoming group loses newcomers faster. The effect is weighted by how new a member is, so that a person who has been coming for two years barely notices the culture and a person who has been coming for two weeks feels all of it. That weighting is a judgement and I want it visible, because it is doing a great deal of work.
-
----
-
-Now the price list.
-
-Hold every other Tradition at full adherence and vary only the open door, four hundred runs at each level, thirty years.
-
-A group with a fully welcoming culture ends at 41.7 members, and 99.5 per cent of such groups are still going at thirty years. Let it become as unwelcoming as the model can represent and it ends at 27.5 members, with 94.0 per cent still going. So the whole cost of that is fourteen members and five and a half points of survival.
-
-The intermediate levels fall where you would expect. Three-quarters open gives 38.9 members, half gives 36.6, a quarter gives 33.7. It is a smooth price, roughly three and a half members per quarter of the door, with no cliff anywhere.
-
-I have to add one honest note about those survival figures, because the run at three-quarters open produced a higher number than the run at fully open, and it would be easy to write a paragraph about the wisdom of a little discrimination. The two figures are not distinguishable. Their intervals overlap substantially and the difference is one group in four hundred. There is no peak at three-quarters. There is a flat top and some noise on it.
+One path changes the governance quality of four resources, including admission and recipient opportunity. The other adds dropout friction weighted by low practice. The model records practice but not tenure, so that second path cannot tell a person of two weeks from a long-tenured person whose practice is low. Earlier drafts called it newcomer weighting and described the whole intervention as retention. Both descriptions were too strong. The corrected analysis separates resource governance from dropout friction before combining them.
 
 ---
 
-Fourteen members is a real cost and it is not a catastrophe, and if the chapter stopped there it would be reassuring in a way the model does not support.
+Now the price list has to be split in two.
 
-Here is the part that is not reassuring.
+Across four hundred paired seeds, the baseline ends at 17.80 members. Removing only the inverse-practice dropout protection costs 2.96 members, with a 95 per cent interval from 1.85 to 4.08. Removing only Tradition Three's resource governance costs 6.03, from 5.04 to 7.01. Removing both costs 11.05, from 10.03 to 12.06. The two losses do not add: their interaction is -2.06, with an interval excluding zero.
 
-As the culture hardens, the measured quality of the group goes *up*.
-
-At full adherence the established members of a surviving group sit at 0.354 on the practice scale. At the unwelcoming extreme they sit at 0.400. Every intermediate level lies between, monotonically. The most unwelcoming groups in the experiment have the most practised members.
-
-There is no mystery about why. The people who leave a cold room are the ones who had least invested in it, which is to say the newest and the least practised, and removing them raises the average of everyone who remains. It is the same arithmetic that makes a school's results improve when it stops admitting difficult pupils. Nothing has been gained. Something has been removed, and the removal shows up as an improvement.
-
-That is a problem for a fellowship whose only real instrument is self-examination. A group taking its own temperature can count the room and can feel how solid its members are. Both of those measures move the wrong way as the culture hardens: the room gets smaller, which the group will attribute to any of a dozen external causes, and the members feel more solid, which confirms that the group is doing something right.
+The event outcomes are sharper. Every baseline group still exists at thirty years and 98.5 per cent finish above five members. Under combined loss, 25.0 per cent are closed and only 54.8 per cent finish above five. Crossing the threshold is not permanent: 347 combined-loss runs cross to five or fewer and 340 later recover above five at least once. A crossing, a recovery, an endpoint below six and closure are different events.
 
 ---
 
-There is a third number and it is the one I did not expect.
+The two paths also send different interior signals.
 
-The proportion of a group's members who are newcomers goes *up* as the culture hardens. At full adherence it is 12.2 per cent. At the unwelcoming extreme it is 20.1 per cent.
+With friction loss alone, established-member practice rises from 0.265 to 0.289 even as membership falls. That is compatible with selection: losing low-practice members can make the remainder look stronger. Governance loss does something else. Established-member practice is nearly unchanged at 0.265, while the low-practice fraction rises from 0.235 to 0.406. Under combined loss, established practice falls to 0.225 and the low-practice fraction is 0.294.
 
-An unwelcoming group is more full of newcomers than a welcoming one.
+So the old sentence that an unwelcoming group looks better was an artefact of treating two mechanisms as one. It describes the friction path and not the governance path or their combination. The model has no arrival dates, cohorts or sponsorship links, so the low-practice fraction must not be translated into a newcomer count.
 
-This looked wrong when I first saw it and it is not. The unwelcoming group is smaller, so each arrival is a larger fraction of it, and its newcomers leave faster, so it needs more arrivals to stand still. What you get is a revolving door: a group of thirty in which six people are new, most of whom will not be there in two months, replaced by six more.
-
-A welcoming group of forty-two has five newcomers, and most of them stay.
-
-The two rooms feel entirely different and the second one looks, on the crude measure, less busy with new people. A group that prides itself on how many newcomers come through the door may be describing its own failure to keep them.
-
----
-
-What the whole sweep says, in one sentence, is that the third Tradition is cheap to break and hard to notice breaking.
-
-Breaking it does not kill the group. Ninety-four per cent of the least welcoming groups are still meeting at thirty years, which is a survival rate most institutions would take. It costs a third of the membership, which the group will notice and will explain. And it produces two signals that both point the wrong way: better-looking members, and more newcomers passing through.
+What the factorial says, in one sentence, is that the Third Tradition is neither cheap nor one mechanism. One path can create a misleading improvement among those left; the other changes the resource environment; together they produce closure in one run out of four within the modeled horizon.
 
 Compare that with the failure Part One documents. The Washingtonians were not unwelcoming. They defined themselves so broadly that the movement stopped being about drunkards at all, which is the opposite failure and, on this model's accounting, a far more dangerous one. Whether it is more dangerous is the subject of the next chapter, which sets this failure beside the two other ways a group can starve and asks which of the three anyone would see coming.
 
@@ -3792,39 +3837,36 @@ Compare that with the failure Part One documents. The Washingtonians were not un
 
 ### 1. What the model says
 
-Tradition 3 enters the model at exactly one place, and the placement is the chapter's central modelling claim.
+Tradition 3 enters the model through two separately controllable paths.
 
 Arrivals are Poisson, with rate equal to an exogenous referral floor plus attraction generated by members' twelfth-step practice and scaled by Tradition 11. **Tradition 3 does not appear in that expression.** A group's welcome does not affect who turns up, because the Tradition denies the group any admission procedure. Whether the model should represent it that way is a substantive question and the answer here is that it should, because the alternative is a group exercising a discretion the Tradition removes.
 
-Where Tradition 3 does appear is the dropout hazard. Each member's per-period hazard is a baseline that falls exponentially with early-step practice, plus a churn floor, all multiplied by a friction term
+Its first path is resource governance: its row contributes to four resource columns. Its second path is the dropout hazard. Each member's per-period hazard is a baseline that falls exponentially with early-step practice, plus a churn floor, with an additional friction term
 
 > t3_friction = 1 + (1 - T3) * exp(-6 * mean practice)
 
-so that at full adherence there is no friction at all, and at zero adherence the friction is largest for members whose practice is near zero and negligible for members whose practice is high. A veteran is insulated; a newcomer is not.
+so that at full adherence there is no additional friction, and at zero adherence the friction is largest for members whose practice is near zero and negligible for members whose practice is high. Because the weight uses practice rather than tenure, it must be called inverse-practice weighting rather than newness.
 
-Two consequences follow without being put in by hand. The first is that an unwelcoming culture removes the least practised members preferentially, so measured quality rises. The second is that such a group must replace more members to hold its size, so its newcomer share rises. Both appear in the sweep and neither was an intended output.
+The release-gate factorial reports loss of the governance path, loss of the friction path, their combination and their interaction. The older five-level sweep varies both paths together and therefore describes a combined Tradition 3 intervention, not a retention-only treatment.
 
 ### 2. The technical version
 
-Tradition 3 varied alone, all others at 1.0, 400 seeds per level, thirty-year horizon, dt of half a week. Survival is the fraction of runs ending above five members with a 95 per cent Wilson interval; mean N counts a dead group as zero and carries a 95 per cent half-width; quality is mean practice among established members of surviving groups and is therefore conditional; newcomer share is likewise conditional.
+Design: 400 paired seeds, all other Traditions at 1.0, thirty-year horizon, dt of half a week. Continuous entries are means with 95 per cent intervals; proportions carry Wilson intervals.
 
-| T3 | Survival | 95% interval | Mean N | ± | Quality | ± | Core | Newcomer share |
-|---|---|---|---|---|---|---|---|---|
-| 0.00 | 0.940 | 0.912 to 0.959 | 27.5 | 1.7 | 0.4003 | 0.0083 | 24.1 | 0.201 |
-| 0.25 | 0.978 | 0.958 to 0.988 | 33.7 | 1.7 | 0.3878 | 0.0072 | 29.3 | 0.165 |
-| 0.50 | 0.990 | 0.975 to 0.996 | 36.6 | 1.7 | 0.3700 | 0.0066 | 32.0 | 0.148 |
-| 0.75 | 1.000 | 0.990 to 1.000 | 38.9 | 1.6 | 0.3621 | 0.0065 | 34.2 | 0.132 |
-| 1.00 | 0.995 | 0.982 to 0.999 | 41.7 | 1.5 | 0.3539 | 0.0061 | 37.2 | 0.122 |
+| Condition | Final N | Exists, N > 0 | Endpoint viable, N > 5 | Closed, N = 0 | Established practice | Low-practice fraction |
+|---|---|---|---|---|---|---|
+| Baseline | 17.80 [16.92, 18.68] | 100.0% [99.0, 100.0] | 98.5% [96.8, 99.3] | 0.0% [0.0, 1.0] | 0.2645 [0.2587, 0.2703] | 0.2345 [0.2215, 0.2474] |
+| Friction loss only | 14.84 [13.91, 15.76] | 99.2% [97.8, 99.7] | 94.0% [91.2, 95.9] | 0.8% [0.3, 2.2] | 0.2886 [0.2806, 0.2965] | 0.2225 [0.2073, 0.2376] |
+| Governance loss only | 11.77 [11.15, 12.40] | 98.0% [96.1, 99.0] | 91.2% [88.1, 93.6] | 2.0% [1.0, 3.9] | 0.2648 [0.2553, 0.2743] | 0.4059 [0.3860, 0.4257] |
+| Combined loss | 6.76 [6.17, 7.34] | 75.0% [70.5, 79.0] | 54.8% [49.9, 59.6] | 25.0% [21.0, 29.5] | 0.2246 [0.2086, 0.2406] | 0.2937 [0.2694, 0.3179] |
 
-Going to the unwelcoming extreme costs 14.2 members and 5.5 points of survival, raises quality by 0.046 and raises the newcomer share by 0.079.
+Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], governance 6.03 [5.04, 7.01], combined 11.05 [10.03, 12.06]. The factorial interaction is -2.06 [-3.41, -0.70].
 
-**The survival column has no peak.** The 1.000 at three-quarters and the 0.995 at fully open differ by two groups in four hundred and their Wilson intervals overlap across most of their length. Reading a maximum at 0.75 would be reading noise, and the notebook asserts the overlap rather than the ordering.
-
-**Quality and newcomer share are conditional on survival and this matters more here than it looks.** Six per cent of the least welcoming runs are dead by year thirty and contribute nothing to either column. Since the runs that die are the ones that lost their members, the conditioning inflates both figures for the least welcoming rows specifically. So the true quality advantage of an unwelcoming group is smaller than 0.046, and the direction is nevertheless secure, because it holds at T3 = 0.75 and T3 = 0.50 where mortality is 0.0 and 1.0 per cent respectively and the conditioning can barely operate.
+**Quality and low-practice fraction are conditional on endpoint population and this matters more here than it looks.** Closed runs contribute no members to either column. Conditioning can therefore make the remaining groups look stronger than the all-run population. Endpoint nonviability is not itself death: runs with one to five members are extant and are reported separately from closure in the release-gate analysis.
 
 **What is not varied.** Everything else. This is a one-factor sweep at full adherence elsewhere, which is a best case: it asks what an unwelcoming culture costs a group that is otherwise doing everything right. An unwelcoming culture in a group already short of attraction or referrals is not tested here and there is no reason to assume the costs add.
 
-**What no design here could find.** The friction term's exponent of 6, which sets how quickly a member stops feeling the room's coldness, was chosen and not estimated. It is one of the 118 hand-chosen numbers, it is in the one-at-a-time sweep in appendix A4.4, and the ordering in the table survives that sweep. The magnitudes do not, and should be read as a shape rather than a price.
+**What the registered sweep cannot find.** The friction term's exponent of 6, which sets how quickly the added friction falls with practice, is hard-coded and not estimated. It is not one of the 118 registered sensitivity values and the old one-at-a-time sweep never varied it. It appears separately in the model-choice inventory. No robustness claim may be based on saying that all model choices were perturbed.
 
 ### 3. Notes on sources
 
@@ -3836,9 +3878,9 @@ Going to the unwelcoming extreme costs 14.2 members and 5.5 points of survival, 
 
 **The behavioural description is not sourced and is offered as illustration.** The seat nobody moves along to, the conversation that closes, the phone list not offered: I have no study of AA group culture to cite for any of that, and it is in the chapter to make the mechanism concrete rather than to establish it. A reader who thinks gatekeeping in practice works some other way should discount the chapter's framing and keep its arithmetic, which does not depend on the particulars.
 
-**What would test this properly.** Any longitudinal measurement of newcomer retention across groups differing in culture. I am not aware of one, and this is a place where the fellowship's own anonymity makes the research hard rather than merely undone.
+**What would test this properly.** Any longitudinal measurement of low-practice members and newcomer retention across groups differing in culture, with practice and tenure measured separately. I am not aware of one, and this is a place where the fellowship's own anonymity makes the research hard rather than merely undone.
 
-**The counterintuitive result is the one to check first.** That an unwelcoming group carries a *higher* newcomer share is the chapter's most falsifiable claim and the easiest to test in the real world: count the room, count how many are in their first ninety days, and compare across meetings. If unwelcoming meetings turn out to have lower newcomer shares, the retention mechanism in this model is wrong.
+**The proxy is the first thing to check.** The model predicts a larger low-practice fraction under the combined intervention. Whether that corresponds to first-ninety-day membership is unknown. Measuring both would test the translation rather than assuming it.
 
 ### 4. References
 
@@ -3852,7 +3894,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py` for the friction term and the inflow expression. `model/part5_runs.py` for the sweep. `research/part5.json` for the raw runs. `model/book-calculations.ipynb` section 14 for every figure above with its assertion. `appendix/APPENDIX.md` A2 for the specification, A3.4 for the selection threat, A4.4 for the one-at-a-time sweep.
+`model/aa_group_model.py` for the resource and friction paths. `model/release_gate_analysis.py` for the paired factorial and `research/release_gate_results.json` for its 3,200 raw jobs and summaries. `research/RELEASE-GATE-RESULTS.md` is the generated human-readable report. `appendix/APPENDIX.md` gives the full specification, selection threat and sensitivity designs.
 
 **What was not read:**
 
@@ -3862,7 +3904,7 @@ Any empirical literature on newcomer retention in mutual-aid groups. I searched 
 
 A group can fail to bring people in, or fail to have people sent to it, or fail to keep the people who arrive. Those are the three, and they are not variations on one thing.
 
-Each of them starves the group of the same commodity, which is members, and each does it by a different route, on a different timetable, with a different set of symptoms. The chapter's claim is that the three are easy to tell apart from outside and nearly impossible to tell apart from inside, and that the one which is hardest to see is the one that kills.
+Each of them starves the group of the same commodity, which is members, and each does it by a different route, on a different timetable, with a different set of symptoms. The corrected model makes all three visible in room size. What remains difficult to read is practice quality, because conditioning on groups that remain viable can make the most damaged populations look strongest.
 
 I am going to give them names, because the model's names are ugly. Call them invisible, unreferred, and unwelcoming.
 
@@ -3870,11 +3912,11 @@ I am going to give them names, because the model's names are ugly. Call them inv
 
 An **invisible** group is one whose members have stopped carrying the message.
 
-Nobody outside hears about it. The twelfth-step work is not happening, or is happening privately and without effect, so the only people who arrive are the ones sent by somebody else. In the model this is Tradition 11 at zero: attraction produces nothing, and the referral floor is all that is left.
+Nobody outside hears about it. The twelfth-step work is not happening, or is happening privately and without effect, so the only people who arrive are the ones sent by somebody else. In the model this means setting only Tradition 11's attraction path to zero while leaving its resource-governance path intact: attraction produces nothing, and the referral floor is all that is left.
 
-The result is a slow, visible, survivable shrinkage. A group of twenty-five falls to twenty-one within a year, nineteen by the second, fifteen by the fifth, and settles near thirteen and a half for the rest of the thirty years. It almost never dies: 99.8 per cent of these groups are still meeting at year thirty.
+The result is a slow, visible, usually viable shrinkage. A group of twenty-five falls to 21.5 within a year, 18.6 by the second, 14.5 by the fifth, and finishes at 12.4. At year thirty all 400 groups still exist and 98.5 per cent have more than five members.
 
-And its members get worse. Practice among survivors falls from 0.55 at founding to 0.359 at year five, 0.310 at year ten, 0.263 at year thirty, against 0.320 for a healthy group at the same horizon. That is the only one of the three failure modes in which the people in the room are measurably less well than the people in a healthy room.
+Established-member practice falls from 0.55 at founding to 0.352 at year five, 0.295 at year ten and 0.259 at year thirty. The matched healthy values are 0.322, 0.302 and 0.265. The old claim that the invisible group's members are distinctly worse no longer holds: the two trajectories are close after the first decade.
 
 So an invisible group is small and thin and alive. It looks like what it is. Anyone attending would say the meeting has got quiet and the regulars are not what they were, and they would be right.
 
@@ -3886,33 +3928,33 @@ No courts sending people, no treatment centre discharging them, no doctor writin
 
 Now look at what happens, and look at the first five years before anything else.
 
-At year one an unreferred group has 35.4 members. At year two, 35.8. At year five, 33.4, and 99.5 per cent of them are still open for business. A healthy group at year five has 47.6. So the unreferred group is smaller, by a quarter, and that is the entire visible difference. Its members are at 0.353 against a healthy 0.341, which is to say slightly *better*.
+At year one an unreferred group has 32.7 members. At year two, 30.4. At year five, mean membership across all runs is 21.6 and 97.0 per cent remain above five members. A healthy group at year five has 35.2. The unreferred group is already visibly smaller. Among its viable groups, established practice is 0.348 against a healthy 0.322, which is to say apparently *better*.
 
-Five years in, an unreferred group is a somewhat small meeting full of solid people.
+Five years in, a viable unreferred group is a smaller meeting full of apparently solid people.
 
-By year ten, 9.3 per cent of these groups are gone. The survivors have 29.4 members and sit at 0.348, still marginally better than a healthy group. By year twenty, four in ten are gone, and the survivors have 25.8 members at 0.346. By year thirty, 64 per cent are gone. The survivors have 26.6 members.
+By year ten, 66.0 per cent remain endpoint-viable and 94.8 per cent still exist. The viable groups average 16.5 members and sit at 0.348, above the healthy group. By year twenty, 17.3 per cent remain viable and 42.5 per cent exist; the viable subset averages 11.4 members at 0.355. By year thirty, only 2.75 per cent remain viable, 10.5 per cent exist at all, and 89.5 per cent have closed. The eleven viable groups average 12.3 members.
 
-Read the survivor column down the years and nothing happens. Twenty-nine members, twenty-six, twenty-seven. Quality 0.348, 0.346, 0.335. If you were in one of these groups at any point in those three decades, you would have no reason to think anything was wrong, because in the group you were in, nothing was.
+Read the viable-subset columns down and two things diverge. Membership falls from 22.1 at year five to 12.3 at year thirty, a visible warning. Practice goes the other way, from 0.348 to 0.364, while the viable subset shrinks from 388 groups to eleven. The corrected model therefore does not support the claim that nothing inside the room looks wrong. It supports the narrower claim that practice among selected survivors can look strong while the population of groups disappears.
 
 The mortality is entirely in the groups that are no longer there to be asked.
 
 ---
 
-An **unwelcoming** group is one that keeps nobody.
+An **unwelcoming** group here is one that loses both modeled Tradition 3 paths: resource governance and inverse-practice dropout protection.
 
-The previous chapter set out what that costs and how it is disguised: fourteen members, five and a half points of survival, and a pair of readings that both mislead, because measured quality rises and the newcomer share rises with it.
+The previous chapter set out what that costs and why its two mechanisms should not be conflated. The combined intervention costs 11.05 endpoint members [10.03, 12.06] relative to baseline, closes one group in four, and leaves 54.8 per cent viable at year thirty.
 
-In trajectory the unwelcoming group is the flattest of the three. It settles near thirty-two members within two years and stays there, losing about two members a decade. Its quality tracks a healthy group's closely and slightly above: 0.357 at year ten against 0.338, 0.335 at year thirty against 0.320. Six per cent of these groups die over thirty years, mostly in the second and third decades.
+In trajectory the combined-loss group falls from 30.4 members at year one to 26.4 at year two, 14.5 at year ten and 6.8 at year thirty when closures count as zero. Viability falls from 90.5 per cent at year ten to 54.8 per cent at year thirty. Among viable groups, established practice is 0.360 at year ten and 0.321 at year thirty, above the corresponding healthy values, but that comparison is selected on remaining viable.
 
-It is a stable, slightly small, slightly cliquish meeting that lasts. That is not nothing, and a fellowship optimising for the survival of individual groups rather than for the number of people served would rate it acceptable.
+It is not the stable, slightly small meeting the earlier cache implied. Combined Tradition 3 loss is a serious closure and viability failure in the corrected model.
 
 ---
 
 Put the three beside each other at year ten and the differences are obvious.
 
-The invisible group has thirteen or fourteen members and its people are at 0.310. The unreferred group has twenty-nine members and its people are at 0.348. The unwelcoming group has thirty-two and its people are at 0.357. A healthy group has forty-seven and its people are at 0.338.
+The invisible group's viable endpoints average 13.0 members and established practice 0.295. The unreferred viable subset averages 16.5 and 0.348. The combined Tradition 3-loss subset averages 15.7 and 0.360. A healthy viable group averages 29.4 and 0.302.
 
-On membership alone the ranking is right: the healthy group is biggest and the invisible group smallest. On quality the ranking is almost exactly wrong. The healthy group is *third* of four. The two failing modes that produce the best-looking members are the unreferred and the unwelcoming, which are also the two that kill groups.
+Membership warns in every failure mode. Practice does not. The two modes with the strongest-looking selected members are the unreferred and combined Tradition 3-loss conditions, which are also the modes producing substantial closure.
 
 Every one of those quality figures is measured among the members of groups that are still alive, and that is not a technicality. It is why the numbers come out that way. A failure mode that kills weak groups leaves strong ones to be measured, and a failure mode that expels weak members leaves strong ones to be counted. Both mechanisms manufacture the appearance of health out of the fact of loss.
 
@@ -3926,11 +3968,11 @@ A group can measure two things about itself without any apparatus at all. It can
 
 Against the invisible failure, both instruments work. The room is small and the regulars are struggling, and the two agree.
 
-Against the unwelcoming failure, one instrument works badly and the other lies. The room is somewhat small, which will be explained by the weather and the parking and the new meeting across town, and the regulars are doing well, which will be taken as evidence that the group is sound.
+Against combined Tradition 3 loss, the room count works and the practice reading can mislead. The group is much smaller; the selected established members can look stronger than baseline.
 
-Against the unreferred failure, neither instrument registers anything at all until the group is not there. The room is a little smaller than it might be. The regulars are fine. The regulars are fine the following year and the year after that. The failure is not in the room. It is in the population of rooms, and no room can see it.
+Against the unreferred failure, the room count registers decline early and the practice reading points the wrong way. The larger failure is still in the population of rooms: no surviving room can directly observe the 89.5 per cent that have closed.
 
-That is the subject of the next chapter, because a failure mode that is invisible from inside every instance of the thing it is killing is a strange object, and it is the closest the model comes to explaining what happened to the first fellowship in this book.
+That is the subject of the next chapter, because the correction weakens its original thesis. Selection still hides failure in the practice measure, but membership decline is visible inside the surviving groups, and the Washingtonian analogy has to be narrowed with it.
 
 ---
 
@@ -3940,55 +3982,53 @@ That is the subject of the next chapter, because a failure mode that is invisibl
 
 The three failure modes are three different interventions on the same simulation and they act at three different points in the loop.
 
-**Invisible** sets Tradition 11 to zero, which removes the attraction term from the arrival rate. Arrivals fall to the exogenous floor. Nothing else changes, so the group's internal machinery is intact and it simply receives fewer people.
+**Invisible** sets only the Tradition 11 attraction path to zero. Arrivals fall to the exogenous floor while Tradition 11's resource-governance path remains at one.
 
 **Unreferred** sets the exogenous inflow to zero, so arrivals become strictly proportional to the twelfth-step practice currently being done by current members. Chapter One's Machinery describes the consequence: a group on one engine has no floor underneath it. Its inflow is a function of its own state, which makes the population dynamics multiplicative rather than additive, and a multiplicative process with no floor has an absorbing state at zero.
 
-**Unwelcoming** sets Tradition 3 to zero, which raises early attrition without touching arrivals, for the reasons the previous chapter gives.
+**Unwelcoming** sets Tradition 3 to zero on both of its default paths. It removes resource governance and adds inverse-practice dropout friction without touching arrivals. The release factorial in Chapter Nineteen separates those paths; this trajectory combines them.
 
-The distinct mortality profiles follow from that structure without being put in by hand. Invisible and unwelcoming groups are smaller but still have a floor, so they persist. Unreferred groups are the only ones whose inflow can go to zero and stay there, so they are the only ones that die in numbers.
+The distinct mortality profiles follow from that structure without being put in by hand. The referral floor prevents closure in the invisible condition. Unreferred groups are the only ones whose inflow can go to zero and stay there, and they close most often. Combined Tradition 3 loss also closes a substantial minority through its resource and dropout paths.
 
 ### 2. The technical version
 
-400 seeds per condition, thirty-year horizon, dt of half a week, membership and practice recorded at every step and sampled yearly. Runs from `model/part5_runs.py`, cached in `research/part5.json`, asserted in notebook section 14. "Alive" means more than five members. **Quality is mean practice among members of surviving groups and is conditional throughout; the surviving fraction is printed beside it in every table.**
+400 paired seeds per condition, thirty-year horizon, dt of half a week, membership and practice recorded at every step and sampled yearly. Runs come from `model/part5_runs.py` and are cached in `research/part5.json`. Endpoint existence means N > 0; viability means N > 5; closure at N = 0 is permanent. **The quality column below conditions on viability, while all-run membership includes zeros. The viable fraction is printed beside it.**
 
 Survival carries a 95 per cent Wilson interval; membership and quality carry a 95 per cent half-width from the cross-run standard error.
 
-| Condition | Alive y10 | Members if alive, y10 | Quality y10 | Alive y30 | 95% interval | Quality y30 |
+| Condition | Viable y10 | Members if viable, y10 | Established practice y10 | Viable y30 | 95% interval | Established practice y30 |
 |---|---|---|---|---|---|---|
-| nothing wrong | 1.000 [0.990, 1.000] | 46.9 ± 1.2 | 0.338 ± 0.0045 | 0.995 | 0.982 to 0.999 | 0.320 ± 0.0060 |
-| invisible | 0.998 [0.986, 1.000] | 13.9 ± 0.4 | 0.310 ± 0.0088 | 0.998 | 0.986 to 1.000 | 0.263 ± 0.0080 |
-| unreferred | 0.907 [0.875, 0.932] | 29.4 ± 1.6 | 0.348 ± 0.0062 | 0.360 | 0.314 to 0.408 | 0.335 ± 0.0099 |
-| unwelcoming | 0.993 [0.978, 0.997] | 31.8 ± 1.4 | 0.357 ± 0.0059 | 0.940 | 0.912 to 0.959 | 0.335 ± 0.0084 |
+| nothing wrong | 0.9975 | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968 to 0.993 | 0.2648 ± 0.0058 |
+| invisible | 0.9925 | 12.99 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968 to 0.993 | 0.2592 ± 0.0071 |
+| unreferred | 0.660 | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015 to 0.049 | 0.3642 ± 0.0443 |
+| unwelcoming, combined T3 loss | 0.905 | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499 to 0.596 | 0.3211 ± 0.0134 |
 
-The year-thirty quality figures for the unreferred and unwelcoming rows are identical to three decimals at 0.335, and their intervals overlap almost entirely, so they should be read as indistinguishable rather than as equal.
+Only eleven unreferred runs are viable at year thirty. Their quality interval is correspondingly wide; the high conditional mean is evidence of selection, not population improvement.
 
 Membership counted over all runs with deaths as zero, by year:
 
-| Condition | y1 | y2 | y5 | y10 | y15 | y20 | y25 | y30 | half-width at y30 |
-|---|---|---|---|---|---|---|---|---|---|
-| nothing wrong | 40.5 | 44.6 | 47.6 | 46.9 | 45.1 | 43.5 | 42.4 | 41.7 | ± 1.5 |
-| invisible | 21.5 | 18.9 | 15.1 | 13.9 | 13.3 | 13.1 | 13.5 | 13.5 | ± 0.4 |
-| unreferred | 35.4 | 35.8 | 33.4 | 27.0 | 21.2 | 16.0 | 12.4 | 9.9 | ± 1.6 |
-| unwelcoming | 33.7 | 32.6 | 31.6 | 31.6 | 30.6 | 29.4 | 28.8 | 27.5 | ± 1.7 |
+| Condition | y1 | y2 | y5 | y10 | y20 | y30 | half-width at y30 |
+|---|---|---|---|---|---|---|---|
+| nothing wrong | 37.7 | 38.3 | 35.2 | 29.3 | 21.3 | 17.8 | ± 0.88 |
+| invisible | 21.5 | 18.6 | 14.5 | 12.9 | 12.2 | 12.4 | ± 0.34 |
+| unreferred | 32.7 | 30.4 | 21.6 | 11.7 | 2.5 | 0.51 | ± 0.23 |
+| unwelcoming, combined T3 loss | 30.4 | 26.4 | 20.0 | 14.5 | 9.2 | 6.8 | ± 0.59 |
 
-Half-widths at earlier years are smaller for every row except the invisible one, which is flat at about 0.4 throughout because its runs are tightly clustered; at year five they are 1.0, 0.4, 1.2 and 1.0 respectively.
-
-The same rows conditioned on survival:
+The unreferred row shown both unconditionally and conditioned on endpoint viability:
 
 | Condition | y5 | y10 | y20 | y30 |
 |---|---|---|---|---|
-| unreferred, all runs | 33.4 ± 1.2 | 27.0 ± 1.7 | 16.0 ± 1.7 | 9.9 ± 1.6 |
-| unreferred, survivors only | 33.5 | 29.4 ± 1.6 | 25.8 | 26.6 ± 3.0 |
-| surviving fraction | 0.995 | 0.907 [0.875, 0.932] | 0.603 | 0.360 [0.314, 0.408] |
+| unreferred, all runs | 21.55 ± 1.01 | 11.68 ± 1.02 | 2.50 ± 0.48 | 0.51 ± 0.23 |
+| unreferred, viable runs only | 22.07 ± 1.00 | 16.47 ± 1.18 | 11.39 ± 1.37 | 12.27 ± 3.81 |
+| viable fraction | 0.970 | 0.660 | 0.1725 | 0.0275 [0.015, 0.049] |
 
-That triple is the whole of the next chapter in three lines. The unconditional series falls by seventy per cent. The conditional series falls by twenty. The gap between them is mortality and nothing else.
+The unconditional series falls by 98 per cent from year two to year thirty. Even the viable-subset membership falls sharply, while its practice measure rises. The gap is selection, but the corrected model no longer makes the decline invisible on membership.
 
-**Quality differences against a healthy group at year ten**, which is the measure a member could plausibly perceive: invisible is 0.028 lower, unreferred is 0.010 higher, unwelcoming is 0.019 higher. Only the first has the sign an observer would expect.
+**Established-practice differences against a healthy viable group at year ten:** invisible is 0.0067 lower, unreferred is 0.0459 higher, and combined Tradition 3 loss is 0.0581 higher. Membership is lower in all three.
 
-**What is not tested.** Combinations. Each condition switches one thing off at full adherence elsewhere. Real decline is unlikely to be so tidy and there is no reason to expect the costs to add. Appendix A5.6 lists this under what no design covers.
+**What is not tested.** Combinations. Each condition switches one thing off at full adherence elsewhere. Real decline is unlikely to be so tidy and there is no reason to expect the costs to add. Appendix A7.1 lists this under what no design covers.
 
-**What the trajectories are not.** They are not predictions of how long a real group lasts. The horizon, the arrival rate and the churn floor are three of the 118 hand-chosen numbers, and appendix A6 records that the model is calibrated to a stylised fact rather than to data: a fully adherent group holding near forty-five members at thirty years. The *orderings* in these tables survived the sensitivity work in appendix A5; the *durations* were never tested and should be read as shapes.
+**What the trajectories are not.** They are not predictions of how long a real group lasts. The horizon, arrival rate and churn floor are authored choices, and the original forty-five-member calibration fails after the heterogeneity correction. The expanded sensitivity designs are screens of dependence within this model; they do not validate the durations or absolute sizes.
 
 ### 3. Notes on sources
 
@@ -4010,7 +4050,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A3.4 for the selection threat that this chapter turns into a finding, A5.6 for what no design covers, A6 for the calibration.
+`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A6 for the calibration.
 
 **What was not read:**
 
@@ -4020,19 +4060,19 @@ Any study of mutual-aid group mortality. I looked for a survival analysis of AA 
 
 Take the unreferred group on its own and follow it for thirty years.
 
-At year five, 99.5 per cent of them still exist. The survivors have 33.5 members and their people sit at 0.353 on the practice scale, which is fractionally above a healthy group's 0.341.
+At year five, every group still exists and 97.0 per cent remain viable above five members. The viable groups average 22.1 members and their established members sit at 0.348 on the practice scale, above a healthy group's 0.322.
 
-At year ten, 90.7 per cent still exist. The survivors have 29.4 members, at 0.348, still above a healthy group's 0.338.
+At year ten, 94.8 per cent still exist but only 66.0 per cent remain viable. The viable groups average 16.5 members, at 0.348, still above a healthy group's 0.302.
 
-At year twenty, 60.3 per cent still exist. The survivors have 25.8 members, at 0.346, above a healthy group's 0.324.
+At year twenty, 42.5 per cent still exist and 17.3 per cent remain viable. The viable subset averages 11.4 members, at 0.355, above a healthy group's 0.273.
 
-At year thirty, 36.0 per cent still exist. The survivors have 26.6 members, at 0.335, above a healthy group's 0.320.
+At year thirty, 10.5 per cent still exist and 2.75 per cent remain viable. The eleven viable groups average 12.3 members, at 0.364, above a healthy group's 0.265.
 
-Read the survivor columns down. Thirty-three members, twenty-nine, twenty-six, twenty-seven. Practice at 0.353, 0.348, 0.346, 0.335, which is a decline of about five per cent over three decades and is smaller than the decline in a group with nothing wrong with it.
+Read those columns down. Membership falls from 22 to 12 while established practice stays high. The practice reading looks healthy; the room count does not.
 
-Now read the first column down. Ninety-nine and a half per cent. Ninety-one. Sixty. Thirty-six.
+Now read the existence column down. One hundred per cent. Ninety-five. Forty-three. Eleven. The viable column falls faster still.
 
-Two thirds of these groups are dead and not one of the survivors ever looked ill.
+Almost nine in ten groups are closed. The selected survivors look strong on practice, but they look small. The earlier chapter title overstates what the corrected model shows.
 
 ---
 
@@ -4040,21 +4080,21 @@ I want to be careful about what is and is not surprising here.
 
 The arithmetic is not surprising. If a process kills groups outright rather than degrading them, then obviously the groups that remain are undegraded, and the average over survivors will not move much. Anybody would predict that on a moment's thought. It is the same reason the average height of people in a room does not change when you remove the ones who left.
 
-What is surprising, or at least what I did not expect before running it, is how completely the two views come apart. The unconditional membership series, which counts a dead group as zero, falls from 35.8 members at year two to 9.9 at year thirty. That is a seventy-two per cent collapse. The conditional series, which asks how big the surviving groups are, falls from 35.8 to 26.6, which is a twenty-six per cent decline over three decades and is not obviously worse than ordinary ageing.
+What survives correction is a narrower divergence. The unconditional membership series, which counts a closed group as zero, falls from 30.4 members at year two to 0.51 at year thirty, a 98 per cent collapse. Membership among viable groups falls from 30.4 to 12.3, which is also severe. Established practice among that selected subset remains high and ends above the healthy comparison.
 
-One process. Two numbers. One of them says catastrophe and the other says mild decline, and both are correctly computed from the same runs.
+One process. Three estimands. Existence, viability and membership all say catastrophe; conditional practice does not. All are correctly computed from the same runs.
 
 ---
 
 Which of the two numbers can anybody actually see?
 
-A member sees one group. Their own. They see it every week, for years, and what they see is the conditional series, because they are in a group that has not died. If it dies they stop seeing anything, and if they move to another meeting they start seeing the conditional series of that one.
+A member sees one group. Their own. They can see its room count and its practice culture, but they cannot see the groups that have already closed. In the corrected runs their own shrinking room is a warning; the apparently strong practice of those left is the misleading signal.
 
 A group secretary sees the same thing with better records.
 
 An area committee sees more, and this is the first level at which the unconditional series is visible at all, because an area committee knows how many groups it had last year and how many it has now. Whether it *notices* is a different question, since a group that stops meeting is usually explained by something specific: the church wanted the room back, the man who chaired it moved away, the Tuesday group merged with the Thursday one. Every death has a proximate cause and the proximate causes are all true.
 
-So the failure is legible only at a level of aggregation above the one at which anybody experiences it, and only if somebody at that level is counting the right thing, and only in a series long enough to distinguish a trend from ordinary turnover.
+The full closure rate is legible only at a level of aggregation above the individual group, and only if somebody there counts births and closures separately over a long enough series. The within-group decline is legible sooner through attendance. The two levels answer different questions.
 
 That is a demanding set of conditions and it is worth saying plainly that AA meets more of them than most voluntary organisations, because it has counted its groups for decades and publishes the counts.
 
@@ -4066,9 +4106,9 @@ Part One asks why the Washingtonians vanished and finds a record that is thin in
 
 The standard reading of that silence is that the movement collapsed quickly and its members had better things to do than document it.
 
-This model offers another reading. If the Washingtonians were in the unreferred condition permanently, which is Chapter One's argument and which follows from there being no courts, no treatment system and no medical consensus in 1840, then the thing that was happening to them was invisible from inside any individual society. Every society that still existed looked well. The societies that had stopped existing were not there to describe themselves. A correspondent writing to a temperance paper in 1846 from a functioning Washingtonian society would have reported a functioning Washingtonian society, accurately, while the movement around him was disappearing.
+This model offers a narrower reading. If the Washingtonians were in the unreferred condition permanently, the societies that had stopped existing were not there to describe themselves, and the practice quality of selected survivors could remain high. But the corrected simulation also predicts visibly shrinking rooms. It therefore cannot explain the historical silence by invisibility alone.
 
-The record is not thin because nobody bothered. It is thin because the process leaves no trace in the places where records are made.
+The process can bias the record toward functioning survivors, but it does leave a membership trace inside them. The earlier categorical explanation of the thin record is retired.
 
 ---
 
@@ -4078,15 +4118,15 @@ It explains an absence of evidence. Arguments that explain absences of evidence 
 
 There is also a specific reason to distrust it here. The claim requires that individual Washingtonian societies were dying while the survivors looked healthy, and the evidence that survivors looked healthy is exactly the evidence a curated record would produce anyway, since the movement's own publications had every reason to print accounts of societies doing well. Chapter Two shows Marsh curating that record in precisely this direction. So the observation the mechanism explains is also an observation the curation explains, and the two are not distinguishable from what survives.
 
-What the model contributes is therefore narrower than it first appears. It does not show that the Washingtonians died this way. It shows that a group can die this way, that the process is consistent with the shape of the record, and that the absence of decline narratives is not by itself evidence that there was no decline. That last is worth having, because the AA-derived literature sometimes treats the suddenness of the Washingtonian collapse as an established fact, and the suddenness may be an artefact of who was left to write.
+What the model contributes is therefore narrower than it first appeared. It does not show that the Washingtonians died this way. It shows that conditioning on surviving organisations can preserve a healthy-looking practice measure while closures accumulate, and that absence of decline narratives is not evidence of absence. It does not show that surviving societies would have missed their falling attendance.
 
 ---
 
 One further thing follows, and it is the most practical claim in Part Five.
 
-If a fellowship wants an early warning of this failure, it cannot get it from the health of its groups. The health of its groups is uninformative by construction. It has to count groups, not members, and it has to count them over a long enough window that a change in the birth and death rates is separable from noise.
+If a fellowship wants an early warning of this failure, practice quality alone is inadequate. Individual groups can track attendance, while the fellowship has to count group births and closures over a long enough window that changing rates are separable from noise.
 
-That is an odd thing to say about an organisation whose entire theory of itself is about what happens inside a room. The thing most worth measuring is the thing no room can see.
+Those measurements are complements. A room can see itself shrinking; only the wider fellowship can see how often rooms disappear.
 
 The next chapter takes the opposite question, which is whether anything about the composition of a room can be arranged to make it better, and finds that the model says no and could hardly have said otherwise.
 
@@ -4098,33 +4138,31 @@ The next chapter takes the opposite question, which is whether anything about th
 
 Nothing in this chapter is a new mechanism. It is the unreferred condition from the previous chapter, read as a time series rather than as an endpoint, and split into its conditional and unconditional forms.
 
-The reason the two forms diverge is structural and worth stating. Setting the exogenous inflow to zero makes arrivals strictly proportional to the twelfth-step practice currently being done by current members. That is a multiplicative population process with an absorbing state at zero and no additive floor. Such a process does not settle at a low level; it either sustains itself or it goes to zero and stays. So the failure mode produces bimodal outcomes: groups that are fine and groups that are gone, with little in between.
+The reason the estimands diverge is structural and worth stating. Setting exogenous inflow to zero makes arrivals strictly proportional to current twelfth-step practice. Zero is absorbing. The corrected outcome distribution contains mass at closure, a set of extant but nonviable groups, and a small viable tail; it should not be reduced to a binary alive/dead label.
 
-Bimodality is what makes the conditional mean uninformative. When the outcome distribution has two clumps and one of them is at zero, the mean over the non-zero clump tells you nothing about the mass in the other.
+Conditioning is what makes the practice mean incomplete. The mean among eleven viable endpoints says nothing about the 358 closed runs or the thirty-one extant runs at one to five members.
 
 ### 2. The technical version
 
-400 seeds, thirty-year horizon, dt of half a week, membership and practice sampled yearly. `model/part5_runs.py`, cached in `research/part5.json`, asserted in notebook section 14. "Alive" is more than five members. Survival carries a 95 per cent Wilson interval; means carry a 95 per cent half-width from the cross-run standard error.
+400 paired seeds, thirty-year horizon, dt of half a week, membership and practice sampled yearly. `model/part5_runs.py`, cached in `research/part5.json`. Existence is N > 0, viability N > 5, and closure N = 0. Proportions use Wilson intervals; means use 95 per cent half-widths.
 
 The unreferred condition, both views:
 
-| Year | Surviving fraction | 95% interval | Members, all runs | Members, survivors only | Quality, survivors |
+| Year | Exists | Viable | Members, all runs | Members, viable runs | Established practice, viable runs |
 |---|---|---|---|---|---|
-| 2 | 1.000 | 0.990 to 1.000 | 35.8 | 35.8 | 0.359 |
-| 5 | 0.995 | 0.982 to 0.999 | 33.4 ± 1.2 | 33.5 | 0.353 |
-| 10 | 0.907 | 0.875 to 0.932 | 27.0 ± 1.7 | 29.4 ± 1.6 | 0.348 ± 0.0062 |
-| 15 | 0.738 | - | 21.2 | 28.1 | 0.346 |
-| 20 | 0.603 | - | 16.0 ± 1.7 | 25.8 | 0.346 |
-| 25 | 0.440 | - | 12.4 | 27.2 | 0.349 |
-| 30 | 0.360 | 0.314 to 0.408 | 9.9 ± 1.6 | 26.6 ± 3.0 | 0.335 ± 0.0099 |
+| 2 | 1.000 | 1.000 | 30.38 ± 0.70 | 30.38 ± 0.70 | 0.3585 ± 0.0049 |
+| 5 | 1.000 | 0.970 | 21.55 ± 1.01 | 22.07 ± 1.00 | 0.3479 ± 0.0058 |
+| 10 | 0.9475 | 0.660 | 11.68 ± 1.02 | 16.47 ± 1.18 | 0.3475 ± 0.0084 |
+| 20 | 0.425 | 0.1725 | 2.50 ± 0.48 | 11.39 ± 1.37 | 0.3547 ± 0.0206 |
+| 30 | 0.105 | 0.0275 | 0.51 ± 0.23 | 12.27 ± 3.81 | 0.3642 ± 0.0443 |
 
-For comparison, a group with nothing wrong with it is at 46.9 members and 0.338 quality at year ten, and 41.7 members and 0.320 quality at year thirty, with 99.5 per cent surviving.
+For comparison, viable baseline groups average 29.40 members and 0.3016 established practice at year ten, and 18.00 members and 0.2648 at year thirty; viability is 98.5 per cent at the endpoint.
 
-**The quality comparison is the chapter's central number and it has the wrong sign throughout.** At year ten the unreferred survivors are 0.010 above a healthy group. At year twenty they are 0.022 above. At year thirty they are 0.015 above. A member comparing their own meeting with a healthy one on the only dimension they can perceive would conclude that theirs is doing slightly better.
+**The quality comparison still has the misleading sign.** At years ten, twenty and thirty the viable unreferred subset is respectively 0.046, 0.081 and 0.099 above viable baseline groups. But its membership is lower at every one of those horizons, so practice is not the only dimension a member can perceive.
 
-**Why the survivor series wobbles.** Members among survivors go 29.4, 28.1, 25.8, 27.2, 26.6 across years ten to thirty. That is not a trend with noise on it; the later points are means over progressively smaller samples, from 363 runs at year ten down to 144 at year thirty, and the half-width doubles from 1.6 to 3.0 accordingly. The series should be read as flat.
+**Why the late conditional estimates are imprecise.** The viable subset falls from 264 runs at year ten to eleven at year thirty. The membership half-width expands to 3.81 and the practice half-width to 0.044. The final conditional mean is a description of eleven selected runs, not a stable population estimate.
 
-**The selection is the finding and it is also threat 4.** Appendix A3.4 warns that conditional quantities in this model can be read as unconditional and that this has produced errors. This chapter deliberately relies on the same effect. The defence is procedural rather than substantive: every conditional figure above is labelled, and the surviving fraction is printed in the same row. There is no version of this chapter's argument that survives dropping that column, which is exactly the point being made.
+**The selection is the remaining finding and it is also a threat.** Every conditional figure is labeled and both existence and viability appear beside it. Dropping either column would turn a selected-subset comparison into a population claim.
 
 **What is not shown.** Whether real groups die bimodally. The bimodality follows from the absence of an additive inflow term, which is a modelling choice justified in Chapter One by the historical claim that no referral system existed in 1840. If a real unreferred group has any floor at all, however small, the process is no longer absorbing and the shape of this chapter changes.
 
@@ -4134,13 +4172,13 @@ For comparison, a group with nothing wrong with it is at 46.9 members and 0.338 
 
 **The claim about AA's group counts is now specific, and the series has still not been obtained.** The document is service material SMF-132, *Estimated Worldwide A.A. Individual and Group Membership*, published by the General Service Office as a table of groups and members by year. That is the right instrument for the test this chapter proposes and it is named here so a future session does not have to find it again. It was located on 2 August 2026 and not read: it is distributed as a PDF under an AA World Services content-use policy permitting a single printed copy, and this project does not acquire AAWS publications on the book's behalf. Two further limitations would remain even with it in hand. The series is worldwide rather than regional, so the natural experiment the chapter proposes, a region whose referral pipeline changed sharply, would need finer data than SMF-132 carries. And a count of groups is not a count of group deaths, since the total moves with births as well.
 
-**Nothing here is validated.** Threat 2 in appendix A7 applies with full force: the trajectories in this chapter are the model's output and have never been compared against a real group. The orderings in Part Five survived the sensitivity work; the durations did not and were never tested.
+**Nothing here is validated.** The trajectories are model output and have never been compared against a real group. The expanded sensitivity suite measures dependence on authored choices; it does not validate the durations, the absolute group sizes or the historical application.
 
 ### 4. References
 
 **Read in full:**
 
-Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. Saved in `research/`; see Chapter One for the note on the copy. Used here only for the character of the decline record, which is discussed at length in Chapter Two.
+Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. Saved under `research/incorporated/Maxwell_1950/`; see Chapter One for the note on the retyped copy. Used here only for the character of the decline record, which is discussed at length in Chapter Two.
 
 Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Saved in `research/`. Used here for the same purpose.
 
@@ -4150,7 +4188,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A3.4 for the selection threat, A5.6 for what no design covers, A7 threat 2 for the absence of external validation.
+`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 2 for the absence of external validation.
 
 **What was not read:**
 
@@ -4208,11 +4246,11 @@ Take twenty-five founding members with a fixed total amount of practice between 
 
 Run each four hundred times for thirty years.
 
-Even ends at 41.7 members. Concentrated ends at 41.3. Split ends at 39.9. The ninety-five per cent half-widths are 1.5, 1.5 and 1.6, so the whole spread across the three conditions is 1.8 members against an uncertainty of 1.6. Survival is 99.5, 100.0 and 99.8 per cent. Quality among established members is 0.3539, 0.3534 and 0.3514.
+Even ends at 17.80 members. Concentrated ends at 18.09. Split ends at 17.45. Their ninety-five per cent half-widths are 0.88, 0.99 and 0.93. Endpoint viability is 98.5, 98.75 and 98.5 per cent. Established-member practice is 0.2645, 0.2628 and 0.2660.
 
-Nothing. Three quite different founding populations, one outcome.
+Unresolved. Relative to even founders, the paired membership difference is 0.29 [-0.90, 1.48] for concentrated and -0.35 [-1.47, 0.78] for split. Neither interval excludes zero, and no equivalence margin was specified in advance, so the experiment establishes neither a difference nor practical equality.
 
-The split condition is lowest on all three measures, which is the direction Carrell, Sacerdote and West would predict, and the difference is not significant and I am not going to claim it.
+The old draft said the split condition was lowest on all three measures. It is now lowest on membership but highest on established practice, another reason not to narrate an ordering the paired contrasts do not resolve.
 
 ---
 
@@ -4220,9 +4258,9 @@ What should be concluded from a null result produced by a model that could barel
 
 Very little on its own, and something in combination.
 
-On its own, the null says that the one channel through which composition could have mattered in this model, the non-linearity of the capacity gate, does not in fact produce a detectable effect at these magnitudes over thirty years. That is a small internal finding and Chapter Fourteen is the reason it is worth checking at all, since that chapter is entirely about the gate's non-linearity.
+On its own, the experiment says only that these 400 paired runs do not resolve the contrasts. Founding practice changes the ordering gates, resource capacities, dropout, attraction and maintenance immediately, so it is not a one-channel test. Without a prespecified equivalence margin, failure to reject a difference is not evidence that composition has no meaningful effect.
 
-In combination, it points the same way as the experiment while being much weaker evidence than the experiment. The Air Force Academy result says that engineering composition from measured peer effects can backfire because people re-sort. This model says that even in a world where people cannot re-sort, engineering composition does very little. Between them: the upside of arranging who is in the room is small if it exists, and the downside is real and has been measured once.
+The Air Force Academy result still says that engineering composition from measured peer effects can backfire because people re-sort. The simulation adds no directional evidence about the upside or downside of arranging a founding group. Its value is diagnostic: it shows how little this aggregate model can identify about a relational intervention.
 
 ---
 
@@ -4240,13 +4278,9 @@ This model cannot answer that. What Part Five's other chapters suggest is that t
 
 ### 1. What the model says
 
-Composition can enter this model by two routes and only two.
+Founding composition enters every state-dependent channel at once. Each founder receives the same initial value on all twelve Steps, so changing the distribution changes step-order gates, maintenance, resource capacities, dropout risk and attraction at the start of the run. The three conditions use the same random streams, including the same slot-specific mean-one heterogeneity draws, which makes the contrasts paired but does not isolate a single mechanism.
 
-The first is the Hill-function capacity gate, which is non-linear in a member's own practice. Two members at 0.3 and 0.7 do not produce what two members at 0.5 each produce, because the gate is convex in one region and concave in another. That is a real channel and it is the reason the experiment is worth running at all.
-
-The second is member heterogeneity, a lognormal multiplier drawn per member at entry, which is not controlled in this experiment and enters as noise.
-
-There is no third route. Resources are computed from sums and means over the living membership; no member's state appears in another member's growth equation except through those aggregates. So the model has no representation of mentoring, of pairing, of cliques, or of anybody being anybody else's sponsor in particular. **It also has no representation of the mechanism that produced the Air Force Academy result**, which is people choosing whom to associate with inside a group whose composition has been arranged. A null result on composition should be read against both absences.
+Resources are still computed from aggregates; no member's state appears in another member's growth equation except through those aggregates. The model therefore has no representation of mentoring, pairing, cliques or sponsorship. **It also has no representation of the mechanism that produced the Air Force Academy result**, which is people choosing whom to associate with after composition was arranged. An unresolved result should be read against that absence.
 
 ### 2. The technical version
 
@@ -4256,17 +4290,17 @@ Three founding conditions, twenty-five founders each, identical total initial pr
 - **concentrated**: five at 1.00 and twenty at 0.4375.
 - **split**: twelve at 0.90 and thirteen at 0.2269.
 
-Survival carries a 95 per cent Wilson interval; membership carries a 95 per cent half-width from the cross-run standard error.
+Viability carries a 95 per cent Wilson interval; continuous means carry a 95 per cent half-width. Conditions share seeds and random streams, so comparisons use paired differences.
 
-| Condition | Survival | 95% interval | Mean N | ± | Quality | Core |
+| Condition | Endpoint viable | 95% interval | Mean N | ± | Established practice | Established count |
 |---|---|---|---|---|---|---|
-| even | 0.995 | 0.982 to 0.999 | 41.7 | 1.5 | 0.3539 | 37.2 |
-| concentrated | 1.000 | 0.990 to 1.000 | 41.3 | 1.5 | 0.3534 | 36.7 |
-| split | 0.998 | 0.986 to 1.000 | 39.9 | 1.6 | 0.3514 | 35.4 |
+| even | 0.985 | 0.968 to 0.993 | 17.80 | 0.88 | 0.2645 | 13.97 |
+| concentrated | 0.9875 | 0.971 to 0.995 | 18.09 | 0.99 | 0.2628 | 14.16 |
+| split | 0.985 | 0.968 to 0.993 | 17.45 | 0.93 | 0.2660 | 13.89 |
 
-Spread across conditions is 1.8 members against a largest half-width of 1.6. The ordering even > concentrated > split is not resolved and must not be reported as one; the split condition is the lowest on all three measures, which is suggestive and is not significant.
+Paired membership differences relative to even are concentrated 0.29 [-0.90, 1.48] and split -0.35 [-1.47, 0.78]. No equivalence margin was prespecified. The correct verdict is unresolved, not equal and not null.
 
-**The design cannot separate two things**, and this is a limitation rather than a caveat. The conditions differ in the variance of founding practice and also in the number of founders above the established-member threshold, which is 25, 5 and 12 respectively. So a difference between conditions, had one appeared, could not have been attributed to dispersion rather than to the initial size of the core.
+**The design cannot separate dispersion from threshold composition.** All twenty-five founders exceed the 0.1 established threshold in all three conditions. The counts exceeding the stricter 0.5 experienced threshold are 25, 5 and 12. A difference, had one resolved, could not have been attributed to variance rather than to this threshold composition or to any other state-dependent channel changed jointly.
 
 **What would make this a real test.** A version of the model in which a member's growth depends on the states of particular other members rather than on aggregates, and in which members can choose which other members to attend to. That second half is what the Air Force Academy experiment turns on and it is the harder of the two to build. Together they are a different model, not a different run, and it is the largest single piece of work outstanding on the technical side of this book.
 
@@ -4320,21 +4354,21 @@ I am including it for a reason that is not modesty. The errors sort themselves i
 
 The first kind is a **modelling error**, and the distinguishing feature is that no amount of reading would have found it.
 
-I built the model with a single equilibrium. Members' practice grew toward one attractor and, whatever you did to the group, it approached that attractor from wherever it started. This is a very natural thing to build and it makes collapse mathematically impossible, which I did not notice until I tried to simulate a group dying and found I could not. The relapse literature describes a system with two stable states and a boundary between them. The model has a Hill-function gate now, and Chapter Fourteen is about what that gate does.
+I built the model with a single equilibrium. Members' practice grew toward one attractor and, whatever you did to the group, it approached that attractor from wherever it started. This is a very natural thing to build and it makes collapse mathematically impossible, which I did not notice until I tried to simulate a group dying and found I could not. I added a Hill-function gate because the relapse literature motivates nonlinear dynamics. The release audit then found that the corrected model's actual endpoint environments rarely support the typical-member bistability I claimed for that gate. Chapter Fourteen now records both corrections.
 
 I had the protective Traditions entering as multipliers that compounded. A group at uniform 0.8 adherence collapsed in every parameterisation I tried, which seemed like a finding until I worked out why: a twenty per cent shortfall passing through four or five multiplications comes out closer to fifty. The adherence terms are averaged within brackets now and applied once each, and Chapter Five's Machinery says so.
 
-I had the recipient resource proportional to the raw number of newcomers, so that a room full of newcomers with nobody to help them registered as a room rich in the thing twelfth-step work consumes. It is now newcomers per available helper, which is the version that reproduces the Worcester problem in Chapter One.
+I had the recipient resource proportional to the raw number of newcomers, so that a room full of newcomers with nobody to help them registered as a room rich in the thing twelfth-step work consumes. It is now low-practice members per high-practice potential helper. That is still a proxy, not a newcomer or sponsorship measure, because the model stores neither tenure nor matching.
 
 I had newcomer dependence bolted on as a term I inserted by hand, rather than falling out of what each step consumes. The eight-resource derivation replaced it, and the derived version is what Part Four is built on.
 
-I keyed dropout to the mean across all twelve steps, which makes a member who has done Step One and nothing else look identical to a member who has done nothing at all. It is keyed to early-step practice now, which is why Chapter Nineteen's friction term touches newcomers and not veterans.
+I keyed dropout to the mean across all twelve steps, which makes a member who has done Step One and nothing else look identical to a member who has done nothing at all. It is keyed to early-step practice now, which is why Chapter Nineteen's friction term is strongest at low practice. The model records no tenure, so it cannot identify newcomers or veterans.
 
 I calibrated the baseline on a ten-year horizon and then reported thirty-year results from it, so the model was tuned to a group that had not yet finished settling.
 
 I wrote a noise-floor check that used the same seeds on both sides of the comparison, so it measured nothing and reported zero, which looked like a very clean result.
 
-And I quoted Monte Carlo figures to three significant figures from ten seeds. That one is worth dwelling on because it did the most damage. The decline table in Chapters One, Two and Four and in the preface read that a referral-starved group survives in one run in five at an average size of 2.9 members. Recomputed at four hundred seeds it is 0.360 and 9.9, and the old figures lie far outside the interval the larger sample gives. Six of the nine entries in that table were outside their own intervals. The same error later put a wrong decay curve into Chapter Fourteen and a wrong conclusion into Chapter Thirteen, where a recovery exercise had been run once.
+And I quoted Monte Carlo figures to three significant figures from ten seeds. That error was real, but its first repair exposed another. The ten-seed referral-starved result of 0.20 viable and 2.9 members became 0.360 and 9.9 at four hundred seeds under the old model. Then the release audit found that individual capability had been drawn from an uncentred lognormal distribution, silently raising its mean above one. With the distribution corrected to mean one, the four-hundred-seed result is 0.0275 endpoint viability, 0.105 existence, 0.895 closure and 0.51 mean membership. The first change was sampling error; the second was a modelling error. Both are retained here because collapsing them into one correction would hide what each check found.
 
 Every one of those was invisible until something was computed. Reading more history would not have touched any of them.
 
@@ -4400,13 +4434,13 @@ An assertion detects drift, not error. It cannot tell you that a number is wrong
 
 The last correction is the one I like least, and it is the most recent.
 
-The single most robust thing the simulation says, repeated in the preface and in two chapters and in three supporting documents, is that a group starved of referrals fares worse than one that has lost its power to attract. It survives all two hundred and thirty-six targeted parameter perturbations and every draw of the global jitter.
+The single most robust comparison in the simulation is between a group starved of referrals and one that has lost only its attraction path. Earlier drafts said that comparison survived 236 quarter-step perturbations and four architectural changes. Those numbers belonged to the retired capability-inflated model and to a narrower sensitivity design.
 
 I never said what worse meant.
 
-Testing the model's architecture rather than its numbers, by changing four structural choices one at a time, splits the claim in half. Read as *more likely to die*, it holds under every variant, by wide margins. Read as *ends up smaller*, it reverses under three of the four. The book had been leaning on an ambiguity, and every sentence stating the claim has been rewritten to say survival.
+The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and unsaturated resource counts. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
 
-That correction is the argument for this whole chapter. Sensitivity analysis on a hundred and eighteen numbers had told me the claim was bulletproof. It was bulletproof against the thing being tested. Nobody had tested the shape.
+That correction is the argument for this whole chapter. A result can change because the model changed, because the estimand changed, or because the earlier audit sampled too narrowly. Keeping the old structural conclusion after changing the capability distribution would have been as misleading as never testing the architecture at all.
 
 ---
 
@@ -4432,9 +4466,18 @@ The corrections, with what found each one and where the corrected version lives.
 | Newcomer dependence inserted by hand | the eight-resource derivation | Part Four |
 | Dropout keyed to the twelve-step mean | Ch 19's retention question | A2 |
 | Baseline calibrated on ten years, reported at thirty | horizon study | A3 |
-| Noise floor using the same seeds twice | reading the check | A3.3 |
-| Three significant figures from ten seeds | recomputing at 400 | Ch 1, 2, 4, 14, preface, A3.3b |
-| One-draw recovery exercise | 25 replications | Ch 13 |
+| Noise floor using the same seeds twice | reading the check | A4 |
+| Three significant figures from ten seeds | recomputing at 400 | Ch 1, 2, 4, 14, preface, A4 |
+| Uncentred lognormal capability changed both mean and dispersion | release-gate distribution audit | Ch 4, Ch 12, appendix |
+| Semantic overlap published as executable coupling | source-to-code trace | Parts Three and Four, paper, appendix |
+| Recipient ablation changed several mechanisms | one-mechanism override | Ch 15, primer, appendix |
+| T3 and T11 interventions mixed two paths | paired two-by-two factorials | Ch 19, Ch 20, paper |
+| Endpoint viability described as survival or death | event-history audit | Ch 1, Ch 2, Part Five, paper |
+| One-draw recovery exercise and overclaimed estimator | 25 then 400 replications, claim narrowed | Ch 13 |
+| Frozen Chapter 14 environment came from the retired model | re-estimating 400 endpoint environments | Ch 14, paper |
+| Composition null narrated as equality | paired intervals and estimand review | Ch 22, paper |
+| Exact ties broken by ordinal ranking | competition-rank audit | Ch 16, primer, paper |
+| Public notebooks and caches lacked complete dependency identity | release checker and notebook rebuild | both notebooks, all current caches |
 | Index-pairing as twelve independent counts | the trivial-count decomposition | Ch 16, Ch 18 |
 | Hawkins's two wives | Maxwell, read in full | Ch 1 |
 | A Worcester statistic not in Maxwell | Maxwell, read in full | Ch 1 |
@@ -4452,7 +4495,10 @@ The corrections, with what found each one and where the corrected version lives.
 | A constant transcribed as 0.2769 | a notebook assertion | Ch 22 |
 | "Worse" undefined in the book's strongest claim | structural variants, appendix A9 | preface, Ch 1, Ch 4, A9 |
 
-Twenty-five entries. Nine model, twelve research, one institutional, three assertion catches, and the last is a category of its own because it is an error of statement rather than of fact.
+The table no longer has the tidy count this chapter once reported. The release-gate audit added
+distributional, semantic, estimand and reproducibility errors that cross the earlier categories.
+That loss of neatness is itself accurate: code inspection, simulation, source reading,
+institutional review and cross-artifact verification caught different classes of failure.
 
 **A count I am not going to give.** How long each error was in the manuscript before it was caught. The progress log carries no dates, so any such claim would be unverifiable, and this project has already written two duration claims it could not support.
 
@@ -4476,7 +4522,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`research/progress-log.md` for every entry in the table. `model/book-calculations.ipynb` for the assertions that caught three of them. `appendix/APPENDIX.md` A3.3b for the small-sample errors, A9 for the structural variants that split the final claim. `tools/check_book.py` for the sources check that caught the Crothers misattribution.
+`research/progress-log.md` for every entry in the table. `model/book-calculations.ipynb` for the assertions that caught three of them. `appendix/APPENDIX.md` A4 for the small-sample errors, A7.3 for the structural variants that split the final claim. `tools/check_book.py` for the sources check that caught the Crothers misattribution.
 
 **What was not read:**
 
@@ -4520,7 +4566,7 @@ The obstacle is not difficulty. It is that the quantity is defined at the level 
 
 **Three. Whether the steps are worked in order.**
 
-Chapter Thirteen argues from a model in which later steps are gated behind earlier practice, so that a member cannot make progress on Step Nine without Steps Four and Five having happened. The gate is the reason Chapter Fourteen's bistability exists and it is one of the structural choices that Appendix A9 shows the results are sensitive to.
+Chapter Thirteen argues from a model in which later steps are gated behind earlier practice, so that a member cannot make progress on Step Nine without Steps Four and Five having happened. The gate contributes to Chapter Fourteen's possible self-reinforcing loop, but the corrected baseline rarely produces the claimed typical-member bistability. It remains a structural choice that requires direct measurement.
 
 The measurement exists in a partial form already. Greenfield and Tonigan asked members which practices they had adopted, using both direct and indirect instruments, and found substantially more people endorsing step work on the indirect measure for nine of twelve steps. What is missing is the ordering: whether the set of steps a member has worked is, as the model requires, an initial segment of the list rather than an arbitrary subset.
 
@@ -4532,13 +4578,13 @@ What would tell against the book: members commonly reporting later steps without
 
 **Four. Group mortality against referral supply.**
 
-Chapter Twenty-One's claim is the most counterintuitive thing in the book and it is stated as a mechanism rather than a finding: a group starved of external referrals looks entirely healthy at every horizon and then is gone, because the decline shows up in deaths rather than in survivors.
+Chapter Twenty-One's claim is stated as a mechanism rather than a finding: a group starved of external referrals loses groups and members while established practice among the selected viable remnants can remain high. The corrected trajectories do show shrinking rooms, so the stronger claim that the interior offers no warning has been withdrawn.
 
-The measurement is a natural experiment. Somewhere, a region's treatment or court-referral pipeline has changed sharply, in either direction, within a period for which group counts exist. The prediction is specific and it is unusual: after a fall in referrals, the *number of groups* should decline while the *size and character of surviving groups* stays flat. Most decline stories predict the opposite.
+The measurement is a natural experiment. Somewhere, a region's treatment or court-referral pipeline has changed sharply, in either direction, within a period for which group counts exist. The prediction now has three separately scored parts: group closures should rise, surviving-room membership should fall, and established practice among remaining members may fall much less or rise through selection. A single average cannot test all three.
 
 The instrument is AA's own service material SMF-132, which reports groups and members by year. Two problems with it, both stated in Chapter Twenty-One. It is worldwide rather than regional, and a count of groups nets births against deaths. What is needed is a regional series with formation and dissolution separated, which area committees hold and nobody has assembled.
 
-What would tell against the book: surviving groups shrinking or degrading in step with the group count. That is the ordinary pattern and the book says it should not happen here.
+What would tell against the model: no differential change in closure or membership after a referral shock, or member-practice measures deteriorating in the same proportion as membership with no selected-remnant pattern. Either result would reject the proposed mechanism more directly than a mismatch in its modeled timing.
 
 ---
 
@@ -4558,7 +4604,7 @@ Threat two in the appendix says no output of this model has ever been set beside
 
 Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The horizon, the arrival rate and the churn floor are three of the hundred and eighteen chosen numbers, and a match would mostly show that three numbers can be chosen to produce a match.
 
-What would help is comparing an *ordering* against real data, because the orderings are what survived the sensitivity work. The strongest available one is that a group losing referrals is more likely to die than a group losing its capacity to attract, which holds under every parameter perturbation and every structural variant tested. That is the claim in item four, and it is the same measurement.
+What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. That is the comparison in item four, and it uses the same measurement.
 
 ---
 
@@ -4576,7 +4622,7 @@ The book is about the group. The literature is about the member. That mismatch i
 
 Nothing new here, and that is the point of the chapter. Every item above is a place where the model makes a claim that the model cannot check.
 
-One thing the model does contribute is the *form* of the claims, and the form matters for testability. The results that survived the sensitivity work are orderings, not magnitudes: which failure kills more groups, which Tradition carries more of the coupling, which rotation proportion is needed. Orderings are cheaper to test than magnitudes, because they do not require the instrument to be calibrated, only monotone. That is a small consolation and it is real.
+One thing the model does contribute is the *form* of the claims, and the form matters for testability. Some claims are endpoint orderings, some are deterministic matrix comparisons, and the rotation result is a scaling condition from a theorem. They do not share one sensitivity result. An ordering can be cheaper to test than a magnitude because it may require only a monotone instrument, but its outcome and conditioning still have to be fixed in advance.
 
 ### 2. The technical version
 
@@ -4587,7 +4633,7 @@ For each item, the claim, the design, and the result that would falsify it.
 | 1 | Five Traditions govern no consumed resource | three independent elicitations of the 12 by 8 matrix | any respondent leaving a different set of rows empty |
 | 2 | Rotation must scale with the group, at about a quarter | cross-sectional survey of rotation proportion against group age and survival | a relationship with headcount rather than proportion, or none |
 | 3 | Step practice is an initial segment, not a subset | twelve binary items, tested for prefix structure | later steps commonly reported without earlier ones |
-| 4 | A referral-starved group dies without shrinking | regional group formation and dissolution series against a referral shock | surviving groups shrinking in step with the group count |
+| 4 | Referral loss raises closure and shrinks viable remnants while selected established practice changes less | regional formation, dissolution, room-size and practice series around a referral shock | no differential closure or membership effect, or proportional practice deterioration with no selected-remnant pattern |
 | 5 | Concentration obstructs only when it scales | sociometric attention shares across rooms of different sizes | the largest share roughly constant in absolute terms across sizes |
 | 6 | The orderings hold outside the model | any of the above | any reversal |
 
@@ -4762,1178 +4808,619 @@ Anything written by the fellowship about itself for its own members, all of whic
 
 # Technical Appendix
 
-*Nobody in Charge.* Full model specification, numerical verification, Monte Carlo error
-budget, and sensitivity methodology.
+*Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
+designs, source boundaries, and reproduction instructions.
 
-This document is intended to be self-contained. A reader who wants to referee the
-quantitative claims in Parts Three, Four and Five should be able to do so from this
-appendix plus `model/book-calculations.ipynb` without consulting anything else. Every
-figure quoted in the chapters is asserted against a computed value in that notebook.
+This appendix describes the release-gate model identified by SHA-256:
 
-Nothing in Part Two depends on any of this. Chapters Seven to Eleven rest on a published
-theorem and on arithmetic over constructed matrices; they contain no model parameters.
+```text
+c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952
+```
 
----
+The executable source `model/aa_group_model.py` and hash-linked JSON caches are authoritative.
+This document and the PDF are derived artifacts. No simulation parameter is estimated from AA
+data.
 
-## A1. What kind of object the model is
-
-A discrete-time stochastic simulation of a single mutual-aid group over thirty years,
-integrated by explicit Euler with a step of half a week.
-
-State at time *t*:
-
-> X, a matrix of shape (cap, 12), entries in [0, 1]. Row *i* is member *i*'s practice
-> level on each of the twelve steps.
->
-> alive, a boolean vector of length cap.
->
-> het, a vector of per-member growth multipliers, drawn lognormal at arrival.
-
-Fixed structure:
-
-> S, shape (12, 8). S[i, r] is how much step *i* consumes of group resource *r*.
-> G, shape (12, 8). G[j, r] is how much tradition *j* governs the supply of resource *r*.
-> T, length 12. Adherence to each tradition, in [0, 1]. An exogenous policy variable.
-
-The eight resources are: admission, identification, living proof, confidentiality,
-counsel, recipients, continuity, and pressure.
-
-The causal chain runs one way. Member states produce group resources; the Traditions
-govern resource supply; resources feed step growth; step growth changes member states.
-There is no direct tradition-to-member channel.
+Part Two uses a published theorem and deterministic arithmetic over authored matrices. The
+stochastic group model supports Parts Three and Five and some comparisons in Part Four; it is
+not evidence about an individual person's recovery.
 
 ---
 
-## A2. Full specification
+## A1. Claim classes and scope
 
-### A2.1 Derived quantities
+The project contains three objects that must not be collapsed.
 
-> Snorm[i, :] = S[i, :] / sum_r S[i, r]
->
-> beta[i] = sum_r S[i, r] / max_k sum_r S[k, r]          group-dependence of step i
->
-> GOVW[:, r] = G[:, r] / sum_j G[j, r]                    column-normalised governance
+1. `B = S GOV^T` is raw semantic overlap between two author-coded matrices. It describes which
+   Step-resource and Tradition-resource codes overlap.
+2. `C = Snorm GOVW^T` is the normalized, no-capacity linear map from effective adherence to Step
+   resource bundles.
+3. The executable response adds effective-adherence rules, member-side capacity, clipping,
+   nonlinear growth gates, stochastic entry and exit, and the current member state.
 
-`beta` and `GOVW` are recomputed whenever S or G is perturbed. Any sensitivity analysis
-that fails to re-derive them is testing something other than the model.
+Neither `B` nor `C` is a transition matrix or a simulated trajectory effect. Part Four's
+historical interpretation of the matrices is an authored operationalization, not a theorem and
+not something the simulation discovered.
 
-### A2.2 Effective adherence
-
-Five traditions govern no resource any step consumes: 4, 6, 7, 9 and 10. They enter as
-multipliers on the traditions they guard, applied once each, with no stacking:
-
-> Te[2] = T[2] * (0.6 + 0.4 * mean(T[9], T[12]))          T9, T12 guard group conscience
->
-> Te[5] = T[5] * (0.6 + 0.4 * mean(T[6], T[10]))          T6, T10 guard primary purpose
->
-> ext   = 0.7 + 0.3 * mean(T[4], T[7])                    T4, T7 guard against outside override
->
-> Te    = clip(Te * ext, 0, 1)
-
-*(Indices here are one-based to match the Traditions; the code is zero-based.)*
-
-### A2.3 Resource supply
-
-Let lv[i] be member *i*'s mean practice across the twelve steps. Define the established
-core as lv > act_thr and the experienced set as lv > exp_thr. Let
-
-> unity = clip(1 - 2 * sd(lv over the core), 0, 1)
->
-> sat(c, k) = c / (c + k)
->
-> q = GOVW' Te                                            governance quality, per resource
-
-Member-side capacity for the eight resources, in order:
-
-> cap_admission     = 1
-> cap_identify      = sat(|core|, k_ident) * unity
-> cap_proof         = sat(|exp|, k_proof)
-> cap_confidential  = sat(|exp|, k_conf)
-> cap_counsel       = sat(|exp|, k_couns)
-> cap_recipient     = sat(|new| / max(|exp|, 1), k_recip)
-> cap_continuity    = (0.45 + 0.55 * solvent) * unity
-> cap_pressure      = unity
-
-and the supplied resource vector is R = clip(cap * q, 0, 1).
-
-**Note on the recipient resource.** It saturates in newcomers *per available helper*, not
-in raw newcomer count. A room full of newcomers with nobody to help them supplies the
-resource to nobody. This is the one resource no drafted chapter has yet used; it is
-Chapter Fifteen's subject.
-
-**Note on solvency.** solvent = 1 if |core| * contrib >= cost, else the ratio, clipped.
-
-### A2.4 Step growth
-
-> G_step = Snorm R                                        each step's resource bundle
->
-> gate[i] = x[i-1] ^ p_gate,  gate[1] = 1
->
-> peer[i] = (1 - beta[i]) + beta[i] * G_step[i]
->
-> own    = M^hill_n / (hill_k^hill_n + M^hill_n),  M = mean(x[10], x[11], x[12])
->
-> Gcap   = mean of own across living members
->
-> C      = own + (1 - own) * omega * Gcap
->
-> w[i]   = linspace(0.05, 1.0, 12)                        per-step exposure to the gate
->
-> Cm[i]  = 1 - w[i] * (1 - C)
->
-> g[i]   = a[i] * gate[i] * peer[i] * Cm[i] * het
->
-> d[i]   = delta0 * (1 + psi * (1 - x[i+1])) for i < 12,  d[12] = delta0
->
-> dx[i]/dt = g[i] * (1 - x[i]) - d[i] * x[i]
-
-The capacity gate phases in by step index because an arrival has nothing to maintain and
-should not be penalised for failing to maintain it. That choice is architecture, not a
-parameter, and was not perturbed; see A5.5.
-
-### A2.5 Membership flow
-
-Outflow, per member per step:
-
-> early = mean(x[1], x[2], x[3])
-> newness = exp(-6 * mean(x))
-> t3_friction = 1 + (1 - T[3]) * newness
-> hazard = drop0 * exp(-drop_k * early) * t3_friction + churn
-
-Exit is Bernoulli with probability hazard * dt.
-
-Inflow:
-
-> lambda = lam_exog + lam0 * (sum of x[12] over living members) * T[11]
-
-Arrivals are Poisson with mean lambda * dt, capped by free rows. Arrivals enter at 0.02 on
-every step with a fresh lognormal het.
-
-**Tradition 3 acts on retention, not admission.** An AA group cannot refuse membership to an alcoholic who wants it. It may restrict attendance at a given meeting, which is what the fellowship calls a closed meeting and is entirely ordinary; what it cannot do is decline the member. So a
-closed or cliquish culture raises early attrition rather than blocking arrival. This is
-why the model cannot represent the Sons of Temperance, who screened at the door; see
-Chapter Two.
-
-### A2.6 Parameter values
-
-| Parameter | Value | Role |
-|---|---|---|
-| a | 0.30, 0.25, 0.25, 0.18, 0.22, 0.20, 0.20, 0.18, 0.15, 0.25, 0.20, 0.22 | top growth rate per step |
-| delta0 | 0.06 /week | baseline depreciation; half-life 11.6 weeks |
-| psi | 0.20 | backward complementarity in depreciation |
-| p_gate | 1.5 | strictness of step ordering |
-| hill_n, hill_k | 3.0, 0.12 | maintenance gate shape and midpoint |
-| omega | 0.75 | how much group capacity substitutes for own |
-| k_ident, k_proof, k_conf, k_couns, k_recip | 3.0, 3.0, 2.0, 3.0, 2.0 | saturation constants |
-| exp_thr, act_thr | 0.50, 0.10 | experienced and established thresholds |
-| lam0, lam_exog | 0.050, 0.12 /week | attraction scaling, referral floor |
-| churn, drop0, drop_k | 0.004, 0.035, 4.0 | exit hazards |
-| cap | 60 | room capacity |
-| cost, contrib | 50.0, 2.0 /week | rent, average contribution |
-| het_sd | 0.55 | lognormal sd of member growth capability |
-
-**Inventory.** 22 continuous scalars, 12 step speeds, 49 non-zero cells in S, 35 in G.
-**118 chosen by hand out of 226 cells.** None fitted to data; no dataset of AA members'
-step practice over time exists to fit them to.
+The modeled room has capacity 60. The release did **not** increase membership to 400 or 1,000.
+Confirmatory stochastic comparisons use 400 seeds, paired when conditions share a seed.
+Robustness was increased by adding parameter points, perturbation distances, structural
+variants, horizons, integration steps, and screening trajectories.
 
 ---
 
-## A3. Numerical verification
+## A2. Executable model
 
-### A3.1 Integration step
+### A2.1 State and initial condition
 
-Euler at dt = 0.5 half-weeks is the default. Because dt also drives the Poisson arrival
-and Bernoulli exit draws, changing it alters the stochastic structure as well as the
-discretisation error, so the comparison must be made at matched seed counts.
+At time `t`, `X` is a `cap x 12` matrix with entries in `[0,1]`; row `i` holds one living
+member's twelve practice states. `alive` marks occupied rows. Each member has a fixed positive
+growth multiplier `h_i`.
 
-Full adherence, 200 seeds each, 30-year horizon:
+The default run begins with 25 founders, all twelve states equal to 0.55. Arrivals enter with
+all states equal to 0.02. Time is integrated by explicit Euler in half-week steps. The reported
+horizon is 1,560 weeks, or thirty years.
 
-| dt | mean N | SE | practice | maintenance |
-|---|---|---|---|---|
-| 1.0 | 41.8 | 1.08 | 0.317 | 0.1129 |
-| 0.5 | 41.5 | 1.08 | 0.321 | 0.1160 |
-| 0.25 | 41.7 | 1.09 | 0.321 | 0.1177 |
-| 0.125 | 41.8 | 1.08 | 0.323 | 0.1174 |
+The practice scale is cardinal only inside the model. It has no validated clinical unit and
+does not measure sobriety, harm, tenure, sponsorship, or recovery quality.
 
-Differences from dt = 0.5, in standard errors of the difference: z = +0.16 at dt = 1.0,
-+0.12 at 0.25, +0.14 at 0.125. **The integration step is not a source of error.** A
-factor of eight in dt moves the answer by a fifth of one standard error.
+### A2.2 Step-resource matrix
 
-### A3.2 Horizon
+The eight resources are admission, identification, living proof, confidentiality, counsel,
+recipient opportunity, continuity, and gentle pressure. Rows are Steps 1 through 12.
 
-Full adherence, dt = 0.5, 200 seeds each:
+```text
+S =
+0.8 1.0 0.3 0.0 0.0 0.0 0.2 0.1
+0.0 0.4 1.0 0.0 0.1 0.0 0.2 0.0
+0.0 0.0 0.2 0.0 0.3 0.0 0.1 0.1
+0.0 0.1 0.0 0.0 0.3 0.0 0.0 0.4
+0.0 0.1 0.0 1.0 0.3 0.0 0.2 0.1
+0.0 0.0 0.1 0.0 0.2 0.0 0.0 0.3
+0.0 0.0 0.1 0.0 0.1 0.0 0.0 0.2
+0.0 0.0 0.0 0.1 0.4 0.0 0.0 0.3
+0.0 0.0 0.0 0.3 0.9 0.0 0.1 0.2
+0.0 0.0 0.0 0.1 0.2 0.0 0.5 0.7
+0.0 0.0 0.1 0.0 0.1 0.0 0.2 0.4
+0.2 0.1 0.1 0.0 0.1 1.0 0.6 0.3
+```
 
-| horizon | years | mean N | SE | practice | maintenance |
-|---|---|---|---|---|---|
-| 520 | 10 | 47.2 | 0.89 | 0.340 | 0.1372 |
-| 1040 | 20 | 43.2 | 1.04 | 0.324 | 0.1207 |
-| 1560 | 30 | 41.5 | 1.08 | 0.321 | 0.1160 |
-| 2600 | 50 | 41.2 | 1.12 | 0.318 | 0.1173 |
-| 5200 | 100 | 38.2 | 1.41 | 0.315 | 0.1123 |
+For Step `j`, `Snorm[j,:]` divides its row by the row sum. Group dependence is
 
-**Practice and maintenance are converged by thirty years**; they move by under two per
-cent between thirty and a hundred. **Membership is not fully converged**: it continues to
-drift down slowly, and the difference between thirty and a hundred years is about 2.4
-members against a combined standard error of 1.8, so roughly 1.3 standard errors. The
-thirty-year horizon is adequate for the practice-level claims the book makes and should
-not be read as a true stationary distribution for membership.
+```text
+beta[j] = row_sum(S[j,:]) / max_k row_sum(S[k,:]).
+```
 
-### A3.3 Monte Carlo error, and a correction
+Both are re-derived after any perturbation to `S`.
 
-The cross-run standard deviation of final membership is about 15 members against a mean
-near 42, a coefficient of variation of 0.36. Consequently:
+### A2.3 Tradition-governance matrix
 
-- a ten-seed mean carries a standard error near 4.7 members;
-- a ten-seed survival fraction can only take the values 0, 0.1, 0.2, ... ;
-- a three-seed survival fraction, used in the earlier sensitivity sweeps, can only take
-  0, 1/3, 2/3, 1.
+Rows are Traditions 1 through 12 and columns are the eight resources in the same order.
 
-**The decline table in Chapters One, Two and Four was computed from ten seeds and was
-wrong.** Recomputed at 400 seeds (`model/scenarios_hiseed.py`):
+```text
+GOV =
+0.2 0.5 0.3 0.3 0.2 0.1 0.9 0.6
+0.0 0.0 0.0 0.1 0.9 0.0 0.2 0.2
+1.0 0.4 0.0 0.0 0.0 0.8 0.1 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.1 0.4 0.5 0.0 0.0 0.9 0.3 0.2
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.1 0.1 0.3 0.1 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.2 0.7 0.0 0.0 0.6 0.2 0.0
+0.1 0.3 0.0 1.0 0.1 0.0 0.1 0.0
+```
 
-| Scenario | 10 seeds | 400 seeds | 95% interval | in interval? |
-|---|---|---|---|---|
-| full adherence, survival | 1.00 | 0.995 | 0.982 to 0.999 | no |
-| full adherence, mean N | 45.0 | 41.7 | ± 1.5 | no |
-| attraction lost, survival | 1.00 | 0.998 | 0.986 to 1.000 | no |
-| attraction lost, mean N | 13.4 | 13.5 | ± 0.4 | yes |
-| **referrals lost, survival** | **0.20** | **0.360** | **0.314 to 0.408** | **no** |
-| **referrals lost, mean N** | **2.9** | **9.9** | **± 1.6** | **no** |
-| both lost, survival | 0.00 | 0.000 | 0.000 to 0.010 | yes |
-| gatekeeping, survival | 0.90 | 0.940 | 0.912 to 0.959 | no |
-| gatekeeping, mean N | 30.7 | 27.5 | ± 1.7 | no |
+`GOVW` divides each column by its positive column sum. Consequently, at full adherence the
+governance quality of every resource is exactly one whatever the 35 nonzero magnitudes in
+`GOV`. That cancellation is algebra. It does not apply at partial adherence and says nothing
+about whether the structural zeros belong where the author placed them.
 
-Survival is the fraction of runs ending above five members. Mean N counts a dead group as
-zero. Intervals on proportions are Wilson; intervals on means are 1.96 standard errors.
+### A2.4 Effective adherence
 
-The referral-starved row is the serious one: the book said a starved group dies in four
-runs out of five at an average size of 2.9, and the truth is closer to two runs in three
-at an average size of 9.9. This was a sampling error, not a modelling error, and it is
-independent of the separate finding that the quantity is not robust to perturbation
-anyway. Both facts are now stated in the chapters.
+Traditions 4, 6, 7, 9, and 10 have zero rows in `GOV` and act only as protective modifiers.
+Using one-based Tradition labels:
 
-**Recommended minimum seed counts**, from the observed variance:
+```text
+Te[2] = T[2] * (0.6 + 0.4 * mean(T[9], T[12]))
+Te[5] = T[5] * (0.6 + 0.4 * mean(T[6], T[10]))
+ext   = 0.7 + 0.3 * mean(T[4], T[7])
+Te    = clip(Te * ext, 0, 1)
+q     = GOVW^T Te
+```
 
-| quantity | seeds for ±2 members | seeds for ±0.05 on a proportion |
-|---|---|---|
-| mean membership | ~220 | n/a |
-| survival fraction near 0.36 | n/a | ~355 |
-| mean practice (±0.01) | ~40 | n/a |
+Protective effects are applied once. They are not repeatedly multiplied through the model.
 
-Practice-level quantities are cheap to estimate; membership and survival are not. Any new
-scenario claim should use at least 400 seeds.
+### A2.5 Member-side resource capacity
 
-### A3.3b Two further figures corrected for the same reason
+Let `lv_i` be member `i`'s mean over the twelve states. Established members satisfy
+`lv_i > act_thr`; experienced members satisfy `lv_i > exp_thr`. Define
 
-**Chapter 14's decay-rate sweep** was computed from ten seeds. At 400 seeds six of its
-eight maintenance figures lay outside the interval, and the ten-seed curve contained two
-reversals that were pure sampling noise. The corrected curve is strictly monotone
-(0.3299, 0.2563, 0.1883, 0.1158, 0.0881, 0.0651, 0.0220, 0.0096 across -30 to +50 per cent,
-each to within about 0.006), and survival falls from 1.000 to 0.927 rather than remaining
-at 1.00 throughout. Nothing qualitative changed.
+```text
+sat(c,k) = c / (c+k)
+unity    = clip(1 - 2 * sd(lv among established members), 0, 1)
+```
 
-**Chapter 13's recovery exercise** reported a single simulated dataset, at one seed, to
-three significant figures, and drew a conclusion from it. Over 25 replications per cell the
-conclusion does not hold. The estimator is close to unbiased with one proxy or three; bias
-never exceeds 0.21. What three proxies buy is precision, roughly halving the standard
-deviation (0.17 to 0.08 near the boundary, 0.59 to 0.23 far from it). At a true rho of
-exactly zero the sign is near a coin flip whatever the design, which is what an unbiased
-estimator on a boundary must do. The defensible design requirement is therefore about
-**resolution**, not sign: one proxy leaves an indeterminate band of about ±0.3 around zero,
-three proxies about ±0.15. The chapter has been rewritten around this.
+The eight capacity terms are
 
-**The general lesson, stated once.** Three separate errors in this book came from reporting
-a statistic computed from a sample too small to support the digits printed: ten seeds for
-the decline table, ten for the Chapter 14 sweep, and one draw for the Chapter 13 estimator.
-None was a modelling error. All three were found only when the sample was enlarged.
+```text
+admission       1
+identification  sat(n_established, k_ident) * unity
+proof           sat(n_experienced, k_proof)
+confidential    sat(n_experienced, k_conf)
+counsel         sat(n_experienced, k_couns)
+recipient       sat(n_low_practice / max(n_experienced,1), k_recip)
+continuity      (0.45 + 0.55 * solvent) * unity
+pressure        unity
+```
 
-**Why the existing safeguard did not catch them.** The project's rule was that every printed
-figure must be asserted against a recomputed value in the notebook, and all three of these
-*were* asserted and passing. The assertion re-ran the same small-sample computation and
-compared it to itself, so it verified reproducibility and said nothing about accuracy. That
-is a real limitation of assertion-based checking and it is worth stating: an assertion
-detects drift, not error. Only enlarging the sample detects error. The 400-seed minimum in
-`CLAUDE.md` exists because of this, and it is a different kind of rule from the assertion
-rule rather than a strengthening of it.
+`R = clip(capacity * q, 0, 1)`. Solvency is established-member contributions divided by rent,
+clipped at one.
 
-### A3.4 Selection effects in conditional quantities
+The recipient term is opportunity per high-practice potential helper. Low-practice and
+high-practice are state thresholds, not newcomer and veteran cohorts. The model has no tenure
+or matching state. The clean recipient experiment replaces only this capacity term.
 
-Practice among survivors is higher in every declining scenario than in the healthy one:
-0.354 at full adherence, 0.372 under referral starvation, 0.400 under gatekeeping. This is
-selection, not resilience. Only 144 of 400 starved runs survived, and the survivors are
-the runs that were doing well already. Any statement of the form "quality holds during
-decline" must carry the survivor count beside it. The same trap appears in
-`research/PARAMETERS.md` section 4, where the conditional robustness figure *rises* with
-perturbation for exactly this reason.
+### A2.6 Step growth and depreciation
 
----
+For member `i` and Step `j`:
 
-## A4. Sensitivity methodology
+```text
+bundle_j = Snorm[j,:] R
+order_gate_1 = 1
+order_gate_j = X[i,j-1]^p_gate, j > 1
+peer_j = (1-beta_j) + beta_j * bundle_j
 
-Five designs, in increasing order of what they can support.
+own_i = M_i^hill_n / (hill_k^hill_n + M_i^hill_n)
+M_i   = mean(X[i,9:12])              zero-based slice: Steps 10 through 12
+group_capacity = mean(own_i among living members)
+capacity_i = own_i + (1-own_i) * omega * group_capacity
 
-### A4.1 Uniform global perturbation, three levels
+w_j = linear sequence from 0.05 at Step 1 to 1 at Step 12
+capacity_gate_ij = 1 - w_j * (1-capacity_i)
+growth_ij = a_j * order_gate_ij * peer_j * capacity_gate_ij * h_i
 
-Every one of the 118 numbers multiplied by an independent uniform factor within ±12.5,
-±25 and ±50 per cent. Thirty draws at each level, three seeds per draw, thirty-year
-horizon. S, G and all derived quantities re-derived from the perturbed matrices each draw.
-Raw draws in `research/sens3.json`.
+decay_ij = delta0 * (1 + psi * (1-X[i,j+1])) for j < 12
+decay_i12 = delta0
+dX_ij/dt = growth_ij * (1-X_ij) - decay_ij * X_ij
+```
 
-Running three levels gives a degradation curve, which is more diagnostic than a single
-pass: a claim flat across all three is structural, one that falls off gradually has a
-breaking point you can name, and one already poor at the mildest level was probably never
-there.
+Capability uses the mean-one lognormal draw
 
-### A4.2 Tiered perturbation by evidential status
+```text
+h_i = exp(N(-het_sd^2/2, het_sd)).
+```
 
-Parameters are tiered by how much evidence constrains them, not by whether the functional
-form was borrowed. Tier 1, pinned by a size or composition target, ±25 per cent. Tier 2,
-bounded by qualitative requirements, ±25 per cent. Tier 3, pure judgement, ±50 per cent.
-Step speeds and both matrices at ±50 per cent. Bounds enforced where a parameter has a
-natural range. Thirty draws. Raw draws in `research/tiered.json`.
+Changing `het_sd` therefore changes dispersion without mechanically changing arithmetic mean
+capability. The previous uncentred draw did both and all caches from it are retired.
 
-### A4.3 Structural randomisation of the matrices
+### A2.7 Membership flow and split Tradition paths
 
-Every non-zero entry of S and G replaced by an independent uniform draw on [0.05, 1.0],
-keeping only the sparsity pattern. Thirty draws. This asks whether the argument depends on
-the magnitudes I chose or only on which cells are empty.
+Exit hazard is
 
-### A4.4 Targeted one-at-a-time, all 118 parameters
+```text
+early_i = mean(X[i,0:3])              zero-based slice: Steps 1 through 3
+low_practice_weight_i = exp(-6 * mean(X[i,:]))
+t3_friction_i = 1 + (1-dropout_T3) * low_practice_weight_i
+hazard_i = drop0 * exp(-drop_k * early_i) * t3_friction_i + churn.
+```
 
-Each parameter varied alone by ±25 per cent, holding all others at default, over three
-scenarios and four outcomes. 236 perturbations. Common random numbers throughout: seeds 0,
-1, 2 for every configuration, so differences between configurations are not contaminated
-by differences in the random draws. Raw results in `research/oat_full.json`.
+Arrivals are Poisson with half-week mean `lambda * dt`, where
 
-An earlier version of this design covered only 21 of the 118 and one outcome; 97
-parameters, including every step speed and every matrix cell, had never been varied alone.
+```text
+lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
+```
 
-### A4.5 Coupling robustness for the index-pairing claim
+Tradition 3 has distinct resource-governance and inverse-practice dropout-friction paths.
+Tradition 11 has distinct resource-governance and attraction paths. The main factorials change
+each separately and jointly. The headline referral comparison uses pure attraction loss with
+Tradition 11 governance held intact.
 
-Every entry of both matrices scaled by an independent uniform factor on [0.7, 1.3], 2,000
-draws, testing properties of the derived coupling B = S G'. Notebook section 11.
-
-### A4.6 Morris elementary-effects screen
-
-Morris (1991), in the improved sampling of Campolongo, Cariboni and Saltelli (2007). Ten
-trajectories, four levels, delta = 2/3, factors mapped to the unit hypercube over plus or
-minus 25 per cent of nominal so the results are directly comparable with A4.4. 1,190 model
-evaluations, five seeds each under common random numbers. Outcomes: final membership and
-mean practice at thirty years.
-
-**The reference point is 0.85 adherence, not 1.0.** At full adherence the governance matrix
-cancels exactly (A5.3), so 35 of the 118 factors would register identically zero and a
-third of the design would be wasted. At 0.85 every factor is live.
-
-Reported per factor: mu\* the mean absolute elementary effect, mu the signed mean, and
-sigma the standard deviation of the effects. A high sigma means the factor's effect depends
-on where the other factors sit, which is interaction or non-linearity. **Morris cannot
-distinguish the two and this appendix does not claim to.**
-
-**Resolution limit.** The model is stochastic, so an elementary effect from five seeds
-carries Monte Carlo noise even under common random numbers. Rather than assume a noise
-level, it is measured: the governance factors are known from A5.3 to be near-inert, so
-their mu\* distribution estimates what a factor with no real effect registers under this
-design. The 95th percentile of that distribution is 1.41 members and 0.011 practice units,
-and those are used as the resolution limits.
+Exit is evaluated before arrival. Once membership reaches zero, the group closes permanently
+and no same-step exogenous arrival can reopen it.
 
 ---
 
-## A5. Sensitivity results, and what they license
+## A3. Default values and authored choices
 
-### A5.1 What survives
+| Quantity | Default |
+|---|---:|
+| Step speeds `a` | 0.30, 0.25, 0.25, 0.18, 0.22, 0.20, 0.20, 0.18, 0.15, 0.25, 0.20, 0.22 |
+| `delta0`, `psi`, `p_gate` | 0.06, 0.20, 1.5 |
+| `hill_n`, `hill_k`, `omega` | 3.0, 0.12, 0.75 |
+| `k_ident`, `k_proof`, `k_conf`, `k_couns`, `k_recip` | 3, 3, 2, 3, 2 |
+| `act_thr`, `exp_thr` | 0.10, 0.50 |
+| `lam0`, `lam_exog` | 0.050, 0.12 per week |
+| `churn`, `drop0`, `drop_k` | 0.004, 0.035, 4.0 |
+| `cap` | 60 |
+| `cost`, `contrib` | 50, 2 per week |
+| `het_sd` | 0.55 |
 
-**The ordering claim.** Losing referrals is at least as damaging as losing attraction.
-Holds in 100 per cent of draws at ±12.5 and ±25 per cent, 87 per cent at ±50, 100 per cent
-under tiered perturbation, 100 per cent under full matrix randomisation, and **all 236
-targeted perturbations without exception**. Targeted perturbation is the harder test,
-because a claim can survive global jitter by averaging while still resting on a single
-number. This one rests on no number in the model. It is the strongest thing the simulation
-says and the only quantitative claim the book presses.
+The registered sensitivity set contains 22 scalar defaults, 12 step speeds, 49 nonzero `S`
+cells, and 35 nonzero `GOV` cells, for 118 values. These are **registered sensitivity values**,
+not all parameters or all choices. The separate inventory also records fixed coefficients,
+108 structural zeros, equations, thresholds, initial conditions, and experiment-design choices.
 
-**Full-adherence persistence.** 97, 90 and 73 per cent of draws across the three global
-levels; 235 of 236 targeted perturbations. The sole exception is member heterogeneity at
-minus 25 per cent, which is the parameter A6 identifies as the least defensible in the
-model. The weakness is where the audit predicted it.
+The original inflow and exit values were selected to target approximately 45 members and 9
+experienced members. That target fails under the corrected capability distribution: mean final
+membership is 17.80; among viable endpoints, the mean established count is 14.13 and the mean
+experienced count is 1.25. The parameters were not retuned after observing the failure.
 
-### A5.2 What does not survive
+---
 
-**Referral-starved survival as a magnitude.** 73, 57 and 50 per cent across the three
-global levels, with the survival rate covering the whole interval from zero to one at
-every level. Under the targeted sweep, 53 of the 118 parameters move it off the floor on
-their own, and only 65 have no effect. Three produce a full zero-to-one swing: the decay
-rate, the ordering exponent, and how strongly early practice protects against dropout. A
-fourth, churn, reaches certain survival at one end. **This quantity is not estimated by
-the model and should never be reported as an estimate.**
+## A4. Estimands and uncertainty
 
-### A5.3 An identity, not a result
+The release distinguishes:
 
-**The governance matrix cannot affect a fully adherent group.** GOVW is column-normalised,
-so
+- endpoint existence: `N > 0`;
+- endpoint viability: `N > 5`;
+- permanent closure: `N = 0`;
+- final membership, with closed runs contributing zero;
+- first crossing at or below five members;
+- first recovery above five after a crossing;
+- all-member practice;
+- established-member practice, conditional on the stated population.
 
-> q = GOVW' Te = 1 for every resource whenever Te is identically 1
+A run may cross below viability and recover. Endpoint nonviability is not closure. A statement
+about members in viable groups is selected on the group remaining viable and is printed beside
+the viable fraction.
 
-whatever the entries of G are. All 35 governance cells produce exactly zero change in
-every outcome at full adherence. Under partial adherence a 25 per cent change in one cell
-moves the normalised weight by about one per cent and still moves no outcome.
+Principal stochastic estimates use seeds 0 through 399. Continuous condition means use normal
+95 per cent intervals. Paired continuous contrasts retain common random numbers. Binary
+condition intervals are Wilson intervals; paired binary contrasts use paired risk differences
+and exact McNemar tests in the cache. Three- and five-seed parameter points are screens, not
+independent replications and not confirmatory estimates.
 
-**A consequence for the other designs.** Any sweep that perturbs governance entries and
-scores a *fully adherent* group is testing nothing on those entries. The uniform global
-sweep does exactly this in its full-adherence rows, which are therefore effectively over
-83 parameters rather than 118. Its attraction and referral rows are unaffected, since
-neither holds all traditions at 1.0. This does not invalidate the ordering result, which
-is computed from the attraction and referral scenarios, but it does mean the
-full-adherence robustness percentages are less demanding than they look.
+---
 
-### A5.4 The index-pairing claim
+## A5. Confirmatory results
 
-The coupling B = S G' gives each step a principal supplying tradition. Index-pairing, the
-natural conjecture that step *i* is chiefly served by tradition *i*, fails for all twelve
-steps unperturbed. Under 2,000 draws at ±30 per cent on every matrix entry:
+### A5.1 Conditions and mechanism factorials
 
-| Property | Holds in |
+| Condition | Final N, mean [95% interval] | Exists | Viable | Closed |
+|---|---:|---:|---:|---:|
+| Baseline | 17.800 [16.917, 18.683] | 1.000 | 0.985 | 0.000 |
+| T3 friction loss only | 14.838 [13.910, 15.765] | 0.9925 | 0.940 | 0.0075 |
+| T3 governance loss only | 11.773 [11.149, 12.396] | 0.980 | 0.9125 | 0.020 |
+| T3 combined loss | 6.755 [6.170, 7.340] | 0.750 | 0.5475 | 0.250 |
+| T11 attraction loss only | 12.380 [12.038, 12.722] | 1.000 | 0.985 | 0.000 |
+| T11 governance loss only | 15.515 [14.809, 16.221] | 1.000 | 0.980 | 0.000 |
+| T11 combined loss | 11.920 [11.584, 12.256] | 1.000 | 0.985 | 0.000 |
+| Recipient capacity forced to one | 18.828 [17.782, 19.873] | 1.000 | 0.9875 | 0.000 |
+
+Paired final-membership losses from baseline are 2.962 [1.848, 4.077] for T3 friction,
+6.027 [5.043, 7.012] for T3 governance, and 11.045 [10.030, 12.060] jointly. The T3 factorial
+interaction is -2.055 [-3.414, -0.696], so path effects are not additive.
+
+The T11 losses are 5.420 [4.515, 6.325] for pure attraction, 2.285 [1.214, 3.356] for
+governance, and 5.880 [4.972, 6.788] jointly. The interaction is 1.825 [0.755, 2.895].
+
+Forcing only recipient capacity to one changes final membership by 1.028 [-0.259, 2.314]. The
+interval crosses zero, so the clean recipient ablation is unresolved.
+
+### A5.2 Service, composition, and the Tradition ranking
+
+Disabling Step 12 lowers final membership by 5.325 [4.437, 6.213], established practice by
+0.01497 [0.00765, 0.02229], and maintenance capacity by 0.01351 [0.00788, 0.01915]. The isolated
+Step 9 change is 0.00550 with an interval from -0.00149 to 0.01249 and is unresolved.
+
+The founder-composition experiment holds total initial practice at 13.75 and compares even,
+concentrated, and split allocations. Relative to even founders, paired final-membership
+differences are 0.2925 [-0.898, 1.483] and -0.3475 [-1.472, 0.777]. No equivalence margin was
+specified, so this is unresolved rather than evidence of equality. The model has no mentoring,
+sponsorship, clique, or sorting mechanism.
+
+At twenty years with all Traditions at 0.85 and one lowered to 0.50, reference membership is
+13.0975 with cross-seed SD 5.666. Seven of twelve paired contrasts exclude zero. Tradition 3
+and Tradition 11 are mixed adherence interventions in this ranking; mechanism-specific results
+come from the factorials above.
+
+### A5.3 Chapter 14 correction
+
+The original typical-member bistability result used a frozen environment from the retired
+capability-inflated model. Recomputed from 400 corrected full-adherence endpoints, capability-one
+high and low starts separate by more than 0.05 in only 7 environments, or 1.75 per cent. In the
+mean corrected environment both starts converge to negligible maintenance. The architecture can
+generate bistability in some environments; typical-member bistability is not a released baseline
+result.
+
+### A5.4 Trajectories and selection
+
+Under referral loss, all-run membership is 21.55 at year 5, 11.68 at year 10, 2.50 at year 20,
+and 0.51 at year 30. Endpoint viability falls from 0.970 to 0.660, 0.1725, and 0.0275. Membership
+among viable groups also falls, from 22.07 to 16.47, 11.39, and 12.27. The last mean is based on
+only eleven viable runs and has half-width 3.81. The corrected model therefore shows visible
+room-size decline as well as closures. Established practice among selected viable remnants stays
+high; that selected quantity is not evidence that the interior has no warning signal.
+
+---
+
+## A6. Numerical resolution and horizon
+
+At the baseline thirty-year horizon, mean final membership is 17.80 at `dt=0.5`. In 200 paired
+seeds, changes relative to that step are 1.535 plus or minus 1.777 at `dt=1`, 0.865 plus or minus
+1.836 at `dt=0.25`, and -0.405 plus or minus 1.742 at `dt=0.125`. All intervals cross zero. This
+supports the tested half-week resolution for the reported comparisons; it does not prove
+convergence at arbitrary resolution.
+
+Mean final membership is 29.34 at 10 years, 21.14 at 20, 17.80 at 30, 16.43 at 50, and 15.64 at
+100. The 100-year series includes one closure in 200 runs. Because the horizon series continues
+to move, the release makes no steady-state or indefinite-persistence claim.
+
+---
+
+## A7. Expanded sensitivity and structural robustness
+
+### A7.1 Design registry
+
+| Design | Size | Seeds per parameter point | Purpose |
+|---|---:|---:|---|
+| Global simultaneous perturbation | 1,002 draws, 334 at each amplitude | 3 | broad joint screen at 12.5%, 25%, and 50% |
+| Tiered perturbation | 1,000 draws | 3 | ranges tied to evidential status |
+| Randomized nonzero matrices | 1,000 draws | 3 | magnitude test with sparsity fixed |
+| Multi-level one-at-a-time | 944 points | 3 | 118 values, two directions, four distances |
+| Morris | 20 trajectories, 2,380 points | 5 | factor screen; interaction or nonlinearity not separated |
+| Sobol | 1,024 base rows, 11,264 points | 5 | conditional decomposition on eight Morris leaders |
+| Structural variants | 10,000 simulations | 400 | five architectures by five scenarios |
+
+Multiplicative designs cannot move structural zeros. A full-adherence outcome cannot reveal the
+35 `GOV` magnitudes because they cancel. The randomized-matrix design holds sparsity fixed and
+therefore tests magnitudes, not where zeros belong.
+
+### A7.2 Global screen
+
+Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss outcomes.
+
+| Amplitude | Final N | Endpoint viability | Existence | Full model viable in all 3 seeds |
+|---|---:|---:|---:|---:|
+| 12.5% | 301/0/33 | 323/10/1 | 318/16/0 | 302/334 |
+| 25% | 251/1/82 | 269/64/1 | 262/72/0 | 291/334 |
+| 50% | 213/17/104 | 201/117/16 | 215/117/2 | 256/334 |
+
+The comparison is most stable on existence and least stable on final membership. Even at the
+mildest amplitude, no blanket statement that every outcome survives is correct.
+
+### A7.3 Structural variants
+
+Four one-choice variants are compared with the base architecture: a flat rather than
+step-phased capacity gate; Tradition 3 moved from retention friction to admission; capacity
+supplied by all living members; and a piecewise-linear, clipped capacity response in place of
+the hyperbolic response. The last variant still saturates at one despite its historical
+`no_saturation` filename.
+
+| Architecture | Attraction loss N / exists / viable | Referral loss N / exists / viable |
+|---|---:|---:|
+| Base | 12.380 / 1.000 / 0.985 | 0.510 / 0.105 / 0.0275 |
+| Flat gate | 6.613 / 0.870 / 0.6575 | 0.745 / 0.120 / 0.0550 |
+| T3 on admission | 12.380 / 1.000 / 0.985 | 0.510 / 0.105 / 0.0275 |
+| Capacity from all members | 14.730 / 1.000 / 1.000 | 2.003 / 0.2575 / 0.1225 |
+| Piecewise-linear capacity | 13.038 / 1.000 / 0.995 | 1.020 / 0.145 / 0.0575 |
+
+Referral loss is worse on final membership, existence, and endpoint viability in all five
+tested architectures. The earlier three-variant size reversal came from the retired uncentred
+capability model and does not reproduce. Five architectures are not every possible architecture.
+
+### A7.4 Tiered and randomized-matrix screens
+
+| Design | Final N | Endpoint viability | Existence | Full viable in all 3 seeds | Full exists in all 3 seeds |
+|---|---:|---:|---:|---:|---:|
+| Tiered, 1,000 draws | 783/10/207 | 818/165/17 | 821/177/2 | 833/1,000 | 943/1,000 |
+| Random nonzero matrices, 1,000 draws | 1,000/0/0 | 1,000/0/0 | 999/1/0 | 784/1,000 | 1,000/1,000 |
+
+Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss. Randomizing every
+nonzero matrix magnitude while preserving the zero pattern leaves the comparison intact on all
+three outcomes. The tiered design, which also varies scalar defaults and Step speeds over wider
+ranges, produces substantial final-membership reversals and smaller numbers of viability and
+existence reversals. These are different robustness questions.
+
+### A7.5 Multi-level OAT, Morris, and Sobol results
+
+All three caches are complete and match both the model hash and their generating-script hashes.
+The generated tables live in `research/ROBUSTNESS-RESULTS.md`; this section states what they mean
+and what they do not license.
+
+**Multi-level one-at-a-time screen** (`research/oat_full.json`). Each of the 118 registered values
+is moved alone by 10, 25, 50 and 75 per cent in each direction, giving 944 perturbation points,
+with three common seeds per endpoint. This is a screen, not a confirmatory design. Across the 944
+points the pure-attraction-loss minus referral-loss ordering is strict in 931, tied in 2 and
+reversed in 11 on final membership; 934/10/0 on endpoint viability; and 933/11/0 on existence.
+Full adherence is endpoint-viable in all three seeds at 893 of 944 points and exists in all three
+at 936. The eleven membership reversals are not scattered: nine are large downward moves of
+`p_gate`, `delta0` and `churn` at the 25, 50 and 75 per cent distances, and the remaining two are
+the `S:11,5` and `S:11,6` cells. Twenty-six of the 118 values move the referral-starved endpoint
+viability on their own, and 32 move the full-adherence endpoint viability.
+
+Against a full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
+ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
+minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the step-10
+speed 2.22; over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
+4.69.
+
+All 35 governance cells return zero change in every outcome and every scenario, with a maximum
+absolute deviation of 5.6e-17. This is a property of the reference point and not evidence of
+inertness: the OAT scenarios run at full adherence, where the column-normalised governance quality
+is identically 1 regardless of the underlying magnitudes. A multiplicative screen also cannot move
+a structural zero. Both facts are why the Morris and Sobol designs are sited at 0.85 adherence.
+
+**Morris screen** (`research/morris.json`). Twenty trajectories over all 118 factors at plus or
+minus 25 per cent, four levels, delta 2/3, five common random numbers per point, 2,380 model
+evaluations, reference adherence 0.85. Effects are output change per unit proportional change in
+the parameter. The membership `mu_star` leaders are `p_gate` 52.44, `delta0` 51.21, `churn` 33.48,
+`drop_k` 24.30, `lam_exog` 23.46, `het_sd` 18.90, `a:5` 18.54 and `a:11` 15.87. The ninth factor,
+`lam0`, is 14.34, so the eight-factor cut is untied. By share of total membership `mu_star`, the
+22 scalars carry 44.9 per cent, the 49 `S` cells 33.7, the 12 step speeds 18.2 and the 35 `GOV`
+cells 3.3. Five of the eight leaders have `sigma/mu_star` above one, which indicates interaction
+or curvature without separating them; that separation is what the Sobol design is for.
+
+This screen corrects the retired ten-trajectory result. Three of the factors previously carried
+into the Sobol design do not survive: `a:8` now ranks fifteenth, `a:4` twenty-seventh and `omega`
+thirty-seventh. They are replaced by `lam_exog`, `a:5` and `a:11`.
+
+**Sobol decomposition** (`research/sobol.json`). Saltelli first-order and Jansen total-order
+estimators on a 1,024-row base design over the eight Morris membership leaders at plus or minus
+25 per cent, reference adherence 0.85, five common random numbers per point. The executed cache is
+11,264 evaluations: 1,024 each for A, B and the noise replicate, plus 8,192 cross-matrix rows.
+Intervals are 2,000-resample percentile bootstraps over base rows. The noise-replicate total-order
+floor is 0.0429 for membership and 0.0728 for practice.
+
+Membership total-order indices are `p_gate` 0.576 [0.510, 0.643], `delta0` 0.373 [0.320, 0.428],
+`drop_k` 0.171 [0.145, 0.199], `churn` 0.132 [0.111, 0.155], `het_sd` 0.079 [0.064, 0.095],
+`lam_exog` 0.058 [0.049, 0.068], `a:11` 0.038 [0.031, 0.046] and `a:5` 0.029 [0.024, 0.034]. The
+last two lie at or below the noise floor and are not separated from Monte Carlo error. The
+total-order indices sum to 1.456 for membership and 1.464 for practice; the excess over one is
+interaction counted once per participating factor, so interaction is present and is not dominant.
+
+The eight-fold increase in base sample repairs the membership first-order column and not the
+practice column. On membership no factor has `S1` above `ST` and the first-order indices sum to
+0.693, so the column is admissible: `p_gate` resolves at 0.404 [0.288, 0.525] and `delta0` at
+0.238 [0.156, 0.327], and the other six have intervals covering zero and are unresolved rather
+than zero. On practice `delta0` returns `S1 = 0.421` against `ST = 0.417`, violating the identity
+`ST >= S1`, and the practice first-order indices sum to 1.074, which a first-order sum cannot do.
+The practice first-order column is therefore still withheld and no number from it is quoted.
+
+The decomposition is conditional on these eight factors and these ranges. The other 110 registered
+values are held at nominal, so this is the variance those eight generate between them and not the
+model's total variance. The `mu_star` shares above remain the right place to look for the latter.
+
+### A7.6 Resource-list test
+
+The eight group resources are an author-coded list: admission, identify, proof, confidential,
+counsel, recipient, continuity, and pressure. No source proposes them, so the question is whether
+Part Four's conclusions depend on that particular eight. `model/resource_list_test.py` rebuilds the
+raw semantic overlap `B = S @ GOV.T` under 64 alternative lists and re-runs the index-pairing test
+on each, using competition rank and complete maximizing sets. The object is semantic overlap, not
+executable coupling, and the test is deterministic, so it carries no interval.
+
+| Variant family | Count | All-twelve rejection holds | Unity leads | Protective set unchanged |
+|---|---:|---:|---:|---:|
+| Leave one resource out | 8 | 7 | 8 | 8 |
+| Merge a pair of resources | 28 | 20 | 28 | 28 |
+| Drop two resources | 28 | 21 | 27 | 28 |
+
+Unity leads on 63 of the 64 variants. The single failure is the drop-two variant that removes
+continuity and pressure together, which is the same pair the reassignment test in A8 identifies as
+the only transfer able to flip the result. Two instruments built for different purposes fail on the
+same two columns, which is worth more than either alone because it localizes the point of failure.
+
+The all-twelve rejection of index-pairing survives in 48 of the 64 variants. The five protective
+Traditions keep empty governance rows in all 64, which is a structural consequence of the authored
+zeros rather than an independent confirmation. Where the all-twelve rejection fails it is almost
+always Step 1 regaining its index-mate, in 15 variants across the three families. The finding is
+therefore that the pairing verdict is not an artifact of any single resource, and not that the list
+is correct.
+
+---
+
+## A8. Part Two and deterministic coupling tests
+
+Golub and Jackson's theorem concerns the maximum stationary influence weight in a sequence of
+networks. Under its regularity conditions, naive learning aggregates information if and only if
+that maximum influence vanishes as group size grows. The theorem is published mathematics. The
+claim that Traditions 2, 9, and 12 operationalize its assumptions is this project's unverified
+reading.
+
+The deterministic Part Two notebook checks finite-group influence, scaling of rotation pools,
+the three obstruction constructions, and random-network controls. These are not runs of the
+stochastic membership model. The matrices in Part Four reject index-pairing on the authored
+values, but five of the twelve rejections are forced by structural zeros. Threshold and sparsity
+tests are required where multiplicative perturbation is blind. Under wholesale randomization of
+nonzero coupling magnitudes, the all-twelve index-pairing rejection holds in 40.6 per cent of
+draws. The magnitude claim therefore needs substantive defense and independent elicitation.
+
+---
+
+## A9. Source and corpus boundary
+
+`research/SOURCES.md` is the current evidence ledger. Maxwell (1950) and Golub and Jackson
+(2010) were already used by the project and are stored under `research/incorporated/`. The
+Maxwell copy remains a retyped reproduction with visible transcription errors, not a journal
+scan; moving it did not upgrade its source status.
+
+`research/staged/` is a supplied next-round corpus. Its remaining items have intentionally not
+been incorporated into the manuscript or paper. File presence is not evidence that a source was
+read or used. A verifier may mark a finding `deferred corpus may resolve`, but must not silently
+use staged material to repair this release or recommend it as an accidentally overlooked source.
+
+---
+
+## A10. Reproduction and release gate
+
+Principal files:
+
+```text
+model/aa_group_model.py                         canonical model
+model/book-calculations.ipynb                   book verification notebook
+paper/anonymity-as-an-aggregation-condition.ipynb  paper verification notebook
+research/RELEASE-GATE-RESULTS.md                generated confirmatory report
+research/ROBUSTNESS-RESULTS.md                  generated expanded-sensitivity report
+research/model-choice-inventory.json            values, zeros, constants, and choices
+tools/check_release.py                          independent fail-closed release gate
+```
+
+From the repository root, after every cache is complete. All three PDFs are built before the
+release check, because that check requires each rendered artifact to postdate every source that
+feeds it:
+
+```bash
+python3 tools/summarize_robustness.py
+python3 tools/regenerate_notebooks.py
+python3 tools/run_notebook.py
+python3 tools/run_notebook.py --paper
+python3 tools/check_book.py
+python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
+python3 tools/check_portability.py
+python3 tools/build_book.py
+tectonic --outdir paper paper/anonymity-as-an-aggregation-condition.tex
+pandoc reference/PRIMER-steps-and-traditions.md \
+  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=tectonic
+python3 tools/check_release.py
+```
+
+Release also requires rendering all three PDFs to page images and inspecting them for overflow,
+clipped tables, broken references, duplicated headings, blank pages, and stale text.
+
+### A10.1 Renumbering note
+
+This appendix was consolidated during the release-gate round and several section identifiers used
+by earlier drafts no longer exist. Manuscript, paper, and primer references were retargeted. The
+docstrings of completed analysis scripts still carry the old identifiers, because those scripts are
+hash-linked to caches that would be invalidated by editing them, so the mapping is recorded here
+instead.
+
+| Retired identifier | Current location |
 |---|---|
-| Tradition 1 is the most load-bearing | 100.0% |
-| Index-pairing wrong for all twelve steps | 85.5% |
-| Step 5's principal supplier is Tradition 12 | 99.5% |
-| Step 12's principal supplier is Tradition 5 | 67.3% |
-
-Three cautions, and the first was added on 2 August 2026 while drafting Chapter 16. **Five of
-the twelve counts are arithmetic rather than evidence.** T4, T6, T7, T9 and T10 have identically
-zero rows in G, so steps 4, 6, 7, 9 and 10 have index-mate entries of exactly zero and
-index-pairing cannot hold for them under any perturbation that preserves sparsity, which both
-designs here do. The consequence is checkable and was checked: at every level, the proportion of
-draws in which index-pairing fails on all twelve equals the proportion in which it fails on the
-seven non-trivial steps, to the last draw. 98.75 and 98.75 at ±15 per cent, 85.50 and 85.50 at
-±30, 72.45 and 72.45 at ±50, 65.15 and 65.15 at ±75, 40.60 and 40.60 structurally. **Every
-figure in the table above is carried by seven steps, not twelve**, and the row label should be
-read accordingly. Notebook section 11b.
-
-The two-tier split, that five traditions govern no consumed resource,
-survives 100 per cent of draws **trivially**: the perturbation is multiplicative, so a
-zero row stays a zero row. It is a statement about the derivation, not a robustness
-result. **A5.4b now supplies a design that can move a structural zero**, and under it the
-five protective counts fail by margins comparable to the seven, so this caution constrains
-what A5.4 may be quoted for rather than what the book may claim. And the twelve counts are not equally firm: the Step 5 inversion is secure at 99.5
-per cent, the Step 12 inversion is not, at 67.3 per cent, because Tradition 3 is a close
-competitor and both govern the recipient resource.
-
-**And a third caution, which is larger than the other two and was added on 2 August 2026
-after running the structural test on the coupling for the first time.** The plus or minus 30
-per cent figures above describe robustness to *modest* disagreement about the magnitudes in
-the two matrices. They do not describe robustness to disagreement about the magnitudes as
-such. Widening the perturbation gives a smooth degradation, and replacing every non-zero
-entry with a random value while keeping only the sparsity pattern removes the results
-almost entirely:
-
-| Design | T1 most load-bearing | Index-pairing wrong on all 12 | Step 5 to T12 | Step 12 to T5 |
-|---|---|---|---|---|
-| jitter ±15% | 100.0% | 98.8% | 100.0% | 89.7% |
-| jitter ±30% | 100.0% | 85.5% | 99.5% | 67.3% |
-| jitter ±50% | 98.0% | 72.5% | 88.7% | 52.9% |
-| jitter ±75% | 86.8% | 65.2% | 71.5% | 43.8% |
-| **structural, sparsity only** | **75.4%** | **40.6%** | **17.5%** | **27.6%** |
-
-2,000 draws per row, notebook section 11.
-
-**This distinguishes two classes of claim that had been defended the same way.** The
-*survival* claims pass the structural test at 100 per cent (A4.3, A5.1): the ordering holds
-however the magnitudes are chosen, so Parts One and Three may legitimately be defended as
-resting on structure. The *coupling* claims do not: index-pairing fails on all twelve in
-40.6 per cent of structurally randomised draws, which is less often than it holds.
-
-Part Four therefore rests on the magnitudes in the two matrices, not on their sparsity
-pattern, and must be defended by arguing for those magnitudes rather than by citing a
-robustness percentage. The defensible statement is that index-pairing fails robustly to
-modest disagreement and not to wholesale disagreement, and that a reader who regards the
-matrices as arbitrary should not be persuaded by this result. Earlier drafts of the Part
-Four plan asserted the opposite and were wrong.
-
-### A5.4b The threshold test: the only Part Four design that can move a structural zero
-
-**Added 2 August 2026 while drafting Chapter 18.** Every design in A5.4 multiplies the entries
-of S and G by random factors. Multiplication preserves zeros, so no draw can show a protective
-Tradition supplying anything, and no figure in A5.4 is evidence about the two-tier split or
-about the five index-pairing counts whose index-mates are protective Traditions. That was
-recorded above as a caution. This section replaces the caution with a design.
-
-**The design.** Invert the question. For Step *i*, let *w_i* be the row sum of S, the Step's
-total consumption across all eight resources, and *b_i* the largest entry of row *i* of B other
-than the index-mate's own. If Tradition *i* governed every resource at uniform strength *c*, its
-entry would be *c w_i*, so index-pairing holds at Step *i* exactly when
-
-> c > c\*_i = b_i / w_i
-
-One division per Step. Exact, deterministic, no sampling error, and able in principle to make
-any index-mate the principal supplier, including the five whose rows are empty.
-
-**The reference scale.** G has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300,
-minimum 0.10 and maximum 1.00. c\* is meaningful only against that scale.
-
-**Result.** c\* ranges from 0.417 to 0.635 across the twelve, averaging 0.518. Every one exceeds
-both the mean and the median live entry. Setting c to the mean live entry of 0.374 for all
-twelve simultaneously, no index-mate wins; the smallest losing margin is 0.02 at Step 7 and the
-largest 0.44 at Step 5. The five protective Steps have c\* of 0.438, 0.417, 0.425, 0.600 and
-0.627, averaging 0.501 against 0.531 for the seven enabling ones.
-
-**Two readings, and the second was a correction.** The protective range is *not* contained in
-the enabling range; it extends below it at both ends, so the protective Steps are marginally
-closer to index-pairing holding, by 0.03 on the mean threshold. Chapter 18's first draft claimed
-containment and the notebook assertion caught it. What survives is the substantive point: the
-five protective counts are not qualitatively different from the seven under a design that can
-reach them.
-
-**What this licenses and what it does not.** It licenses the statement that index-pairing would
-require an index-mate to govern its own Step's needs more strongly than a typical live entry,
-uniformly across all twelve. It does **not** test whether the zeros are correctly placed. It
-takes the sparsity pattern as given and prices its consequences, which makes it a sensitivity
-analysis of a judgement rather than a test of it. The only test of the placement is a second
-reader, named in `plans/PART-4-PLAN.md` and still outstanding.
-
-Notebook section 11c.
-
-### A5.4c The reassignment test for the unity-single purpose conflation
-
-**Added 2 August 2026 for Chapter 17.** Kurtz's note 16 to his Chapter Five records that in some
-later AA literature the concept conveyed by *single-purposed* was obfuscated by substituting
-*unity*. If the governance matrix absorbed that substitution, Chapter 17's finding that unity is
-the most load-bearing Tradition at 6.52 is an artefact of a semantic drift.
-
-**The design.** For each of the eight resources in turn, set G[T5][r] to the maximum of its
-current value and G[T1][r], set G[T1][r] to zero, and recompute the column sums. This transfers
-unity's entire governance of one resource to singleness of purpose, which is the strongest
-version of the objection. Exact.
-
-**Result.** Six of the eight transfers leave unity leading, by margins from 1.44 to 2.54.
-Transferring continuity gives T5 the lead 5.14 to 4.63; transferring pressure gives it 5.12 to
-4.66. So the finding is conditional on two assignments and on nothing else in the matrix, and
-Chapter 17 states which two and defends them from the published short text of the two Traditions.
-
-**What it does not settle.** Kurtz names Wilson's discussion of the First Tradition in *AA Comes
-of Age* pp. 97-98 as the passage that clarifies the distinction. That work is AA copyright and is
-not acquired by this project, so the source identified as decisive is unread. Notebook 11d.
-
-### A5.4d The twelve-Tradition degradation ranking, recomputed at 400 replications
-
-**Recorded here because it is the sensitivity result the book had least of and reported most
-confidently.** The comparison degrades each Tradition alone from 0.85 to 0.50 under common
-random numbers and measures the loss in membership at a twenty-year horizon.
-`model/tradition_paired.py`, notebook section 3.
-
-| Tradition | Tier | Members lost | 95% half-width | t |
-|---|---|---|---|---|
-| T11 attraction | enabling | 7.90 | 1.20 | 12.9 |
-| T3 open door | enabling | 5.16 | 1.25 | 8.1 |
-| T1 unity | enabling | 4.47 | 1.30 | 6.7 |
-| T2 group conscience | enabling | 3.43 | 1.30 | 5.2 |
-| T4 autonomy | protective | 2.82 | 1.37 | 4.0 |
-| T7 self-support | protective | 2.82 | 1.37 | 4.0 |
-| T12 anonymity | enabling | 2.56 | 1.24 | 4.1 |
-| T5 one purpose | enabling | 2.27 | 1.33 | 3.4 |
-| T8 non-professional | enabling | 1.02 | 1.20 | 1.7 |
-| T9 no organisation | protective | 0.89 | 1.15 | 1.5 |
-| T6 no endorsement | protective | 0.71 | 1.13 | 1.2 |
-| T10 no outside opinion | protective | 0.71 | 1.13 | 1.2 |
-
-Reference group 23.44 members, cross-seed SD 11.93, paired SE 0.57 to 0.70, a variance
-reduction of about nineteen times against the unpaired standard deviation. Eight of twelve
-resolve at |t| > 2.5.
-
-**This replaced a 30-replication version whose ordering was the reverse at the top.** That
-version resolved only two comparisons, both protective Traditions, at 5.5 members each with
-t = 2.6. It was the last figure in the project computed below the 400-seed minimum, and the
-justification offered was that a paired CRN design is efficient. It is; it is also still 30
-replications. A10 records how it was found.
-
-**What this does and does not touch.** It touches Chapters 5 and 6, both rewritten. It does
-not touch the two-tier split, which is exact algebra on the governance matrix and does not
-depend on any simulation, nor the sensitivity designs in A4 and A5.1 to A5.3, which perturb
-parameters and report survival and membership rather than this ranking. Those were checked
-against the new result and none of them quotes it.
-
-**One reading that is now unavailable.** The old table's protective-at-top ordering was
-consistent with the derived role of those five Traditions as guards, and Chapter 5 noted the
-coincidence while warning it was weak evidence because a multiplier on several things will
-tend to matter. The warning was right. The coincidence has gone, and no simulation result in
-this book now supports the protective tier being more consequential than the enabling one.
-
-### A5.4e Sparsity perturbation: how much may a second reader differ?
-
-**Added 2 August 2026.** Every design in A5.4 varies the magnitudes and holds the sparsity
-pattern fixed. A second reader disagrees about the pattern, and until now nothing in the project
-priced that. `model/elicitation_compare.py --sparsity`, notebook section 18. Flips are confined
-to the seven enabling rows, 56 cells, so the two-tier split is held fixed; 2,000 draws per row.
-
-| Cells flipped | Index-pairing fails on all twelve | T1 largest load | Step 5 to T12 | Step 12 to T5 |
-|---|---|---|---|---|
-| 1 | 96.3% | 100.0% | 98.7% | 94.8% |
-| 2 | 92.7% | 99.7% | 96.3% | 90.5% |
-| 4 | 86.2% | 96.5% | 93.3% | 80.3% |
-| 8 | 75.0% | 83.7% | 85.4% | 72.0% |
-| 16 | 53.0% | 50.8% | 70.8% | 53.0% |
-
-**Part Four tolerates a reader differing on about four of fifty-six enabling cells and does not
-tolerate one differing on sixteen.** That is the quantity the elicitation is designed to measure.
-
-**This is a bound, not a measurement, and the distinction is the whole caveat.** A random flip is
-not a plausible reader. Somebody who thinks self-support governs continuity changes that cell for
-a reason and their remaining cells correlate with the reason. Random flips are harsher, in that
-they respect no reason, and gentler, in that they do not concentrate on the cells that carry the
-results. The sweep answers "how much disagreement, counted in cells" and says nothing about which
-cells a reader would choose. Only three completed forms can answer that.
-
-**And it holds the split fixed.** A reader who fills a protective row makes the more serious
-disagreement, and no perturbation design can represent it, because the split is what defines
-which rows are available to flip. `model/elicitation_compare.py --self-test` includes a synthetic
-respondent who fills Tradition 7 and confirms the comparison script reports it as contradicting
-Chapter 18.
-
-### A5.5 The Morris screen: which factors matter, and whether they matter alone
-
-Ranked by mu\* on final membership, with the resolution limit at 1.41 members:
-
-| Factor | mu\* | SE | mu | sigma | sigma/mu\* | Reading |
-|---|---|---|---|---|---|---|
-| p_gate | 42.24 | 10.70 | -42.00 | 33.82 | 0.80 | largely additive |
-| delta0 | 36.15 | 6.31 | -36.15 | 19.97 | 0.55 | largely additive |
-| churn | 20.58 | 5.59 | -20.58 | 17.66 | 0.86 | largely additive |
-| het_sd | 18.42 | 5.28 | +18.42 | 16.69 | 0.91 | largely additive |
-| drop_k | 16.41 | 3.87 | +16.41 | 12.25 | 0.75 | largely additive |
-| a[4] | 10.53 | 4.03 | +6.27 | 12.75 | 1.21 | interaction or non-linearity |
-| a[8] | 9.87 | 5.18 | +9.69 | 16.39 | 1.66 | interaction or non-linearity |
-| omega | 9.60 | 3.86 | +9.54 | 12.21 | 1.27 | interaction or non-linearity |
-
-Sixty-two of the 118 factors have mu\* distinguishable from zero at 95 per cent on
-membership, eighty on practice.
-
-**Three things this establishes.**
-
-**One: the one-at-a-time ranking was not an artefact.** The same five factors dominate
-under Morris as under the targeted sweep, and for membership all five have sigma/mu\* below
-one. Their effects are largely additive, so looking at a single point did not mislead. That
-matters because A4.4 is otherwise open to the standard objection that a star design
-generalises from one location in parameter space.
-
-**Two: the governance matrix is nearly inert even where it is not cancelled.** It is 35 of
-118 factors, thirty per cent of the model by count, and carries 3.6 per cent of the total
-mu\* for membership and 4.1 per cent for practice, at 0.85 adherence where the identity in
-A5.3 does not apply. The median governance factor moves membership by 0.33 members. This is
-a strictly stronger statement than A5.3, which covers full adherence only, and it is the
-firmest version of the claim that the model rests on the matrices' structure rather than
-their magnitudes.
-
-Effect shares by kind, on membership: scalars 46.5 per cent from 22 factors, step speeds
-16.3 per cent from 12, the consumption matrix 33.5 per cent from 49, the governance matrix
-3.6 per cent from 35.
-
-**Three: interactions exist but are secondary.** Every factor with sigma/mu\* above one
-sits outside the top five on membership. No claim the book makes rests on an interaction,
-and the factors that carry the claims behave additively.
-
-**What Morris still cannot do.** It screens; it does not decompose variance, and it cannot
-separate interaction from non-linearity for a factor with high sigma. Sobol first-order and
-total-order indices on the eight factors above would do that, at a cost of roughly N(k+2)
-evaluations, which for N = 128 and k = 8 is about 1,300 runs. ~~**That has not been run.**~~
-**Run on 2 August 2026; see A5.7.** The total-order indices came out usable and corrected this
-section's reading of delta0 and het_sd, which are treated above as largely additive and are not.
-The first-order indices did not come out usable and A5.7 says why.
-
-### A5.7 Sobol: separating interaction from non-linearity, and failing to estimate first order
-
-**Run 2 August 2026.** A5.5 named this as the last quantitative gap in the appendix and A7
-threat 5 named it as unaddressed. It is now run, and it half succeeded, which is worth more
-space than a clean result would have been.
-
-**Design.** Saltelli's scheme on the eight factors A5.5 ranks highest, with the other 110 held
-at nominal. Two independent samples A and B of N = 128 rows each, plus the eight cross matrices
-AB_i, plus a noise replicate of A evaluated under a disjoint seed block. Cost 1,408 model
-evaluations. First-order indices by the Saltelli (2010) estimator, total-order by Jansen (1999).
-Bootstrap percentile intervals over 2,000 row resamples. Common random numbers throughout,
-five seeds per evaluation, traditions at 0.85, horizon 1,560 half-weeks. Ranges are plus or
-minus 25 per cent, matching the Morris hypercube and the one-at-a-time star exactly, so all
-three designs describe the same neighbourhood. `model/sobol_indices.py`, cached to
-`research/sobol.json`, notebook section 12b.
-
-**Scope, and it is a real limitation.** Only the eight are varied. The variance being decomposed
-is the variance those eight generate between them, not the model's total variance. "S_T = 0.456"
-means forty-six per cent of the variance generated by these eight within plus or minus 25 per
-cent, and nothing wider. A5.5's effect shares by kind remain the place to look for the model as
-a whole.
-
-Total-order indices on final membership, with 95 per cent bootstrap intervals:
-
-| Factor | S_T | 95% interval | S_1 | S_T - S_1 | Reading |
-|---|---|---|---|---|---|
-| p_gate | 0.456 | 0.331 to 0.599 | unresolved | - | dominant, as in Morris |
-| delta0 | 0.258 | 0.164 to 0.367 | interval covers zero | large | acts largely through interaction |
-| het_sd | 0.178 | 0.106 to 0.261 | interval covers zero | large | acts largely through interaction |
-| drop_k | 0.134 | 0.088 to 0.193 | unresolved | - | |
-| churn | 0.121 | 0.076 to 0.179 | unresolved | - | |
-| omega | 0.063 | 0.033 to 0.099 | interval covers zero | comparable to S_T | interaction, but near the noise floor |
-| a[8] | 0.058 | 0.037 to 0.086 | unresolved | 0.005 | non-linearity, not interaction |
-| a[4] | 0.032 | 0.019 to 0.051 | interval covers zero | comparable to S_T | interaction, but at the noise floor |
-
-Sum of S_T is 1.300 for membership and 1.074 for practice. The excess over one is the signature
-of interaction, counted once per factor involved, so interactions are present and are not
-dominant.
-
-**The Monte Carlo noise floor on S_T is 0.023 for membership and 0.034 for practice**, measured
-by re-evaluating the A rows under a disjoint seed block and feeding the replicate to the
-total-order estimator as though it were a factor that had never been changed. a[4]'s S_T of
-0.032 sits just above that floor and should be read as barely resolved.
-
-**What this settles that Morris could not.** Three of the eight had sigma/mu\* above one in A5.5
-and were reported there as "interaction or non-linearity", undecided. Sobol decides two of them.
-a[8] has S_T - S_1 of 0.005, so its Morris spread was curvature in the factor itself and not
-interaction with anything. a[4] and omega have gaps comparable to their whole total-order index,
-so their Morris spread was interaction, though both are small enough that the finding is weak.
-And delta0 and het_sd, which A5.5 read as largely additive on the strength of sigma/mu\* below
-one, turn out to have first-order intervals covering zero with total-order indices far from it:
-they act on membership mostly in combination with other factors. **That is a correction to A5.5's
-reading, not a confirmation of it**, and it is the kind of thing a screening design is expected
-to get wrong in this direction.
-
-**The two designs agree on the ranking.** Spearman's rho between Morris mu\* and Sobol S_T on
-membership is 0.833, with the same top two and permutations only among the middle three and the
-bottom three. The A5.5 claim that the one-at-a-time ranking was not an artefact now rests on two
-independent estimators rather than one.
-
-**What this fails to settle, stated plainly.** The first-order indices are not estimable at
-N = 128 and no number in the S_1 column should be quoted. Three diagnostics, all in notebook
-12b:
-
-1. **Impossible values.** S_1 exceeds S_T for p_gate on membership and for five of eight factors
-   on practice. The identity S_T >= S_1 holds for any true decomposition, so these are estimator
-   noise. Three membership indices are negative.
-2. **An impossible sum.** The practice first-order indices sum to 1.263. A sum of first-order
-   indices cannot exceed one.
-3. **Half-sample instability.** Splitting the 128 rows in two and recomputing moves the
-   first-order indices by 0.092 on average and the total-order indices by 0.042. p_gate's S_1
-   moves from 0.338 to 0.633 between halves.
-
-**What it would cost to fix.** Scaling from the observed interval widths, resolving p_gate's
-first-order index to a half-width of 0.10 needs N of about 1,379, which is roughly 13,800
-evaluations, ten times what was run and about four hours of wall clock in this setting. The
-other seven need between 82 and 593. **This has not been run**, and the honest summary is that
-the first-order decomposition of a stochastic model of this size is out of reach at the sample
-sizes used elsewhere in this appendix, while the total-order decomposition is not.
-
-**What still depends on none of this.** No claim in the book rests on a Sobol index. The section
-exists because the appendix promised it, and its main contribution is a correction to how A5.5
-reads two of its own factors.
-
-### A5.6 What no design covers
-
-**Structural choices were not perturbed.** ~~Whether the capacity gate phases in by step
-index, whether Tradition 3 acts on retention rather than admission, whether carrying
-capacity comes from the established core~~ **Three of these four were perturbed on 2 August
-2026; see A9, which found that the book's strongest simulation claim holds on survival and
-reverses on size under three of them.** Whether the resource list has eight entries and
-these eight. These are architecture, not numbers. Each was arrived at by finding that the
-alternative produced something absurd, which is a weaker justification than fitting and is
-the honest description of how the model was built.
-
-**The resource list has no external validation.** Someone who knows the programme better
-would produce a different eight, and the derived group-dependence coefficients would move
-with it.
+| A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
+| A4.6, A5.5 | A7.5, Morris and Sobol |
+| A5.4b, A5.4c, A5.4e | A8, threshold, reassignment, and sparsity-pricing tests |
+| A5.4d | A5.2, the degradation ranking |
+| A5.6 | A7.1, the design registry and what no design covers |
+| A9 as structural variants | A7.3 |
+| A9.5 | A7.6, the resource-list test |
 
 ---
 
-## A6. Provenance of the parameters
-
-**Borrowed from an estimated literature, as forms not values.** The gating structure and
-diminishing returns from Ben-Porath (1967) and Cunha, Heckman and Schennach (2010). The
-threshold gate producing bistability was motivated by Hufford and colleagues (2003), who
-found a cusp catastrophe outperformed linear specifications on relapse data, and is now
-better supported by Fatimah, Hunter and Bornovalova (2025), who fit a **double-well potential
-model** to timeline followback data from 139 adults leaving residential treatment. Their
-model has two stable equilibria, a separation energy that differs in each direction, which is
-this appendix's hysteresis, and person-specific steepness and tilt parameters that predicted
-long-term outcomes beyond proportion of days used and time to first use.
-
-**That paper bears on `het_sd`, the parameter section A6 calls least defensible.** They found
-significant between-subject variance in steepness and relapse risk, predictable from baseline
-characteristics. So heterogeneity in the ease of crossing between wells is an observed
-feature of real data, not only a device for converting individual bistability into graded
-group response. **The magnitude of `het_sd` remains unsupported**; what has changed is that
-the qualitative assumption behind it now has external evidence.
-
-**Two limits on how far that transfers.** Their outcome is substance use behaviour; this
-model's bistability is in maintenance capacity, the mean of Steps 10 to 12, and no one has
-fitted a double well to step practice. And their model is descriptive where this one is
-generative: they fit a landscape to observed behaviour, this model derives a landscape from a
-claimed mechanism, and a different mechanism producing the same landscape would fit their
-data equally well. Their result supports the shape and is silent on the mechanism. The saturation form
-for participatory goods from Iannaccone (1992). The shape of each equation has support;
-the numbers in it do not.
-
-**Calibrated to a stylised fact.** Inflow, dropout and churn set so a fully adherent group
-holds a thirty-year steady state near forty-five members with an experienced core near
-nine, roughly a healthy urban meeting. At 400 seeds the measured values are 41.7 members and an
-experienced core of 7.7, so the first target is met to about eight per cent and the second to
-about fourteen.
-
-**Two words that meant two things, corrected 2 August 2026.** The model carries two
-thresholds on a member's mean practice: `act_thr` = 0.1, an **established** member, and
-`exp_thr` = 0.5, an **experienced** member. `simulate()` returns the first as `n_est`, and the
-Part Five tables print it under the heading "core"; at full adherence it is 37.2 of 41.7. The
-calibration target above is the second, and at 400 seeds it is **7.7 with a 95 per cent
-half-width of 0.5**, so the "near nine" this sentence used to claim lies outside its own
-interval. Both halves of the calibration statement are now given as measured rather than as
-targets: 41.7 members against a target of 45, and an experienced core of 7.7 against a target
-of 9. The notebook cell that would have caught this had been broken since before 2 August 2026
-and produced no output; it was found by running the notebook end to end for the first time.
-`model/core_thresholds.py`, notebook section 1.
-
-**The three figures are not conditioned alike, and this is recorded rather than tidied
-away.** The 41.7 is over all 400 runs, deaths counted as their final membership. The 37.2 and
-the 7.7 are over the 398 surviving runs only, because a core is not defined for a group that no
-longer exists. Unconditionally the two cores are 37.0 and 7.7, and membership conditioned on
-survival is 41.9, so at 99.5 per cent survival the choice moves nothing by more than 0.2 members
-and changes no claim anywhere in the book. It is stated because threat 6 in A7 is conditional
-figures read as unconditional, and a sentence that gives one unconditional number and two
-conditional ones without saying so is exactly the shape that threat takes.
-
-**Chosen to produce a behaviour.** Member heterogeneity at 0.55, selected because it
-converts individually bistable dynamics into graded group response. The mechanism is
-principled; the magnitude is tuned to the behaviour I wanted. **This is the least
-defensible parameter in the model**, it is the single exception to full-adherence
-robustness in A5.1, and every quantitative result in Parts Three and Five inherits from it.
-
-**Pure judgement.** The two matrices, described in A2.
-
----
-
-## A10. Execution integrity of the notebook
-
-**Added 2 August 2026, and it exists because the answer to "does the notebook run" was no.**
-
-`model/book-calculations.ipynb` is the regression test behind every figure in this book. It had
-been maintained cell by cell and had not been executed end to end. Running it revealed that one
-cell referenced an undefined name, raised on every attempt, produced no output, and had passed
-every check in `tools/check_book.py`, because the status check looked for stored assertion
-failures and an empty output is not one.
-
-**That cell was the one that verified the model's calibration target.** With it dead, the
-target went unchecked, and when it was finally computed the target was wrong: the appendix and
-Chapter 4 stated an experienced core near nine, and at 400 seeds it is 7.7 with a 95 per cent
-half-width of 0.5. A9.2 and A6 now give both halves of the calibration statement as measured.
-
-**Three changes follow.**
-
-1. **`tools/run_notebook.py`** executes every cell in one process, writes real outputs back,
-   and exits non-zero on any exception, any failed assertion, or any cell with blank output.
-   The full notebook runs in about twenty seconds and makes 779 assertions with none failing.
-2. **Two new status checks.** A code cell whose stored output text is blank now fails, as does
-   a cell that calls `check()` and stored no result line. Both were regression-tested by
-   blanking a cell's output and confirming they fire.
-3. **Two cells were made fast enough to run.** The rotation sweep in section 2 used a linear
-   scan over pool sizes where the quantity is monotone; bisection returns identical answers for
-   every group size tested and cut that cell from 31 seconds to 2. The twelve-Tradition paired
-   comparison in section 3 now reads a cached 400-replication result from
-   `model/tradition_paired.py` instead of running 30 replications inline.
-
-**The third change was not only a speed fix.** The paired comparison had been running at 30
-replications, which is the last place in the project that violated the 400-seed rule, and the
-justification offered was that common random numbers make a paired design efficient. Efficiency
-is not exemption. At 400 replications the ranking changed: eight of twelve comparisons resolve
-rather than two, and the top of the table is enabling rather than protective. Chapters 5 and 6
-have been rewritten and A5 records the old table as superseded.
-
----
-
-## A9. Structural sensitivity: perturbing the model's choices rather than its numbers
-
-**Added 2 August 2026, and it produced the largest correction in this appendix.** A5.6 opens by
-saying structural choices were not perturbed. Every design in A4 and A5 varies the 118
-hand-chosen numbers; none varied the shape. That gap matters because the book's surviving claims
-are orderings, and an ordering can be robust to every number in a model and still be an artefact
-of its architecture.
-
-`model/structural_variants.py`, cached in `research/structural.json`, notebook section 16. Four
-variants plus the base, five scenarios each, 400 seeds: 10,000 runs. Variants are applied by
-patching the loaded module rather than by adding switches to `aa_group_model.py`, so the eleven
-other scripts that import it remain reproducible against the version they were run under.
-
-### A9.1 The variants
-
-| Variant | Change | Why this one |
-|---|---|---|
-| `gate_flat` | The capacity gate does not phase in by step index; every step is gated identically, with total gate exposure held constant | A5.6 names it first |
-| `t3_admission` | Tradition 3 acts on arrival rather than on retention | The reading Chapter 19 argues against, and the one most readers reach for |
-| `capacity_all` | Carrying capacity comes from all living members rather than the established core | A5.6 names it |
-| `no_saturation` | Capacity is piecewise-linear rather than hyperbolic, matched at c = k where both equal 0.5, so the change is of shape and not of level | A5.6 names the recipient saturation |
-
-### A9.2 The result, and it splits the book's strongest simulation claim
-
-"Losing referrals is worse than losing attraction" is called the most robust thing the simulation
-says, in the preface, in Chapters 1 and 4, in `README.md`, in `CLAUDE.md` and in
-`research/PARAMETERS.md`. It survives all 236 targeted perturbations and all global jitter.
-**Nowhere was "worse" defined**, and against architecture the two available readings come apart.
-
-| Variant | Survival, attraction lost | Survival, referrals lost | Mean N, attraction lost | Mean N, referrals lost |
-|---|---|---|---|---|
-| base | 0.998 | 0.360 | 13.5 | 9.9 |
-| gate_flat | 0.825 | 0.490 | 8.4 | 15.6 |
-| t3_admission | 0.998 | 0.360 | 13.5 | 9.9 |
-| capacity_all | 1.000 | 0.635 | 14.7 | 20.3 |
-| no_saturation | 0.998 | 0.573 | 14.0 | 21.7 |
-
-**The `no_saturation` label is a shorthand and is inaccurate read literally**, which is worth
-saying because a referee would notice. The replacement form is `min(c/2k, 1)`, which is clipped
-and therefore still saturates; it reaches its ceiling abruptly at c = 2k instead of approaching
-it asymptotically. Above c = 2k it is the *more* saturating of the two, since the hyperbolic form
-is only 0.667 there. What the variant tests is the *shape* of the approach to the ceiling, not
-the presence of a ceiling, and a model in which resources were genuinely unbounded is not
-available anyway because `resources()` clips its output to [0, 1].
-
-**On survival the ordering holds in five variants of five**, by margins from 0.335 to 0.638. **On
-mean membership it reverses in three of the four non-degenerate variants**, and the established-core
-ordering reverses in the same three. A fully adherent group persists in all five, so that claim
-is architecture-robust without qualification.
-
-**What the book now says.** The claim is stated on survival, in those words, everywhere it appears.
-The size ordering is recorded as architecture-dependent. `research/PARAMETERS.md` carries the two
-as separate rows.
-
-### A9.3 The Tradition 3 variant is degenerate, which is itself informative
-
-Reading Tradition 3 as governing arrival makes adherence a multiplier on the inflow rate, so
-T3 = 0 describes a group that admits nobody, and it dies in 400 runs of 400. That is a shut group
-and not a cliquish one. Under the retention reading of Chapter 19 the same T3 = 0 gives 94.0 per
-cent survival at 27.5 members. The three non-gatekeeping scenarios are identical to base by
-construction, since T3 = 1 there. So this variant supports Chapter 19's modelling choice rather
-than testing it, and it is reported as such rather than counted as a passed test.
-
-### A9.5 The fourth structural choice: the resource list
-
-**Run 2 August 2026.** A9.4 said this one was untested because changing the number of resources
-changes both matrices' column count and is a different model. That is true of the simulation
-and false of the coupling, which is exact algebra on two matrices whose columns are resources.
-Dropping or merging a column is well defined on both at once. `model/resource_list_test.py`,
-notebook section 17.
-
-64 variants: 8 single deletions, 28 pairwise merges (summing both matrices' columns, which is
-the right operation if two resources were really one), 28 double deletions.
-
-| Design | n | Index-pairing fails on all twelve | T1 has the largest column sum | Step 5 to T12 | Step 12 to T5 |
-|---|---|---|---|---|---|
-| drop one | 8 | 7 | 8 | 7 | 7 |
-| merge a pair | 28 | 20 | 28 | 26 | 23 |
-| drop two | 28 | 21 | 27 | 21 | 19 |
-
-**Unity's primacy is nearly insensitive to the resource list**, holding in 63 of 64 variants.
-The single failure drops continuity and pressure together, which is exactly the pair A5.4c
-identified as the only two resources whose reassignment can move it. Two independent designs
-agreeing on which two resources carry a result is worth more than either alone.
-
-**Index-pairing is more sensitive, and the sensitivity is concentrated in one Step.** Across all
-64 variants only two of the twelve Steps ever regain their index-mate: **Step 1 in fifteen
-variants and Step 2 in one**. Five of the seven non-trivial counts never break under any
-deletion or merge. Every one of the fifteen Step 1 failures involves deleting or merging the
-admission resource, which is what gives Tradition 3 its lead over Tradition 1 at Step 1, and
-Chapter 16 already reports that lead as 1.22 against 0.99 and says it would not want the chapter
-to rest on it. This is that caveat measured rather than asserted.
-
-**The two-tier split is unchanged in all 64 variants and that is vacuous.** The protective rows
-of G are zero across every resource, so no deletion or merge can make them non-zero. Same
-vacuity as A5.4; A5.4b remains the only design in the project that can reach the split.
-
-**What this design cannot do.** Splitting a resource in two, or inventing a ninth, requires
-fresh judgement about what the new column contains and cannot be done by rearranging existing
-columns. So the list can be shown to be no *finer* than it needs to be. It cannot be shown to be
-*fine enough*, and that half of A5.6's question remains open.
-
-### A9.4 What A9 still does not cover
-
-~~The fourth item in A5.6, whether the resource list should have eight entries, is not tested
-here.~~ **Tested 2 August 2026; see A9.5.** Half of it can be answered by deletion and merging,
-which is exact algebra on the coupling: the list is no finer than it needs to be, unity's primacy
-survives 63 of 64 variants, and only Step 1 is sensitive. The other half, whether the list is
-fine *enough*, needs a resource nobody has proposed and remains open. Nor is any combination of variants tested: each changes one thing with everything
-else at nominal, and there is no reason to assume the effects compose.
-
----
-
-## A8. Part Two: sensitivity of the mapping between the theorem and the Traditions
-
-**Added 2 August 2026, and the gap it fills was the largest in this appendix.** Sections A4 and
-A5 carry five sensitivity designs, all of them on the simulation. Part Two, which contains the
-book's central claim, had none, and this appendix did not mention the mapping at all. The
-theorem needs no sensitivity. Everything between the theorem and the Traditions does.
-
-`model/part2_influence.py`, cached in `research/part2_influence.json`, notebook section 15. All
-deterministic linear algebra except one random control at 200 draws per cell. Influence is the
-normalised left dominant eigenvector by power iteration to a tolerance of 1e-13; the consensus
-error is the exact closed form sigma times the l2 norm of the influence vector times the square
-root of two over pi.
-
-### A8.1 Identity check
-
-The flat-matrix error reproduces sqrt(2/pi)/sqrt(N) to machine precision at every N from 10 to
-1,000, with a largest deviation of 2.4e-17. This is the identity Chapter 8 relies on and it is
-now checked rather than asserted.
-
-### A8.2 Dominance dose-response
-
-Chapter 8 illustrated concentration with two matrices, flat and one member at alpha = 0.35. Two
-points cannot say where the damage begins. Consensus error at N = 1,000, by alpha:
-
-| alpha | 0.00 | 0.02 | 0.05 | 0.10 | 0.20 | 0.35 | 0.50 | 0.75 |
-|---|---|---|---|---|---|---|---|---|
-| error | 0.0252 | 0.0294 | 0.0465 | 0.0830 | 0.1608 | 0.2797 | 0.3991 | 0.5984 |
-
-The error converges to alpha times sqrt(2/pi), reaching within 0.2 per cent of that limit by
-alpha = 0.35 and within 17 per cent by alpha = 0.05. **A member holding five per cent of every
-row costs a factor of 1.84 at a thousand members, and the factor is unbounded in N** because the
-flat error keeps falling and the concentrated one does not. Chapter 8 now carries this.
-
-### A8.3 The three obstructions are about scaling, not magnitude
-
-This is a correction to Chapter 8 rather than a confirmation of it.
-
-Golub and Jackson name three obstructions: prominent agents, imbalance, insufficient dispersion.
-Chapter 8 mapped them onto the dominant old-timer, the unbalanced sponsor and the clique. At
-fixed magnitude, two of the three do not obstruct anything.
-
-| Structure | N = 10 | N = 50 | N = 250 | N = 1000 |
-|---|---|---|---|---|
-| clique of 3, 90 per cent inward | 0.7500 | 0.3750 | 0.1071 | 0.0291 |
-| clique of 3, 99 per cent inward | 0.9677 | 0.8571 | 0.5455 | 0.2308 |
-| one member receiving 20 times what he gives | 0.6897 | 0.2899 | 0.0743 | 0.0196 |
-| five members receiving 20 times | 0.8333 | 0.5128 | 0.1681 | 0.0913 |
-
-Every one of those columns is falling, so every one of those structures satisfies the vanishing
-condition and none is an obstruction. Now scale the practice with the group instead:
-
-| Structure | N = 10 | N = 100 | N = 1000 |
-|---|---|---|---|
-| clique of 3 whose inwardness approaches 1 as N grows | 0.1667 | 0.1667 | 0.1667 |
-| one member whose advantage grows linearly in N | 0.1818 | 0.1681 | 0.1668 |
-
-Flat in N. Both are obstructions.
-
-**What this establishes.** The three obstructions are not three failure modes a fellowship can
-have at a given moment. They are three descriptions of sequences in which somebody's share fails
-to vanish. Whether a practice obstructs depends on how it scales with the group, not on how bad
-it looks. This is the general form of Chapter 10's rotation result, which finds that a fixed
-rotation pool in a growing group produces a floor rather than a decline, and it is the reason
-the two chapters are making one argument rather than two.
-
-### A8.4 The touring-speaker structure, with a closed form
-
-Chapter 11 argued that the Washingtonians' expansion concentrated influence in touring speakers
-and stated plainly that the structure had not been simulated. It has now been. Members attend
-flat to each other and give a fraction `out` of their attention to `k` speakers; speakers give a
-fraction `back` of theirs to the general membership. Then
-
-> speakers' total influence = out / (out + back)
-
-verified against the computed influence vector to within 1.1e-12 across all nine parameter rows
-and all seven group sizes, **independent of N and of k**.
-
-| out | back | speakers' influence | N = 10 | N = 1000 |
-|---|---|---|---|---|
-| 0.3 | 0.01 | 0.9677 | 0.9677 | 0.9677 |
-| 0.3 | 0.05 | 0.8571 | 0.8571 | 0.8571 |
-| 0.3 | 0.20 | 0.6000 | 0.6000 | 0.6000 |
-| 0.3 | 0.50 | 0.3750 | 0.3750 | 0.3750 |
-| 0.1 | 0.20 | 0.3333 | 0.3333 | 0.3333 |
-| 0.5 | 0.20 | 0.7143 | 0.7143 | 0.7143 |
-
-**A degenerate case, reported so it is not mistaken for the result.** At back = 0 the speakers
-are a closed communicating class, the chain is not strongly connected, the theorem does not
-apply, and the speakers hold all the influence at every N and every `out` including 0.1. That is
-a fact about absorbing sets. The first version of this study contained only that case and
-reporting it would have been the vacuous-robustness error recorded twice elsewhere in this
-appendix.
-
-### A8.5 Random control on the proxy
-
-The book uses maximum influence as its working measure of concentration; the theorem and the
-error formula use the l2 norm. Under 200 Dirichlet-row matrices per cell, the correlation between
-maximum influence and consensus error is 0.970 at N = 25 with concentration 0.05, falling to
-0.351 at N = 250 with concentration 50. **The proxy is good where concentration is high and poor
-where it is low**, which is the regime where nothing is wrong anyway. Reported because the book
-uses the proxy without having checked it.
-
-### A8.6 What A8 does not cover
-
-The mapping from the three obstructions to Traditions 2, 9 and 12 is still a reading of three
-sentences and no computation touches it. What A8 establishes is that the obstructions behave as
-the theorem says and that their behaviour depends on scaling; it does not establish that the
-Traditions are what prevents them. That remains the book's central claim and its central
-unverified step.
-
----
-
-## A7. Threats to validity, stated plainly
-
-**The numbering is not a ranking and the order is historical**, each threat having been added
-when it was recognised. Renumbering now would break references made from the chapters. **The
-largest is threat 7**, that the mapping from three Traditions onto the theorem's condition is
-unverified and unverifiable by anything in this apparatus; it is the book's central assertion.
-Second is threat 2, that no output of this model has ever been set beside a real group.
-
-1. **No fitting, therefore no goodness of fit.** There is no dataset of AA members' step
-   practice over time. Every parameter is chosen. The model can show that a set of ideas
-   is consistent; it cannot show they are true.
-2. **No external validation of any output.** The model has never been compared against a
-   real group or a real person. The thirty-year membership trajectory has not been checked
-   against any meeting's actual roll.
-3. **Sampling error has already produced a published error.** See A3.3. The remedy adopted
-   is 400 seeds and an interval on every reported figure.
-4. **Selection in conditional quantities.** See A3.4.
-5. **Interactions partly decomposed, and the screen was partly wrong.** ~~Sobol indices on
-   the top eight would separate interaction from non-linearity; they have not been run.~~
-   **Run 2 August 2026, A5.7.** The total-order indices are usable and they correct A5.5: on
-   membership, delta0 and het_sd have first-order intervals covering zero and total-order
-   indices far from it, so they act largely through interaction, where the screen had read
-   them as largely additive. The claim that the five factors carrying the book's claims
-   behave additively is therefore weaker than A5.5 states, and A5.7 restates it. The
-   first-order indices are not estimable at the sample size run, for reasons A5.7 sets out
-   with three diagnostics, and would need roughly ten times the evaluations. **The residual
-   gap is now narrower and better described: no first-order decomposition exists for this
-   model, and nothing in the book depends on one.**
-6. **Survivorship in Part One.** The book examines the one mutual-aid movement that
-   lasted and reasons backward. The defence is not that Part One escapes this, but that
-   Part Two does not depend on Part One.
-7. **The central mapping is unverified and A8 does not verify it.** A8 shows that the three
-   obstructions behave as the theorem says, corrects Chapter 8's reading of them, and supplies
-   the closed form Chapter 11 lacked. It does not show that Traditions 2, 9 and 12 are what
-   prevents the obstructions. That step is a reading of three sentences, it is the book's
-   central claim, and nothing computational bears on it. **This is now the largest single
-   unverified step in the book**, ahead of the governance matrix, because Part Four at least
-   knows what a second reader would settle.
-8. **The model cannot describe an individual.** It was not built to and has never been
-   tested against one. This is stated in the preface, in Chapters Twelve and Fourteen, and
-   at length in Chapter Twenty-Five.
-
----
-
-## A8. Reproduction
-
-```
-model/aa_group_model.py         the model
-model/book-calculations.ipynb   every figure in the book, asserted; ~5 minutes
-model/scenarios_hiseed.py       the decline table at 400 seeds
-model/mc_error.py               integration, horizon and seed-count study
-model/sensitivity_uniform.py    global sweep at three levels, plus the first OAT
-model/sensitivity_tiered.py     tiered ranges and the structural randomisation
-model/sensitivity_oat_full.py   all 118 parameters, one at a time
-model/morris_screen.py          Morris elementary-effects screen, 1,190 evaluations
-model/ch14_sweep.py             Chapter 14's decay-rate sweep at 400 seeds
-model/ch13_reps.py              Chapter 13's recovery exercise, 25 replications per cell
-```
-
-Raw results are committed as JSON under `research/` so every table above can be recomputed
-without re-running the simulations: `sens3.json`, `tiered.json`, `oat_full.json`,
-`mc_error.json`, `scenarios_hiseed.json`, `morris.json`, `ch14_sweep.json`,
-`ch13_reps.json`.
-
-The notebook is a regression test, not a record. Every figure printed in the book is
-asserted against a recomputed value, and a mismatch means either the model changed or a
-chapter is now wrong.
+## A11. Threats to validity
+
+1. No simulation parameter is fitted to longitudinal AA group data, and the original calibration
+   fails after the mean-one correction.
+2. The `S` and `GOV` matrices are author judgments. Their magnitudes and sparsity need independent
+   elicitation.
+3. The mapping from three Traditions to the Golub-Jackson conditions is an interpretation, not a
+   theorem or historical fact.
+4. The model has no tenure, sponsorship, pair matching, cliques, attendance networks, relapse
+   outcome, harm measure, competing organization, or regional ecology.
+5. The practice scale is internal and unvalidated. Threshold names such as established and
+   experienced do not create empirical categories.
+6. Finite-horizon persistence is not indefinite survival; endpoint viability is not closure;
+   selected member quality is not a population outcome.
+7. Sensitivity screens cover stated ranges and architectures only. Low-replication parameter
+   points rank robustness; they do not estimate real-world probabilities.
+8. The staged corpus is deliberately outside this release's evidence record.
+
+The model's proper use is to make assumptions and comparisons explicit enough to test against
+real group data. It cannot evaluate or advise any individual person's recovery.
 
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
 
@@ -5990,35 +5477,36 @@ in Part Four is wrong with them, and no amount of computing will reveal it.
 **Two. At full adherence the governance matrix cancels exactly.**
 
 *Technical.* It is column-normalised, so when every Tradition is at 1.0 the governance
-quality of every resource is identically 1. Thirty-five of the model's 118 hand-chosen
-numbers cannot affect a fully adherent group at all.
+quality of every resource is identically 1. Thirty-five of the model's 118 registered
+sensitivity values cannot affect a fully adherent group at all. The count is not the total
+number of authored choices in the model.
 
 *In plain terms.* In a group doing everything right, the Traditions do not show up in
 the numbers, because there is nothing left for them to fix. Everything the model says
 about individual Traditions is a statement about groups falling short somewhere, which
 is every real group. The Traditions are visible only in the breach.
 
-**Three. Only two simulation claims survive full sensitivity testing.**
+**Three. Sensitivity screens bound claims; they do not make them universal.**
 
-*Technical.* Across all 118 parameters, varied globally and one at a time over 236
-targeted perturbations, exactly two results hold: that a fully adherent group persists,
-and that losing referrals is worse than losing attraction in the sense of being more
-likely to kill the group. Read as "ends up smaller" that second ordering reverses under
-three of four changes to the model's architecture.
+*Technical.* The project uses global, targeted, screening and structural designs with
+different estimands and power. A claim can receive strict support, tie, reverse, or remain
+unresolved. The corrected audit reports those categories separately and does not turn
+finite parameter ranges or five-seed screens into statements that a result holds for every
+possible model. Mortality, endpoint viability and final membership are separate outcomes.
 
-*In plain terms.* Two conclusions here are solid enough to argue with somebody about. A
-group that keeps all twelve Traditions keeps going, and a group cut off from outside
-referrals is in more danger than a group nobody has heard of. Everything else in the
-simulation is a shape rather than a price. If a figure below says a group loses
-sixty-six per cent of something, read the direction and the fact that it is large.
-Do not read the sixty-six.
+*In plain terms.* Repeated tests can make a model result more or less credible inside the
+model, but they cannot make it a law about every specification or a forecast about AA.
+Read each simulation statement with its outcome, comparison, range and uncertainty. A
+direction that repeats is stronger than one that reverses, and an unresolved comparison
+is not evidence of no effect.
 
 **Four. The degradation figures rank one outcome at one point.**
 
 *Technical.* Where a Tradition entry quotes a membership loss, the design is: all
 twelve Traditions at 0.85, then one Tradition alone lowered to 0.50, twenty-year
-horizon, 400 paired replications under common random numbers, reference membership 23.4
-with a cross-seed standard deviation of 11.9.
+horizon, 400 paired replications under common random numbers, reference membership 13.10
+with a cross-seed standard deviation of 5.67. Tradition 3 and Tradition 11 remain mixed
+adherence rows here; their mechanism-specific paths are separated in the release factorials.
 
 *In plain terms.* That column answers one question: if a group let this Tradition slide
 while holding the others steady, how many fewer people would be in the room in twenty
@@ -6166,20 +5654,20 @@ the pairing is not absurd anywhere, and it wins nowhere.
 0.48, a margin of 0.42 and the third widest in the matrix behind Step Ten's 0.51 and
 Step Five's 0.43. Step Nine consumes counsel at 0.9, the largest entry in S other than
 the four entries at 1.0. It carries the lowest top speed of any Step, 0.15 per week.
-Disabling the twelfth Step degrades Step Nine by 28 per cent at 400 seeds, even though
-Step Nine has no direct dependence on service; the degradation travels through
-maintenance capacity, of which Steps Ten to Twelve are the average. Index-mate
-Tradition 9 is a structural zero and ranks eleventh. *Algebra and simulation.*
+Disabling the twelfth Step lowers mean Step Nine practice by 0.0055 in the 400-seed
+paired experiment, but the 95 per cent interval is -0.0015 to 0.0125 and includes zero.
+The same intervention does produce resolved decreases in membership, established
+practice and maintenance capacity. Index-mate Tradition 9 is a structural zero and
+ranks eleventh. *Algebra and simulation.*
 
 *In plain terms.* Amends is the Step that most needs counsel, and it is the slowest
 Step to move, which between them describe something people already know: you do not do
 this one quickly and you do not do it without asking. The finding worth carrying is not
 about Step Nine's own needs. Switch off the twelfth Step, so nobody in the group is
-carrying the message to anyone, and Step Nine gets substantially worse, despite having
-nothing whatever to do with service. It gets worse because service is part of what keeps
-a person able to hold on to anything at all. That is what people mean when they say you
-keep it by giving it away, and here it is an output of the model rather than an
-assumption fed into it.
+carrying the message to anyone, and the group ends smaller with lower maintenance
+capacity. The isolated Step Nine change is too imprecise to call. The model therefore
+supports a group-level service pathway here, not the earlier claim of a large resolved
+spillover into Step Nine itself.
 
 ## Step Ten, the daily inventory
 
@@ -6209,36 +5697,38 @@ at Step One to 1.00 at Step Twelve. *Algebra and the simulation's structure.*
 Ten and Twelve it is what the model calls maintenance, the capacity to keep hold of what
 has already been gained. Those three set a multiplier on everything else, weighted so
 that it barely touches Step One and fully governs Step Twelve. In plainer language, the
-last three Steps are what stop the first nine leaking away, and the further along
-somebody is, the more the leak matters. A newcomer has nothing to maintain. A member of
-fifteen years has almost everything to maintain.
+last three Steps are what stop the first nine leaking away, and the more practice a
+modeled member has accumulated, the more there is to maintain. The model records no
+tenure, so this state comparison cannot be translated into newcomer and veteran cohorts.
 
 ## Step Twelve, carrying it
 
 *Technical.* beta = 1.00, the joint maximum, and the Step that consumes seven of the
 eight resources. Principal supplier Tradition 5 at 1.25, with Tradition 3 second at
 1.10. It is the only consumer of the recipient resource, which is the only one of the
-eight not produced by the members themselves: supply is newcomers per available helper,
-so both a shortage of newcomers and a shortage of helpers reduce it. Three simulation
-results at 400 seeds, thirty years, full adherence. Setting the twelfth Step's growth
-rate to zero costs 66 per cent of membership, 41.7 plus or minus 1.5 falling to 14.2
-plus or minus 0.4, and 16 per cent of average practice. It does not kill the group:
-survival is 400 of 400. Removing the twelfth Step's dependence on the recipient resource
-raises membership by 8.7 per cent. Index-mate Tradition 12 ranks sixth at 0.12, and this
+eight defined by a ratio of member states: low-practice members per high-practice
+potential helper. It records no tenure, sponsorship or matching, and lower helper count
+increases rather than reduces the ratio. Three simulation
+results at 400 paired seeds, thirty years, full adherence. Setting the twelfth Step's
+growth rate to zero lowers endpoint membership from 17.80 plus or minus 0.88 to 12.48
+plus or minus 0.35; the paired loss is 5.33 [4.44, 6.21]. Endpoint viability is
+394 of 400 in both conditions. In the corrected clean ablation, forcing only recipient
+capacity to one raises final membership by 1.03 members with paired 95 per cent
+interval [-0.26, 2.31], so the effect is unresolved. Index-mate Tradition 12 ranks sixth
+at 0.12, and this
 is the fragile row of Part Four: the top two are 1.25 and 1.10, a margin of 0.15, and
 the Step Twelve to Tradition 5 assignment survives only 67.3 per cent [65.3, 69.4] of
 draws at plus or minus thirty per cent jitter. *Algebra and simulation.*
 
-*In plain terms.* Carrying the message is not a reward collected at the end. It holds
-the rest up. Turn it off and the group loses two thirds of its people and gets flatter
-across every Step, and yet it does not die. It settles into a smaller, quieter version
-of itself and stays there indefinitely, which is a shape a real group might not
-recognise as failure at all. The second finding is the uncomfortable one. What limits
-how much twelfth-step work an experienced member can do is the supply of newcomers, and
-if you remove that limit everything improves. The model is saying the group needs
-newcomers for the sake of the people who are already there, which is a less flattering
-account of welcome than the one usually given, and it follows from the arithmetic rather
-than from any view about motives.
+*In plain terms.* Carrying the message is not a reward collected at the end inside this
+model. Turn its growth off and the group loses about thirty per cent of mean endpoint
+membership, while the estimated viability fraction is unchanged. The experiment ends at
+thirty modeled years and does not establish that either condition stays there indefinitely.
+The recipient calculation is a hypothesis about
+opportunity per potential helper, not evidence about how real sponsorship matches form.
+The clean comparison is too imprecise to say that removing the modeled limit improves
+the group. The earlier stronger conclusion came from an intervention that also changed
+Step weights and beta.
 
 ---
 
@@ -6247,14 +5737,16 @@ than from any view about motives.
 *Technical.* Group-dependence is highest at the two ends, 1.00 at Step One and Step
 Twelve, and lowest in the middle, 0.17 at Step Seven, with a mean of 0.53. That the
 entry Step and the service Step depend most on other people is a consequence of the
-resource assignment rather than an input to it. The transmission asymmetry follows: a
-member's contribution to the group carries weight 1 by construction, while the group's
-contribution back is multiplied by beta, so the ratio runs from 1 to 6.0 and averages
-1.9. The ordering claim, that a Step cannot be skipped, is a limiting case: writing the
+resource assignment rather than an input to it. Beta is a within-model dependence
+index that blends autonomous and resource-supported peer growth. The code does not
+implement a reciprocal member-to-group weight, so no one-to-six transmission ratio
+follows. The ordering claim, that a Step cannot be skipped, is a limiting case: writing the
 stage as a constant-elasticity-of-substitution aggregator, strict ordering holds for
-every substitution parameter rho less than or equal to zero. Rho is estimable. With
-three proxies and 1,200 observations, 25 replications per cell, bias never exceeds 0.21
-and the recoverable band around zero is roughly plus or minus 0.15.
+every substitution parameter rho less than or equal to zero. The current simulation
+is only a proxy-averaging demonstration: it supplies the regressors and loadings
+without error and adds noise to the output. More output proxies improve resolution
+in that exercise, but it does not validate a latent-variable estimator or a required
+instrument count.
 
 *In plain terms.* The Steps form a U. The first and the last are things you cannot do
 alone. The middle ones are largely yours to do, with a group nearby rather than
@@ -6266,10 +5758,10 @@ stated as a piece of folk wisdom, take it or leave it. The model shows it is not
 separate belief at all. It is one setting of a dial that runs continuously from "each
 Step strictly requires the one before" to "the Steps substitute freely for each other",
 and the folk rule is everything on one half of that dial rather than a single extreme
-point. Which means it is the kind of claim that could be measured. Somebody with the
-right data on twelve hundred people could put a number on how much the Steps really do
-depend on their order, and the model says roughly how precise that study would need to
-be.
+point. Which means it is the kind of claim that could be measured. The calculation here
+makes the estimand explicit and shows that averaging noisy outputs can improve precision
+under oracle information. It does not establish a sufficient sample size or measurement
+design for real data, where inputs are latent and group attention is endogenous.
 
 ---
 
@@ -6279,14 +5771,15 @@ Each entry gives the Tradition's load, which is its column sum in B and therefor
 total demand all twelve Steps place on resources it governs, how many of the eight
 resources it governs, and its membership loss in the degradation comparison described
 in caution four. Losses whose 95 per cent interval includes zero are marked
-unresolved: eight of the twelve comparisons resolve and four do not.
+unresolved: seven of the twelve comparisons resolve and five do not. The T3 and T11
+entries instead lead with the more informative 400-seed path-split factorials.
 
 ## Tradition 1, unity
 
 *Technical.* Load 6.52, the largest, governing all eight resources and the only
 Tradition to do so. Principal supplier for four Steps and runner-up for six, so it is
-in the top two for ten of the twelve. Degrading it alone costs 4.48 members
-[3.18, 5.77], third largest. Its primacy survives 75.4 per cent [73.5, 77.2] of fully
+in the top two for ten of the twelve. Degrading it alone costs 1.65 members
+[0.99, 2.30], third largest. Its primacy survives 75.4 per cent [73.5, 77.2] of fully
 structural draws, against 40.6 per cent for the index-pairing claim. It is not the most
 diffuse Tradition by concentration: singleness of purpose scores marginally lower at
 0.197 against unity's 0.204. Its load is carried by two resources: continuity at 1.89
@@ -6308,8 +5801,8 @@ on.
 
 *Technical.* Load 3.89, second largest, governing four resources, with counsel at 0.69
 of its load and the highest concentration of any Tradition at 0.520. Principal supplier
-for four Steps and runner-up for four more. Degrading it alone costs 3.43 members
-[2.13, 4.72]. In the deliberation model it is one of three Traditions keeping maximum
+for four Steps and runner-up for four more. Degrading it alone costs 0.48 members
+[-0.14, 1.10], an unresolved contrast. In the deliberation model it is one of three Traditions keeping maximum
 influence falling toward one over N, which is the Golub and Jackson condition for a
 consensus converging on the truth. A single member holding 0.35 of every row floors the
 group's error at 0.279 however large the group grows, against a flat error falling as
@@ -6330,39 +5823,34 @@ before anybody would call it a problem.
 
 ## Tradition 3, the open door
 
-*Technical.* Load 2.69, governing four resources, with admission at 0.37 of its load.
-Degrading it alone costs 5.16 members [3.91, 6.40], second largest in the comparison.
-The figures that follow come from a different design and the two must not be added
-together: Tradition 3 varied alone across five levels with every other Tradition at
-1.0, 400 seeds per level, thirty-year horizon.
+*Technical.* Raw semantic load 2.69, governing four resources, with admission at 0.37
+of that raw load. In the 400-seed paired factorial, the baseline ends at mean N 17.80
+[16.92, 18.68]. Friction loss alone costs 2.96 members [1.85, 4.08]; governance loss
+alone costs 6.03 [5.04, 7.01]; combined loss costs 11.05 [10.03, 12.06]. The interaction
+is -2.06 [-3.41, -0.70], so the two contrasts must not be added. Combined loss closes
+25.0 per cent of groups [21.0, 29.5] and leaves 54.8 per cent endpoint-viable
+[49.9, 59.6].
 Because the Tradition removes the group's power to refuse admission, Tradition 3 does
-not appear in the arrival rate at all. It appears only in the dropout hazard, as a
-friction largest for members whose practice is near zero and negligible for veterans.
-An unwelcoming group's measured quality rises from 0.354 at full adherence to 0.400 at
-zero, and its newcomer share rises from 0.122 to 0.201. Both are conditional on survival
-and the quality advantage is smaller than it looks for that reason. Going to the
-unwelcoming extreme costs 14.2 members and 5.5 points of survival at thirty years.
-*Algebra and simulation.*
+not appear in the default arrival rate. It has two other paths: it governs four resource
+columns and it reduces an inverse-practice-weighted dropout friction. The latter is largest
+for members whose practice is near zero; it measures neither tenure nor demographic
+newness. The corrected factorial reports governance loss, friction loss, their combination
+and their interaction separately. Older combined sweeps cannot be described as retention
+only. *Algebra and simulation.*
 
-*In plain terms.* The open door is modelled as something a group cannot do rather than
-something it does. A group has no power to decide who turns up; it only decides how
-people are treated once they have. So the Tradition acts on who stays, not on who
-arrives. Two consequences fall out that nobody put in, and both are unsettling. An
-unwelcoming group looks *better* on paper, because it loses its shakiest members first
-and the average of who is left goes up. And it has more newcomers in the room at any
-given moment, because it has to keep replacing the people it drove off. So if you walk
-into a meeting with a lot of new faces and a lot of solid-looking long-timers, the model
-says that is either a healthy group or a cold one, and you cannot tell which from the
-room. That is the most testable claim in the book and the easiest to falsify: count the
-newcomers across meetings of differing warmth. If cold meetings have fewer newcomers,
-this mechanism is wrong.
+*In plain terms.* In the default model a group cannot decide who turns up, but it can
+affect what people receive and whether low-practice members stay. Those are two distinct
+mechanisms, and the old description collapsed them into one. The model records practice,
+not arrival date, so a room's low-practice fraction must not be translated into a count of
+newcomers. Testing demographic newness would require tenure or cohort data the model does
+not have.
 
 ## Tradition 4, autonomy
 
 *Technical.* Load 0.00. Its row in the governance matrix is identically zero: it governs
 no resource any Step consumes. It is one of the five protective Traditions and enters
 the simulation only as a multiplier, paired with Tradition 7, on the effective adherence
-of everything else. Degrading it alone costs 2.82 members [1.45, 4.19], identical to
+of everything else. Degrading it alone costs 0.88 members [0.26, 1.50], identical to
 Tradition 7's to the last digit because the two enter the same term symmetrically. That
 identity is an artefact of the model's construction, not a finding about the Traditions.
 *Algebra and simulation.*
@@ -6378,7 +5866,7 @@ multiplier is the simplest assumption that gives it any role at all.
 
 *Technical.* Load 3.88, a hair behind the group conscience, governing six resources, the
 second broadest. Principal supplier for Step Twelve and runner-up for Step Two.
-Degrading it alone costs 2.27 members [0.94, 3.60]. Transferring unity's governance of
+Degrading it alone costs 0.96 members [0.35, 1.57]. Transferring unity's governance of
 continuity or of gentle pressure to singleness of purpose makes it the leader, which is
 the strongest form of the objection that later AA literature substituted unity for
 single-purposedness. Six of the eight possible transfers cannot flip it and two can.
@@ -6396,7 +5884,7 @@ would change.
 
 *Technical.* Load 0.00, a protective Tradition with an empty governance row. Enters the
 simulation as a multiplier, paired with Tradition 10, on the effective adherence of
-singleness of purpose. Degrading it alone costs 0.71 members [-0.42, 1.83],
+singleness of purpose. Degrading it alone costs 0.23 members [-0.24, 0.69],
 **unresolved**: the comparison cannot distinguish its effect from zero at 400 paired
 replications. Identical to Tradition 10's figure for the same structural reason as the
 Tradition 4 and 7 pair. *Algebra and simulation.*
@@ -6410,7 +5898,7 @@ instrument that cannot resolve a thing is silent about it, not against it.
 ## Tradition 7, self-support
 
 *Technical.* Load 0.00, protective, empty row. Paired with Tradition 4 as a multiplier
-guarding against outside override. Degrading it alone costs 2.82 members [1.45, 4.19],
+guarding against outside override. Degrading it alone costs 0.88 members [0.26, 1.50],
 identical to Tradition 4's by construction. Money enters the simulation elsewhere,
 through a solvency term scaling the continuity resource: a group whose established
 members cannot cover the rent supplies continuity at 0.45 rather than 1.0. That
@@ -6429,7 +5917,8 @@ building the governance table would most likely disagree with the first.
 
 *Technical.* Load 1.11, the smallest non-zero load, governing four resources with
 confidentiality the largest at 0.41 of the total. Principal supplier for no Step and
-runner-up for none. Degrading it alone costs 1.03 members [-0.18, 2.23], **unresolved**.
+runner-up for none. Degrading it alone changes membership by -0.20 members
+[-0.71, 0.31], **unresolved**.
 *Algebra and simulation.*
 
 *In plain terms.* This is the Tradition the model can say least about. It touches four
@@ -6440,8 +5929,8 @@ the instrument did not detect anything rather than that there is nothing there.
 
 ## Tradition 9, no hierarchy
 
-*Technical.* Load 0.00, protective, empty row. Degrading it alone costs 0.89 members
-[-0.26, 2.04], **unresolved**. In the deliberation model, rotation of service works only
+*Technical.* Load 0.00, protective, empty row. Degrading it alone costs 0.02 members
+[-0.41, 0.46], **unresolved**. In the deliberation model, rotation of service works only
 if the rotating pool scales with the group. A fixed pool floors maximum influence at
 roughly the officeholder's share divided by the pool size, while the flat benchmark
 keeps falling as one over N, so the gap grows without limit: a pool of twelve sits at
@@ -6467,7 +5956,7 @@ this group doubled, would the same people still be running it?
 ## Tradition 10, no outside issues
 
 *Technical.* Load 0.00, protective, empty row. Paired with Tradition 6 as a multiplier
-on singleness of purpose. Degrading it alone costs 0.71 members [-0.42, 1.83],
+on singleness of purpose. Degrading it alone costs 0.23 members [-0.24, 0.69],
 **unresolved**, identical to Tradition 6's by construction. Part One's historical
 material bears on it more than the model does: the Washingtonians had a written analogue
 of this Tradition in print within two years of founding. *Algebra and simulation.*
@@ -6481,34 +5970,30 @@ because the other movement had it too.
 
 ## Tradition 11, attraction rather than promotion
 
-*Technical.* Load 2.69, governing four resources, with visible proof of recovery at 0.49
-of its load. Principal supplier for Step Two. Degrading it alone costs 7.90 members
-[6.70, 9.10], the largest loss in the comparison by more than two members and the only
-comparison with a t statistic above 12. It is the only Tradition appearing in the arrival
-rate: inflow is an exogenous referral floor plus attraction generated by members'
-twelfth-step practice and scaled by Tradition 11. Setting it to zero leaves 13.5 members
-at thirty years against 41.7, with survival at 0.998. Unreferred groups, by contrast, are
-alive in 36.0 per cent of runs at thirty years [0.314, 0.408]. That ordering, stated as
-mortality rather than as size, holds in all 236 targeted perturbations and under all four
-structural variants. *Algebra and simulation.*
+*Technical.* Raw semantic load 2.69, governing four resources, with visible proof of
+recovery at 0.49 of that raw load. Principal supplier for Step Two. Tradition 11 has two
+paths. Its attraction path multiplies inflow from members' Step Twelve practice; its
+governance row affects four resource columns. In the 400-seed paired factorial, pure
+attraction loss costs 5.42 members [4.52, 6.33], governance loss costs 2.29
+[1.21, 3.36], and combined loss costs 5.88 [4.97, 6.79]. The interaction is 1.83
+[0.76, 2.90]. None of the three conditions closes a group in these runs, and each leaves
+about 98 per cent endpoint-viable. Older tables that set the Tradition itself to zero are
+mixed interventions, not pure attraction tests. *Algebra and simulation.*
 
-*In plain terms.* Attraction costs the most in the membership comparison, and the more
-important finding is about what it does *not* do. A group nobody has heard of becomes
-small and stays small, more or less forever. A group cut off from courts, treatment
-centres and doctors becomes mortal, because its only source of new people is the people
-already in it, and that can fall to zero and stay there. Being unknown makes a group
-small. Being cut off from the outside world kills it. That distinction is the single
-best-supported thing the simulation produces, and it survived every attempt made to
-break it.
+*In plain terms.* Attraction and resource governance are different jobs in this model.
+Removing attraction makes the thirty-year group smaller without producing closure in these
+runs; removing governance also matters. Removing both is not the sum of removing each. No
+finite simulation establishes that a remnant lasts forever, and the outstanding comparison
+with referral loss must be reported on closure, endpoint viability and size separately.
 
 ## Tradition 12, anonymity
 
 *Technical.* Load 2.62, governing five resources, with confidentiality at 0.57 of its
 load. Principal supplier for Step Five and the Tradition governing confidentiality at the
-matrix maximum of 1.0. Degrading it alone costs 2.56 members [1.32, 3.80]. It is also one
+matrix maximum of 1.0. Degrading it alone costs 0.99 members [0.41, 1.58]. It is also one
 of two Traditions guarding the effective adherence of the group conscience, entering that
 term symmetrically with Tradition 9. Because the two enter identically there, the entire
-difference between their measured losses, 2.56 against 0.89, is Tradition 12's own
+difference between their measured losses, 0.99 against 0.02, is associated with Tradition 12's own
 governance row. In the deliberation model it is the third of the three holding maximum
 influence near one over N. *Algebra, deliberation and simulation.*
 
@@ -6546,11 +6031,12 @@ mean live governance entry of 0.374. Pairing fails on all twelve in 85.5 per cen
 [83.9, 87.0] of draws at plus or minus thirty per cent jitter and 40.6 per cent
 [38.5, 42.8] when every magnitude is randomised.
 
-*In plain terms.* The Traditions come in two kinds, and the model found the division
-rather than being told it. Seven of them hand the group something it needs. Five of them
-hand over nothing and instead stop something from going wrong: they are guards rather
-than suppliers. Nobody sorted them that way in advance; it fell out of asking what each
-Tradition looks after and noticing that five of the answers were empty.
+*In plain terms.* The author-coded governance table places the Traditions in two kinds;
+the model did not discover the division independently. Seven of them hand the group
+something it needs. Five hand over nothing and instead stop something from going wrong:
+they are guards rather than suppliers. That is a transparent property of one person's
+coding and an invitation for independent readers to disagree, not a result computation
+can validate.
 
 The pairing idea, that the first Step goes with the first Tradition and so on down, is
 wrong everywhere. But the honest version of that result is more careful than the
@@ -6569,9 +6055,10 @@ that way.
 ## What this primer does not say
 
 **It does not rank the Traditions by importance.** The degradation column measures
-membership at twenty years in a one-factor sweep from 0.85 to 0.50. Traditions 2, 9 and
-12 carry the book's central argument, and three of the four unresolved rows are
-protective Traditions whose simulation role is an assumption rather than a derivation.
+membership at twenty years in a one-factor sweep from 0.85 to 0.50. Seven of the twelve
+contrasts resolve and five do not. Traditions 2, 9 and 12 carry the book's central
+argument, and three of the five unresolved rows are protective Traditions whose
+simulation role is an assumption rather than a derivation.
 
 **It does not establish that Traditions 2, 9 and 12 are what prevents the three
 obstructions.** The appendix shows the three obstructions behave as the theorem says. The
@@ -6590,11 +6077,11 @@ at a coin flip. In plainer terms: one disagreement here and there is survivable,
 disagreement is not, and only a second reader can say which this would be.
 
 **Nothing here is calibrated to AA data**, because none exists at the required
-resolution. Inflow, dropout and churn were set so that a fully adherent group holds near
-forty-five members with an experienced core near nine. At 400 seeds it delivers 41.7 plus
-or minus 1.5 members and a core of 7.7 plus or minus 0.5, undershooting both, and the
-shortfall on the core is larger than its own interval. That is calibration to a stylised
-fact, and it does not hit the stylised fact exactly.
+resolution. Inflow, dropout and churn were originally set to target about forty-five
+members with an experienced core near nine. After mean-centring the lognormal capability
+draw, 400 runs deliver 17.80 plus or minus 0.88 members overall; among the 394 viable
+endpoints the experienced count above 0.5 is 1.25 plus or minus 0.20. The calibration
+fails. It is disclosed rather than repaired after seeing the result.
 
 ---
 
@@ -6606,6 +6093,10 @@ because it is an appendix rather than a chapter and the checker skips its struct
 block entirely. It keeps the convention anyway, and the exemption is the reason a reader
 should not assume anything enforced it.
 
+The separately supplied corpus under `research/staged/` is reserved for the next
+iteration. None of those remaining items is evidence for this primer merely because a
+local file exists.
+
 **Read in full:**
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom
@@ -6613,10 +6104,10 @@ of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. The vanis
 influence condition and the three obstructions. Read at source.
 
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on
-Alcohol* 11: 410-452. The claim that anonymity has "sheer survival value". Read at
-source; the original text is stored in the Maxwell subdirectory of
-`research/incorporated/`, a retyped reproduction with four demonstrable transcription errors listed in
-`research/SOURCES.md`.
+Alcohol* 11: 410-452. The claim that anonymity has "sheer survival value". Read in full
+from the project's retyped reproduction, not at journal source. The original project PDF
+and text are stored in the Maxwell subdirectory of `research/incorporated/`; four
+demonstrable transcription errors are listed in `research/SOURCES.md`.
 
 Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica,
 N.Y.: B. S. Merrell. The Washingtonians' own manual, used here for the written
@@ -6647,14 +6138,14 @@ by `model/tradition_paired.py`. `research/part5.json`, 4,800 runs behind the Tra
 sweep and the three failure modes. `research/ch15_service.json`, the three service
 configurations. `research/core_thresholds.json`, the two membership thresholds and the
 calibration figures. `research/resource_list.json`, the sixty-four resource-list
-variants. `research/oat_full.json`, the 236 targeted perturbations.
+variants. `research/oat_full.json`, the 944 registered multi-level perturbation points.
 `research/structural.json`, the four structural variants.
 
-`appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A3.3 for
-the seed-count table, A5.4 and A5.6 for the perturbation designs and what they cannot
-reach, A5.4b for the threshold test, A5.4c for the reassignment test, A5.4d for the
-degradation ranking, A5.4e for the sparsity pricing, A9 for the structural variants and
-A9.5 for the resource-list test. Part Two's sensitivity analysis is the section titled
+`appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A4 for
+the seed counts and estimands, A5.4 and A7.1 for the perturbation designs and what they
+cannot reach, A8 for the threshold, reassignment and sparsity-pricing tests, A5.2 for the
+degradation ranking, A7.3 for the structural variants and A7.6 for the resource-list
+test. Part Two's sensitivity analysis is the section titled
 "Part Two: sensitivity of the mapping between the theorem and the Traditions", which is
 numbered A8 and shares that number with the reproduction section at the end of the file.
 
@@ -6690,11 +6181,12 @@ paper's.
 
 > **Scope and ethics.** This paper does not reproduce the text of the Twelve Steps or Twelve Traditions, which is copyrighted by Alcoholics Anonymous World Services, Inc.; short paraphrases are used throughout. AA is not affiliated with this work and, by its Sixth Tradition, could not be. Nothing in this paper can assess any individual's recovery, and it must not be used to do so. No AA publication was acquired for this project; the historical material is drawn from independent scholarship and from primary temperance sources in the public domain.
 
-## Introduction
+Introduction
+------------
 
 Two literatures have circled Alcoholics Anonymous without meeting. The clinical literature asks whether AA works and through what mechanism; a Cochrane review concludes that twelve-step facilitation performs at least as well as comparison treatments for abstinence and operates chiefly through changes in participants' social networks (Kelly, Humphreys, and Ferri 2020). The formal-modeling literature has produced compartmental models of drinking dynamics (Sánchez et al. 2007; Sharma and Samanta 2015), agent-based models of alcohol availability (Gorman et al. 2006), and individual-level dynamical models of behavior change fitted to clinical data (Banks et al. 2014, 2017). Neither literature has modeled the content of the Twelve Steps as a structured process, and neither has modeled the Twelve Traditions at all.
 
-The omission is notable because the Traditions constitute an unusually clean object of institutional study. They are a written constitution for a radically decentralized organization: codified in 1946 from a decade of documented group failures, formally adopted in 1950, and unamended in substance since. They govern on the order of 120,000 autonomous groups with no enforcement mechanism, no hierarchy, and no budget above the group level. Organizations that hold a governance rule fixed for three-quarters of a century while scaling through six orders of magnitude are rare, and rarer still is one whose founding documents record the failure modes the rules were written to prevent.
+The omission is notable because the Traditions constitute an unusually clean object of institutional study. They are a written constitution for a radically decentralized organization: codified in 1946 from a decade of documented group failures, formally adopted in 1950, and unamended in substance since. They govern through autonomous groups with no enforcement mechanism, no hierarchy, and no budget above the group level. Organizations that hold a governance rule fixed for three-quarters of a century while scaling through six orders of magnitude are rare, and rarer still is one whose founding documents record the failure modes the rules were written to prevent.
 
 **The central claim is narrow, formal, and interpretive at one joint.** Three of the Traditions (group conscience with servant leadership, Tradition 2; the refusal to organize hierarchically, Tradition 9; and anonymity with principles placed before personalities, Tradition 12) share an effect that is invisible when they are read as ethics and immediate when they are read as a constraint on a stochastic matrix: they prevent any member from acquiring a non-vanishing share of the group's aggregate attention. That is precisely the condition under which DeGroot (1974) belief averaging is asymptotically wise (Golub and Jackson 2010). To our knowledge, this correspondence has not previously been stated.
 
@@ -6706,11 +6198,12 @@ Three further contributions support the central one. We derive the coupling betw
 
 Section 2 reviews the relevant literatures. Section 3 states the aggregation framework and the mapping from Traditions to its conditions, with the rotation-scaling and obstruction-scaling corollaries and the touring-speaker structure. Section 4 derives the Step--Tradition coupling and reports six robustness designs against it. Section 5 presents the CES formulation of the Steps and its identification strategy. Section 6 describes the simulation model, its results, and the sensitivity analysis that bounds them. Section 7 gives the comparative historical case. Section 8 collects limitations; Section 9 states predictions, marking where the analysis above already bears on them; Section 10 concludes. Appendix A restates the paper in plain language. Appendix B is a reproducibility note.
 
-## Literature Review
+Literature Review
+-----------------
 
 ### Effectiveness and mechanisms of AA
 
-The Cochrane review of twelve-step facilitation (Kelly, Humphreys, and Ferri 2020) finds manualized TSF at least as effective as comparison treatments for continuous abstinence and, in several trials, superior. The mechanism literature converges on social network change: Kaskutas, Bond, and Humphreys (2002) find that AA's effect on drinking outcomes is mediated substantially by changes in the composition of a participant's social network; Rynes and Tonigan (2012) examine whether sponsorship effects reduce to network effects. Measurement instruments for affiliation and involvement are established (Humphreys, Kaskutas, and Weisner 1998; Tonigan, Connors, and Miller 1996; Tonigan and Greenfield 2013). The helper-therapy principle (Riessman 1965) and its AA-specific test (Pagano et al. 2004) address whether helping others benefits the helper. Galanter (1981) supplies an earlier account of why large-group affiliation relieves distress, which is the closest antecedent to this paper's treatment of the group as a producer of resources members consume.
+The Cochrane review of twelve-step facilitation (Kelly, Humphreys, and Ferri 2020) finds manualized TSF at least as effective as comparison treatments for continuous abstinence and, in several trials, superior. The mechanism literature converges on social network change: Kaskutas, Bond, and Humphreys (2002) find that AA's effect on drinking outcomes is mediated substantially by changes in the composition of a participant's social network; Rynes and Tonigan (2012) examine whether sponsorship effects reduce to network effects. Measurement instruments for affiliation and involvement are established (Humphreys, Kaskutas, and Weisner 1998; Tonigan, Connors, and Miller 1996; Greenfield and Tonigan 2013). The helper-therapy principle (Riessman 1965) and its AA-specific test (Pagano et al. 2004) address whether helping others benefits the helper. Galanter (1981) supplies an earlier account of why large-group affiliation relieves distress, which is the closest antecedent to this paper's treatment of the group as a producer of resources members consume.
 
 ### Formal models of drinking and recovery
 
@@ -6736,44 +6229,42 @@ The comparative case in Section 7 rests on primary temperance sources read at s
 
 No prior work, so far as we have found, treats the Traditions as a formal constraint on an influence structure, derives the Step--Tradition coupling rather than asserting it, or models group-level membership dynamics under the institutional constraint that a group cannot refuse membership. The gap is the paper's occasion; whether the paper fills it well is the subject of Section 8.
 
-## Governance as an Aggregation Mechanism
+Governance as an Aggregation Mechanism
+--------------------------------------
 
 ### Framework
 
-A group of $N$ members holds beliefs about a matter of collective business. Let $A$ be the row-stochastic trust matrix, $A_{ij}$ the weight member $i$ places on member $j$, and let beliefs update by $b(t+1) = A\,b(t)$. Under strong connectivity and aperiodicity, beliefs converge to a consensus equal to $s^{\top}b(0)$, where $s$, the influence vector, is the normalized left dominant eigenvector of $A$. If initial beliefs are the truth $\mu$ plus independent noise of standard deviation $\sigma$, the consensus converges in probability to $\mu$ as $N$ grows if and only if $\max_j s_j \to 0$ (Golub and Jackson 2010).
+A group of $N$ members holds beliefs about a matter of collective business. Let $A$ be the row-stochastic trust matrix, $A_{ij}$ the weight member $i$ places on member $j$, and let beliefs update by $b(t+1) = A\,b(t)$. Under strong connectivity and aperiodicity, beliefs converge to a consensus equal to $s^{\top}b(0)$, where $s$, the influence vector, is the normalized left stationary vector of $A$. Rows describe whose beliefs a member uses; columns describe direct attention received. Neither row equality nor column sums alone are long-run influence. Under the regularity conditions in Golub and Jackson (2010), aggregation requires the largest stationary weight to vanish: $\max_j s_j \to 0$.
 
-The error is available in closed form, which is how Table [3](#tab:error){reference-type="ref" reference="tab:error"} is computed rather than simulated. The consensus is $\mu + \sum_j s_j e_j$, a normal variable with mean zero and standard deviation $\sigma\lVert s\rVert$, and for a mean-zero normal the expected absolute value is its standard deviation times $\sqrt{2/\pi}$. So $$\begin{equation}
-\mathbb{E}\,\lvert \text{consensus} - \mu \rvert \;=\; \sigma\,\lVert s\rVert\,\sqrt{2/\pi}.
-\label{eq:err}
-\end{equation}$$ Under equal weighting $s_j = 1/N$, so $\lVert s\rVert = N^{-1/2}$ and the error is exactly $\sigma\sqrt{2/\pi}\,/\sqrt{N}$. The single-member baseline is the same expression at $N=1$: $\sigma\sqrt{2/\pi} = 0.798$ at $\sigma = 1$. Every figure in this section is deterministic algebra, not Monte Carlo, and carries no sampling error.
+The error is available in closed form, which is how Table [3](#tab:error){reference-type="ref" reference="tab:error"} is computed rather than simulated. Assume here that the initial errors are iid Gaussian with standard deviation $\sigma$. Then the consensus is $\mu + \sum_j s_j e_j$, a normal variable with mean zero and standard deviation $\sigma\lVert s\rVert$, and for a mean-zero normal the expected absolute value is its standard deviation times $\sqrt{2/\pi}$. So $$\mathbb{E}\,\lvert \text{consensus} - \mu \rvert \;=\; \sigma\,\lVert s\rVert\,\sqrt{2/\pi}.
+\label{eq:err}$$ Under equal weighting $s_j = 1/N$, so $\lVert s\rVert = N^{-1/2}$ and the error is exactly $\sigma\sqrt{2/\pi}\,/\sqrt{N}$. The single-member baseline is the same expression at $N=1$: $\sigma\sqrt{2/\pi} = 0.798$ at $\sigma = 1$. Every figure in this section is deterministic algebra under that Gaussian benchmark, not Monte Carlo, and carries no sampling error. Independence and a common variance without the Gaussian premise are not sufficient for Equation the consensus-error equation above.
 
 ### The mapping
 
-  **Tradition (paraphrase)**                                           **Formal content**                                                      **Role**
-  -------------------------------------------------------------------- ----------------------------------------------------------------------- ----------------------------------------------
-  2\. Group conscience; leaders serve, do not govern                   No row of $A$ is privileged by office                                   Blocks prominence via formal authority
-  9\. No hierarchy; service rotates                                    $A$ is redrawn; office does not accumulate weight                       Prevents persistent high in-degree (§3.5)
-  12\. Anonymity; principles before personalities                      Removes surname, occupation, status, the substrate of unequal weights   Blocks the formation mechanism of prominence
-  . Common welfare first                                               $A$ strongly connected                                                  Precondition for convergence
-  4\. Group autonomy                                                   No cross-group influence aggregation                                    No prominent group at higher levels
-  3\. Desire to stop drinking is the only requirement for membership   $N$ unbounded; no screening on membership                               Makes the asymptotic regime the relevant one
+::: {#tab:mapping}
+  **Tradition (paraphrase)**                                           **Formal content**                                                       **Role**
+  -------------------------------------------------------------------- ------------------------------------------------------------------------ -------------------------------------------------------------------
+  2\. Group conscience; leaders serve, do not govern                   Offices are hypothesized not to confer persistent attention received     Proposed mechanism reducing stationary concentration
+  9\. No hierarchy; service rotates                                    Office-linked attention is periodically reassigned across a broad pool   Proposed mechanism preventing persistent stationary concentration
+  12\. Anonymity; principles before personalities                      Some status cues on which attention may condition are suppressed         Proposed mechanism reducing one source of concentration
+  1\. Common welfare first                                               $A$ strongly connected                                                   Precondition for convergence
+  4\. Group autonomy                                                   No cross-group influence aggregation                                     No prominent group at higher levels
+  3\. Desire to stop drinking is the only requirement for membership   $N$ unbounded; no screening on membership                                Makes the asymptotic regime the relevant one
 
-  : The mapping. **This table is an interpretation of the Traditions' wording, not a result.** It is the paper's central and least verified step. {#tab:mapping}
-
-::: {#prop:one .proposition}
-**Proposition 1** (Exchangeability under the three Traditions). *Suppose Traditions 2, 9, and 12 hold exactly, in the sense that no member is distinguished by office, by accumulated position, or by any identifying attribute on which another member could condition a trust weight. Then trust weights are exchangeable across members, $A$ is doubly stochastic, $s_j = 1/N$ for every $j$, and $\max_j s_j \to 0$: the group conscience is asymptotically wise. Conversely, any arrangement assigning a fixed share $\alpha > 0$ of aggregate attention to a bounded set of members bounds $\max_j s_j$ away from zero, and aggregation fails.*
+  : The mapping. **This table is an interpretation of the Traditions' wording, not a result.** It is the paper's central and least verified step.
 :::
 
-The converse is the substantive direction: violating these Traditions is sufficient to break aggregation regardless of the group's other virtues.
+For a sequence of row-stochastic influence matrices satisfying the convergence and signal conditions in Golub and Jackson (2010), beliefs aggregate if the largest normalized stationary influence vanishes, $\max_j s_j\to0$. Persistent stationary concentration on a bounded set is sufficient for failure. A doubly stochastic matrix is a special case: its stationary vector is uniform and $s_j=1/N$.
 
-::: remark
-**Remark 1** (The status of Proposition [1](#prop:one){reference-type="ref" reference="prop:one"}). *The mathematics is immediate; the hypothesis is the whole difficulty. Reading "leaders are trusted servants; they do not govern" as "no row of $A$ is privileged by office" is an interpretation of a sentence, and a reader may reasonably hold that Tradition 2 is about humility rather than weighting, or that anonymity is chiefly protective of individuals and only incidentally structural. Nothing computed anywhere in this paper bears on that reading. Exchangeability is also an idealization: real trust is never exactly uniform, so the claim is asymptotic and approximate, that the Traditions push $\max_j s_j$ toward $1/N$ rather than exactly to it.*
-:::
+The institutional claim is a separate hypothesis: Traditions 2, 9, and 12 may make persistent stationary concentration less likely. Their wording does not by itself imply exchangeability or double stochasticity. Conversely, violating a Tradition is not sufficient for aggregation failure; names, offices, and hierarchy can exist while $\max_j s_j$ still vanishes.
+
+The established mathematics and the proposed mapping must not be merged. Reading "leaders are trusted servants; they do not govern" as a mechanism limiting attention received is an interpretation of a sentence, and a reader may reasonably hold that Tradition 2 is about humility rather than weighting, or that anonymity is chiefly protective of individuals and only incidentally structural. Nothing computed anywhere in this paper validates that reading. Exchangeability is an additional assumption, not a consequence of the absence of a named office. The testable institutional hypothesis is directional: the Traditions reduce persistent concentration in $s$, not that they make every realized weight equal.
 
 ### Failure modes, quantified
 
 Tables [2](#tab:influence){reference-type="ref" reference="tab:influence"} and [3](#tab:error){reference-type="ref" reference="tab:error"} report the two quantities separately. They are distinct and are easily conflated: at $N = 10$ the flat regime's maximum influence weight is 0.100 and its consensus error is 0.252, and only the first is bounded by construction.
 
+::: {#tab:influence}
     $N$    Flat   Dominant   Caucus of 3   Closed core of 5   Rotating, pool 12
   ----- ------- ---------- ------------- ------------------ -------------------
      10   0.100      0.350         0.167              0.200                 n/a
@@ -6781,8 +6272,10 @@ Tables [2](#tab:influence){reference-type="ref" reference="tab:influence"} and 
     250   0.004      0.350         0.167              0.200               0.032
     500   0.002      0.350         0.167              0.200               0.030
 
-  : Maximum influence weight $\max_j s_j$. Constructions: *dominant*, one member receives 0.35 of every row, remainder split evenly; *caucus*, three members receive 0.50 of every row between them; *closed core*, five members receive 0.45 of every row and distribute their own attention only among themselves; *rotating*, one of $R=12$ members holds share 0.35 in each term, time-averaged over the cycle (undefined at $N=10$, where the pool exceeds the group). Exact to the digits shown; no sampling error. {#tab:influence}
+  : Maximum influence weight $\max_j s_j$. Constructions: *dominant*, one member receives 0.35 of every row, remainder split evenly; *caucus*, three members receive 0.50 of every row between them; *closed core*, five members receive 0.45 of every row and distribute their own attention only among themselves; *rotating*, one of $R=12$ members holds share 0.35 in each term, time-averaged over the cycle (undefined at $N=10$, where the pool exceeds the group). Exact to the digits shown; no sampling error.
+:::
 
+::: {#tab:error}
     $N$    Flat   Dominant   Caucus of 3   Closed core of 5   Rotating, pool 12
   ----- ------- ---------- ------------- ------------------ -------------------
      10   0.252      0.328         0.275              0.357                 n/a
@@ -6790,7 +6283,8 @@ Tables [2](#tab:influence){reference-type="ref" reference="tab:influence"} and 
     250   0.050      0.281         0.232              0.357               0.093
     500   0.036      0.280         0.231              0.357               0.087
 
-  : Mean $\lvert$consensus $-$ truth$\rvert$ at $\sigma = 1$, from equation ([\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"}), against a single-member baseline of 0.798. Same constructions as Table [2](#tab:influence){reference-type="ref" reference="tab:influence"}. {#tab:error}
+  : Mean $\lvert$consensus $-$ truth$\rvert$ at $\sigma = 1$, from equation (the consensus-error equation above), against a single-member baseline of 0.798. Same constructions as Table [2](#tab:influence){reference-type="ref" reference="tab:influence"}.
+:::
 
 Under flat weighting, error declines as exactly $N^{-1/2}$; under a dominant member or an entrenched caucus it plateaus. The analytic limits confirm the tables: dominant tends to $0.35\sqrt{2/\pi} = 0.279$; the caucus tends to 0.230; the closed core sits at exactly $\sqrt{2/\pi}/\sqrt{5} = 0.357$, the error of a five-member group, because the influence of every member outside the core is identically zero at every $N$, which is why that column does not vary with $N$ at all.
 
@@ -6806,17 +6300,13 @@ Hold the magnitudes fixed and neither the clique nor the imbalanced member obstr
 
 Now let the same two practices scale with the group. A clique whose inwardness approaches one as the group expands holds 0.167 at every size tested from 10 to 1000. A member whose attention advantage grows in proportion to the group runs from 0.182 at $N=10$ to 0.168 at $N=1000$, converging to a positive share rather than settling on one exactly. Neither falls toward zero, and that is the whole of what makes them obstructions.
 
-::: corollary
-**Corollary 2** (Obstruction scaling). *Whether a concentration of attention obstructs group learning is determined by how it scales with $N$, not by how severe it is at any one $N$. The diagnostic question about any concentration is therefore not how large it is but whether it would still be there if the group doubled.*
-:::
+Whether a concentration of attention obstructs group learning is determined by how it scales with $N$, not by how severe it is at any one $N$. The diagnostic question about any concentration is therefore not how large it is but whether it would still be there if the group doubled.
 
 It is easy to read the three obstructions as three things a room can have at a given moment, and on that reading a tight clique is an obstruction wherever it appears. It is not. The general form of the point is the rotation result that follows.
 
 ### Rotation must scale
 
-::: proposition
-**Proposition 3** (Rotation breadth). *If service rotates over a pool of $R$ members, each officeholder attracting attention share $\alpha$, time-averaged maximum influence is approximately $\alpha/R$ plus residual flat weight. With $R$ fixed as $N$ grows, $\max_j s_j$ is bounded below and the wisdom condition fails despite rotation.*
-:::
+If service rotates over a pool of $R$ members, each officeholder attracting attention share $\alpha$, time-averaged maximum influence is approximately $\alpha/R$ plus residual flat weight. With $R$ fixed as $N$ grows, $\max_j s_j$ is bounded below and the wisdom condition fails despite rotation.
 
 At $N=400$ and $\alpha = 0.35$, the sweep over $R$ gives maximum influence 0.118, 0.060, 0.031, 0.016, 0.009, 0.005 and 0.003 at $R = 3, 6, 12, 25, 50, 100$ and 400, against a flat benchmark of 0.0025. The $\alpha/R$ approximation tracks the computed value closely at every point, which is the check that the mechanism is the one claimed. Holding the pool at twelve while the group grows, maximum influence converges to a floor (0.041, 0.035, 0.032, 0.031, 0.030 at $N = 50, 100,
 200, 400, 800$) while the flat benchmark does not (0.020, 0.010, 0.005, 0.0025, 0.0013). The ratio between them runs 2.1, 3.5, 6.4, 12.3, 23.9. That divergence is the entire result.
@@ -6825,14 +6315,13 @@ The pool required to come within a factor of two of flat is 13 at $N=50$, 26 at 
 
 ### Touring speakers: a closed form
 
-A movement's attention structure can be modeled as bipartite: flat attention within local societies, plus cross-society attention flowing through touring speakers. Let each member give fraction *out* of their attention to the speakers and let the speakers return fraction *back* of theirs to the general membership. Then $$\begin{equation}
-\text{speakers' share of total influence} \;=\; \frac{\text{out}}{\text{out} + \text{back}},
-\label{eq:speakers}
-\end{equation}$$ exact to twelve decimal places, **independent of the number of members and of the number of speakers**. Five speakers receiving three tenths of the movement's attention and returning two tenths of their own hold six tenths of the influence in a movement of ten and in a movement of a thousand alike.
+A movement's attention structure can be modeled as bipartite: flat attention within local societies, plus cross-society attention flowing through touring speakers. Let each member give fraction *out* of their attention to the speakers and let the speakers return fraction *back* of theirs to the general membership. Then $$\text{speakers' share of total influence} \;=\; \frac{\text{out}}{\text{out} + \text{back}},
+\label{eq:speakers}$$ exact to twelve decimal places, **independent of the number of members and of the number of speakers**. Five speakers receiving three tenths of the movement's attention and returning two tenths of their own hold six tenths of the influence in a movement of ten and in a movement of a thousand alike.
 
 This is stronger than the argument it replaces. It is not that the influence vector converges on the speakers as the movement grows; the speakers' share is fixed by a ratio and does not move with size at all, because growth adds members to the denominator of the local channel and to the numerator of the speaker channel in equal measure. Section 7 applies it.
 
-## Deriving the Step--Tradition Coupling
+Deriving the Step--Tradition Coupling
+-------------------------------------
 
 ### A natural conjecture, tested
 
@@ -6840,34 +6329,34 @@ Two ordered lists of twelve, printed in a single volume, invite the conjecture t
 
 ### Method
 
-To avoid re-deriving the same mistake, no direct step-to-tradition mapping is permitted. An intermediate layer of eight group-produced resources is introduced (admission and standing, identification, living proof, confidential audience, counsel, a recipient for twelfth-step work, continuity, and normative pressure), and the coupling is computed as $$\begin{equation}
-B \;=\; S\,G^{\top},
-\end{equation}$$ where $S[i,r]$ records how much Step $i$'s execution consumes resource $r$ (written by asking what each step requires) and $G[j,r]$ records how much Tradition $j$ governs the supply of $r$ (written independently of $S$). Both matrices are hand-written judgments. That is the whole of their evidentiary status, and Section 4.5 does not soften it.
+To avoid re-deriving the same mistake, no direct step-to-tradition mapping is permitted. An intermediate layer of eight group-produced resources is introduced (admission and standing, identification, living proof, confidential audience, counsel, a recipient for twelfth-step work, continuity, and normative pressure), and the coupling is computed as $$B \;=\; S\,G^{\top},$$ where $S[i,r]$ records how much Step $i$'s execution consumes resource $r$ (written by asking what each step requires) and $G[j,r]$ records how much Tradition $j$ governs the supply of $r$ (written independently of $S$). Both matrices are hand-written judgments. That is the whole of their evidentiary status, and Section 4.5 does not soften it.
 
 ### Results
 
 Table [4](#tab:coupling){reference-type="ref" reference="tab:coupling"} gives the unperturbed coupling.
 
+::: {#tab:coupling}
   Step             Principal     Value Runner-up     Value Index-mate     Value   Its rank
   ---------------- ----------- ------- ----------- ------- ------------ ------- ----------
   1 admit          T3             1.22 T1             0.99 T1              0.99          2
   2 believe        T11            0.82 T5             0.72 T2              0.13          7
   3 decide         T2             0.31 T1             0.27 T3              0.01          7
-  4 inventory      T2             0.35 T1             0.35 T4              0.00          8
+  4 inventory      T1/T2 tie      0.35 ---             --- T4              0.00          8
   5 tell someone   T12            1.08 T1             0.65 T5              0.12          5
-  6 willing        T1             0.25 T2             0.24 T6              0.00          9
-  7 ask            T1             0.17 T2             0.13 T7              0.00         10
+  6 willing        T1             0.25 T2             0.24 T6              0.00          7
+  7 ask            T1             0.17 T2             0.13 T7              0.00          7
   8 list harms     T2             0.43 T1             0.29 T8              0.07          4
-  9 amends         T2             0.90 T1             0.48 T9              0.00         11
-  10 daily         T1             0.94 T2             0.43 T10             0.00         12
+  9 amends         T2             0.90 T1             0.48 T9              0.00          8
+  10 daily         T1             0.94 T2             0.43 T10             0.00          8
   11 connect       T1             0.47 T2             0.21 T11             0.11          4
   12 carry it      T5             1.25 T3             1.10 T12             0.12          6
 
-  : The derived coupling $B = SG^{\top}$, unperturbed. Not one Step is chiefly served by its index-mate. Load per Tradition, exact: T1 6.52, T2 3.89, T5 3.88, T3 2.69, T11 2.69, T12 2.62, T8 1.11, and exactly zero for T4, T6, T7, T9 and T10. {#tab:coupling}
+  : The author-coded semantic overlap $B = SG^{\top}$, unperturbed. It is not the executable state-update map. Competition ranks use $1+$ the count of strictly larger entries, so exact ties share rank. Not one Step has its index-mate in the maximizing set. Load per Tradition, exact: T1 6.52, T2 3.89, T5 3.88, T3 2.69, T11 2.69, T12 2.62, T8 1.11, and exactly zero for T4, T6, T7, T9 and T10.
+:::
 
-1.  **The two-tier division is derived, not assumed.** Five Traditions (autonomy, non-endorsement, self-support, non-hierarchy, and no outside issues) have identically zero rows in $G$: they govern no resource any step consumes, and can operate only by protecting the Traditions that do. This division had been conjectured informally; the derivation produces it mechanically.
+1.  **The author coding contains a two-tier division.** Five Traditions (autonomy, non-endorsement, self-support, non-hierarchy, and no outside issues) have identically zero rows in $G$. Those zeros were assigned by the author; the matrix multiplication reveals their consequences but does not independently discover or validate the classification.
 
-2.  **Unity is the most load-bearing Tradition.** Under index-pairing, unity fed one step; derived, it appears in nearly every row, because continuity and cohesion are consumed by almost everything. Tradition 1 asserts precisely this of itself; the model derives the assertion rather than encoding it.
+2.  **Unity has the largest raw semantic load under this coding.** Under index-pairing, unity fed one step; in the authored matrices it overlaps with resources consumed by nearly every Step. The multiplication summarizes those judgments; it does not supply independent evidence for them.
 
 3.  **The index-pairing conjecture is rejected on all twelve counts.** Step 5's principal supplier is Tradition 12 and Step 12's is Tradition 5, the two correspondences a reader would guess, reversed.
 
@@ -6885,26 +6374,27 @@ Every entry of $S$ and $G$ is multiplied by an independent uniform draw on $[1-L
 
 ##### Design 2, structural randomization.
 
-Every non-zero entry of $S$ and $G$ is replaced by an independent uniform draw on $[0.05, 1.00]$; zeros stay zero. 2,000 draws, seed 23. This represents a reader who accepts only the pattern of which Tradition touches which resource and rejects every magnitude we chose. It is the same test the survival claims of Sections 6 and 7 pass at 100 per cent.
+Every non-zero entry of $S$ and $G$ is replaced by an independent uniform draw on $[0.05, 1.00]$; zeros stay zero. 2,000 draws, seed 23. This represents a reader who accepts only the pattern of which Tradition touches which resource and rejects every magnitude we chose. A parallel 1,000-draw screen passes randomized nonzero matrices through the full executable model: the referral-versus-pure-attraction comparison is strict in all 1,000 draws on final membership and endpoint viability and in 999, with one tie, on existence. Full-adherence viability in all three screening seeds holds in only 784 draws. The comparison and the absolute outcome therefore cannot borrow one another's robustness.
 
-  Design                                              T1 leads   Index-pairing wrong, all          Step 5 $\to$ T12          Step 12 $\to$ T5
-  ---------------------------------- ------------------------- -------------------------- ------------------------- -------------------------
-  jitter $\pm$`<!-- -->`{=html}15%       100.0 \[99.8, 100.0\]        98.8 \[98.2, 99.2\]     100.0 \[99.8, 100.0\]       89.7 \[88.3, 91.0\]
-  jitter $\pm$`<!-- -->`{=html}30%       100.0 \[99.8, 100.0\]        85.5 \[83.9, 87.0\]       99.5 \[99.1, 99.7\]       67.3 \[65.3, 69.4\]
-  jitter $\pm$`<!-- -->`{=html}50%         98.0 \[97.3, 98.5\]        72.5 \[70.5, 74.4\]       88.7 \[87.2, 90.0\]       52.9 \[50.7, 55.1\]
-  jitter $\pm$`<!-- -->`{=html}75%         86.8 \[85.3, 88.3\]        65.2 \[63.0, 67.2\]       71.5 \[69.5, 73.4\]       43.8 \[41.6, 45.9\]
-  **structural**                       **75.4 \[73.5, 77.2\]**    **40.6 \[38.5, 42.8\]**   **17.5 \[15.9, 19.2\]**   **27.6 \[25.7, 29.7\]**
+::: {#tab:coupling-robust}
+  Design                             T1 leads   Index-pairing wrong, all          Step 5 $\to$ T12          Step 12 $\to$ T5
+  ----------------- ------------------------- -------------------------- ------------------------- -------------------------
+  jitter $\pm$15%       100.0 \[99.8, 100.0\]        98.8 \[98.2, 99.2\]     100.0 \[99.8, 100.0\]       89.7 \[88.3, 91.0\]
+  jitter $\pm$30%       100.0 \[99.8, 100.0\]        85.5 \[83.9, 87.0\]       99.5 \[99.1, 99.7\]       67.3 \[65.3, 69.4\]
+  jitter $\pm$50%         98.0 \[97.3, 98.5\]        72.5 \[70.5, 74.4\]       88.7 \[87.2, 90.0\]       52.9 \[50.7, 55.1\]
+  jitter $\pm$75%         86.8 \[85.3, 88.3\]        65.2 \[63.0, 67.2\]       71.5 \[69.5, 73.4\]       43.8 \[41.6, 45.9\]
+  **structural**      **75.4 \[73.5, 77.2\]**    **40.6 \[38.5, 42.8\]**   **17.5 \[15.9, 19.2\]**   **27.6 \[25.7, 29.7\]**
 
-  : Percentage of draws in which each claim holds. Wilson intervals at 95 per cent on $n = 2{,}000$. The two 100.0 entries are 2,000 of 2,000 and should be read as "not observed to fail", not as certainty. {#tab:coupling-robust}
+  : Percentage of draws in which each claim holds. Wilson intervals at 95 per cent on $n = 2{,}000$. The two 100.0 entries are 2,000 of 2,000 and should be read as "not observed to fail", not as certainty.
+:::
 
 Step 12 is the fragile row and the reason is the margin, not the level: its top two are T5 at 1.25 and T3 at 1.10, and both Traditions govern the recipient resource (T5 at 0.9, T3 at 0.8), so a perturbation moving them in opposite directions flips the winner.
 
 ##### Design 3, the threshold test, which is the only one that can see the five.
 
-For Step $i$, let $w_i$ be the row sum of $S$ (total consumption across the eight resources) and $b_i$ the largest entry in row $i$ of $B$ excluding the index-mate's own entry. If Tradition $i$ governed every resource at a uniform strength $c$, its entry in row $i$ would be $c\,w_i$, so index-pairing holds at Step $i$ exactly when $$\begin{equation}
-c \;>\; c^{*}_i \;=\; b_i / w_i .
-\end{equation}$$ This is one division per Step, carries no sampling error, and is the only design here that can turn a structural zero into a non-zero.
+For Step $i$, let $w_i$ be the row sum of $S$ (total consumption across the eight resources) and $b_i$ the largest entry in row $i$ of $B$ excluding the index-mate's own entry. If Tradition $i$ governed every resource at a uniform strength $c$, its entry in row $i$ would be $c\,w_i$, so index-pairing holds at Step $i$ exactly when $$c \;>\; c^{*}_i \;=\; b_i / w_i .$$ This is one division per Step, carries no sampling error, and is the only design here that can turn a structural zero into a non-zero.
 
+::: {#tab:threshold}
       Step Index-mate     Beats   Row sum of $S$     $c^{*}$   $c^{*}$ / mean live entry
   -------- ------------ ------- ---------------- ----------- ---------------------------
          1 T1              1.22             2.40       0.508                        1.36
@@ -6920,7 +6410,8 @@ c \;>\; c^{*}_i \;=\; b_i / w_i .
         11 T11             0.47             0.80       0.588                        1.57
         12 T12             1.25             2.40       0.521                        1.39
 
-  : The threshold test. Bold rows are the five protective Traditions, whose index-mate entries are structurally zero and therefore invisible to Table [5](#tab:coupling-robust){reference-type="ref" reference="tab:coupling-robust"}. Exact; no sampling error. {#tab:threshold}
+  : The threshold test. Bold rows are the five protective Traditions, whose index-mate entries are structurally zero and therefore invisible to Table [5](#tab:coupling-robust){reference-type="ref" reference="tab:coupling-robust"}. Exact; no sampling error.
+:::
 
 The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. *Every* $c^{*}$ exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean $c^{*}$ is 0.501 for the five protective Steps, 0.531 for the seven enabling ones, and 0.518 across all twelve. The protective Steps are therefore marginally *closer* to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and an order of magnitude smaller than the distance to the mean live entry. Setting $c$ to the mean live entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44 at Step 5.
 
@@ -6938,6 +6429,7 @@ Kurtz (1991) records that in some later AA literature the concept conveyed by *s
 
 Every design above varies magnitudes and holds the sparsity pattern fixed; a second reader would disagree about the pattern. Flipping cells at random within the seven enabling rows (56 cells, so the two-tier split is held fixed), 2,000 draws per row:
 
+::: {#tab:sparsity}
     Cells flipped   Index-pairing wrong, all   T1 leads   Step 5 $\to$ T12   Step 12 $\to$ T5
   --------------- -------------------------- ---------- ------------------ ------------------
                 1                      96.3%     100.0%              98.7%              94.8%
@@ -6946,7 +6438,8 @@ Every design above varies magnitudes and holds the sparsity pattern fixed; a sec
                 8                      75.0%      83.7%              85.4%              72.0%
                16                      53.0%      50.8%              70.8%              53.0%
 
-  : Sparsity perturbation. Section 4 tolerates a reader differing on about four of fifty-six enabling cells and does not tolerate one differing on sixteen. {#tab:sparsity}
+  : Sparsity perturbation. Section 4 tolerates a reader differing on about four of fifty-six enabling cells and does not tolerate one differing on sixteen.
+:::
 
 **This is a bound, not a measurement, and the distinction is the caveat.** A random flip is not a plausible reader. Somebody who thinks self-support governs continuity changes that cell for a reason, and their remaining cells correlate with the reason. Random flips are harsher in respecting no reason and gentler in not concentrating on the cells that carry the results. The sweep answers "how much disagreement, counted in cells" and says nothing about which cells a reader would choose. It also holds the two-tier split fixed, because the split is what defines which rows are available to flip, so the more serious disagreement, a reader who fills a protective row, cannot be represented by any perturbation design at all. Only completed elicitation forms can answer either question, and none has been returned; see Section 8.
 
@@ -6954,156 +6447,154 @@ Every design above varies magnitudes and holds the sparsity pattern fixed; a sec
 
 Two classes of claim in this paper rest on different things and must not be defended the same way.
 
-The **survival** claims of Sections 6 and 7 survive replacing every non-zero matrix entry with a random value. They rest on structure.
+The executable model's **referral-versus-pure-attraction comparison** survives replacing every nonzero matrix magnitude with a random value while preserving sparsity: 1,000 of 1,000 strict draws on final membership and endpoint viability, and 999 strict plus one tie on existence. The fully adherent group's endpoint viability is not invariant. This result concerns the executable model, not the raw coupling statistics in this section.
 
 The **coupling** claims of this section do not. Index-pairing fails on all twelve in only 40.6 per cent of structurally randomized draws, which is less often than it holds; the Step 5 inversion survives in 17.5 per cent and the Step 12 inversion in 27.6. These claims rest on the magnitudes in two matrices we wrote, and they must be argued for rather than certified by a robustness percentage earned elsewhere. The one exception is unity's primacy, which survives structural randomization in 75.4 per cent of draws, the highest figure of any claim in this section: three-quarters of the time a random matrix with the same sparsity pattern puts unity first anyway.
 
-A reader who thinks the two matrices are arbitrary should not be persuaded by Section 4, and we would rather say so than borrow the survival claims' robustness for a result that has not earned it.
+A reader who thinks the two matrices are arbitrary should not be persuaded by Section 4, and we would rather say so than borrow an executable endpoint comparison's robustness for a semantic-coupling result that has not earned it.
 
-## The Steps as a Multistage Technology
+The Steps as a Multistage Technology
+------------------------------------
 
 > **This section is a reformulation, not the simulation's update rule, and the two must not be read as the same object.** The CES form below is a way of *stating* the ordering claim so that its strictness becomes one estimable parameter. The dynamic model of Section 6 uses the gated-growth equation given in §6.2, which is not a CES aggregator. Nothing in Section 6 depends on the value of $\rho$.
 
-Let $x_{i,t}$ denote latent practice of step $i$. Following Cunha, Heckman, and Schennach (2010): $$\begin{equation}
-x_{i,t+1} \;=\; A_i \Big[\, \gamma_{i1} x_{i,t}^{\rho_i} + \gamma_{i2} x_{i-1,t}^{\rho_i}
- + \gamma_{i3} G_{i,t}^{\rho_i} + \gamma_{i4} M_t^{\rho_i} \,\Big]^{1/\rho_i},
-\end{equation}$$ with weights summing to one, elasticity of substitution $\sigma_i = 1/(1-\rho_i)$, $G_{i,t}$ the resource bundle from Section 4, and $M_t$ maintenance capacity built from Steps 10 to 12. Self-productivity is $\gamma_{i1} > 0$; the cross-partial in prior-stage stock and group input is positive throughout (from $+1.73$ at $\rho = -4$ to $+0.08$ at $\rho = 0.5$), so group support is worth more to a member who has done the preceding work: dynamic complementarity in Cunha and Heckman's sense.
+Let $x_{i,t}$ denote latent practice of step $i$. Following Cunha, Heckman, and Schennach (2010): $$x_{i,t+1} \;=\; A_i \Big[\, \gamma_{i1} x_{i,t}^{\rho_i} + \gamma_{i2} x_{i-1,t}^{\rho_i}
+ + \gamma_{i3} G_{i,t}^{\rho_i} + \gamma_{i4} M_t^{\rho_i} \,\Big]^{1/\rho_i},$$ with weights summing to one, elasticity of substitution $\sigma_i = 1/(1-\rho_i)$, $G_{i,t}$ the resource bundle from Section 4, and $M_t$ maintenance capacity built from Steps 10 to 12. Self-productivity is $\gamma_{i1} > 0$; the cross-partial in prior-stage stock and group input is positive throughout (from $+1.73$ at $\rho = -4$ to $+0.08$ at $\rho = 0.5$), so group support is worth more to a member who has done the preceding work: dynamic complementarity in Cunha and Heckman's sense.
 
-::: proposition
-**Proposition 4** (The ordering rule as a limit). *As $\rho_i \to -\infty$ the aggregator converges to $\min(\cdot)$, so zero prior-stage stock forces zero output: the informal rule that steps cannot be skipped. The rule holds for all $\rho_i \le 0$ and fails for $\rho_i > 0$, where the group input substitutes for the missing stage (output 0.217 at $\rho = 0.3$ with prior stage at zero).*
-:::
+As $\rho_i \to -\infty$ the aggregator converges to $\min(\cdot)$, so zero prior-stage stock forces zero output: the informal rule that steps cannot be skipped. The rule holds for all $\rho_i \le 0$ and fails for $\rho_i > 0$, where the group input substitutes for the missing stage (output 0.217 at $\rho = 0.3$ with prior stage at zero).
 
-The reduction converts a widely held but untested claim of practice into a sharp empirical question: the sign of $\rho$ decides whether the Steps are a chain or a menu, and it is estimable. CHS's finding that substitutability falls with developmental stage yields the directional prior that $\rho_i$ declines across the sequence; informally, several routes reach Step 3, but no substitute exists for a written inventory when amends are made.
+The reduction converts a widely held but untested claim of practice into a sharp empirical question: within this CES reformulation, the sign of $\rho$ decides whether the Steps are a chain or a menu. Estimating that sign would require an empirical identification design; the calculation here does not estimate it.
 
 ### Identification, anchoring, and design
 
-Latent practice is observed only through noisy instruments, $Z = \mu + \lambda \ln x + \varepsilon$, with identification following Schennach (2004) and Hu and Schennach (2008) given at least three instruments per latent per wave, and the latent scale anchored in percent days abstinent at follow-up so that units are interpretable. Simulation of the estimator shows why the three-instrument requirement is substantive rather than technical: with one proxy, the estimate of $\rho$ lands on the wrong side of zero when the truth is zero ($+0.28$), while three proxies recover it ($+0.01$), and the sign is the entire question.
+Latent practice would have to be measured with a design that addresses error in the inputs, loadings, scale, and group-input endogeneity. Schennach (2004) and Hu and Schennach (2008) describe identification strategies under explicit assumptions, but this paper does not implement them. Its simulation gives the four regressors and proxy loadings to the estimator without error and adds noise only to the outcome. Repeating that exercise shows the modest point that averaging three rescaled output proxies improves resolution relative to one. It does not recover a latent-variable estimator, justify three instruments per latent per wave, or settle the sign of $\rho$.
 
 The binding obstacle to estimation is endogeneity of the group input: groups direct attention to struggling members and successful members attract sponsees, so $G$ is not exogenous to member state. CHS address the analogous endogeneity of parental investment; adapting their approach is necessary before any fit to panel data and is not attempted here.
 
-## Membership Dynamics Under the Open Door
+Membership Dynamics Under the Open Door
+---------------------------------------
 
 ### The institutional constraint, restated
 
 Tradition 3 makes the desire to stop drinking the sole requirement for **membership**. It is tempting to render this as "an AA group cannot refuse admission," and that overstates it. AA groups hold closed meetings as a matter of routine, and a closed meeting restricts who is present in a room; it does not remove anyone's membership in the fellowship. The constraint is on membership, not on attendance, and the model is built to that constraint. The distinction was supplied by a reader who knows the rooms, and it is the single correction this work has received that changed the most for the fewest words.
 
-The distinction has modeling consequences. Arrival at a meeting does not depend on the group's welcome: people come from treatment programs, courts, and desperation regardless. Staying does. Gatekeeping culture, informal requirements, and cliquishness operate on retention. Accordingly, Tradition 3 multiplies the early-tenure dropout hazard rather than the inflow; inflow contains an exogenous floor representing referral streams that arrive independent of the group's attractiveness; and exit includes a practice-independent churn term for relocation and mortality.
+The distinction has modeling consequences. Arrival at a meeting does not depend on the group's welcome in the default model. Tradition 3 instead has two separately controllable paths: its row governs four resource columns, and it adds dropout friction weighted by inverse practice. The second is not an early-tenure variable: the model contains no tenure or cohort state, so a long-tenured low-practice member receives the same weight as a recent arrival at the same practice. Inflow contains an exogenous referral floor independent of the group's attractiveness; exit also includes a practice-independent churn term for relocation and mortality.
 
 Two further design choices follow from the same logic. Carrying capacity is supplied by the established core rather than the population mean, since a room of three veterans and twenty newcomers still contains three people able to carry a newcomer. And the maintenance-capacity gate, whose role is to model relapse in members with something to maintain, phases in with step index rather than throttling entry-level growth, to which it does not conceptually apply.
 
 ### Model summary
 
-Members occupy a twelve-dimensional practice state. Per-step growth, in full, for member $m$ and step $i$: $$\begin{equation}
-\frac{dx_i}{dt} \;=\; h(m)\, a_i\, \mathrm{gate}_i\, \mathrm{peer}_i\, C^{m}_i\,\bigl(1 - x_i\bigr)
+Members occupy a twelve-dimensional practice state. Per-step growth, in full, for member $m$ and step $i$: $$\frac{dx_i}{dt} \;=\; h(m)\, a_i\, \mathrm{gate}_i\, \mathrm{peer}_i\, C^{m}_i\,\bigl(1 - x_i\bigr)
  \;-\; d_i\, x_i,
-\label{eq:growth}
-\end{equation}$$ with $$\begin{align}
+\label{eq:growth}$$ with $$\begin{aligned}
 \mathrm{gate}_i &= x_{i-1}^{\,p}, \qquad \mathrm{gate}_1 = 1, \\
 \mathrm{peer}_i &= (1-\beta_i) + \beta_i G_i, \qquad G = S_{\text{norm}} R, \\
 C^{m}_i &= 1 - w(i)\,(1 - C), \qquad w(i) = 0.05 + (i-1)\tfrac{0.95}{11}, \\
-d_i &= \delta_0\bigl(1 + \psi(1 - x_{i+1})\bigr) \ \ (i < 12), \qquad d_{12} = \delta_0 .
-\end{align}$$ Maintenance capacity $C$ is identical across steps for a given member and is defined in two parts. Own capacity is a Hill gate on $M$, the mean of that member's Steps 10 to 12, and group support supplies a floor beneath it: $$\begin{equation}
-C(M) = \frac{M^{n}}{k^{n} + M^{n}}, \quad n = 3.0,\ k = 0.12;
+d_i &= \delta_0\bigl(1 + \psi(1 - x_{i+1})\bigr) \ \ (i < 12), \qquad d_{12} = \delta_0 .\end{aligned}$$ Maintenance capacity $C$ is identical across steps for a given member and is defined in two parts. Own capacity is a Hill gate on $M$, the mean of that member's Steps 10 to 12, and group support supplies a floor beneath it: $$C(M) = \frac{M^{n}}{k^{n} + M^{n}}, \quad n = 3.0,\ k = 0.12;
 \qquad
 C = C(M) + \bigl(1 - C(M)\bigr)\,\omega\,\overline{C}, \quad \omega = 0.75,
-\label{eq:capacity}
-\end{equation}$$ where $\overline{C}$ is the mean own-capacity across living members, so a member whose own maintenance has collapsed retains a fraction of capacity as long as the group around them has not. Because Steps 10 to 12 sit at the heavy end of the $w(i)$ weighting, maintenance gates its own accumulation, and the resulting loop is bistable in the individual, consistent with the relapse literature. Here $w(i)$ is per-step exposure to it, rising linearly from 0.05 at Step 1 to 1.00 at Step 12, which is the formal content of the claim that an arrival has nothing to maintain and a veteran has a great deal; and $h(m)$ is member heterogeneity, a lognormal draw made once when a member arrives and fixed thereafter, which converts individual bistability into graded group-level response.
+\label{eq:capacity}$$ where $\overline{C}$ is the mean own-capacity across living members, so a member whose own maintenance has collapsed retains a fraction of capacity as long as the group around them has not. Because Steps 10 to 12 sit at the heavy end of the $w(i)$ weighting, maintenance gates its own accumulation. That architecture can be bistable, but it is not generally so in the corrected model's own endpoint environments: a capability-one high/low-start test separates in 7 of 400 environments and collapses to one low state in the mean environment. Here $w(i)$ is per-step exposure to it, rising linearly from 0.05 at Step 1 to 1.00 at Step 12, which is the formal content of the claim that an arrival has nothing to maintain and a veteran has a great deal; and $h(m)$ is member heterogeneity, a lognormal draw made once when a member arrives and fixed thereafter. It is parameterized as $\exp(N(-\sigma_h^2/2,\sigma_h))$, so its arithmetic expectation is one and changing $\sigma_h$ changes dispersion without mechanically changing mean capability.
 
-Group resources $R$ are produced from member states through the governance-weighted averages of Section 4, so shortfalls do not compound multiplicatively, with protective Traditions acting solely as multipliers on the enabling ones they guard. Membership is endogenous: arrivals are exogenous referrals plus attraction proportional to members' twelfth-step practice and Tradition 11; exits combine practice-dependent dropout, Tradition-3-modulated early attrition, and churn. Integration is Euler at $dt = 0.5$ weeks over a 1,560-week (thirty-year) horizon.
+Group resources $R$ are produced from member states through the governance-weighted averages of Section 4, so shortfalls do not compound multiplicatively, with protective Traditions acting solely as multipliers on the enabling ones they guard. Membership is endogenous: arrivals are exogenous referrals plus attraction proportional to members' twelfth-step practice and the attraction path of Tradition 11; exits combine practice-dependent dropout, the Tradition-3 friction path, and churn. Tradition 11 also has a distinct resource-governance path. Integration is Euler at $dt = 0.5$ weeks over a 1,560-week (thirty-year) horizon. This horizon is a reporting choice, not a steady-state assertion. In 200-seed checks, mean membership is 29.34, 21.14, 16.43 and 15.64 at 10, 20, 50 and 100 years. The 100-year condition includes one closure. Paired changes in final membership from $dt=0.5$ to 1.0, 0.25 and 0.125 weeks are respectively 1.54 $\pm$ 1.78, 0.87 $\pm$ 1.84 and -0.41 $\pm$ 1.74. None resolves at this sample size, so the tested step is adequate for the reported finite-horizon comparisons; the runs do not establish an equilibrium or indefinite persistence.
 
-Parameters: $\delta_0 = 0.06$ per week (unattended half-life 11.6 weeks), $\psi = 0.20$, $p = 1.5$, step top speeds from 0.15 at Step 9 to 0.30 at Step 1. The inventory is 22 continuous scalars, 12 step speeds, 49 non-zero cells in $S$ and 35 in the governance matrix: **118 numbers chosen by hand out of 226 cells, none fitted.**
+Parameters: $\delta_0 = 0.06$ per week (unattended half-life 11.6 weeks), $\psi = 0.20$, $p = 1.5$, step top speeds from 0.15 at Step 9 to 0.30 at Step 1. The inventory is 22 continuous scalars, 12 step speeds, 49 non-zero cells in $S$ and 35 in the governance matrix: **118 registered sensitivity values out of 226 listed cells, none fitted.** The model-choice inventory separately records fixed constants, structural zeros, equations, thresholds and experiment-design choices, so 118 is not the count of every authored choice.
 
-::: remark
-**Remark 2** (Calibration, and the exact sense in which it fails). *Inflow, dropout and churn were set so that a fully adherent group holds a steady state near forty-five members with an experienced core near nine, roughly a healthy urban meeting. At 400 seeds the model delivers 41.7 members, 95 per cent half-width 1.5, and an experienced core of 7.7, half-width 0.5, so it undershoots both, and the shortfall on the core is larger than its own interval. That is calibration to a stylized fact, not to a dataset, and it does not hit the stylized fact exactly. Note also that "core" denotes two different quantities at two thresholds: the *established* core, at a practice threshold of 0.1, is 37.2, and the *experienced* core, at 0.5, is 7.7. The two are easily conflated and are not interchangeable. Membership is reported over all runs; both core figures are conditioned on survival, which at 99.5 per cent moves nothing by more than 0.2 members.*
-:::
+Inflow, dropout and churn were originally set to target a group near forty-five members with an experienced core near nine, roughly a healthy urban meeting. That was calibration to a stylized fact, not a dataset. After the lognormal capability draw was corrected to have arithmetic mean one, the target fails. Across 400 runs the model delivers 17.80 members, 95 per cent half-width 0.88. Among the 394 viable endpoints, the *established* count above 0.1 is 14.13, half-width 0.79, and the *experienced* count above 0.5 is 1.25, half-width 0.20. The two thresholds are not interchangeable. The authored rates are not retuned after observing this failure, and the absolute levels are not estimates of real meetings.
 
-::: remark
-**Remark 3** (Thirty-five parameters that cannot matter at full adherence). *The governance matrix is column-normalized, so governance quality is identically 1 when every Tradition is at 1.0 and the matrix cancels exactly. This is algebra, not simulation. All 35 governance cells therefore produce exactly zero change in every outcome at full adherence, and a sensitivity design that perturbs them and reports no effect has found nothing. Thirty-five of the 118 numbers are in that position.*
-:::
+The governance matrix is column-normalized, so governance quality is identically 1 when every Tradition is at 1.0 and the matrix cancels exactly. This is algebra, not simulation. All 35 governance cells therefore produce exactly zero change in every outcome at full adherence, and a sensitivity design that perturbs them and reports no effect has found nothing. Thirty-five of the 118 registered values are in that position.
 
 ### Three channels of decline
 
-Four configurations, 400 seeds each, thirty-year horizon, $dt = 0.5$ weeks. "Alive" means more than five members. **Quality is mean practice among members of surviving groups and is conditional throughout; the surviving fraction is printed beside it in every row.** Survival carries a 95 per cent Wilson interval; membership and quality carry a 95 per cent half-width from the cross-run standard error.
+Four configurations, 400 paired seeds each, thirty-year horizon, $dt = 0.5$ weeks. "Viable" means more than five members; existence means at least one, and zero is permanent closure. **Quality is established-member practice in viable groups and is conditional throughout; the viable fraction is printed beside it in every row.** Viability carries a 95 per cent Wilson interval; membership and quality carry a 95 per cent half-width from the cross-run standard error.
 
-  Condition                      Alive y10   $N$ if alive, y10          Quality y10   Alive y30       95% int.          Quality y30
-  --------------- ------------------------ ------------------- -------------------- ----------- -------------- --------------------
-  nothing wrong     1.000 \[0.990, 1.000\]      $46.9 \pm 1.2$   $0.338 \pm 0.0045$       0.995   0.982--0.999   $0.320 \pm 0.0060$
-  invisible         0.998 \[0.986, 1.000\]      $13.9 \pm 0.4$   $0.310 \pm 0.0088$       0.998   0.986--1.000   $0.263 \pm 0.0080$
-  unreferred        0.907 \[0.875, 0.932\]      $29.4 \pm 1.6$   $0.348 \pm 0.0062$       0.360   0.314--0.408   $0.335 \pm 0.0099$
-  unwelcoming       0.993 \[0.978, 0.997\]      $31.8 \pm 1.4$   $0.357 \pm 0.0059$       0.940   0.912--0.959   $0.335 \pm 0.0084$
+::: {#tab:decline}
+  Condition                        Viable y10   $N$ if viable, y10           Quality y10   Viable y30       95% int.           Quality y30
+  --------------- --------------------------- -------------------- --------------------- ------------ -------------- ---------------------
+  nothing wrong     0.9975 \[0.9860, 0.9996\]     $29.40 \pm 1.16$   $0.3016 \pm 0.0052$        0.985   0.968--0.993   $0.2648 \pm 0.0058$
+  invisible         0.9925 \[0.9782, 0.9974\]     $12.99 \pm 0.34$   $0.2949 \pm 0.0079$        0.985   0.968--0.993   $0.2592 \pm 0.0071$
+  unreferred           0.660 \[0.612, 0.705\]     $16.47 \pm 1.18$   $0.3475 \pm 0.0084$       0.0275   0.015--0.049   $0.3642 \pm 0.0443$
+  unwelcoming          0.905 \[0.872, 0.930\]     $15.70 \pm 0.82$   $0.3597 \pm 0.0097$       0.5475   0.499--0.596   $0.3211 \pm 0.0134$
 
-  : Decline scenarios, **400 seeds**, 1,560-week horizon. The seed count is not incidental: at ten seeds this table returns a referral-loss survival near 0.20 and a full-adherence membership near 45.0, both outside the intervals reported here. *Invisible* sets Tradition 11 to zero; *unreferred* sets exogenous inflow to zero; *unwelcoming* sets Tradition 3 to zero. The year-thirty quality figures for the unreferred and unwelcoming rows are identical to three decimals and their intervals overlap almost entirely, so they should be read as indistinguishable rather than as equal. {#tab:decline}
+  : Decline scenarios, **400 paired seeds**, 1,560-week horizon. *Invisible* sets only Tradition 11's attraction path to zero; *unreferred* sets exogenous inflow to zero; *unwelcoming* sets both Tradition 3 paths to zero. Only eleven unreferred runs are viable at year thirty, so its conditional quality interval is wide.
+:::
 
-Membership counted over all runs with deaths as zero reaches, at year thirty, $41.7 \pm 1.5$, $13.5 \pm 0.4$, $9.9 \pm 1.6$ and $27.5 \pm 1.7$ respectively.
+Membership counted over all runs with closures as zero reaches, at year thirty, $17.80 \pm 0.88$, $12.38 \pm 0.34$, $0.51 \pm 0.23$ and $6.76 \pm 0.59$ respectively.
 
-Three signatures separate. A group that becomes invisible to seekers shrinks to a stable remnant sustained by referrals and does not die. A group whose referral stream dries up survives on attraction for a decade and then dissolves in 64 per cent of runs, while per-member quality among survivors holds essentially to the end. A group with exclusionary internal culture shrinks by roughly a third and keeps its core: a size effect rather than a survival effect.
+Three signatures separate. Attraction loss leaves a smaller remnant sustained by referrals and produces no closure. Referral loss closes 89.5 per cent of groups by year thirty, while the eleven viable endpoints have high conditional practice. Combined Tradition 3 loss closes 25.0 per cent and leaves 54.8 per cent viable.
 
-The mortality profiles follow from structure rather than from hand-tuning. A group on one engine has no floor underneath it: its inflow becomes a function of its own state, which makes the population dynamics multiplicative rather than additive, and a multiplicative process with no floor has an absorbing state at zero. Invisible and unwelcoming groups are smaller but retain a floor, so they persist. Unreferred groups are the only ones whose inflow can go to zero and stay there.
+The mortality profiles follow from structure rather than from hand-tuning. A group on one engine has no floor underneath it: its inflow becomes a function of its own state, which makes the population dynamics multiplicative rather than additive, and a multiplicative process with no floor has an absorbing state at zero. Invisible and unwelcoming groups retain a referral floor, but the latter can still close through its resource and dropout paths. Unreferred groups are the only ones whose inflow itself can go to zero and stay there.
 
 ### The gap between decline and death
 
 The unreferred condition separates two questions that a single membership series conflates.
 
-  Series                                     y5                      y10              y20                      y30
-  ---------------------------- ---------------- ------------------------ ---------------- ------------------------
-  unreferred, all runs           $33.4 \pm 1.2$           $27.0 \pm 1.7$   $16.0 \pm 1.7$            $9.9 \pm 1.6$
-  unreferred, survivors only               33.5           $29.4 \pm 1.6$             25.8           $26.6 \pm 3.0$
-  surviving fraction                      0.995   0.907 \[0.875, 0.932\]            0.603   0.360 \[0.314, 0.408\]
+::: {#tab:conditional}
+  Series                                    y5                y10                y20                       y30
+  ------------------------- ------------------ ------------------ ------------------ -------------------------
+  unreferred, all runs        $21.55 \pm 1.01$   $11.68 \pm 1.02$    $2.50 \pm 0.48$           $0.51 \pm 0.23$
+  unreferred, viable only     $22.07 \pm 1.00$   $16.47 \pm 1.18$   $11.39 \pm 1.37$          $12.27 \pm 3.81$
+  viable fraction                        0.970              0.660             0.1725   0.0275 \[0.015, 0.049\]
 
-  : Decline versus death under referral loss. The unconditional series falls by seventy per cent; the conditional series falls by twenty. The gap between them is mortality and nothing else. {#tab:conditional}
+  : Unconditional versus viability-conditioned membership under referral loss. Both decline sharply; conditioning still hides the mass of closures but no longer makes membership look stable.
+:::
 
-This is why the survival-versus-size distinction is load-bearing throughout the paper. A group that is dying and a group that is small look the same in an unconditional average.
+This is why conditioning is load-bearing throughout the paper. In the referral-loss condition both the all-run and viable-only membership series decline, but the all-run series also carries the growing mass of closures. Neither series can stand in for the other.
 
 ### Comparative statics under variance control
 
-Discipline preceded comparison: baseline survival is stable across independent seed blocks, and common random numbers reduce the paired standard error of membership comparisons roughly fourfold relative to the cross-seed standard deviation of 11.93. Each Tradition is degraded singly from 0.85 to 0.5 against a reference group of 23.44 members.
+Discipline preceded comparison: baseline survival is stable across independent seed blocks, and common random numbers reduce the paired standard error of membership comparisons. The reference cross-seed standard deviation is 5.67, while paired standard errors range from 0.22 to 0.33. Each Tradition is degraded singly from 0.85 to 0.5 against a reference group of 13.10 members.
 
+::: {#tab:tradition}
   Tradition                Tier           Members cost   95% half-width    $t$
   ------------------------ ------------ -------------- ---------------- ------
-  T11 attraction           enabling               7.90             1.20   12.9
-  T3 open door             enabling               5.16             1.25    8.1
-  T1 unity                 enabling               4.47             1.30    6.7
-  T2 group conscience      enabling               3.43             1.30    5.2
-  T4 autonomy              protective             2.82             1.37    4.0
-  T7 self-support          protective             2.82             1.37    4.0
-  T12 anonymity            enabling               2.56             1.24    4.1
-  T5 one purpose           enabling               2.27             1.33    3.4
-  T8 non-professional      enabling               1.02             1.20    1.7
-  T9 no organization       protective             0.89             1.15    1.5
-  T6 no endorsement        protective             0.71             1.13    1.2
-  T10 no outside opinion   protective             0.71             1.13    1.2
+  T3 mixed adherence       enabling               2.99             0.65    9.1
+  T11 mixed adherence      enabling               1.88             0.60    6.1
+  T1 unity                 enabling               1.65             0.65    4.9
+  T12 anonymity            enabling               0.99             0.58    3.3
+  T5 one purpose           enabling               0.96             0.61    3.1
+  T4 autonomy              protective             0.88             0.62    2.8
+  T7 self-support          protective             0.88             0.62    2.8
+  T2 group conscience      enabling               0.48             0.62    1.5
+  T6 no endorsement        protective             0.23             0.46    1.0
+  T10 no outside opinion   protective             0.23             0.46    1.0
+  T9 no organization       protective             0.02             0.43    0.1
+  T8 non-professional      enabling              -0.20             0.51   -0.8
 
-  : Single-Tradition degradation, **400 paired replications** under common random numbers. Eight of twelve reach conventional significance. {#tab:tradition}
+  : Single-Tradition degradation, **400 paired replications** under common random numbers. Seven of twelve have intervals excluding zero. T3 and T11 are mixed adherence interventions; their paths are split in the release factorials.
+:::
 
-> **The replication budget determines the ranking, and 30 is not enough.** Computed at 30 paired replications, this comparison returns autonomy and self-support at 5.5 members each with $t = 2.6$ as the only pair clearing $\lvert t \rvert > 2.5$, which invites the inference that the protective Traditions lead the ranking, consistent with their derived role as guards on everything else. At 400 replications they sit fifth and sixth at 2.82 each, attraction leads by a factor of nearly three, and eight comparisons resolve rather than two. **A common-random-numbers design at 30 replications is more efficient than 30 independent runs and is still 30 replications.** Variance reduction buys precision per replication; it does not substitute for replications, and any ranking reported at that budget is an artifact of it.
+> **The replication budget determines the ranking, and 30 is not enough.** Computed at 30 paired replications, this comparison returns autonomy and self-support at 5.5 members each with $t = 2.6$ as the only pair clearing $\lvert t \rvert > 2.5$, which invites the inference that the protective Traditions lead the ranking, consistent with their derived role as guards on everything else. Under the corrected model, at 400 replications mixed Tradition 3 leads at 2.99 members, mixed Tradition 11 follows at 1.88, and seven comparisons resolve rather than two. **A common-random-numbers design at 30 replications is more efficient than 30 independent runs and is still 30 replications.** Variance reduction buys precision per replication; it does not substitute for replications, and any ranking reported at that budget is an artifact of it.
 
-### Sensitivity, and the two results that survive it
+### Sensitivity, outcome definitions, and scope
 
-The simulation's parameters were subjected to: global multiplicative jitter; a tiered design; 236 one-at-a-time targeted perturbations covering all 118 hand-chosen values; Morris elementary-effects screening; Sobol total-order indices; four structural variants that change the model's architecture rather than its numbers; and a resource-list test. Full specifications are in the book's technical appendix, sections A3 to A9.
+The simulation's parameters were subjected to: global multiplicative jitter at three amplitudes over 1,002 draws; a tiered design and a randomized-matrix design at 1,000 draws each; 944 multi-level one-at-a-time perturbations covering all 118 registered values at four distances in each direction; a twenty-trajectory Morris elementary-effects screen over all 118; a Sobol decomposition on a 1,024-row base design over the eight Morris membership leaders; four structural variants that change the model's architecture rather than its numbers; and a resource-list test. Full specifications are in the book's technical appendix, sections A3 to A9.
 
 ##### Which parameters matter.
 
-The ordering exponent $p$ has the largest single influence on group maintenance of any parameter, swinging it from 0.4386 to 0.0045 against a baseline of 0.1458, a range of 2.98 times baseline; the decay rate is second at 1.83 and member heterogeneity third at 1.69. Sobol total-order indices on membership agree: $p$ at 0.456 \[0.331, 0.599\], $\delta_0$ at 0.258, heterogeneity standard deviation at 0.178, dropout at 0.134 and churn at 0.121, against a noise floor of 0.023 to 0.034 (membership and practice respectively). **The first-order indices were computed and are not usable**, and no number from that column is quoted anywhere. Three diagnostics establish it: estimated $S_1$ exceeds $S_T$ for $p$ on membership and for five of eight factors on practice, which violates the identity $S_T \ge S_1$ that holds for any true decomposition; the practice first-order indices sum to 1.263, whereas a sum of first-order indices cannot exceed one; and the estimates move substantially with the seed block. Resolving a first-order index to a half-width of 0.10 needs a base sample roughly ten times larger, so the first-order decomposition of a stochastic model of this size is out of reach at the budget available. The total-order indices are reported because they are stable; the interaction structure is not identified. The sum of $S_T$ is 1.300 for membership, and the excess over one is the signature of interaction counted once per factor involved, so interactions are present and are not dominant.
+The ordering exponent $p$ has the largest single influence of any parameter on every outcome the multi-level sweep scores. Against a full-adherence baseline of 0.0431 maintenance, moving $p$ alone by 25 per cent in each direction swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate $\delta_0$ is second at 3.27 and the step-10 speed third at 2.22. Across the full four-distance ladder the $p$ range is 14.64 times baseline, $\delta_0$ 12.98 and member heterogeneity 4.69. The twenty-trajectory Morris screen ranks the same two first on membership $\mu^*$, at 52.44 and 51.21, followed by churn at 33.48, dropout sharpness at 24.30, exogenous referral at 23.46, heterogeneity at 18.90 and the step-6 and step-12 speeds at 18.54 and 15.87. Sobol total-order indices on membership, over those eight leaders at plus or minus 25 per cent, agree: $p$ at 0.576 \[0.510, 0.643\], $\delta_0$ at 0.373 \[0.320, 0.428\], dropout sharpness at 0.171, churn at 0.132, heterogeneity at 0.079 and exogenous referral at 0.058, against a noise floor of 0.043 for membership and 0.073 for practice. The two step speeds, at 0.029 and 0.038, sit at or below that floor and are not separated from Monte Carlo error.
+
+At the retired 128-row base sample the first-order column failed three internal diagnostics and was withheld. The 1,024-row release design repairs the membership column and not the practice column. On membership no factor now has $S_1 > S_T$, and the first-order indices sum to 0.693, so the column is admissible: $p$ resolves at 0.404 \[0.288, 0.525\] and $\delta_0$ at 0.238 \[0.156, 0.327\], while the remaining six have intervals covering zero and are unresolved rather than zero. On practice the column is still not usable: $\delta_0$ returns $S_1 = 0.421$ against $S_T = 0.417$, violating the identity $S_T \ge S_1$ that holds for any true decomposition, and the practice first-order indices sum to 1.074, whereas a sum of first-order indices cannot exceed one. No practice first-order number is quoted elsewhere. The sums of $S_T$ are 1.456 for membership and 1.464 for practice, and the excess over one is the signature of interaction counted once per factor involved, so interactions are present and are not dominant. The decomposition is conditional on these eight factors and these ranges; it is not a decomposition of the model's total variance.
 
 ##### Structural variants.
 
-Four changes to the architecture, not the numbers: a flat per-step gate, admission moved to Tradition 3, capacity supplied by all members rather than the core, and a clipped saturation term. Under the attraction-loss condition, survival runs 0.998 (base), 0.825, 0.998, 1.000, 0.998 and membership 13.5, 8.4, 13.5, 14.7, 14.0. Under referral loss, survival runs 0.360, 0.490, 0.360, 0.635, 0.573 and membership 9.9, 15.6, 9.9, 20.3, 21.7.
+Four changes to the architecture, not the numbers, are compared with the base model: a flat per-step gate, admission moved to Tradition 3, capacity supplied by all members rather than the established core, and a piecewise-linear rather than hyperbolic member-side capacity response. The last variant still clips at one; its historical filename is shorthand, not a literal absence of saturation. Each of the five architectures is run at 400 paired seeds for five scenarios. Under pure attraction loss, endpoint existence is 1.000, 0.870, 1.000, 1.000 and 1.000; endpoint viability is 0.985, 0.658, 0.985, 1.000 and 0.995; and mean membership is 12.38, 6.61, 12.38, 14.73 and 13.04. Under referral loss the corresponding values are 0.105, 0.120, 0.105, 0.258 and 0.145 for existence; 0.028, 0.055, 0.028, 0.123 and 0.058 for viability; and 0.51, 0.75, 0.51, 2.00 and 1.02 for membership. Thus the referral-loss ordering holds on all three outcomes in all five tested architectures. This is a finite structural audit, not a proof over untested architectures.
 
-> **What survives all of it, and in exactly which sense.** Two simulation results survive the whole suite. The first is that a fully adherent group persists. The second is that losing referrals is worse than losing attraction *in the sense of being more likely to kill the group*: it holds under all four structural variants and by a wide margin, and it survives all 236 targeted perturbations, which makes it the strongest thing the simulation says. Read instead as "ends up smaller," the same ordering *reverses* under three of the four structural variants: in the gate-flat, capacity-all and no-saturation variants the referral-loss condition ends larger than the attraction-loss one. **The claim must not be written without saying which reading is meant.** Specific survival figures survive nothing, and every one in this paper is a conditional statement about a model.
+> **What the structural audit says, and no more.** In the corrected model, referral loss is worse than pure attraction loss on existence, endpoint viability and mean final membership in the base architecture and all four variants. The earlier result in which the size ordering reversed under three variants came from the retired, uncentred capability model and does not reproduce. The parameter screens remain a separate question and report strict orderings, ties and reversals at each design level. Specific probabilities and memberships remain conditional statements about a constructed model.
 
 ##### What the designs could in principle have found.
 
 Two failures are worth naming because both were made in this project. A multiplicative perturbation cannot move a structural zero, so no multiplicative design is evidence about the two-tier split (Section 4.4). And a $\pm30$ per cent jitter cannot tell you whether a result depends on the magnitudes at all, only whether it tolerates small disagreement about them; the structural randomization is the design that answers the first question, and it is the one the coupling claims fail.
 
-### Founding composition: a null, and why it is weak
+### Founding composition: an unresolved comparison
 
-Twenty-five founders with a fixed total practice of 13.75 distributed three ways (even: all at 0.55; concentrated: five at 1.00 and twenty at 0.4375; split: twelve at 0.90 and thirteen at 0.2269), 400 seeds each. Membership ends at 41.7, 41.3 and 39.9 with half-widths 1.5, 1.5 and 1.6; survival at 0.995, 1.000 and 0.998; quality among established members at 0.3539, 0.3534 and 0.3514. The whole spread across conditions is 1.8 members against an uncertainty of 1.6. The split condition is lowest on all three measures, which is the direction Carrell, Sacerdote, and West (2013) would predict, and it is not significant and we do not claim it.
+Twenty-five founders with a fixed total practice of 13.75 distributed three ways (even: all at 0.55; concentrated: five at 1.00 and twenty at 0.4375; split: twelve at 0.90 and thirteen at 0.2269), 400 paired seeds each. Membership ends at 17.80, 18.09 and 17.45 with half-widths 0.88, 0.99 and 0.93; endpoint viability is 0.985, 0.9875 and 0.985; established practice is 0.2645, 0.2628 and 0.2660. Relative to even founders, the paired membership differences are 0.29 \[-0.90, 1.48\] and -0.35 \[-1.47, 0.78\]. No equivalence margin was prespecified, so the result is unresolved rather than evidence of equality.
 
-The null should be discounted heavily before it is read. Composition can enter this model by exactly two routes: the non-linear capacity gate and member heterogeneity. Resources are computed from sums and means over the living membership, and no member's state appears in another member's growth equation except through those aggregates, so the model has no representation of mentoring, of pairing, of cliques, or of sponsorship in particular. **It also has no representation of the mechanism that produced the Carrell--Sacerdote--West result**, which is people choosing whom to associate with inside a group whose composition has been arranged. That experiment engineered Air Force Academy squadrons from measured peer effects, predicted a gain of 0.053 grade points for the bottom third, and measured a treatment effect of $-0.061$ on exactly the students it set out to help, because the low-ability cadets re-sorted toward each other. A null from a design that could barely have produced anything else is the sort of result that looks like evidence and is not.
+The unresolved comparison should be discounted heavily before it is read. Founding practice changes ordering gates, maintenance, resource capacities, dropout and attraction jointly. Resources are computed from aggregates and no member's state appears in another member's growth equation except through those aggregates, so the model has no representation of mentoring, pairing, cliques or sponsorship. **It also has no representation of the mechanism that produced the Carrell--Sacerdote--West result**, which is people choosing whom to associate with inside a group whose composition has been arranged. That experiment engineered Air Force Academy squadrons from measured peer effects, predicted a gain of 0.053 grade points for the bottom third, and measured a treatment effect of $-0.061$ on exactly the students it set out to help, because the low-ability cadets re-sorted toward each other. A non-significant contrast from a design without that mechanism is not evidence of practical equality.
 
-The design also cannot separate two things: the conditions differ in the variance of founding practice *and* in the number of founders above the established-member threshold (25, 5 and 12). Had a difference appeared, it could not have been attributed to dispersion rather than to initial core size.
+The design also cannot separate two things: the conditions differ in the variance of founding practice *and* in the number above the stricter 0.5 experienced threshold (25, 5 and 12). All 25 exceed the 0.1 established threshold in every condition. A resolved difference could still have arisen through any of several state-dependent channels.
 
-## The Comparative Case
+The Comparative Case
+--------------------
 
 A formal correspondence gains little from a single historical case and can lose a great deal by leaning on one. This section is included because the case bears directly on the paper's central claim, and because the standard account of it, which is what a reader is most likely to bring, turns out to be false.
 
@@ -7119,7 +6610,7 @@ The comparison the case actually supports is therefore not rules against no rule
 
 ### Prominence without anonymity
 
-The touring-speaker structure of §3.6 was built for this case. Washingtonian expansion from 1841 to 1843 proceeded through touring speakers addressing local societies, which is exactly a rise in the proportion of total attention carried by a one-directional cross-society channel. By equation ([\[eq:speakers\]](#eq:speakers){reference-type="ref" reference="eq:speakers"}) the speakers' share of influence is fixed by the ratio of outward to returned attention and does not fall as the movement grows, so the movement could not have outgrown the exposure.
+The touring-speaker structure of §3.6 was built for this case. Washingtonian expansion from 1841 to 1843 proceeded through touring speakers addressing local societies, which is exactly a rise in the proportion of total attention carried by a one-directional cross-society channel. By equation (the consensus-error equation above) the speakers' share of influence is fixed by the ratio of outward to returned attention and does not fall as the movement grows, so the movement could not have outgrown the exposure.
 
 The exposure was realized. John B. Gough, the movement's most prominent speaker, relapsed publicly in September 1845; opponents seized on it, and public confidence in the movement was impaired. His own account, read at source, contains the words "I have fallen," an acceptance of blame, and a submission to his church's judgment. It is worth reading rather than inferring from its chapter headings, which suggest a man rebutting a charge rather than owning a relapse. He had relapsed once before, twenty-nine months earlier, when his influence weight was small, and that episode was handled internally and quickly. Same man, same illness, same candor: what differed was the weight.
 
@@ -7133,7 +6624,8 @@ Milton Maxwell's 1950 comparison of the two fellowships reaches, without any for
 
 It is one case, selected because it is the obvious comparison, and the direction of selection is unfavorable: the Washingtonians are famous among people interested in AA precisely because the contrast is instructive. Nothing here establishes that the missing enabling provisions caused the decline; the movement was also absorbed by a temperance politics it had defined itself against, and the manual's anti-politics article had nothing to bite on once the movement's identity was itself a political position. How widely the Utica model constitution was actually adopted is not recorded in the manual and we have found no source that settles it. The historical material is offered as an existence proof that the distinction between the two tiers of rule is visible in a real code, not as evidence about the consequences of omitting one tier.
 
-## Limitations
+Limitations
+-----------
 
 ### The largest one, stated first
 
@@ -7147,7 +6639,7 @@ What would settle it is elicitation: give the Traditions' published short text t
 
 2.  **The $S$ and $G$ matrices are hand-written judgments**, and all of Section 4 plus the resource structure of Section 6 inherits from them. Their tolerance of $\pm30$ per cent perturbation is necessary and not sufficient support, and the structural randomization they fail (§4.5) is the design that speaks to the question. The correct remedy is a second governance matrix elicited independently from another reader, scored by Cohen's kappa against the first. A blank elicitation form exists; no second reader has completed it. Until one does, Section 4 rests on one person's judgment.
 
-3.  **Member heterogeneity was tuned to produce a desired behavior.** Its standard deviation was selected because it converts individually bistable dynamics into graded group response. The mechanism is principled; the magnitude is not, it is the third most influential parameter in the model, and Section 6's quantities inherit from it.
+3.  **Member heterogeneity was tuned to produce a desired behavior.** Its standard deviation was selected in an attempt to convert individual cliffs into a graded group response. After mean-centring and re-estimating the state-dependent environment, the corrected audit finds typical-member bistability in only 1.75 per cent of 400 endpoint environments. The intended mechanism is therefore not established by the released baseline, and Section 6's quantities inherit from the authored spread.
 
 4.  **Specification search.** Several architectural choices (the retention channel for Tradition 3, core-based carrying capacity, the placement of the capacity gate) were refined against simulation behavior as well as substantive reasoning. This risks tailoring an architecture to expected behavior and no assurance can be given that it has not happened. The four structural variants of §6.6 are a partial and inadequate answer.
 
@@ -7163,7 +6655,7 @@ What would settle it is elicitation: give the Traditions' published short text t
 
 10. **No representation of who attends to whom.** In Section 6's model no member's state enters another member's growth equation except through group aggregates, so there is no sponsorship, no pairing, no clique, and no re-sorting. The mechanism that produced the Carrell--Sacerdote--West result is absent by construction (§6.7). Building it is a different model, not a different run, and it is the largest single piece of technical work outstanding.
 
-11. **Durations were never tested.** The horizon, the arrival rate and the churn floor are three of the 118 hand-chosen numbers. The *orderings* in Table [8](#tab:decline){reference-type="ref" reference="tab:decline"} survived the sensitivity work; the *durations* did not and should be read as shapes, not as forecasts of how long a real group lasts.
+11. **Durations were never calibrated.** The horizon, the arrival rate and the churn floor are three of the 118 registered numeric values. Endpoint orderings have outcome-specific sensitivity records, and the 10-, 20-, 30-, 50- and 100-year checks continue to move. The trajectories are shapes inside the model, not forecasts of how long a real group lasts or evidence of steady state.
 
 12. **Combinations were not tested.** Each decline condition switches one thing off at full adherence elsewhere. Real decline is unlikely to be so tidy and there is no reason to expect the costs to add.
 
@@ -7171,7 +6663,8 @@ What would settle it is elicitation: give the Traditions' published short text t
 
 14. **Sources not read.** Alexander (1988) on the class and domestic dimensions of the Washingtonian movement; Blumberg (1980, 1991) on its political entanglement; the full text of Pagano et al. (2004), which is cited at a remove; White's *Slaying the Dragon*. Maxwell (1950) was read in full, but the copy available to us is a retyped web reproduction with visible transcription errors, not a scan of the journal, so every Maxwell citation here has been checked against a transcription rather than against the journal. AA's own literature was deliberately not acquired.
 
-## Falsifiable Predictions
+Falsifiable Predictions
+-----------------------
 
 Where the analysis reported above bears on a prediction, or narrows what it should say, this is marked.
 
@@ -7179,31 +6672,34 @@ Where the analysis reported above bears on a prediction, or narrows what it shou
 
 2.  **Rotation breadth, not rotation per se, predicts group durability.** Testable from service rosters. *Narrowed by the analysis above:* the operational threshold is roughly a quarter of the membership in the rotation pool, computed as twenty-six per cent across sizes from 50 to 800 (§3.5). The effect of falling short is a real but moderate permanent cost, not a near-clique regime, and a test should be powered accordingly.
 
-3.  **Groups losing exogenous newcomer inflow decline demographically while per-member engagement among remaining members is maintained.** Unlisted meetings, schedule-disadvantaged meetings, and meetings distant from referral sources provide natural variation. Quality-maintained decline distinguishes this model from demoralization accounts, which predict that quality and size fall together. *Narrowed by the analysis above:* the prediction is not that quality is uniformly maintained across all decline modes. In the invisible condition quality falls; in the referral-loss condition it rises slightly. The testable claim is that *the decline mode that kills groups is the one with no interior warning signal*.
+3.  **Groups losing exogenous newcomer inflow decline demographically while established practice among selected viable remnants can remain high.** Unlisted meetings, schedule-disadvantaged meetings, and meetings distant from referral sources provide natural variation. *Narrowed by the corrected trajectories:* viable-room membership also falls sharply, so the interior is not warning-free. The testable divergence is between losses in groups and members and the smaller change in practice among those who remain; it must be measured on all three series.
 
-4.  **The two supply channels dissociate**: attraction loss produces stable remnants, referral loss produces delayed dissolution, so proximity to treatment facilities should predict survival through low-attraction periods. *Partly answered, and qualified.* This is one of exactly two simulation results that survive the full sensitivity suite, and it survives *as a claim about mortality*. As a claim about eventual size it reverses under three of four architectural variants. Any test must be a test of survival, not of membership.
+4.  **The two supply channels dissociate**: attraction loss produces stable remnants, referral loss produces delayed dissolution, so proximity to treatment facilities should predict survival through low-attraction periods. *Partly answered, and qualified.* Earlier drafts described this as one of exactly two universal simulation results. The corrected analysis reports strict support, ties, reversals, and unresolved screens separately; it does not promote a finite sensitivity suite into a universal claim. Mortality and membership remain distinct estimands.
 
-5.  **Gatekeeping culture predicts group size, not group survival.** *Bearing of the analysis above:* at 400 seeds, unwelcoming groups end at 27.5 members against 41.7 with 94.0 per cent surviving against 99.5, so the effect on survival is small and non-zero rather than absent. The prediction should be stated as predominantly a size effect.
+5.  **Tradition 3 has distinct resource-governance and inverse-practice friction paths.** *Bearing of the analysis above:* at 400 paired seeds, combined loss ends at 6.76 members against 17.80, closes 25.0 per cent of groups, and leaves 54.8 per cent endpoint-viable against 98.5 per cent at baseline. Friction loss alone costs 2.96 members \[1.85, 4.08\]; governance loss alone costs 6.03 \[5.04, 7.01\]. The earlier predominantly-size interpretation does not survive the corrected model.
 
-6.  **If step order does not predict step completion** ($\rho > 0$ throughout), the chain structure fails and the Steps model should be discarded rather than repaired. Unchanged, and the estimation design of §5.1 requires at least three instruments per latent per wave.
+6.  **If step order does not predict step completion** ($\rho > 0$ throughout), the chain interpretation of the CES reformulation fails. The proxy-averaging exercise in §5.1 neither identifies latent practice nor establishes a required number of instruments.
 
-7.  **the two-tier division should be visible to readers who do not know the hypothesis.** Give the published short text of the Traditions to independent readers and ask which of them supply anything a member uses directly and which only protect other rules. If the derived split (Section 4.3) does not recover from independent judgment, the resource layer is encoding the author's prior rather than the text's content.
+7.  **the two-tier division should be visible to readers who do not know the hypothesis.** Give the published short text of the Traditions to independent readers and ask which of them supply anything a member uses directly and which only protect other rules. The present split is author-coded, not a tier discovered by the model. If independent readers do not reproduce it, the resource layer is encoding the author's prior rather than the text's content.
 
 8.  **the mapping itself is testable by elicitation.** See §8.1. This is the prediction whose failure would cost the paper the most.
 
-## Conclusion
+Conclusion
+----------
 
 This paper's durable contribution is a correspondence: three of AA's Twelve Traditions, on a reading of their wording that the paper states plainly and does not verify, jointly implement the vanishing-influence condition under which naive collective deliberation aggregates information, a criterion formalized by Golub and Jackson in 2010 and reached by a fellowship of laypeople, from eleven years of watching groups fail, in 1946. The correspondence yields two corollaries with immediate empirical content, that rotation must scale with the group and that obstruction is a matter of scaling rather than severity, and it reframes anonymity from an ethic of humility to a structural precondition of trustworthy group decision-making.
 
 Around that center, the paper contributes a method: deriving institutional couplings through an explicit resource layer rather than asserting them, which rejects the natural index-pairing conjecture on all twelve of its instances while recovering, unbidden, the functional division of the Traditions and the primacy of unity. It also contributes an accounting of what that method cannot support. Five of the twelve rejections are structurally forced and invisible to the perturbation design that was originally quoted for them; a threshold test that can see them finds them failing by comparable margins; and the central coupling claim survives structural randomization less often than it fails. Those facts are reported here because a derivation whose robustness is asserted rather than measured is worth less than one whose limits are known.
 
-The membership model's principal prediction, that referral-starved groups decline demographically while looking healthy from inside, is specific, mechanistically grounded, distinguishable from rival accounts, and testable with records AA's service structure already keeps. It is also one of only two simulation results that survive sensitivity analysis over all 118 parameters and four architectural variants, and it survives as a claim about mortality rather than about size.
+The membership model's principal prediction, that referral-starved groups decline demographically while looking healthy from inside, is specific, mechanistically grounded, distinguishable from rival accounts, and testable with records AA's service structure already keeps. In the corrected five-architecture comparison, referral loss is worse than pure attraction loss on existence, endpoint viability and mean final membership. The expanded parameter screens bound that result over their stated ranges; they are not a proof outside them.
 
 Where this line of work should go next is not further modeling. It is measurement: of the mapping, by elicitation from readers who do not know the hypothesis; of the governance matrix, by a second independent elicitation; of rotation breadth against group longevity; of step ordering against step completion; and of the quiet demographic signature of groups that seekers have stopped finding.
 
-## References {#references .unnumbered}
+References {#references .unnumbered}
+----------
 
-::: list
+*Status note.* An entry explicitly marked read at source, read in full, abstract only, cited at a remove, or not read has that current-project status. For entries without an explicit status, the repository does not document whether the full work was read; they are background citations and do not upgrade a load-bearing claim. The complete current status register is `research/SOURCES.md`. A separately supplied corpus under `research/staged/` is reserved for the next iteration and is not evidence for this paper.
+
 Alexander, R. M. (1988). "'We Are Engaged as a Band of Sisters': Class and Domesticity in the Washingtonian Temperance Movement, 1840-1850." *Journal of American History* 75(3): 763-785. **Not read**; cited for the women's dimension of the movement, which this paper does not develop.
 
 Angrist, J. D. (2014). "The perils of peer effects." *Labour Economics* 30: 98-108.
@@ -7217,6 +6713,8 @@ Ben-Porath, Y. (1967). "The production of human capital and the life cycle of ea
 Blair, H. W. (1888). *The Temperance Movement: or, The Conflict Between Man and Alcohol.* Boston: William E. Smythe. **Read at source**; public domain.
 
 Blumberg, L. U. (1980). "The Significance of the Alcohol Prohibitionists for the Washingtonian Temperance Societies." *Journal of Studies on Alcohol* 41(1): 37-77. **Not read.**
+
+Blumberg, L. U., and W. L. Pittman (1991). *Beware the First Drink! The Washingtonian Temperance Movement and Alcoholics Anonymous.* Seattle: Glenn Abbey Books. **Not read**; cited as an outstanding book-length comparison, not as evidence for a specific result.
 
 Carrell, S. E., B. I. Sacerdote, and J. E. West (2013). "From Natural Variation to Optimal Policy? The Importance of Endogenous Peer Group Formation." *Econometrica* 81(3): 855-882. doi:10.3982/ECTA10168. **Read at source** from the lead author's university copy. Earlier circulated as NBER Working Paper 16865 and, before that, as *Beware of Economists Bearing Reduced Forms?*. In copyright; full text not redistributed.
 
@@ -7232,6 +6730,8 @@ Eddy, R. (1887). *Alcohol in History.* New York: National Temperance Society. **
 
 Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati: Jennings and Graham. **Read at source**; public domain.
 
+Fatimah, H., M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. **Read in full** from the author manuscript; the strongest empirical warrant used here for a two-well relapse landscape, with the limitations stated in Section 5.
+
 Galanter, M. (1981). "The 'relief effect': A sociobiological model for neurotic distress and large-group therapy." *American Journal of Psychiatry* 138(5): 588-591.
 
 Golub, B., and M. O. Jackson (2010). "Naïve Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. **Read at source.** The wisdom criterion, the three obstructions, and the convergence conditions. Every formal claim in Section 3 originates here.
@@ -7242,7 +6742,7 @@ Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.
 
 Grosh, A. B., comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica, N.Y.: B. S. Merrell. **Read at source**; Harvard copy digitized by Google, via HathiTrust, <https://hdl.handle.net/2027/hvd.32044004487591>. Public domain. The definition of principles, the model constitution's articles, the Utica mass convention of 22 February 1842, and the directions for taking names publicly.
 
-Harrison, J. F. (1860). *A Voice from the Washingtonian Home.* Boston. **Read at source**; public domain. The earliest account of the founding scene.
+Harrison, D., Jr. (1860). *A Voice from the Washingtonian Home.* Boston. **Read at source**; public domain. The earliest account of the founding scene.
 
 Hawkins, W. G., ed. (1862). *Life of John H. W. Hawkins.* Boston: Briggs and Richards, sixth thousand. **Read at source**; public domain. Note the edition: this is not the Jewett printing usually cited.
 
@@ -7286,18 +6786,18 @@ Sharma, S., and G. P. Samanta (2015). "Analysis of a drinking epidemic model." *
 
 Tonigan, J. S., G. J. Connors, and W. R. Miller (1996). "The Alcoholics Anonymous Involvement (AAI) scale." *Psychology of Addictive Behaviors* 10: 75-80.
 
-Tonigan, J. S., and B. L. Greenfield (2013). "The general Alcoholics Anonymous tools of recovery." *Psychology of Addictive Behaviors* 27(3).
+Greenfield, B. L., and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Abstract and secondary summary only**; full text not obtained.
 
 Witkiewitz, K., and G. A. Marlatt (2004). "Relapse prevention for alcohol and drug problems." *American Psychologist* 59(4): 224-235.
 
 Witkiewitz, K., and G. A. Marlatt (2007). "Modeling the complexity of post-treatment drinking." *Clinical Psychology Review* 27(6): 724-738.
-:::
 
 **Referenced but not reproduced.** The Twelve Steps and Twelve Traditions of Alcoholics Anonymous, paraphrased throughout. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here. AA's own publications (*Alcoholics Anonymous Comes of Age*, *Pass It On*, *Twelve Steps and Twelve Traditions*, the *Grapevine* essays of 1946, and service pamphlets) were deliberately not acquired for this project.
 
 **What was not read.** Any work testing whether real deliberating groups behave like DeGroot updaters. Any literature on peer-group composition in voluntary mutual-aid settings specifically. Alexander (1988), Blumberg (1980, 1991), Pagano et al. (2004) in full, and White's *Slaying the Dragon*. Jellinek's per-capita consumption estimates, which are quoted through Maxwell and whose original has not been traced.
 
-## The Whole Paper in Plain Language
+The Whole Paper in Plain Language
+---------------------------------
 
 *This appendix says everything the paper says, without the math. It is written for a reader with no background in economics or statistics. Where a natural way of putting something would be wrong, this appendix says so.*
 
@@ -7311,9 +6811,9 @@ Think about how an AA group makes a decision. There is no boss. People talk it o
 
 Now here is a question: when can you trust a decision made that way? In 2010, two economists proved the answer. A group that decides by talking it out can be trusted only if no single person's opinion carries a big fixed chunk of the final answer. Here is why. Everyone's opinion is partly right and partly mistaken. When lots of opinions get blended evenly, the mistakes point in different directions and cancel out, and the more people the better. But if one person's opinion always makes up a third of the result, their mistakes never cancel. Adding more people does not help. The group just gets more and more sure of an answer that is no more likely to be right.
 
-Now look at three of the Traditions. Leaders serve the group; they do not run it. There is no ladder to climb, because service jobs rotate. And everyone is anonymous: no last names, no job titles, no status. Each of those rules does the same thing from a different angle: it stops any one person's voice from getting too heavy. Which is exactly the condition in the 2010 proof.
+Now look at three of the Traditions. Leaders serve the group; they do not run it. There is no ladder to climb, because service jobs rotate. And everyone is anonymous: no last names, no job titles, no status. Each of those rules does the same thing from a different angle: it stops any one person's voice from getting too heavy. This paper proposes that those mechanisms can reduce stationary influence concentration, which is the condition in the 2010 proof. The wording alone does not establish that they do.
 
-> *So the AA members who wrote those rules in 1946, after eleven years of watching groups fall apart, landed on a rule that mathematicians would not prove correct for another 64 years. They did not have the math. They had the wreckage.*
+> *The rules written in 1946 are consistent with a condition mathematicians would formalize 64 years later. That is a present-day mapping, not evidence that AA's drafters discovered, intended, or implemented the theorem.*
 
 **One honest warning about that paragraph, and it is the most important sentence in this appendix.** The proof is real and we have read it. But the step from "Tradition 2 says leaders do not govern" to "therefore nobody's opinion carries extra weight in the math" is our reading of a sentence. Nobody has checked it. None of the computer work in this paper tests it. Somebody could reasonably say those Traditions are about humility, not about arithmetic, and this paper has no answer for them yet. Everything else here is downstream of that one unverified step.
 
@@ -7341,7 +6841,7 @@ It is tempting to think Step 1 goes with Tradition 1, Step 2 with Tradition 2, a
 
 Instead of matching them by number, we asked a different question for each step: what does a person actually need from the group to do this step? Then the matching takes care of itself. Step 5 is telling another human being the worst things you have ever done. What do you need for that? You need to know it will not leave the room. That is anonymity, Tradition 12, not Tradition 5. Step 12 is carrying the message to the alcoholic who still suffers. Tradition 5 says the group's one job is to carry its message to the alcoholic who still suffers. Same sentence, basically. Those two go together.
 
-And when you do this for all twelve steps, two things fall out. First, five of the Traditions (autonomy, no endorsements, paying your own way, no hierarchy, no outside opinions) turn out to give members nothing directly. Their whole job is to protect the other seven from being eroded. The Traditions have two different kinds of rule in them, and nobody says so. Second, unity shows up as necessary for nearly every step, not just the first one. Tradition 1 literally says that, and it always sounded like a nice slogan. The math backs it as a plain fact.
+And when we code this for all twelve steps, two things follow from those authored choices. First, five of the Traditions (autonomy, no endorsements, paying your own way, no hierarchy, no outside opinions) turn out to give members nothing directly. Their whole job is to protect the other seven from being eroded. Those five empty rows were put into the table by the author; multiplication did not discover them independently. Second, unity has the largest semantic overlap under the same coding. That is a concise description of the table, not a fact about AA groups established by data.
 
 **Now the part that argues against the finding.** We tested how much of this survives if you disagree with the numbers we made up.
 
@@ -7353,13 +6853,13 @@ The rest does not hold up nearly as well. Do the same thing to the "steps-don't-
 
 Everyone in AA says you cannot skip a step, that you cannot make honest amends (Step 9) for harms you never wrote down (Step 4). It sounds obviously true. But as far as we could find, no researcher has ever actually tested whether people work the steps in order, or whether doing an early step really is what makes a later one possible.
 
-This paper turns that belief into one measurable number. If the number comes out one way, the steps are truly a chain: skip a link and everything after it fails. If it comes out the other way, they are more like a menu, and a strong group can carry someone past a step they missed. The number could be measured with the questionnaires researchers already use, with one warning from our tests: you need at least three different measurements per person, because with only one the answer can come out backwards.
+This paper turns that belief into one measurable number. If the number comes out one way, the steps are truly a chain: skip a link and everything after it fails. If it comes out the other way, they are more like a menu, and a strong group can carry someone past a step they missed. The number might be measured with a purpose-built longitudinal design. Our limited exercise adds noise only to an output while supplying the inputs and loadings without error; it shows that averaging more output proxies can improve resolution. It does not establish how many instruments a valid latent-variable design needs.
 
 ### What can actually go wrong for a group
 
 Start with a fact about AA that shapes everything here: the only requirement for *membership* is a desire to stop drinking, and no group can take that away from anybody.
 
-**One thing that is easy to get wrong here.** It is tempting to put this as "a group cannot close its doors," and that is not right. Closed meetings are ordinary and long-standing, and a closed meeting is about who is in the room, not about who is a member. Nobody can be thrown out of AA. Somebody can absolutely be in a room where they are not welcome. Getting that distinction right is what moves the question from who arrives to who comes back, which is where the interesting answers turn out to be. We owe the point to a reader who knows the rooms.
+**One thing that is easy to get wrong here.** It is tempting to put this as "a group cannot close its doors," and that is not right. Closed meetings are ordinary and long-standing, and a closed meeting is about who is in the room, not about who is a member. Nobody can be thrown out of AA. Somebody can absolutely be in a room where they are not welcome. In the executable model Tradition 3 affects both resource governance and inverse-practice-weighted dropout friction; it does not record tenure and therefore cannot identify literal newcomer retention. The two paths are now tested separately.
 
 So if a group cannot revoke anyone's membership, what can actually go wrong? Three different things, and they leave three different marks:
 
@@ -7377,11 +6877,11 @@ And here is the strangest thing the model says. In the case that actually kills 
 
 ### Does it matter who starts a group?
 
-We tested it: send twenty-five founders into a new group, either all about the same, or a few very experienced ones plus a lot of beginners, or half strong and half weak. After thirty years, all three come out the same. Nothing.
+We tested three founding-state distributions with the same mean initial practice. Their paired final-membership differences are imprecise and no equivalence margin was specified. The correct result is unresolved, not that all three are the same.
 
 You should not believe that result very much, and the reason is a famous experiment. Researchers at the Air Force Academy measured how much cadets help each other study, then used those measurements to build squadrons designed to help the weakest students. Their own model predicted a gain. What actually happened was a loss of about the same size, on exactly the students they had tried to help. The reason was that once you put fifteen strong students and fifteen weak ones in a room with nobody in between, the weak ones stopped mixing with the strong ones and found each other instead. The measurement was real; building a room out of it destroyed the thing that had been measured.
 
-Our model has no way for people to choose who they spend time with. So it could never have produced that result, and its "nothing happens" answer is nearly worthless as evidence. What is worth saying is the combination: engineering who is in the room has a small upside if any, and a downside that has actually been measured once.
+Our model has no way for people to choose who they spend time with, so it could not reproduce the Air Force mechanism. That study is a warning about transport and endogenous mixing, not a measurement of the upside or downside of arranging an AA group. No causal claim about AA composition follows from this comparison.
 
 ### The movement that came before, and what it actually did
 
@@ -7393,7 +6893,7 @@ What they did not have was any of the rules on the other side of the ledger, the
 
 So the real comparison is not rules against no rules. It is one written code against another, and the ones missing from the first are exactly the ones the math points at. That is a better comparison than the one we started with, and it is better because it is true.
 
-Their most famous speaker relapsed in public in 1845, opponents made the most of it, and the movement's credibility suffered for it. He had relapsed once before, quietly, two and a half years earlier, when hardly anyone knew his name, and that time it cost nothing. Same man. Different weight.
+Their most famous speaker relapsed in public in 1845, opponents made the most of it, and the movement's credibility suffered. He had relapsed once before, quietly, two and a half years earlier, and the institutional response was much smaller. The same-person contrast is suggestive, but it does not identify influence weight as the sole cause and the first episode was not literally costless.
 
 ### How much of this should you believe?
 
@@ -7405,7 +6905,7 @@ The finding about rotation follows from the theorem and is solid math.
 
 The step-and-tradition results come from two tables of numbers we made up, and they do not survive if you throw those numbers away. We say so in the paper rather than quoting a robustness figure that belongs to a different claim.
 
-Everything from the computer model has never been checked against real people or real groups. Every number in it was chosen by us, not measured. When we tested how much of it survives disagreement about those numbers, exactly two things survived: that a group following all the rules keeps going, and that losing referrals is more likely to kill a group than losing walk-ins. Even that second one only holds if you mean "more likely to die." If you mean "ends up smaller," it flips around when we change how the model is built.
+Everything from the computer model has never been checked against real people or real groups. Every number in it was chosen by us, not measured. The sensitivity exercises are screens over specified ranges, not proofs that claims rest on no number. Their strict, tied, and reversed outcomes must be reported separately, and the earlier referral comparison used a mixed Tradition 11 intervention. The corrected headline compares referral loss with the pure attraction path, while structural size and endpoint-viability orderings are reported separately.
 
 A model like that can show that ideas fit together. It cannot show they are true.
 
@@ -7417,17 +6917,18 @@ Treat the group-decision math as settled mathematics, treat its application to A
 
 > *The rule that nobody in AA is in charge and nobody uses their last name may not be just humility: read a certain way, it is the exact mathematical condition that makes a group's decisions trustworthy, written down by people who learned it from failure sixty-four years before anyone proved it. Whether that reading is right is the thing still to be checked.*
 
-## Reproducibility Note
+Reproducibility Note
+--------------------
 
 Every quantitative claim in this paper is reproducible from the companion repository without reference to any external dataset, because there is no external dataset.
 
 ##### Deterministic results.
 
-Sections 3 and 4 are algebra on constructed matrices. Influence vectors are normalized left dominant eigenvectors; consensus errors come from the closed form in equation ([\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"}); the coupling is a matrix product; the threshold test is one division per Step. These carry no sampling error and are exact to the digits printed.
+Sections 3 and 4 are algebra on constructed matrices. Influence vectors are normalized left dominant eigenvectors; consensus errors come from the closed form in equation (the consensus-error equation above); the coupling is a matrix product; the threshold test is one division per Step. These carry no sampling error and are exact to the digits printed.
 
 ##### Stochastic results.
 
-Section 6 reports Monte Carlo output. The design is: Euler integration at $dt = 0.5$ weeks over 1,560 weeks; **400 seeds minimum for any published figure**; survival reported with Wilson intervals; membership and quality with 95 per cent half-widths from the cross-run standard error; Tradition comparisons under common random numbers at 400 paired replications. **Common random numbers reduce variance and do not reduce the replication count required**: the comparison in Table [10](#tab:tradition){reference-type="ref" reference="tab:tradition"} was originally run at 30 paired replications, produced a different ranking, and reversed when rerun at 400.
+Section 6 reports Monte Carlo output. The design is: Euler integration at $dt = 0.5$ weeks over 1,560 weeks; **400 seeds minimum for any published figure**; survival reported with Wilson intervals; membership and quality with 95 per cent half-widths from the cross-run standard error; Tradition comparisons under common random numbers at 400 paired replications. **Common random numbers reduce variance and do not reduce the replication count required**: the comparison in Table [10](#tab:tradition){reference-type="ref" reference="tab:tradition"} was originally run at 30 paired replications, produced a different ranking, and reversed when rerun at 400. Numerical checks use 200 paired seeds at $dt=1.0$, 0.5, 0.25 and 0.125 weeks and 200 seeds at 10, 20, 50 and 100 years. These support the finite-horizon numerical resolution and show continued long-run movement; they do not prove a steady state.
 
 ##### Perturbation designs.
 

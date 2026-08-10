@@ -152,9 +152,9 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 **Why Step 12 is the weak row.** In the unperturbed coupling, Step 12's top two are T5 at 1.25 and T3 at 1.10, a margin of 0.15 on a value of 1.25. Both Traditions govern the recipient resource, T5 at 0.9 and T3 at 0.8, so a perturbation that moves them in opposite directions flips the winner. The margin, not the level, is what makes the row fragile.
 
-**What no design here can test.** Neither perturbation can move a structural zero, so no figure in this chapter is evidence about the two-tier split. Neither can test whether a differently-minded person would place the zeros where I placed them. Those are the threats named in appendix A5.6 and neither is addressed here.
+**What no design here can test.** Neither perturbation can move a structural zero, so no figure in this chapter is evidence about the two-tier split. Neither can test whether a differently-minded person would place the zeros where I placed them. Those are the threats named in appendix A7.1 and neither is addressed here.
 
-**The eight resources have since been tested and the result is in the main text.** Appendix A9.5 deletes each resource, merges each pair and deletes each pair, sixty-four variants in all, and finds that only Step 1 and Step 2 ever regain their index-mates, in fifteen and one variants respectively. That establishes the list is no *finer* than it needs to be. It cannot establish that the list is fine *enough*, because inventing a ninth resource requires a judgement about what it contains and cannot be done by rearranging the eight.
+**The eight resources have since been tested and the result is in the main text.** Appendix A7.6 deletes each resource, merges each pair and deletes each pair, sixty-four variants in all, and finds that only Step 1 and Step 2 ever regain their index-mates, in fifteen and one variants respectively. That establishes the list is no *finer* than it needs to be. It cannot establish that the list is fine *enough*, because inventing a ninth resource requires a judgement about what it contains and cannot be done by rearranging the eight.
 
 ### 3. Notes on sources
 
@@ -178,7 +178,7 @@ Nothing. This chapter cites no source it has not read, because it cites almost n
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A5.6, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A7.1, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 **What was not read:**
 

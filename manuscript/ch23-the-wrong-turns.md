@@ -123,8 +123,8 @@ The corrections, with what found each one and where the corrected version lives.
 | Newcomer dependence inserted by hand | the eight-resource derivation | Part Four |
 | Dropout keyed to the twelve-step mean | Ch 19's retention question | A2 |
 | Baseline calibrated on ten years, reported at thirty | horizon study | A3 |
-| Noise floor using the same seeds twice | reading the check | A3.3 |
-| Three significant figures from ten seeds | recomputing at 400 | Ch 1, 2, 4, 14, preface, A3.3b |
+| Noise floor using the same seeds twice | reading the check | A4 |
+| Three significant figures from ten seeds | recomputing at 400 | Ch 1, 2, 4, 14, preface, A4 |
 | Uncentred lognormal capability changed both mean and dispersion | release-gate distribution audit | Ch 4, Ch 12, appendix |
 | Semantic overlap published as executable coupling | source-to-code trace | Parts Three and Four, paper, appendix |
 | Recipient ablation changed several mechanisms | one-mechanism override | Ch 15, primer, appendix |
@@ -179,7 +179,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`research/progress-log.md` for every entry in the table. `model/book-calculations.ipynb` for the assertions that caught three of them. `appendix/APPENDIX.md` A3.3b for the small-sample errors, A9 for the structural variants that split the final claim. `tools/check_book.py` for the sources check that caught the Crothers misattribution.
+`research/progress-log.md` for every entry in the table. `model/book-calculations.ipynb` for the assertions that caught three of them. `appendix/APPENDIX.md` A4 for the small-sample errors, A7.3 for the structural variants that split the final claim. `tools/check_book.py` for the sources check that caught the Crothers misattribution.
 
 **What was not read:**
 

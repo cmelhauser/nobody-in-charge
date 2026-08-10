@@ -6,8 +6,8 @@ The Morris screen (`morris_screen.py`, appendix A4.6 and A5.5) ranks factors by 
 absolute elementary effect, and reports sigma, the spread of those effects. A high sigma means
 the factor's effect depends on where the other factors sit. It cannot say whether that is
 interaction with another factor or curvature in the factor itself, and the appendix says so.
-Three of the top eight, a[4], a[8] and omega, have sigma/mu* above one and are unresolved in
-exactly that way.
+Five of the top eight, p_gate, delta0, lam_exog, a[5] and a[11], have sigma/mu* above one and
+are unresolved in exactly that way.
 
 Sobol decomposes the output variance instead of screening it, and separates the two:
 
@@ -61,8 +61,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 MODEL = os.path.join(HERE, 'aa_group_model.py')
 OUT = os.path.abspath(os.path.join(HERE, '..', 'research', 'sobol.json'))
 
-# The eight leaders of the Morris screen, in its order. See appendix A5.5.
-FACTORS = ['p_gate', 'delta0', 'churn', 'het_sd', 'drop_k', 'a:4', 'a:8', 'omega']
+# The eight leaders of the twenty-trajectory Morris screen, by membership mu*, in its order.
+# Read from research/morris.json after that screen completed; see appendix A5.5. Scalar ids are
+# written without the `scalar:` prefix; step speeds keep the `a:i` form. The membership mu* gap
+# between the eighth factor (a:11, 15.87) and the ninth (lam0, 14.34) is clear, so the cut is
+# untied. No `S` or `GOV` cell reaches the top eight; the highest is `S:8,6` at rank 17.
+FACTORS = ['p_gate', 'delta0', 'churn', 'drop_k', 'lam_exog', 'het_sd', 'a:5', 'a:11']
 
 N_BASE = 1024        # power-of-two rows in A and B; cost is N_BASE * (k + 2)
 SPREAD = 0.25        # plus or minus 25 per cent of nominal, matching OAT and Morris
@@ -80,17 +84,43 @@ def _load():
     return mm
 
 
+def _rederive(mm):
+    """Recompute every quantity derived from `S` or `GOV` after a cell is perturbed."""
+    mm.GOVW[:] = mm.GOV / np.maximum(mm.GOV.sum(0, keepdims=True), 1e-12)
+    mm.BETA[:] = mm.S.sum(1) / mm.S.sum(1).max()
+    mm.Snorm[:] = mm.S / mm.S.sum(1, keepdims=True)
+
+
 def evaluate(arg):
-    """arg = (x, seed_offset). x is a point in the unit hypercube, length 8."""
+    """arg = (x, seed_offset). x is a point in the unit hypercube, length len(FACTORS).
+
+    Factor ids follow the registry used by the OAT and Morris screens, so that the three
+    designs perturb identical objects: a bare name or `scalar:name` is one of the 22 continuous
+    scalars, `a:i` is a step speed, and `S:i,j` or `GOV:i,j` is a matrix cell. Matrix cells are
+    mutated in place and every derived quantity is rebuilt, because writing a cell into `P`
+    would silently do nothing. `cap` is rounded and floored exactly as the other two screens
+    round it. An unrecognised id raises rather than being treated as a scalar default.
+    """
     x, off = arg
     mm = _load()
     P = {'a': mm.DEFAULTS['a'].copy()}
+    touched = False
     for xi, pid in zip(x, FACTORS):
         mult = 1.0 + SPREAD * (2.0 * xi - 1.0)
-        if pid.startswith('a:'):
-            P['a'][int(pid.split(':')[1])] *= mult
+        kind, rest = pid.split(':', 1) if ':' in pid else ('scalar', pid)
+        if kind == 'scalar':
+            v = mm.DEFAULTS[rest] * mult
+            P[rest] = max(int(round(v)), 5) if rest == 'cap' else v
+        elif kind == 'a':
+            P['a'][int(rest)] *= mult
+        elif kind in ('S', 'GOV'):
+            i, j = (int(t) for t in rest.split(','))
+            (mm.S if kind == 'S' else mm.GOV)[i, j] *= mult
+            touched = True
         else:
-            P[pid] = mm.DEFAULTS[pid] * mult
+            raise ValueError(f'unknown factor kind in {pid!r}')
+    if touched:
+        _rederive(mm)
     T = np.full(12, T_REF)
     runs = [mm.simulate(T, P=P, seed=s + off, T_end=H) for s in range(NSEED)]
     return [float(np.mean([r['N'] for r in runs])),

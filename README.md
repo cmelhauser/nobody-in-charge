@@ -9,9 +9,17 @@ results, source ledgers, and reproducible PDF builds.
 ## Current status
 
 The project is in a release-gate correction round opened 6 August 2026. The principal model
-corrections and 400-seed confirmatory analyses are complete. Expanded structural and parameter
-sensitivity runs are being regenerated against one model identity before the final notebooks,
-appendix, PDFs, and independent verification verdict are closed.
+corrections and 400-seed confirmatory analyses are complete. The expanded structural and
+parameter sensitivity runs are also complete against one model identity: the multi-level
+one-at-a-time screen at 944 points, the twenty-trajectory Morris screen at 2,380 points, and the
+1,024-row Sobol decomposition at 11,264 evaluations. Their results are generated into
+`research/ROBUSTNESS-RESULTS.md` and carried into the appendix, paper, primer, and parameter
+ledger.
+
+The Morris screen replaced three of the eight factors previously assumed for the Sobol design:
+`a:8`, `a:4`, and `omega` fall to ranks 15, 27, and 37 and are replaced by `lam_exog`, `a:5`, and
+`a:11`. The 1,024-row base sample also makes the membership first-order Sobol column admissible
+for the first time; the practice first-order column remains withheld.
 
 - Canonical model: `model/aa_group_model.py`
 - Current model SHA-256: `c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`
@@ -106,15 +114,23 @@ build/                  Generated whole-book Markdown and PDF
 
 ## Reproduction and release checks
 
-Run from the repository root after all required caches are complete:
+Run from the repository root after all required caches are complete. All three PDFs are built
+before the final release check, because that check requires each rendered artifact to be newer
+than every source feeding it:
 
 ```bash
+python3 tools/summarize_robustness.py
+python3 tools/regenerate_notebooks.py
 python3 tools/run_notebook.py
+python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
-python3 tools/check_release.py
 python3 tools/build_book.py
+tectonic --outdir paper paper/anonymity-as-an-aggregation-condition.tex
+pandoc reference/PRIMER-steps-and-traditions.md \
+  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=tectonic
+python3 tools/check_release.py
 ```
 
 The paper is built from `paper/anonymity-as-an-aggregation-condition.tex`. The standalone

@@ -2451,3 +2451,69 @@ This machine had neither Pandoc nor XeLaTeX at the start of the rebuild. Pandoc,
 the project's TeX Gyre Pagella fonts were installed. `tools/build_book.py` now prefers XeLaTeX
 when available and falls back to Tectonic; the standalone-primer command in README and
 CLAUDE.md names Tectonic, matching the verified build environment.
+
+---
+
+## The three remaining screens finished, and the Sobol factor set was wrong
+
+The release round had been paused with the multi-level one-at-a-time sweep 8 parameter jobs into
+118. Resuming it completed the remaining 110 and closed the last three quantitative gaps: 944 OAT
+perturbation points, a twenty-trajectory Morris screen over all 118 factors at 2,380 points, and a
+1,024-row Sobol design at 11,264 evaluations. All three caches match the frozen model hash and
+their own script hashes, and `tools/summarize_robustness.py` now generates
+`research/ROBUSTNESS-RESULTS.md` from them.
+
+**The OAT screen resolved more cleanly than the global designs.** Across 944 points the
+pure-attraction-loss minus referral-loss ordering is strict in 931, tied in 2 and reversed in 11 on
+final membership, and 934/10/0 and 933/11/0 on endpoint viability and existence. The eleven
+membership reversals are not scattered noise: nine of them are large downward moves of `p_gate`,
+`delta0` and `churn`, and the other two are the `S:11,5` and `S:11,6` cells. That is a more
+informative failure than a bare percentage, and it is why the counts are reported by parameter
+rather than compressed.
+
+Two older claims did not survive the recount. Chapter One said more than half the model's
+parameters could move the referral-starved survival probability on their own; the correct figure is
+26 of 118. Chapter One and Chapter Six both said the ordering held in all 236 one-at-a-time cases,
+which was the retired design and the retired model.
+
+**All 35 governance cells return exactly zero, and that is not a finding.** Maximum absolute
+deviation across every outcome and scenario is 5.6e-17. The OAT sweep runs at full adherence, where
+column-normalised governance quality is identically 1 whatever the underlying magnitudes are. This
+is the vacuous-robustness trap the project has already fallen into twice, so it is now stated as a
+property of the reference point in the appendix, the parameter ledger and Chapter Twelve's
+Machinery, alongside the reason the Morris and Sobol designs sit at 0.85 instead.
+
+**Three of the eight Sobol factors were wrong.** `model/sobol_indices.py` had carried a `FACTORS`
+list from the retired ten-trajectory screen. Against twenty trajectories, `a:8` falls to rank 15,
+`a:4` to 27 and `omega` to 37, and `lam_exog`, `a:5` and `a:11` take their places. The membership
+cut is untied, 15.87 against 14.34 at the ninth factor. The list was corrected before the Sobol run
+rather than after it, and the evaluator was extended at the same time: it had handled scalars and
+step speeds only, and would have silently done nothing if a matrix cell had ranked in the top eight,
+because writing an `S` or `GOV` id into the parameter dictionary is a no-op. It now mutates the
+matrix and rebuilds every derived quantity, matching the OAT and Morris evaluators, and raises on an
+unrecognised id. No matrix cell ranked that high this time; the highest is `S:8,6` at 17.
+
+**The bigger base sample half-repaired the first-order column.** At N = 128 the first-order indices
+failed three diagnostics and were withheld entirely. At N = 1,024 the membership column is
+admissible: no factor has `S1` above its `ST`, and the sum is 0.693 rather than an impossible
+number. `p_gate` resolves at 0.404 [0.288, 0.525] and `delta0` at 0.238 [0.156, 0.327]; the other
+six cover zero and are unresolved rather than zero. The practice column is still not usable, and it
+fails for a smaller reason than before: `delta0` returns `S1 = 0.421` against `ST = 0.417`, and the
+practice first-order sum is 1.074 against the old 1.263. So the paper now reports a membership
+first-order decomposition it previously refused to report, and continues to withhold the practice
+one. Total-order sums of 1.456 and 1.464 still say interaction is present and not dominant, and
+`a:5` and `a:11` sit at or below the 0.0429 membership noise floor and are not separated from Monte
+Carlo error at all.
+
+**A counting error in the primer surfaced on the way past.** It said three of the four unresolved
+Tradition rows were protective Traditions. Seven of twelve contrasts resolve and five do not, so
+there are five unresolved rows, of which three are protective. The number three was right and the
+number four was wrong.
+
+**On generating platform.** These screens ran on Linux x86-64 under NumPy 2.2.6, while the earlier
+caches were generated on macOS. Re-executing a macOS-generated OAT job on Linux reproduced every
+discrete outcome exactly and differed on continuous outcomes only in the last representable digit,
+around 1e-16. That is far below reported precision and changed no classification, but the caches are
+hash-linked to the model and script rather than to a platform, so the provenance is now recorded in
+the parameter ledger and the verification brief. An independent verifier should expect agreement to
+reported precision, not bit-identical reproduction.

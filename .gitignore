@@ -4,3 +4,12 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 build/pandoc.log
+
+# LaTeX build artifacts. The paper's .tex and .pdf are tracked; nothing else it emits is.
+paper/*.aux
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.tmp

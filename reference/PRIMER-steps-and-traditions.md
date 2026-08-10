@@ -638,9 +638,10 @@ that way.
 ## What this primer does not say
 
 **It does not rank the Traditions by importance.** The degradation column measures
-membership at twenty years in a one-factor sweep from 0.85 to 0.50. Traditions 2, 9 and
-12 carry the book's central argument, and three of the four unresolved rows are
-protective Traditions whose simulation role is an assumption rather than a derivation.
+membership at twenty years in a one-factor sweep from 0.85 to 0.50. Seven of the twelve
+contrasts resolve and five do not. Traditions 2, 9 and 12 carry the book's central
+argument, and three of the five unresolved rows are protective Traditions whose
+simulation role is an assumption rather than a derivation.
 
 **It does not establish that Traditions 2, 9 and 12 are what prevents the three
 obstructions.** The appendix shows the three obstructions behave as the theorem says. The
@@ -723,11 +724,11 @@ calibration figures. `research/resource_list.json`, the sixty-four resource-list
 variants. `research/oat_full.json`, the 944 registered multi-level perturbation points.
 `research/structural.json`, the four structural variants.
 
-`appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A3.3 for
-the seed-count table, A5.4 and A5.6 for the perturbation designs and what they cannot
-reach, A5.4b for the threshold test, A5.4c for the reassignment test, A5.4d for the
-degradation ranking, A5.4e for the sparsity pricing, A9 for the structural variants and
-A9.5 for the resource-list test. Part Two's sensitivity analysis is the section titled
+`appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A4 for
+the seed counts and estimands, A5.4 and A7.1 for the perturbation designs and what they
+cannot reach, A8 for the threshold, reassignment and sparsity-pricing tests, A5.2 for the
+degradation ranking, A7.3 for the structural variants and A7.6 for the resource-list
+test. Part Two's sensitivity analysis is the section titled
 "Part Two: sensitivity of the mapping between the theorem and the Traditions", which is
 numbered A8 and shares that number with the reproduction section at the end of the file.
 
