@@ -77,6 +77,10 @@ header-includes:
   - \\usepackage{{booktabs}}
   - \\usepackage{{longtable}}
   - \\setlength{{\\emergencystretch}}{{3em}}
+  - \\usepackage[htt]{{hyphenat}}
+  - \\usepackage{{xurl}}
+  - \\usepackage{{etoolbox}}
+  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize}}
   - \\usepackage{{titlesec}}
   - \\titleformat{{\\chapter}}[display]{{\\normalfont\\Large\\bfseries}}{{}}{{0pt}}{{\\Large}}
   - \\titlespacing*{{\\chapter}}{{0pt}}{{0pt}}{{28pt}}
@@ -183,7 +187,43 @@ def convert_paper():
             capture_output=True, text=True, check=True).stdout
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
         raise SystemExit('could not convert the paper: %s' % exc)
-    return demote_subscripts(md).strip() + '\n'
+    return demote_subscripts(resolve_paper_crossrefs(md)).strip() + '\n'
+
+
+def resolve_paper_crossrefs(md):
+    """Neutralize LaTeX cross-reference markup that does not survive the round trip.
+
+    The paper is LaTeX, and its `\\label`/`\\eqref` machinery converts to pandoc link
+    syntax that the second pass renders literally, so the book printed `[eq:err]` and
+    `[prop:one]` where the paper prints a number. The paper's own PDF remains the
+    authoritative rendering; inside the book these become plain words rather than dead
+    identifiers. A numbered scheme would require numbering the paper's floats a second
+    time in the book's own sequence, which would then disagree with the paper.
+    """
+    # Anchor spans that pandoc emits for \label, e.g. [\[prop:one\]]{#prop:one label="..."}
+    md = re.sub(r'\[\\\[[^\]]*?\\\]\]\{#[^}]*?\}\s*', '', md)
+    # Reference links, e.g. [\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"}
+    def _ref(match):
+        target = match.group(1)
+        if target.startswith('eq:'):
+            return 'the consensus-error equation above'
+        if target.startswith('prop:'):
+            return 'the proposition above'
+        if target.startswith('tab:'):
+            return 'the table above'
+        if target.startswith('sec:'):
+            return 'the section above'
+        return 'above'
+    md = re.sub(r'\[\\\[[^\]]*?\\\]\]\(#([^)]*?)\)\{reference-type="[^"]*"\s*reference="[^"]*"\}',
+                _ref, md)
+    # A leading "N." in a table cell is read as an ordered-list marker. Pandoc's LaTeX
+    # reader escapes every number except 1, which is the default list start and is dropped
+    # outright, so the paper's mapping table lost the "1." from its Common welfare row.
+    # Escape the survivors, then restore the one that was eaten.
+    md = re.sub(r'(\n\s{2,})(\d{1,2})\.(\s+\S)',
+                lambda m: f'{m.group(1)}{m.group(2)}\\.{m.group(3)}', md)
+    md = re.sub(r'(\n\s{2,})\.(\s+\S)', lambda m: f'{m.group(1)}1\\.{m.group(2)}', md)
+    return md
 
 
 def assemble(build_date):

@@ -2,8 +2,17 @@
 
 Date opened: 6 August 2026
 
-Status: **implementation in progress; this plan supersedes conflicting quantitative or status
-language in the older part plans until the final verification pass closes it.**
+Status: **implementation complete except for one checker; this plan supersedes conflicting
+quantitative or status language in the older part plans until the final verification pass closes
+it.**
+
+As of 9 August 2026 every analysis in section 2 is complete and hash-current, including the 944
+multi-level OAT points, the 20-trajectory Morris screen, and the 1,024-row Sobol design.
+`tools/check_release.py` passes with 136 checks, portability passes, the primer chapter check is
+clear, and both notebooks execute clean. `tools/check_book.py` does not pass: it reports 102
+failures, of which 100 are manuscript figures no longer traceable to the regenerated notebook.
+That is the sole blocking item and it is documented in `../HANDOFF.md` section 5. The release
+criteria in section 4 below are therefore not yet met.
 
 The original V1-V18 audit findings were resolved into the decisions below. The current
 `../AGENT_VERIFY.md` is the independent, fail-closed verification brief for the corrected

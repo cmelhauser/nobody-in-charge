@@ -125,7 +125,7 @@ The unconditional series falls by 98 per cent from year two to year thirty. Even
 
 **Established-practice differences against a healthy viable group at year ten:** invisible is 0.0067 lower, unreferred is 0.0459 higher, and combined Tradition 3 loss is 0.0581 higher. Membership is lower in all three.
 
-**What is not tested.** Combinations. Each condition switches one thing off at full adherence elsewhere. Real decline is unlikely to be so tidy and there is no reason to expect the costs to add. Appendix A5.6 lists this under what no design covers.
+**What is not tested.** Combinations. Each condition switches one thing off at full adherence elsewhere. Real decline is unlikely to be so tidy and there is no reason to expect the costs to add. Appendix A7.1 lists this under what no design covers.
 
 **What the trajectories are not.** They are not predictions of how long a real group lasts. The horizon, arrival rate and churn floor are authored choices, and the original forty-five-member calibration fails after the heterogeneity correction. The expanded sensitivity designs are screens of dependence within this model; they do not validate the durations or absolute sizes.
 
@@ -149,7 +149,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A3.4 for the selection threat that this chapter turns into a finding, A5.6 for what no design covers, A6 for the calibration.
+`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A6 for the calibration.
 
 **What was not read:**
 
