@@ -2892,3 +2892,42 @@ dials; none varies the decision to have one dial per step. Testing that would ta
 not another sweep. The study is also small, nine months long and observational, so it is an
 objection to the shape of the apparatus rather than a refutation of it, and the chapter says that
 too.
+
+---
+
+## Coherence audit after the two articles were read
+
+Reading a source changes more than its own entry, and this pass was about finding what else had
+gone stale. Three documents were still describing Greenfield and Tonigan as unread, in the exact
+places a careful reader would check.
+
+Chapter 13 carried a note saying the empirical literature was read at one remove, listing the four
+claims it took from the abstract, and instructing that the full paper be read before the chapter
+was final. Chapter 24 said two claims rested on material not read, and that the paper was on the
+outstanding acquisition list. The paper's bibliography said "abstract and secondary summary only".
+Pagano's paper entry still said "cited at a remove; the full text could not be obtained".
+
+All four are now corrected, and the correction is a confirmation rather than a retraction, which
+is worth recording because it could easily have gone the other way. Every specific claim those
+chapters took from the abstract survives contact with the full text: the two-factor structure, the
+differing predictors and time trends, only spiritual step-work predicting percent days abstinent,
+and the instrument disagreement on nine of twelve steps. What full reading added was scale and
+design, 130 affiliates over nine months, observational, which now sits beside the findings in
+Chapter 13 rather than being left to the reader to discover.
+
+Chapter 24's entry improved in a different way. It had said the abstract was enough to establish
+that the instrument exists and not enough to say what could be added to it. Having read the paper,
+the chapter can now say what the additional analysis would be, because the two-factor structure
+gives it an obvious form: score step-work per step rather than summing it.
+
+`SOURCES.md` needed three separate repairs, which is a fair measure of how many places a read
+status lives: the staged-corpus section, the limited-status section, which still listed Greenfield
+under abstract-only, and a missing full entry beside Pagano's. The limited-status section keeps a
+pointer rather than losing the name entirely, so a reader tracing an old citation lands on the
+current status instead of a gap.
+
+`AGENTS.md` was rewritten. It had been ten lines pointing at other files, which is thin for a cold
+start by an agent that does not read `CLAUDE.md`. It now states what the project is, the six things
+not to do, the authority order, where each kind of question is answered, the synchronisation rule,
+and the house style, and it says plainly that the release gate is closed and the current state
+should be treated as correct until a checker says otherwise.

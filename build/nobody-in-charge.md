@@ -2766,7 +2766,7 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 ### 3. Notes on sources
 
-**The empirical literature is read at one remove.** Greenfield and Tonigan's study reaches me through its published abstract and through summaries of its findings, not through the full paper. The specific claims used here are the two-factor structure, the differing predictors and time trends of the two factors, the finding that only spiritual step work predicted percent days abstinent, and the discrepancy between instruments on nine of twelve steps. All are stated in the abstract. **The full paper should be read before this chapter is final**, and it may well qualify things the abstract states baldly.
+**The empirical literature has now been read in full, and it did not qualify what the abstract stated.** Greenfield and Tonigan's study previously reached this chapter through its abstract and secondary summaries, and this note recorded that the full paper should be read before the chapter was final. It was obtained and read on 10 August 2026. Every specific claim used here survives: the two-factor structure, the differing predictors and time trends of the two factors, the finding that only spiritual step work predicted percent days abstinent, and the discrepancy between instruments on nine of twelve steps. What full reading adds is scale and design rather than correction, and both are worth stating beside the findings: 130 new AA affiliates, assessed at intake and at three, six and nine months, observationally. That is a small sample over a short horizon, so the two-factor result is a finding to build on rather than a settled fact.
 
 **Cloud and colleagues' definition of twelve-step affiliation** as attendance plus self-identification plus sum of steps completed reaches me through a later methodological paper citing it, not from the original.
 
@@ -2788,7 +2788,7 @@ Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology 
 
 **Cited at a remove:**
 
-Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. Read via abstract and secondary summary; full text not obtained.
+Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Source for the two-factor structure, the predictors and time paths of each factor, spiritual step-work predicting percent days abstinent where behavioural step-work did not, the instrument discrepancy on nine of twelve steps, and the sample of 130 affiliates over nine months. **Note the copy**: the author manuscript's pagination is not the journal's.
 
 Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
 
@@ -2800,7 +2800,7 @@ The substitution table and cross-partial series are checked in `model/book-calcu
 
 **What was not read:**
 
-Greenfield and Tonigan in full, which is the one study that bears directly on this chapter's question and which is described here from an abstract. Also unread: any work estimating a substitution parameter for a sequential practice of this kind in any domain. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it, here or elsewhere, and the chapter should not be read as implying that anybody has.
+Any work estimating a substitution parameter for a sequential practice of this kind in any domain. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it, here or elsewhere, and the chapter should not be read as implying that anybody has.
 
 Carroll, S. (1993). On adherence to the twelve steps.
 
@@ -4655,13 +4655,13 @@ For each item, the claim, the design, and the result that would falsify it.
 
 **Items 2, 4 and 5 need a unit of analysis the field does not use.** Groups rather than members.
 
-**Item 3 is closest to being already done.** Greenfield and Tonigan's instrument would need one additional analysis rather than a new study, and that paper is on the outstanding acquisition list; the chapter's description of it comes from an abstract and a secondary summary and should be treated accordingly.
+**Item 3 is closest to being already done.** Greenfield and Tonigan's instrument would need one additional analysis rather than a new study. The paper has now been read in full, so this chapter's description of it no longer rests on an abstract, and reading it strengthens the case: their two-factor structure means the additional analysis is not merely possible but has an obvious form, since behavioural and spiritual step-work already separate and could be scored per step rather than summed.
 
 ### 3. Notes on sources
 
 **This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding.
 
-**Two claims here rest on material I have not read.** Greenfield and Tonigan (2013) is described from its abstract and a secondary summary, which is enough to say the instrument exists and not enough to say what could be added to it. SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document.
+**One claim here still rests on material I have not read.** SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
 
 **One item has no method.** Item five names the measurement that would bear most directly on the book's central claim and then says I do not know how to take it ethically in an anonymous fellowship. I would rather have a gap on the list than an item that pretends to be actionable.
 
@@ -4675,7 +4675,7 @@ Nothing new to this chapter.
 
 **Cited at a remove:**
 
-Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. Abstract and secondary summary only. Not read.
+Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
 
 Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Located, not acquired. See `research/SOURCES.md`.
 
@@ -7574,7 +7574,9 @@ Action.* Cambridge: Cambridge University Press.
 
 Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping other
 alcoholics in Alcoholics Anonymous and drinking outcomes." *Journal of Studies on Alcohol*
-65(6): 766-773. **Cited at a remove**; the full text could not be obtained.
+65(6): 766-773. **Read in full**; NIH author manuscript, PMCID PMC3008319, obtained 10
+August 2026. Source for the 40 against 22 per cent abstinence contrast, its independence
+from meeting attendance, and the authors' 8 per cent helping-rate limitation.
 
 Riessman, F. (1965). "The 'helper' therapy principle." *Social Work* 10(2): 27-32.
 
@@ -7596,8 +7598,9 @@ Involvement (AAI) scale." *Psychology of Addictive Behaviors* 10: 75-80.
 
 Greenfield, B. L., and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of
 Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive
-Behaviors* 27(3): 553-561. **Abstract and secondary summary only**; full text not
-obtained.
+Behaviors* 27(3): 553-561. **Read in full**; NIH author manuscript, PMCID PMC3707937,
+obtained 10 August 2026. Source for the two-factor structure of step-work and the
+disagreement between instruments on nine of twelve steps.
 
 Witkiewitz, K., and G. A. Marlatt (2004). "Relapse prevention for alcohol and drug
 problems." *American Psychologist* 59(4): 224-235.

@@ -1,19 +1,91 @@
 # Agent instructions
 
-The authoritative workspace is the current Git checkout. Treat the repository root as `.` and
-use only repository-relative paths in tracked files, commands, notebooks, manifests, and
-handoffs.
+Entry point for any agent working on this repository: Cursor, Codex, Claude, or a human. Read
+this file first. `CLAUDE.md` is the long form of the same rules and is authoritative where the
+two overlap; nothing here contradicts it.
 
-Before changing the project, read `CLAUDE.md`, `HANDOFF.md`, `plans/RELEASE-GATE-PLAN.md`, and
-`AGENT_VERIFY.md`. `README.md` carries the current status and the reproduction sequence.
+## What this project is
 
-The release gate is closed and every checker passes. Do not reopen it casually: preserve the
-completed caches, which are hash-linked to the frozen model and cost hours to regenerate, and
-preserve the source boundary as `research/SOURCES.md` currently states it.
+A finished book-length research project. A 25-chapter manuscript, an academic paper, a technical
+appendix, a Steps-and-Traditions primer, an executable agent-based model, twenty analysis
+scripts, eighteen hash-linked result caches, two verification notebooks, and seven checkers.
 
-No source document is committed. Sources live in `research/incorporated/<ShortAuthor>_<Year>/`
-as records only, and `.gitignore` keeps the documents out. Add or repair a source with
-`python3 tools/build_corpus.py`, never by hand.
+It argues that three of Alcoholics Anonymous's Twelve Traditions implement a formal condition,
+proved by Golub and Jackson in 2010, for when a group that decides by discussion can be trusted
+to be right. It is anonymous and unpublished.
 
-Run `python3 tools/check_portability.py` before committing, and the full sequence in `README.md`
-before claiming a release.
+**The release gate is closed and every checker passes.** Treat the current state as correct until
+a checker says otherwise. Your job is almost certainly not to re-derive anything.
+
+## Ground rules
+
+1. **Do not edit `model/aa_group_model.py`.** It is frozen at SHA-256
+   `c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`. Every cache records that
+   hash and `tools/check_release.py` fails closed if it changes. If you believe there is a genuine
+   defect, say so and stop; do not fix it silently.
+2. **Do not edit an analysis script under `model/` whose cache exists.** Caches record the script
+   hash too. Editing the script invalidates the cache and the gate fails. Regenerating the Sobol
+   design alone costs about four hours.
+3. **Do not restart a completed analysis.** All eighteen caches are complete and hash-current.
+4. **Do not commit a source document.** No PDF or extracted text belongs in git. See below.
+5. **Do not weaken a checker to make it pass.** The checkers have caught real errors, including a
+   misprinted number that had survived every human read. If one fails, the finding is usually
+   real.
+6. **Nothing in this project may be written as advice about an individual's recovery.**
+
+## Authority order
+
+When two things disagree, believe them in this order:
+
+1. `model/aa_group_model.py` for executable semantics
+2. hash-linked JSON caches in `research/` whose model and script hashes match
+3. generated `research/RELEASE-GATE-RESULTS.md` and `research/ROBUSTNESS-RESULTS.md`
+4. the executed notebooks
+5. appendix, paper, primer, manuscript, plans, README, PDFs
+
+A PDF or a Markdown table never overrides a cache.
+
+## Where to look
+
+| You want | Read |
+|---|---|
+| current status, reproduction sequence | `README.md` |
+| what remains, and why | `HANDOFF.md` |
+| the full rules, statistical and editorial | `CLAUDE.md` |
+| how to verify the release independently | `AGENT_VERIFY.md` |
+| what each source supports, and its read status | `research/SOURCES.md` |
+| what changed and why, chronologically | `research/progress-log.md` |
+
+## The synchronisation rule, which is the one that bites
+
+A change to the model or to any published number must be propagated **in the same session** to
+the caches, both notebooks, the manuscript, the appendix, the paper, the primer, the ledgers, the
+plans, the README, the progress log, `HANDOFF.md`, `AGENT_VERIFY.md`, and all three PDFs. A
+half-propagated change is worse than none, because the checkers will pass on the layer you fixed
+and the contradiction will sit in the layer you did not.
+
+## Sources
+
+Every source lives in `research/incorporated/<ShortAuthor>_<Year>/`. **The documents themselves
+are git-ignored and must stay that way**: this repository is public and several sources are in
+copyright. What is committed is the record, a citation, rights, provenance URL, SHA-256, summary,
+and a vocabulary-only verification index.
+
+Citation checking does not need the documents. Add or repair a source with
+`python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
+
+## Before you commit
+
+```bash
+python3 tools/check_portability.py
+```
+
+Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.
+
+## House style, if you touch prose
+
+No em dashes in the author's voice; punctuation inside quotations is preserved as the source has
+it. Plain-language equations in the manuscript, LaTeX in the paper. No subheadings or tables in a
+chapter's narrative; tables belong in the chapter's Machinery section. Every stochastic number
+carries its estimand, seed count, horizon, pairing, and interval. An interval crossing zero is
+"unresolved", never "no effect".
