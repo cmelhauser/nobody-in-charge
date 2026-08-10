@@ -1,0 +1,13 @@
+{
+ "id": "Marsh_1866",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "marsh-1866-temperance-recollections",
+ "documents": {
+  "Marsh_1866.txt": {
+   "sha256": "ff164de1178ebcd5a78ef88afd2e5a9fbff9693afe49924a81842c5a81aceed5",
+   "bytes": 861658,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

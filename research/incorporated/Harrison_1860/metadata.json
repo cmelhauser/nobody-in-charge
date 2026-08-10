@@ -1,0 +1,13 @@
+{
+ "id": "Harrison_1860",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "harrison-1860-voice-from-the-washingtonian-home",
+ "documents": {
+  "Harrison_1860.txt": {
+   "sha256": "6e1ca20d688e7e3a62fbfc97d79d0a555c8bf3846e6e780ba477a806cba83af1",
+   "bytes": 575058,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

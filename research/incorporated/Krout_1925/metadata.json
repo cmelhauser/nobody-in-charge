@@ -1,0 +1,13 @@
+{
+ "id": "Krout_1925",
+ "rights_note": "Published 1925 in the United States; public domain.",
+ "legacy_stem": "krout-1925-origins-of-prohibition",
+ "documents": {
+  "Krout_1925.txt": {
+   "sha256": "b13581944231f0627268c45a614e9f23cc0fae10dfcbe7a9e64ed7344f4598ae",
+   "bytes": 796427,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

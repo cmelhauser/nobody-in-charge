@@ -1,0 +1,30 @@
+{
+ "id": "ATU_Report_1840",
+ "title": "Report of the Executive Committee of the American Temperance Union",
+ "publisher": "American Temperance Union",
+ "year": 1840,
+ "type": "primary_historical",
+ "status": "acquired",
+ "rights_note": "Pre-1929 public-domain scan as labeled by Internet Archive source item.",
+ "source_url": "https://archive.org/details/reportexecutive00uniogoog",
+ "files": {
+  "pdf": "ATU_Report_1840.pdf",
+  "ocr": "ATU_Report_1840_ocr.txt",
+  "sha256": "3161895669f0f4a7c0e3d702869c1c3859e3a33ec6d47af7c40e61955cee07be"
+ },
+ "ocr_quality": "archive_djvu_ocr; verify quotations against scan",
+ "legacy_stem": null,
+ "documents": {
+  "ATU_1840.pdf": {
+   "sha256": "3161895669f0f4a7c0e3d702869c1c3859e3a33ec6d47af7c40e61955cee07be",
+   "bytes": 9862829,
+   "tracked_in_git": false
+  },
+  "ATU_1840.txt": {
+   "sha256": "eaea650ac8ef62190151b4541dfd9a4d40c5e6c2d5ba413c69e1c9f72221ab7d",
+   "bytes": 520220,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

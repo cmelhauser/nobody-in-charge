@@ -2632,3 +2632,53 @@ hand.
 
 The 1840 report and the 1849 almanac are obtained and consulted but support no claim. They are
 recorded as looked at and set aside, which is a different thing from overlooked.
+
+---
+
+## The corpus, normalized, and the documents taken out of the repository
+
+The research folder had grown by accretion: twelve source documents loose at the top level beside
+the caches and ledgers, four source directories under `incorporated/` with four different naming
+styles, and a verification index for Kurtz sitting on its own. Everything is now one shape.
+
+Each source is a directory, `research/incorporated/<ShortAuthor>_<Year>/`, holding the document,
+`citation.md`, `metadata.json`, `source_summary.md` and a verification index. `tools/build_corpus.py`
+does the normalization and is idempotent; `--check` reports drift without touching anything.
+Citations were lifted out of `research/SOURCES.md` rather than retyped, so there is still one place
+for a citation to be wrong.
+
+**No source document is committed any more.** This is the part worth recording carefully, because
+the reasoning had been wrong in the ledger for some time. The Maxwell entry justified storing a
+1950 journal article by saying "this folder is private." The repository is public and always has
+been. The argument was sound and the premise was false, which is worse than a bad argument, and it
+had propagated: the same assumption sat behind mirroring the AA pamphlet.
+
+So `.gitignore` now excludes every `.pdf`, `.txt`, `.djvu` and `.epub` under `research/incorporated/`
+and `research/staged/`, and the tracked record for each source is its citation, its rights position,
+its provenance URL, the SHA-256 of each file, a summary, and an index. The documents remain as local
+working files. A checksum and a URL are a better provenance record than a copy anyway, because they
+can be checked against the original instead of trusted. The repository stops carrying 53 MB of
+scans, of which one file was a 22 MB Grosh PDF.
+
+**The hard part was not losing the citation check.** `tools/check_book.py` confirms that a chapter
+citing a source for a subject is citing a work that actually contains that subject, and it did that
+by searching the full text. Kurtz already had the answer: it is in copyright, was never stored, and
+had a vocabulary-only index instead. Generalizing that pattern exposed one real gap. A vocabulary
+set has no word order, so "sheer survival value", "pocket companion" and "timeline followback" all
+failed the moment the texts went away. Each index therefore also records which registered subjects
+its document contains, decided against the real text at build time and stamped with that file's
+SHA-256, and the subject list is read out of the checker rather than duplicated so the two cannot
+drift.
+
+That was tested rather than assumed. With every document moved out of the tree, the checker still
+verified all 55 citation-subject pairs across 15 sources. Two limitations are declared in
+`SOURCES.md` rather than buried: the matcher is deliberately OCR-tolerant, so short subjects can
+match spuriously, exactly as they could against full text; and an index shows that a word occurs
+somewhere in a work, which is weaker than a page reference, so quotations are still checked against
+page images.
+
+Two small things fell out of it. Parsing the checker's subject list needed comments stripped first,
+because a comment contained the word "book's" and the apostrophe unbalanced the quote pairing,
+which silently produced separator fragments as subjects. And the paper stopped compiling: the new
+directory names contain underscores, and an underscore in LaTeX outside math mode is a subscript,
+so every corpus path inside a `\texttt` span had to be escaped.

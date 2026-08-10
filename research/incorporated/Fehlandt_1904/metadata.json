@@ -1,0 +1,13 @@
+{
+ "id": "Fehlandt_1904",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "fehlandt-1904-century-of-drink-reform",
+ "documents": {
+  "Fehlandt_1904.txt": {
+   "sha256": "94f7641bb9681467ee8ee1ca8a8ce8281399a3bc6ca52e80a139b0503cfe6c4e",
+   "bytes": 471402,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
