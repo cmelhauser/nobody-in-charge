@@ -143,9 +143,11 @@ reproduced, and not obtained.
 - Use plain-language equations in manuscript Markdown; the paper remains LaTeX.
 - No subheadings or tables in a chapter's narrative. Use horizontal rules between narrative
   sections; tables belong in The Machinery.
-- Every chapter ends with The Machinery and five reference-status headings in this order:
-  Read in full; Cited at a remove; Referenced but not reproduced; Internal, and reproducible
-  from this repository; What was not read.
+- Every chapter ends with The Machinery and its reference-status headings, in this order, using
+  the ones that apply: Read in full; Cited at a remove; Referenced but not reproduced; Internal,
+  and reproducible from this repository; What was not read. A heading with nothing under it is
+  omitted rather than filled with a placeholder, which is why most chapters carry four of the
+  five. The order is fixed; the set is not.
 - A number from a stochastic run carries its uncertainty and design. Deterministic algebra is
   labeled deterministic.
 - Nothing in the project may be written as advice about an individual's recovery.
