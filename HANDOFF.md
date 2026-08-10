@@ -29,9 +29,22 @@ round altered the model, the confirmatory estimands, or any 400-seed result.
 
 ## 2. Source boundary
 
-`research/staged/` remains intentionally unincorporated and reserved for the next round. Maxwell
-(1950) and Golub and Jackson (2010) remain under `research/incorporated/`. Nothing in this round
-used staged material.
+**Changed after this round, on 9 August 2026.** The staged corpus was worked through and is now
+mostly incorporated; the sections below describe the state during the robustness round, when
+nothing staged was used.
+
+Four of the corpus's six items moved to `research/incorporated/`: the three American Temperance
+Union documents and the source record for AA pamphlet P-17. What remains staged is two journal
+articles, Greenfield and Tonigan (2013) and Pagano et al. (2004), which are `verified_online` and
+unread because retrieval returned a reCAPTCHA challenge and the project does not work around
+access controls.
+
+No source document is committed at all now. Each source is a directory under
+`research/incorporated/<ShortAuthor>_<Year>/` publishing a citation, a rights position, a
+provenance URL, a SHA-256 and a vocabulary-only verification index; the documents are local
+working files excluded by `.gitignore`. Citation checking was tested with every document removed
+from the tree and still verified all 55 citation-subject pairs. See `research/SOURCES.md` and
+`research/incorporated/README.md`.
 
 ## 3. What this round completed
 
@@ -130,7 +143,7 @@ inspection of every flagged page.
 
 | Artifact | Pages | Size | Result |
 |---|---:|---|---|
-| `build/nobody-in-charge.pdf` | 259 | A4 | 0 blank, 0 margin overflow |
+| `build/nobody-in-charge.pdf` | 260 | A4 | 0 blank, 0 margin overflow |
 | `paper/anonymity-as-an-aggregation-condition.pdf` | 32 | A4 | clean; no undefined references |
 | `reference/PRIMER-steps-and-traditions.pdf` | 17 | Letter | clean |
 
@@ -162,8 +175,8 @@ restoration described above had to accept both.
 
 ## 7. Repository state
 
-The working tree is clean and this round is committed on `main`. Nothing has been pushed; `main`
-is ahead of `origin/main`. Push is deliberately left to the author.
+The working tree is clean and `HEAD` equals `origin/main`. Everything described here, plus the
+corpus round that followed it, is committed and pushed.
 
 `research/ROBUSTNESS-RESULTS.md` is tracked. `.gitignore` now excludes the LaTeX build artifacts
 the paper emits, so a paper build no longer dirties the tree.
