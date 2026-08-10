@@ -74,6 +74,16 @@ RIGHTS = {
     "Maxwell_1950": "Journal article, 1950. Retyped reproduction, not a scan. Not redistributed here.",
     "Golub_Jackson_2010": "Author-hosted PDF. Not redistributed here.",
     "Kurtz_1991": "In copyright, all rights reserved. Never stored as full text.",
+    # Catalogued 10 August 2026. All three are record only: no document is held at any time,
+    # which is a stronger condition than the git-ignored majority of the corpus. Naming them
+    # here rather than letting DEFAULT_RIGHTS apply matters, because the default asserts a
+    # pre-1929 public-domain position that is false for each of them.
+    "TwelveAndTwelve_1953": ("Copyrighted AAWS literature, published free per chapter on "
+                             "aa.org. Never stored here; cite from aa.org."),
+    "Rohr_2011": ("In copyright and in print, all rights reserved. Never stored here. The copy "
+                  "consulted was an unauthorized posting; see metadata.json."),
+    "KurtzTalk_c1984": ("Transcript of a recorded talk; rights position not established. Never "
+                        "stored here."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 

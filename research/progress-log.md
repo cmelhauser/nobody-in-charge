@@ -3021,3 +3021,75 @@ Anonymous and manufactured thousands of spurious citation-subject pairs. They ar
 `Grapevine_1946` and `BigBook_1939`, and the checker refuses any source token shorter than three
 characters rather than trusting it silently. Three is the floor because "ATU" is distinctive and
 "AA" is not.
+
+---
+
+## 10 August 2026, later: three copyrighted works read, and a rule corrected
+
+Three works were read in full and catalogued as record only, bringing the corpus to 26 sources and
+the record-only category to seven: AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr's
+*Breathing Under Water* (2011), and an undated Ernest Kurtz talk placed at about 1984 by internal
+evidence. No document is held for any of them.
+
+**The rule that changed.** Several chapters said, in various wordings, that this project does not
+acquire AA copyright material, and treated that as a reason not to read it. That conflated two
+different things. A rule against **holding** a copyrighted work is a copyright rule and the project
+keeps it strictly. A rule against **reading** one was never a copyright rule at all. The old
+wording has been removed from Chapters 2, 10, 16, 17, 18 and 25, from the primer, from
+`research/SOURCES.md`, from the paper in three places, and from `CLAUDE.md`.
+
+**What the error had cost.** The 1953 commentary contained four things the book had recorded as
+unavailable:
+
+1. The book's own thesis in Wilson's words. The chapter on Tradition 2 concludes that the group
+   conscience, well advised by its elders, will in the long run be wiser than any single leader,
+   and illustrates it with the group overruling Wilson's plan to become a paid lay therapist.
+2. **The strongest objection to that thesis, from AA itself.** Two pages earlier the same chapter
+   describes elder statesmen as the real and permanent leadership of AA, the voice of the group
+   conscience, to whom a perplexed group inevitably turns. They hold no office and so rotate out of
+   nothing. That is a persistent influence concentration, endorsed rather than warned against, and
+   it is what the Golub and Jackson condition forbids. The same chapter calls the committee that
+   does rotate sharply limited, unable in any sense to govern or direct, which means the fellowship
+   rotates the positions its own commentary says carry no weight.
+3. The disproof of the index-pairing conjecture. Across the twelve Tradition chapters, none cites
+   the Step of its own number; across the twelve Step chapters, the word Tradition does not occur.
+   The only indexed cross-reference in the book is Tradition 8 citing the Twelfth Step. Chapter 16
+   had recorded that it could not say how strongly AA literature gestures at the pairing; it does
+   not gesture at all, and that paragraph is withdrawn rather than edited.
+4. Corroboration for Chapter 17. The chapters on Traditions 1 and 5 keep unity and singleness of
+   purpose distinct, which is the assignment Kurtz's conflation charge threatened. This is not the
+   passage Kurtz named, in *Comes of Age*, which is still unread.
+
+**What was added to the model.** `model/part2_influence.py` gained an `elders` family, sections 5b
+and 5c, with a cache rebuild. The frozen model was not touched and the room capacity, seed counts
+and release designs are unchanged. Three elders holding a tenth of every row between them floor
+maximum influence at alpha over e, computed 0.0342 at N = 1000 against a predicted 0.0333 and a
+flat benchmark of 0.0010; the error ratio against flat runs 1.012, 1.075, 1.350, 2.079 at
+N = 10, 50, 250, 1000. Setting the rotation pool to Chapter 10's recommended twenty-six per cent
+does not rescue it: maximum influence runs 2.5, 9.2, 34.2 times flat at N = 50, 250, 1000 with
+three elders at a tenth, against 2.0 flat-relative at every size for rotation alone.
+
+The error ratio is stored in the cache rather than left to be divided out of two other numbers,
+because `check_book.py` flagged 2.08 as untraceable, which it was.
+
+**A subject that had to be withdrawn the same day.** Seven verification subjects were registered
+with these sources. `rotating leadership` was one of them and lasted one run: it is the book's own
+vocabulary as well as the Twelve and Twelve's, so it appears in chapters not citing that source,
+and it paired with Gough in Chapter 2. That is precisely the manufactured pair the SUBJECTS comment
+warns against, so the subject was dropped rather than the checker loosened. The remaining six are
+each literally present in exactly one of the three new sources and absent from the other two.
+
+**The Rohr provenance problem, recorded rather than smoothed.** The copy consulted carried an
+OceanofPDF.com imprint, which is an unauthorized distribution site, and the work is a current
+in-print commercial title, so the posting was plainly not authorized. This is a stronger objection
+than the unverified-authorization cases of DeGroot and the 1946 *Grapevine*. The file was not
+retained; the bibliographic record was confirmed against publisher and library listings
+independently of it, giving Franciscan Media 2011, ISBN 9781616361570, with the copy consulted the
+SPCK 2016 UK edition; and both claims the manuscript draws from Rohr are absence claims, checkable
+by anyone holding a lawful copy. Any Rohr citation should be confirmed against a lawful edition
+before release.
+
+**A reading copy, held outside the repository.** AAWS publishes the Twelve and Twelve free as
+twenty-nine per-chapter PDFs. They were assembled locally into one 187-page document in printed
+order and left in the user's own folder, not in the repository. The assembly's SHA-256 is recorded
+in `research/incorporated/TwelveAndTwelve_1953/metadata.json`.

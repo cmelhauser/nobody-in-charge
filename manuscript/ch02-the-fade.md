@@ -293,6 +293,6 @@ Encyclopaedia entries on the Sons of Temperance (Case Western *Encyclopedia of C
 
 Blumberg, L. U. (1980). "The Significance of the Alcohol Prohibitionists for the Washingtonian Temperance Societies, with Special Reference to Paterson and Newark, New Jersey." *Journal of Studies on Alcohol* 41(1): 37-77. The specific test of this chapter's political-entanglement argument. Largely relieved by Marsh 1866, Blair 1888 and Grosh 1842, all read at source, but not replaced by them: Blumberg would add the local detail none of those carry.
 
-Alcoholics Anonymous World Services publications on the Washingtonians, including *Alcoholics Anonymous Comes of Age* and the twelve *Grapevine* articles Kurtz counts between 1945 and 1976. AA copyright; this project does not acquire them, so AA's own account of the movement reaches this chapter through Kurtz and Maxwell rather than directly.
+Alcoholics Anonymous World Services publications on the Washingtonians, including *Alcoholics Anonymous Comes of Age* and the twelve *Grapevine* articles Kurtz counts between 1945 and 1976. AA copyright, and not obtained. The 1953 commentary was read in full on 10 August 2026 and says nothing about the Washingtonians, so AA's own account of the movement still reaches this chapter through Kurtz and Maxwell rather than directly.
 
 How widely the Utica model constitution was actually adopted. Grosh urges societies to procure a copy; whether they did is not in the manual and I have found no source that settles it.

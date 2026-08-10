@@ -90,19 +90,38 @@ by moving every document out of the tree: all 55 citation-subject pairs still ve
 under `research/incorporated/`. What remains under `research/staged/` is the acquisition report and
 metadata, which are provenance rather than evidence.
 
-**Four sources are held as record only, with no document at any time.** This is a distinct
+**Seven sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
 store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
 from scans whose posting authorization is unverified, and the project's own rights review directs
-that they be cited and quoted within limits rather than archived. Each record keeps the citation,
-the rights position, the hash of the scan consulted, and the passages verified from it.
+that they be cited and quoted within limits rather than archived. Three more were added on
+10 August 2026: AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011) and the Kurtz talk
+of about 1984. Each record keeps the citation, the rights position, the hash of the copy
+consulted, and the passages verified from it.
 
-The corpus holds 23 sources. Three arrived on 10 August 2026 after the rest of this file was
+Rohr (2011) carries the corpus's strongest provenance objection, recorded in its `metadata.json`:
+the copy consulted was an unauthorized posting of a current in-print title. It was not retained,
+its bibliographic record was confirmed independently, and both claims drawn from it are absence
+claims. Confirm any Rohr citation against a lawfully obtained edition before release.
+
+The corpus holds 26 sources. Six arrived on 10 August 2026 after the rest of this file was
 written: the April 1946 *A.A. Grapevine* article, which settled a citation problem Chapter 5 had
 recorded as unresolvable; DeGroot (1974), which supplies a corpus record for the updating rule
-Part Two rests on; and the 1939 Big Book text in a 1999 reprint, held but not yet used as claim
-support.
+Part Two rests on; the 1939 Big Book text in a 1999 reprint, held but not yet used as claim
+support; and, later the same day, three copyrighted works read but never held.
+
+Those three are the substantive change of that day and a reader of this file should know what
+they did. *Twelve Steps and Twelve Traditions* (1953) supplied Chapter 8 with the book's own
+thesis in Wilson's words and, three pages away, the best objection anyone has made to it: the
+elder statesmen, a permanent non-rotating advisory class the commentary endorses, which is exactly
+what the aggregation condition forbids. It also disproved the index-pairing conjecture directly,
+no Tradition chapter citing its own-numbered Step and no Step chapter using the word Tradition at
+all, and corroborated Chapter 17's unity assignment. Rohr (2011) supplied a named holder of the
+protective reading of anonymity. The Kurtz talk supplied Chapter 25's closing counterweight.
+
+The model gained the elder-statesman family, `model/part2_influence.py` sections 5b and 5c. The
+frozen model was not touched.
 
 ## 6. Repository and credentials
 

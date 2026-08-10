@@ -1,0 +1,36 @@
+{
+ "id": "TwelveAndTwelve_1953",
+ "title": "Twelve Steps and Twelve Traditions",
+ "author": "Bill W. / Alcoholics Anonymous World Services",
+ "year": 1953,
+ "type": "primary_organizational_text",
+ "status": "read_in_full_record_only",
+ "rights_note": "Copyrighted AAWS literature, published free per chapter on aa.org. Never stored here; cite from aa.org.",
+ "source_url": "https://www.aa.org/twelve-steps-twelve-traditions",
+ "record_only": true,
+ "files": {
+  "pdf": null,
+  "ocr": null,
+  "note": "Not mirrored. Copyrighted AAWS literature; this repository is public. Same treatment as pamphlet P-17.",
+  "sha256_of_assembled_reading_copy": "5e85bfac052d682abca2251b3fb5d64052302e8cef4d56252cfefd01347cf368",
+  "assembled_reading_copy": "The thirty per-chapter PDFs from aa.org, concatenated in printed order: copyright, introduction, contents, foreword, Steps One to Twelve, Traditions One to Twelve, long form of the Traditions. 187 pages. Held outside the repository."
+ },
+ "topics": [
+  "Traditions",
+  "Steps",
+  "anonymity",
+  "rotation",
+  "group conscience",
+  "organizational history"
+ ],
+ "read_date": "2026-08-10",
+ "verified_pages": {
+  "printed 132-138 (Tradition Two)": "rotating committee sharply limited in authority; servants not senators; elder statesmen and bleeding deacons; group conscience wiser than any single leader; Bill W deferring to the group over the Charlie proposal",
+  "printed 174-178 (Tradition Nine)": "no organization; dangers of entrenched power; long form states that rotating leadership is best",
+  "printed 187-191 (Tradition Twelve)": "anonymity as confidentiality and, separately, one hundred per cent anonymity at press, radio, film and television against self-appointed members presenting themselves as messiahs"
+ },
+ "cross_reference_test": "No Tradition chapter cites the Step of its own number; the twelve Step chapters contain no occurrence of the word Tradition. The only indexed cross-reference in the book is Tradition Eight citing the Twelfth Step. Computed 10 August 2026 from the per-chapter PDFs; reproducible from the recorded hashes.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

@@ -324,7 +324,19 @@ SUBJECTS = ['sons of temperance', 'mitchell', 'beecher', 'washingtonian',
             'pocket companion', 'publicity and freedom', 'utica', 'reformed inebriates',
             # Added when Maxwell 1950 was catalogued, 2 August 2026. The book's most-cited
             # source and, until then, the only one no citation could be checked against.
-            'sheer survival value', 'jellinek', 'annapolis', 'chase', 'zug', 'vickers']
+            'sheer survival value', 'jellinek', 'annapolis', 'chase', 'zug', 'vickers',
+            # Added 10 August 2026 with the three copyrighted works catalogued that day:
+            # the Twelve and Twelve, Rohr (2011) and the Kurtz talk. Each phrase was checked
+            # to be literally present in exactly one of the three and absent from the other
+            # two, so a citation-subject pair here discriminates between them rather than
+            # passing on any of the three indifferently.
+            # "rotating leadership" was tried here and removed the same day. It is the
+            # book's own vocabulary as well as the Twelve and Twelve's, so it appears in
+            # chapters that are not citing that source, and the first run paired it with
+            # Gough in Chapter 2. That is the manufactured pair the note above warns
+            # against, so the subject goes rather than the checker being loosened.
+            'elder statesmen', 'bleeding deacon', 'entrenched power',
+            'total disclosure', 'mental reservation', 'communion of saints']
 
 def fuzzy_in(term, blob, thresh=0.72):
     """Is `term` present allowing OCR noise? Slides a window and scores position-wise
