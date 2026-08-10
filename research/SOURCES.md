@@ -63,9 +63,41 @@ the citation, the official URL, the SHA-256 of the July 2024 file, and the verif
 verifier should download it from aa.org. Removing the mirror changes nothing about what the book
 may claim from it.
 
-The other established source files remain directly under `research/` for compatibility. This is a
-storage boundary, not a change to what the manuscript claims; the entries below remain
-authoritative for how each source was read and used.
+### Layout and what is committed
+
+Every source now lives in one directory, `research/incorporated/<ShortAuthor>_<Year>/`, holding
+the document, `citation.md`, `metadata.json`, `source_summary.md`, and a verification index. Loose
+source files no longer sit directly under `research/`. Run `python3 tools/build_corpus.py` to
+normalize the layout and rebuild indexes; it is idempotent, and `--check` reports drift without
+changing anything.
+
+**No source document is committed.** `.gitignore` excludes every `.pdf`, `.txt`, `.djvu` and
+`.epub` under `research/incorporated/` and `research/staged/`. What is committed is the record: a
+citation, the rights position, the provenance URL, the SHA-256 of each file, and a vocabulary-only
+verification index. Three reasons. Several sources are in copyright and this repository is public.
+The public-domain ones are large scans that are not project outputs and that dominated the
+repository's size. And a checksum with a URL is a better provenance record than a copy, because it
+can be checked against the original rather than trusted.
+
+This resolves, for the whole corpus, the inconsistency the Maxwell entry below used to note: that
+Kurtz was held as an index while everything else was held as text. Everything is now held as an
+index, and the documents are local working files.
+
+**How citation checking survives.** `tools/check_book.py` confirms that a chapter citing a source
+for a subject is citing a work that actually contains that subject. Each index carries the source's
+vocabulary and, because a vocabulary set has no word order, an explicit list of which registered
+subjects the document contains, decided against the real text when the index was built and stamped
+with that file's SHA-256. With no documents present at all, all 55 citation-subject pairs still
+verify. If a document is re-acquired and its hash differs from the recorded one, the index is stale
+and must be rebuilt rather than trusted.
+
+Two limitations, stated rather than buried. The subject matcher is deliberately tolerant of OCR
+noise, so short subjects can match spuriously; that was true when the check ran against full text
+and is unchanged. And an index records that a word appears somewhere in a work, which is weaker
+than a page reference. Quotations are still verified against page images, as the ATU and P-17
+entries record.
+
+The entries below remain authoritative for how each source was read and used.
 
 ---
 
@@ -73,7 +105,7 @@ authoritative for how each source was read and used.
 
 **Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on
 Alcohol* 11: 410-452.**
-**Saved as `research/incorporated/Maxwell_1950/maxwell-1950-the-washingtonian-movement.pdf`**
+**Saved as `incorporated/Maxwell_1950/Maxwell_1950.pdf`**
 (349 KB, 29 sheets) with the original project text beside it as `.txt` (~17,600 words). Read in full. The scholarly anchor for Chapters 1,
 2, 5 and 6, and by a wide margin the most-cited source in the book. Note the irony recorded
 in Chapter 2: the paper circulates through AA-affiliated archives and repeatedly contradicts
@@ -97,12 +129,15 @@ than not checking at all, and it is stated in Chapter 1's notes on sources as we
 A page reference taken from this copy should not be trusted; it paginates as 29 sheets, not
 as pp. 410-452.
 
-**On copyright.** The article is from 1950 and is not public domain. The file is stored here
-because it was supplied for this folder, and this folder is private. It is not to be
-redistributed. This is a departure from the treatment given to Kurtz, where the full text was
-deliberately not stored and a vocabulary-only verification index was built instead; if the
-same treatment is wanted here, say so and the PDF and text can be replaced by an index in one
-session.
+**On copyright.** The article is from 1950 and is not public domain. An earlier version of this
+entry said the file was stored here because "this folder is private." **That was wrong.** The
+repository is public and has been throughout. The reasoning was sound and the premise was false,
+which is the more dangerous of the two failures.
+
+The file is therefore no longer committed. As of 9 August 2026 the treatment given to Kurtz has
+been extended to the whole corpus: the document is a local working file, `.gitignore` keeps it out
+of the repository, and what is published is the citation, the rights position, the SHA-256 and a
+vocabulary-only verification index. The departure this entry used to describe no longer exists.
 
 **What checking it changed.** Three things in Chapter 1, all small and all in the direction of
 less precision than had been claimed:
@@ -144,7 +179,7 @@ Minn.: Hazelden. Chapter Five, further reading 2 August 2026.**
 The first reading covered Chapters Two and Five for the Washingtonian material and the
 founding. The second covered the composition of the Traditions and the 1937 professionalism
 crisis, for the rewrite of Chapter 5. Nothing about the storage decision changes: the work is
-in copyright, the full text is not kept here, and `kurtz-1991-verification-index.json` holds
+in copyright, the full text is not kept here, and `incorporated/Kurtz_1991/Kurtz_1991_verification-index.json` holds
 the vocabulary only.
 
 What the second reading supplied, all of it new to the book:
@@ -242,7 +277,7 @@ Temperance should have beaten the Washingtonians, and did.
 **Marsh, J. (1866). *Temperance Recollections: Labors, Defeats, Triumphs. An Autobiography.*
 New York: Charles Scribner & Co.**
 
-**Saved here as `marsh-1866-temperance-recollections.txt`** (862 KB, ~128,800 words). Public
+**Saved here as `incorporated/Marsh_1866/Marsh_1866.txt`** (862 KB, ~128,800 words). Public
 domain. Retrieved from the Internet Archive scan of the New York Public Library copy,
 identifier `temperancerecoll00mars`, plain text.
 
@@ -273,8 +308,8 @@ collection of temperance hymns, songs, &c. With brief directions for commencing,
 and conducting the meetings of Washingtonian Temperance Societies; and for the private action
 of Washingtonians.* Second edition. Utica, N.Y.: B. S. Merrell.**
 
-**Saved here as `grosh-1842-washingtonian-pocket-companion.txt`** (193 KB, ~33,400 words)
-with the scanned page images as `grosh-1842-washingtonian-pocket-companion.pdf` (22.8 MB).
+**Saved here as `incorporated/Grosh_1842/Grosh_1842.txt`** (193 KB, ~33,400 words)
+with the scanned page images as `incorporated/Grosh_1842/Grosh_1842.pdf` (22.8 MB).
 Public domain. Harvard copy, digitised by Google, from HathiTrust,
 https://hdl.handle.net/2027/hvd.32044004487591. Supplied by the author of this book after an
 earlier search failed; the note in this file predicting that it would most sharpen or most
@@ -335,7 +370,7 @@ Krout.
 
 **Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf.**
 
-**Saved here as `krout-1925-origins-of-prohibition.txt`** (796 KB, ~110,800 words). Public
+**Saved here as `incorporated/Krout_1925/Krout_1925.txt`** (796 KB, ~110,800 words). Public
 domain. Internet Archive identifier `originsofprohibi0000krou`, plain text.
 
 The first scholarly history of the American temperance movement, written twenty-five years
@@ -365,7 +400,7 @@ book's thesis stated in 1925 by a historian who had never heard of Alcoholics An
 with a History of the Various Methods Employed for Its Removal.* New York: The National
 Temperance Society and Publication House.**
 
-**Saved as `eddy-1887-alcohol-in-history.txt`** (~173,200 words). Public domain, Internet
+**Saved as `incorporated/Eddy_1887/Eddy_1887.txt`** (~173,200 words). Public domain, Internet
 Archive `alcoholinhistor00eddygoog`, Google scan. **The optical character recognition is
 poor**: Mitchell appears variously as Mitrhell, Mituhell and MitrLell on a single page, and
 `tools/check_book.py` matches source terms with tolerance for this.
@@ -393,7 +428,7 @@ Supplied by the author 2 August 2026. What it gives at first hand:
 **Crothers, T. D. (1911). *Inebriety: A Clinical Treatise on the Etiology, Symptomology,
 Neurosis, Psychosis and Treatment.* Cincinnati: Harvey Publishing.**
 
-**Saved as `crothers-1911-inebriety.txt`** (~105,700 words). Public domain, Internet Archive
+**Saved as `incorporated/Crothers_1911/Crothers_1911.txt`** (~105,700 words). Public domain, Internet Archive
 `inebrietyclinica00crot`. Supplied by the author 2 August 2026.
 
 **Acquiring it corrected a citation rather than supporting one.** Chapter 2 had cited
@@ -422,7 +457,7 @@ No. 36 Charles Street, Boston, for the Reformation of the Inebriate; Also, a Rev
 of the Evils of Intemperance in England, Together with a Sketch of the Temperance Reform in
 America.* Boston: Redding & Co.**
 
-**Saved as `harrison-1860-voice-from-the-washingtonian-home.txt`** (~99,100 words). Public
+**Saved as `incorporated/Harrison_1860/Harrison_1860.txt`** (~99,100 words). Public
 domain, Internet Archive `voicefromwashing00harr`. Supplied by the author 2 August 2026.
 
 **This is the origin of the founding scene**, the text Maxwell quotes and every later
@@ -442,7 +477,7 @@ signing in full. **A calibration on its reliability:** Harrison dates the tavern
 **Hawkins, W. G. (1862). *Life of John H. W. Hawkins.* Compiled by his son. Boston: Briggs
 and Richards. Sixth thousand.**
 
-**Saved as `hawkins-1862-life-of-john-hw-hawkins.txt`** (~143,000 words). Public domain,
+**Saved as `incorporated/Hawkins_1862/Hawkins_1862.txt`** (~143,000 words). Public domain,
 Internet Archive `LifeOfJohnHHawkins`. Supplied by the author 2 August 2026.
 
 **Edition warning, and it matters.** This is the 1862 Briggs and Richards printing. The
@@ -464,7 +499,7 @@ Chapter 1 now says the middle of June.
 **Blair, H. W. (1888). *The Temperance Movement; or, The Conflict Between Man and Alcohol.*
 Boston: William E. Smythe.**
 
-**Saved as `blair-1888-the-temperance-movement.txt`** (~240,400 words). Public domain,
+**Saved as `incorporated/Blair_1888/Blair_1888.txt`** (~240,400 words). Public domain,
 Internet Archive `temperancemoveme00blai`. Supplied by the author 2 August 2026.
 
 Blair was a United States senator and the author of a proposed prohibition amendment, so he
@@ -479,7 +514,7 @@ shows cannot be supported.
 **Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati:
 Jennings and Graham.**
 
-**Saved as `fehlandt-1904-century-of-drink-reform.txt`** (~78,300 words). Public domain,
+**Saved as `incorporated/Fehlandt_1904/Fehlandt_1904.txt`** (~78,300 words). Public domain,
 Internet Archive `centuryofdrinkre00fehl`. Supplied by the author 2 August 2026.
 
 Useful as the received view Maxwell was correcting rather than as evidence in its own right:
@@ -492,7 +527,7 @@ labouring until his death in 1858 having visited every state but California.
 Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and
 Clinical Science* 134(1): 69-80.** doi:10.1037/abn0000960.
 
-**Saved as `fatimah-2025-double-well-relapse.txt`** (~10,400 words). NIH author manuscript,
+**Saved as `incorporated/Fatimah_2025/Fatimah_2025.txt`** (~10,400 words). NIH author manuscript,
 public access. Supplied by the author 2 August 2026. Model code deposited at osf.io/tkg9s;
 study protocol at osf.io/kysdt.
 
@@ -545,7 +580,7 @@ Center City, Minn.: Hazelden.**
 page carries an all-rights-reserved notice. Supplied by the author as an epub on 2 August
 2026, converted to PDF and kept outside the repository; read in full, ~185,500 words.
 
-What is stored is `kurtz-1991-verification-index.json`, a vocabulary index with no running
+What is stored is `incorporated/Kurtz_1991/Kurtz_1991_verification-index.json`, a vocabulary index with no running
 text. It exists so `tools/check_book.py` can confirm that a cited subject appears in the
 work without the repository holding a redistributable copy. **This follows the precedent
 used for other in-copyright sources. Maxwell 1950 is also read in full, but unlike Kurtz its
@@ -590,7 +625,7 @@ above under Maxwell.
 
 **American Temperance Union (1841). *Annual Report of the American Temperance Union.***
 
-Stored in `research/incorporated/American_Temperance_Union_Annual_Report_1841/` with PDF, OCR,
+Stored in `research/incorporated/ATU_1841/` with PDF, OCR,
 citation and metadata. Public domain, pre-1929. Internet Archive scan `annualreportamer00amer_5`.
 84 PDF pages.
 
@@ -624,7 +659,7 @@ looked at and set aside, not overlooked.
 **Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.*
 Springfield, Mass.: Bill, Nichols & Co. 552 pp.**
 
-**Saved here as `gough-1869-autobiography.txt`** (~176,000 words).
+**Saved here as `incorporated/Gough_1869/Gough_1869.txt`** (~176,000 words).
 Public domain. Retrieved from the Internet Archive full text at
 `archive.org/stream/AutobAndPersRecollOfJohnBGough/`, HTML stripped to plain text.
 

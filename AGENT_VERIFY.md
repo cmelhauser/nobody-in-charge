@@ -38,12 +38,31 @@ Do not use either remaining staged article to fix a claim during this verificati
 treat their recorded summaries as findings. If one of them might answer a finding, label the
 finding `deferred corpus may resolve` and note that it requires manual retrieval from PMC.
 
-**AA pamphlet P-17 is cited but deliberately not mirrored.** It is copyrighted AAWS literature
-distributed as a free official PDF, and this repository is public, so the PDF and its OCR were
-removed on 9 August 2026. The record keeps the citation, the official aa.org URL, the SHA-256 of
-the July 2024 file, and the two verified quotations. A verifier checking those quotations should
-download the pamphlet from aa.org. **The absence of the file is intentional and is not a missing
-source.** Do not report it as one, and do not restore it.
+**No source document is committed, and their absence is intentional.** This repository is public.
+As of 9 August 2026 `.gitignore` excludes every `.pdf`, `.txt`, `.djvu` and `.epub` under
+`research/incorporated/` and `research/staged/`. Sources live in
+`research/incorporated/<ShortAuthor>_<Year>/`, and what is published for each is `citation.md`,
+`metadata.json` with rights, provenance URL and SHA-256, `source_summary.md`, and a
+vocabulary-only verification index.
+
+**Do not report a missing document as a missing source, and do not restore one.** To check a
+source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256. AA
+pamphlet P-17 has never had a document here at all; it is copyrighted AA literature and the record
+keeps its citation, aa.org URL, hash and two page-image-verified quotations.
+
+**Citation checking must still pass with no documents present.** Each verification index records
+the source's vocabulary and, because a vocabulary set has no word order, which registered subjects
+the document contains, decided against the real text at build time and stamped with that file's
+SHA-256. Confirm this rather than assume it: move the documents aside and rerun
+`tools/check_book.py`. It reported 55 citation-subject pairs across 15 sources, all supported, with
+zero documents present. If a re-acquired file's hash differs from its index, the index is stale;
+rebuild with `python3 tools/build_corpus.py` rather than trusting it, and `--check` reports drift.
+
+Two limitations are declared rather than hidden: the subject matcher is deliberately tolerant of
+OCR noise, so short subjects can match spuriously, which was equally true when the check ran
+against full text; and an index shows a word occurs somewhere in a work, which is weaker than a
+page reference. Quotations are verified against page images, as the ATU 1841 and P-17 records
+show.
 
 The Maxwell copy remains a retyped reproduction with visible transcription errors, not a scan
 of the journal. Moving the original project PDF and text to `research/incorporated/Maxwell_1950/`

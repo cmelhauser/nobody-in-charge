@@ -1,0 +1,13 @@
+{
+ "id": "Blair_1888",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "blair-1888-the-temperance-movement",
+ "documents": {
+  "Blair_1888.txt": {
+   "sha256": "031713edf63b5ec9ba6d6456243530f45bce128bdd2345a93824a3f7f9e1c52e",
+   "bytes": 1413675,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

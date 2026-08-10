@@ -1,0 +1,18 @@
+{
+ "id": "Grosh_1842",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "grosh-1842-washingtonian-pocket-companion",
+ "documents": {
+  "Grosh_1842.pdf": {
+   "sha256": "1805f1a8f9c81818ccaa2a492577db38eb0aa67b6b0e43fbcf108d5c238bb2da",
+   "bytes": 22758263,
+   "tracked_in_git": false
+  },
+  "Grosh_1842.txt": {
+   "sha256": "3332d3bfbfdc331f78de13ede01a0644aff373106a990ee2920b15ca09323034",
+   "bytes": 193397,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

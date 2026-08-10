@@ -5,6 +5,29 @@ __pycache__/
 .venv/
 build/pandoc.log
 
+# Source documents are not committed.
+#
+# Every source lives in research/incorporated/<ShortAuthor>_<Year>/ or research/staged/.
+# What is committed is the record: citation.md, metadata.json with the SHA-256 and rights,
+# source_summary.md, and a vocabulary-only verification index. The document itself is not.
+#
+# Three reasons. Some are in copyright and must not be redistributed from a public
+# repository. The public-domain ones are large scans that are not project outputs and that
+# dominate the repository's size. And a checksum plus a URL is a stronger provenance record
+# than a copy, because it can be verified against the original rather than trusted.
+#
+# tools/check_book.py verifies citations against the verification indexes, so citation
+# checking still works on a fresh clone with no documents present.
+# Rebuild the corpus and its indexes with: python3 tools/build_corpus.py
+research/incorporated/**/*.pdf
+research/incorporated/**/*.txt
+research/incorporated/**/*.djvu
+research/incorporated/**/*.epub
+research/staged/**/*.pdf
+research/staged/**/*.txt
+research/staged/**/*.djvu
+research/staged/**/*.epub
+
 # LaTeX build artifacts. The paper's .tex and .pdf are tracked; nothing else it emits is.
 paper/*.aux
 paper/*.fdb_latexmk

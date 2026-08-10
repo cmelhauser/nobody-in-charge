@@ -1,0 +1,13 @@
+{
+ "id": "Hawkins_1862",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "hawkins-1862-life-of-john-hw-hawkins",
+ "documents": {
+  "Hawkins_1862.txt": {
+   "sha256": "4c0f25c1706c9eed95e3d267a3ddf257be4e1a1b2590a0c56f476a2d367e8de2",
+   "bytes": 809880,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

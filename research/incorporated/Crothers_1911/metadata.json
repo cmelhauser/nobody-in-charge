@@ -1,0 +1,13 @@
+{
+ "id": "Crothers_1911",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "crothers-1911-inebriety",
+ "documents": {
+  "Crothers_1911.txt": {
+   "sha256": "04a0a49e57fea29a52f0db73ed98ae0fbb8b32afe93f098b3242cca6d497008c",
+   "bytes": 746578,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

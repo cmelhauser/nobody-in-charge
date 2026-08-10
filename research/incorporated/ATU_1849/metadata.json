@@ -1,0 +1,30 @@
+{
+ "id": "ATU_Almanac_1849",
+ "title": "Almanac of the American Temperance Union, for the year 1849",
+ "publisher": "American Temperance Union",
+ "year": 1848,
+ "type": "primary_historical",
+ "status": "acquired",
+ "rights_note": "Pre-1929 public-domain scan as labeled by Internet Archive source item.",
+ "source_url": "https://archive.org/details/almanacofamerica00amer",
+ "files": {
+  "pdf": "ATU_Almanac_1849.pdf",
+  "ocr": "ATU_Almanac_1849_ocr.txt",
+  "sha256": "6081a7b3ecf78be8899df4cc4a5b83dd90576633fcc29696c457d30d513cc7a3"
+ },
+ "ocr_quality": "extracted_pdf_text; verify quotations against scan",
+ "legacy_stem": null,
+ "documents": {
+  "ATU_1849.pdf": {
+   "sha256": "6081a7b3ecf78be8899df4cc4a5b83dd90576633fcc29696c457d30d513cc7a3",
+   "bytes": 6528977,
+   "tracked_in_git": false
+  },
+  "ATU_1849.txt": {
+   "sha256": "533d525bbe6167c3ed803c7689ae8ecafeee3764bd598bc1ec1d3efe004a872f",
+   "bytes": 180934,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

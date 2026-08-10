@@ -235,7 +235,7 @@ The group sweep is a sensitivity curve, not evidence for individual bistability.
 
 **Read in full:**
 
-Fatimah, H. M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. Read from the author manuscript; saved as `research/fatimah-2025-double-well-relapse.txt`. The two stable equilibria, the separation energy in each direction, the person-specific steepness and tilt, the between-subject variance in steepness and relapse risk, and the criterion validity against life satisfaction and criminal behaviour beyond proportion of days used and time to first use.
+Fatimah, H. M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. Read from the author manuscript; saved as `research/incorporated/Fatimah_2025/`. The two stable equilibria, the separation energy in each direction, the person-specific steepness and tilt, the between-subject variance in steepness and relapse risk, and the criterion validity against life satisfaction and criminal behaviour beyond proportion of days used and time to first use.
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Used here only for the contrast drawn at the end of the chapter, between influence failure and aggregation blindness.
 

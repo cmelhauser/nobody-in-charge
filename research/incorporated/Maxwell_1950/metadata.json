@@ -1,0 +1,18 @@
+{
+ "id": "Maxwell_1950",
+ "rights_note": "Journal article, 1950. Retyped reproduction, not a scan. Not redistributed here.",
+ "legacy_stem": null,
+ "documents": {
+  "Maxwell_1950.pdf": {
+   "sha256": "b61d349fbe849a5424898831357d3bcd748b1075fdf5b3a64a0b745ccb93c553",
+   "bytes": 349501,
+   "tracked_in_git": false
+  },
+  "Maxwell_1950.txt": {
+   "sha256": "a0e96bf1561791b7377cb038cd21041dce54615ddbd971c922eb13b44bcc32ff",
+   "bytes": 109420,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

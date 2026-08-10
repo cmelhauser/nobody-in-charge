@@ -112,9 +112,24 @@ reCAPTCHA challenge, and the project does not work around access controls. Do no
 not treat their recorded summaries as findings, and do not report them as accidentally missing.
 File presence still does not make a source read.
 
-AA pamphlet P-17 is cited but deliberately not mirrored: it is copyrighted AAWS literature and
-this repository is public. Keep the citation, the official URL, and the file hash; do not restore
-the PDF or its OCR.
+**No source document is committed, and this repository is public.** Every source lives in
+`research/incorporated/<ShortAuthor>_<Year>/`. `.gitignore` excludes every `.pdf`, `.txt`,
+`.djvu` and `.epub` under `research/incorporated/` and `research/staged/`. What is committed is
+the record: `citation.md`, `metadata.json` with rights, provenance URL and SHA-256,
+`source_summary.md`, and a vocabulary-only verification index. Documents are local working files.
+
+Do not commit a source document, and do not add a source by hand. Run
+`python3 tools/build_corpus.py`, which normalizes the layout and rebuilds any index whose stored
+SHA-256 no longer matches its file. `--check` reports drift without changing anything.
+
+Citation checking does not depend on the documents. Each index records the source's vocabulary
+and, because a vocabulary set has no word order, which registered subjects the document contains,
+decided against the real text at build time. With no documents present, every citation-subject
+pair still verifies. If a re-acquired file's hash differs from the record, the index is stale and
+must be rebuilt rather than trusted.
+
+AA pamphlet P-17 has no document at all, by decision: it is copyrighted AAWS literature. Keep the
+citation, the official URL, and the file hash; do not restore the PDF or its OCR.
 
 The current authority for read status, provenance, and claim support is `research/SOURCES.md`.
 

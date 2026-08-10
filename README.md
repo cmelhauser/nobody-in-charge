@@ -102,8 +102,8 @@ and experiment-design choices.
 manuscript/             Preface, introduction, and Chapters 1 to 25
 model/                  Canonical model and all analysis scripts
 research/               Caches, parameters, source ledger, claim register, and results
-research/incorporated/  Local copies of sources already used by the project
-research/staged/        Supplied next-round corpus, deliberately not incorporated
+research/incorporated/  One directory per source: records committed, documents git-ignored
+research/staged/        Two unread articles that could not be lawfully retrieved
 reference/              Steps-and-Traditions primer and standalone PDF
 appendix/               Technical appendix source
 paper/                  LaTeX paper, companion notebook, and PDF
@@ -155,10 +155,19 @@ independent of the three later narratives Chapter 1 had been relying on.
 because open-access retrieval returned a reCAPTCHA challenge and the project does not work around
 access controls. They are not evidence and are not cited.
 
-AA pamphlet P-17 is cited but deliberately not mirrored here. It is copyrighted AAWS literature
-distributed as a free official PDF, and this repository is public; the record keeps the citation,
-the official URL, the file hash and the verified quotations instead. Current read status and claim
-support live in `research/SOURCES.md`.
+**No source document is committed.** This repository is public, several sources are in copyright,
+and the public-domain ones are large scans that are not project outputs. Every source lives in
+`research/incorporated/<ShortAuthor>_<Year>/`, and what is published for each is its citation, its
+rights position, its provenance URL, the SHA-256 of each file, a short summary, and a
+vocabulary-only verification index. The documents are local working files, excluded by
+`.gitignore`. Re-acquire any of them from the recorded URL and check the hash.
+
+That does not weaken citation checking. `tools/check_book.py` confirms that a chapter citing a
+source for a subject is citing a work that contains it, using the indexes; with no documents
+present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
+with `python3 tools/build_corpus.py`, or audit it with `--check`.
+
+Current read status and claim support live in `research/SOURCES.md`.
 
 ## Limitations that remain
 

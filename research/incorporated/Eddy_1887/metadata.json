@@ -1,0 +1,13 @@
+{
+ "id": "Eddy_1887",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "eddy-1887-alcohol-in-history",
+ "documents": {
+  "Eddy_1887.txt": {
+   "sha256": "74ba4476ba12ad57eec4be0569a8385423eeca17b73b5daf02ef76ee93b5a4a0",
+   "bytes": 1034062,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
