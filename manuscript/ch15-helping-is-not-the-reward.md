@@ -7,7 +7,7 @@ Eleven steps of difficult interior work, and then, having had a spiritual awaken
 
 Almost everyone outside the rooms reads it that way, and a fair number of people inside them do too. It is the natural reading and I think it is exactly backwards.
 
-The strongest clinical clue discussed in this chapter says so, and it is not mine. I have read its abstract but not yet the paper's full tables, so the claim remains evidence at one remove.
+The strongest clinical clue discussed in this chapter says so, and it is not mine. The paper has now been obtained and read in full, so what follows is taken from it rather than from its abstract.
 
 ---
 
@@ -144,7 +144,9 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 ### 3. Notes on sources
 
-**The Pagano result is read at one remove and the percentages come from a press release.** The paper is Pagano, Friend, Tonigan and Stout (2004) in the *Journal of Studies on Alcohol*. I have the abstract, which states that those who sponsored others or worked the twelfth step during treatment were twice as likely to remain sober over the following twelve months, independent of meeting attendance. The specific figures of forty and twenty-two per cent come from a 2011 Case Western Reserve University news release describing Pagano's own review of her earlier work. **I have not seen the paper's own tables**, and a press release is a weak place to take two numbers from. The full text should be obtained before this chapter is final.
+**The Pagano result is now read in full, and the two percentages check out.** The paper is Pagano, Friend, Tonigan and Stout (2004) in the *Journal of Studies on Alcohol*. Earlier drafts of this chapter took the forty and twenty-two per cent from a 2011 Case Western Reserve University news release and said so, because a press release is a weak place to take two numbers from and the full text had not been obtained. It has been. The paper's own results section gives the same two figures: among those helping other alcoholics 40 per cent avoided taking a drink in the year after treatment, and among those not helping, 22 per cent. The independence from meeting attendance is the paper's own framing, established by proportional-hazards regression controlling for the number of AA meetings attended, and the difference appears in both study arms.
+
+**What reading it added is a limitation the press release did not carry.** The authors' first stated limitation is that only 8 per cent of the sample were coded as helping, on a measure they describe as crude, and they note the rate would probably be higher under a more refined instrument. So the contrast is between a small helping group and a large non-helping one, which widens the interval around any effect and makes the selection worry above harder to dismiss rather than easier. The sample is the Project MATCH cohort, and the outcome is individual drinking after formal treatment, which is a different object from anything this model simulates.
 
 **The observational limitation is mine to state, not theirs to answer.** Project MATCH randomised treatment, not helping. Nothing in the design supports a causal reading, and the direction of effect is genuinely open.
 
@@ -164,7 +166,7 @@ Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology 
 
 **Cited at a remove:**
 
-Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH." *Journal of Studies on Alcohol* 65(6): 766-773. Read via abstract; the forty and twenty-two per cent figures via a 2011 Case Western Reserve University news release. Full text not obtained. A pending acquisition record exists under `research/staged/`, but that record is not incorporated evidence and the paper remains unread in full.
+Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH." *Journal of Studies on Alcohol* 65(6): 766-773. **Read in full**; the NIH author manuscript, PMCID PMC3008319, obtained 10 August 2026 and stored with its citation and metadata in `research/incorporated/Pagano_2004/`. Source for the forty and twenty-two per cent figures, which earlier drafts took from a 2011 news release and which the paper's own results section confirms, for the independence from meeting attendance, and for the eight per cent helping rate the authors give as their first limitation. **Note the copy**: this is the author manuscript, so its pagination is not the journal's and a page-specific citation would need the published version.
 
 Riessman, F. (1965). "The 'Helper' Therapy Principle." *Social Work* 10(2): 27-32. Cited for the naming of the principle; not read at source.
 
