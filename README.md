@@ -145,11 +145,20 @@ headings, stale language, and missing pages.
 
 ## Source boundary
 
-`research/staged/` contains a supplied corpus reserved for the next iteration. Its presence is
-not evidence that an item was read, cited, or incorporated. During this round, staged sources
-must not be used to rewrite claims or reported as accidentally missing. Maxwell (1950) and
-Golub and Jackson (2010), which were already part of the project, are under
-`research/incorporated/`. Current read status and claim support live in `research/SOURCES.md`.
+The supplied corpus was worked through on 9 August 2026. Four of its six items are now under
+`research/incorporated/`, alongside Maxwell (1950) and Golub and Jackson (2010): three American
+Temperance Union documents and the source record for AA pamphlet P-17. The 1841 ATU annual report
+is the earliest contemporary account the project holds of the Washingtonian founding, and is
+independent of the three later narratives Chapter 1 had been relying on.
+
+`research/staged/` now holds two journal articles only. Both are `verified_online` and unread,
+because open-access retrieval returned a reCAPTCHA challenge and the project does not work around
+access controls. They are not evidence and are not cited.
+
+AA pamphlet P-17 is cited but deliberately not mirrored here. It is copyrighted AAWS literature
+distributed as a free official PDF, and this repository is public; the record keeps the citation,
+the official URL, the file hash and the verified quotations instead. Current read status and claim
+support live in `research/SOURCES.md`.
 
 ## Limitations that remain
 

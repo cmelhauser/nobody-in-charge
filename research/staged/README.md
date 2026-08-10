@@ -4,10 +4,23 @@ This package is a verified working corpus for research on the nineteenth-century
 
 ## Repository status
 
-Everything in this directory is **staged research, not incorporated manuscript evidence**.
-Presence under `research/staged/` does not mean that a source has been read, cited, or relied
-on by the manuscript. Before incorporating any item, review it, record its status in
-`../SOURCES.md`, and update the relevant manuscript notes and project log explicitly.
+**Most of this corpus has now been incorporated.** On 9 August 2026 the four acquired items were
+reviewed and moved to `../incorporated/`: the three American Temperance Union documents and the
+source record for AA pamphlet P-17. `../SOURCES.md` records what each now supports.
+
+What is left here is the two pending journal articles under `sources/pending/`. Both are
+`verified_online` and **unread**: the citation and a stable open-access PMC location are
+confirmed, but retrieval on 9 August 2026 returned a reCAPTCHA challenge rather than the article,
+and this project does not work around access controls. They are not manuscript evidence and their
+recorded summaries are expectations, not findings. Obtaining them requires a manual download.
+
+The AA pamphlet's PDF and OCR were deleted rather than moved. It is copyrighted AAWS literature
+and this repository is public, so only the citation record travelled to `../incorporated/`.
+
+Everything still under `research/staged/` remains **staged research, not incorporated manuscript
+evidence**. Presence here does not mean a source has been read, cited, or relied on. Before
+incorporating an item, review it, record its status in `../SOURCES.md`, and update the relevant
+manuscript notes and project log explicitly.
 
 The corpus was acquired on 2026-08-04 and relocated into `research/staged/` on 2026-08-05.
 The former delivery-container name (`corpus_build 2`, also described as
