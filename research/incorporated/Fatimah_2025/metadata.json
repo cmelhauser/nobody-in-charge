@@ -1,0 +1,13 @@
+{
+ "id": "Fatimah_2025",
+ "rights_note": "NIH author manuscript, PMC. Not redistributed here.",
+ "legacy_stem": "fatimah-2025-double-well-relapse",
+ "documents": {
+  "Fatimah_2025.txt": {
+   "sha256": "6a2f68cab523e4935c85e79b0c22eefc9e75837aba6e34edd21522d07be6dae7",
+   "bytes": 71291,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

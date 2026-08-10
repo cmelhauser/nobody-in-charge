@@ -365,18 +365,42 @@ def window(seg, name, texts, sentences=2):
 
 def check_sources():
     texts = {}
+    # No source document is committed. Every source carries a vocabulary-only verification
+    # index instead, which is enough to confirm that a cited subject appears in the work and
+    # is not a redistributable copy. That pattern started with Kurtz (1991), which is in
+    # copyright, and now covers the whole corpus; see research/SOURCES.md and .gitignore.
+    # Indexes are found by directory name so a source is identified the same way whether or
+    # not its document happens to be present in a given working copy.
+    # A vocabulary set has no word order, so a phrase cannot be confirmed from it. Each index
+    # therefore also records which registered subjects the real document contains, decided
+    # against the text when the index was built and stamped with that file's SHA-256.
+    subjects_present = {}
+    for f in glob.glob(P('research', '**', '*_verification-index.json'), recursive=True):
+        d = json.load(open(f))
+        name = os.path.basename(os.path.dirname(f)).split('_')[0]
+        texts[name] = ' ' + ' '.join(d['vocab']) + ' '
+        if 'subjects_present' in d:
+            subjects_present[name] = set(d['subjects_present'])
+    for f in glob.glob(P('research', '*-verification-index.json')):
+        d = json.load(open(f))
+        name = re.match(r'([A-Z][a-z]+)', d['work']).group(1)
+        texts.setdefault(name, ' ' + ' '.join(d['vocab']) + ' ')
+    # A working copy that still has the documents gets the stronger check for free: full
+    # text beats a vocabulary set, because it preserves word order. Documents are found by
+    # directory name under the normalized layout, and by legacy stem for older checkouts.
+    full_text = set()
+    for d in sorted(glob.glob(P('research', 'incorporated', '*'))):
+        name = os.path.basename(d).split('_')[0]
+        doc = os.path.join(d, os.path.basename(d) + '.txt')
+        if os.path.exists(doc):
+            texts[name] = re.sub(r'\s+', ' ', open(doc, errors='ignore').read()).lower()
+            full_text.add(name)
     for stem, name in SAVED.items():
         hits = (glob.glob(P('research', stem + '*.txt')) +
                 glob.glob(P('research', 'incorporated', '**', stem + '*.txt'), recursive=True))
         if hits:
             texts[name] = re.sub(r'\s+', ' ', open(hits[0], errors='ignore').read()).lower()
-    # Sources still in copyright are not stored as full text. A verification index holds
-    # the vocabulary only, which is enough to confirm a cited subject appears in the work
-    # and is not a redistributable copy. See research/SOURCES.md on Kurtz and Maxwell.
-    for f in glob.glob(P('research', '*-verification-index.json')):
-        d = json.load(open(f))
-        name = re.match(r'([A-Z][a-z]+)', d['work']).group(1)
-        texts[name] = ' ' + ' '.join(d['vocab']) + ' '
+            full_text.add(name)
     if not texts:
         warn('sources', 'no full-text sources found in research/'); return
     checked = 0
@@ -397,9 +421,18 @@ def check_sources():
                 for subj in SUBJECTS:
                     if subj in seg:
                         checked += 1
-                        if not fuzzy_in(subj, blob):
-                            fail('sources', f'{nm}: cites {name} for "{subj}" but the saved '
-                                            f'text of {name} does not contain it in any spelling')
+                        # Prefer the document when this working copy has it, because word
+                        # order survives there. Otherwise use the phrase decision recorded in
+                        # the verification index, which was made against the document.
+                        if name in full_text:
+                            ok = fuzzy_in(subj, blob)
+                        elif name in subjects_present:
+                            ok = subj in subjects_present[name]
+                        else:
+                            ok = fuzzy_in(subj, blob)
+                        if not ok:
+                            fail('sources', f'{nm}: cites {name} for "{subj}" but the recorded '
+                                            f'content of {name} does not contain it in any spelling')
     if not [f for f in FAILS if f[0] == 'sources']:
         note('sources', f'{checked} citation-subject pairs checked against '
                         f'{len(texts)} saved sources, all supported')

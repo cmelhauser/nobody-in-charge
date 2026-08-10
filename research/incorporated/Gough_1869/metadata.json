@@ -1,0 +1,13 @@
+{
+ "id": "Gough_1869",
+ "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "legacy_stem": "gough-1869-autobiography",
+ "documents": {
+  "Gough_1869.txt": {
+   "sha256": "40f6e8b0f43ca4833a37e49a53f4975a477b4ce9961c69573a710d4ed6c2967c",
+   "bytes": 1004934,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
