@@ -25,17 +25,47 @@ paths within the package were preserved.
 On 6 August 2026, Golub and Jackson (2010) and Maxwell (1950) were removed from staged
 status. Their active source files are now under `research/incorporated/`; the duplicate
 staged Maxwell package was discarded while the project's original Maxwell PDF and text were
-kept. The remaining staged materials are still outside the manuscript evidence record.
+kept.
+
+On 9 August 2026 the staged corpus was worked through at the user's direction and is now
+mostly incorporated. Four of its six items moved to `research/incorporated/`: the three
+American Temperance Union documents and the source record for AA pamphlet P-17. What remains
+staged is two journal articles that could not be lawfully retrieved, described below. The
+staged boundary is therefore narrower than it was, not abolished.
+
+**Still staged and still unread.** Greenfield and Tonigan (2013) and Pagano et al. (2004) are
+recorded as `verified_online`: the citation and a stable open-access PMC location are
+confirmed, but no full text was ever obtained. Retrieval on 9 August 2026 returned a reCAPTCHA
+challenge rather than the article, and the project does not work around access controls. Both
+remain **unread and unusable as claim support**. Their recorded summaries describe what the
+articles are expected to contain and are not a substitute for reading them. Pagano is the more
+consequential of the two, because it bears on Chapter 15 and on the recipient resource, and a
+reader who wants that argument strengthened should obtain it manually from PMC.
 
 ---
 
 ## Incorporated source storage
 
-`research/incorporated/` currently contains the two already-used sources that overlapped the
-staged acquisition package: Maxwell (1950) and Golub and Jackson (2010). The other established
-source files remain directly under `research/` for compatibility. This is a storage boundary,
-not a change to what the manuscript claims; the entries below remain authoritative for how
-each source was read and used.
+`research/incorporated/` contains Maxwell (1950) and Golub and Jackson (2010), which overlapped
+the staged acquisition package, and as of 9 August 2026 the four items promoted out of it:
+
+| Item | Rights | Local files | Read status |
+|---|---|---|---|
+| ATU, *Report of the Executive Committee* (1840) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
+| ATU, *Annual Report* (1841) | public domain, pre-1929 | PDF and OCR | read for the Washingtonian passages; p. 39 verified against the page image |
+| ATU, *Almanac for 1849* (1848) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
+| AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images |
+
+The P-17 document itself is deliberately absent. It is copyrighted AAWS literature distributed
+as a free official PDF, and this repository is public, so mirroring the full PDF and a full OCR
+transcript here would be redistribution beyond the authorized source context. The record retains
+the citation, the official URL, the SHA-256 of the July 2024 file, and the verified quotations. A
+verifier should download it from aa.org. Removing the mirror changes nothing about what the book
+may claim from it.
+
+The other established source files remain directly under `research/` for compatibility. This is a
+storage boundary, not a change to what the manuscript claims; the entries below remain
+authoritative for how each source was read and used.
 
 ---
 
@@ -557,6 +587,39 @@ above under Maxwell.
 ---
 
 ## Obtained, partly read
+
+**American Temperance Union (1841). *Annual Report of the American Temperance Union.***
+
+Stored in `research/incorporated/American_Temperance_Union_Annual_Report_1841/` with PDF, OCR,
+citation and metadata. Public domain, pre-1929. Internet Archive scan `annualreportamer00amer_5`.
+84 PDF pages.
+
+Read for its Washingtonian material, principally the Appendix at printed page 39, which is the
+earliest contemporary institutional account the project holds and is independent of Harrison
+(1860), of Maxwell (1950), and of the 1842 Maryland state report that Krout used. The quoted
+sentence was verified against the rendered page image; the OCR matched it exactly, but the OCR is
+a search aid and the page image is the authority.
+
+Supports, in Chapter 1: the founding date of 5 April 1840; six men; a public tavern; a simple
+total-abstinence pledge; the society's name; growth past one thousand members within the year;
+the rule that at successive meetings *each man to bring a man*; and meetings working through *a
+public relation by each individual of his own experience and history*. The last two are
+contemporary descriptions of practice, corroborating Krout's bring-a-friend agreement a year
+earlier and from a different organisation. They are not evidence that those practices caused the
+growth, and nothing in this source bears on Part Two.
+
+Not read in full. The remainder is national temperance-movement business: state society reports,
+crime and consumption statistics, and correspondence. An institutional self-presentation
+throughout, so its numbers carry the movement's own interest in them.
+
+**American Temperance Union (1840). *Report of the Executive Committee.*** and
+**American Temperance Union (1848). *Almanac for the Year 1849.***
+
+Stored alongside the 1841 report, same rights and provenance. Consulted rather than read: the
+1840 report predates the Washingtonian founding and is held for institutional context, and the
+1849 almanac is popular-facing material held for messaging and dissemination. **Neither currently
+supports any claim in the manuscript.** They are recorded so that a later reader knows they were
+looked at and set aside, not overlooked.
 
 **Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.*
 Springfield, Mass.: Bill, Nichols & Co. 552 pp.**

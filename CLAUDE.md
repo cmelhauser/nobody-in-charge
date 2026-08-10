@@ -102,11 +102,21 @@ that search; it does not replace reading the surrounding claim.
 
 ## Source boundary
 
-`research/staged/` is an intentionally unincorporated next-round corpus. File presence does not
-make a source read, cited, or current evidence. Do not use staged material to repair claims in
-this round and do not recommend it as accidentally missing. Maxwell (1950) and Golub and
-Jackson (2010) are already-used sources stored under `research/incorporated/`. The current
-authority for read status, provenance, and claim support is `research/SOURCES.md`.
+The staged corpus was worked through on 9 August 2026 and is now mostly incorporated. Four items
+moved to `research/incorporated/`: the three American Temperance Union documents and the source
+record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were already there.
+
+What remains in `research/staged/` is two journal articles, Greenfield and Tonigan (2013) and
+Pagano et al. (2004), which are `verified_online` and **unread**. Open-access retrieval returned a
+reCAPTCHA challenge, and the project does not work around access controls. Do not cite them, do
+not treat their recorded summaries as findings, and do not report them as accidentally missing.
+File presence still does not make a source read.
+
+AA pamphlet P-17 is cited but deliberately not mirrored: it is copyrighted AAWS literature and
+this repository is public. Keep the citation, the official URL, and the file hash; do not restore
+the PDF or its OCR.
+
+The current authority for read status, provenance, and claim support is `research/SOURCES.md`.
 
 Verify quotations against an original page image when available. OCR and retyped texts are
 search aids. Distinguish read in full, abstract-only, cited at a remove, referenced but not
