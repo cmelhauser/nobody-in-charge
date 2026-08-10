@@ -2733,3 +2733,45 @@ where house style preserves the source's punctuation.
 
 The empty directories left behind when the staged corpus was emptied are gone. Git would not have
 carried them anyway, but they were misleading on disk.
+
+---
+
+## The paper notebook stops being a copy of the book's
+
+The release plan asked, in section 3.4, that the stale paper notebook be replaced or explicitly
+retired. What happened instead was that both notebooks came to be generated from one cell set and
+differed only in their title. That satisfied the release gate, which asks that both execute clean
+with stored output, while verifying nothing whatever about the paper. It was recorded as an open
+editorial item rather than a defect, which was too generous: the chapters have had a figure
+checker since August, and the paper had no counterpart at all.
+
+It has one now. The paper notebook keeps everything the book notebook does and adds two cells.
+
+The first re-derives the paper's headline tables from the caches: all eight release-gate
+conditions against their published means, the paired Tradition 3 and Tradition 11 contrasts with
+the requirement that their intervals exclude zero, the recipient contrast with the requirement
+that its interval crosses zero, the Sobol split where the membership first-order column is
+admissible and the practice column is not, and the structural ordering in all five architectures.
+
+The second is the one that was missing. Every decimal the paper prints must be reachable from the
+model source, a hash-linked cache, or a derivation shown in the notebook. After excluding DOIs and
+the five figures quoted from cited literature, that is 420 numbers, and the check fails closed
+naming any that cannot be reached.
+
+Getting to zero needed the derivation extended in four places the chapters never exercised:
+structural variant means at two decimals, the horizon series from `mc_error`, the Sobol
+first-order and total-order sums, and Wilson intervals on the decline table's viable fractions,
+which the chapters print as bare fractions and the paper prints with bounds. It also needed the
+governance sparsity pricing recomputed, the seeded test that flips k cells confined to the
+enabling rows and asks how often each Part Four claim survives. That table has no cache; it is
+recomputed from `model/elicitation_compare.py` at its published seed.
+
+One incidental fix. `tools/check_portability.py` flags Windows absolute paths by looking for a
+single letter followed by a colon and a slash. In a JSON notebook every source line carries an
+escaped newline, so a Python line ending in a one-letter variable and a colon is stored as that
+letter, a colon and a backslash, which matches the pattern exactly. Two variables were renamed so
+no line ends that way. The checker is right to be blunt here; the answer is not to weaken it.
+
+The book notebook now runs 8 cells and 71 assertions, the paper notebook 10 and 95, and they are
+no longer the same file. `AGENT_VERIFY.md` records that if a verifier finds them identical again,
+that is a regression rather than a simplification.

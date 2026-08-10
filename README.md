@@ -12,7 +12,15 @@ The release-gate correction round opened on 6 August 2026 and closed on 9 August
 checker passes: `check_release` with 136 checks, `check_book` with none failing, the primer
 chapter check clear, and portability clear. Both verification notebooks execute clean, and the
 book, paper and primer PDFs are built and visually inspected with no blank pages and no margin
-overflow. What remains is the unresolved scientific limitations listed at the end of this file,
+overflow.
+
+The two notebooks verify different things. `model/book-calculations.ipynb` checks the model's
+identity and semantics, every cache's completeness and provenance, and the derivation of every
+figure the chapters print. `paper/anonymity-as-an-aggregation-condition.ipynb` does all of that
+and adds two paper-specific cells: it re-derives the paper's headline tables from the caches, and
+it requires every decimal the paper prints to be reachable from the model, a cache, or a shown
+derivation. The chapters had that guarantee through `check_book.py`; until 9 August 2026 the paper
+had no equivalent. What remains is the unresolved scientific limitations listed at the end of this file,
 which the release criteria permit and which must not be written up as though they were settled.
 
 The principal model corrections and 400-seed confirmatory analyses are complete. The expanded
