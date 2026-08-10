@@ -2931,3 +2931,42 @@ start by an agent that does not read `CLAUDE.md`. It now states what the project
 not to do, the authority order, where each kind of question is answered, the synchronisation rule,
 and the house style, and it says plainly that the release gate is closed and the current state
 should be treated as correct until a checker says otherwise.
+
+---
+
+## Corpus audit, and a remove that had been shortened without anyone noticing
+
+A file-level pass over the whole corpus. The structure is uniform: nineteen source directories
+under `research/incorporated/`, each with a citation, metadata, a summary and a verification
+index, and the documents git-ignored beside them. Nothing loose, nothing duplicated, no downloads
+left in place. Two macOS `.DS_Store` files were removed. Every corpus entry is cited somewhere in
+the manuscript or paper, and every one appears in the ledger, so there are no orphans in either
+direction.
+
+The useful finding was not a stray file. It was that incorporating the AA pamphlet in a previous
+session had quietly improved Chapter 5 and nobody had gone back to say so.
+
+Chapter 5 is the chapter about the Twelve Points. Its Machinery said the 1946 and 1949 *Grapevine*
+texts remained at one or more removes, being AA copyright and unread, and its reference block
+listed Bill W.'s 1946 "Twelve Points to Assure Our Future" as quoted from Kurtz and not read. But
+P-17 reproduces those Twelve Points in Bill W.'s foreword, and that text was read directly and
+checked against the page images when the pamphlet was catalogued. The chapter was describing its
+own sourcing as weaker than it had become.
+
+The correction is careful about what changed. A 2024 AAWS pamphlet is a reproduction, not the
+April 1946 *Grapevine*, so it shortens that remove without closing it, and it says nothing about
+which of Kurtz's two conflicting issue numbers is the slip, which the chapter still records as
+unresolved. What it settles is the wording, which is what the chapter's argument rests on.
+
+It also supplied a fact the chapter had needed and lacked. The pamphlet states that in all but the
+Second Tradition the original language has been modified or shortened. Chapter 5 already described
+the text being cut after 1946 to sit closer to the length of the Steps; AA's own account turns
+that into something sharper, that the familiar short forms are revisions rather than compressions,
+with a single exception. Tradition 2, which carries the group conscience and the line about
+leaders who do not govern, is the only one a reader meets today in the words Wilson first
+published. For a book whose central argument runs through Traditions 2, 9 and 12, that is worth
+having in the chapter rather than in a source record.
+
+The general lesson is the same one the Greenfield audit produced: acquiring a source changes
+chapters that do not cite it yet. The corpus is where a document lands, and the chapters are
+where its consequences have to be chased down by hand.
