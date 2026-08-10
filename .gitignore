@@ -42,3 +42,6 @@ paper/*.log
 paper/*.out
 paper/*.toc
 paper/*.tmp
+
+# Local pre-rewrite backup bundle. Not part of the project.
+nobody-in-charge-pre-rewrite.bundle
