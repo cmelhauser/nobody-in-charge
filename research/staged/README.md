@@ -4,15 +4,26 @@ This package is a verified working corpus for research on the nineteenth-century
 
 ## Repository status
 
+**A rights review dated 7 August 2026 governs this package.**
+`metadata/acquisition_status_rights_reviewed.yaml` and `reports/ACQUISITION_REPORT_updated.md`
+supersede the original status files beside them, which are kept as the acquisition-time record.
+The review's opening instruction is binding: *do not add a full-text PDF to the corpus unless the
+listed authorization route is met.* Two sources consulted on 10 August 2026, DeGroot (1974) and the
+April 1946 *A.A. Grapevine* article, are therefore held as record-only entries under
+`../incorporated/`, with a citation, a rights position, the hash of the scan consulted and the
+passages verified from it, and no archived document. That is the same treatment AAWS pamphlet P-17
+receives and it is what the review's "cite/quote only within applicable limits" permits.
+
+The review also corrects one identification: `Heelas_1999` was the wrong citation and the intended
+work is Valverde, White and Mair (1999). Neither is cited by the manuscript.
+
 **Most of this corpus has now been incorporated.** On 9 August 2026 the four acquired items were
 reviewed and moved to `../incorporated/`: the three American Temperance Union documents and the
 source record for AA pamphlet P-17. `../SOURCES.md` records what each now supports.
 
-What is left here is the two pending journal articles under `sources/pending/`. Both are
-`verified_online` and **unread**: the citation and a stable open-access PMC location are
-confirmed, but retrieval on 9 August 2026 returned a reCAPTCHA challenge rather than the article,
-and this project does not work around access controls. They are not manuscript evidence and their
-recorded summaries are expectations, not findings. Obtaining them requires a manual download.
+Both pending journal articles were obtained by hand on 10 August 2026 and read in full, so
+`sources/pending/` is empty and nothing here is unread. What is left is this package's own
+provenance: the acquisition reports, the metadata, and the incorporation instructions.
 
 The AA pamphlet's PDF and OCR were deleted rather than moved. It is copyrighted AAWS literature
 and this repository is public, so only the citation record travelled to `../incorporated/`.
