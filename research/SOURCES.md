@@ -60,6 +60,9 @@ the two journal articles on 10 August:
 | AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images; supplies the 1946 Twelve Points text for Chapter 5 |
 | Pagano et al., "Helping Other Alcoholics" (2004) | NIH author manuscript, open access | PDF and extracted text | read in full; figures checked against the results section |
 | Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
+| Wilson, "Twelve Suggested Points for A. A. Tradition", *A.A. Grapevine* (April 1946) | **A.A. Grapevine copyright; not archived** | record only | read at source; Chapter 5's opening quotation verified, and the two-title problem explained |
+| DeGroot, "Reaching a Consensus" (1974) | **ASA / Taylor & Francis; not archived** | record only | read at source; the updating rule behind Part Two |
+| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | acquired; not yet used as claim support |
 
 The P-17 document itself is deliberately absent. It is copyrighted AAWS literature distributed
 as a free official PDF, and this repository is public, so mirroring the full PDF and a full OCR

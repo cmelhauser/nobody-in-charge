@@ -31,7 +31,7 @@ And then, before publishing, he disclaimed the genre:
 
 An earlier draft of this chapter called the Traditions a set of rules, four times over. Wilson's own framing sentence says they are not rules and cannot become rules, and the distinction is not modesty. A rule is enforced by whoever holds the authority to enforce it, and the entire problem of 1941 to 1945 was that creating such an authority would stop the experience arriving. What he wrote instead was a report of findings addressed to people with growing pains. That is a weaker instrument than a rule and, on this book's argument, a stronger one.
 
-The long form went into the *A.A. Grapevine* in April 1946. Its first three sentences are the thesis of this chapter, and I did not know they existed when I wrote the chapter:
+The long form went into the *A.A. Grapevine* in April 1946, headed "Twelve Suggested Points for A. A. Tradition". Its first three sentences are the thesis of this chapter, and I did not know they existed when I wrote the chapter. They are quoted here from the article rather than from a historian's account of it:
 
 > Nobody invented Alcoholics Anonymous. It grew. Trial and error has produced a rich experience.
 
@@ -156,7 +156,9 @@ So the honest reading of this comparison is the opposite of what it was: **the T
 
 **Two sources disagree about when the Traditions appeared, and I follow Kurtz.** Maxwell, writing in 1950, says the statement emerged in 1947 and 1948 in the Twelve Points of Tradition, elaborated in *Grapevine* editorials and subsequently published as a booklet. Kurtz, working from the archive thirty years later, dates the long form to April 1946, the short form to November 1949, and official adoption to June 1950. Maxwell is contemporary and Kurtz had the files; where they conflict on a date of publication I take the archive. Maxwell's 1947 and 1948 are a fair description of the *elaborating* editorials and of the booklet, which is the 1947 *A.A. Tradition* he cites as his own source.
 
-**A citation problem inside Kurtz that I cannot resolve.** He cites the April 1946 publication twice with different details: once as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," *AAGV* 2:10 (April 1946), 7-9, described as the first public presentation of the Twelve Traditions, and once as the long form published in *AAGV* 2:11 (April 1946), 2-3. Same month, different issue number, different pages. One of the two is a slip and I have not seen the *Grapevine* to say which. This chapter's title comes from the first of them, and so does the sentence I quote as its opening.
+**A citation problem inside Kurtz, now half resolved.** He cites the April 1946 publication twice with different details: once as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," *AAGV* 2:10 (April 1946), 7-9, described as the first public presentation of the Twelve Traditions, and once as the long form published in *AAGV* 2:11 (April 1946), 2-3. Same month, different issue number, different pages.
+
+The article itself has since been read, and it explains the two titles rather than the two issue numbers. Its *Grapevine* headline is "Twelve Suggested Points for A. A. Tradition, By Bill". Inside the body, Bill introduces the list under a heading of his own: "An Alcoholics Anonymous Tradition of Relations, Twelve Points to Assure Our Future". Kurtz is citing that internal heading, AAWS's own pamphlet uses the same phrase, and this chapter takes its title from it. So the two names are one article and neither citation is wrong about the title. **The issue numbers remain unadjudicated**: the scan consulted carries no issue or page markers, so one of 2:10 and 2:11 is still a slip and I still cannot say which.
 
 **The chapter previously said the Traditions were formally adopted at the fellowship's first international convention in 1950.** Kurtz says they were officially adopted in June 1950, and separately describes the Cleveland gathering of 1950 as the fifteenth anniversary convention, which Wilson labelled A.A.'s Coming of Age party. He does not connect the adoption to that meeting. I have dropped the connection rather than assert it.
 
@@ -186,7 +188,7 @@ Holmström, B. (1982). "Moral Hazard in Teams." *Bell Journal of Economics* 13(2
 
 **Cited at a remove:**
 
-Wilson, W. (1946). "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future." *AA Grapevine* 2:10, April 1946, 7-9. **The 1946 issue itself has not been seen.** Its text, however, is reproduced in the AAWS pamphlet listed under Read in full below, and was read there and checked against the page images.
+Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*, April 1946; cited by Kurtz as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," 2:10, 7-9. **Read at source.** A scan of the article was consulted on 10 August 2026 and is recorded in `research/incorporated/Grapevine_1946/`. Source for the three opening sentences quoted above, for the two titles the text carries, and for the twelve points in their original wording. **The document is not archived in this repository**: it is A.A. Grapevine copyright, the located scan is a third-party reproduction with unverified posting authorization, and the project's rights review directs that it be cited and quoted within limits rather than stored. The scan carries no issue or page markers and so cannot settle Kurtz's conflicting issue numbers.
 
 Wilson, W. The long form of the Twelve Traditions, *AA Grapevine* 2:11, April 1946, 2-3, and the short form, *AA Grapevine* 6:6, November 1949, 16-17. Both as cited by Kurtz. Not read. The two April 1946 citations conflict and the conflict is recorded above.
 

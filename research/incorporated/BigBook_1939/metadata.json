@@ -1,0 +1,29 @@
+{
+ "id": "BigBook_1939",
+ "title": "Alcoholics Anonymous, first edition (1939), in the 1999 BBSG reprint",
+ "author": "Alcoholics Anonymous / Works Publishing",
+ "year": 1939,
+ "reprint": "BBSG, 1999, titled 'The 4th Edition of Alcoholics Anonymous'",
+ "type": "primary_organizational_text",
+ "status": "acquired",
+ "rights_note": "The 1939 first-edition text is widely asserted to be public domain in the United States on the ground of a defective copyright renewal, and the reprint held here asserts 'No Copyright. No rights reserved.' That status has been contested by AAWS and should not be stated as settled. The document is git-ignored like every other source in this corpus, so nothing is redistributed from this repository either way.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "topics": [
+  "Big Book",
+  "1939 first edition",
+  "AA primary text"
+ ],
+ "legacy_stem": null,
+ "documents": {
+  "BigBook_1939.pdf": {
+   "sha256": "650aceeb42f580c153a0ad0c968443454e03993b787b1eb297cfc5ebb5af20d1",
+   "bytes": 672193,
+   "tracked_in_git": false
+  },
+  "BigBook_1939.txt": {
+   "sha256": "67a54a298a76699d98f3214c1a6e275d6fad477299f022256ed35db356c0396d",
+   "bytes": 618258,
+   "tracked_in_git": false
+  }
+ }
+}

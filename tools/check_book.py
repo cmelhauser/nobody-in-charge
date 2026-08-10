@@ -375,9 +375,23 @@ def check_sources():
     # therefore also records which registered subjects the real document contains, decided
     # against the text when the index was built and stamped with that file's SHA-256.
     subjects_present = {}
+    # A source is identified in prose by the leading token of its directory name, so that
+    # token has to be distinctive. "AA" is not: it appears on nearly every page of a book
+    # about Alcoholics Anonymous, and a two-letter name manufactures thousands of spurious
+    # citation-subject pairs. Corpus directories therefore use a distinguishing name
+    # (Grapevine_1946, BigBook_1939, AAWS_2024_P17). Three characters is the floor: "ATU"
+    # is distinctive and appears only as that abbreviation, while "AA" is not and is
+    # refused here rather than silently trusted.
+    def source_name(path):
+        token = os.path.basename(os.path.dirname(path)).split('_')[0]
+        return token if len(token) >= 3 else None
+
     for f in glob.glob(P('research', '**', '*_verification-index.json'), recursive=True):
         d = json.load(open(f))
-        name = os.path.basename(os.path.dirname(f)).split('_')[0]
+        name = source_name(f)
+        if name is None:
+            warn('sources', f'corpus directory name is too short to identify citations: {f}')
+            continue
         texts[name] = ' ' + ' '.join(d['vocab']) + ' '
         if 'subjects_present' in d:
             subjects_present[name] = set(d['subjects_present'])
@@ -390,9 +404,10 @@ def check_sources():
     # directory name under the normalized layout, and by legacy stem for older checkouts.
     full_text = set()
     for d in sorted(glob.glob(P('research', 'incorporated', '*'))):
-        name = os.path.basename(d).split('_')[0]
+        token = os.path.basename(d).split('_')[0]
+        name = token if len(token) >= 3 else None
         doc = os.path.join(d, os.path.basename(d) + '.txt')
-        if os.path.exists(doc):
+        if name and os.path.exists(doc):
             texts[name] = re.sub(r'\s+', ' ', open(doc, errors='ignore').read()).lower()
             full_text.add(name)
     for stem, name in SAVED.items():

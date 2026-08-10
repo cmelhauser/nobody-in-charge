@@ -2970,3 +2970,54 @@ having in the chapter rather than in a source record.
 The general lesson is the same one the Greenfield audit produced: acquiring a source changes
 chapters that do not cite it yet. The corpus is where a document lands, and the chapters are
 where its consequences have to be chased down by hand.
+
+---
+
+## Three sources arrive, and one of them settles a question Chapter 5 had given up on
+
+Five files supplied by the author: the April 1946 *A.A. Grapevine* article, DeGroot (1974), a Big
+Book reprint, and two updated acquisition-status files. None had been in the corpus. Three
+observations came before any of it was catalogued.
+
+**The author's own rights review forbade archiving two of them.** The 7 August status file opens
+with an instruction not to add a full-text PDF to the corpus unless a listed authorization route is
+met, and lists DeGroot and the 1946 Grapevine article as restricted pending permission, the latter
+with the direction to cite and quote within applicable limits rather than archive the scan. The
+scan does carry an A.A. Grapevine copyright line and a silkworth.net watermark, so it is a
+third-party reproduction. Both are therefore held the way P-17 is held: a citation, a rights
+position, the hash of the scan consulted, the passages verified from it, and no archived document.
+That is not a workaround of the review; it is the route the review names.
+
+**The Big Book file is not what its filename says.** "Big Book 1st edition.pdf" is a 1999 BBSG
+publication whose own title page reads "The 4th Edition of Alcoholics Anonymous", where the fourth
+edition is that reprint's numbering rather than AAWS's. It states that it reprints the 1939 first
+edition and asserts no copyright. The content matches the label; the artifact does not, and
+cataloguing it as the 1939 printing would have misdescribed provenance. It is recorded as the 1999
+reprint of the 1939 text, with the note that the 1939 public-domain claim is widely asserted and
+has been contested rather than settled.
+
+**The DeGroot scan has no text layer at all.** No verification index can be built from it and no
+quotation from it can be machine-checked. The paper has been read at source for years and Part Two
+restates its updating rule in the project's own notation rather than quoting it, so nothing depends
+on the scan; the corpus record simply says so.
+
+**What the Grapevine article settled.** Chapter 5 recorded a citation problem it could not resolve:
+Kurtz cites the April 1946 publication twice, once as "Alcoholics Anonymous Tradition: Twelve Points
+to Assure Our Future" at 2:10, and once as the long form at 2:11. The article explains the titles.
+Its Grapevine headline is "Twelve Suggested Points for A. A. Tradition, By Bill", and inside the
+body Bill introduces the list under his own heading, "An Alcoholics Anonymous Tradition of
+Relations, Twelve Points to Assure Our Future". Kurtz is citing the internal heading, AAWS's
+pamphlet uses the same phrase, and the chapter takes its title from it. Two names, one article,
+neither citation wrong about the title. The issue numbers are still unadjudicated, because the scan
+carries no issue or page markers, and the chapter still says so.
+
+The three sentences Chapter 5 quotes as its thesis are now read from the article rather than from a
+historian's account of it, and they are exact.
+
+**A naming collision the checker caught.** The new directories were first called `AA_Grapevine_1946`
+and `AA_BigBook_1939`. `check_book.py` identifies a source in prose by the leading token of its
+directory name, so both became "AA", which appears on nearly every page of a book about Alcoholics
+Anonymous and manufactured thousands of spurious citation-subject pairs. They are now
+`Grapevine_1946` and `BigBook_1939`, and the checker refuses any source token shorter than three
+characters rather than trusting it silently. Three is the floor because "ATU" is distinctive and
+"AA" is not.

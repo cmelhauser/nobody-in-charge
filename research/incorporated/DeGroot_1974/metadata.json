@@ -1,0 +1,22 @@
+{
+ "id": "DeGroot_1974",
+ "title": "Reaching a Consensus",
+ "author": "DeGroot, M. H.",
+ "year": 1974,
+ "journal": "Journal of the American Statistical Association",
+ "volume_issue_pages": "69(345): 118-121",
+ "type": "theory",
+ "status": "read_at_source",
+ "rights_note": "American Statistical Association / Taylor & Francis. A publicly hosted PDF was located but its posting authorization is unverified. Per the project's 7 August 2026 rights review, it is NOT archived here. Permissible routes: an author or institutional-repository manuscript with attribution, licensed access, or ASA permission.",
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "sha256_of_scan_consulted": "f215c659afdb9dde7c37f7d7f0323ba3af7ea5017cdce61f38654e045826386e",
+ "consulted": "2026-08-10",
+ "note_on_scan": "The located scan has no text layer, so no verification index can be built from it and no quotation can be machine-checked.",
+ "topics": [
+  "DeGroot learning",
+  "consensus",
+  "influence vector"
+ ],
+ "legacy_stem": null
+}

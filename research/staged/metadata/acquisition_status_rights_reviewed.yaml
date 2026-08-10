@@ -1,0 +1,41 @@
+# Updated 2026-08-07 after rights review
+# Do not add a full-text PDF to the corpus unless the listed authorization route is met.
+
+acquired:
+  - ATU_Report_1840
+  - ATU_Annual_Report_1841
+  - ATU_Almanac_1849
+  - AA_Tradition_P17
+  - AA_Big_Book_First_Edition_1939 # User acquired; public domain in the United States
+
+ready_for_incorporation:
+  - Pagano_2004
+  - Greenfield_Tonigan_2013
+
+restricted_pending_permission:
+  - id: Hufford_2003
+    rights_holder: American Psychological Association (APA)
+    status: "Publisher PDF located, but it is copyrighted; do not archive or redistribute without permission."
+    permissible_route: "Obtain APA/CCC permission, author-supplied authorized manuscript, or institutional licensed access."
+  - id: DeGroot_1974
+    rights_holder: American Statistical Association (ASA)
+    status: "A public-hosted PDF was located, but its posting authorization is unverified."
+    permissible_route: "Use an author or institutional-repository manuscript with required attribution/link, obtain licensed access, or seek ASA/Taylor & Francis permission."
+  - id: AA_Twelve_Points_1946
+    rights_holder: A.A. Grapevine, Inc.
+    status: "Historical scan located; the document identifies A.A. Grapevine copyright."
+    permissible_route: "Seek written permission from A.A. Grapevine, Inc. before archiving the scan; cite/quote only within applicable limits until then."
+  - id: Blumberg_1980
+    rights_holder: Journal of Studies on Alcohol and Drugs / its publisher
+    status: "Full text is hosted online, but authorization for that reproduction is unverified."
+    permissible_route: "Request permission from JSAD or locate an author-authorized post-print; do not archive the hosted copy."
+
+still_to_locate:
+  - Grosh_1842
+  - Kurtz_Not_God
+  - Alexander_1988
+  - Riessman_1965
+  - Valverde_White_Mair_1999
+
+removed_or_corrected:
+  - Heelas_1999 # Correct citation is Valverde_White_Mair_1999
