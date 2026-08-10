@@ -110,10 +110,11 @@ become scarcer?
 
 Compared with the original on three things, in this order:
 
-1. **Which rows are empty.** The book's Chapters 16, 17 and 18 all rest on the claim that five
-   Traditions govern nothing any Step consumes. If your empty rows are the same five, that claim
-   has independent support for the first time. If they are not, Chapter 18 is wrong and will say
-   so.
+1. **Which rows are empty.** The book's Chapters 16, 17 and 18 all rest on a claim about which
+   Traditions govern nothing any Step consumes. If your empty rows match the book's, that claim
+   has independent support for the first time. If they do not, Chapter 18 is wrong and will say
+   so. How many rows the book leaves empty, and which, is deliberately not stated here, for the
+   same reason the two decisive cells are not named above.
 2. **The whole sparsity pattern**, cell by cell, as a simple agreement count out of 96.
 3. **The consequences**, by rebuilding the book's coupling from your matrix and rerunning
    Chapters 16 and 17. If the results hold on your matrix as well as mine, Part Four stops
@@ -128,8 +129,11 @@ confirmation.
 
 ## For the person collating
 
+**This section is for the collator, not the respondent.** It names things the grid above
+deliberately withholds, so do not hand a respondent a copy that includes it.
+
 Three respondents is the useful minimum. With three you can report, per cell, whether zero, one,
-two or three marked it, and the five-empty-rows claim becomes a statement about agreement rather
+two or three marked it, and the empty-rows claim becomes a statement about agreement rather
 than about one person.
 
 Store completed forms as `research/governance-elicitation-<initials>.md` and add a section to
@@ -137,6 +141,23 @@ Store completed forms as `research/governance-elicitation-<initials>.md` and add
 seen the book. **Whether the respondent has read Part Four is the single most important thing to
 record**, because a reader who has will not be independent.
 
-The comparison script does not exist yet. It should live at `model/elicitation_compare.py` and
-should report: per-cell agreement out of 96, agreement on the empty rows specifically, and the
-Chapter 16 and 17 results recomputed on each respondent's matrix.
+**The comparison script exists and is fixed in advance.** `model/elicitation_compare.py` was
+written before any form came back, so the analysis cannot be chosen after seeing the answers. It
+reports per-cell agreement out of 96 with the two kinds of disagreement separated, Cohen's kappa
+alongside the raw rate because the book's matrix is sparse enough that chance agreement is high,
+which rows each respondent left empty and whether they match the book's, and Chapters 16 and 17
+recomputed on the respondent's matrix.
+
+Check it before sending any forms out:
+
+```bash
+python3 model/elicitation_compare.py --self-test   # exercises a matching and a contradicting respondent
+python3 model/elicitation_compare.py               # reads every completed form
+```
+
+The self-test includes a respondent who differs by one row and confirms the script says so rather
+than smoothing it over. A respondent may give bare marks or strengths; with bare marks the rerun
+substitutes the book's own magnitude where both agree a cell is non-zero, and 0.5 where the
+respondent filled a cell the book left empty. The script states that substitution in its output
+every time, because a bare-marks respondent is testing the sparsity pattern rather than the
+magnitudes, which is the more important half.
