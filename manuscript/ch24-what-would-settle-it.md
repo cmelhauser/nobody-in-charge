@@ -112,13 +112,13 @@ For each item, the claim, the design, and the result that would falsify it.
 
 **Items 2, 4 and 5 need a unit of analysis the field does not use.** Groups rather than members.
 
-**Item 3 is closest to being already done.** Greenfield and Tonigan's instrument would need one additional analysis rather than a new study, and that paper is on the outstanding acquisition list; the chapter's description of it comes from an abstract and a secondary summary and should be treated accordingly.
+**Item 3 is closest to being already done.** Greenfield and Tonigan's instrument would need one additional analysis rather than a new study. The paper has now been read in full, so this chapter's description of it no longer rests on an abstract, and reading it strengthens the case: their two-factor structure means the additional analysis is not merely possible but has an obvious form, since behavioural and spiritual step-work already separate and could be scored per step rather than summed.
 
 ### 3. Notes on sources
 
 **This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding.
 
-**Two claims here rest on material I have not read.** Greenfield and Tonigan (2013) is described from its abstract and a secondary summary, which is enough to say the instrument exists and not enough to say what could be added to it. SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document.
+**One claim here still rests on material I have not read.** SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
 
 **One item has no method.** Item five names the measurement that would bear most directly on the book's central claim and then says I do not know how to take it ethically in an anonymous fellowship. I would rather have a gap on the list than an item that pretends to be actionable.
 
@@ -132,7 +132,7 @@ Nothing new to this chapter.
 
 **Cited at a remove:**
 
-Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. Abstract and secondary summary only. Not read.
+Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
 
 Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Located, not acquired. See `research/SOURCES.md`.
 
