@@ -2775,3 +2775,33 @@ no line ends that way. The checker is right to be blunt here; the answer is not 
 The book notebook now runs 8 cells and 71 assertions, the paper notebook 10 and 95, and they are
 no longer the same file. `AGENT_VERIFY.md` records that if a verifier finds them identical again,
 that is a regression rather than a simplification.
+
+---
+
+## The elicitation kit was leaking its own answer
+
+Checked before sending anything out, on the principle that an instrument should be tested on the
+bench rather than on the first respondent. The kit is otherwise in good order: the blank grid's
+eight columns are in exactly the model's resource order, so a completed form parses correctly; the
+script's self-test passes and, importantly, its second case is a respondent who differs by one row,
+which the script correctly reports as contradicting Chapter 18 rather than smoothing over.
+
+Two defects, both in the form.
+
+**It told the respondent how many rows should come out empty.** The section headed "What will be
+done with your answers" said the book's chapters rest on the claim that *five* Traditions govern
+nothing any Step consumes. A respondent reads that before filling the grid. It does not say which
+five, but a count is most of the way there when there are only twelve rows, and the form's whole
+premise is that the answers are independent. The same form is scrupulous elsewhere: it declines to
+name the two decisive cells, saying in as many words that they are not named so as not to lead the
+reader. The count is now withheld on the same grounds and for the same stated reason. The
+collator's section still names it, and now says at the top that it is not to be handed to a
+respondent.
+
+**It said the comparison script did not exist.** It does, it is what the preregistration consists
+of, and the form now says so and gives the two commands to run, including the self-test to run
+before any form goes out. The paragraph also records the substitution the script makes for a
+bare-marks respondent, since that determines what such a respondent is actually testing.
+
+Neither defect would have been visible from the analysis side. Both would have quietly weakened
+the one instrument in the project that can test Part Four from outside.
