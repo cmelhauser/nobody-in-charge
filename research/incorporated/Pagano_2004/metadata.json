@@ -1,0 +1,34 @@
+{
+ "id": "Pagano_2004",
+ "title": "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH",
+ "author": "Pagano, M. E.; Friend, K. B.; Tonigan, J. S.; Stout, R. L.",
+ "year": 2004,
+ "type": "empirical_research",
+ "status": "read",
+ "rights_note": "NIH author manuscript, open access via PMC. Not redistributed here.",
+ "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3008319/",
+ "doi": "10.15288/jsa.2004.65.766",
+ "pmcid": "PMC3008319",
+ "nihmsid": "nihms253314",
+ "acquired": "2026-08-10, supplied by the author of this project after automated retrieval was blocked by an access challenge",
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "topics": [
+  "helping",
+  "Project MATCH",
+  "AA involvement",
+  "relapse"
+ ],
+ "legacy_stem": null,
+ "documents": {
+  "Pagano_2004.pdf": {
+   "sha256": "5f9f187d819430b69d79578d4f8b328991cae7853385973c86956481588dc61c",
+   "bytes": 359009,
+   "tracked_in_git": false
+  },
+  "Pagano_2004.txt": {
+   "sha256": "fede23704e86cd07255dc8bafe5ce1fffd841175a29f56cb9b4c520311e8060b",
+   "bytes": 46992,
+   "tracked_in_git": false
+  }
+ }
+}

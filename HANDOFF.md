@@ -31,7 +31,7 @@ the frozen model; the Sobol design alone costs about four hours to regenerate.
 
 ## 2. What the project now contains
 
-A 25-chapter manuscript in six parts, plus preface and introduction, at 260 pages. A 32-page
+A 25-chapter manuscript in six parts, plus preface and introduction, at 261 pages. A 32-page
 paper. A 17-page primer. A technical appendix. The executable model and twenty analysis scripts.
 Eighteen hash-linked caches. Two verification notebooks. Seven checkers and builders.
 
@@ -46,7 +46,7 @@ Eighteen hash-linked caches. Two verification notebooks. Seven checkers and buil
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/run_notebook.py` | CLEAN, 8 cells, 71 assertions |
 | `tools/run_notebook.py --paper` | CLEAN, 10 cells, 95 assertions |
-| PDFs | 260 / 32 / 17 pages, 0 blank, 0 margin overflow, no undefined references |
+| PDFs | 261 / 32 / 17 pages, 0 blank, 0 margin overflow, no undefined references |
 
 The 39 repetition warnings are overlapping n-grams of one phrase, the registered-set
 decomposition, restated in the preface and Chapter 12 because both need it. They are intentional.
@@ -85,9 +85,11 @@ and, because a vocabulary set has no word order, which registered subjects the d
 decided against the real text at build time and stamped with that file's SHA-256. This was tested
 by moving every document out of the tree: all 55 citation-subject pairs still verified.
 
-Two items remain staged and unread: Greenfield and Tonigan (2013) and Pagano et al. (2004).
-Retrieval returned a reCAPTCHA challenge and this project does not work around access controls.
-Their recorded summaries are expectations, not findings, and neither may be cited.
+One item remains staged and unread: Greenfield and Tonigan (2013). Retrieval returned a reCAPTCHA
+challenge and this project does not work around access controls, so its recorded summary is an
+expectation rather than a finding and it may not be cited. Pagano et al. (2004) was in the same
+position until 10 August 2026, when the article was obtained by hand and read; it is now under
+`research/incorporated/Pagano_2004/`.
 
 AA pamphlet P-17 is cited but has no document here at all, by decision. Keep the citation, the
 aa.org URL and the file hash; do not restore the PDF or its OCR.
@@ -98,6 +100,22 @@ aa.org URL and the file hash; do not restore the PDF or its OCR.
 Pushes from an analysis sandbox use a repository-scoped SSH deploy key with write access, stored
 as `.git-deploy-key` in the project folder and git-ignored. If it is ever exposed, delete the
 deploy key on GitHub and generate a new pair; nothing account-wide is involved.
+
+**History was rewritten once, on 10 August 2026, and force-pushed.** Untracking the copyrighted
+Maxwell article and the AA pamphlet stopped them being distributed going forward but left them
+reachable at older commits in a public repository. Four blobs were purged from every commit with
+`git filter-repo`: the Maxwell PDF and text, and the P-17 PDF and OCR. Every record file survived.
+A fresh clone confirms none of the four is reachable, and the commit count is unchanged at twelve.
+
+Two things are worth knowing before doing this again. A checkpoint reference under `refs/codex/`,
+which is a bare tree rather than a commit, kept the old blobs alive after the rewrite, and
+`git log --name-only` does not traverse a tree reference, so the first verification wrongly
+reported success; the check that works is `git rev-list --objects --all`. And GitHub keeps
+unreachable objects for a period after a force-push, so an object may still be retrievable by its
+exact SHA for a while; ask GitHub Support to run garbage collection if that matters.
+
+A pre-rewrite bundle of the complete history is at `nobody-in-charge-pre-rewrite.bundle` in the
+project folder, git-ignored. It is the rollback path. Delete it when you are satisfied.
 
 ## 7. What actually remains
 
@@ -110,13 +128,9 @@ deploy key on GitHub and generate a new pair; nothing account-wide is involved.
    in advance. It reports whether a respondent leaves the same five governance rows empty; if they
    leave four or six, Chapter 18 is wrong and says so. This is the highest-value outstanding item
    and it is blocked on recruiting readers.
-2. **Pagano et al. (2004).** Needs a manual download from PMC. It bears on Chapter 15 and on the
-   recipient resource, whose contrast is currently unresolved, so it is the one staged item that
-   could change an argument.
-3. **A decision about git history.** The copyrighted Maxwell article and the AA pamphlet are no
-   longer tracked, but they remain reachable at older commits in a public repository. Removing
-   them requires a history rewrite and a force-push, which has not been authorized. The pack is
-   about 54 MB, most of it a 22 MB Grosh scan.
+2. **Greenfield and Tonigan (2013).** The last staged item, still behind a challenge page. It
+   bears on measurement of 12-step practice adoption. Obtaining it is the same manual download
+   that resolved Pagano.
 
 **Unresolved scientific limitations, which are not defects.** No parameter is fitted to
 longitudinal AA data and the original calibration fails at 17.80 members and 1.25 experienced

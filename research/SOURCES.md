@@ -29,18 +29,20 @@ kept.
 
 On 9 August 2026 the staged corpus was worked through at the user's direction and is now
 mostly incorporated. Four of its six items moved to `research/incorporated/`: the three
-American Temperance Union documents and the source record for AA pamphlet P-17. What remains
-staged is two journal articles that could not be lawfully retrieved, described below. The
-staged boundary is therefore narrower than it was, not abolished.
+American Temperance Union documents and the source record for AA pamphlet P-17. Pagano et al.
+(2004) followed on 10 August 2026, once the article was obtained by hand. What remains staged is
+a single journal article, described below. The staged boundary is therefore much narrower than it
+was, and it is nearly closed.
 
-**Still staged and still unread.** Greenfield and Tonigan (2013) and Pagano et al. (2004) are
-recorded as `verified_online`: the citation and a stable open-access PMC location are
-confirmed, but no full text was ever obtained. Retrieval on 9 August 2026 returned a reCAPTCHA
-challenge rather than the article, and the project does not work around access controls. Both
-remain **unread and unusable as claim support**. Their recorded summaries describe what the
-articles are expected to contain and are not a substitute for reading them. Pagano is the more
-consequential of the two, because it bears on Chapter 15 and on the recipient resource, and a
-reader who wants that argument strengthened should obtain it manually from PMC.
+**One item remains staged and unread.** Greenfield and Tonigan (2013) is recorded as
+`verified_online`: the citation and a stable open-access PMC location are confirmed, but no full
+text was obtained. Retrieval on 9 August 2026 returned a reCAPTCHA challenge, and the project does
+not work around access controls. It remains **unread and unusable as claim support**; its recorded
+summary describes what the article is expected to contain and is not a substitute for reading it.
+
+Pagano et al. (2004) was the other, and it has since been obtained and read: see the entry below.
+Its acquisition is the model for the remaining one. The challenge page blocks automated retrieval,
+not a person with a browser, so the article was downloaded by hand and added to the corpus.
 
 ---
 
@@ -55,6 +57,7 @@ the staged acquisition package, and as of 9 August 2026 the four items promoted 
 | ATU, *Annual Report* (1841) | public domain, pre-1929 | PDF and OCR | read for the Washingtonian passages; p. 39 verified against the page image |
 | ATU, *Almanac for 1849* (1848) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
 | AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images |
+| Pagano et al., "Helping Other Alcoholics" (2004) | NIH author manuscript, open access | PDF and extracted text | read in full; figures checked against the results section |
 
 The P-17 document itself is deliberately absent. It is copyrighted AAWS literature distributed
 as a free official PDF, and this repository is public, so mirroring the full PDF and a full OCR
@@ -239,13 +242,19 @@ the four figures Chapter 22 uses, each taken from the paper's own text:
 in `plans/PART-5-PLAN.md` not to write it at full length without this paper. It is now 1,297
 words and the paper carries it.
 
-**Two acquisitions attempted on 2 August 2026 and not obtained.**
+**One acquisition attempted on 2 August 2026 and not obtained. The other has since been read.**
 
-*Pagano, M. E., K. B. Friend, J. S. Tonigan and R. L. Stout (2004).* The 40 per cent against 22
-per cent figures were confirmed as belonging to this study rather than to a garbled secondary
-account, which is a small improvement on what Chapter 15 could previously say. The paper itself
-remains unread: the PubMed Central copy is behind a challenge page and the journal copy is
-paywalled. **Chapter 15's sourcing is unchanged and is still the weakest in the book.**
+*Pagano, M. E., K. B. Friend, J. S. Tonigan and R. L. Stout (2004).* **Obtained and read in full
+on 10 August 2026**, as the NIH author manuscript, PMCID PMC3008319, supplied by the project's
+author after automated retrieval was blocked by a challenge page. Stored in
+`research/incorporated/Pagano_2004/`. Reading it settled the sourcing question Chapter 15 had
+flagged against itself: the 40 against 22 per cent figures, previously taken from a 2011 news
+release, appear in the paper's own results section, and the independence from meeting attendance
+is established there by proportional-hazards regression controlling for meetings attended. It
+also supplied a limitation the news release did not carry, and which now appears in Chapter 15:
+the authors' first stated limitation is that only 8 per cent of the sample were coded as helping,
+on a measure they call crude. **Chapter 15's sourcing is no longer the weakest in the book.** The
+copy held is the author manuscript, so its pagination is not the journal's.
 
 *Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group
 Membership."* Located and not acquired. It is the group-and-member series by year that Chapter

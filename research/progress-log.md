@@ -2805,3 +2805,47 @@ bare-marks respondent, since that determines what such a respondent is actually 
 
 Neither defect would have been visible from the analysis side. Both would have quietly weakened
 the one instrument in the project that can test Part Four from outside.
+
+---
+
+## Two copyrighted works removed from published history, and Pagano finally read
+
+**The history rewrite.** Untracking the Maxwell article and the AA pamphlet stopped them being
+distributed going forward, but a public repository still served them at older commits, which is
+most of the problem the untracking was meant to solve. Four blobs were purged from every commit:
+the Maxwell PDF and text, and the P-17 PDF and OCR. Every citation, metadata file, summary and
+verification index survived, the commit count is unchanged, and a fresh clone from the remote
+confirms none of the four is reachable.
+
+Two things are worth recording for the next person who does this. A checkpoint reference under
+`refs/codex/`, a bare tree rather than a commit, kept the old blobs alive after the rewrite; and
+`git log --name-only` does not traverse a tree reference, so the first verification reported
+success while a 4.8 MB pamphlet was still sitting in the object database. The check that actually
+works is `git rev-list --objects --all`. Also worth stating honestly: GitHub retains unreachable
+objects for a while after a force-push, so this makes the files unreachable rather than instantly
+unrecoverable.
+
+The remaining bulk of the pack is public-domain scans, which have no copyright problem, so they
+were left alone. A full backup bundle sits in the project folder, git-ignored, as the rollback
+path.
+
+**Pagano (2004), read at last.** The article was behind a challenge page that blocks automated
+retrieval but not a person with a browser, so it was downloaded by hand and added to the corpus.
+Chapter 15 had been unusually honest about its own weakness here: it recorded that the forty and
+twenty-two per cent figures came from a 2011 university news release rather than the paper, that
+the paper's tables had not been seen, and that the full text should be obtained before the chapter
+was final. `SOURCES.md` called the chapter's sourcing the weakest in the book.
+
+Reading it settles that. Both figures appear in the paper's own results section, so the press
+release had reported them correctly, and the independence from meeting attendance is established
+there by proportional-hazards regression controlling for meetings attended. The chapter's existing
+caution about the finding being observational was already the paper's own position.
+
+Reading it also added something the press release did not carry, and the chapter now says it: the
+authors' first stated limitation is that only 8 per cent of the sample were coded as helping, on a
+measure they describe as crude. That makes the selection worry harder to dismiss rather than
+easier, which is the honest direction for a new fact to push a chapter that leans on this study.
+The copy held is the NIH author manuscript, so its pagination is not the journal's and no
+page-specific citation may be taken from it.
+
+One item is left staged: Greenfield and Tonigan (2013), behind the same kind of challenge page.
