@@ -3,10 +3,15 @@
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
-This appendix describes the release-gate model identified by SHA-256
-`c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`. The executable source
-`model/aa_group_model.py` and hash-linked JSON caches are authoritative. This document and the
-PDF are derived artifacts. No simulation parameter is estimated from AA data.
+This appendix describes the release-gate model identified by SHA-256:
+
+```text
+c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952
+```
+
+The executable source `model/aa_group_model.py` and hash-linked JSON caches are authoritative.
+This document and the PDF are derived artifacts. No simulation parameter is estimated from AA
+data.
 
 Part Two uses a published theorem and deterministic arithmetic over authored matrices. The
 stochastic group model supports Parts Three and Five and some comparisons in Part Four; it is
@@ -402,13 +407,101 @@ three outcomes. The tiered design, which also varies scalar defaults and Step sp
 ranges, produces substantial final-membership reversals and smaller numbers of viability and
 existence reversals. These are different robustness questions.
 
-### A7.5 Remaining expanded results
+### A7.5 Multi-level OAT, Morris, and Sobol results
 
-The multi-level OAT, Morris, and 1,024-row Sobol results are generated into
-`research/ROBUSTNESS-RESULTS.md` from their hash-linked caches. This section is not complete until
-those caches and the report have release status `complete`; `tools/check_release.py` fails closed
-otherwise. Final prose must report strict support, ties, reversals, uncertainty, and the Sobol
-noise diagnostic rather than importing values from the retired screens.
+All three caches are complete and match both the model hash and their generating-script hashes.
+The generated tables live in `research/ROBUSTNESS-RESULTS.md`; this section states what they mean
+and what they do not license.
+
+**Multi-level one-at-a-time screen** (`research/oat_full.json`). Each of the 118 registered values
+is moved alone by 10, 25, 50 and 75 per cent in each direction, giving 944 perturbation points,
+with three common seeds per endpoint. This is a screen, not a confirmatory design. Across the 944
+points the pure-attraction-loss minus referral-loss ordering is strict in 931, tied in 2 and
+reversed in 11 on final membership; 934/10/0 on endpoint viability; and 933/11/0 on existence.
+Full adherence is endpoint-viable in all three seeds at 893 of 944 points and exists in all three
+at 936. The eleven membership reversals are not scattered: nine are large downward moves of
+`p_gate`, `delta0` and `churn` at the 25, 50 and 75 per cent distances, and the remaining two are
+the `S:11,5` and `S:11,6` cells. Twenty-six of the 118 values move the referral-starved endpoint
+viability on their own, and 32 move the full-adherence endpoint viability.
+
+Against a full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
+ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
+minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the step-10
+speed 2.22; over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
+4.69.
+
+All 35 governance cells return zero change in every outcome and every scenario, with a maximum
+absolute deviation of 5.6e-17. This is a property of the reference point and not evidence of
+inertness: the OAT scenarios run at full adherence, where the column-normalised governance quality
+is identically 1 regardless of the underlying magnitudes. A multiplicative screen also cannot move
+a structural zero. Both facts are why the Morris and Sobol designs are sited at 0.85 adherence.
+
+**Morris screen** (`research/morris.json`). Twenty trajectories over all 118 factors at plus or
+minus 25 per cent, four levels, delta 2/3, five common random numbers per point, 2,380 model
+evaluations, reference adherence 0.85. Effects are output change per unit proportional change in
+the parameter. The membership `mu_star` leaders are `p_gate` 52.44, `delta0` 51.21, `churn` 33.48,
+`drop_k` 24.30, `lam_exog` 23.46, `het_sd` 18.90, `a:5` 18.54 and `a:11` 15.87. The ninth factor,
+`lam0`, is 14.34, so the eight-factor cut is untied. By share of total membership `mu_star`, the
+22 scalars carry 44.9 per cent, the 49 `S` cells 33.7, the 12 step speeds 18.2 and the 35 `GOV`
+cells 3.3. Five of the eight leaders have `sigma/mu_star` above one, which indicates interaction
+or curvature without separating them; that separation is what the Sobol design is for.
+
+This screen corrects the retired ten-trajectory result. Three of the factors previously carried
+into the Sobol design do not survive: `a:8` now ranks fifteenth, `a:4` twenty-seventh and `omega`
+thirty-seventh. They are replaced by `lam_exog`, `a:5` and `a:11`.
+
+**Sobol decomposition** (`research/sobol.json`). Saltelli first-order and Jansen total-order
+estimators on a 1,024-row base design over the eight Morris membership leaders at plus or minus
+25 per cent, reference adherence 0.85, five common random numbers per point. The executed cache is
+11,264 evaluations: 1,024 each for A, B and the noise replicate, plus 8,192 cross-matrix rows.
+Intervals are 2,000-resample percentile bootstraps over base rows. The noise-replicate total-order
+floor is 0.0429 for membership and 0.0728 for practice.
+
+Membership total-order indices are `p_gate` 0.576 [0.510, 0.643], `delta0` 0.373 [0.320, 0.428],
+`drop_k` 0.171 [0.145, 0.199], `churn` 0.132 [0.111, 0.155], `het_sd` 0.079 [0.064, 0.095],
+`lam_exog` 0.058 [0.049, 0.068], `a:11` 0.038 [0.031, 0.046] and `a:5` 0.029 [0.024, 0.034]. The
+last two lie at or below the noise floor and are not separated from Monte Carlo error. The
+total-order indices sum to 1.456 for membership and 1.464 for practice; the excess over one is
+interaction counted once per participating factor, so interaction is present and is not dominant.
+
+The eight-fold increase in base sample repairs the membership first-order column and not the
+practice column. On membership no factor has `S1` above `ST` and the first-order indices sum to
+0.693, so the column is admissible: `p_gate` resolves at 0.404 [0.288, 0.525] and `delta0` at
+0.238 [0.156, 0.327], and the other six have intervals covering zero and are unresolved rather
+than zero. On practice `delta0` returns `S1 = 0.421` against `ST = 0.417`, violating the identity
+`ST >= S1`, and the practice first-order indices sum to 1.074, which a first-order sum cannot do.
+The practice first-order column is therefore still withheld and no number from it is quoted.
+
+The decomposition is conditional on these eight factors and these ranges. The other 110 registered
+values are held at nominal, so this is the variance those eight generate between them and not the
+model's total variance. The `mu_star` shares above remain the right place to look for the latter.
+
+### A7.6 Resource-list test
+
+The eight group resources are an author-coded list: admission, identify, proof, confidential,
+counsel, recipient, continuity, and pressure. No source proposes them, so the question is whether
+Part Four's conclusions depend on that particular eight. `model/resource_list_test.py` rebuilds the
+raw semantic overlap `B = S @ GOV.T` under 64 alternative lists and re-runs the index-pairing test
+on each, using competition rank and complete maximizing sets. The object is semantic overlap, not
+executable coupling, and the test is deterministic, so it carries no interval.
+
+| Variant family | Count | All-twelve rejection holds | Unity leads | Protective set unchanged |
+|---|---:|---:|---:|---:|
+| Leave one resource out | 8 | 7 | 8 | 8 |
+| Merge a pair of resources | 28 | 20 | 28 | 28 |
+| Drop two resources | 28 | 21 | 27 | 28 |
+
+Unity leads on 63 of the 64 variants. The single failure is the drop-two variant that removes
+continuity and pressure together, which is the same pair the reassignment test in A8 identifies as
+the only transfer able to flip the result. Two instruments built for different purposes fail on the
+same two columns, which is worth more than either alone because it localizes the point of failure.
+
+The all-twelve rejection of index-pairing survives in 48 of the 64 variants. The five protective
+Traditions keep empty governance rows in all 64, which is a structural consequence of the authored
+zeros rather than an independent confirmation. Where the all-twelve rejection fails it is almost
+always Step 1 regaining its index-mate, in 15 variants across the three families. The finding is
+therefore that the pairing verdict is not an artifact of any single resource, and not that the list
+is correct.
 
 ---
 
@@ -458,21 +551,45 @@ research/model-choice-inventory.json            values, zeros, constants, and ch
 tools/check_release.py                          independent fail-closed release gate
 ```
 
-From the repository root, after every cache is complete:
+From the repository root, after every cache is complete. All three PDFs are built before the
+release check, because that check requires each rendered artifact to postdate every source that
+feeds it:
 
 ```bash
+python3 tools/summarize_robustness.py
 python3 tools/regenerate_notebooks.py
 python3 tools/run_notebook.py
 python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
-python3 tools/check_release.py
+python3 tools/check_portability.py
 python3 tools/build_book.py
+tectonic --outdir paper paper/anonymity-as-an-aggregation-condition.tex
+pandoc reference/PRIMER-steps-and-traditions.md \
+  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=tectonic
+python3 tools/check_release.py
 ```
 
-The paper and primer have their own build commands documented in the repository. Release also
-requires rendering all three PDFs to page images and inspecting them for overflow, clipped
-tables, broken references, duplicated headings, blank pages, and stale text.
+Release also requires rendering all three PDFs to page images and inspecting them for overflow,
+clipped tables, broken references, duplicated headings, blank pages, and stale text.
+
+### A10.1 Renumbering note
+
+This appendix was consolidated during the release-gate round and several section identifiers used
+by earlier drafts no longer exist. Manuscript, paper, and primer references were retargeted. The
+docstrings of completed analysis scripts still carry the old identifiers, because those scripts are
+hash-linked to caches that would be invalidated by editing them, so the mapping is recorded here
+instead.
+
+| Retired identifier | Current location |
+|---|---|
+| A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
+| A4.6, A5.5 | A7.5, Morris and Sobol |
+| A5.4b, A5.4c, A5.4e | A8, threshold, reassignment, and sparsity-pricing tests |
+| A5.4d | A5.2, the degradation ranking |
+| A5.6 | A7.1, the design registry and what no design covers |
+| A9 as structural variants | A7.3 |
+| A9.5 | A7.6, the resource-list test |
 
 ---
 

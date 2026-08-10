@@ -135,12 +135,101 @@ Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss. Ho
 fixed and replacing every nonzero matrix magnitude does not reverse the comparison. The broader
 tiered design does, especially for final membership. This does not validate the zero pattern.
 
-## 8. Remaining screens pending final generated summary
+## 8. Multi-level OAT, Morris, and Sobol screens
 
-The multi-level OAT, Morris, and Sobol caches must have `complete` status and match both the model
-and analysis-script hashes. Their exact results will be inserted from
-`research/ROBUSTNESS-RESULTS.md` after generation. Until then, no older 30-draw, 236-point,
-10-trajectory, or 128-row Sobol result is authorized for public prose.
+All three caches are `complete` and match the model hash and their generating-script hashes. The
+generated tables are in `research/ROBUSTNESS-RESULTS.md`. The retired 30-draw, 236-point,
+10-trajectory, and 128-row Sobol results are correction history and are not authorized for public
+prose.
+
+### 8.1 Multi-level one-at-a-time screen
+
+118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three
+common seeds per endpoint, 944 perturbation points. Screening design.
+
+| Outcome | Strict | Tied | Reversed |
+|---|---:|---:|---:|
+| final membership | 931 | 2 | 11 |
+| endpoint viability | 934 | 10 | 0 |
+| existence | 933 | 11 | 0 |
+
+Counts are pure-attraction-loss minus referral-loss. Full adherence is endpoint-viable in all
+three seeds at 893 of 944 points and exists in all three at 936. Nine of the eleven membership
+reversals are large downward moves of `p_gate`, `delta0` and `churn`; the other two are `S:11,5`
+and `S:11,6`. Twenty-six of 118 values move referral-starved endpoint viability alone; 32 move
+full-adherence endpoint viability alone.
+
+Influence on maintenance, against a full-adherence baseline of 0.0431, as range over baseline:
+
+| Parameter | At plus or minus 25% | Over the full ladder |
+|---|---:|---:|
+| `p_gate` | 5.45 | 14.64 |
+| `delta0` | 3.27 | 12.98 |
+| `a:10` | 2.22 | 2.76 |
+| `het_sd` | - | 4.69 |
+
+All 35 `GOV` cells return zero change in every outcome and scenario, maximum absolute deviation
+5.6e-17, because the sweep runs at full adherence where column-normalised governance quality is
+identically 1. That is a property of the reference point, not evidence of inertness.
+
+### 8.2 Morris screen
+
+Twenty trajectories, all 118 factors, plus or minus 25 per cent, four levels, delta 2/3, five
+common random numbers per point, 2,380 evaluations, reference adherence 0.85.
+
+| Rank | Factor | mu | mu* | sigma |
+|---:|---|---:|---:|---:|
+| 1 | `scalar:p_gate` | -51.780 | 52.440 | 57.611 |
+| 2 | `scalar:delta0` | -51.210 | 51.210 | 54.039 |
+| 3 | `scalar:churn` | -33.000 | 33.480 | 32.726 |
+| 4 | `scalar:drop_k` | 24.300 | 24.300 | 23.068 |
+| 5 | `scalar:lam_exog` | 22.680 | 23.460 | 24.579 |
+| 6 | `scalar:het_sd` | 18.600 | 18.900 | 17.323 |
+| 7 | `a:5` | 15.960 | 18.540 | 25.250 |
+| 8 | `a:11` | 8.190 | 15.870 | 25.005 |
+| 9 | `scalar:lam0` | 12.000 | 14.340 | 19.472 |
+
+The eight-factor cut is untied: 15.87 against 14.34. Membership `mu_star` shares by kind are
+scalars 44.9 per cent, `S` cells 33.7, step speeds 18.2 and `GOV` cells 3.3. The retired
+ten-trajectory leaders `a:8`, `a:4` and `omega` now rank 15th, 27th and 37th.
+
+### 8.3 Sobol decomposition
+
+1,024-row base design over the eight Morris membership leaders, plus or minus 25 per cent,
+reference adherence 0.85, five common random numbers per point, 11,264 executed evaluations,
+2,000-resample bootstrap intervals. Noise-replicate total-order floor is 0.0429 for membership and
+0.0728 for practice.
+
+| Factor | Membership S1 [95%] | Membership ST [95%] |
+|---|---:|---:|
+| `p_gate` | 0.404 [0.288, 0.525] | 0.576 [0.510, 0.643] |
+| `delta0` | 0.238 [0.156, 0.327] | 0.373 [0.320, 0.428] |
+| `drop_k` | 0.032 [-0.014, 0.079] | 0.171 [0.145, 0.199] |
+| `churn` | 0.023 [-0.020, 0.068] | 0.132 [0.111, 0.155] |
+| `het_sd` | 0.022 [-0.015, 0.061] | 0.079 [0.064, 0.095] |
+| `lam_exog` | -0.015 [-0.048, 0.018] | 0.058 [0.049, 0.068] |
+| `a:11` | 0.005 [-0.018, 0.029] | 0.038 [0.031, 0.046] |
+| `a:5` | -0.016 [-0.037, 0.004] | 0.029 [0.024, 0.034] |
+
+`a:5` and `a:11` sit at or below the membership noise floor. Total-order sums are 1.456 for
+membership and 1.464 for practice, so interaction is present and not dominant. The membership
+first-order column is admissible at this base sample: no `S1` exceeds its `ST` and the sum is
+0.693. The practice first-order column is not: `delta0` gives `S1 = 0.421` against `ST = 0.417`
+and the practice first-order sum is 1.074. No practice first-order number is quoted in public
+prose. Every index is conditional on these eight factors and these ranges, not on the model's
+total variance.
+
+### 8.4 Generating-platform provenance
+
+Caches are hash-linked to the model and the generating script, not to a platform. The screens in
+this section were executed on Linux x86-64 under NumPy 2.2.6, while the eight `oat_full.json`
+parameter jobs completed before the pause, and the 400-seed confirmatory caches, were generated on
+macOS. Re-executing a macOS-generated job on Linux reproduced every discrete outcome exactly and
+differed on continuous outcomes only in the last representable digit, for example a mean practice
+of 0.22608366753387557 against 0.22608366753387563. That is a difference of order 1e-16, far below
+any reported precision, and it changed no classification. An independent verifier on a different
+operating system should expect agreement to reported precision rather than bit-identical
+reproduction.
 
 ## 9. Numerical and finite-horizon limits
 

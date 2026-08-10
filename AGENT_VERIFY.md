@@ -202,11 +202,43 @@ For the structural cache, referral loss must have lower mean final N, existence,
 viability than pure attraction loss in the base model and all four variants. The old claim that
 size reverses under three variants is retired and must appear only as correction history.
 
-The final tiered, randomized-matrix, OAT, Morris, and Sobol expectations are printed in
-`research/ROBUSTNESS-RESULTS.md` after the caches complete. Verify that public prose copies those
-results rather than the retired 30-draw, 236-point, 10-trajectory, or 128-row analyses. Confirm
-that the eight Sobol factors exactly match the corrected Morris membership leaders after
-normalizing `scalar:` prefixes, and report the Sobol noise diagnostic.
+All three remaining screens are now complete and their expectations are fixed. Verify that public
+prose copies these results rather than the retired 30-draw, 236-point, 10-trajectory, or 128-row
+analyses.
+
+**Multi-level OAT**, `oat_full.json`: 118 parameter jobs, 944 perturbation points, three common
+seeds per endpoint. Pure-attraction-loss minus referral-loss counts must be 931/2/11 on final
+membership, 934/10/0 on endpoint viability, and 933/11/0 on existence. Full adherence is
+endpoint-viable in all three seeds at 893 of 944 points and exists in all three at 936. All 35
+`GOV` cells must return zero change in every outcome, to a maximum absolute deviation of order
+1e-17, because the sweep runs at full adherence. That is a property of the reference point. A
+verifier must not record it as evidence that governance is inert.
+
+**Morris**, `morris.json`: 20 trajectories, 118 factors, 2,380 points, reference adherence 0.85.
+Membership `mu_star` leaders in order must be `p_gate` 52.44, `delta0` 51.21, `churn` 33.48,
+`drop_k` 24.30, `lam_exog` 23.46, `het_sd` 18.90, `a:5` 18.54, `a:11` 15.87, with `lam0` ninth at
+14.34 so the cut is untied. Confirm that the eight Sobol factors exactly match these leaders after
+normalizing `scalar:` prefixes. The retired leaders `a:8`, `a:4`, and `omega` must appear at ranks
+15, 27, and 37 and nowhere as current Sobol factors.
+
+**Sobol**, `sobol.json`: 1,024-row base, 11,264 evaluations, eight factors, reference adherence
+0.85. Membership total-order indices must be `p_gate` 0.576 [0.510, 0.643], `delta0` 0.373
+[0.320, 0.428], `drop_k` 0.171, `churn` 0.132, `het_sd` 0.079, `lam_exog` 0.058, `a:11` 0.038, and
+`a:5` 0.029. Report the noise diagnostic: the total-order floor is 0.0429 for membership and
+0.0728 for practice, and `a:5` and `a:11` sit at or below it. Total-order sums are 1.456 and
+1.464. The membership first-order column is admissible at this base sample, with no `S1` above its
+`ST` and a sum of 0.693; only `p_gate` 0.404 [0.288, 0.525] and `delta0` 0.238 [0.156, 0.327]
+resolve, and the other six are unresolved rather than zero. The practice first-order column must
+remain withheld: `delta0` returns `S1 = 0.421` against `ST = 0.417` and the practice first-order
+sum is 1.074. Quoting any practice first-order index in public prose is a release failure.
+
+**Generating platform.** Caches are hash-linked to the model and generating script, not to a
+platform. The three screens above were executed on Linux x86-64 under NumPy 2.2.6; the eight
+`oat_full.json` jobs completed before the pause and the 400-seed confirmatory caches were
+generated on macOS. Cross-platform re-execution reproduces discrete outcomes exactly and
+continuous outcomes to within about 1e-16, which changed no classification. Expect agreement to
+reported precision, not bit-identical reproduction. A last-digit difference is not a release
+defect; a difference at reported precision is.
 
 ### 6. Execute both notebooks
 

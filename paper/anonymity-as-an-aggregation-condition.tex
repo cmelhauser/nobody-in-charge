@@ -1093,33 +1093,47 @@ and any ranking reported at that budget is an artifact of it.
 
 \subsection{Sensitivity, outcome definitions, and scope}
 
-The simulation's parameters were subjected to: global multiplicative jitter; a
-tiered design; 236 one-at-a-time targeted perturbations covering all 118
-hand-chosen values; Morris elementary-effects screening; Sobol total-order indices;
-four structural variants that change the model's architecture rather than its
-numbers; and a resource-list test. Full specifications are in the book's technical
-appendix, sections A3 to A9.
+The simulation's parameters were subjected to: global multiplicative jitter at
+three amplitudes over 1,002 draws; a tiered design and a randomized-matrix design
+at 1,000 draws each; 944 multi-level one-at-a-time perturbations covering all 118
+registered values at four distances in each direction; a twenty-trajectory Morris
+elementary-effects screen over all 118; a Sobol decomposition on a 1,024-row base
+design over the eight Morris membership leaders; four structural variants that
+change the model's architecture rather than its numbers; and a resource-list test.
+Full specifications are in the book's technical appendix, sections A3 to A9.
 
 \paragraph{Which parameters matter.} The ordering exponent $p$ has the largest
-single influence on group maintenance of any parameter, swinging it from 0.4386 to
-0.0045 against a baseline of 0.1458, a range of 2.98 times baseline; the decay
-rate is second at 1.83 and member heterogeneity third at 1.69. Sobol total-order
-indices on membership agree: $p$ at 0.456 [0.331, 0.599], $\delta_0$ at 0.258,
-heterogeneity standard deviation at 0.178, dropout at 0.134 and churn at 0.121,
-against a noise floor of 0.023 to 0.034 (membership and practice respectively).
-\textbf{The first-order indices were computed and are not usable}, and no number
-from that column is quoted anywhere. Three diagnostics establish it: estimated
-$S_1$ exceeds $S_T$ for $p$ on membership and for five of eight factors on
-practice, which violates the identity $S_T \ge S_1$ that holds for any true
-decomposition; the practice first-order indices sum to 1.263, whereas a sum of
-first-order indices cannot exceed one; and the estimates move substantially with
-the seed block. Resolving a first-order index to a half-width of 0.10 needs a base
-sample roughly ten times larger, so the first-order decomposition of a stochastic
-model of this size is out of reach at the budget available. The total-order indices
-are reported because they are stable; the interaction structure is not identified.
-The sum of $S_T$ is 1.300 for membership, and the excess over one is the signature
-of interaction counted once per factor involved, so interactions are present and
-are not dominant.
+single influence of any parameter on every outcome the multi-level sweep scores.
+Against a full-adherence baseline of 0.0431 maintenance, moving $p$ alone by 25 per
+cent in each direction swings maintenance from 0.0027 to 0.2373, a range of 5.45
+times baseline; the decay rate $\delta_0$ is second at 3.27 and the step-10 speed
+third at 2.22. Across the full four-distance ladder the $p$ range is 14.64 times
+baseline, $\delta_0$ 12.98 and member heterogeneity 4.69. The twenty-trajectory
+Morris screen ranks the same two first on membership $\mu^*$, at 52.44 and 51.21,
+followed by churn at 33.48, dropout sharpness at 24.30, exogenous referral at
+23.46, heterogeneity at 18.90 and the step-6 and step-12 speeds at 18.54 and 15.87.
+Sobol total-order indices on membership, over those eight leaders at plus or minus
+25 per cent, agree: $p$ at 0.576 [0.510, 0.643], $\delta_0$ at 0.373 [0.320, 0.428],
+dropout sharpness at 0.171, churn at 0.132, heterogeneity at 0.079 and exogenous
+referral at 0.058, against a noise floor of 0.043 for membership and 0.073 for
+practice. The two step speeds, at 0.029 and 0.038, sit at or below that floor and
+are not separated from Monte Carlo error.
+
+At the retired 128-row base sample the first-order column failed three internal
+diagnostics and was withheld. The 1,024-row release design repairs the membership
+column and not the practice column. On membership no factor now has $S_1 > S_T$,
+and the first-order indices sum to 0.693, so the column is admissible: $p$ resolves
+at 0.404 [0.288, 0.525] and $\delta_0$ at 0.238 [0.156, 0.327], while the remaining
+six have intervals covering zero and are unresolved rather than zero. On practice
+the column is still not usable: $\delta_0$ returns $S_1 = 0.421$ against
+$S_T = 0.417$, violating the identity $S_T \ge S_1$ that holds for any true
+decomposition, and the practice first-order indices sum to 1.074, whereas a sum of
+first-order indices cannot exceed one. No practice first-order number is quoted
+elsewhere. The sums of $S_T$ are 1.456 for membership and 1.464 for practice, and
+the excess over one is the signature of interaction counted once per factor
+involved, so interactions are present and are not dominant. The decomposition is
+conditional on these eight factors and these ranges; it is not a decomposition of
+the model's total variance.
 
 \paragraph{Structural variants.} Four changes to the architecture, not the
 numbers, are compared with the base model: a flat per-step gate, admission moved
