@@ -85,11 +85,10 @@ and, because a vocabulary set has no word order, which registered subjects the d
 decided against the real text at build time and stamped with that file's SHA-256. This was tested
 by moving every document out of the tree: all 55 citation-subject pairs still verified.
 
-One item remains staged and unread: Greenfield and Tonigan (2013). Retrieval returned a reCAPTCHA
-challenge and this project does not work around access controls, so its recorded summary is an
-expectation rather than a finding and it may not be cited. Pagano et al. (2004) was in the same
-position until 10 August 2026, when the article was obtained by hand and read; it is now under
-`research/incorporated/Pagano_2004/`.
+**Nothing is staged and unread any more.** Both journal articles were obtained by hand on
+10 August 2026 and read in full: Pagano et al. (2004) and Greenfield and Tonigan (2013), each now
+under `research/incorporated/`. What remains under `research/staged/` is the acquisition report and
+metadata, which are provenance rather than evidence.
 
 AA pamphlet P-17 is cited but has no document here at all, by decision. Keep the citation, the
 aa.org URL and the file hash; do not restore the PDF or its OCR.
@@ -128,9 +127,12 @@ project folder, git-ignored. It is the rollback path. Delete it when you are sat
    in advance. It reports whether a respondent leaves the same five governance rows empty; if they
    leave four or six, Chapter 18 is wrong and says so. This is the highest-value outstanding item
    and it is blocked on recruiting readers.
-2. **Greenfield and Tonigan (2013).** The last staged item, still behind a challenge page. It
-   bears on measurement of 12-step practice adoption. Obtaining it is the same manual download
-   that resolved Pagano.
+2. **A representational limitation Greenfield and Tonigan (2013) exposed, which no sensitivity
+   analysis here can reach.** The model gives each step one practice level. Their factor analysis
+   separates behavioural from spiritual step-work, with different predictors, different time paths,
+   and only the spiritual component predicting abstinence. Every perturbation design in this
+   project varies the values of the dials; none varies the decision to have one dial per step.
+   Testing that would mean a second model, not another screen. Chapter 12 states the objection.
 
 **Unresolved scientific limitations, which are not defects.** No parameter is fitted to
 longitudinal AA data and the original calibration fails at 17.80 members and 1.25 experienced

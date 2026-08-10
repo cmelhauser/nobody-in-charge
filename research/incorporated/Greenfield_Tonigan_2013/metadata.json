@@ -1,0 +1,38 @@
+{
+ "id": "Greenfield_Tonigan_2013",
+ "title": "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs",
+ "author": "Greenfield, B. L.; Tonigan, J. S.",
+ "year": 2013,
+ "journal": "Psychology of Addictive Behaviors",
+ "volume_issue_pages": "27(3): 553-561",
+ "type": "empirical_research",
+ "status": "read",
+ "rights_note": "NIH author manuscript, open access via PMC. Not redistributed here.",
+ "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3707937/",
+ "doi": "10.1037/a0029268",
+ "pmcid": "PMC3707937",
+ "nihmsid": "nihms-451211",
+ "acquired": "2026-08-10, supplied by the author of this project after automated retrieval was blocked by an access challenge",
+ "corrects_staged_record": "staged record gave 27(2): 553-560; the article gives 27(3): 553-561",
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "topics": [
+  "step-work measurement",
+  "GAATOR",
+  "AAI",
+  "spirituality",
+  "AA affiliation"
+ ],
+ "legacy_stem": null,
+ "documents": {
+  "Greenfield_Tonigan_2013.pdf": {
+   "sha256": "d3741b803d3748b1f9dbf4f9edc726f23b61a46c4c7ec79a63f37a320ee98621",
+   "bytes": 68608,
+   "tracked_in_git": false
+  },
+  "Greenfield_Tonigan_2013.txt": {
+   "sha256": "5d7e8d6dad5784b6e91a5c7e33668255fb32ef4cf348571eecc028e38440dade",
+   "bytes": 58030,
+   "tracked_in_git": false
+  }
+ }
+}

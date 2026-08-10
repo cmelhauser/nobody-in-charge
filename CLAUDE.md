@@ -106,11 +106,11 @@ The staged corpus was worked through on 9 August 2026 and is now mostly incorpor
 moved to `research/incorporated/`: the three American Temperance Union documents and the source
 record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were already there.
 
-What remains in `research/staged/` is two journal articles, Greenfield and Tonigan (2013) and
-Pagano et al. (2004), which are `verified_online` and **unread**. Open-access retrieval returned a
-reCAPTCHA challenge, and the project does not work around access controls. Do not cite them, do
-not treat their recorded summaries as findings, and do not report them as accidentally missing.
-File presence still does not make a source read.
+Both journal articles, Pagano et al. (2004) and Greenfield and Tonigan (2013), were obtained by
+hand on 10 August 2026 and read in full; they are under `research/incorporated/`. The staged
+corpus is therefore fully incorporated, and what is left under `research/staged/` is the
+acquisition report and metadata, which are provenance rather than evidence. The rule still applies
+to anything acquired in future: file presence does not make a source read.
 
 **No source document is committed, and this repository is public.** Every source lives in
 `research/incorporated/<ShortAuthor>_<Year>/`. `.gitignore` excludes every `.pdf`, `.txt`,
