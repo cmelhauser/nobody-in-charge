@@ -55,7 +55,13 @@ So the finding is exactly as secure as one judgement, stated plainly: that it is
 
 I think that judgement is right, and I think it is the most defensible cell in the whole governance matrix, because it is close to a paraphrase of the sentence. The First Tradition says that common welfare comes first and that personal recovery depends on AA unity. That is a claim about the group persisting and cohering. The Fifth says each group has one primary purpose, to carry its message to the alcoholic who still suffers. That is a claim about what the group does while it persists. Continuity belongs to the first and the recipient resource, which is what carrying the message needs, belongs to the second, and the matrix assigns them that way.
 
-But I want to be exact about what has and has not been established. Kurtz's charge is that the terms were conflated in some later literature, and my defence is that my assignment tracks the published wording rather than the later usage. I have not read the wording of the Traditions as Wilson commented on them. His discussion of the First Tradition, which Kurtz cites as the place where the distinction is clarified, is in a book this project does not acquire because it is AA copyright. So I have answered the objection with a sensitivity test and with the short text of the Traditions, and not with the document that would settle it.
+But I want to be exact about what has and has not been established. Kurtz's charge is that the terms were conflated in some later literature, and my defence is that my assignment tracks the published wording rather than the later usage.
+
+That defence has since acquired a second leg, and the source is Wilson himself. *Twelve Steps and Twelve Traditions* gives each Tradition a chapter, and the two chapters keep the terms apart about as cleanly as prose can. The chapter on Tradition 1 is about the fellowship holding together: unity is the most cherished quality the Society has, without it the heart of AA would stop, the group must survive or the individual will not. The chapter on Tradition 5 opens with the shoemaker sticking to his last and argues that a group should do one thing supremely well rather than many badly. Counting the words is cruder than reading them and says the same thing: the Tradition 1 chapter uses "unity" five times and "purpose" once, and the Tradition 5 chapter reverses it exactly.
+
+So in the fellowship's own commentary the First Tradition is about persisting and the Fifth is about what you do while you persist, which is the distinction the matrix encodes.
+
+I do not want to overstate what that settles. Kurtz named a specific passage in a different book, *Alcoholics Anonymous Comes of Age*, pages 97 to 98, as the place where the clarification occurs, and I still have not read it. What I have is Wilson making the same distinction elsewhere, at length, in the year the commentary was published, which is good evidence that he held it and not proof about the passage Kurtz cited. The objection is now answered by a sensitivity test, by the short text of the Traditions, and by the 1953 commentary, and still not by the document Kurtz named.
 
 ---
 
@@ -145,7 +151,11 @@ The structural figure is the highest of any Part Four claim on that test, agains
 
 **The conflation objection was raised in the plan before the chapter was written**, and it is Kurtz's, not mine. `plans/PART-4-PLAN.md` records it as something to settle before drafting, on the ground that it might make the chapter's central finding an artefact. The reassignment test above is the answer and it was run for that purpose.
 
-**What the answer does not include.** Kurtz points at Wilson's own discussion of the First Tradition in *AA Comes of Age*, pages 97 to 98, as the place where the distinction between unity and singleness of purpose is clarified. That book is AA copyright and this project does not acquire it, so the source Kurtz names as decisive is the one source I have not read. The objection is therefore answered by sensitivity analysis and by the published short text of the two Traditions, and not by the document that would settle it. A reader who has *Comes of Age* to hand can close this in five minutes and I would want to know the result either way.
+**What the answer now includes, and what it still does not.** The 1953 commentary was read in full on 10 August 2026 and its chapters on Traditions 1 and 5 keep unity and singleness of purpose distinct, in the terms the main text describes. That is real corroboration and it did not exist when this chapter was drafted.
+
+It is not the document Kurtz named. He points at Wilson's discussion of the First Tradition in *AA Comes of Age*, pages 97 to 98, and that book has still not been read. The difference matters: the 1953 chapters show that Wilson held the distinction, which is what the matrix needs, while the passage Kurtz cites is where he says it is *clarified*, which is a claim about a specific piece of text I cannot check. A reader who has *Comes of Age* to hand can close this in five minutes and I would want to know the result either way.
+
+**The reason it remains unread has changed and should be stated accurately.** It is no longer that the project declines to read AA copyright material; it read the 1953 commentary and was better for it. It is simply that this particular book has not been obtained. That is a smaller and more embarrassing reason, and the correct one.
 
 **A second thing I cannot check.** Kurtz says the conflation appears in *some later AA literature*. He does not say which, and I have not identified an instance. So I am answering a charge whose extent I have not been able to measure.
 
@@ -156,6 +166,8 @@ The structural figure is the highest of any Part Four claim on that test, agains
 **Read in full:**
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Note 16 to Chapter Five, for the charge that the concept conveyed by *single-purposed* was obfuscated by substituting *unity*, and that AA itself at times fell into this after Wilson's death; and the main text of Chapter Five for Wilson's August 1945 *Grapevine* sentence about being strong enough and single-purposed enough from within. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
+
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The chapters on Tradition 1 and Tradition 5, spanning printed pages 129 to 131 and 151 to 155, for Wilson keeping unity and singleness of purpose apart. Copyright AAWS; held as a record with no document.
 
 **Cited at a remove:**
 

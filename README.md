@@ -195,11 +195,18 @@ source for a subject is citing a work that contains it, using the indexes; with 
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
 with `python3 tools/build_corpus.py`, or audit it with `--check`.
 
-Four of the 23 sources are held as record only, with no document at any time: AAWS pamphlet P-17
-and Kurtz (1991), which are copyrighted works the project chose never to store, and DeGroot (1974)
-and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
+Seven of the 26 sources are held as record only, with no document at any time: AAWS pamphlet
+P-17 and Kurtz (1991), which are copyrighted works the project chose never to store; DeGroot
+(1974) and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
 authorization and which the project's rights review directs be cited within limits rather than
-archived.
+archived; and, added 10 August 2026, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
+and the Kurtz talk of about 1984.
+
+**Reading a copyrighted work and holding one are different acts, and the rule here is about
+holding.** Several chapters formerly declined to read AA literature on copyright grounds. That was
+a category error, and correcting it on 10 August 2026 changed Chapters 8, 10, 16, 17 and 25: the
+1953 commentary supplied the book's own thesis in Wilson's words, the strongest objection to it,
+and the disproof of the index-pairing conjecture.
 
 Current read status and claim support live in `research/SOURCES.md`.
 

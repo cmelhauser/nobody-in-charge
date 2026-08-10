@@ -1,0 +1,31 @@
+{
+ "id": "KurtzTalk_c1984",
+ "title": "A Talk About the History of Alcoholics Anonymous From the Letters of Bill Wilson",
+ "author": "Ernest Kurtz",
+ "year": null,
+ "year_inferred": "about 1984",
+ "year_basis": "Kurtz refers to his published answer on pages 248-249 of a book written five years earlier; Not-God appeared in 1979. He also cites a Rutgers summer school talk three years earlier. No date is stated in the recording.",
+ "type": "secondary_recorded_talk_transcript",
+ "status": "read_in_full_record_only",
+ "rights_note": "Transcript of a recorded talk; rights position not established. Never stored here.",
+ "record_only": true,
+ "files": {
+  "pdf": null,
+  "note": "Not mirrored and not retained.",
+  "sha256_of_copy_consulted": "f884663114326d52ab26d2d78af2382a42fc91f0df107e66077154a577a02665"
+ },
+ "topics": [
+  "AA history",
+  "Bill Wilson letters",
+  "not-God thesis",
+  "tolerance",
+  "Tradition Three",
+  "survival of the fellowship"
+ ],
+ "read_date": "2026-08-10",
+ "distinct_from": "Kurtz_1991 (Not-God), catalogued separately.",
+ "what_it_cannot_support": "It is a talk, not a peer-reviewed work, and quotes Wilson's letters without page citations. Treat quotations from it as reported at a remove from the letters themselves.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

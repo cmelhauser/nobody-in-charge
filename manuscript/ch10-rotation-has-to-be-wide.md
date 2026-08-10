@@ -3,6 +3,8 @@
 
 The Traditions say that service positions rotate. They do not say how many people should be in the rotation, and it turns out that this is the number that matters.
 
+The instruction is more explicit than the short form of the Traditions suggests. The long form of Tradition 9 states in five words that rotating leadership is the best, and then describes the shape of it: the small group elects its secretary, the large group its rotating committee, the metropolitan area its intergroup committee. The 1953 commentary adds the reason, warning the fellowship away from the dangers of great wealth, prestige and entrenched power. Entrenched is the right word and it is theirs, not mine.
+
 The instruction itself is clear enough and is followed almost everywhere. Terms are typically one or two years. The secretary hands over to somebody else, the treasurer hands over, the group service representative hands over, and the fellowship is unusually firm about it: rotating out of a job you are good at is treated as part of the discipline rather than a waste of talent. Chapter Eight explained why. Rotation stops influence accumulating in anybody, which is one of the three ways AA prevents any single member from holding a fixed share of the group's judgment.
 
 But there is a hole in that argument, and it opens as a group grows.
@@ -50,6 +52,24 @@ Fifty members needs thirteen people in the rotation. A hundred needs twenty-six.
 That is a usable number, and it is the most directly checkable thing in this book. It says: **look at how many different people have held any service position in your group over the last few years, and compare it with how many people are in the group.** If the answer is a quarter or more, the rotation is doing what the Tradition intends. If it is a dozen names in a group of four hundred, it is not, however faithfully the terms are being observed.
 
 Nobody needs a mathematician for this. It needs a service roster and some arithmetic, and both already exist.
+
+---
+
+Before that number gets used, it has to survive an objection that would make it beside the point, and the objection comes from AA's own commentary on the Tradition.
+
+Chapter Eight sets it out with the source and the arithmetic, so I will not repeat either. The short form is that AA's own 1953 commentary denies the premise this chapter starts from. It says the committee that rotates cannot govern or direct anything, and it puts the fellowship's real influence in a class of former officeholders it calls elder statesmen, who hold nothing and therefore rotate out of nothing.
+
+If that is accurate, this chapter has been measuring the wrong quantity. A pool is a remedy for influence held inside it.
+
+So I priced the combination, and the result is in Chapter Eight's Machinery rather than here. What it comes to is this: a group that adopts the recommendation below in full, and also defers to a small permanent advisory class, diverges from an evenly weighted room anyway, and diverges faster the larger it gets. Following the advice correctly does not close the gap, because the advice does not reach what is opening it.
+
+Two conclusions follow, and I would rather state both than the comfortable one.
+
+The twenty-six per cent stands as far as it goes. A group that rotates a dozen people is worse off than a group that rotates a quarter of itself, and that comparison is unaffected by anything above. What does not stand is the implication a reader would reasonably draw, that a group meeting the proportion has dealt with the problem this book is about. It has dealt with one channel. The commentary describes another, larger one, running through people the rotation never touches.
+
+And the practical advice has to change shape accordingly. Counting names on a service roster is still worth doing, and it is still the most checkable thing in this book. But a group that wanted to know whether it satisfies the condition would have to ask a second question, which no roster can answer: when something difficult comes up, how many different people does this room turn to, and is that number growing as the room does?
+
+I do not know how to measure that without asking members, which is why Chapter Twenty-Four's survey now has a second thing to ask about.
 
 ---
 
@@ -115,6 +135,10 @@ For comparison, at N = 400 a caucus of three holding half the influence between 
 
 **The rotation construction is a simplification and the shape of the result depends on it.** I model an officeholder as attracting a fixed share of attention during their term, and I average over a cycle. Real service positions differ enormously in how much attention they attract: a group service representative is not a coffee maker. A more careful model would give each position its own share and would probably show that what matters is the pool for the few positions that carry weight, not the pool across all positions. That refinement would sharpen the practical advice and I have not done it.
 
+**That paragraph stood for weeks before I read the source that answers it, and the answer is worse than the guess.** I supposed the weight would concentrate in a few of the rotating positions. AA's own commentary says the rotating positions carry no governing weight at all, and puts the influence with a class of people who hold no position. So the refinement I described would not have found the problem, because it varies the share across offices and the structure that matters has no office in it. The elder-statesman family in `model/part2_influence.py` section 5b is the construction that does reach it, and the twenty-six-per-cent contrast in section 5c is what it costs. Both are reported in Chapter Eight rather than duplicated here.
+
+**The elder-statesman parameters are illustrative and are not estimates.** Three people at a tenth was chosen to be modest rather than fitted to anything, because there is nothing to fit it to: no one has counted how many people a group turns to on hard questions, or measured how much attention they get. The qualitative result does not depend on the choice, since alpha over *e* fails to vanish for any positive alpha, but every specific multiple quoted in Chapter Eight does depend on it and should be read as an illustration of a mechanism.
+
 **The twenty-six per cent is a property of my parameter choices**, specifically alpha = 0.35 and the within-a-factor-of-two criterion. Both are judgement calls. What does not depend on them is the qualitative result, that a fixed pool floors while the benchmark falls, and that the required pool scales with the group rather than being a fixed headcount. Treat the proportion as an order of magnitude, not a threshold.
 
 **On the historical claim.** The suggestion that this failure mode is absent from the Traditions because AA had few very large groups in 1946 is my inference, not something I have found stated anywhere. It is consistent with the account in Chapter Five of how the Traditions were compiled, but I have not verified it against the record of what groups actually wrote to New York about.
@@ -125,18 +149,22 @@ For comparison, at N = 400 a caucus of three holding half the influence between 
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. The vanishing-influence criterion, and the requirement that maximum influence go to zero as the society grows, which is what a fixed rotation pool fails.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a record with no document.
+
 **Cited at a remove:**
 
 Nothing.
 
 **Referenced but not reproduced:**
 
-The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here.
+The Twelve Traditions of Alcoholics Anonymous, paraphrased, and the 1953 commentary on them. Both are copyright Alcoholics Anonymous World Services, Inc. and neither is reproduced here beyond fragments short enough to identify the claim.
 
 **Internal, and reproducible from this repository:**
 
-The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in `model/book-calculations.ipynb`, section 2.
+The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in `model/book-calculations.ipynb`, section 2. The elder-statesman family and the twenty-six-per-cent contrast quoted above are computed in `model/part2_influence.py`, sections 5b and 5c, and cached to `research/part2_influence.json`.
 
 **What was not read:**
 
-Anything about how AA groups in fact rotate service. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The Twelve Concepts of World Service, which is where the fellowship's own thinking about rotation is set out at length, are AA copyright and have not been read.
+Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
+
+The Twelve Concepts of World Service, which is where the fellowship's own thinking about rotation is set out at greatest length, are AA copyright and have still not been read. That gap is now conspicuous rather than incidental: the last time this chapter left an AA text unread on those grounds, the text turned out to contain the strongest objection to the chapter's own argument.

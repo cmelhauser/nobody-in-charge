@@ -63,6 +63,41 @@ the two journal articles on 10 August:
 | Wilson, "Twelve Suggested Points for A. A. Tradition", *A.A. Grapevine* (April 1946) | **A.A. Grapevine copyright; not archived** | record only | read at source; Chapter 5's opening quotation verified, and the two-title problem explained |
 | DeGroot, "Reaching a Consensus" (1974) | **ASA / Taylor & Francis; not archived** | record only | read at source; the updating rule behind Part Two |
 | *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | acquired; not yet used as claim support |
+| AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; not archived** | record only | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
+| Rohr, *Breathing Under Water* (2011) | **in copyright and in print; not archived** | record only | read in full 10 August 2026; cited only for its reading of anonymity and for containing no discussion of the Traditions; see the provenance note below |
+| Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **rights position not established; not archived** | record only | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
+
+### The three copyrighted works read on 10 August 2026
+
+These three changed the project's own rule, and the change should be stated rather than absorbed
+quietly. The rule was previously written, in several chapters, as *this project does not acquire
+AA copyright material*. That conflated two different things. A rule against **holding** a
+copyrighted work is a copyright rule and the project keeps it strictly: nothing is stored, nothing
+is committed, nothing is quoted at length. A rule against **reading** one was never a copyright
+rule at all, and it had been costing the argument evidence.
+
+What it cost is now measurable. *Twelve Steps and Twelve Traditions* contained the book's own
+thesis in Wilson's words, the single strongest objection to that thesis, the disproof of the
+index-pairing conjecture, and corroboration for the unity assignment Kurtz had challenged. Three
+of those four are things the book had recorded as unavailable.
+
+`TwelveAndTwelve_1953` is held on exactly the P-17 footing: AAWS publishes the book free, one
+chapter per PDF, and a reading copy was assembled locally, read, and left outside the repository.
+The record keeps the citation, the assembly's SHA-256, the pages verified, and the reproducible
+cross-reference count.
+
+`Rohr_2011` carries a provenance problem recorded in full at
+`research/incorporated/Rohr_2011/metadata.json`. The file consulted bore an OceanofPDF.com
+imprint, which is an unauthorized distribution site, and the work is a current in-print commercial
+title, so the posting was plainly not authorized. This is a stronger objection than the
+unverified-authorization cases below. The file was not retained; the bibliographic record was
+confirmed against publisher and library listings independently of it; and both claims the
+manuscript draws from it are **absence** claims, checkable by anyone holding a lawful copy. Before
+release, any Rohr citation should be confirmed against a lawfully obtained edition.
+
+`KurtzTalk_c1984` is dated only by inference and must always be cited as "about 1984". Wilson's
+letters are quoted within it from memory and without page citations, so anything attributed to
+Wilson through it is at a remove.
 
 The P-17 document itself is deliberately absent. It is copyrighted AAWS literature distributed
 as a free official PDF, and this repository is public, so mirroring the full PDF and a full OCR
@@ -212,7 +247,7 @@ What the second reading supplied, all of it new to the book:
 the April 1946 *Grapevine* publication twice with different details: as "Alcoholics Anonymous
 Tradition: Twelve Points to Assure Our Future," *AAGV* 2:10 (April 1946), 7-9, and as the long
 form in *AAGV* 2:11 (April 1946), 2-3. Same month, different issue, different pages. One is a
-slip. The *Grapevine* itself is AA copyright and this project does not acquire it, so the
+slip. The *Grapevine* itself is AA copyright and the 1946 issues have not been obtained, so the
 conflict stands recorded in Chapter 5 rather than settled.
 
 **A conflict with Maxwell, resolved in Kurtz's favour.** Maxwell dates the emergence of the
@@ -802,12 +837,23 @@ does not contain evidence sufficient to claim either. Until a source is logged w
 or a saved/authorized location, the paper may cite it for orientation but may not use it to
 upgrade a load-bearing claim.
 
-## AA publications, deliberately not used as primary sources
+## AA publications: what is used, and how
 
-*Twelve Steps and Twelve Traditions* (1953), *Alcoholics Anonymous Comes of Age* (1957),
-*Pass It On* (1984), *Dr. Bob and the Good Oldtimers* (1980), and the *Grapevine*
-essays are all AAWS copyright and enforced. Where the book reports their content it does
-so at one or more removes and says so.
+**This section previously said that AA's own publications were deliberately not used as primary
+sources. That is no longer true of one of them, and the correction matters more than the heading
+did.**
+
+*Twelve Steps and Twelve Traditions* (1953) was read in full on 10 August 2026 and **is** used as
+a primary source, in Chapters 8, 10, 16 and 17 and in the paper. It is AAWS copyright and no copy
+is held: the book is paraphrased, quoted only in fragments short enough to identify a claim, and
+the reader is pointed at aa.org, which gives it away. See the entry in "Incorporated source
+storage" above for why the distinction between reading and holding was worth drawing.
+
+*Alcoholics Anonymous Comes of Age* (1957), *Pass It On* (1984), *Dr. Bob and the Good Oldtimers*
+(1980), and the *Grapevine* essays remain AAWS copyright and **have not been obtained**. Where the
+book reports their content it does so at one or more removes and says so. *Comes of Age* is the
+most conspicuous gap: Kurtz names pages 97 to 98 as the passage that settles a question Chapter 17
+depends on, and it is the one source the project most needs and has not read.
 
 The 1939 first edition of *Alcoholics Anonymous* appears to be public domain in the US:
 the copyright was not renewed and facsimile reprints are commercially available. It

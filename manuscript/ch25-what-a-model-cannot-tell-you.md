@@ -71,6 +71,22 @@ I started this to find out whether an argument worked. What the work actually di
 
 That is what it is supposed to feel like, and it took me longer than it should have to recognise it.
 
+---
+
+There is a person who answered this book's question before I asked it, and answered it differently, and he had better standing to do so than anyone.
+
+Ernest Kurtz wrote the history of Alcoholics Anonymous. He had the archives in New York and Akron, he interviewed the surviving old-timers, he listened to the tapes. In a talk given about 1984 he says that at the end of those interviews the old-timers would turn the question back on him: how long will AA last, is it changing so that in another fifty years it will no longer be AA, is it still AA now.
+
+That is Maxwell's question and it is mine. Kurtz's answer contains no structure at all.
+
+He says AA lasts so long as somewhere a sober alcoholic, meeting another alcoholic, drinking or sober, sees not a believer or an unbeliever, not a Baptist or a Catholic, not a man or a woman, but another alcoholic he has to reach out to in order to stay well himself. That is the whole of it. No Traditions, no rotation, no anonymity as a structural device. The historian with the fullest access anyone has had to the record locates the fellowship's survival in the character of a single encounter.
+
+I do not think he is wrong, and I do not think it contradicts anything computed here. A model of resource supply and influence weighting is a description of the conditions under which that encounter keeps being available to people, and Kurtz is describing the thing the conditions are for. Both can be true.
+
+But I notice that his answer is the one that would console someone and mine is not, and that this is not an accident of temperament. He was asked by people who had built the thing and wanted to know if it would survive them. I was asking whether a theorem applies. Those questions have different right answers, and a reader who came here for his and got mine should know that the substitution happened and that it was mine, not his, that narrowed.
+
+---
+
 The Washingtonians wrote their principles down in 1842, in a pocket manual, with directions for starting a society and a section admitting how much their societies disagreed with each other. They had four of the five rules this book calls protective and none of the seven it calls enabling, and they were gone within a decade. Alcoholics Anonymous wrote twelve points in 1946 which its author insisted were not rules and could never become law, and it is still here.
 
 I have spent a long time on why. I am fairly sure the answer is in this book. I am not sure it is the part I think it is.
@@ -113,12 +129,16 @@ The characterisation of the Washingtonians' written code in the closing section 
 
 **Read in full:**
 
-Nothing new to this chapter. All sources named are cited in the chapters the material comes from.
+Kurtz, E. (about 1984). "A Talk About the History of Alcoholics Anonymous From the Letters of Bill Wilson." Undated recorded talk; transcript restored by historyofrecovery.com. Read in full 10 August 2026. Source of the closing question put to Kurtz by the old-timers and of his answer to it. The year is inferred from internal evidence and must always be given as "about"; the basis is recorded at `research/incorporated/KurtzTalk_c1984/citation.md`.
 
 **Cited at a remove:**
 
-Nothing.
+Wilson's letters, throughout the Kurtz talk. Kurtz quotes them from memory and without page citations, so nothing attributed to Wilson through that talk has been checked against a letter.
 
 **What was not read:**
 
-Anything written by the fellowship about itself for its own members, all of which is in copyright and none of which this project acquires. So the book's account of what AA thinks it is doing comes from an independent historian reading AA's archives, and its account of what AA's rules say comes from the short published text, and at no point does the institution speak here in its own voice.
+**The previous version of this paragraph is withdrawn.** It said that nothing written by the fellowship about itself for its own members had been read, that the project does not acquire such material, and that at no point does the institution speak here in its own voice. That was true when written and is no longer. *Twelve Steps and Twelve Traditions* was read in full on 10 August 2026, and it changed Chapters Eight, Ten and Sixteen: it supplied the book's own thesis in Wilson's words, the best objection to that thesis, and the disproof of the index pairing. The institution now speaks in its own voice in three chapters, and the book is better for it.
+
+The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is stored, nothing is committed, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
+
+What genuinely remains unread is most of the canon: the Twelve Concepts of World Service, the service manual, the daily reflections, and seventy years of *Grapevine*. Each is available and none has been opened.

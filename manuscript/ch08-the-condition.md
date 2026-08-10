@@ -103,6 +103,54 @@ The first says office does not buy weight. The second says weight cannot accumul
 
 ---
 
+That is the argument, and the fellowship's own book says something that damages it.
+
+In 1953 AA published *Twelve Steps and Twelve Traditions*, a chapter of commentary on each of the twenty-four rules, written by Bill Wilson. It is the closest thing the fellowship has to an authoritative statement of what the Traditions mean. Until late in the writing of this book I had not read it, on the grounds that it is copyright and the project does not acquire what it cannot hold. That was a bad reason and it cost me something, because the chapter on Tradition 2 contains both the strongest support for the argument above and the strongest objection to it, and I would rather have found the objection myself.
+
+The support first, since it is easy to state. Wilson's chapter ends the story of a group's first election with a sentence that is this book's thesis in his words: the group conscience, well advised by its elders, will in the long run be wiser than any single leader. He arrives at it the way he arrives at everything, by telling what happened. A hospital owner offers him a salaried job as a lay therapist. It is ethical, he needs the money badly, and on the train home he receives what he takes to be divine guidance telling him to accept. He puts it to the group that evening and they tell him no. He obeys. The most influential man in the fellowship is overruled by a room, records that the room was right, and prints the story as the reason the rule exists.
+
+Now the objection.
+
+Two pages earlier, the same chapter explains what becomes of a founder after the election that removes him. Some sour into what Wilson calls bleeding deacons. The rest mature into elder statesmen, and of those he says: they become the real and permanent leadership of AA, they are the voice of the group conscience, and when a group is sorely perplexed it inevitably turns to them for advice.
+
+Read that against the condition. Permanent. A fixed set of people whose judgment the group returns to whenever a question is hard. They hold no office, so there is nothing for them to rotate out of, and the passage is not a warning. It is the chapter's account of how a healthy group is supposed to work.
+
+That is a concentration of influence that does not shrink as the group grows, which is the one thing the condition forbids.
+
+---
+
+It is worth pricing rather than conceding, because how much it costs turns out to matter more than whether it exists.
+
+Put three such people in a room and give them, between them, a tenth of the attention in every member's row. That is a modest assumption, well short of the dominant old-timer at thirty-five per cent, and it describes something most people who have sat in a long-running meeting will recognise.
+
+At ten members this arrangement is invisible. The group's error is 0.255 against 0.252 for a room where everyone counts equally, a penalty of about one per cent, which no one could detect from a chair. At fifty it is 0.121 against 0.113. At two hundred and fifty, 0.068 against 0.051. At a thousand, 0.053 against 0.025, and the group is now twice as inaccurate as it could be.
+
+The three elders' largest share settles at 0.034 and stops moving, against a flat benchmark of 0.001 at that size. The predicted floor is a tenth divided by three, which is 0.033. The computation lands on it.
+
+So the elder statesmen are an obstruction in the exact technical sense, and the damage follows the same curve as everything else in this part of the book: nothing at all while the group is small, and unbounded relative cost as it grows.
+
+---
+
+There is a second and worse consequence, which Chapter Ten takes up properly.
+
+The same chapter of the Twelve and Twelve that describes the elder statesmen also describes the committee, and it is blunt about how little the committee matters. Its members are sharply limited in authority. In no sense whatever can they govern or direct the group. They are servants, not senators, and their work is looking after the chores.
+
+So the fellowship rotates its offices faithfully, and the offices it rotates are the ones its own commentary says carry no weight, while the people the commentary says carry the weight hold no office and rotate out of nothing. If that is right, then rotation is aimed at the wrong target, and widening the rotation, which is Chapter Ten's prescription, cannot help. A pool is only a remedy for a concentration that is inside the pool.
+
+The arithmetic agrees, and it is not close. Take a group following Chapter Ten's recommendation exactly, rotating a quarter of its members through service, and give it three elder statesmen at a tenth. At fifty members its largest share is two and a half times the flat benchmark. At two hundred and fifty it is nine times. At a thousand it is thirty-four times, and climbing, in a group doing the recommended thing correctly.
+
+---
+
+I do not think this sinks the argument, and I want to say precisely why not, because the temptation to rescue one's own thesis is strongest exactly here.
+
+The condition is a claim about what a rule does, not a claim that the fellowship obeys it. Traditions 2, 9 and 12 satisfy the criterion; a group that also maintains a permanent advisory class does not, and both of those can be true at once, because AA's practice is not identical to AA's rules. That is not a dodge. It is the difference the whole book turns on, and Part Six is about how easily the two get confused.
+
+What the passage does establish is that the failure this book describes is not hypothetical and not rare. It is described approvingly in the fellowship's own literature, which means any group following that literature faithfully will build one. A reader who wanted to argue that the Traditions are self-defeating in practice now has the better evidence for it, and it came from the movement rather than from me.
+
+The honest summary is that AA wrote down three rules that satisfy the condition and one paragraph of commentary that undoes a good deal of their effect, and did not notice, because there was no reason to expect anyone would ever put the two beside a theorem.
+
+---
+
 I want to be careful here, because this is the centre of the book and it would be easy to say more than the evidence carries.
 
 **The claim is that these three Traditions satisfy a mathematical condition for reliable group deliberation.** That is not an interpretation or an analogy. The condition is precisely stated, the Traditions map onto it precisely, and the mapping can be checked by anyone.
@@ -174,6 +222,28 @@ So what makes a practice dangerous is not its severity but whether it scales. A 
 
 That is the same finding this book reaches from another direction when it comes to rotation, and it is worth carrying forward as the general form of the argument: the question a group should ask about any concentration of attention is not how large it is but whether it would still be there if the group doubled.
 
+**The elder-statesman structure, added 10 August 2026.** A non-rotating class of *e* members holds share alpha of every row between them; the rest of the group attends flat. This is not the dominant-member family with a different label, because the share is held collectively and because nothing rotates: there is no office and therefore no cycle to average over. Maximum influence converges to alpha over *e*.
+
+| N | max influence, 3 elders at 0.10 | flat benchmark | error, elders | error, flat |
+|---|---|---|---|---|
+| 10 | 0.1233 | 0.1000 | 0.2552 | 0.2523 |
+| 50 | 0.0513 | 0.0200 | 0.1214 | 0.1128 |
+| 250 | 0.0369 | 0.0040 | 0.0681 | 0.0505 |
+| 1000 | 0.0342 | 0.0010 | 0.0525 | 0.0252 |
+
+The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0.0342, approaching it from above. The error ratio runs 1.01, 1.08, 1.35, 2.08 across those four sizes, which is the invisible-while-small pattern again and is why no group detects this by introspection.
+
+**Whether Chapter Ten's prescription helps.** It does not, and this is the practically important row. Setting the rotation pool to twenty-six per cent of the group at every size, as Chapter Ten recommends, and giving the officeholder a deliberately small share because the source text says the committee cannot govern or direct:
+
+| structure | N = 50 | N = 250 | N = 1000 |
+|---|---|---|---|
+| rotation only, pool at 26 per cent | 2.0 | 2.0 | 2.0 |
+| plus 3 elders at 0.10 | 2.5 | 9.2 | 34.2 |
+| plus 3 elders at 0.20 | 4.1 | 17.4 | 67.4 |
+| plus 5 elders at 0.20 | 2.7 | 10.7 | 40.7 |
+
+Entries are maximum influence as a multiple of the flat benchmark. The first row holding at exactly 2.0 is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
+
 And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the appendix and it starts hurting almost immediately.
 
 ### 3. Notes on sources
@@ -181,6 +251,12 @@ And on severity, one correction to what the table above suggests. The illustrati
 **The theorem is read at source**, not reported. Golub and Jackson's paper is the origin of every formal claim in this chapter.
 
 **The mapping to the Traditions is mine**, and it is an interpretation rather than a finding. Someone could reasonably argue that Tradition 2's "trusted servants" language is about humility rather than about weighting, or that anonymity is primarily protective of individuals and only incidentally structural. I think the structural reading is correct and I have argued for it, but a reader should know it is a reading.
+
+**That objection is no longer hypothetical, and it has a name.** Richard Rohr's *Breathing Under Water* is a book-length devotional reading of the Steps that treats anonymity exactly as the protective reading has it: as confidentiality, as a discipline against gossip, as the principle that not everybody has a right to know everything. He asks in so many words whether that is part of why the word appears in AA's title. He is a serious reader arriving at a different answer, and the fair thing is to say so rather than to keep the objection abstract where it is easier to dismiss.
+
+The two readings turn out not to compete, which I did not expect. The Twelve and Twelve's own chapter on Tradition 12 describes both functions and treats them as separate lessons learned at different times: first that a member's name and story had to be confidential, which is Rohr's reading, and later, after the fellowship's first taste of national publicity, that anonymity had to be absolute at press, radio, film and television so that no self-appointed member could present himself as a messiah representing AA. The second is the structural reading, and it is in the source text. What this chapter should not claim is that the structural function is the *only* one, or the original one. It is neither.
+
+**Reading the Twelve and Twelve changed this chapter rather than confirming it**, which is worth recording because the reverse would have been suspicious. It supplied the thesis in Wilson's own words and, three pages away, the best objection anyone has raised to it.
 
 **DeGroot averaging is a strong simplification of how a group conscience works.** Real members argue rather than average. They defer selectively, on some questions and not others. They abstain. They update out of order, and sometimes they harden rather than converge. The model captures a room settling toward a shared view and captures nothing about the texture of how that happens. Golub and Jackson's result is a statement about naive averaging specifically, and a group that deliberated some other way would need a different analysis.
 
@@ -196,18 +272,24 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 DeGroot, M. H. (1974). "Reaching a Consensus." *Journal of the American Statistical Association* 69(345): 118-121. The updating model.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. The chapters on Traditions 2, 9 and 12, at printed pages 132 to 138, 174 to 178, and 187 to 191. Source of the group-conscience claim, the founding story of Tradition 2, the elder statesmen and bleeding deacons, the description of the committee as sharply limited, the warning against entrenched power, and the two functions of anonymity. Copyright AAWS; held as a record with no document, and paraphrased rather than quoted at length.
+
+Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited only for its reading of anonymity as confidentiality, and for containing no discussion of the Traditions.
+
 **Cited at a remove:**
 
 Nothing.
 
 **Referenced but not reproduced:**
 
-The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here.
+The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyright Alcoholics Anonymous World Services, Inc. and is not reproduced here. The same applies to the 1953 commentary on them: the passages above are paraphrased or quoted in fragments short enough to identify the claim, and a reader who wants the argument in Wilson's words should read the chapters, which AAWS gives away.
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for flat, rotating, dominant and clique regimes at N = 10, 50, 250 and 500. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
+Influence weights and consensus errors for flat, rotating, dominant and clique regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
 
 **What was not read:**
 
 Nothing in the mathematics is at a remove; the theorem was read at source. What has not been read is any work testing whether real deliberating groups behave like DeGroot updaters. Golub and Jackson prove a result about a model, this chapter applies it to a fellowship, and the step between the two is an assumption about how people in a room revise their views. That assumption is not tested here or anywhere else in the book.
+
+Nor has anything been read on whether real groups in fact maintain an elder-statesman class, how large it is, or how much attention it attracts. The 1953 commentary says such people exist and are turned to; it does not count them, and neither has anyone else that I can find. The three-elders-at-a-tenth figure above is an illustration chosen to be modest, not an estimate, and Chapter Twenty-Four's proposed survey would be the way to replace it with one.

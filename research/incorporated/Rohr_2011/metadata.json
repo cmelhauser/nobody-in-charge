@@ -1,0 +1,32 @@
+{
+ "id": "Rohr_2011",
+ "title": "Breathing Under Water: Spirituality and the Twelve Steps",
+ "author": "Richard Rohr",
+ "year": 2011,
+ "type": "secondary_devotional_commentary",
+ "status": "read_in_full_record_only",
+ "rights_note": "In copyright and in print, all rights reserved. Never stored here. The copy consulted was an unauthorized posting; see metadata.json.",
+ "source_url": "https://www.franciscanmedia.org/",
+ "record_only": true,
+ "files": {
+  "pdf": null,
+  "note": "Not mirrored and not retained.",
+  "sha256_of_copy_consulted": "c38bf3cc5069ebc252e27c7a3c82caa1591d1cf937b12e873cdadcb55453009e"
+ },
+ "provenance_problem": "The file consulted carries an OceanofPDF.com imprint on every chapter break. That is an unauthorized distribution site, and the work is a current in-print commercial title, so the posting was plainly not authorized by the rights holder. This is a stronger objection than the unverified-authorization cases of DeGroot 1974 and the 1946 Grapevine. The project's response: the file is not retained, not committed, and not quoted at length; the bibliographic record was confirmed independently against publisher and library listings rather than taken from the file; and every claim drawn from it is an unquantified statement about how the book reads its subject, which is the weakest use the four-layer rule allows.",
+ "editions": {
+  "first": "Cincinnati: Franciscan Media, 2011. ISBN 9781616361570.",
+  "copy_consulted": "London: SPCK, 2016. ISBN 9780281075126. Copyright Richard Rohr 2011, 2016."
+ },
+ "topics": [
+  "Twelve Steps",
+  "spirituality",
+  "anonymity as confidentiality",
+  "addiction"
+ ],
+ "read_date": "2026-08-10",
+ "what_it_cannot_support": "Nothing about what AA groups do. It is one author's theological reading of the Steps, contains no fieldwork, and does not discuss the Traditions at all.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
