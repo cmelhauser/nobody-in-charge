@@ -127,11 +127,16 @@ python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/build_book.py
-tectonic --outdir paper paper/anonymity-as-an-aggregation-condition.tex
+latexmk -pdf -interaction=nonstopmode paper/anonymity-as-an-aggregation-condition.tex
 pandoc reference/PRIMER-steps-and-traditions.md \
-  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=tectonic
+  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=xelatex
 python3 tools/check_release.py
 ```
+
+`tools/build_book.py` prefers XeLaTeX and falls back to Tectonic. The paper's own header
+documents two `pdflatex` passes, which is what `latexmk` performs; Tectonic also works if it is
+the available engine. The paper emits auxiliary files that `.gitignore` excludes, so a build does
+not dirty the working tree.
 
 The paper is built from `paper/anonymity-as-an-aggregation-condition.tex`. The standalone
 primer is built from `reference/PRIMER-steps-and-traditions.md`. A release also requires
