@@ -8,8 +8,15 @@ results, source ledgers, and reproducible PDF builds.
 
 ## Current status
 
-The project is in a release-gate correction round opened 6 August 2026. The principal model
-corrections and 400-seed confirmatory analyses are complete. The expanded structural and
+The release-gate correction round opened on 6 August 2026 and closed on 9 August 2026. Every
+checker passes: `check_release` with 136 checks, `check_book` with none failing, the primer
+chapter check clear, and portability clear. Both verification notebooks execute clean, and the
+book, paper and primer PDFs are built and visually inspected with no blank pages and no margin
+overflow. What remains is the unresolved scientific limitations listed at the end of this file,
+which the release criteria permit and which must not be written up as though they were settled.
+
+The principal model corrections and 400-seed confirmatory analyses are complete. The expanded
+structural and
 parameter sensitivity runs are also complete against one model identity: the multi-level
 one-at-a-time screen at 944 points, the twenty-trajectory Morris screen at 2,380 points, and the
 1,024-row Sobol decomposition at 11,264 evaluations. Their results are generated into
@@ -119,7 +126,10 @@ before the final release check, because that check requires each rendered artifa
 than every source feeding it:
 
 ```bash
+python3 tools/inventory_model_choices.py
+python3 tools/summarize_release_gate.py
 python3 tools/summarize_robustness.py
+python3 tools/build_corpus.py
 python3 tools/regenerate_notebooks.py
 python3 tools/run_notebook.py
 python3 tools/run_notebook.py --paper
@@ -132,6 +142,15 @@ pandoc reference/PRIMER-steps-and-traditions.md \
   -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=xelatex
 python3 tools/check_release.py
 ```
+
+The first four commands regenerate files the release check requires but that are otherwise easy
+to forget: `inventory_model_choices.py` writes `research/model-choice-inventory.json`, which
+`check_release.py` reads for the registered-value counts; `summarize_release_gate.py` writes
+`research/RELEASE-GATE-RESULTS.md`; `summarize_robustness.py` writes
+`research/ROBUSTNESS-RESULTS.md`; and `build_corpus.py` normalizes the source corpus and rebuilds
+any verification index whose stored SHA-256 no longer matches its file.
+`tools/freeze_release_manifest.py` is separate: it snapshots hashes and JSON shapes for an audit
+trail and is not part of the build.
 
 `tools/build_book.py` prefers XeLaTeX and falls back to Tectonic. The paper's own header
 documents two `pdflatex` passes, which is what `latexmk` performs; Tectonic also works if it is
@@ -172,10 +191,24 @@ Current read status and claim support live in `research/SOURCES.md`.
 ## Limitations that remain
 
 No simulation parameter is fitted to longitudinal AA group data, and the original calibration
-fails. The central mapping from specific Traditions to the Golub-Jackson assumptions remains an
-author interpretation. The governance and consumption matrices need independent elicitation.
+fails: targets of 45 members and 9 experienced members return 17.80 and 1.25, and were not
+retuned. The central mapping from specific Traditions to the Golub-Jackson assumptions remains an
+author interpretation and is the book's least verified step. The governance and consumption
+matrices are one person's judgment and need independent elicitation; the form and its
+preregistered analysis exist at `research/GOVERNANCE-MATRIX-ELICITATION.md` and
+`model/elicitation_compare.py`, and are waiting on respondents. Part Four's conclusions degrade
+smoothly with disagreement about magnitudes and are largely gone under structural randomization,
+where index-pairing fails on all twelve in 40.6 per cent of draws.
+
 The model does not measure tenure, sponsorship matching, individual recovery, or clinical
-outcomes. The composition comparison is not causal evidence about real groups. The staged
-reference corpus remains deferred by design.
+outcomes. The recipient and both founder-composition contrasts are unresolved rather than null.
+Chapter 14's separation is rare, 7 of 400 endpoint environments, not typical. Two Sobol factors
+sit at or below the Monte Carlo noise floor, and the practice first-order column is withheld.
+Every horizon is finite and membership is still moving at 100 years, so no steady-state or
+indefinite-persistence claim is available.
+
+Two journal articles remain unread under `research/staged/`: retrieval returned an access
+challenge and this project does not work around access controls. Pagano et al. (2004) is the
+consequential one, because it bears on Chapter 15 and on the recipient resource.
 
 Nothing in this repository should be used to assess an individual's recovery.

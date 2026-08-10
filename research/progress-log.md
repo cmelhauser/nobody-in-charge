@@ -2682,3 +2682,54 @@ because a comment contained the word "book's" and the apostrophe unbalanced the 
 which silently produced separator fragments as subjects. And the paper stopped compiling: the new
 directory names contain underscores, and an underscore in LaTeX outside math mode is a subscript,
 so every corpus path inside a `\texttt` span had to be escaped.
+
+---
+
+## Publication review of the whole repository
+
+A sweep for stale instructions, dead content and contradictions, now that the gate is closed and
+the corpus is normalized. Nothing was found in the model or its analysis scripts: every script is
+referenced by a cache or a tool, every tracked Python file compiles, and the only apparent TODO
+markers are a loop variable named `todo` in the resumable runners. The one retired design named in
+code, the 236-point OAT star, is named as history in a sentence that says it is history.
+
+What was stale was the paperwork around the work, which is the usual pattern.
+
+`README.md` still opened by saying the project was *in* a release-gate correction round that had
+in fact closed. Its reproduction sequence also omitted two generators whose outputs the release
+check requires: `inventory_model_choices.py`, which writes the inventory `check_release.py` reads
+for the registered-value counts, and `summarize_release_gate.py`. A reader following the documented
+sequence on a fresh clone could not have regenerated everything the gate demands. Both are now in
+the sequence, along with `build_corpus.py`, and the paragraph beneath explains what each one is
+for. Running them changed nothing but a timestamp, which is the answer one wants: the committed
+artifacts already matched their generators.
+
+`BOOK-PLAN.md` still said Part Six and the introduction remained to be written and that Chapter 22
+was 762 provisional words waiting on Carrell, Sacerdote and West. All three chapters of Part Six
+exist, the introduction exists, and Chapter 22 is about 2,300 words and cites Carrell three times.
+The old paragraph is kept as a dated record rather than deleted, because the plan is also a
+history. Its Gough path pointed at a `.gz` file that no longer exists under that name.
+
+`plans/PART-3-PLAN.md` still instructed that every cache depending on capability heterogeneity be
+treated as invalid until regenerated. They were all regenerated weeks ago and are hash-linked to
+the frozen model.
+
+The paper's source-boundary paragraph still described the staged corpus as reserved for the next
+iteration. `HANDOFF.md` still described the old boundary in its section 2, still said the round was
+unpushed, and still gave the book as 259 pages. `AGENTS.md` pointed a new agent at a checkpoint
+that no longer exists.
+
+One rule was wrong rather than stale. `CLAUDE.md` required five reference-status headings at the
+end of every chapter. The book uses the applicable subset, in the fixed order, omitting a heading
+rather than filling it with a placeholder, and has done so in every chapter since Part One. Twenty
+of twenty-one chapters carry four of the five. The rule now describes the practice instead of
+contradicting it, which is the right direction to resolve that kind of disagreement: the
+manuscript was not wrong.
+
+Two findings were deliberately left alone. The 39 repetition warnings are overlapping n-grams of
+one phrase, the registered-set decomposition, restated in the preface and in Chapter 12 because
+both need it; that is intentional. And the two em dashes in Chapter 1 sit inside block quotations,
+where house style preserves the source's punctuation.
+
+The empty directories left behind when the staged corpus was emptied are gone. Git would not have
+carried them anyway, but they were misleading on disk.

@@ -310,7 +310,9 @@ the same session. `CLAUDE.md` has the rule.
 
 ## 6. Release-gate corrections, opened 6 August 2026
 
-The parameter and measurement layer will be regenerated after the model correction:
+**Done, 9 August 2026.** Everything in this subsection was carried out; it is kept as the record
+of what the correction required. The parameter and measurement layer was regenerated after the
+model correction:
 
 - all lognormal capability draws are mean-centred at one;
 - the \(\rho\) exercise is described only as a modest proxy-averaging result, not as proof that the latent state is recovered;
@@ -318,7 +320,7 @@ The parameter and measurement layer will be regenerated after the model correcti
 - “118 registered parameter–statistic pairs” replaces any suggestion that 118 independent parameters were tested; and
 - exploratory screens are distinguished from confirmatory paired contrasts, with explicit seed, horizon, replication, tie, and conditioning rules.
 
-Every cache depending on capability heterogeneity, resource allocation, or survival must be treated as invalid until regenerated with provenance.
+Every cache depending on capability heterogeneity, resource allocation, or survival was treated as invalid until regenerated with provenance. All of them have since been regenerated against the frozen model and carry its SHA-256; `tools/check_release.py` fails closed if any of them drifts.
 
 ### Chapter Fourteen correction
 

@@ -239,9 +239,12 @@ changed or a chapter is wrong. Run it after any change to `model/aa_group_model.
 calling any chapter done. It currently reports all figures matching.
 
 **Sources are archived.** `research/SOURCES.md` records provenance for everything cited,
-split into obtained-and-read, obtained-and-partly-read, and not-obtained.
-`research/gough-1869-autobiography.txt.gz` holds the full public-domain text of the
-primary source for Chapter 3, with chapter offsets, so it never needs re-downloading.
+split into obtained-and-read, obtained-and-partly-read, and not-obtained. Since 9 August 2026
+each source is a directory under `research/incorporated/<ShortAuthor>_<Year>/`, and no source
+document is committed: what is published is the citation, the rights position, the provenance
+URL, the SHA-256 and a vocabulary-only verification index. Gough (1869), the primary source for
+Chapter 3, is at `research/incorporated/Gough_1869/` with its chapter offsets recorded in
+`SOURCES.md`; the document itself is a local working file.
 
 **Claims are tracked.** `research/part1-claim-register.md` grades every load-bearing claim
 in Part One as primary, scholarly, at-a-remove, or inference.
@@ -313,9 +316,17 @@ falsified outright.
 6. ~~**Chapters 4 and 5 rewritten**, whenever Kurtz arrives.~~ **Both done 2 Aug 2026.** Chapter 4's founding narrative and board room scene and the whole of Chapter 5 are now built on Kurtz. What remains at a remove in Part One is Chapter 4's funding narrative after December 1937 and Chapter 6's 1944 material.
 7. **Introduction**, written last, once the thesis has stopped moving.
 
-**Parts One to Five are drafted as of 2 August 2026.** What remains is Part Six (three chapters)
-and the introduction, neither blocked on anything. One drafted chapter is provisional: Chapter 22
-is 762 words against a planned 2,500 and waits on Carrell, Sacerdote and West.
+**Superseded 9 August 2026. The book is complete.** All six parts are drafted: 25 chapters plus
+the preface and the introduction, assembled by `tools/build_book.py` into a 260-page PDF. Part Six
+and the introduction, described below as outstanding, were written. Chapter 22 is no longer
+provisional: it stands at about 2,300 words and cites Carrell, Sacerdote and West, whose three
+figures are registered as source figures in `tools/check_book.py`.
+
+The paragraph below is kept as the record of where the project stood on 2 August 2026.
+
+> **Parts One to Five are drafted as of 2 August 2026.** What remains is Part Six (three chapters)
+> and the introduction, neither blocked on anything. One drafted chapter is provisional: Chapter 22
+> is 762 words against a planned 2,500 and waits on Carrell, Sacerdote and West.
 
 ---
 
