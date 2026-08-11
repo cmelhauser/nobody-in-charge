@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage{elicitation}
+\begin{document}
+
+\packettitle{Collator's Notes}{For the person running the round, and for nobody else}
+
+\begin{warning}
+\textbf{Do not send this document to a respondent.} It names what the form deliberately withholds,
+including how many rows the book leaves empty and which they are. A respondent who reads it is no
+longer independent and their form cannot be used.
+\end{warning}
+
+\section{What the form withholds, and why}
+
+The respondent form does not say how many rows the book leaves empty, or which. An earlier draft
+did: it stated that the book's chapters rest on the claim that \textit{five} Traditions govern
+nothing any Step consumes. A respondent reads that before filling in the grid, and with only
+twelve rows a count is most of the way to the answer. It was removed on 10 August 2026 for the
+same reason the form declines to name the two decisive cells.
+
+\begin{note}
+\textbf{For your reference and not for theirs:} the book leaves \textbf{five} rows empty --- T4,
+T6, T7, T9 and T10 --- and fills 35 of the 96 cells.
+\end{note}
+
+\section{How many respondents}
+
+Three is the useful minimum. With three you can report, per cell, whether zero, one, two or three
+marked it, and the empty-rows claim becomes a statement about agreement rather than about one
+person. Two is worth having. One is worth having and should be described as one.
+
+\section{Collecting the forms}
+
+Store each completed form in the repository as
+\texttt{research/governance-elicitation-<initials>.md}. The script reads every file matching that
+pattern: a markdown table whose first column is the Tradition and whose remaining eight columns
+are the resources in the order given on the form. Blank and \texttt{0} both mean empty.
+
+Record in \texttt{research/SOURCES.md} who filled each one in, what they were told, and whether
+they had seen the book. \textbf{Whether the respondent has read Part Four is the single most
+important thing to record}, because a reader who has is not independent and their form should be
+reported separately rather than pooled.
+
+\section{Running the comparison}
+
+\begin{quote}\ttfamily\small
+cd <repository root>\\
+python3 model/elicitation\_compare.py -{}-self-test\\
+python3 model/elicitation\_compare.py
+\end{quote}
+
+Run the self-test before sending any forms out. It passed on 10 August 2026.
+
+\section{What the script reports, and why in that order}
+
+\begin{enumerate}[leftmargin=*,itemsep=5pt]
+\item \textbf{Which rows each respondent left empty}, and whether they match the book's five. This
+      is first because Chapters 16, 17 and 18 all rest on it. If a respondent leaves four or six,
+      or a different five, the script says Chapter 18 is contradicted, in those words.
+\item \textbf{Cell-by-cell agreement out of 96}, with the two kinds of disagreement separated:
+      cells the respondent filled that the book leaves empty, and cells the book fills that the
+      respondent leaves empty. Those are different mistakes and one agreement rate hides it.
+\item \textbf{The consequences}, with Chapters 16 and 17 recomputed on the respondent's matrix.
+\end{enumerate}
+
+\begin{note}
+\textbf{Read kappa, not the raw agreement rate.} The book's matrix is sparse, 35 of 96 cells, so a
+respondent marking at random with the same density would agree about 55 per cent of the time by
+luck. The script prints Cohen's kappa alongside and the raw rate should not be quoted alone.
+\end{note}
+
+\section{Bare marks versus strengths}
+
+A respondent may give only zeros and ones. The rerun then substitutes the book's own magnitude in
+every cell both agree is non-zero, and 0.5 in cells the respondent filled and the book did not.
+The script states that substitution in its output every time. A bare-marks respondent is testing
+the \textbf{sparsity pattern} rather than the magnitudes, which is the more important half, so
+this is not a degraded result.
+
+\section{The analysis is preregistered}
+
+\texttt{model/elicitation\_compare.py} was written before any form came back. That is the point of
+it, and it is why the script should not be edited once forms start arriving. If it turns out to
+need a change, make the change, say so in \texttt{research/progress-log.md}, and report both the
+original and the revised analysis.
+
+\section{Afterwards}
+
+Whatever the result, propagate it through every layer listed in the synchronisation rule in
+\texttt{CLAUDE.md}: the manuscript, the appendix, the paper, the primer, the ledgers, the plans,
+the README, the progress log, \texttt{HANDOFF.md}, \texttt{AGENT\_VERIFY.md}, and all three PDFs.
+Then re-run the full sequence in \texttt{README.md}.
+
+\begin{warning}
+If the result contradicts Chapter 18, the chapter says it will say so. Hold it to that.
+\end{warning}
+
+\end{document}

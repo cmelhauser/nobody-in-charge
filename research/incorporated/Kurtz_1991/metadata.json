@@ -3,5 +3,7 @@
  "rights_note": "In copyright, all rights reserved. Never stored as full text.",
  "legacy_stem": "kurtz-1991",
  "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "record_only": true,
+ "record_only_reason": "In copyright; never stored as full text."
 }

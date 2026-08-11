@@ -32,6 +32,13 @@ a checker says otherwise. Your job is almost certainly not to re-derive anything
    misprinted number that had survived every human read. If one fails, the finding is usually
    real.
 6. **Nothing in this project may be written as advice about an individual's recovery.**
+7. **Do not edit `model/elicitation_compare.py`.** It is a preregistered analysis, written before
+   any respondent form came back. If it genuinely needs a change, make it, record it in
+   `research/progress-log.md`, and report the original and revised analysis both.
+8. **Do not restore the wording "this project does not acquire AA copyright material."** It was
+   removed on 10 August 2026 as a category error. Reading a copyrighted work and holding one are
+   different acts and the rule is about holding: read what is lawfully readable, hold nothing,
+   quote nothing at length, record the provenance.
 
 ## Authority order
 
@@ -55,6 +62,7 @@ A PDF or a Markdown table never overrides a cache.
 | how to verify the release independently | `AGENT_VERIFY.md` |
 | what each source supports, and its read status | `research/SOURCES.md` |
 | what changed and why, chronologically | `research/progress-log.md` |
+| the elicitation round and what to send | `research/elicitation/`, and section 9 of `HANDOFF.md` |
 
 ## The synchronisation rule, which is the one that bites
 
@@ -74,6 +82,14 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
+Seven of the 26 sources are **record only**: no document exists at any time, which is a stronger
+condition than git-ignored. Each carries `"record_only": true` in its metadata. Three of those
+seven have no verification index because no text was retained to build one from. Neither is drift
+and neither should be reported as a missing source.
+
+A directory's leading token must be at least three characters, distinctive, and unique across the
+corpus, because `tools/check_book.py` identifies a source in prose by that token.
+
 ## Before you commit
 
 ```bash
@@ -81,6 +97,13 @@ python3 tools/check_portability.py
 ```
 
 Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.
+
+## The one thing still outstanding
+
+The elicitation round. Part Four rests on a twelve-by-eight matrix one person wrote down, and no
+computation can test its pattern of empty cells because every check holds that pattern fixed. The
+packet to send is `research/elicitation/`. Send `1-respondent-form.pdf`. **Never send
+`4-collator-notes.pdf`**, which names the answer the exercise exists to elicit.
 
 ## House style, if you touch prose
 
