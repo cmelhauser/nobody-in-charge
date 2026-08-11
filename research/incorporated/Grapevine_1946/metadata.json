@@ -18,5 +18,8 @@
   "1946 long form",
   "organizational history"
  ],
- "legacy_stem": null
+ "legacy_stem": null,
+ "record_only": true,
+ "record_only_reason": "Consulted from a scan whose posting authorization is unverified; cited within limits rather than archived.",
+ "verification_index": "none: no text was retained to build one from. Citations naming this source are checked against prose context only. Rebuild by re-acquiring the document, confirming the recorded SHA-256, and running tools/build_corpus.py with the text present."
 }

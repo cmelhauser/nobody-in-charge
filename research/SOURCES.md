@@ -320,9 +320,12 @@ pagination is not the journal's.
 *Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group
 Membership."* Located and not acquired. It is the group-and-member series by year that Chapter
 21 proposes as the starting point for an out-of-sample test. It is AAWS material distributed
-under a content-use policy permitting a single printed copy, and this project does not acquire
-AAWS publications on the book's behalf. Recorded here so the identifier does not have to be
-found again.
+under a content-use policy permitting a single printed copy. That policy permits reading, and
+since the rule correction of 10 August 2026 the project reads what it may lawfully read and holds
+nothing. **Superseded wording:** this entry previously said the project does not acquire AAWS
+publications on the book's behalf, which is no longer the rule. SMF-132 is simply not yet
+obtained, and obtaining it is now a task rather than a policy question. Recorded here so the
+identifier does not have to be found again.
 
 ---
 

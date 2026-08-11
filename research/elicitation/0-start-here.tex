@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage{elicitation}
+\begin{document}
+
+\packettitle{The Elicitation Round}{What to do, and why it is the last thing outstanding}
+
+\begin{note}
+This packet is everything needed to run the one open item on the project. Nothing in the
+repository is blocked on engineering. This is the only task left that could change a conclusion
+rather than qualify one.
+\end{note}
+
+\section{Why it matters}
+
+Part Four of the book rests on a twelve-by-eight table that one person wrote down. Every
+robustness check in the project varies the \textit{values} in that table and holds its pattern of
+empty cells fixed, so no amount of further computation can test the pattern itself. The book
+already says as much, and records that Part Four's coupling claims largely do not survive
+structural randomisation. A second reader filling the same grid independently is the only test
+available.
+
+The result is genuinely two-sided. If two or three readers leave the same rows empty, a central
+claim has independent support for the first time. If they do not, \textbf{Chapter 18 is wrong},
+and the preregistered script says so in those words rather than softening it.
+
+\section{The five documents}
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Document} & \textbf{Who sees it} \\
+\midrule
+\texttt{0-start-here} & you \\
+\texttt{1-respondent-form} & \textbf{the respondent} --- this is the document you send \\
+\texttt{2-recruiting-note} & you, to copy into an email or message \\
+\texttt{3-response-template} & send with the form, or let them return the form filled in \\
+\texttt{4-collator-notes} & \textbf{you only} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{warning}
+\textbf{Do not send \texttt{4-collator-notes} to a respondent.} It states how many rows the book
+leaves empty and which they are, which is the answer the exercise is trying to elicit
+independently. Sending it destroys the round.
+\end{warning}
+
+\section{Steps}
+
+\begin{enumerate}[leftmargin=*,itemsep=6pt]
+\item \textbf{Recruit two or three people.} Three is the useful minimum: with three you can
+      report, per cell, whether zero, one, two or three marked it, and the empty-rows claim
+      becomes a statement about agreement rather than about one person.
+
+      The ideal respondent knows AA well enough to have opinions about what the Traditions do, and
+      has \textit{not} read Part Four. Someone who has read it is not independent; that does not
+      disqualify them, but it must be recorded, and their form reported separately.
+
+\item \textbf{Send them \texttt{1-respondent-form}} and the note in \texttt{2-recruiting-note}.
+      Twenty to forty minutes of work.
+
+\item \textbf{Save each completed form} in the repository as
+      \texttt{research/governance-elicitation-<initials>.md}. The script reads every file matching
+      that pattern: a markdown table whose first column is the Tradition and whose remaining eight
+      columns are the resources in the order given on the form. Blank and \texttt{0} both mean
+      empty.
+
+\item \textbf{Run the comparison:}
+
+\begin{quote}\ttfamily\small
+python3 model/elicitation\_compare.py -{}-self-test\\
+python3 model/elicitation\_compare.py
+\end{quote}
+
+      Run the self-test before sending any forms out. It passed on 10 August 2026.
+
+\item \textbf{Record who filled each one in}, what they were told, and whether they had seen the
+      book, in \texttt{research/SOURCES.md}. Then propagate whatever the result says through the
+      layers listed in \texttt{CLAUDE.md}, exactly as any other change to a public claim.
+\end{enumerate}
+
+\section{The instrument was checked before this packet was made}
+
+\texttt{model/elicitation\_compare.py -{}-self-test} passed on 10 August 2026. It exercises two
+synthetic respondents: one who matches the book's empty rows, and one who differs by a single row.
+The second is correctly reported as contradicting Chapter 18 rather than smoothed over, which is
+the behaviour that matters, since an instrument that only confirms is not an instrument.
+
+The analysis is preregistered. \texttt{model/elicitation\_compare.py} was written before any form
+came back, so what gets reported cannot be chosen after seeing the answers.
+
+\section{What you cannot conclude from this}
+
+Three respondents is not a validation study. Agreement would show that the table is reproducible
+by people working from the same definitions, not that the definitions carve the world correctly.
+The resource list is itself one person's, and question 2 on the form invites a respondent to say
+it is wrong, which would be a more serious objection than any individual cell.
+
+\end{document}
