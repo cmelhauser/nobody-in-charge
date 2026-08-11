@@ -25,5 +25,8 @@
  },
  "legacy_stem": null,
  "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "record_only": true,
+ "record_only_reason": "Copyrighted AAWS literature; the project chose never to store it.",
+ "verification_index": "none: no text was retained to build one from. Citations naming this source are checked against prose context only. Rebuild by re-acquiring the document, confirming the recorded SHA-256, and running tools/build_corpus.py with the text present."
 }

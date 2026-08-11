@@ -45,3 +45,11 @@ paper/*.tmp
 
 # Local pre-rewrite backup bundle. Not part of the project.
 nobody-in-charge-pre-rewrite.bundle
+
+# Elicitation packet: LaTeX intermediates. build.sh removes these, but a manual
+# xelatex run leaves them behind. The .tex, .sty, .sh and .pdf are all tracked:
+# the PDFs are project outputs and are what gets sent to a respondent.
+research/elicitation/*.aux
+research/elicitation/*.log
+research/elicitation/*.out
+research/elicitation/*.toc

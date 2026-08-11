@@ -119,6 +119,7 @@ model/                  Canonical model and all analysis scripts
 research/               Caches, parameters, source ledger, claim register, and results
 research/incorporated/  One directory per source: records committed, documents git-ignored
 research/staged/        Acquisition report and metadata: provenance, not evidence
+research/elicitation/   The elicitation packet: LaTeX sources, style, and build script
 reference/              Steps-and-Traditions primer and standalone PDF
 appendix/               Technical appendix source
 paper/                  LaTeX paper, companion notebook, and PDF
@@ -218,7 +219,10 @@ retuned. The central mapping from specific Traditions to the Golub-Jackson assum
 author interpretation and is the book's least verified step. The governance and consumption
 matrices are one person's judgment and need independent elicitation; the form and its
 preregistered analysis exist at `research/GOVERNANCE-MATRIX-ELICITATION.md` and
-`model/elicitation_compare.py`, and are waiting on respondents. Part Four's conclusions degrade
+`model/elicitation_compare.py`, and are waiting on respondents. The packet to send is
+`research/elicitation/`, five typeset documents built by `sh research/elicitation/build.sh`.
+Send `1-respondent-form.pdf`; **never send `4-collator-notes.pdf`**, which states how many rows
+the book leaves empty and which they are, and so destroys the round for anyone who reads it. Part Four's conclusions degrade
 smoothly with disagreement about magnitudes and are largely gone under structural randomization,
 where index-pairing fails on all twelve in 40.6 per cent of draws.
 

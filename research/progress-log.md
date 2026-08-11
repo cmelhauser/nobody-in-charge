@@ -3093,3 +3093,52 @@ before release.
 twenty-nine per-chapter PDFs. They were assembled locally into one 187-page document in printed
 order and left in the user's own folder, not in the repository. The assembly's SHA-256 is recorded
 in `research/incorporated/TwelveAndTwelve_1953/metadata.json`.
+
+---
+
+## 10 August 2026, later still: the elicitation packet typeset, and the handoff rewritten
+
+**The elicitation packet is now a set of typeset documents rather than five markdown files.**
+Source in `research/elicitation/`: a shared style file matching the book's typeface, five LaTeX
+documents, and `build.sh`. The PDFs were also copied to a folder outside the repository, on the
+user's own machine, for sending out.
+
+Two things changed in the move and both came from looking at the rendered pages rather than the
+source. The grid had no vertical rules between its eight columns, which is fine on screen and
+unusable on paper: a respondent filling it in by hand cannot tell which column a mark belongs to.
+Columns are now ruled and widened to 12mm. And the collator's warning, previously a line of text,
+is now a red-bordered box at the head of the document, because that document names the answer and
+the instruction not to send it must not be skimmable.
+
+The disclosure discipline was verified mechanically after building, not assumed: no
+respondent-facing PDF contains the row count, the row names, or the filled-cell count, and the
+collator notes do. That check is worth repeating if the packet is ever regenerated.
+
+`model/elicitation_compare.py --self-test` passed again before the packet was copied out. It
+still correctly reports a one-row-different respondent as contradicting Chapter 18 rather than
+smoothing it.
+
+**Corpus consistency.** The record-only category was previously legible only in prose. All seven
+record-only sources now carry `"record_only": true` and a reason in their metadata, and the three
+that have no verification index, `AAWS_2024_P17`, `DeGroot_1974` and `Grapevine_1946`, now say why
+in the record: no text was retained to build one from. A verifier should not report either as
+drift.
+
+**Two live uses of the retired rule were found and fixed.** Chapter 21 and the SMF-132 entry in
+`research/SOURCES.md` still gave "this project does not acquire AAWS publications" as the reason
+SMF-132 is unread. That is no longer the rule, and SMF-132's own content-use policy permits a
+single printed copy, so reading it is allowed. Both now say it is simply not yet obtained, which
+makes it a task rather than a policy question. The remaining occurrences of the old phrase in the
+repository are all descriptions of the retired rule, which is correct, plus one historical
+progress-log entry, which stays as written.
+
+**`HANDOFF.md` was rewritten as a cold-start document.** It previously assumed a reader who had
+been in the room. It now opens with what the project is and what it argues, states the authority
+order and the frozen-model rule before anything else, carries the full reproduction sequence, the
+synchronisation rule, the corpus rules including the record-only category, what changed on
+10 August and what it cost, the elicitation round with its warning, the house style, the list of
+claims that must not be made, and what to do if you change anything. It is written to be usable by
+Claude, ChatGPT, Cursor or a person with no prior context.
+
+`AGENTS.md` gained two ground rules to match: do not edit the preregistered
+`model/elicitation_compare.py`, and do not restore the retired copyright wording.
