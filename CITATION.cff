@@ -8,5 +8,5 @@ authors:
   - family-names: "Melhauser"
     given-names: "Christopher"
     email: "christopher.melhauser@gmail.com"
-license: "Proprietary"
+license: "Unlicense"
 abstract: "A book-length research project, executable model, and reproducible analysis of anonymity as an aggregation condition. Acknowledges AI writing collaboration by theonlymuffinbot."

@@ -60,7 +60,7 @@ HEADER = """---
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
-  - "Author and Copyright Holder: Christopher Melhauser"
+  - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
 date: "Draft of {date}"
 documentclass: report

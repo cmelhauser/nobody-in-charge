@@ -3,9 +3,9 @@
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
-Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
-Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com). Copyright 2026 Christopher
-Melhauser. See `../ATTRIBUTION.md` and `../LICENSE`.
+Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing Collaborator:
+theonlymuffinbot (theonlymuffinbot@outlook.com). Released to the public domain under The
+Unlicense. See `../ATTRIBUTION.md` and `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 

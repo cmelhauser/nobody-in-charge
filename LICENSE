@@ -1,18 +1,35 @@
-Nobody in Charge
-Copyright (c) 2026 Christopher Melhauser
-All rights reserved.
+# The Unlicense
 
-No license is granted to copy, modify, distribute, publish, perform, display, sublicense, or use
-the original project material except as permitted by applicable law or with prior written
-permission from Christopher Melhauser, the sole copyright holder.
+This is free and unencumbered project material released into the public domain.
 
-Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com)
-AI Writing Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com)
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this project material,
+either in source code form or as a compiled binary, for any purpose, commercial or non-commercial,
+and by any means.
 
-Legal rights contact and sole copyright holder: Christopher Melhauser
-(christopher.melhauser@gmail.com)
+In jurisdictions that recognize copyright laws, the author or authors of this project material
+dedicate any and all copyright interest in the project material to the public domain. This
+dedication is for the benefit of the public at large and to the detriment of the authors' heirs
+and successors. The authors intend this dedication to be an overt act of relinquishment in
+perpetuity of all present and future rights to this project material under copyright law.
 
-This license covers only original material in this repository. It does not license third-party
-works, including Alcoholics Anonymous material and the research sources catalogued in
+THE PROJECT MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE PROJECT MATERIAL OR THE USE OR OTHER DEALINGS IN THE PROJECT MATERIAL.
+
+For more information, please refer to <https://unlicense.org/>.
+
+## Courtesy credit
+
+No attribution is legally required. If reasonable, please retain this non-binding courtesy credit:
+
+> *Nobody in Charge* (2026). Human author: Christopher Melhauser. AI writing
+> collaboration: theonlymuffinbot.
+
+## Scope
+
+This public-domain dedication covers only original project material. It does not apply to
+third-party works, including Alcoholics Anonymous material and the research sources catalogued in
 `research/incorporated/` and `research/staged/`; those remain subject to their own rights and
 provenance records.
