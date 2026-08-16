@@ -9,4 +9,4 @@ authors:
     given-names: "Christopher"
     email: "christopher.melhauser@gmail.com"
 license: "Unlicense"
-abstract: "A book-length research project, executable model, and reproducible analysis of anonymity as an aggregation condition. Acknowledges AI writing collaboration by theonlymuffinbot."
+abstract: "A book-length research project, executable model, and reproducible analysis of anonymity as an aggregation condition. Acknowledges AI writing collaboration by theonlymuffinbot using a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and Terra models."

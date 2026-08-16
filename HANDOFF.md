@@ -14,7 +14,8 @@ than that, this file is stale and the log wins.
 
 *Nobody in Charge* is an unpublished book by Human Author Christopher Melhauser
 (christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
-(theonlymuffinbot@outlook.com). It argues that three of Alcoholics Anonymous's Twelve Traditions
+(theonlymuffinbot@outlook.com), using a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and
+Terra models. It argues that three of Alcoholics Anonymous's Twelve Traditions
 implement a formal condition, proved by Golub and Jackson in 2010, for when a group that decides
 by discussion can be trusted to converge on the truth. See `ATTRIBUTION.md` and `LICENSE` for
 authorship, acknowledgment and public-domain dedication.
