@@ -4,8 +4,9 @@
 designs, source boundaries, and reproduction instructions.
 
 Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing Collaborator:
-theonlymuffinbot (theonlymuffinbot@outlook.com). Released to the public domain under The
-Unlicense. See `../ATTRIBUTION.md` and `../LICENSE`.
+theonlymuffinbot (theonlymuffinbot@outlook.com), using a mix of Anthropic Claude Opus 5 and OpenAI
+GPT-5.6 Sol and Terra models. Released to the public domain under The Unlicense. See
+`../ATTRIBUTION.md` and `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 

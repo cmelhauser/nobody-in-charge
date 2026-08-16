@@ -14,7 +14,8 @@ It argues that three of Alcoholics Anonymous's Twelve Traditions implement a for
 proved by Golub and Jackson in 2010, for when a group that decides by discussion can be trusted
 to be right. It is unpublished. The Human Author is Christopher Melhauser
 (`christopher.melhauser@gmail.com`); the AI Writing Collaborator is theonlymuffinbot
-(`theonlymuffinbot@outlook.com`). See `ATTRIBUTION.md` and `LICENSE`.
+(`theonlymuffinbot@outlook.com`), using a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol
+and Terra models. See `ATTRIBUTION.md` and `LICENSE`.
 
 **The release gate is closed and every checker passes.** Treat the current state as correct until
 a checker says otherwise. Your job is almost certainly not to re-derive anything.

@@ -3,8 +3,9 @@
 ## *Nobody in Charge*
 ### How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It
 
-Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
-Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com). Unpublished and written for its own sake.
+Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing Collaborator:
+theonlymuffinbot (theonlymuffinbot@outlook.com), using a mix of Anthropic Claude Opus 5 and OpenAI
+GPT-5.6 Sol and Terra models. Unpublished and written for its own sake.
 Audience: the general reader who has never thought about how AA is governed. See
 `ATTRIBUTION.md` and `LICENSE`.
 
