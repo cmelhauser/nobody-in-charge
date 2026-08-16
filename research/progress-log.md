@@ -3162,3 +3162,8 @@ Later that day, the legal attribution was clarified: Christopher Melhauser is th
 holder and legal rights contact. theonlymuffinbot is acknowledged as an AI Writing Collaborator,
 not as an author or rights holder. The title pages retain both credits and omit both email
 addresses; the contact addresses remain in the repository metadata and notices.
+
+Later still, all original project material was dedicated to the public domain under The Unlicense.
+The manuscript, paper, code, documentation, research records, and generated project outputs are
+covered by that dedication. `LICENSE` requests non-binding courtesy credit for Christopher
+Melhauser and theonlymuffinbot while preserving the exclusion for third-party sources.

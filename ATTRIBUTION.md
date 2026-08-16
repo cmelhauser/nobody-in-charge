@@ -5,16 +5,17 @@
 *Nobody in Charge*, its manuscript, paper, appendix, reference primer, original model code,
 analysis code, documentation, and project-created outputs are credited as follows:
 
-- Author and Copyright Holder: **Christopher Melhauser** (`christopher.melhauser@gmail.com`)
+- Human Author: **Christopher Melhauser** (`christopher.melhauser@gmail.com`)
 - AI Writing Collaborator: **theonlymuffinbot** (`theonlymuffinbot@outlook.com`)
 
 “theonlymuffinbot” is the project's label for AI-assisted writing collaboration using various
 versions of Claude and ChatGPT. It is an acknowledgment of that collaboration, not a legal author
 or rights holder.
 
-Copyright 2026 Christopher Melhauser. Christopher Melhauser is the sole copyright holder and
-legal rights contact for the original project material. All rights reserved except where a separate
-notice expressly provides otherwise.
+Christopher Melhauser is the human author and legal rights contact for the original project
+material. The original project material is dedicated to the public domain under The Unlicense.
+The project requests, but does not require, the courtesy credit above; see `LICENSE` for the
+dedication and its scope.
 
 ## Scope of this notice
 

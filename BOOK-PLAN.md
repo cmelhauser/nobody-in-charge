@@ -3,7 +3,7 @@
 ## *Nobody in Charge*
 ### How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It
 
-Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
+Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
 Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com). Unpublished and written for its own sake.
 Audience: the general reader who has never thought about how AA is governed. See
 `ATTRIBUTION.md` and `LICENSE`.
