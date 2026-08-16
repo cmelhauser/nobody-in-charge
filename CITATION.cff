@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it as below."
+title: "Nobody in Charge"
+subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
+type: software
+date-released: 2026-08-16
+authors:
+  - family-names: "Melhauser"
+    given-names: "Christopher"
+    email: "christopher.melhauser@gmail.com"
+license: "Proprietary"
+abstract: "A book-length research project, executable model, and reproducible analysis of anonymity as an aggregation condition. Acknowledges AI writing collaboration by theonlymuffinbot."

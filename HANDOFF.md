@@ -5,16 +5,19 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 10 August 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 16 August 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 ---
 
 ## 0. What this project is, in one page
 
-*Nobody in Charge* is an anonymous, unpublished book. It argues that three of Alcoholics
-Anonymous's Twelve Traditions implement a formal condition, proved by Golub and Jackson in 2010,
-for when a group that decides by discussion can be trusted to converge on the truth.
+*Nobody in Charge* is an unpublished book by Author and Copyright Holder Christopher Melhauser
+(christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
+(theonlymuffinbot@outlook.com). It argues that three of Alcoholics Anonymous's Twelve Traditions
+implement a formal condition, proved by Golub and Jackson in 2010, for when a group that decides
+by discussion can be trusted to converge on the truth. See `ATTRIBUTION.md` and `LICENSE` for
+authorship, acknowledgment and rights.
 
 The condition: a group deciding by repeated averaging converges on the truth as it grows **if and
 only if** the largest share of influence held by any single member shrinks toward zero. Nobody may
