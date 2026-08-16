@@ -8,9 +8,9 @@ analysis code, documentation, and project-created outputs are credited as follow
 - Human Author: **Christopher Melhauser** (`christopher.melhauser@gmail.com`)
 - AI Writing Collaborator: **theonlymuffinbot** (`theonlymuffinbot@outlook.com`)
 
-“theonlymuffinbot” is the project's label for AI-assisted writing collaboration using various
-versions of Claude and ChatGPT. It is an acknowledgment of that collaboration, not a legal author
-or rights holder.
+“theonlymuffinbot” is the project's label for AI-assisted writing collaboration using a mix of
+Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and Terra models. It is an acknowledgment of that
+collaboration, not a legal author or rights holder.
 
 Christopher Melhauser is the human author and legal rights contact for the original project
 material. The original project material is dedicated to the public domain under The Unlicense.

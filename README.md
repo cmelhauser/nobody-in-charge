@@ -3,7 +3,8 @@
 *How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It*
 
 Human Author: Christopher Melhauser (christopher.melhauser@gmail.com)
-AI Writing Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com)
+AI Writing Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com), using a mix of
+Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and Terra models
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) for the authorship and rights statement, and
 [LICENSE](LICENSE) for the public-domain dedication and courtesy-credit request.

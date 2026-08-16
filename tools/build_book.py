@@ -62,6 +62,7 @@ subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Kn
 author:
   - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
+  - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
 date: "Draft of {date}"
 documentclass: report
 classoption: [11pt, oneside]

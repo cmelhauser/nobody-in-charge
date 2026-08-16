@@ -4,6 +4,7 @@ subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Kn
 author:
   - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
+  - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
 date: "Draft of 16 August 2026"
 documentclass: report
 classoption: [11pt, oneside]
@@ -34,8 +35,9 @@ header-includes:
 
 *Nobody in Charge* is by Human Author Christopher Melhauser
 (christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
-(theonlymuffinbot@outlook.com). Released to the public domain under The Unlicense. See
-`ATTRIBUTION.md` and `LICENSE`.
+(theonlymuffinbot@outlook.com), using a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and
+Terra models. Released to the public domain under The Unlicense. See `ATTRIBUTION.md` and
+`LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
 
@@ -5001,8 +5003,9 @@ What genuinely remains unread is most of the canon: the Twelve Concepts of World
 designs, source boundaries, and reproduction instructions.
 
 Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing Collaborator:
-theonlymuffinbot (theonlymuffinbot@outlook.com). Released to the public domain under The
-Unlicense. See `../ATTRIBUTION.md` and `../LICENSE`.
+theonlymuffinbot (theonlymuffinbot@outlook.com), using a mix of Anthropic Claude Opus 5 and OpenAI
+GPT-5.6 Sol and Terra models. Released to the public domain under The Unlicense. See
+`../ATTRIBUTION.md` and `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 
@@ -5618,7 +5621,8 @@ real group data. It cannot evaluate or advise any individual person's recovery.
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
 
 Released to the public domain under The Unlicense. See the repository's attribution and license
-notices.
+notices. The AI writing collaboration used a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6
+Sol and Terra models.
 
 ## How to read this
 
