@@ -3142,3 +3142,23 @@ Claude, ChatGPT, Cursor or a person with no prior context.
 
 `AGENTS.md` gained two ground rules to match: do not edit the preregistered
 `model/elicitation_compare.py`, and do not restore the retired copyright wording.
+
+---
+
+## 16 August 2026: project authorship and rights notice added
+
+The anonymous bylines in the book builder, working paper and reference primer were replaced with
+the repository's designated credit: Primary Author **theonlymuffinbot**
+(`theonlymuffinbot@outlook.com`) and Co-Author **Christopher Melhauser**
+(`christopher.melhauser@gmail.com`). The manuscript preface, technical appendix, README, handoff,
+agent instructions and master book plan now carry the same attribution.
+
+`ATTRIBUTION.md`, `LICENSE` and `CITATION.cff` now state the copyright and citation metadata.
+The rights notice applies to original project material only and expressly leaves third-party AA
+material and research sources under their own rights and provenance records. The book, paper and
+primer PDFs were rebuilt and their title pages inspected after the change.
+
+Later that day, the legal attribution was clarified: Christopher Melhauser is the sole copyright
+holder and legal rights contact. theonlymuffinbot is acknowledged as an AI Writing Collaborator,
+not as an author or rights holder. The title pages retain both credits and omit both email
+addresses; the contact addresses remain in the repository metadata and notices.

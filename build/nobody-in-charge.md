@@ -1,8 +1,10 @@
 ---
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
-author: "Anonymous"
-date: "Draft of 10 August 2026"
+author:
+  - "Author and Copyright Holder: Christopher Melhauser"
+  - "AI Writing Collaborator: theonlymuffinbot"
+date: "Draft of 16 August 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -29,6 +31,11 @@ header-includes:
 ---
 
 # Preface: What This Book Knows, and How
+
+*Nobody in Charge* is by Author and Copyright Holder Christopher Melhauser
+(christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
+(theonlymuffinbot@outlook.com). Copyright 2026 Christopher Melhauser. See `ATTRIBUTION.md` and
+`LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
 
@@ -4993,6 +5000,10 @@ What genuinely remains unread is most of the canon: the Twelve Concepts of World
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
+Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
+Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com). Copyright 2026 Christopher
+Melhauser. See `../ATTRIBUTION.md` and `../LICENSE`.
+
 This appendix describes the release-gate model identified by SHA-256:
 
 ```text
@@ -5605,6 +5616,8 @@ The model's proper use is to make assumptions and comparisons explicit enough to
 real group data. It cannot evaluate or advise any individual person's recovery.
 
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
+
+Copyright 2026 Christopher Melhauser. See the repository's attribution and license notices.
 
 ## How to read this
 
@@ -6404,8 +6417,7 @@ paper's.
 > project; the historical material is drawn from independent scholarship and from primary
 > temperance sources in the public domain.
 
-Introduction
-------------
+## Introduction
 
 Two literatures have circled Alcoholics Anonymous without meeting. The clinical literature
 asks whether AA works and through what mechanism; a Cochrane review concludes that
@@ -6468,8 +6480,7 @@ gives the comparative historical case. Section 8 collects limitations; Section�
 predictions, marking where the analysis above already bears on them; Section 10 concludes.
 Appendix A restates the paper in plain language. Appendix B is a reproducibility note.
 
-Literature Review
------------------
+## Literature Review
 
 ### Effectiveness and mechanisms of AA
 
@@ -6540,8 +6551,7 @@ models group-level membership dynamics under the institutional constraint that a
 cannot refuse membership. The gap is the paper's occasion; whether the paper fills it well
 is the subject of Section 8.
 
-Governance as an Aggregation Mechanism
---------------------------------------
+## Governance as an Aggregation Mechanism
 
 ### Framework
 
@@ -6559,9 +6569,10 @@ Table [3](#tab:error){reference-type="ref" reference="tab:error"} is computed r
 simulated. Assume here that the initial errors are iid Gaussian with standard deviation
 $\sigma$. Then the consensus is $\mu + \sum_j s_j e_j$, a normal variable with mean zero
 and standard deviation $\sigma\lVert s\rVert$, and for a mean-zero normal the expected
-absolute value is its standard deviation times $\sqrt{2/\pi}$. So
-$$\mathbb{E}\,\lvert \text{consensus} - \mu \rvert \;=\; \sigma\,\lVert s\rVert\,\sqrt{2/\pi}.
-\label{eq:err}$$ Under equal weighting $s_j = 1/N$, so $\lVert s\rVert = N^{-1/2}$ and the
+absolute value is its standard deviation times $\sqrt{2/\pi}$. So $$\begin{equation}
+\mathbb{E}\,\lvert \text{consensus} - \mu \rvert \;=\; \sigma\,\lVert s\rVert\,\sqrt{2/\pi}.
+\label{eq:err}
+\end{equation}$$ Under equal weighting $s_j = 1/N$, so $\lVert s\rVert = N^{-1/2}$ and the
 error is exactly $\sigma\sqrt{2/\pi}\,/\sqrt{N}$. The single-member baseline is the same
 expression at $N=1$: $\sigma\sqrt{2/\pi} = 0.798$ at $\sigma = 1$. Every figure in this
 section is deterministic algebra under that Gaussian benchmark, not Monte Carlo, and
@@ -6570,26 +6581,26 @@ are not sufficient for the consensus-error equation above.
 
 ### The mapping
 
-::: {#tab:mapping}
-| **Tradition (paraphrase)**                                         | **Formal content**                                                     | **Role**                                                          |
-|:-------------------------------------------------------------------|:-----------------------------------------------------------------------|:------------------------------------------------------------------|
-| 2\. Group conscience; leaders serve, do not govern                 | Offices are hypothesized not to confer persistent attention received   | Proposed mechanism reducing stationary concentration              |
-| 9\. No hierarchy; service rotates                                  | Office-linked attention is periodically reassigned across a broad pool | Proposed mechanism preventing persistent stationary concentration |
-| 12\. Anonymity; principles before personalities                    | Some status cues on which attention may condition are suppressed       | Proposed mechanism reducing one source of concentration           |
-| 1\. Common welfare first                                             | $A$ strongly connected                                                 | Precondition for convergence                                      |
-| 4\. Group autonomy                                                 | No cross-group influence aggregation                                   | No prominent group at higher levels                               |
-| 3\. Desire to stop drinking is the only requirement for membership | $N$ unbounded; no screening on membership                              | Makes the asymptotic regime the relevant one                      |
+| **Tradition (paraphrase)** | **Formal content** | **Role** |
+|:---|:---|:---|
+| 2\. Group conscience; leaders serve, do not govern | Offices are hypothesized not to confer persistent attention received | Proposed mechanism reducing stationary concentration |
+| 9\. No hierarchy; service rotates | Office-linked attention is periodically reassigned across a broad pool | Proposed mechanism preventing persistent stationary concentration |
+| 12\. Anonymity; principles before personalities | Some status cues on which attention may condition are suppressed | Proposed mechanism reducing one source of concentration |
+| 1\. Common welfare first | $A$ strongly connected | Precondition for convergence |
+| 4\. Group autonomy | No cross-group influence aggregation | No prominent group at higher levels |
+| 3\. Desire to stop drinking is the only requirement for membership | $N$ unbounded; no screening on membership | Makes the asymptotic regime the relevant one |
 
 : The mapping. **This table is an interpretation of the Traditions' wording, not a
-result.** It is the paper's central and least verified step.
-:::
+result.** It is the paper's central and least verified step. {#tab:mapping}
 
-For a sequence of row-stochastic influence
-matrices satisfying the convergence and signal conditions in Golub and Jackson (2010),
-beliefs aggregate if the largest normalized stationary influence vanishes,
+::: {#prop:one .proposition}
+**Proposition 1** (Vanishing stationary influence). *For a sequence of row-stochastic
+influence matrices satisfying the convergence and signal conditions in Golub and Jackson
+(2010), beliefs aggregate if the largest normalized stationary influence vanishes,
 $\max_j s_j\to0$. Persistent stationary concentration on a bounded set is sufficient for
 failure. A doubly stochastic matrix is a special case: its stationary vector is uniform
-and $s_j=1/N$.
+and $s_j=1/N$.*
+:::
 
 The institutional claim is a separate hypothesis: Traditions 2, 9, and 12 may make
 persistent stationary concentration less likely. Their wording does not by itself imply
@@ -6597,14 +6608,18 @@ exchangeability or double stochasticity. Conversely, violating a Tradition is no
 sufficient for aggregation failure; names, offices, and hierarchy can exist while
 $\max_j s_j$ still vanishes.
 
-The established mathematics and the proposed mapping must not be merged. Reading "leaders
-are trusted servants; they do not govern" as a mechanism limiting attention received is an
-interpretation of a sentence, and a reader may reasonably hold that Tradition 2 is about
-humility rather than weighting, or that anonymity is chiefly protective of individuals and
-only incidentally structural. Nothing computed anywhere in this paper validates that
-reading. Exchangeability is an additional assumption, not a consequence of the absence of
-a named office. The testable institutional hypothesis is directional: the Traditions
-reduce persistent concentration in $s$, not that they make every realized weight equal.
+::: remark
+**Remark 1** (The status of Proposition [1](#prop:one){reference-type="ref"
+reference="prop:one"}). *The established mathematics and the proposed mapping must not be
+merged. Reading "leaders are trusted servants; they do not govern" as a mechanism limiting
+attention received is an interpretation of a sentence, and a reader may reasonably hold
+that Tradition 2 is about humility rather than weighting, or that anonymity is chiefly
+protective of individuals and only incidentally structural. Nothing computed anywhere in
+this paper validates that reading. Exchangeability is an additional assumption, not a
+consequence of the absence of a named office. The testable institutional hypothesis is
+directional: the Traditions reduce persistent concentration in $s$, not that they make
+every realized weight equal.*
+:::
 
 ### Failure modes, quantified
 
@@ -6614,35 +6629,31 @@ separately. They are distinct and are easily conflated: at $N = 10$ the flat reg
 maximum influence weight is 0.100 and its consensus error is 0.252, and only the first is
 bounded by construction.
 
-::: {#tab:influence}
-|  $N$|   Flat|  Dominant|  Caucus of 3|  Closed core of 5|  Rotating, pool 12|
+| $N$ |  Flat | Dominant | Caucus of 3 | Closed core of 5 | Rotating, pool 12 |
 |----:|------:|---------:|------------:|-----------------:|------------------:|
-|   10|  0.100|     0.350|        0.167|             0.200|                n/a|
-|   50|  0.020|     0.350|        0.167|             0.200|              0.041|
-|  250|  0.004|     0.350|        0.167|             0.200|              0.032|
-|  500|  0.002|     0.350|        0.167|             0.200|              0.030|
+|  10 | 0.100 |    0.350 |       0.167 |            0.200 |               n/a |
+|  50 | 0.020 |    0.350 |       0.167 |            0.200 |             0.041 |
+| 250 | 0.004 |    0.350 |       0.167 |            0.200 |             0.032 |
+| 500 | 0.002 |    0.350 |       0.167 |            0.200 |             0.030 |
 
 : Maximum influence weight $\max_j s_j$. Constructions: *dominant*, one member receives
 0.35 of every row, remainder split evenly; *caucus*, three members receive 0.50 of every
 row between them; *closed core*, five members receive 0.45 of every row and distribute
 their own attention only among themselves; *rotating*, one of $R=12$ members holds share
 0.35 in each term, time-averaged over the cycle (undefined at $N=10$, where the pool
-exceeds the group). Exact to the digits shown; no sampling error.
-:::
+exceeds the group). Exact to the digits shown; no sampling error. {#tab:influence}
 
-::: {#tab:error}
-|  $N$|   Flat|  Dominant|  Caucus of 3|  Closed core of 5|  Rotating, pool 12|
+| $N$ |  Flat | Dominant | Caucus of 3 | Closed core of 5 | Rotating, pool 12 |
 |----:|------:|---------:|------------:|-----------------:|------------------:|
-|   10|  0.252|     0.328|        0.275|             0.357|                n/a|
-|   50|  0.113|     0.289|        0.238|             0.357|              0.132|
-|  250|  0.050|     0.281|        0.232|             0.357|              0.093|
-|  500|  0.036|     0.280|        0.231|             0.357|              0.087|
+|  10 | 0.252 |    0.328 |       0.275 |            0.357 |               n/a |
+|  50 | 0.113 |    0.289 |       0.238 |            0.357 |             0.132 |
+| 250 | 0.050 |    0.281 |       0.232 |            0.357 |             0.093 |
+| 500 | 0.036 |    0.280 |       0.231 |            0.357 |             0.087 |
 
 : Mean $\lvert$consensus $-$ truth$\rvert$ at $\sigma = 1$, from
 the consensus-error equation above, against a
 single-member baseline of 0.798. Same constructions as
-Table [2](#tab:influence){reference-type="ref" reference="tab:influence"}.
-:::
+Table [2](#tab:influence){reference-type="ref" reference="tab:influence"}. {#tab:error}
 
 Under flat weighting, error declines as exactly $N^{-1/2}$; under a dominant member or an
 entrenched caucus it plateaus. The analytic limits confirm the tables: dominant tends to
@@ -6685,10 +6696,12 @@ attention advantage grows in proportion to the group runs from 0.182 at $N=10$ t
 $N=1000$, converging to a positive share rather than settling on one exactly. Neither
 falls toward zero, and that is the whole of what makes them obstructions.
 
-Whether a concentration of attention obstructs group learning is determined by how it
-scales with $N$, not by how severe it is at any one $N$. The diagnostic question about any
-concentration is therefore not how large it is but whether it would still be there if the
-group doubled.
+::: corollary
+**Corollary 2** (Obstruction scaling). *Whether a concentration of attention obstructs
+group learning is determined by how it scales with $N$, not by how severe it is at any one
+$N$. The diagnostic question about any concentration is therefore not how large it is but
+whether it would still be there if the group doubled.*
+:::
 
 It is easy to read the three obstructions as three things a room can have at a given
 moment, and on that reading a tight clique is an obstruction wherever it appears. It is
@@ -6696,10 +6709,12 @@ not. The general form of the point is the rotation result that follows.
 
 ### Rotation must scale
 
-If service rotates over a pool of $R$ members, each officeholder attracting attention
-share $\alpha$, time-averaged maximum influence is approximately $\alpha/R$ plus residual
-flat weight. With $R$ fixed as $N$ grows, $\max_j s_j$ is bounded below and the wisdom
-condition fails despite rotation.
+::: proposition
+**Proposition 3** (Rotation breadth). *If service rotates over a pool of $R$ members, each
+officeholder attracting attention share $\alpha$, time-averaged maximum influence is
+approximately $\alpha/R$ plus residual flat weight. With $R$ fixed as $N$ grows,
+$\max_j s_j$ is bounded below and the wisdom condition fails despite rotation.*
+:::
 
 At $N=400$ and $\alpha = 0.35$, the sweep over $R$ gives maximum influence 0.118, 0.060,
 0.031, 0.016, 0.009, 0.005 and 0.003 at $R = 3, 6, 12, 25, 50, 100$ and 400, against a
@@ -6730,9 +6745,12 @@ We model this directly. Let $e$ members hold share $\alpha_e$ of every row colle
 with no rotation, and let the remaining attention be flat. This is not the dominant-agent
 family reparameterised: the share is collective and there is no cycle to time-average.
 
-Under the structure above, $\max_j s_j \to \alpha_e / e$ as $N \to \infty$, which is
-bounded away from zero for any $\alpha_e > 0$. The wisdom condition fails independently of
-the rotation pool $R$, since the concentration lies outside it.
+::: proposition
+**Proposition 4** (Advisory concentration). *Under the structure above,
+$\max_j s_j \to \alpha_e / e$ as $N \to \infty$, which is bounded away from zero for any
+$\alpha_e > 0$. The wisdom condition fails independently of the rotation pool $R$, since
+the concentration lies outside it.*
+:::
 
 With $e = 3$ and $\alpha_e = 0.10$, maximum influence is 0.1233, 0.0513, 0.0369 and 0.0342
 at $N = 10, 50, 250$ and 1000, against the predicted floor of 0.0333 and a flat benchmark
@@ -6753,12 +6771,13 @@ $\alpha_e = 0.20$, 2.7, 10.7, 40.7.
 A movement's attention structure can be modeled as bipartite: flat attention within local
 societies, plus cross-society attention flowing through touring speakers. Let each member
 give fraction *out* of their attention to the speakers and let the speakers return
-fraction *back* of theirs to the general membership. Then
-$$\text{speakers' share of total influence} \;=\; \frac{\text{out}}{\text{out} + \text{back}},
-\label{eq:speakers}$$ exact to twelve decimal places, **independent of the number of
-members and of the number of speakers**. Five speakers receiving three tenths of the
-movement's attention and returning two tenths of their own hold six tenths of the
-influence in a movement of ten and in a movement of a thousand alike.
+fraction *back* of theirs to the general membership. Then $$\begin{equation}
+\text{speakers' share of total influence} \;=\; \frac{\text{out}}{\text{out} + \text{back}},
+\label{eq:speakers}
+\end{equation}$$ exact to twelve decimal places, **independent of the number of members
+and of the number of speakers**. Five speakers receiving three tenths of the movement's
+attention and returning two tenths of their own hold six tenths of the influence in a
+movement of ten and in a movement of a thousand alike.
 
 This is stronger than the argument it replaces. It is not that the influence vector
 converges on the speakers as the movement grows; the speakers' share is fixed by a ratio
@@ -6766,8 +6785,7 @@ and does not move with size at all, because growth adds members to the denominat
 local channel and to the numerator of the speaker channel in equal measure. Section 7
 applies it.
 
-Deriving the Step--Tradition Coupling
--------------------------------------
+## Deriving the Step--Tradition Coupling
 
 ### A natural conjecture, tested {#sec:conjecture}
 
@@ -6800,9 +6818,11 @@ To avoid re-deriving the same mistake, no direct step-to-tradition mapping is pe
 An intermediate layer of eight group-produced resources is introduced (admission and
 standing, identification, living proof, confidential audience, counsel, a recipient for
 twelfth-step work, continuity, and normative pressure), and the coupling is computed as
-$$B \;=\; S\,G^{\top},$$ where $S[i,r]$ records how much Step $i$'s execution consumes
-resource $r$ (written by asking what each step requires) and $G[j,r]$ records how much
-Tradition $j$ governs the supply of $r$ (written independently of $S$). Both matrices are
+$$\begin{equation}
+B \;=\; S\,G^{\top},
+\end{equation}$$ where $S[i,r]$ records how much Step $i$'s execution consumes resource
+$r$ (written by asking what each step requires) and $G[j,r]$ records how much Tradition
+$j$ governs the supply of $r$ (written independently of $S$). Both matrices are
 hand-written judgments. That is the whole of their evidentiary status, and Section 4.5
 does not soften it.
 
@@ -6811,28 +6831,26 @@ does not soften it.
 Table [4](#tab:coupling){reference-type="ref" reference="tab:coupling"} gives the
 unperturbed coupling.
 
-::: {#tab:coupling}
-| Step           | Principal |  Value| Runner-up |  Value| Index-mate |  Value|  Its rank|
+| Step           | Principal | Value | Runner-up | Value | Index-mate | Value | Its rank |
 |:---------------|:----------|------:|:----------|------:|:-----------|------:|---------:|
-| 1 admit        | T3        |   1.22| T1        |   0.99| T1         |   0.99|         2|
-| 2 believe      | T11       |   0.82| T5        |   0.72| T2         |   0.13|         7|
-| 3 decide       | T2        |   0.31| T1        |   0.27| T3         |   0.01|         7|
-| 4 inventory    | T1/T2 tie |   0.35| ---       |    ---| T4         |   0.00|         8|
-| 5 tell someone | T12       |   1.08| T1        |   0.65| T5         |   0.12|         5|
-| 6 willing      | T1        |   0.25| T2        |   0.24| T6         |   0.00|         7|
-| 7 ask          | T1        |   0.17| T2        |   0.13| T7         |   0.00|         7|
-| 8 list harms   | T2        |   0.43| T1        |   0.29| T8         |   0.07|         4|
-| 9 amends       | T2        |   0.90| T1        |   0.48| T9         |   0.00|         8|
-| 10 daily       | T1        |   0.94| T2        |   0.43| T10        |   0.00|         8|
-| 11 connect     | T1        |   0.47| T2        |   0.21| T11        |   0.11|         4|
-| 12 carry it    | T5        |   1.25| T3        |   1.10| T12        |   0.12|         6|
+| 1 admit        | T3        |  1.22 | T1        |  0.99 | T1         |  0.99 |        2 |
+| 2 believe      | T11       |  0.82 | T5        |  0.72 | T2         |  0.13 |        7 |
+| 3 decide       | T2        |  0.31 | T1        |  0.27 | T3         |  0.01 |        7 |
+| 4 inventory    | T1/T2 tie |  0.35 | ---       |   --- | T4         |  0.00 |        8 |
+| 5 tell someone | T12       |  1.08 | T1        |  0.65 | T5         |  0.12 |        5 |
+| 6 willing      | T1        |  0.25 | T2        |  0.24 | T6         |  0.00 |        7 |
+| 7 ask          | T1        |  0.17 | T2        |  0.13 | T7         |  0.00 |        7 |
+| 8 list harms   | T2        |  0.43 | T1        |  0.29 | T8         |  0.07 |        4 |
+| 9 amends       | T2        |  0.90 | T1        |  0.48 | T9         |  0.00 |        8 |
+| 10 daily       | T1        |  0.94 | T2        |  0.43 | T10        |  0.00 |        8 |
+| 11 connect     | T1        |  0.47 | T2        |  0.21 | T11        |  0.11 |        4 |
+| 12 carry it    | T5        |  1.25 | T3        |  1.10 | T12        |  0.12 |        6 |
 
 : The author-coded semantic overlap $B = SG^{\top}$, unperturbed. It is not the executable
 state-update map. Competition ranks use $1+$ the count of strictly larger entries, so
 exact ties share rank. Not one Step has its index-mate in the maximizing set. Load per
 Tradition, exact: T1 6.52, T2 3.89, T5 3.88, T3 2.69, T11 2.69, T12 2.62, T8 1.11, and
-exactly zero for T4, T6, T7, T9 and T10.
-:::
+exactly zero for T4, T6, T7, T9 and T10. {#tab:coupling}
 
 1.  **The author coding contains a two-tier division.** Five Traditions (autonomy,
     non-endorsement, self-support, non-hierarchy, and no outside issues) have identically
@@ -6887,19 +6905,17 @@ tie, on existence. Full-adherence viability in all three screening seeds holds i
 draws. The comparison and the absolute outcome therefore cannot borrow one another's
 robustness.
 
-::: {#tab:coupling-robust}
-| Design          |                 T1 leads|  Index-pairing wrong, all|         Step 5 $\to$ T12|         Step 12 $\to$ T5|
-|:----------------|------------------------:|-------------------------:|------------------------:|------------------------:|
-| jitter $\pm$15% |    100.0 \[99.8, 100.0\]|       98.8 \[98.2, 99.2\]|    100.0 \[99.8, 100.0\]|      89.7 \[88.3, 91.0\]|
-| jitter $\pm$30% |    100.0 \[99.8, 100.0\]|       85.5 \[83.9, 87.0\]|      99.5 \[99.1, 99.7\]|      67.3 \[65.3, 69.4\]|
-| jitter $\pm$50% |      98.0 \[97.3, 98.5\]|       72.5 \[70.5, 74.4\]|      88.7 \[87.2, 90.0\]|      52.9 \[50.7, 55.1\]|
-| jitter $\pm$75% |      86.8 \[85.3, 88.3\]|       65.2 \[63.0, 67.2\]|      71.5 \[69.5, 73.4\]|      43.8 \[41.6, 45.9\]|
-| **structural**  |  **75.4 \[73.5, 77.2\]**|   **40.6 \[38.5, 42.8\]**|  **17.5 \[15.9, 19.2\]**|  **27.6 \[25.7, 29.7\]**|
+| Design | T1 leads | Index-pairing wrong, all | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
+|:---|---:|---:|---:|---:|
+| jitter $\pm$`<!-- -->`{=html}15% | 100.0 \[99.8, 100.0\] | 98.8 \[98.2, 99.2\] | 100.0 \[99.8, 100.0\] | 89.7 \[88.3, 91.0\] |
+| jitter $\pm$`<!-- -->`{=html}30% | 100.0 \[99.8, 100.0\] | 85.5 \[83.9, 87.0\] | 99.5 \[99.1, 99.7\] | 67.3 \[65.3, 69.4\] |
+| jitter $\pm$`<!-- -->`{=html}50% | 98.0 \[97.3, 98.5\] | 72.5 \[70.5, 74.4\] | 88.7 \[87.2, 90.0\] | 52.9 \[50.7, 55.1\] |
+| jitter $\pm$`<!-- -->`{=html}75% | 86.8 \[85.3, 88.3\] | 65.2 \[63.0, 67.2\] | 71.5 \[69.5, 73.4\] | 43.8 \[41.6, 45.9\] |
+| **structural** | **75.4 \[73.5, 77.2\]** | **40.6 \[38.5, 42.8\]** | **17.5 \[15.9, 19.2\]** | **27.6 \[25.7, 29.7\]** |
 
 : Percentage of draws in which each claim holds. Wilson intervals at 95 per cent on
 $n = 2{,}000$. The two 100.0 entries are 2,000 of 2,000 and should be read as "not
-observed to fail", not as certainty.
-:::
+observed to fail", not as certainty. {#tab:coupling-robust}
 
 Step 12 is the fragile row and the reason is the margin, not the level: its top two are T5
 at 1.25 and T3 at 1.10, and both Traditions govern the recipient resource (T5 at 0.9, T3
@@ -6911,30 +6927,30 @@ For Step $i$, let $w_i$ be the row sum of $S$ (total consumption across the eigh
 resources) and $b_i$ the largest entry in row $i$ of $B$ excluding the index-mate's own
 entry. If Tradition $i$ governed every resource at a uniform strength $c$, its entry in
 row $i$ would be $c\,w_i$, so index-pairing holds at Step $i$ exactly when
-$$c \;>\; c^{*}_i \;=\; b_i / w_i .$$ This is one division per Step, carries no sampling
-error, and is the only design here that can turn a structural zero into a non-zero.
+$$\begin{equation}
+c \;>\; c^{*}_i \;=\; b_i / w_i .
+\end{equation}$$ This is one division per Step, carries no sampling error, and is the only
+design here that can turn a structural zero into a non-zero.
 
-::: {#tab:threshold}
-|    Step| Index-mate |  Beats|  Row sum of $S$|    $c^{*}$|  $c^{*}$ / mean live entry|
+|   Step | Index-mate | Beats | Row sum of $S$ |   $c^{*}$ | $c^{*}$ / mean live entry |
 |-------:|:-----------|------:|---------------:|----------:|--------------------------:|
-|       1| T1         |   1.22|            2.40|      0.508|                       1.36|
-|       2| T2         |   0.82|            1.70|      0.482|                       1.29|
-|       3| T3         |   0.31|            0.70|      0.443|                       1.18|
-|   **4**| **T4**     |   0.35|            0.80|  **0.438**|                       1.17|
-|       5| T5         |   1.08|            1.70|      0.635|                       1.70|
-|   **6**| **T6**     |   0.25|            0.60|  **0.417**|                       1.11|
-|   **7**| **T7**     |   0.17|            0.40|  **0.425**|                       1.14|
-|       8| T8         |   0.43|            0.80|      0.538|                       1.44|
-|   **9**| **T9**     |   0.90|            1.50|  **0.600**|                       1.60|
-|  **10**| **T10**    |   0.94|            1.50|  **0.627**|                       1.67|
-|      11| T11        |   0.47|            0.80|      0.588|                       1.57|
-|      12| T12        |   1.25|            2.40|      0.521|                       1.39|
+|      1 | T1         |  1.22 |           2.40 |     0.508 |                      1.36 |
+|      2 | T2         |  0.82 |           1.70 |     0.482 |                      1.29 |
+|      3 | T3         |  0.31 |           0.70 |     0.443 |                      1.18 |
+|  **4** | **T4**     |  0.35 |           0.80 | **0.438** |                      1.17 |
+|      5 | T5         |  1.08 |           1.70 |     0.635 |                      1.70 |
+|  **6** | **T6**     |  0.25 |           0.60 | **0.417** |                      1.11 |
+|  **7** | **T7**     |  0.17 |           0.40 | **0.425** |                      1.14 |
+|      8 | T8         |  0.43 |           0.80 |     0.538 |                      1.44 |
+|  **9** | **T9**     |  0.90 |           1.50 | **0.600** |                      1.60 |
+| **10** | **T10**    |  0.94 |           1.50 | **0.627** |                      1.67 |
+|     11 | T11        |  0.47 |           0.80 |     0.588 |                      1.57 |
+|     12 | T12        |  1.25 |           2.40 |     0.521 |                      1.39 |
 
 : The threshold test. Bold rows are the five protective Traditions, whose index-mate
 entries are structurally zero and therefore invisible to
 Table [5](#tab:coupling-robust){reference-type="ref" reference="tab:coupling-robust"}.
-Exact; no sampling error.
-:::
+Exact; no sampling error. {#tab:threshold}
 
 The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300,
 minimum 0.10 and maximum 1.00. *Every* $c^{*}$ exceeds both the mean and the median. The
@@ -6989,18 +7005,16 @@ Every design above varies magnitudes and holds the sparsity pattern fixed; a sec
 would disagree about the pattern. Flipping cells at random within the seven enabling rows
 (56 cells, so the two-tier split is held fixed), 2,000 draws per row:
 
-::: {#tab:sparsity}
-|  Cells flipped|  Index-pairing wrong, all|  T1 leads|  Step 5 $\to$ T12|  Step 12 $\to$ T5|
+| Cells flipped | Index-pairing wrong, all | T1 leads | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
 |--------------:|-------------------------:|---------:|-----------------:|-----------------:|
-|              1|                     96.3%|    100.0%|             98.7%|             94.8%|
-|              2|                     92.7%|     99.7%|             96.3%|             90.5%|
-|              4|                     86.2%|     96.5%|             93.3%|             80.3%|
-|              8|                     75.0%|     83.7%|             85.4%|             72.0%|
-|             16|                     53.0%|     50.8%|             70.8%|             53.0%|
+|             1 |                    96.3% |   100.0% |            98.7% |            94.8% |
+|             2 |                    92.7% |    99.7% |            96.3% |            90.5% |
+|             4 |                    86.2% |    96.5% |            93.3% |            80.3% |
+|             8 |                    75.0% |    83.7% |            85.4% |            72.0% |
+|            16 |                    53.0% |    50.8% |            70.8% |            53.0% |
 
 : Sparsity perturbation. Section 4 tolerates a reader differing on about four of fifty-six
-enabling cells and does not tolerate one differing on sixteen.
-:::
+enabling cells and does not tolerate one differing on sixteen. {#tab:sparsity}
 
 **This is a bound, not a measurement, and the distinction is the caveat.** A random flip
 is not a plausible reader. Somebody who thinks self-support governs continuity changes
@@ -7037,8 +7051,7 @@ A reader who thinks the two matrices are arbitrary should not be persuaded by Se
 and we would rather say so than borrow an executable endpoint comparison's robustness for
 a semantic-coupling result that has not earned it.
 
-The Steps as a Multistage Technology
-------------------------------------
+## The Steps as a Multistage Technology
 
 > **This section is a reformulation, not the simulation's update rule, and the two must
 > not be read as the same object.** The CES form below is a way of *stating* the ordering
@@ -7047,20 +7060,24 @@ The Steps as a Multistage Technology
 > Nothing in Section 6 depends on the value of $\rho$.
 
 Let $x_{i,t}$ denote latent practice of step $i$. Following Cunha, Heckman, and Schennach
-(2010):
-$$x_{i,t+1} \;=\; A_i \Big[\, \gamma_{i1} x_{i,t}^{\rho_i} + \gamma_{i2} x_{i-1,t}^{\rho_i}
- + \gamma_{i3} G_{i,t}^{\rho_i} + \gamma_{i4} M_t^{\rho_i} \,\Big]^{1/\rho_i},$$ with
-weights summing to one, elasticity of substitution $\sigma_i = 1/(1-\rho_i)$, $G_{i,t}$
-the resource bundle from Section 4, and $M_t$ maintenance capacity built from Steps 10 to
-12. Self-productivity is $\gamma_{i1} > 0$; the cross-partial in prior-stage stock and
-group input is positive throughout (from $+1.73$ at $\rho = -4$ to $+0.08$ at
-$\rho = 0.5$), so group support is worth more to a member who has done the preceding work:
-dynamic complementarity in Cunha and Heckman's sense.
+(2010): $$\begin{equation}
+x_{i,t+1} \;=\; A_i \Big[\, \gamma_{i1} x_{i,t}^{\rho_i} + \gamma_{i2} x_{i-1,t}^{\rho_i}
+ + \gamma_{i3} G_{i,t}^{\rho_i} + \gamma_{i4} M_t^{\rho_i} \,\Big]^{1/\rho_i},
+\end{equation}$$ with weights summing to one, elasticity of substitution
+$\sigma_i = 1/(1-\rho_i)$, $G_{i,t}$ the resource bundle from Section 4, and $M_t$
+maintenance capacity built from Steps 10 to 12. Self-productivity is $\gamma_{i1} > 0$;
+the cross-partial in prior-stage stock and group input is positive throughout (from
+$+1.73$ at $\rho = -4$ to $+0.08$ at $\rho = 0.5$), so group support is worth more to a
+member who has done the preceding work: dynamic complementarity in Cunha and Heckman's
+sense.
 
-As $\rho_i \to -\infty$ the aggregator converges to $\min(\cdot)$, so zero prior-stage
-stock forces zero output: the informal rule that steps cannot be skipped. The rule holds
-for all $\rho_i \le 0$ and fails for $\rho_i > 0$, where the group input substitutes for
-the missing stage (output 0.217 at $\rho = 0.3$ with prior stage at zero).
+::: proposition
+**Proposition 5** (The ordering rule as a limit). *As $\rho_i \to -\infty$ the aggregator
+converges to $\min(\cdot)$, so zero prior-stage stock forces zero output: the informal
+rule that steps cannot be skipped. The rule holds for all $\rho_i \le 0$ and fails for
+$\rho_i > 0$, where the group input substitutes for the missing stage (output 0.217 at
+$\rho = 0.3$ with prior stage at zero).*
+:::
 
 The reduction converts a widely held but untested claim of practice into a sharp empirical
 question: within this CES reformulation, the sign of $\rho$ decides whether the Steps are
@@ -7084,8 +7101,7 @@ exogenous to member state. CHS address the analogous endogeneity of parental inv
 adapting their approach is necessary before any fit to panel data and is not attempted
 here.
 
-Membership Dynamics Under the Open Door
----------------------------------------
+## Membership Dynamics Under the Open Door
 
 ### The institutional constraint, restated
 
@@ -7116,23 +7132,25 @@ does not conceptually apply.
 ### Model summary
 
 Members occupy a twelve-dimensional practice state. Per-step growth, in full, for member
-$m$ and step $i$:
-$$\frac{dx_i}{dt} \;=\; h(m)\, a_i\, \mathrm{gate}_i\, \mathrm{peer}_i\, C^{m}_i\,\bigl(1 - x_i\bigr)
+$m$ and step $i$: $$\begin{equation}
+\frac{dx_i}{dt} \;=\; h(m)\, a_i\, \mathrm{gate}_i\, \mathrm{peer}_i\, C^{m}_i\,\bigl(1 - x_i\bigr)
  \;-\; d_i\, x_i,
-\label{eq:growth}$$ with $$\begin{aligned}
+\label{eq:growth}
+\end{equation}$$ with $$\begin{align}
 \mathrm{gate}_i &= x_{i-1}^{\,p}, \qquad \mathrm{gate}_1 = 1, \\
 \mathrm{peer}_i &= (1-\beta_i) + \beta_i G_i, \qquad G = S_{\text{norm}} R, \\
 C^{m}_i &= 1 - w(i)\,(1 - C), \qquad w(i) = 0.05 + (i-1)\tfrac{0.95}{11}, \\
-d_i &= \delta_0\bigl(1 + \psi(1 - x_{i+1})\bigr) \ \ (i < 12), \qquad d_{12} = \delta_0 .\end{aligned}$$
-Maintenance capacity $C$ is identical across steps for a given member and is defined in
-two parts. Own capacity is a Hill gate on $M$, the mean of that member's Steps 10 to 12,
-and group support supplies a floor beneath it:
-$$C(M) = \frac{M^{n}}{k^{n} + M^{n}}, \quad n = 3.0,\ k = 0.12;
+d_i &= \delta_0\bigl(1 + \psi(1 - x_{i+1})\bigr) \ \ (i < 12), \qquad d_{12} = \delta_0 .
+\end{align}$$ Maintenance capacity $C$ is identical across steps for a given member and is
+defined in two parts. Own capacity is a Hill gate on $M$, the mean of that member's Steps
+10 to 12, and group support supplies a floor beneath it: $$\begin{equation}
+C(M) = \frac{M^{n}}{k^{n} + M^{n}}, \quad n = 3.0,\ k = 0.12;
 \qquad
 C = C(M) + \bigl(1 - C(M)\bigr)\,\omega\,\overline{C}, \quad \omega = 0.75,
-\label{eq:capacity}$$ where $\overline{C}$ is the mean own-capacity across living members,
-so a member whose own maintenance has collapsed retains a fraction of capacity as long as
-the group around them has not. Because Steps 10 to 12 sit at the heavy end of the $w(i)$
+\label{eq:capacity}
+\end{equation}$$ where $\overline{C}$ is the mean own-capacity across living members, so a
+member whose own maintenance has collapsed retains a fraction of capacity as long as the
+group around them has not. Because Steps 10 to 12 sit at the heavy end of the $w(i)$
 weighting, maintenance gates its own accumulation. That architecture can be bistable, but
 it is not generally so in the corrected model's own endpoint environments: a
 capability-one high/low-start test separates in 7 of 400 environments and collapses to one
@@ -7167,21 +7185,26 @@ model-choice inventory separately records fixed constants, structural zeros, equ
 thresholds and experiment-design choices, so 118 is not the count of every authored
 choice.
 
-Inflow, dropout and churn were originally set to target a group near forty-five members
-with an experienced core near nine, roughly a healthy urban meeting. That was calibration
-to a stylized fact, not a dataset. After the lognormal capability draw was corrected to
-have arithmetic mean one, the target fails. Across 400 runs the model delivers 17.80
-members, 95 per cent half-width 0.88. Among the 394 viable endpoints, the *established*
-count above 0.1 is 14.13, half-width 0.79, and the *experienced* count above 0.5 is 1.25,
-half-width 0.20. The two thresholds are not interchangeable. The authored rates are not
-retuned after observing this failure, and the absolute levels are not estimates of real
-meetings.
+::: remark
+**Remark 2** (Calibration, and the exact sense in which it fails). *Inflow, dropout and
+churn were originally set to target a group near forty-five members with an experienced
+core near nine, roughly a healthy urban meeting. That was calibration to a stylized fact,
+not a dataset. After the lognormal capability draw was corrected to have arithmetic mean
+one, the target fails. Across 400 runs the model delivers 17.80 members, 95 per cent
+half-width 0.88. Among the 394 viable endpoints, the *established* count above 0.1 is
+14.13, half-width 0.79, and the *experienced* count above 0.5 is 1.25, half-width 0.20.
+The two thresholds are not interchangeable. The authored rates are not retuned after
+observing this failure, and the absolute levels are not estimates of real meetings.*
+:::
 
-The governance matrix is column-normalized, so governance quality is identically 1 when
-every Tradition is at 1.0 and the matrix cancels exactly. This is algebra, not simulation.
-All 35 governance cells therefore produce exactly zero change in every outcome at full
+::: remark
+**Remark 3** (Thirty-five parameters that cannot matter at full adherence). *The
+governance matrix is column-normalized, so governance quality is identically 1 when every
+Tradition is at 1.0 and the matrix cancels exactly. This is algebra, not simulation. All
+35 governance cells therefore produce exactly zero change in every outcome at full
 adherence, and a sensitivity design that perturbs them and reports no effect has found
-nothing. Thirty-five of the 118 registered values are in that position.
+nothing. Thirty-five of the 118 registered values are in that position.*
+:::
 
 ### Three channels of decline
 
@@ -7192,19 +7215,17 @@ throughout; the viable fraction is printed beside it in every row.** Viability c
 95 per cent Wilson interval; membership and quality carry a 95 per cent half-width from
 the cross-run standard error.
 
-::: {#tab:decline}
-| Condition     |                 Viable y10|  $N$ if viable, y10|          Quality y10|  Viable y30|      95% int.|          Quality y30|
-|:--------------|--------------------------:|-------------------:|--------------------:|-----------:|-------------:|--------------------:|
-| nothing wrong |  0.9975 \[0.9860, 0.9996\]|    $29.40 \pm 1.16$|  $0.3016 \pm 0.0052$|       0.985|  0.968--0.993|  $0.2648 \pm 0.0058$|
-| invisible     |  0.9925 \[0.9782, 0.9974\]|    $12.98 \pm 0.34$|  $0.2949 \pm 0.0079$|       0.985|  0.968--0.993|  $0.2592 \pm 0.0071$|
-| unreferred    |     0.660 \[0.612, 0.705\]|    $16.47 \pm 1.18$|  $0.3475 \pm 0.0084$|      0.0275|  0.015--0.049|  $0.3642 \pm 0.0443$|
-| unwelcoming   |     0.905 \[0.872, 0.930\]|    $15.70 \pm 0.82$|  $0.3597 \pm 0.0097$|      0.5475|  0.499--0.596|  $0.3211 \pm 0.0134$|
+| Condition | Viable y10 | $N$ if viable, y10 | Quality y10 | Viable y30 | 95% int. | Quality y30 |
+|:---|---:|---:|---:|---:|---:|---:|
+| nothing wrong | 0.9975 \[0.9860, 0.9996\] | $29.40 \pm 1.16$ | $0.3016 \pm 0.0052$ | 0.985 | 0.968--0.993 | $0.2648 \pm 0.0058$ |
+| invisible | 0.9925 \[0.9782, 0.9974\] | $12.98 \pm 0.34$ | $0.2949 \pm 0.0079$ | 0.985 | 0.968--0.993 | $0.2592 \pm 0.0071$ |
+| unreferred | 0.660 \[0.612, 0.705\] | $16.47 \pm 1.18$ | $0.3475 \pm 0.0084$ | 0.0275 | 0.015--0.049 | $0.3642 \pm 0.0443$ |
+| unwelcoming | 0.905 \[0.872, 0.930\] | $15.70 \pm 0.82$ | $0.3597 \pm 0.0097$ | 0.5475 | 0.499--0.596 | $0.3211 \pm 0.0134$ |
 
 : Decline scenarios, **400 paired seeds**, 1,560-week horizon. *Invisible* sets only
 Tradition 11's attraction path to zero; *unreferred* sets exogenous inflow to zero;
 *unwelcoming* sets both Tradition 3 paths to zero. Only eleven unreferred runs are viable
-at year thirty, so its conditional quality interval is wide.
-:::
+at year thirty, so its conditional quality interval is wide. {#tab:decline}
 
 Membership counted over all runs with closures as zero reaches, at year thirty,
 $17.80 \pm 0.88$, $12.38 \pm 0.34$, $0.51 \pm 0.23$ and $6.76 \pm 0.59$ respectively.
@@ -7227,17 +7248,15 @@ there.
 The unreferred condition separates two questions that a single membership series
 conflates.
 
-::: {#tab:conditional}
-| Series                  |                y5|               y10|               y20|                      y30|
-|:------------------------|-----------------:|-----------------:|-----------------:|------------------------:|
-| unreferred, all runs    |  $21.55 \pm 1.01$|  $11.68 \pm 1.02$|   $2.50 \pm 0.48$|          $0.51 \pm 0.23$|
-| unreferred, viable only |  $22.07 \pm 1.00$|  $16.47 \pm 1.18$|  $11.39 \pm 1.37$|         $12.27 \pm 3.81$|
-| viable fraction         |             0.970|             0.660|            0.1725|  0.0275 \[0.015, 0.049\]|
+| Series | y5 | y10 | y20 | y30 |
+|:---|---:|---:|---:|---:|
+| unreferred, all runs | $21.55 \pm 1.01$ | $11.68 \pm 1.02$ | $2.50 \pm 0.48$ | $0.51 \pm 0.23$ |
+| unreferred, viable only | $22.07 \pm 1.00$ | $16.47 \pm 1.18$ | $11.39 \pm 1.37$ | $12.27 \pm 3.81$ |
+| viable fraction | 0.970 | 0.660 | 0.1725 | 0.0275 \[0.015, 0.049\] |
 
 : Unconditional versus viability-conditioned membership under referral loss. Both decline
 sharply; conditioning still hides the mass of closures but no longer makes membership look
-stable.
-:::
+stable. {#tab:conditional}
 
 This is why conditioning is load-bearing throughout the paper. In the referral-loss
 condition both the all-run and viable-only membership series decline, but the all-run
@@ -7252,26 +7271,24 @@ comparisons. The reference cross-seed standard deviation is 5.67, while paired s
 errors range from 0.22 to 0.33. Each Tradition is degraded singly from 0.85 to 0.5 against
 a reference group of 13.10 members.
 
-::: {#tab:tradition}
-| Tradition              | Tier       |  Members cost|  95% half-width|   $t$|
+| Tradition              | Tier       | Members cost | 95% half-width |  $t$ |
 |:-----------------------|:-----------|-------------:|---------------:|-----:|
-| T3 mixed adherence     | enabling   |          2.99|            0.65|   9.1|
-| T11 mixed adherence    | enabling   |          1.88|            0.60|   6.1|
-| T1 unity               | enabling   |          1.65|            0.65|   4.9|
-| T12 anonymity          | enabling   |          0.99|            0.58|   3.3|
-| T5 one purpose         | enabling   |          0.96|            0.61|   3.1|
-| T4 autonomy            | protective |          0.88|            0.62|   2.8|
-| T7 self-support        | protective |          0.88|            0.62|   2.8|
-| T2 group conscience    | enabling   |          0.48|            0.62|   1.5|
-| T6 no endorsement      | protective |          0.23|            0.46|   1.0|
-| T10 no outside opinion | protective |          0.23|            0.46|   1.0|
-| T9 no organization     | protective |          0.02|            0.43|   0.1|
-| T8 non-professional    | enabling   |         -0.20|            0.51|  -0.8|
+| T3 mixed adherence     | enabling   |         2.99 |           0.65 |  9.1 |
+| T11 mixed adherence    | enabling   |         1.88 |           0.60 |  6.1 |
+| T1 unity               | enabling   |         1.65 |           0.65 |  4.9 |
+| T12 anonymity          | enabling   |         0.99 |           0.58 |  3.3 |
+| T5 one purpose         | enabling   |         0.96 |           0.61 |  3.1 |
+| T4 autonomy            | protective |         0.88 |           0.62 |  2.8 |
+| T7 self-support        | protective |         0.88 |           0.62 |  2.8 |
+| T2 group conscience    | enabling   |         0.48 |           0.62 |  1.5 |
+| T6 no endorsement      | protective |         0.23 |           0.46 |  1.0 |
+| T10 no outside opinion | protective |         0.23 |           0.46 |  1.0 |
+| T9 no organization     | protective |         0.02 |           0.43 |  0.1 |
+| T8 non-professional    | enabling   |        -0.20 |           0.51 | -0.8 |
 
 : Single-Tradition degradation, **400 paired replications** under common random numbers.
 Seven of twelve have intervals excluding zero. T3 and T11 are mixed adherence
-interventions; their paths are split in the release factorials.
-:::
+interventions; their paths are split in the release factorials. {#tab:tradition}
 
 > **The replication budget determines the ranking, and 30 is not enough.** Computed at 30
 > paired replications, this comparison returns autonomy and self-support at 5.5 members
@@ -7389,8 +7406,7 @@ founding practice *and* in the number above the stricter 0.5 experienced thresho
 and 12). All 25 exceed the 0.1 established threshold in every condition. A resolved
 difference could still have arisen through any of several state-dependent channels.
 
-The Comparative Case
---------------------
+## The Comparative Case
 
 A formal correspondence gains little from a single historical case and can lose a great
 deal by leaning on one. This section is included because the case bears directly on the
@@ -7479,8 +7495,7 @@ found no source that settles it. The historical material is offered as an existe
 that the distinction between the two tiers of rule is visible in a real code, not as
 evidence about the consequences of omitting one tier.
 
-Limitations
------------
+## Limitations
 
 ### The largest one, stated first
 
@@ -7586,8 +7601,7 @@ this limitation is listed first.
     10 August 2026 and is held as a record with no document; the rest of AA's own
     literature has not been obtained.
 
-Falsifiable Predictions
------------------------
+## Falsifiable Predictions
 
 Where the analysis reported above bears on a prediction, or narrows what it should say,
 this is marked.
@@ -7640,8 +7654,7 @@ this is marked.
 8.  **the mapping itself is testable by elicitation.** See §8.1. This is the prediction
     whose failure would cost the paper the most.
 
-Conclusion
-----------
+## Conclusion
 
 This paper's durable contribution is a correspondence: three of AA's Twelve Traditions, on
 a reading of their wording that the paper states plainly and does not verify, jointly
@@ -7678,8 +7691,7 @@ matrix, by a second independent elicitation; of rotation breadth against group l
 of step ordering against step completion; and of the quiet demographic signature of groups
 that seekers have stopped finding.
 
-References {#references .unnumbered}
-----------
+## References {#references .unnumbered}
 
 *Status note.* An entry explicitly marked read at source, read in full, abstract only,
 cited at a remove, or not read has that current-project status. For entries without an
@@ -7692,6 +7704,7 @@ and are not evidence for this paper. No source document is committed to the repo
 each source is published as a citation, a rights position, a provenance URL, a SHA-256 and
 a vocabulary-only verification index.
 
+::: list
 Alexander, R. M. (1988). "'We Are Engaged as a Band of Sisters': Class and Domesticity in
 the Washingtonian Temperance Movement, 1840-1850." *Journal of American History* 75(3):
 763-785. **Not read**; cited for the women's dimension of the movement, which this paper
@@ -7884,6 +7897,7 @@ problems." *American Psychologist* 59(4): 224-235.
 
 Witkiewitz, K., and G. A. Marlatt (2007). "Modeling the complexity of post-treatment
 drinking." *Clinical Psychology Review* 27(6): 724-738.
+:::
 
 **Referenced but not reproduced.** The Twelve Steps and Twelve Traditions of Alcoholics
 Anonymous, paraphrased throughout. The text is copyright Alcoholics Anonymous World
@@ -7899,8 +7913,7 @@ settings specifically. Alexander (1988), Blumberg (1980, 1991), Pagano et al. (
 full, and White's *Slaying the Dragon*. Jellinek's per-capita consumption estimates, which
 are quoted through Maxwell and whose original has not been traced.
 
-The Whole Paper in Plain Language
----------------------------------
+## The Whole Paper in Plain Language
 
 *This appendix says everything the paper says, without the math. It is written for a
 reader with no background in economics or statistics. Where a natural way of putting
@@ -8188,8 +8201,7 @@ the ones that needed the most narrowing.
 > sixty-four years before anyone proved it. Whether that reading is right is the thing
 > still to be checked.*
 
-Reproducibility Note
---------------------
+## Reproducibility Note
 
 Every quantitative claim in this paper is reproducible from the companion repository
 without reference to any external dataset, because there is no external dataset.

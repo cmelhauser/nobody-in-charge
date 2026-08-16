@@ -12,7 +12,9 @@ scripts, eighteen hash-linked result caches, two verification notebooks, and sev
 
 It argues that three of Alcoholics Anonymous's Twelve Traditions implement a formal condition,
 proved by Golub and Jackson in 2010, for when a group that decides by discussion can be trusted
-to be right. It is anonymous and unpublished.
+to be right. It is unpublished. The Author and Copyright Holder is Christopher Melhauser
+(`christopher.melhauser@gmail.com`); the AI Writing Collaborator is theonlymuffinbot
+(`theonlymuffinbot@outlook.com`). See `ATTRIBUTION.md` and `LICENSE`.
 
 **The release gate is closed and every checker passes.** Treat the current state as correct until
 a checker says otherwise. Your job is almost certainly not to re-derive anything.
