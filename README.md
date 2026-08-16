@@ -2,6 +2,12 @@
 
 *How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It*
 
+Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com)
+AI Writing Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com)
+
+See [ATTRIBUTION.md](ATTRIBUTION.md) for the authorship and rights statement, and
+[LICENSE](LICENSE) for the repository license.
+
 This repository contains a complete 25-chapter manuscript, an academic paper, a technical
 appendix, a Steps-and-Traditions primer, the executable model, analysis scripts, cached
 results, source ledgers, and reproducible PDF builds.

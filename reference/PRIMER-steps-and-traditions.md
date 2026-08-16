@@ -1,11 +1,15 @@
 ---
 title: "What the Model Says About the Twelve Steps and the Twelve Traditions"
 subtitle: "A reference primer for *Nobody in Charge*"
-author: "Anonymous"
+author:
+  - "Author and Copyright Holder: Christopher Melhauser"
+  - "AI Writing Collaborator: theonlymuffinbot"
 date: "6 August 2026"
 ---
 
 # What the Model Says About the Twelve Steps and the Twelve Traditions
+
+Copyright 2026 Christopher Melhauser. See the repository's attribution and license notices.
 
 ## How to read this
 

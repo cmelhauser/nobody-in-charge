@@ -3,8 +3,10 @@
 ## *Nobody in Charge*
 ### How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It
 
-Anonymous, unpublished, written for its own sake. Audience: the general reader who
-has never thought about how AA is governed.
+Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
+Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com). Unpublished and written for its own sake.
+Audience: the general reader who has never thought about how AA is governed. See
+`ATTRIBUTION.md` and `LICENSE`.
 
 Supersedes all earlier plans. Part-level detail lives in `plans/PART-1-PLAN.md` and
 `plans/PART-2-PLAN.md`. `README.md` is the index and current status.

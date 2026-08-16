@@ -1,6 +1,11 @@
 # Preface
 ## What This Book Knows, and How
 
+*Nobody in Charge* is by Author and Copyright Holder Christopher Melhauser
+(christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
+(theonlymuffinbot@outlook.com). Copyright 2026 Christopher Melhauser. See `ATTRIBUTION.md` and
+`LICENSE`.
+
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
 
 ---
