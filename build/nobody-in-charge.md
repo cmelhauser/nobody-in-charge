@@ -2,7 +2,7 @@
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
-  - "Author and Copyright Holder: Christopher Melhauser"
+  - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
 date: "Draft of 16 August 2026"
 documentclass: report
@@ -32,10 +32,10 @@ header-includes:
 
 # Preface: What This Book Knows, and How
 
-*Nobody in Charge* is by Author and Copyright Holder Christopher Melhauser
+*Nobody in Charge* is by Human Author Christopher Melhauser
 (christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
-(theonlymuffinbot@outlook.com). Copyright 2026 Christopher Melhauser. See `ATTRIBUTION.md` and
-`LICENSE`.
+(theonlymuffinbot@outlook.com). Released to the public domain under The Unlicense. See
+`ATTRIBUTION.md` and `LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
 
@@ -5000,9 +5000,9 @@ What genuinely remains unread is most of the canon: the Twelve Concepts of World
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
-Author and Copyright Holder: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing
-Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com). Copyright 2026 Christopher
-Melhauser. See `../ATTRIBUTION.md` and `../LICENSE`.
+Human Author: Christopher Melhauser (christopher.melhauser@gmail.com). AI Writing Collaborator:
+theonlymuffinbot (theonlymuffinbot@outlook.com). Released to the public domain under The
+Unlicense. See `../ATTRIBUTION.md` and `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 
@@ -5617,7 +5617,8 @@ real group data. It cannot evaluate or advise any individual person's recovery.
 
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
 
-Copyright 2026 Christopher Melhauser. See the repository's attribution and license notices.
+Released to the public domain under The Unlicense. See the repository's attribution and license
+notices.
 
 ## How to read this
 
