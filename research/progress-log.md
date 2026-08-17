@@ -3515,3 +3515,35 @@ to run against artifacts that were actually built. The CI job rebuilds them firs
 
 `requirements-dev.txt` records the four dependencies as floors rather than pins: results here are
 pinned by the model hash and the caches, not by the toolchain.
+
+### 17 August 2026, later: the first CI run failed, and it failed for a real reason
+
+The workflow added earlier the same day went red on its first execution. The three `checks` jobs
+passed on Python 3.11, 3.12 and 3.13. `release-gate` failed at the build step, six seconds in.
+
+The cause was a genuine missing dependency rather than a flaky runner. Both PDF builds ask
+fontspec for `TeX Gyre Pagella` by name, which is a fontconfig lookup. On this machine that font
+sits in the author's personal per-user font directory, so every local build was quietly satisfied
+by a file that is not part of the repository and could not be part of it. A fresh Ubuntu runner
+has no such font, and XeTeX stops with an unrecoverable error before it typesets a single line.
+The failure was reproduced locally by asking tectonic for a font name that does not exist, which
+produces the same abort.
+
+Three things were changed. `release-gate` now installs `fonts-texgyre` and then asserts that
+fontconfig can see the family, so the failure mode is one sentence rather than forty lines of
+XeTeX transcript. `build_book.py` and `build_primer.py` now print the last forty lines of the
+pandoc log on failure instead of only naming the log file: in CI that file is discarded with the
+runner, so a bare path left a red build that could not be diagnosed from the run page at all.
+And the prerequisite is now written down in `README.md` and `CLAUDE.md`.
+
+The same pass found a stale command. `README.md`'s reproduction block still rebuilt the primer
+with a hand-typed `pandoc` call, which is exactly what `tools/build_primer.py` was written on 16
+August to replace. That call renders at LaTeX's default article margins and without the
+line-breaking settings, so following the README literally would have produced a primer that fails
+the one inch margin requirement and pushes long file paths outside the type block. The block now
+calls the script, and says why a bare pandoc call is not the release artifact.
+
+The lesson is the one the clean-clone rehearsal was supposed to teach and half taught. That
+rehearsal ran the fast checks and caught a home-relative path, but it did not rebuild the PDFs,
+so a host-local font dependency survived it.
+
