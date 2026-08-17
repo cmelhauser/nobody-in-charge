@@ -131,7 +131,7 @@ Step 12 is the only consumer: S[12, recipient] = 1.0, which is 0.417 of that ste
 **Results**, 400 paired seeds each. Endpoint viability is a fraction; means show 95 per cent half-widths:
 
 | Configuration | Endpoint viable | Mean N | Practice | Step 1 | Step 9 | Step 12 | Maintenance |
-|---|---|---|---|---|---|---|---|
+|------------------------|------------|-------------|---------------|-------|-------|--------|--------------|
 | Baseline | 0.985 | 17.80 ± 0.88 | 0.2198 ± 0.0054 | 0.7135 | 0.0471 | 0.0347 | 0.0380 |
 | Twelfth step disabled | 0.985 | 12.48 ± 0.35 | 0.2049 ± 0.0055 | 0.7046 | 0.0416 | 0.0026 | 0.0245 |
 | Recipient capacity forced to one | 0.9875 | 18.83 ± 1.05 | 0.2198 ± 0.0054 | 0.7136 | 0.0458 | 0.0371 | 0.0382 |

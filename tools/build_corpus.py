@@ -74,6 +74,13 @@ RIGHTS = {
     "Maxwell_1950": "Journal article, 1950. Retyped reproduction, not a scan. Not redistributed here.",
     "Golub_Jackson_2010": "Author-hosted PDF. Not redistributed here.",
     "Kurtz_1991": "In copyright, all rights reserved. Never stored as full text.",
+    # Catalogued 16 August 2026. Named here rather than left to DEFAULT_RIGHTS for the same
+    # reason as the three below: the default asserts a pre-1929 public-domain position, which
+    # is false for a 2023 book. This is the one source whose licence would permit committing
+    # the document; it is git-ignored anyway, because the rule is uniform.
+    "RecoveryDharma_2023": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 "
+                           "International. Sharing and adaptation permitted with attribution; "
+                           "no commercial use. Not committed, per the uniform rule.",
     # Catalogued 10 August 2026. All three are record only: no document is held at any time,
     # which is a stronger condition than the git-ignored majority of the corpus. Naming them
     # here rather than letting DEFAULT_RIGHTS apply matters, because the default asserts a

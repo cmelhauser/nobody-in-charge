@@ -79,11 +79,24 @@ header-includes:
   - \\usepackage{{microtype}}
   - \\usepackage{{booktabs}}
   - \\usepackage{{longtable}}
-  - \\setlength{{\\emergencystretch}}{{3em}}
+  - \\setlength{{\\emergencystretch}}{{4em}}
+  # Prefer a slightly loose line over one that runs into the margin. Without these,
+  # twelve paragraphs overflowed, the worst by 25pt, which is a third of an inch of
+  # text sitting outside the type block. Long unbreakable tokens cause most of them:
+  # an email address in the preface, file paths, and identifiers TeX will not hyphenate.
+  - \\tolerance=1500
+  - \\hbadness=1500
   - \\usepackage[htt]{{hyphenat}}
   - \\usepackage{{xurl}}
   - \\usepackage{{etoolbox}}
-  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize}}
+  # Pandoc rounds each column fraction to four places, so an equal-width table of
+  # six or seven columns can sum to 1.0003 and overhang the text block by a tenth of
+  # a point. Shaving a point off the table's working width absorbs that exactly, and
+  # reaches the tables converted from the paper's LaTeX, whose widths this repository
+  # cannot set at source.
+  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\addtolength{{\\linewidth}}{{-1pt}}}}
+  # Wide result tables were the last thing sitting outside the type block.
+  - \\setlength{{\\tabcolsep}}{{4pt}}
   - \\usepackage{{titlesec}}
   - \\titleformat{{\\chapter}}[display]{{\\normalfont\\Large\\bfseries}}{{}}{{0pt}}{{\\Large}}
   - \\titlespacing*{{\\chapter}}{{0pt}}{{0pt}}{{28pt}}
@@ -261,14 +274,16 @@ def assemble(build_date):
     out.append(demote_subscripts(strip_front_matter(
         read(os.path.join(ROOT, 'appendix', 'APPENDIX.md')))).rstrip() + '\n')
 
-    # Appendix two: the primer. Its own H1 is replaced so the chapter heading names it
-    # as an appendix in the contents page.
+    # Appendix two: the primer. The chapter heading is inserted here rather than
+    # substituted for one in the source. The primer used to carry its own H1 repeating
+    # its YAML title, which rendered the title twice in the standalone PDF; the H1 was
+    # removed on 16 August 2026. Any leading H1 is still stripped first, so this works
+    # whether or not the source carries one.
     primer = strip_front_matter(read(os.path.join(
         ROOT, 'reference', 'PRIMER-steps-and-traditions.md')))
-    primer = re.sub(
-        r'^# [^\n]+\n',
-        '# Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions\n',
-        primer, count=1)
+    primer = re.sub(r'^# [^\n]+\n+', '', primer, count=1)
+    primer = ('# Appendix: What the Model Says About the Twelve Steps and the '
+              'Twelve Traditions\n\n' + primer.lstrip('\n'))
     out.append(demote_subscripts(primer).rstrip() + '\n')
 
     # Appendix three: the working paper the book grew out of.

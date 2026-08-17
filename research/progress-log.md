@@ -3167,3 +3167,351 @@ Later still, all original project material was dedicated to the public domain un
 The manuscript, paper, code, documentation, research records, and generated project outputs are
 covered by that dedication. `LICENSE` requests non-binding courtesy credit for Christopher
 Melhauser and theonlymuffinbot while preserving the exclusion for third-party sources.
+
+---
+
+## 16 August 2026: Recovery Dharma catalogued, and appendix A12
+
+A user question asked whether the model shows the Twelve Steps simplified into the Dharma. The
+Recovery Dharma second edition (2023) was read in part to answer it, catalogued as
+`research/incorporated/RecoveryDharma_2023/`, and the answer written as appendix section A12. The
+work is appendix-only by request: no chapter, no notebook, no cache, and no stochastic claim.
+
+**The answer is no, on three grounds that precede any evidence.** The Eightfold Path predates the
+Twelve Steps by roughly two and a half thousand years, so a derivation claim in the direction asked
+is ruled out by dates. The model has no parameterisation for the fellowship, and authoring two more
+unelicited matrices would compound the weakness A11 item 2 already records. And the model has no
+object corresponding to a comparison of fellowships.
+
+**The count test kills the word simplification.** Recovery Dharma distributes thirty-five
+enumerated items across seven lists: three jewels, four Noble Truths, eight path factors, five
+precepts, four heart practices, four foundations of mindfulness, seven commitments in The Practice.
+AA as the model codes it is twenty-four items in two. The eight-against-twelve comparison that makes
+simplification look true sets one list against one list. There is a real simplification in the
+source and it is of grouping, not count: the eight factors sit under three headings and are not
+worked in sequence.
+
+**The carrier census is the part with model content.** Deterministic quantities from the canonical
+`S`: Steps 1 and 12 both carry maximal group dependence at 1.000; Step 12 is the sole carrier of
+recipient opportunity, which holds the largest governance mass in `GOV` at 2.40; Step 1 holds 0.800
+of admission and 0.588 of identification; Step 5 holds 0.667 of confidentiality. Read against the
+source, the eight resources scatter across four Recovery Dharma documents, and three of them,
+confidentiality, recipient opportunity and gentle pressure, are absent from the Eightfold Path
+entirely. The counterpart of the Steps is not the Path but the union of the Path, The Practice, the
+Sangha chapter and the meeting script.
+
+**The governance asymmetry is the finding worth keeping.** The fellowship has no
+Traditions-equivalent charter; the functions live as procedure inside a meeting script whose own
+header invites meetings to edit it. A2.4's effective-adherence construction presumes a fixed
+constitution whose adherence can vary while the constitution stands still, and an editable script
+offers no such stable row. So the model can state exactly what it would need to say anything here,
+and the source shows the required object does not exist. That is a result about the model's scope,
+not about which fellowship is better governed, and it was added to A11 as threat item 9.
+**Superseded later the same day:** item 9 was removed from A11 and folded into A12.7 when the
+section was made self-contained. A11 carries eight items. See the entry below.
+
+**Provenance took two steps, and both are recorded.** The PDF first read was an ephemeral session
+attachment, removed from disk before it could be copied into the corpus. The source was catalogued
+as record only, with no SHA-256 and no verification index, and the gap was written into the handoff
+and verifier instructions rather than papered over. A filesystem search then located the user's own
+copy, which was confirmed to be the same document by page count (172), byte size (871,059) and
+verbatim spot-checks against passages read from the attachment. That copy is now hashed, extracted
+to 57,419 words of text, and indexed, so the source sits on the ordinary footing and the
+record-only language was withdrawn everywhere it had been written.
+
+What survives from the first pass is worth keeping: this is the one source in the corpus whose
+licence, CC BY-NC-SA 4.0, would permit committing the document outright. It is git-ignored anyway,
+because the rule is uniform. `tools/build_corpus.py` gained a `RIGHTS` entry so the default
+pre-1929 public-domain assertion is not applied to a 2023 book. The remaining open item is that the
+bibliographic record came from the file's own title and copyright pages rather than an independent
+catalogue entry.
+
+Corpus counts moved from 26 to 27 sources; record-only stays at seven.
+`research/incorporated/RecoveryDharma_2023/` holds the document, text, citation, metadata, summary
+and index. The index's `subjects_present` reports three short tokens that are matcher artifacts and
+are inert, since no chapter cites this source.
+
+**A12.6 was added the same day, answering a second question: boil the model down to its core
+inferences and ask which relate to Recovery Dharma.** Six inferences, stated without AA vocabulary:
+the one-way causal chain from member states to group resources; multiplicative gating, where the
+capacity weight rises from 0.05 at the first practice to 1 at the last; retention loading on early
+practice and reproduction on late practice; dispersion as a multiplier on three of the eight
+resources through the `unity` term; openness compounding super-additively across its two channels;
+and referral loss being slow and disguised.
+
+**The most useful result is a negative one.** Inferences 2 and 3 both descend from the order gate,
+and the Eightfold Path is explicitly not worked in sequence, so neither travels. Remove the sequence
+and there is no structural reason for the reproduction-driving practice to be the costliest one.
+That is a larger difference between the two programs than any count, and the model can name it only
+because the order gate is an explicit term.
+
+Two further notes were registered. Affinity meetings read, in the model's vocabulary, as deliberate
+management of within-room dispersion, raising `unity` while shrinking the room; the model names the
+trade in both directions and cannot score it, having one room of capacity 60. And the uncertified
+mentor role enlarges the recipient denominator, which sounds like a finding and is not: the clean
+recipient ablation is 1.028 [-0.259, 2.314] and unresolved, so the paragraph ends by telling a
+reader to stop at the ablation.
+
+`tools/check_book.py` caught one real defect during the write-up: the referral sentence claimed a
+duration without a marker tying it to the runs. The prose was fixed rather than the exemption
+widened, which the checker's own comment forbids.
+
+---
+
+## 16 August 2026: defect sweep, A12 restructured to house format, primer follow-up
+
+**The duration-claim defect was swept repository-wide and is isolated.** `tools/check_book.py`
+scans only CLAUDE.md, README.md, the appendix, PARAMETERS.md and the plans, so the same class of
+error could have been sitting unchecked in the manuscript, the paper, the primer or the tools. The
+checker's own regex and exemptions were re-run by hand over all of them. Fifteen candidates
+surfaced and every one is legitimate: sourced history about Gough, Dr Bob, Hawkins and the
+Washingtonians; model output about accuracy at ten members; the progress log itself, which is the
+dated record the rule appeals to; the regex in the checker; and Chapter 23's record of the two
+project-history claims already removed for this exact reason. The single real instance was the one
+introduced and fixed earlier the same day.
+
+**The gap that sweep exposed was closed rather than noted.** `check_history` now also scans
+`HANDOFF.md`, `AGENTS.md`, `AGENT_VERIFY.md` and `BOOK-PLAN.md`. Those four narrate or instruct
+about the project's own course, which is exactly where an unverifiable duration claim would live,
+and they were not being checked. All four were clean when added, so this closes a hole rather than
+papering over a finding. Chapters stay out deliberately: their durations are sourced history or
+model output, and the progress log is not the authority for either.
+
+**A12 was restructured to the book's chapter format and made self-contained.** It now ends with
+`A12.7 The Machinery`, carrying the four-part block the chapters use: what the comparison says, the
+technical version, notes on sources, and references under the canonical status headings. Read in
+full, Referenced but not reproduced, Internal, and What was not read all carry content; Cited at a
+remove is omitted rather than filled, per the convention.
+
+Two bleeds were removed so the section stands alone. The paragraph about `RecoveryDharma_2023` in
+A9 is gone, and threat item 9 was removed from A11 and folded into A12.7 part 1, where it is
+labelled as a threat visible only from that section. Within the book, A12 is now referenced from
+nowhere but itself. The corpus bookkeeping stays in `research/SOURCES.md`, `README.md`,
+`HANDOFF.md`, `AGENT_VERIFY.md` and `CLAUDE.md`, which are repository documentation rather than
+book text. **The consequence to be aware of:** the architecture threat is no longer in the
+appendix's global threats list, so a reader working through A11 alone will not meet it.
+
+**The primer gained a follow-up section**, "asking the same questions about a different
+fellowship", placed before its reference block and written in the primer's plain register. It
+carries the chronology point, the count, the absent charter, and the sequence argument, and it says
+plainly that none of it changes a figure in the primer and that the model's reach is narrower than
+"recovery groups": it is about groups with a numbered sequence and a fixed charter. Recovery Dharma
+was added to the primer's Read in full block and its unread parts to What was not read, along with
+the unsearched literature on Buddhist and mindfulness-based recovery programs.
+
+**On CI: there is none.** No `.github/workflows`, and no Travis, CircleCI, GitLab, Jenkins,
+Makefile or pre-commit configuration anywhere in the repository. The release gate is local and
+manual, which is what `AGENT_VERIFY.md` already describes. This is recorded so that a later reader
+does not assume a green build exists somewhere.
+
+**Staleness check.** `model/aa_group_model.py` hashes to the canonical
+`c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`. No retired room size, no
+1,000-seed rule, and no retuned 45/9 calibration target appears anywhere; the three surviving
+occurrences of the retired copyright wording are all descriptions of the retired rule, which is
+correct. The primer PDF was rebuilt and produces the same eight TeX warnings as the pre-edit
+version, four of them overfull boxes, so the new section introduced none. Book and primer PDFs
+rebuilt and the new pages inspected. `check_book.py` 0 failures, `check_chapter.py` on the primer
+clear, `check_portability.py` clear, `build_corpus.py --check` 0 problems, `check_release.py`
+136 passed and 0 failed.
+
+---
+
+## 16 August 2026: the deep read, a corrected finding, and the schism
+
+**The user asked whether the sangha is the group conscience. It is, and A12 had said otherwise.**
+That was the error of the day and it is worth recording plainly. The first pass read Section I and
+the meeting format, skipped the fourteen personal stories, and concluded the fellowship had no
+Traditions-equivalent object. It was wrong twice over. The meeting script already had every member
+affirm trust in the wisdom of the Sangha, which is a group-conscience analogue sitting in a document
+that had been read. And the stories, which had not been read, contain the fellowship's founding
+history. A12.4 is rewritten and now says the sangha **is** the analogue; what is actually absent is a
+written decision procedure, established by mechanical search of the full text rather than by reading
+alone, with zero hits for "group conscience", "consensus", "business meeting", "trusted servant",
+"quorum", "rotation", "bylaw" and "governance".
+
+**Reading Section II produced the strongest finding this source has, and it went into the book.**
+Recovery Dharma is a 2019 schism from Refuge Recovery, an organization built around a single named
+founding teacher. The stories are written by people who held office in the predecessor: its
+executive director, and a member who ran its retreats and conferences for five years. Her account is
+that the community was heavily influenced by inequities among its leaders, and that people were
+harmed and a sangha was fractured. The successor's first commitment, recited at every meeting, is
+that it is peer-led and follows no one leader or teacher, and the executive director's account of
+the founding says the framework was chosen deliberately. That is Traditions 2 and 9 arrived at
+independently, eighty-four years after AA, by people with no knowledge of this argument. One story
+also records that all the meetings in a region **voted** to switch, which is a group-conscience act
+in a fellowship whose literature never describes one.
+
+**Four paragraphs went into Chapter 24 at the user's direction**, after a recommendation and an
+explicit decision. Chapter 24 is the chapter that lists what would settle the book's claims and
+admits that item five, the measurement bearing most directly on the central claim, has no ethical
+method. A case that occurred on its own belongs there. It is framed as corroboration and not
+confirmation: one case, testimony rather than measurement, written by participants in their own
+founding literature, silent on whether dominance *scales*, which is item five's actual question.
+**The individual at the centre of the predecessor's collapse is named in the source and is named
+nowhere in this project.** The structural claim does not need it and nothing here can adjudicate an
+allegation about a living person. The restriction is recorded in the chapter, the appendix, the
+primer and the source metadata.
+
+**A12 gained a stories section and grew to eight subsections.** A12.5 reports what the fourteen
+accounts show: arrival is almost entirely exogenous, through a noticeboard flier, the Buddhist
+Recovery Network website, a free online book, internet searches, online meetings, a therapist and a
+prison chaplain, which inverts the model's endogenous arrival term and is why core inference 6 does
+not carry over. Membership overlaps rather than substitutes, which the one-room model cannot
+express. Two contributors left Twelve Step fellowships over singleness of purpose and outside
+issues, which is the cost side of Traditions 5 and 10 reported by people who paid it. One member
+describes the Eightfold Path as kaleidoscopic rather than consecutive, which is the order-gate
+argument in a member's own words. One states the affinity-meeting trade the model cannot score. And
+a founder describes going from five people doing everything to not knowing half the board, which is
+Part Two's scaling problem from the inside.
+
+**All three PDFs were fixed for margins and overflow.** The primer had no geometry at all and was
+rendering at LaTeX defaults; it now sets a4paper with 1 inch margins and takes the book's
+typography, so the two documents match. Overfull boxes went from twelve to zero in the book, four to
+zero in the primer, and one to zero in the paper. The fixes were `tolerance` and `hbadness` at 1500
+with `emergencystretch` at 4em, which prefers a slightly loose line to one in the margin;
+`tabcolsep` at 4pt; explicit relative column widths on three wide result tables in Chapters 15 and
+20, whose long row labels were the cause; and `scriptsize` on the paper's decline table. The
+primer's duplicate title, which repeated its YAML title as an H1, was removed, and
+`tools/build_book.py` now inserts the appendix heading rather than substituting for that H1.
+
+**One thing could not be done.** The user uploaded the 4th edition of *Alcoholics Anonymous* for the
+corpus. As with the Recovery Dharma attachment earlier in the session, the file was not on disk by
+the time it was wanted, and a search of the user's home directory found only the 1939 first edition
+already in `research/incorporated/BigBook_1939/`. Nothing was catalogued and no claim was drawn from
+it. It remains an open request.
+
+**A stale reproduction command was caught by the margin work.** Appendix A10 still told a reader to
+build the primer with a hand-typed pandoc line. That line no longer reflects how the primer is
+built, and its `text` block was also the one place in the whole book where content sat outside the
+type block without TeX reporting an overfull box, because verbatim does not wrap. Both are fixed:
+A10 now calls `tools/build_primer.py`, its file table is re-laid to fit, and it states the
+zero-overfull requirement. Every page of the book now measures the same 73.4pt right margin.
+
+---
+
+## 17 August 2026: the "4th edition" is the 1939 first edition, and A13
+
+**The file supplied as AA's fourth edition is not it.** Its title page reads "The 4th Edition of
+Alcoholics Anonymous" and, directly beneath, "This book contains a complete reprint of the 1st
+edition 1939", published by the Alcoholics Anonymous Big Book Study Group and marked "No Copyright
+1999". The fourth edition is the reprinter's own printing number. The contents are the 1939 stories,
+"The Doctor's Nightmare" through "Ace Full Seven-Eleven", not the 2001 selection. AA's actual fourth
+edition has a different set of stories and roughly four hundred more pages and the project still does
+not hold it.
+
+**It was also already in the corpus.** The stored `BigBook_1939.pdf` carries the same "The 4th
+Edition" title, the same 193 pages, and 99.91 per cent identical extracted text; the two files differ
+by a few bytes. So the upload was a second copy of source five, whose row had read "acquired; not yet
+used as claim support" since it was catalogued. The naming trap is now recorded in that source's
+summary so it does not catch anyone again.
+
+**The request behind it was still answerable, and produced the strongest evidence in the project for
+a modelling choice.** The twenty-nine personal stories were read and coded against one thing: the
+arrival term of A2.7, which gives member-carried arrival the dominant role over the exogenous
+constant. That weighting is one of the 118 registered values and had never been checked against
+anything.
+
+The stories support it. Twenty of twenty-seven automatically segmented stories carry explicit
+personal-contact language, and that figure is recorded as a lower bound because the phrase matcher
+misses accounts phrased differently; its clearest miss is Dr Bob's own arrival, which is described
+without any matched phrase. The recurring shape is a visit by a recovered drinker, often several: one
+writer records that about twenty men called on him in hospital, another that a doctor sent two of the
+members, a third that men came to him one by one.
+
+**The exception is the best evidence of all, because it runs against its authors' interest.** "Lone
+Endeavor" is a man reached only by letter and a pre-publication copy of the book. The fellowship
+frames it as "our initial effort to help others through the book alone", "the first time we have had
+an opportunity of trying to help an alcoholic at long distance", and records that during the silence
+that followed it "began to think this book was inadequate without personal contact". A fellowship
+publishing a book had every reason to claim the book sufficed. Its own literature says it doubted so.
+
+**Read beside A12.5, the pair bounds the parameter rather than confirming it.** Recovery Dharma's
+fourteen accounts arrive through a flier, a website, a free book, internet searches, online meetings,
+a therapist and a chaplain, with almost no member-carried arrival. Two fellowships eighty-four years
+apart sit at opposite ends of the same term. The arrival weighting is therefore a claim about an
+organization and a period, not about mutual-aid groups, and A13.5 says so.
+
+**Written as appendix A13 with the house Machinery block**, and deliberately not put in a chapter:
+this is corroboration of a modelling choice, which is appendix work, whereas the Recovery Dharma
+schism in A12.4 was evidence bearing on the book's thesis and went into Chapter 24. The primer's
+follow-up section gained a plain-language paragraph. `research/SOURCES.md` and the source summary
+now record `BigBook_1939` as used rather than merely acquired, which retires the last "not yet used"
+line in the corpus.
+
+**The governing limitation is stated in A13.5 and is severe.** The twenty-nine accounts are of people
+who recovered, selected for a book meant to persuade. They are the least representative sample
+imaginable of everyone the fellowship met, they cannot set a rate, and they say nothing about
+retention, dropout or group survival.
+
+**Audit pass, same day.** Two defects in the new material were found by checking it against the
+sources rather than against itself.
+
+The census denominator in A13 was wrong. Automatic segmentation recovered twenty-seven segments, but
+one of them, "A Vision For You", is Chapter 11 of the basic text and not a story. The correct figure
+is twenty of **twenty-six** story segments, not twenty of twenty-seven, and it is corrected in A13.3,
+in the Machinery summary and in the technical version. The section now also names all six segments
+the matcher failed to match, and identifies two of them as certain false negatives with the reason,
+so a reader can judge the size and direction of the error instead of taking a lower bound on trust.
+
+`RecoveryDharma_2023`'s `absence_claim_scope` was stale on two counts: it still asserted the
+fellowship had no Traditions-equivalent object, which was the corrected error, and it still described
+the personal stories as unread, which they no longer are. It now states the surviving narrow claim,
+records that it was tested by mechanical search of the full text rather than by reading alone, and
+notes the tension that one story reports meetings voting while the literature describes no decision
+procedure anywhere.
+
+Corpus counts were verified against disk rather than against the prose that asserts them: twenty-seven
+source directories, seven carrying `"record_only": true`, three without a verification index, matching
+the figures in `README.md`, `AGENTS.md`, `AGENT_VERIFY.md`, `HANDOFF.md` and `CLAUDE.md`. Every phrase
+quoted in A13 and in the primer's follow-up was re-checked for literal presence in the extracted text.
+
+---
+
+## 17 August 2026: test suite, coverage gate, and continuous integration
+
+The repository had no tests and no CI. It now has both.
+
+**`tests/test_model.py`, 65 tests over the canonical model.** They assert semantics rather than
+exercising lines: that `Snorm` rows sum to one, that `beta` is maximal and equal at Steps 1 and 12,
+that Step 12 is the sole carrier of recipient opportunity, that the five protective Traditions have
+zero governance rows, that the column-normalised `GOVW` makes governance quality exactly one at full
+adherence, that `het_sd` moves dispersion and not the mean, that the order gate shuts later Steps
+when earlier ones are zero, that zero membership is absorbing under any referral rate, and that
+existence, viability and closure are three different estimands. Writing them found two bugs, both in
+the tests rather than the model: the external-modifier test asserted that entries which are
+themselves zero would be scaled to 0.7, and the crossing-and-recovery test used a configuration that
+never crossed. Both are fixed and the second now documents why its configuration was chosen.
+
+**`tests/test_release_invariants.py` pins what CLAUDE.md calls non-negotiable**: the canonical
+SHA-256, that CLAUDE.md and the appendix still quote it, room capacity 60, viability threshold 5,
+and the 22 + 12 + 49 + 35 = 118 decomposition. A change to any of these now fails the build instead
+of being caught by a reader comparing prose against a cache.
+
+**Coverage is 100 per cent of `model/aa_group_model.py`, enforced with `fail_under = 100`.** The
+scope is deliberate and is argued in `.coveragerc`: that file is the thing everything rests on, it
+is hash-frozen, and it is pure computation. The scripts under `tools/` and the analysis scripts
+under `model/` are batch jobs that write hash-linked caches and render PDFs; unit-testing them to
+100 per cent would mean running the release designs on every commit or mocking until the tests meant
+nothing. They are covered instead by `tests/test_tools_integration.py`, which runs each checker for
+real, compiles every script, and asserts that no source document has been committed.
+
+Two lines could not be covered by a test and are handled honestly rather than ignored. The
+`__main__` block is exercised through `runpy`. The defensive closure re-check after the arrival draw
+is provably unreachable, because the loop breaks on an empty room before arrivals are drawn; since
+the model cannot carry a `# pragma: no cover` without changing its digest, the line is excluded by
+pattern in `.coveragerc` with the reasoning written out.
+
+**`.github/workflows/ci.yml` defines two jobs.** `checks` runs on every push and pull request across
+Python 3.11, 3.12 and 3.13: the suite with its coverage gate, the model-hash assertion, the corpus
+drift check, portability, and `check_book`. `release-gate` runs on `main`, installs pandoc and
+tectonic, rebuilds the primer and the book, fails if either produces an overfull box, and runs the
+fail-closed gate with the slow integration tests enabled.
+
+One design point is worth recording because it would otherwise look like an oversight. The release
+gate is behind `NIC_SLOW_TESTS=1` rather than in the fast job, because part of what it checks is
+that each PDF is at least as new as its sources. A fresh clone gives every file the same checkout
+timestamp and checkout order can leave a source microseconds ahead of its artifact, so the gate has
+to run against artifacts that were actually built. The CI job rebuilds them first.
+
+`requirements-dev.txt` records the four dependencies as floors rather than pins: results here are
+pinned by the model hash and the caches, not by the toolchain.

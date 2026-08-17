@@ -109,6 +109,18 @@ record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were al
 Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
 sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three are record only.
 
+`RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
+read in full; only the meditations and inquiry questions were not. It supports appendix A12 and four
+paragraphs of Chapter 24. It is held on the ordinary footing, git-ignored with a hash and an index.
+Its CC BY-NC-SA 4.0 licence is the one licence in the corpus that would permit committing the
+document; it is git-ignored anyway, because the rule is uniform.
+
+Two rules attach to it. **The founder of the predecessor organization it split from is named in that
+source and is named nowhere in this project.** The structural claim does not need the name and
+nothing here can adjudicate an allegation about a living person. And a first pass on that source
+concluded the fellowship had no group-conscience analogue, which was wrong: the sangha is one, and
+the error came from skipping Section II. Do not restore the earlier claim.
+
 Both journal articles, Pagano et al. (2004) and Greenfield and Tonigan (2013), were obtained by
 hand on 10 August 2026 and read in full; they are under `research/incorporated/`. The staged
 corpus is therefore fully incorporated, and what is left under `research/staged/` is the
@@ -185,15 +197,44 @@ reproduced, and not obtained.
 Run from the repository root:
 
 ```bash
+python3 -m pytest
 python3 tools/run_notebook.py
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/check_release.py
 python3 tools/build_book.py
+python3 tools/build_primer.py
 ```
 
-The standalone primer must be rebuilt from its Markdown and the paper from its LaTeX source.
+## Tests and CI
+
+`python3 -m pytest` runs the suite. It needs `requirements-dev.txt` and nothing else, and it
+does not need any source document: every source under `research/incorporated/` is git-ignored
+and the citation checker works from the committed verification indexes.
+
+The coverage gate is **100 per cent of `model/aa_group_model.py`** and is enforced by
+`.coveragerc` with `fail_under = 100`. That file is the canonical model, is hash-frozen, and
+is pure computation, so it is worth testing exhaustively. The scripts under `tools/` and the
+analysis scripts under `model/` are deliberately outside the gate: they are batch jobs and
+entry points that write hash-linked caches and render PDFs. They are covered by
+`tests/test_tools_integration.py`, which runs each one for real, and by the release gate.
+
+**`model/aa_group_model.py` must never be edited to make a test pass.** Its SHA-256 is the
+release identity. `tests/test_release_invariants.py` pins the digest, room capacity 60, the
+viability threshold 5, and the 22 + 12 + 49 + 35 = 118 decomposition, so a change fails the
+build rather than being noticed by a reader.
+
+GitHub Actions runs two jobs, defined in `.github/workflows/ci.yml`. `checks` is fast and
+gates every push and pull request. `release-gate` installs pandoc and tectonic, rebuilds the
+book and the primer, asserts zero overfull boxes, and runs `check_release.py`; it rebuilds
+rather than trusting the committed PDFs because a fresh clone gives every file the same
+checkout timestamp.
+
+The standalone primer is rebuilt by `python3 tools/build_primer.py`, which holds its typography so
+the Markdown stays free of LaTeX; the paper is rebuilt from its LaTeX source. All three PDFs use one
+inch margins and must render with zero overfull boxes. `build_book.py` and `build_primer.py` both
+report the overfull count, and a nonzero count means text is sitting outside the type block.
 Render and visually inspect all three PDFs. Confirm that each artifact is newer than every
 source that feeds it, has no clipping or broken tables, and contains no retired language.
 

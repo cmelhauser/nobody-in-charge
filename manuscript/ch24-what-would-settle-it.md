@@ -79,6 +79,20 @@ What would help is comparing a prespecified *ordering* against real data. The st
 
 ---
 
+**One case arrived without being asked for.**
+
+Every item above is a measurement somebody would have to go and take. While this book was being finished, a case turned up that nobody took, because it happened on its own and was written down afterwards by the people it happened to.
+
+Recovery Dharma is a Buddhist recovery fellowship whose program book was published in 2023 and read for the comparison in appendix A12. It exists because of a split. Its predecessor was organized around a single named founding teacher, and it fractured in 2019. The account in the book is given by people who held office in the predecessor, including its executive director and a member who ran its retreats and conferences for five years. Her description of the collapse is that the community was heavily influenced, in her words, by "inequities among leaders", and that people were harmed and a sangha was fractured.
+
+What the survivors then built is the part that bears on this book. The executive director's account of the founding says they meant to be deliberate about the framework and that it had to be peer-led. The commitment appears first in the meeting script every group reads aloud: the fellowship is peer-led and follows no one leader or teacher, and the person running the meeting says plainly that they hold no particular authority. A fellowship that had just watched authority concentrate in one figure responded by abolishing the office that concentrated it.
+
+That is Tradition Two and Tradition Nine arrived at independently, eighty-four years after AA, by people who had never heard of this argument and had no reason to care about it. It is the closest thing to a live test the book has, and it is worth being exact about how little it settles. It is a single case. It is testimony rather than measurement, written by participants in their own founding literature, which is the genre most likely to make a decision look more principled in hindsight than it was. It does not touch the mathematics, and it says nothing at all about item five's real question, which is whether dominance *scales* with the size of the room. What it does is remove one specific comfort: the objection that no group has ever actually restructured itself around this problem, and that the reading of Traditions Two and Nine is therefore a pattern I imposed on a text. At least one fellowship did restructure itself around this problem, at considerable cost, and reached for the same two answers.
+
+I would have preferred to find this before the argument was written rather than after. Its full treatment, including the parts that cut the other way, is in appendix A12.
+
+---
+
 There is a pattern in the six and it is worth naming.
 
 Four of them require data about *groups*, not about people: which cells a reader marks, what proportion of a group rotates, how many groups exist in a region and for how long, how attention is distributed in a room. Almost all research on AA is about members, because members are who show up in clinical trials and who can be followed.
@@ -116,7 +130,7 @@ For each item, the claim, the design, and the result that would falsify it.
 
 ### 3. Notes on sources
 
-**This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding.
+**This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding. The Recovery Dharma case added at the end is the one piece of reported material, and it is testimony rather than measurement: a single fellowship's account of its own founding, written by participants, in its own program literature. It corroborates and cannot confirm. It is placed in this chapter rather than in the argument chapters precisely because this is where the book says what it has not established.
 
 **One claim here still rests on material I have not read.** SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
 
@@ -128,7 +142,7 @@ For each item, the claim, the design, and the result that would falsify it.
 
 **Read in full:**
 
-Nothing new to this chapter.
+Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Stored in `research/incorporated/RecoveryDharma_2023/`. Source of the 2019 split described above, which is reported in the personal recovery stories of Section II by people who held office in the predecessor organization, and of the peer-led commitment in the meeting script at printed pages 147 and 151. The named individual at the centre of the predecessor's collapse is named in that source and is deliberately not named here; the structural point does not require it and this book has no way to adjudicate an allegation about a living person. Appendix A12 carries the full comparison, including the material that cuts against this chapter's use of it.
 
 **Cited at a remove:**
 

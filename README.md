@@ -135,6 +135,29 @@ tools/                  Notebook runner, checkers, inventory, summaries, and bui
 build/                  Generated whole-book Markdown and PDF
 ```
 
+## Tests and CI
+
+```bash
+python3 -m pip install -r requirements-dev.txt
+python3 -m pytest
+```
+
+The suite runs without any source document, because every source under
+`research/incorporated/` is git-ignored and citation checking works from the committed
+verification indexes.
+
+The coverage gate is 100 per cent of `model/aa_group_model.py`, the canonical model, enforced
+by `.coveragerc`. That file is hash-frozen and is pure computation, so it is tested
+exhaustively; `tests/test_release_invariants.py` also pins its SHA-256, the room capacity of
+60, the viability threshold of 5, and the 22 + 12 + 49 + 35 = 118 decomposition. The scripts
+under `tools/` are batch jobs and entry points rather than libraries, so they sit outside the
+coverage gate and are covered by `tests/test_tools_integration.py`, which runs each one for
+real.
+
+GitHub Actions runs a fast job on every push and pull request, and a slower one on `main` that
+installs pandoc and tectonic, rebuilds the book and the primer, requires zero overfull boxes,
+and runs the fail-closed release gate. See `.github/workflows/ci.yml`.
+
 ## Reproduction and release checks
 
 Run from the repository root after all required caches are complete. All three PDFs are built
@@ -203,12 +226,17 @@ source for a subject is citing a work that contains it, using the indexes; with 
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
 with `python3 tools/build_corpus.py`, or audit it with `--check`.
 
-Seven of the 26 sources are held as record only, with no document at any time: AAWS pamphlet
+Seven of the 27 sources are held as record only, with no document at any time: AAWS pamphlet
 P-17 and Kurtz (1991), which are copyrighted works the project chose never to store; DeGroot
 (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
 authorization and which the project's rights review directs be cited within limits rather than
 archived; and, added 10 August 2026, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
 and the Kurtz talk of about 1984.
+
+Recovery Dharma (2023), added 16 August 2026 for appendix A12, is held on the ordinary footing:
+document present locally, git-ignored, hashed, and indexed. It is the one source in the corpus
+whose licence, CC BY-NC-SA 4.0, would permit committing the document outright. It is git-ignored
+anyway, because the rule is uniform.
 
 **Reading a copyrighted work and holding one are different acts, and the rule here is about
 holding.** Several chapters formerly declined to read AA literature on copyright grounds. That was

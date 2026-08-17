@@ -62,10 +62,11 @@ the two journal articles on 10 August:
 | Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
 | Wilson, "Twelve Suggested Points for A. A. Tradition", *A.A. Grapevine* (April 1946) | **A.A. Grapevine copyright; not archived** | record only | read at source; Chapter 5's opening quotation verified, and the two-title problem explained |
 | DeGroot, "Reaching a Consensus" (1974) | **ASA / Taylor & Francis; not archived** | record only | read at source; the updating rule behind Part Two |
-| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | acquired; not yet used as claim support |
+| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | **twenty-nine personal stories read in full 17 August 2026**; supports appendix A13, the census of arrival channels against the model's arrival term |
 | AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; not archived** | record only | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
 | Rohr, *Breathing Under Water* (2011) | **in copyright and in print; not archived** | record only | read in full 10 August 2026; cited only for its reading of anonymity and for containing no discussion of the Traditions; see the provenance note below |
 | Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **rights position not established; not archived** | record only | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
+| Recovery Dharma Global, *Recovery Dharma*, second edition (2023) | CC BY-NC-SA 4.0; the one licence here that would permit committing the document | PDF and extracted text | Sections I and II read in full 16 August 2026, meditations and inquiry questions not; source for appendix A12 and four paragraphs of Chapter 24 |
 
 ### The three copyrighted works read on 10 August 2026
 
@@ -105,6 +106,33 @@ transcript here would be redistribution beyond the authorized source context. Th
 the citation, the official URL, the SHA-256 of the July 2024 file, and the verified quotations. A
 verifier should download it from aa.org. Removing the mirror changes nothing about what the book
 may claim from it.
+
+### Recovery Dharma (2023), the one source whose licence would permit committing it
+
+Worth a note because it is the single exception to the reason everything else is git-ignored. The
+book is published under CC BY-NC-SA 4.0, which expressly permits copying, redistribution and
+adaptation with attribution. Nothing in its rights position would prevent committing the document.
+It is git-ignored anyway, because the rule is uniform and because the repository does not carry
+source documents of any kind. Stating this keeps a later reader from inferring a copyright
+constraint that does not exist here.
+
+**Provenance is a two-step record and is written that way deliberately.** The copy first read on
+16 August 2026 was an ephemeral session attachment that was removed from disk before it could be
+stored. The user's own copy was then located and confirmed to be the same document by page count
+(172), byte size (871,059) and verbatim spot-checks against passages read from the attachment. That
+copy is the one hashed and indexed. The bibliographic record was taken from the file's own title and
+copyright pages rather than from an independent catalogue entry, which remains weaker than this
+project prefers and is the one open item on this source.
+
+**Read in part.** Section I, the meeting format, the glossary and the dedication of merit were read
+in full. The fourteen personal recovery stories and the selected meditations and inquiry questions
+were not. Appendix A12 draws only on what was read, and states the scope of its one absence claim.
+Because the document is now held locally, the remainder can be read without re-acquiring anything.
+
+**On its `subjects_present`.** The index reports `chase`, `utica` and `washingtonian`. All three are
+artifacts of the shared OCR-tolerant matcher over-including short tokens, the same limitation the
+`TwelveAndTwelve_1953` note records. No chapter cites this source, so no pair is ever adjudicated
+against it and the artifact is inert.
 
 ### Layout and what is committed
 
@@ -695,6 +723,44 @@ above under Maxwell.
 ---
 
 ## Obtained, partly read
+
+**Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to
+heal the suffering of addiction.* Second edition. Recovery Dharma Inc. 172 PDF pages.**
+
+Stored in `research/incorporated/RecoveryDharma_2023/` with PDF, extracted text (57,419 words),
+citation, metadata and verification index. CC BY-NC-SA 4.0. Read 16 August 2026 at the user's
+direction, to test whether the group model can speak to a fellowship organised on Buddhist rather
+than Twelve Step lines.
+
+Read: the contents and front matter through The Practice (ix to xvi); the whole of Section I (1 to
+54); the whole of Section II, the fourteen personal recovery stories (57 to 121); and from Section
+III the glossary (145 to 146), the meeting format (147 to 151) and the dedication of merit (152).
+**Not read:** only the selected meditations (122 to 135) and the inquiry questions (136 to 144),
+which are practice material rather than description.
+
+**A first pass got the central question wrong and the record keeps how.** That pass read Section I
+and the meeting format, skipped the stories, and concluded the fellowship had no Traditions
+equivalent. It was wrong twice: the meeting script already contained a group-conscience analogue in
+the affirmation of trust in the Sangha, and the unread stories contained the fellowship's founding
+history. Reading Section II corrected both and produced the finding the manuscript now cites.
+
+Supports appendix A12 and four paragraphs of Chapter 24. Specifically: the program's seven
+enumerated lists and their thirty-five items; the sangha as a group-conscience analogue; the absence
+of any written decision procedure, established by mechanical search of the full text; the 2019
+schism from Refuge Recovery and the peer-led commitment adopted in response to it; the
+overwhelmingly exogenous arrival channels reported across the fourteen stories; and members' own
+statements that the Eightfold Path is not worked in sequence.
+
+**One handling rule.** The founder of the predecessor organization is named in this source in
+connection with its collapse. The project does not name him anywhere. The structural claim does not
+need the name and nothing here can adjudicate an allegation about a living person.
+
+**What it cannot support.** Nothing about what Recovery Dharma groups do, no outcome, and no
+effectiveness comparison with AA. It also cannot support a derivation claim in either direction: the
+Eightfold Path predates the Twelve Steps by roughly two and a half thousand years, and the book
+presents its program as an application of early Buddhist teaching. The absence claim that the
+fellowship has no Traditions-equivalent charter is scoped to the table of contents, Section I and the
+Section III appendix, where a charter would be a listed item.
 
 **American Temperance Union (1841). *Annual Report of the American Temperance Union.***
 

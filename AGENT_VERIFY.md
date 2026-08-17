@@ -1,5 +1,20 @@
 # Independent Agent Verification Brief
 
+## Run the tests first
+
+```bash
+python3 -m pip install -r requirements-dev.txt
+python3 -m pytest
+```
+
+This needs no source document and finishes in seconds. It asserts the canonical model hash,
+room capacity 60, viability threshold 5, the 22 + 12 + 49 + 35 = 118 decomposition, and the
+semantics the appendix describes, at 100 per cent coverage of `model/aa_group_model.py`. A
+failure here tells you the model or its invariants moved, which is worth establishing before
+reading anything else. GitHub Actions runs the same suite plus, on `main`, a job that rebuilds
+the PDFs and runs the release gate.
+
+
 ## Purpose
 
 Verify the release of *Nobody in Charge* independently. Do not repair, reinterpret, or retune
@@ -25,11 +40,12 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds 26 sources: those the project
-   used before the acquired corpus arrived, the six promoted out of the staged corpus, and six
+2. **Incorporated local copies.** `research/incorporated/` holds 27 sources: those the project
+   used before the acquired corpus arrived, the six promoted out of the staged corpus, six
    added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
-   and the Kurtz talk of about 1984. A directory's leading token must be at least three characters
+   and the Kurtz talk of about 1984, and Recovery Dharma (2023) added on 16 August 2026 for
+   appendix A12. A directory's leading token must be at least three characters
    and distinctive, because `check_book.py` identifies a source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
    already taken by P-17 and by Kurtz (1991), and two directories sharing a leading token would
@@ -60,6 +76,12 @@ that they be cited and quoted within limits rather than archived. Three more wer
 10 August 2026: AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011) and the Kurtz talk
 of about 1984. Each record keeps the citation, the rights position, the hash of the copy
 consulted, and the passages verified from it.
+
+`RecoveryDharma_2023`, added 16 August 2026, is **not** in that category. It is an ordinary
+git-ignored source with a document, a SHA-256 and a verification index. It is worth one line here
+only because its licence, CC BY-NC-SA 4.0, is the single licence in the corpus that would permit
+committing the document; the project git-ignores it anyway, so the uniform rule holds without
+exception.
 
 Rohr (2011) carries the corpus's strongest provenance objection, recorded in its `metadata.json`:
 the copy consulted was an unauthorized posting of a current in-print title. It was not retained,
