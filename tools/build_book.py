@@ -327,6 +327,10 @@ def main():
     with open(log, 'w', encoding='utf-8') as fh:
         fh.write(res.stdout + res.stderr)
     if res.returncode != 0:
+        # Print the tail as well as the path. In CI the log file is discarded with the
+        # runner, so a bare path leaves a red build with no way to tell what happened.
+        tail = (res.stdout + res.stderr).splitlines()[-40:]
+        sys.stderr.write('\n'.join(tail) + '\n')
         raise SystemExit('pandoc failed, see %s' % log)
     print('wrote %s using %s' % (OUT_PDF, engine))
 
