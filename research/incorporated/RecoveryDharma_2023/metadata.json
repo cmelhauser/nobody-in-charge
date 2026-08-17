@@ -1,0 +1,61 @@
+{
+ "id": "RecoveryDharma_2023",
+ "title": "Recovery Dharma: How to use Buddhist practices and principles to heal the suffering of addiction",
+ "author": "Recovery Dharma Global (collective, no named author)",
+ "year": 2023,
+ "edition": "second",
+ "type": "primary_program_literature",
+ "status": "read_substantially",
+ "rights_note": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International. Sharing and adaptation permitted with attribution; no commercial use. Not committed, per the uniform rule.",
+ "source_url": "https://recoverydharma.org",
+ "record_only": false,
+ "provenance_note": "First consulted 16 August 2026 as an ephemeral session attachment that was removed from disk before it could be stored. A copy already held by the user was then located on the same machine and confirmed to be the same document by page count (172), byte size (871,059) and verbatim spot-checks against passages read from the attachment. That copy is the one recorded here. Its location is deliberately not written down: this repository records sources by URL and SHA-256, never by a path on somebody's machine. The bibliographic record was taken from the file's own title and copyright pages and has not been confirmed against an independent catalogue entry, which remains a weaker position than this project prefers.",
+ "pagination": {
+  "pdf_pages": 172,
+  "printed_front_matter": "ix-xvi roman",
+  "printed_body": "1-152 arabic",
+  "offset": "printed page = PDF page minus 16 in the arabic range"
+ },
+ "read_scope": {
+  "read_in_full": [
+   "Contents, ix-xvi preface, What is Recovery Dharma, Where to Begin, The Practice",
+   "Section I entire (1-54): Awakening: Buddha; The Truth: Dharma with the Four Noble Truths and the Eightfold Path; Community: Sangha; Recovery is Possible",
+   "Section II entire (57-121): the fourteen personal recovery stories",
+   "Section III: Glossary (145-146); Recovery Dharma Meeting Format (147-151); Dedication of Merit (152)"
+  ],
+  "not_read": [
+   "Section III: Selected Meditations (122-135) and Inquiry Questions (136-144), which are practice material rather than description"
+  ],
+  "note": "A first pass on 16 August 2026 read Section I and the appendix but not the stories, and concluded the fellowship had no Traditions-equivalent object. That was wrong twice over: the meeting script already contained a group-conscience analogue, and the stories contain the fellowship's founding history. Reading Section II corrected both. Record the error rather than the corrected state alone."
+ },
+ "topics": [
+  "Four Noble Truths",
+  "Eightfold Path",
+  "sangha",
+  "peer-led governance",
+  "meeting format",
+  "confidentiality",
+  "service and generosity",
+  "mentors",
+  "renunciation"
+ ],
+ "read_date": "2026-08-16",
+ "what_it_supports": "Appendix section A12 and four paragraphs of manuscript Chapter 24. Source for: the program's seven enumerated lists; the sangha as group-conscience analogue; the absence of any written decision procedure; the 2019 schism from Refuge Recovery and the peer-led commitment adopted in response; the predominantly exogenous arrival channels reported across the fourteen stories; and members' own statements that the Eightfold Path is not worked in sequence.",
+ "what_it_cannot_support": "Nothing about what Recovery Dharma groups in fact do, nothing about outcomes, and no comparison of effectiveness with AA. It is program literature describing intent. It also cannot support any claim that the Eightfold Path was derived from the Twelve Steps: the book states the opposite lineage, and the chronology runs the other way.",
+ "absence_claim_scope": "Corrected 16 August 2026. The earlier claim, that the program has no Traditions-equivalent object, was wrong: the meeting script has members affirm trust in the wisdom of the Sangha, which is a group-conscience analogue. The surviving absence claim is narrower and was tested mechanically over the full extracted text rather than by reading alone: no occurrence of 'group conscience', 'consensus', 'business meeting', 'trusted servant', 'quorum', 'rotation', 'bylaw' or 'governance'. The fellowship names an authority and supplies no written decision procedure. Note that one story records meetings voting to switch fellowships, so a decision procedure exists in practice while being absent from the literature.",
+ "legacy_stem": null,
+ "documents": {
+  "RecoveryDharma_2023.pdf": {
+   "sha256": "734e7d4fbdcc845a6d726d0a5590b6536882cf53a7f720a8f6d422376c661890",
+   "bytes": 871059,
+   "tracked_in_git": false
+  },
+  "RecoveryDharma_2023.txt": {
+   "sha256": "bc7f02370b60d03aee79392d632e130817c198fd198340fb526d77aa9640f5b7",
+   "bytes": 333500,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "sensitive_handling": "The founder of the predecessor organization is named in this source in connection with its collapse. The project does not name him. The structural claim does not require the name and this project cannot adjudicate an allegation about a living person. Applies to the appendix, the chapter and the primer."
+}

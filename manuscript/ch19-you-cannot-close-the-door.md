@@ -70,7 +70,7 @@ The release-gate factorial reports loss of the governance path, loss of the fric
 Design: 400 paired seeds, all other Traditions at 1.0, thirty-year horizon, dt of half a week. Continuous entries are means with 95 per cent intervals; proportions carry Wilson intervals.
 
 | Condition | Final N | Exists, N > 0 | Endpoint viable, N > 5 | Closed, N = 0 | Established practice | Low-practice fraction |
-|---|---|---|---|---|---|---|
+|----------------------|-----------|-----------|-----------|-----------|-----------|-----------|
 | Baseline | 17.80 [16.92, 18.68] | 100.0% [99.0, 100.0] | 98.5% [96.8, 99.3] | 0.0% [0.0, 1.0] | 0.2645 [0.2587, 0.2703] | 0.2345 [0.2215, 0.2474] |
 | Friction loss only | 14.84 [13.91, 15.76] | 99.2% [97.8, 99.7] | 94.0% [91.2, 95.9] | 0.8% [0.3, 2.2] | 0.2886 [0.2806, 0.2965] | 0.2225 [0.2073, 0.2376] |
 | Governance loss only | 11.77 [11.15, 12.40] | 98.0% [96.1, 99.0] | 91.2% [88.1, 93.6] | 2.0% [1.0, 3.9] | 0.2648 [0.2553, 0.2743] | 0.4059 [0.3860, 0.4257] |

@@ -96,7 +96,7 @@ The distinct mortality profiles follow from that structure without being put in 
 Survival carries a 95 per cent Wilson interval; membership and quality carry a 95 per cent half-width from the cross-run standard error.
 
 | Condition | Viable y10 | Members if viable, y10 | Established practice y10 | Viable y30 | 95% interval | Established practice y30 |
-|---|---|---|---|---|---|---|
+|-------------------------|--------|------------|--------------|--------|----------------|--------------|
 | nothing wrong | 0.9975 | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968 to 0.993 | 0.2648 ± 0.0058 |
 | invisible | 0.9925 | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968 to 0.993 | 0.2592 ± 0.0071 |
 | unreferred | 0.660 | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015 to 0.049 | 0.3642 ± 0.0443 |
@@ -107,7 +107,7 @@ Only eleven unreferred runs are viable at year thirty. Their quality interval is
 Membership counted over all runs with deaths as zero, by year:
 
 | Condition | y1 | y2 | y5 | y10 | y20 | y30 | half-width at y30 |
-|---|---|---|---|---|---|---|---|
+|------------------------|--------|--------|--------|--------|--------|--------|----------------------------|
 | nothing wrong | 37.7 | 38.3 | 35.2 | 29.3 | 21.3 | 17.8 | ± 0.88 |
 | invisible | 21.5 | 18.6 | 14.5 | 12.9 | 12.2 | 12.4 | ± 0.34 |
 | unreferred | 32.7 | 30.4 | 21.6 | 11.7 | 2.5 | 0.51 | ± 0.23 |

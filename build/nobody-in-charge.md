@@ -5,7 +5,7 @@ author:
   - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
   - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
-date: "Draft of 16 August 2026"
+date: "Draft of 17 August 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -21,11 +21,24 @@ header-includes:
   - \usepackage{microtype}
   - \usepackage{booktabs}
   - \usepackage{longtable}
-  - \setlength{\emergencystretch}{3em}
+  - \setlength{\emergencystretch}{4em}
+  # Prefer a slightly loose line over one that runs into the margin. Without these,
+  # twelve paragraphs overflowed, the worst by 25pt, which is a third of an inch of
+  # text sitting outside the type block. Long unbreakable tokens cause most of them:
+  # an email address in the preface, file paths, and identifiers TeX will not hyphenate.
+  - \tolerance=1500
+  - \hbadness=1500
   - \usepackage[htt]{hyphenat}
   - \usepackage{xurl}
   - \usepackage{etoolbox}
-  - \AtBeginEnvironment{longtable}{\footnotesize}
+  # Pandoc rounds each column fraction to four places, so an equal-width table of
+  # six or seven columns can sum to 1.0003 and overhang the text block by a tenth of
+  # a point. Shaving a point off the table's working width absorbs that exactly, and
+  # reaches the tables converted from the paper's LaTeX, whose widths this repository
+  # cannot set at source.
+  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-1pt}}
+  # Wide result tables were the last thing sitting outside the type block.
+  - \setlength{\tabcolsep}{4pt}
   - \usepackage{titlesec}
   - \titleformat{\chapter}[display]{\normalfont\Large\bfseries}{}{0pt}{\Large}
   - \titlespacing*{\chapter}{0pt}{0pt}{28pt}
@@ -3323,7 +3336,7 @@ Step 12 is the only consumer: S[12, recipient] = 1.0, which is 0.417 of that ste
 **Results**, 400 paired seeds each. Endpoint viability is a fraction; means show 95 per cent half-widths:
 
 | Configuration | Endpoint viable | Mean N | Practice | Step 1 | Step 9 | Step 12 | Maintenance |
-|---|---|---|---|---|---|---|---|
+|------------------------|------------|-------------|---------------|-------|-------|--------|--------------|
 | Baseline | 0.985 | 17.80 ± 0.88 | 0.2198 ± 0.0054 | 0.7135 | 0.0471 | 0.0347 | 0.0380 |
 | Twelfth step disabled | 0.985 | 12.48 ± 0.35 | 0.2049 ± 0.0055 | 0.7046 | 0.0416 | 0.0026 | 0.0245 |
 | Recipient capacity forced to one | 0.9875 | 18.83 ± 1.05 | 0.2198 ± 0.0054 | 0.7136 | 0.0458 | 0.0371 | 0.0382 |
@@ -4025,7 +4038,7 @@ The release-gate factorial reports loss of the governance path, loss of the fric
 Design: 400 paired seeds, all other Traditions at 1.0, thirty-year horizon, dt of half a week. Continuous entries are means with 95 per cent intervals; proportions carry Wilson intervals.
 
 | Condition | Final N | Exists, N > 0 | Endpoint viable, N > 5 | Closed, N = 0 | Established practice | Low-practice fraction |
-|---|---|---|---|---|---|---|
+|----------------------|-----------|-----------|-----------|-----------|-----------|-----------|
 | Baseline | 17.80 [16.92, 18.68] | 100.0% [99.0, 100.0] | 98.5% [96.8, 99.3] | 0.0% [0.0, 1.0] | 0.2645 [0.2587, 0.2703] | 0.2345 [0.2215, 0.2474] |
 | Friction loss only | 14.84 [13.91, 15.76] | 99.2% [97.8, 99.7] | 94.0% [91.2, 95.9] | 0.8% [0.3, 2.2] | 0.2886 [0.2806, 0.2965] | 0.2225 [0.2073, 0.2376] |
 | Governance loss only | 11.77 [11.15, 12.40] | 98.0% [96.1, 99.0] | 91.2% [88.1, 93.6] | 2.0% [1.0, 3.9] | 0.2648 [0.2553, 0.2743] | 0.4059 [0.3860, 0.4257] |
@@ -4168,7 +4181,7 @@ The distinct mortality profiles follow from that structure without being put in 
 Survival carries a 95 per cent Wilson interval; membership and quality carry a 95 per cent half-width from the cross-run standard error.
 
 | Condition | Viable y10 | Members if viable, y10 | Established practice y10 | Viable y30 | 95% interval | Established practice y30 |
-|---|---|---|---|---|---|---|
+|-------------------------|--------|------------|--------------|--------|----------------|--------------|
 | nothing wrong | 0.9975 | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968 to 0.993 | 0.2648 ± 0.0058 |
 | invisible | 0.9925 | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968 to 0.993 | 0.2592 ± 0.0071 |
 | unreferred | 0.660 | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015 to 0.049 | 0.3642 ± 0.0443 |
@@ -4179,7 +4192,7 @@ Only eleven unreferred runs are viable at year thirty. Their quality interval is
 Membership counted over all runs with deaths as zero, by year:
 
 | Condition | y1 | y2 | y5 | y10 | y20 | y30 | half-width at y30 |
-|---|---|---|---|---|---|---|---|
+|------------------------|--------|--------|--------|--------|--------|--------|----------------------------|
 | nothing wrong | 37.7 | 38.3 | 35.2 | 29.3 | 21.3 | 17.8 | ± 0.88 |
 | invisible | 21.5 | 18.6 | 14.5 | 12.9 | 12.2 | 12.4 | ± 0.34 |
 | unreferred | 32.7 | 30.4 | 21.6 | 11.7 | 2.5 | 0.51 | ± 0.23 |
@@ -4320,7 +4333,7 @@ Conditioning is what makes the practice mean incomplete. The mean among eleven v
 The unreferred condition, both views:
 
 | Year | Exists | Viable | Members, all runs | Members, viable runs | Established practice, viable runs |
-|---|---|---|---|---|---|
+|--------|--------|--------|----------------|----------------|------------------------|
 | 2 | 1.000 | 1.000 | 30.38 ± 0.70 | 30.38 ± 0.70 | 0.3585 ± 0.0049 |
 | 5 | 1.000 | 0.970 | 21.55 ± 1.01 | 22.07 ± 1.00 | 0.3479 ± 0.0058 |
 | 10 | 0.9475 | 0.660 | 11.68 ± 1.02 | 16.47 ± 1.18 | 0.3475 ± 0.0084 |
@@ -4464,7 +4477,7 @@ Three founding conditions, twenty-five founders each, identical total initial pr
 Viability carries a 95 per cent Wilson interval; continuous means carry a 95 per cent half-width. Conditions share seeds and random streams, so comparisons use paired differences.
 
 | Condition | Endpoint viable | 95% interval | Mean N | ± | Established practice | Established count |
-|---|---|---|---|---|---|---|
+|----------------------|-----------|-----------|-----------|-----------|-----------|-----------|
 | even | 0.985 | 0.968 to 0.993 | 17.80 | 0.88 | 0.2645 | 13.97 |
 | concentrated | 0.9875 | 0.971 to 0.995 | 18.09 | 0.99 | 0.2628 | 14.16 |
 | split | 0.985 | 0.968 to 0.993 | 17.45 | 0.93 | 0.2660 | 13.89 |
@@ -4779,6 +4792,20 @@ What would help is comparing a prespecified *ordering* against real data. The st
 
 ---
 
+**One case arrived without being asked for.**
+
+Every item above is a measurement somebody would have to go and take. While this book was being finished, a case turned up that nobody took, because it happened on its own and was written down afterwards by the people it happened to.
+
+Recovery Dharma is a Buddhist recovery fellowship whose program book was published in 2023 and read for the comparison in appendix A12. It exists because of a split. Its predecessor was organized around a single named founding teacher, and it fractured in 2019. The account in the book is given by people who held office in the predecessor, including its executive director and a member who ran its retreats and conferences for five years. Her description of the collapse is that the community was heavily influenced, in her words, by "inequities among leaders", and that people were harmed and a sangha was fractured.
+
+What the survivors then built is the part that bears on this book. The executive director's account of the founding says they meant to be deliberate about the framework and that it had to be peer-led. The commitment appears first in the meeting script every group reads aloud: the fellowship is peer-led and follows no one leader or teacher, and the person running the meeting says plainly that they hold no particular authority. A fellowship that had just watched authority concentrate in one figure responded by abolishing the office that concentrated it.
+
+That is Tradition Two and Tradition Nine arrived at independently, eighty-four years after AA, by people who had never heard of this argument and had no reason to care about it. It is the closest thing to a live test the book has, and it is worth being exact about how little it settles. It is a single case. It is testimony rather than measurement, written by participants in their own founding literature, which is the genre most likely to make a decision look more principled in hindsight than it was. It does not touch the mathematics, and it says nothing at all about item five's real question, which is whether dominance *scales* with the size of the room. What it does is remove one specific comfort: the objection that no group has ever actually restructured itself around this problem, and that the reading of Traditions Two and Nine is therefore a pattern I imposed on a text. At least one fellowship did restructure itself around this problem, at considerable cost, and reached for the same two answers.
+
+I would have preferred to find this before the argument was written rather than after. Its full treatment, including the parts that cut the other way, is in appendix A12.
+
+---
+
 There is a pattern in the six and it is worth naming.
 
 Four of them require data about *groups*, not about people: which cells a reader marks, what proportion of a group rotates, how many groups exist in a region and for how long, how attention is distributed in a room. Almost all research on AA is about members, because members are who show up in clinical trials and who can be followed.
@@ -4816,7 +4843,7 @@ For each item, the claim, the design, and the result that would falsify it.
 
 ### 3. Notes on sources
 
-**This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding.
+**This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding. The Recovery Dharma case added at the end is the one piece of reported material, and it is testimony rather than measurement: a single fellowship's account of its own founding, written by participants, in its own program literature. It corroborates and cannot confirm. It is placed in this chapter rather than in the argument chapters precisely because this is where the book says what it has not established.
 
 **One claim here still rests on material I have not read.** SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
 
@@ -4828,7 +4855,7 @@ For each item, the claim, the design, and the result that would falsify it.
 
 **Read in full:**
 
-Nothing new to this chapter.
+Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Stored in `research/incorporated/RecoveryDharma_2023/`. Source of the 2019 split described above, which is reported in the personal recovery stories of Section II by people who held office in the predecessor organization, and of the peer-led commitment in the meeting script at printed pages 147 and 151. The named individual at the centre of the predecessor's collapse is named in that source and is deliberately not named here; the structural point does not require it and this book has no way to adjudicate an allegation about a living person. Appendix A12 carries the full comparison, including the material that cuts against this chapter's use of it.
 
 **Cited at a remove:**
 
@@ -5546,13 +5573,14 @@ use staged material to repair this release or recommend it as an accidentally ov
 Principal files:
 
 ```text
-model/aa_group_model.py                         canonical model
-model/book-calculations.ipynb                   book verification notebook
-paper/anonymity-as-an-aggregation-condition.ipynb  paper verification notebook
-research/RELEASE-GATE-RESULTS.md                generated confirmatory report
-research/ROBUSTNESS-RESULTS.md                  generated expanded-sensitivity report
-research/model-choice-inventory.json            values, zeros, constants, and choices
-tools/check_release.py                          independent fail-closed release gate
+model/aa_group_model.py                    canonical model
+model/book-calculations.ipynb              book verification notebook
+paper/anonymity-as-an-aggregation-condition.ipynb
+                                           paper verification notebook
+research/RELEASE-GATE-RESULTS.md           generated confirmatory report
+research/ROBUSTNESS-RESULTS.md             expanded-sensitivity report
+research/model-choice-inventory.json       values, zeros, and constants
+tools/check_release.py                     fail-closed release gate
 ```
 
 From the repository root, after every cache is complete. All three PDFs are built before the
@@ -5568,11 +5596,15 @@ python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/build_book.py
-tectonic --outdir paper paper/anonymity-as-an-aggregation-condition.tex
-pandoc reference/PRIMER-steps-and-traditions.md \
-  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=tectonic
+tectonic --outdir paper \
+  paper/anonymity-as-an-aggregation-condition.tex
+python3 tools/build_primer.py
 python3 tools/check_release.py
 ```
+
+`build_book.py` and `build_primer.py` each report an overfull-box count, and release requires
+zero from both. A nonzero count means text is sitting outside the type block. All three PDFs use
+one inch margins, the book at 1.05 inches.
 
 Release also requires rendering all three PDFs to page images and inspecting them for overflow,
 clipped tables, broken references, duplicated headings, blank pages, and stale text.
@@ -5617,6 +5649,669 @@ instead.
 
 The model's proper use is to make assumptions and comparisons explicit enough to test against
 real group data. It cannot evaluate or advise any individual person's recovery.
+
+---
+
+## A12. A second fellowship: Recovery Dharma read against the model
+
+This section answers a question put to the project from outside it, rather than one the model was
+built for. It is deterministic and textual. It adds no cache, no seed, no interval, and no
+stochastic claim, and nothing elsewhere in the release depends on it. The source is
+`research/incorporated/RecoveryDharma_2023/`, read in part on 16 August 2026. Section I, the
+meeting format, the glossary and the dedication of merit were read in full; the fourteen personal
+stories, the selected meditations and the inquiry questions were not.
+
+### A12.1 The question, and what the model cannot answer
+
+The question was whether the model shows the Twelve Steps simplified into the Dharma. It does not,
+and three separate obstacles stand in the way before any evidence is weighed.
+
+The first is chronology. The Eightfold Path predates the Twelve Steps by roughly two and a half
+thousand years. The source dates Siddhartha to about 2,500 years ago and the writing down of the
+teachings to the centuries after his death in the fifth century BCE, and it presents its program as
+an application of early Buddhist teaching rather than as a rewriting of anything. A claim that one
+document is a simplification of the other is available in neither direction, and in the direction
+asked it is ruled out by dates alone.
+
+The second is that the model has no parameterization for this fellowship. Applying it would require
+a step-resource matrix and a governance matrix elicited for Recovery Dharma. Neither exists. A11
+item 2 already records that the two matrices the project does have are author judgments in need of
+independent elicitation, so authoring two more here, for a fellowship the author does not belong
+to, would compound the existing weakness rather than test anything.
+
+The third is that the model contains no object corresponding to a comparison of fellowships. A11
+item 4 records the absence of a competing organization, and there is no comparative estimand, no
+second room, and no shared population.
+
+What remains available is a structural reading: taking the model's eight resources as a vocabulary
+and asking, of each program's own documents, where each resource is carried. That is a coding
+exercise on text, and it is registered here as a reading rather than a result.
+
+### A12.2 The count test
+
+The count comparison that makes simplification look true is eight against twelve, and it compares
+one Recovery Dharma list against one AA list.
+
+| Program | Enumerated lists | Items |
+|---|---:|---:|
+| AA as this model codes it: Steps and Traditions | 2 | 24 |
+| Recovery Dharma: jewels, Noble Truths, path factors, precepts, heart practices, foundations of mindfulness, commitments of The Practice | 7 | 35 |
+
+The Recovery Dharma items are three jewels, four Noble Truths, eight path factors, five precepts,
+four heart practices, four foundations of mindfulness, and seven commitments in the section called
+The Practice. On count the program is larger, not smaller, and its commitments are distributed
+across seven enumerated lists rather than concentrated in two.
+
+There is a real simplification in the source, and it is of grouping rather than of count. The eight
+path factors are gathered under three headings, wisdom, ethics and concentration, and the Path is
+not worked in sequence. The Steps are numbered and ordered. That difference is genuine and is not
+what the word simplification is usually taken to mean.
+
+### A12.3 Where the eight resources are carried
+
+The model's own structure first, computed from the canonical `S` and `GOV` and carrying no
+interval. Group dependence `beta` is maximal and equal at 1.000 for Steps 1 and 12. Step 12 is the
+only Step with a nonzero recipient-opportunity entry, so it is the sole carrier of that resource.
+Step 1 holds 0.800 of the admission column and 0.588 of the identification column, Step 5 holds
+0.667 of the confidentiality column, and the two diffuse resources, counsel and gentle pressure,
+are spread across eleven Steps each with top shares of 0.300 and 0.226. In `GOV`, recipient
+opportunity carries the largest governance mass of the eight columns at 2.40.
+
+| Resource | AA carrier in `S` | Recovery Dharma carrier, with printed page |
+|---|---|---|
+| admission | Step 1, 0.800 of column | First Noble Truth, "Addiction **is** suffering" (9); Renunciation in The Practice (xv) |
+| identify | Step 1, 0.588 of column | made optional by design: introductions need no identification beyond a name (150); no requirement to identify yourself in any way (43) |
+| proof | Step 2, 0.526 of column | the fourteen personal stories (57-121, not read); those who have made it to the other side (2, 48) |
+| confidential | Step 5, 0.667 of column | the closing of the meeting script (151) |
+| counsel | diffuse, Step 9 top at 0.300 | Wise Friends and Mentors (49-50); Reaching Out (46-48) |
+| recipient | Step 12, sole carrier | Sangha, Wise Friends, Mentors in The Practice (xvi, 148); Service and Generosity (50-52); the newcomer question in the closing (151) |
+| continuity | Step 12 top at 0.286 | Meetings and Growth in The Practice (xv-xvi); the announcements (151) |
+| pressure | diffuse, Step 10 top at 0.226 | the Five Precepts (29); cut against by the group-sharing rule that shares carry no advice (151) |
+
+Two things follow. The carriers scatter across four documents rather than one, so the counterpart of
+the Twelve Steps is not the Eightfold Path but the union of the Path, The Practice, the Sangha
+chapter and the meeting script. And three of the eight resources, confidentiality, recipient
+opportunity and gentle pressure, are not carried in the Eightfold Path at all. A reading that sets
+the Path beside the Steps and counts eight against twelve is comparing a practice taxonomy with a
+document that does a different job.
+
+One entry deserves separate notice because it runs opposite to the model's coding. Identification
+is the resource AA loads most heavily onto Step 1, and Recovery Dharma removes the ritual that
+carries it, twice and explicitly. The model gives that resource a column mass of 1.70 and a
+governance mass of 1.90. It cannot say what removing the ritual would do, because there is no
+parameterization, but it locates the question precisely, which is the most this exercise supports.
+
+### A12.4 Governance, the sangha, and a schism
+
+This book's argument is about the Traditions rather than the Steps, so this is the section that
+matters most, and it is the one a first pass got wrong. That pass claimed the fellowship had no
+Traditions-equivalent object at all. It has one. Correcting the error is what produced the strongest
+finding in this section.
+
+**The sangha is the group-conscience analogue, and it is constitutional rather than procedural.**
+The meeting script has every member affirm that they "trust in the wisdom of" the Buddha, the
+Dharma, and the Sangha, glossed there as the community of wise friends (147). Refuge in the three
+jewels is doctrinal, recited at every meeting, and is not among the things the script invites a
+meeting to edit. The Sangha chapter states that the fellowship is "decentralized and peer-led" and
+that its own advice is offered "in the spirit of friendly guidance rather than direction" (42),
+which is close in both content and tone to Tradition 2's account of leaders who do not govern. AA
+locates ultimate authority in a group conscience; Recovery Dharma locates trust in a sangha. Those
+are the same move.
+
+| Function in AA's Traditions | Recovery Dharma location |
+|---|---|
+| ultimate authority in the group, Tradition 2 | refuge in the Sangha and trust in its wisdom, recited at every meeting (147); "friendly guidance rather than direction" (42) |
+| openness of membership, Tradition 3 | no requirement to believe anything or to identify yourself in any way (43) |
+| autonomy, Tradition 4 | the script is "meant to serve as a suggested template" and meetings may edit it (147) |
+| self-support, Tradition 7 | the dāna basket in the announcements (151) |
+| no governing hierarchy, Tradition 9 | peer-led, following no one leader or teacher; the facilitator disclaims any particular authority (147) |
+| confidentiality, Tradition 12 | the closing (151) |
+| singleness of purpose and no outside issues, Traditions 5 and 10 | **inverted.** "In the Dharma, there's no such thing as an 'outside issue' to my recovery when all things are interdependent" (103) |
+| attraction rather than promotion, Tradition 11 | partial only: the program presents itself as not the only path and as compatible with other programs (xi, 147) |
+
+What is genuinely absent is narrower than a charter and easy to state. A mechanical search of the
+full text returns no occurrence of "group conscience", "consensus", "business meeting", "trusted
+servant", "quorum", "rotation", "bylaw" or "governance". The fellowship names an authority and
+supplies no written procedure by which that authority reaches a decision. That is the real
+asymmetry, and it is a difference in the *specification* of governance rather than in its presence.
+
+**The fellowship exists because of a governance failure of exactly the kind this book models.**
+Recovery Dharma is a 2019 schism from Refuge Recovery, and the personal stories, written by people
+who were officers of the predecessor, say so plainly. One contributor followed the predecessor's founding teacher, whose meditation organization was the hub from which Refuge Recovery grew, and
+became its Executive Director (84). Another managed its retreats and co-hosted its conferences for
+five years (98). Her account of what happened is the passage to read twice: the community "was
+heavily influenced by unhealthy masculinity and inequities among leaders", and "Great heartache
+ensued as people were harmed and a sangha was fractured" (98). A third contributor describes
+arriving at the 2019 Refuge Recovery conference and "walking into division", and calls it the
+moment Recovery Dharma was born (119).
+
+Two things follow, and both bear directly on Part Two.
+
+The successor's constitutional commitment was chosen in response to that failure, deliberately and
+by people who had lived it. The Executive Director's account of the founding is explicit about the
+design: "We wanted to be intentional in our framework — it had to be peer-led and trauma-informed"
+(84). The predecessor was organized around a named founding teacher. The successor's first stated
+commitment, recited in every meeting, is that it follows no one leader or teacher. A fellowship with
+no knowledge of this model, and no interest in Golub and Jackson, responded to concentrated
+influence by abolishing the office that concentrated it. That is Traditions 2 and 9 arrived at
+independently, in 2019, under pressure.
+
+And there *is* a decision procedure, at least once, even though none is written down. The
+transition was not decreed: "all of the meetings in our area voted to switch from Refuge to RD"
+(119). A vote across meetings is a group-conscience act in everything but name, and its existence
+in practice alongside its absence in the literature is the sharpest single observation in this
+section.
+
+The model-relevant consequence should be stated carefully, because the first pass overstated it.
+A2.4 gives five Traditions empty governance rows and uses them as protective modifiers, and the
+effective-adherence construction needs provisions whose adherence can vary independently while the
+constitution stands still. Recovery Dharma does have a fixed constitution: the three jewels, the
+Four Noble Truths, the Eightfold Path and the Five Precepts are not what a meeting edits. What it
+lacks is *differentiation*. Its governance commitment is a single undivided act of refuge rather
+than twelve separately adherable provisions, so there is no set of rows to vary one at a time and
+no counterpart to the Tradition ranking of A5.2. That is a statement about the shape of the object,
+not about its absence, and it is weaker and truer than what this section said before.
+
+None of this compares the two fellowships for quality of governance. It observes that one of them
+was founded, within living memory and at considerable cost to the people who did it, on the
+proposition this book spends twenty-five chapters arguing for.
+
+### A12.5 What the fourteen personal stories show
+
+Section II was not read in the first pass and was described then as the one place the source might
+carry anything resembling evidence about what members do. It was read in full afterwards, and it
+does. What follows is testimony, written by participants in their own program literature, which is
+the genre most likely to tidy a history in hindsight. It is reported here as testimony and supports
+no rate, no proportion and no outcome.
+
+**Arrival is almost entirely exogenous, which inverts the model's arrival term.** A2.7 makes
+endogenous arrivals scale with members' Step 12 state and a single attraction multiplier, with a
+separate constant `lam_exog` for everything else. Across the fourteen stories the reported routes in
+are a flier on a coffee shop noticeboard (59), an existing meditation community (63), the Buddhist
+Recovery Network website and a book available free online (70), an internet search during the 2020
+pandemic (80), online meetings joined from a thousand miles away (88), a therapist's referral (92),
+a Buddhist chaplain visiting a treatment unit (106), a stranger's message on a meditation app (114)
+and, in three cases, founding a group rather than finding one. Only one route resembles a member
+carrying the message to a stranger. For this fellowship the exogenous constant would carry nearly
+all of the arrivals and the endogenous term would be close to idle, which is the reverse of the
+weighting the model uses and the reason inference 6 of A12.7 cannot be carried over unchanged.
+
+**Membership overlaps rather than substitutes.** Several contributors describe attending Recovery
+Dharma and a Twelve Step fellowship at the same time, one naming a sponsor, wise friends and a
+therapist in the same sentence (88), and one arriving after a suggestion to attend a second meeting
+on a day they had already been to a first (70). The model has one room and no representation of a
+member belonging to two fellowships, so it cannot express the most common pattern in this sample.
+
+**Two contributors left Twelve Step fellowships over the Traditions themselves.** One found the
+singleness-of-purpose rule "stifling" because the presenting problem was not the only problem (70);
+another describes being asked to avoid discussing addictions deemed unrelated to the meeting, and
+sets against it the claim that in the Dharma nothing is an outside issue because everything is
+interdependent (103). The book's own reading of Traditions 5 and 10 is that they protect a group's
+capacity to do one thing well. These two accounts are the cost side of that protection, reported by
+people who paid it. A model in which Tradition adherence only ever helps has no place to put them.
+
+**Service is described as load-bearing, and one contributor states the mechanism in the model's own
+shape.** Reported service includes chairing and facilitating meetings, hosting, mentoring, finding
+locations, organizing retreats, serving as an intersangha representative, and sitting on the global
+board. One account moves from observation to practice in two sentences: the people who served most
+seemed most at ease, so the writer began serving too, and later concluded that nothing helped more
+than helping other people (106). That is the helper-therapy proposition the corpus already holds in
+Pagano et al. (2004), arrived at here by noticing it in a room. It is an observed association
+reported by one person and is not evidence of direction.
+
+**The order gate is contradicted in the source's own words.** A12.7 argues that two of the model's
+core inferences depend on practices being worked in sequence, and that Recovery Dharma's path is
+not. A contributor puts it more sharply than this appendix did: the Eightfold Path is supportive
+precisely "because it's not a consecutive sequence", and the Dharma is "kaleidoscopic", each part of
+the path reflecting the others (65). That is a member describing the absence of the order gate as a
+feature.
+
+**Affinity meetings spawn cheaply, and a member reports the homogeneity benefit directly.** A12.7
+names a trade the model cannot score, between within-room homogeneity and room size. One account
+supplies both halves: noticing that no meeting existed for a particular process addiction, the
+writer and others simply created a sangha and meetings for it, and reports that although every
+addiction is welcome at every meeting, connection and healing deepened among people concentrating on
+the same topic (103). The same contributor draws the structural contrast explicitly, that this
+fellowship does not have to spawn a new fellowship for each new process addiction. Cheap
+within-fellowship segmentation is an architecture the model has no way to represent, since it has one
+room of capacity 60.
+
+**Growth outran the founders, and one of them says so.** A founding contributor describes the
+fellowship going from the same five people doing everything to a point where she knows neither half
+the board nor most of the group's online administrators, alongside a main online group of more than
+ten thousand people (84). That is the scaling problem of Part Two stated from the inside, by someone
+watching it happen, and it is offered here only as a description and not as a measurement of
+anything.
+
+---
+
+### A12.6 What an actual comparison would require
+
+Registered so that the gap is explicit rather than implied.
+
+1. A step-resource matrix for Recovery Dharma over the same eight resources, elicited from people
+   in the fellowship rather than authored here.
+2. A governance matrix, which cannot be built until it is decided what plays the Traditions' part:
+   the meeting script, the commitments of The Practice, or neither.
+3. A prespecified equivalence margin, because the interesting claims are absence-of-difference
+   claims, and A5.2 already records that the founding-composition contrasts are unresolved for
+   exactly this reason.
+4. Membership data for both fellowships, which the project has for neither.
+
+Absent all four, what is above is a reading of two sets of documents in a shared vocabulary. It
+supports no comparative claim about outcomes, effectiveness, or persistence, and it must not be
+cited as though it did.
+
+### A12.7 The model's core inferences, and which of them travel
+
+A12.3 and A12.4 read two sets of documents. This subsection does something weaker and more general:
+it states what the model infers about groups of this kind, stripped of AA vocabulary, and then asks
+which inferences depend on features Recovery Dharma shares. Everything here is theme-level. A theme
+that travels is a hypothesis about a fellowship the model has never been fitted to, not a result.
+
+**The six core inferences, stated without reference to any fellowship.**
+
+1. *The causal chain runs one way and through the room.* Member practice states produce group
+   resources; resources feed back into individual growth. There is no direct member-to-member
+   coupling anywhere in the model. Whatever a group provides, it manufactures out of the aggregate
+   practice of the people currently in it.
+2. *Growth is gated multiplicatively, not added up.* Three gates multiply: an order gate making each
+   practice depend on the one before it, a peer gate weighted by `beta`, and a capacity gate whose
+   weight `w` rises linearly from 0.05 at the first practice to 1 at the last. Late practice is
+   therefore both the most group-dependent and the most capacity-limited thing a member does.
+3. *Retention and reproduction load on opposite ends of the sequence.* Exit hazard falls with early
+   practice, the mean of Steps 1 to 3. Endogenous arrivals scale with late practice, the Step 12
+   state alone. A group keeps people through its cheapest practice and reproduces through its most
+   expensive one.
+4. *Dispersion is a multiplier, not a detail.* The `unity` term, one minus twice the standard
+   deviation of practice level among established members, multiplies three of the eight resources:
+   identification, continuity and gentle pressure. Spread degrades a room independently of level.
+5. *Openness compounds across its channels.* Losing Tradition 3's friction path costs
+   2.962 [1.848, 4.077] in final membership and its governance path 6.027 [5.043, 7.012], but losing
+   both costs 11.045 [10.030, 12.060], with interaction -2.055 [-3.414, -0.696]. The joint loss
+   exceeds the sum of the parts.
+6. *Referral loss is slow and it is disguised.* Under pure attraction loss, membership runs 21.55 at
+   year 5, 11.68 at year 10, 2.50 at year 20 and 0.51 at year 30, while endpoint viability falls
+   from 0.970 to 0.0275. In these runs a group losing its referral channel looks healthy for years
+   before the decline is legible.
+
+**Which of these depend on features Recovery Dharma shares.**
+
+| Inference | Travels? | Why |
+|---|---|---|
+| one-way causal chain | yes | the source describes the sangha as where the teachings find expression and are put into action, which is the same one-way shape |
+| multiplicative gating | **no** | the gating rests on the order gate, and the Eightfold Path is explicitly not worked in sequence |
+| retention and reproduction on opposite ends | **no**, and this is the interesting failure | it is a corollary of the order gate; remove the sequence and the two ends are no longer far apart |
+| dispersion as multiplier | yes, and it becomes sharper | see the affinity-meeting note below |
+| openness compounds | untested either way | Recovery Dharma is open by construction, so the model's loss conditions have no counterpart to switch off |
+| referral loss is slow and disguised | partially | the arrival channel differs in kind; see below |
+
+**The sequence is where the two programs part company, and it is load-bearing.** Inferences 2 and 3
+are not independent findings. Both descend from the order gate, which makes each Step's growth
+depend on the state of the one before it. That gate is why the practice driving arrivals is also the
+most expensive to reach, and it is why a group's reproduction lags its retention. Recovery Dharma's
+Path is grouped under three headings and practiced simultaneously, and the source states that each
+person practices each aspect in their own way. A program without a sequence has no structural reason
+for its reproduction-driving practice to be its costliest one. That is the single largest difference
+between the two, larger than any count, and the model can identify it precisely because the order
+gate is an explicit term rather than an assumption buried in prose.
+
+**Dispersion, and the one place the model has something uncomfortable to offer.** Affinity meetings
+are encouraged by the source, including the instruction to start one where none exists. In the
+model's vocabulary that is deliberate management of within-room dispersion: it raises homogeneity
+inside each room while reducing the number of people in it. The `unity` term says the first effect
+raises three resources, and the saturation terms say the second lowers several. The model cannot
+score the trade, because it has one room of capacity 60 and no representation of a fellowship split
+across rooms. What it can do is name the trade as a real one with effects in both directions, which
+is more than the source does and less than a recommendation. Nothing here evaluates affinity
+meetings, and nothing here should be read as advice about them.
+
+**The arrival channel is a scope limit rather than a difference.** Endogenous arrivals in the model
+scale with members' Step 12 state and a single attraction term, which presumes members belong to one
+group. Recovery Dharma presents itself as not the only path, compatible with other programs, and
+commits members to attending recovery meetings whether with Recovery Dharma, other Buddhist
+communities, or other fellowships. The model has no representation of shared or overlapping
+membership at all, so inference 6 cannot be carried over as stated. This belongs with A11 item 4,
+the absence of a competing organization, and it is the same gap seen from the other side.
+
+**The helper threshold is a hypothesis the model generates and cannot settle.** The recipient
+capacity term is opportunity per high-practice potential helper, so widening the pool of eligible
+helpers enlarges the denominator. Recovery Dharma widens it deliberately: the mentor role is not a
+formal position, nobody is certified or authorized, and anyone with any period of renunciation and
+practice may serve. The model therefore predicts a lower recipient resource per helper under that
+rule, which sounds like a finding and is not one. The clean recipient ablation is unresolved: forcing
+recipient capacity to one changes final membership by 1.028 [-0.259, 2.314], an interval crossing
+zero, which is not the same as no effect. Disabling Step 12 does cost 5.325 [4.437, 6.213], but that
+is the whole Step, not the recipient path, and A5.1 is explicit that the mechanism-specific version
+of this question has no released answer. Anyone tempted to read the helper threshold as a finding
+should stop at the ablation.
+
+**What none of this licenses.** No comparison of effectiveness, persistence or outcome between the
+two fellowships. No claim that either program's structure is better suited to the mechanisms above,
+since the mechanisms are authored. No advice about how a meeting of either kind should be run, and
+nothing whatever about an individual's recovery.
+
+### A12.8 The Machinery
+
+This section was written to be self-contained and is now depended on in one place. Chapter
+Twenty-Four cites the 2019 schism described in A12.4 as the closest thing to a live case the book
+has, and states there that it corroborates rather than confirms. Nothing else in Parts One through
+Five, in A1 through A11, or in the paper depends on this section; the primer carries a short
+follow-up of its own. Removing A12 would require removing four paragraphs of Chapter Twenty-Four
+with it.
+
+**1. What the comparison says.** Four findings, in descending order of how well they are supported.
+
+The word simplification does not survive a count: the program carries thirty-five enumerated items
+across seven lists against twenty-four across two, and the eight-against-twelve reading compares one
+list with one list.
+
+Two of the model's six core inferences, multiplicative gating and the loading of retention and
+reproduction on opposite ends of the sequence, both descend from the order gate and therefore do not
+travel to a program whose path is not worked in sequence. A member of the fellowship states the same
+thing independently, calling the path kaleidoscopic rather than consecutive.
+
+The fellowship has a group-conscience analogue, the sangha, which is constitutional rather than
+procedural, and it has no written decision procedure. An earlier draft of this section claimed it
+had no Traditions-equivalent object at all, which was wrong, and correcting it produced the finding
+below. What the governance object lacks is not existence but differentiation: it is one undivided
+act of refuge rather than twelve separately adherable provisions, so there is nothing for A5.2's
+Tradition ranking to range over.
+
+And the fellowship is a 2019 schism from a predecessor organized around a single named founding
+teacher, which fractured over inequities among its leaders. Its successor's first stated commitment,
+recited at every meeting, is that it follows no one leader or teacher. That is Traditions 2 and 9
+reached independently and under cost, and it is the only contemporary case of the kind the project
+has.
+
+One threat to validity belongs to this section rather than to A11, because it is visible only from
+here. The architecture encodes AA's document structure rather than recovery-group structure in
+general: it requires one Step matrix and one differentiated Tradition matrix, and this comparison
+exhibits a functioning fellowship that distributes the same functions across a practice taxonomy, a
+commitments list, a community chapter and a meeting script, and whose governance commitment does not
+decompose into rows at all. A12.5 adds a second: the model's arrival term is weighted for a
+fellowship that recruits through its members, and this one recruits mostly through the internet,
+professionals and its own free book.
+
+**2. The technical version.** Every quantity attributed to the model here is deterministic algebra
+on the two authored matrices at the canonical hash, and carries no interval. For Step `j`,
+group dependence is
+
+```text
+beta[j] = row_sum(S[j,:]) / max_k row_sum(S[k,:])
+```
+
+which is 1.000 at Steps 1 and 12 and below 0.71 everywhere else. Column shares are
+`S[j,k] / col_sum(S[:,k])`: Step 1 holds 0.800 of admission and 0.588 of identification, Step 2
+holds 0.526 of proof, Step 5 holds 0.667 of confidentiality, Step 12 is the sole nonzero entry in
+recipient opportunity, and counsel and gentle pressure spread over eleven Steps each with top shares
+of 0.300 and 0.226. Governance mass is `col_sum(GOV[:,k])`, largest at 2.40 for recipient
+opportunity and smallest at 1.00 for gentle pressure.
+
+The interval-bearing figures quoted in A12.7 are not recomputed here. They are the released
+confirmatory results reported in A5.1, A5.2 and A5.4, at 400 seeds paired by common random numbers,
+and they are quoted rather than re-derived so that this section adds no cache and no seed. The one
+figure a reader should not over-read is the clean recipient ablation, 1.028 [-0.259, 2.314], whose
+interval crosses zero and which is therefore unresolved rather than null.
+
+The counting exercise is arithmetic on the source's own lists: three jewels, four Noble Truths,
+eight path factors, five precepts, four heart practices, four foundations of mindfulness and seven
+commitments in The Practice, totalling thirty-five across seven lists.
+
+**3. Notes on sources.** One source does all the work. Sections I and II were read in full, as were
+the glossary, the meeting format and the dedication of merit. Only the selected meditations and the
+inquiry questions, which are practice material rather than description, were not. Page references
+are the printed pagination, which runs sixteen behind the PDF pagination in the arabic range.
+
+**A first pass got the central question wrong, and the record should show how.** That pass read
+Section I and the meeting format, did not read the personal stories, and concluded that the
+fellowship had no Traditions-equivalent object. Two things were missed. The meeting script has every
+member affirm trust in the wisdom of the Sangha, which is a group-conscience analogue sitting in
+plain sight in a document that had been read. And the stories, which had not been read, contain the
+fellowship's founding history, the schism that produced it, and the one recorded instance of
+meetings voting. The error was corrected by reading the rest, and the correction is the reason this
+section now has a finding worth citing in a chapter. The general lesson is the one the corpus rules
+already state: file presence is not reading, and a partial read is a place where an absence claim
+can go wrong.
+
+The absence claim that survives is narrow and was tested mechanically over the full text rather than
+by reading alone. No occurrence of "group conscience", "consensus", "business meeting", "trusted
+servant", "quorum", "rotation", "bylaw" or "governance" appears anywhere in the document. The single
+"committee" and the references to an elected board occur inside personal stories and describe the
+global nonprofit rather than a rule binding a meeting.
+
+The individual at the centre of the predecessor organization's collapse is named in the source and
+is deliberately not named in this project. The structural claim does not require the name, and
+nothing here can adjudicate an allegation about a living person. Chapter Twenty-Four carries the
+same restriction.
+
+Provenance took two steps. The copy first read was an ephemeral session attachment removed from
+disk before it could be stored; the same document was then located locally and confirmed by page
+count, byte size and verbatim spot-checks against passages already read. That copy is the one
+hashed and indexed. The bibliographic record was taken from the file's own title and copyright
+pages rather than from an independent catalogue entry, which is the one open item on this source.
+
+**4. References.**
+
+**Read in full:**
+
+Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to
+heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Read: the
+contents and front matter through The Practice (ix to xvi); Section I entire (1 to 54); Section II
+entire, the fourteen personal recovery stories (57 to 121); and from Section III the glossary (145
+to 146), the meeting format (147 to 151) and the dedication of merit (152). Source of every page
+reference in this section and of the four paragraphs in Chapter Twenty-Four. Stored as
+`research/incorporated/RecoveryDharma_2023/`, git-ignored with a SHA-256 and a verification index.
+It is the one source in the corpus whose licence would permit committing the document; the project
+git-ignores it anyway, because the rule is uniform.
+
+**Referenced but not reproduced:**
+
+The Pali canon and the early Buddhist teachings from which the Four Noble Truths, the Eightfold
+Path, the Five Precepts and the four foundations of mindfulness derive. This section takes all of
+them at second hand, as Recovery Dharma presents them, and consulted no primary Buddhist text. Any
+claim here about what the Dharma says is therefore a claim about what this fellowship's literature
+says the Dharma says, and the distinction matters for the chronology argument in A12.1, which rests
+on the source's own dating rather than on independent scholarship.
+
+**Internal, and reproducible from this repository:**
+
+`model/aa_group_model.py` at the canonical hash, for `S`, `GOV`, the group-dependence coefficients,
+the column shares and the governance masses. The interval-bearing figures are quoted from A5.1,
+A5.2 and A5.4 and their registered caches; this section computes none of them and adds no cache of
+its own. The source record, read scope and rights position are in
+`research/incorporated/RecoveryDharma_2023/` and in `research/SOURCES.md`.
+
+**What was not read:**
+
+From the source, only the selected meditations (122 to 135) and the inquiry questions (136 to 144).
+Both are practice material, guided scripts and prompts for self-inquiry, and neither describes how
+the fellowship is organized. A reader extending A12.3's carrier census might still want the inquiry
+questions, since they are the closest thing the program has to a written inventory and would bear on
+the counsel and gentle-pressure columns.
+
+Nothing independent about the 2019 schism. The account in A12.4 rests entirely on the successor
+organization's own literature, written by people who left the predecessor. No press coverage, court
+record, or statement from the predecessor was sought, and the predecessor's own account of the same
+events has not been read. That is a one-sided record and Chapter Twenty-Four's use of it inherits
+the weakness.
+
+The empirical literature on Buddhist and mindfulness-based recovery programs, which was not searched
+at all. This section compares program documents and one fellowship's account of its own history. It
+does not know what either fellowship's outcomes are, and no part of it should be cited as though it
+had looked.
+
+---
+
+## A13. The 1939 stories read against the model's arrival term
+
+A12 compared program documents. This section does something narrower and evidentially stronger: it
+reads twenty-nine first-person accounts against one specific modelling choice, the arrival term in
+A2.7, and asks whether the fellowship the model was built from actually recruits the way the model
+says. It is a coding exercise on text. It adds no cache, no seed and no interval, and it changes no
+number in the release.
+
+### A13.1 What the source is, and a correction to the record
+
+The document read here was supplied as the fourth edition of *Alcoholics Anonymous*. It is not.
+Its title page reads "The 4th Edition of Alcoholics Anonymous" and immediately below, "This book
+contains a complete reprint of the 1st edition 1939", published by the Alcoholics Anonymous Big
+Book Study Group and marked "No Copyright 1999". The fourth edition is the numbering of the
+reprinter's own printing, not of AA's editions. Its contents are the 1939 first edition: the
+Foreword, the Doctor's Opinion, the eleven chapters of the basic text, and the twenty-nine personal
+stories of that edition, from "The Doctor's Nightmare" through "Ace Full Seven-Eleven". AA's actual
+fourth edition of 2001 carries an entirely different set of stories and roughly four hundred more
+pages.
+
+This matters twice. The stories analyzed below are the 1939 stories, contemporaneous with the
+founding period Part One is about, and not a 2001 selection. And the work was already in the corpus
+as `BigBook_1939`, whose record notes the same reprint and the same contested rights position. The
+uploaded file differs from the stored one by a few bytes and 99.91 per cent of its extracted text is
+identical, so this is a second copy of a source the project already held and had recorded as
+"acquired; not yet used as claim support". That last clause is what this section changes.
+
+### A13.2 The estimand and the coding rule
+
+A2.7 makes arrivals Poisson with mean `lambda * dt`, where
+
+```text
+lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
+```
+
+The first term is arrival that does not pass through a member. The second is arrival carried by
+members, scaled by their Step 12 state. The model gives the endogenous term the dominant role, and
+that is an authored choice. The question here is whether the fellowship's own accounts of how people
+arrived support it.
+
+The coding rule is: for each story, does the account describe a person who was themselves a recovered
+alcoholic making contact with the subject before the subject stopped drinking? A family member
+hearing of the fellowship and then arranging such a contact is coded as member-carried, because the
+arrival still passes through a member; the family is the broker, not the channel.
+
+### A13.3 The census
+
+Twenty-seven segments were recovered automatically from the running heads. One of them, "A Vision
+For You", is Chapter 11 of the basic text rather than a story, and is excluded, leaving twenty-six
+story segments. Explicit personal-contact language appears in twenty of the twenty-six.
+
+That count is a **lower bound and should be read as one**, because the matcher keys on a fixed
+phrase list and misses accounts describing the same event in other words. The six segments without a
+match are named so a reader can check them: "The Doctor's Nightmare", "The Unbeliever", "Our
+Southern Friend", "Fired Again", "Smile With Me, At Me" and "Hindsight". At least two are certainly
+false negatives. Dr Bob's account, the first story in the book, describes his wife being telephoned
+by a woman who wanted him to meet a friend who might help, then six hours in that friend's company,
+and finally the observation that the man "talked my language"; none of that matches a listed phrase.
+"Fired Again" describes a neighbour who had heard of a recovered alcoholic doctor "busily engaged in
+passing on the benefits he had received", which is the same channel reported at one remove. The true
+figure is therefore above twenty and the method cannot say by how much.
+
+The recurring shape is a visit, and often several. One writer records that while he was in hospital
+"about twenty men called on me" and told him their experiences. Another was seen by a doctor who
+"sent two of the members" to him. A third describes men who came to him "one by one and told me"
+what had happened to them. A fourth met his first recovered alcoholic as a fellow patient. What the
+accounts do not describe is somebody reading their way in.
+
+### A13.4 The exception, and what the fellowship said about it
+
+One story is the exception and the fellowship marked it as one. "Lone Endeavor" is the account of a
+man in the far west reached only by correspondence and a pre-publication copy of the book, and the
+narrative frame around it is the fellowship describing its own experiment. It calls the attempt
+"our initial effort to help others through the book alone", says it was "the first time we have had
+an opportunity of trying to help an alcoholic at long distance", and records that during the silence
+that followed "we began to think this book was inadequate without personal contact".
+
+That is the strongest single piece of evidence in this section, and it is strong because it runs
+against the interest of the people writing it. A fellowship publishing a book had every reason to
+believe the book would be sufficient. Its own literature says it doubted that, and that the doubt
+was based on the absence of a personal visit.
+
+### A13.5 What this supports, and what it bounds
+
+**It supports the architecture of the arrival term for the fellowship the model was built from.**
+The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
+in twenty-nine independent accounts, and the one case of arrival without a member is presented by
+the fellowship as an untested experiment about which it recorded doubt.
+
+**It bounds that architecture to that fellowship, and A12.5 is the other half of the bound.** The
+fourteen Recovery Dharma accounts report arrival through a noticeboard flier, a website, a free
+online book, internet searches, online meetings, a therapist and a prison chaplain, with almost no
+member-carried arrival at all. Two fellowships, eighty-four years apart, sit at opposite ends of the
+same parameter. A model that fixes the weighting between `lam_exog` and the endogenous term is
+therefore making a claim about a period and an organization rather than about mutual-aid groups, and
+the pair of censuses is the evidence for saying so.
+
+**Two smaller observations, both weaker.** Dr Bob's account gives four reasons for passing on what he
+learned, of which the fourth is that each time he does it he takes out "a little more insurance for
+myself" against a slip. That is the helper-therapy proposition the corpus holds in Pagano et al.
+(2004), stated by the fellowship's co-founder in 1939 and consistent with the model's treatment of
+Step 12, though a single retrospective statement of motive is not evidence of direction. And Dr Bob
+describes what moved him as a man who "talked my language", after reading widely and consulting
+many non-alcoholic experts to no effect. That is the identification resource of A2.2, which the
+matrix loads most heavily onto Step 1, described from the inside.
+
+**What it does not do.** It does not validate any numerical value. `lam_exog`, `lam0` and the
+attraction multiplier remain three of the hundred and eighteen registered values, fitted to nothing.
+A census of how people say they arrived cannot set a rate. It also cannot speak to survivorship: the
+twenty-nine accounts are of people who recovered and were chosen for a book intended to persuade, so
+they are the least representative sample imaginable of everyone the fellowship met. Nothing here
+touches retention, dropout or group survival.
+
+### A13.6 The Machinery
+
+**1. What the census says.** The model's arrival term gives the member-carried channel the dominant
+role. Twenty-nine first-person accounts from 1939 describe arrival that way, with a lower bound of
+twenty of twenty-six story segments carrying explicit personal-contact language, and the single
+counter-case is one the fellowship itself flagged as an untested experiment about which it recorded
+doubt. Read beside A12.5, where a modern fellowship arrives almost entirely without members, the
+pair localizes the arrival weighting as a property of a fellowship and a period rather than of
+mutual-aid groups in general.
+
+**2. The technical version.** The estimand is the arrival intensity of A2.7. The coding rule is in
+A13.2 and treats a family broker as member-carried. Segmentation was automatic from running heads
+and recovered twenty-seven segments, of which one is a chapter and is excluded, leaving twenty-six
+of the twenty-nine stories. The phrase matcher is a lower bound; A13.3 names all six segments it
+failed to match and identifies two as certain false negatives, so a reader can see the size and
+direction of the error rather than take the figure on trust.
+No number in the release changes. No cache, seed, horizon or interval is involved, and nothing here
+is a stochastic claim.
+
+**3. Notes on sources.** The file supplied as the fourth edition is the 1939 first edition in the
+1999 Big Book Study Group reprint, and A13.1 sets out how that was established. It duplicates
+`research/incorporated/BigBook_1939/`, whose SOURCES.md entry previously read "acquired; not yet
+used as claim support"; this section is the first use. The reprint asserts no copyright and the
+1939 rights position is contested, which is why the project holds the document git-ignored rather
+than as record only. Quotations here are short phrases with attribution, per the project rule that
+nothing is quoted at length.
+
+The stories are testimony selected for a persuasive purpose, and the survivorship problem in A13.5
+is the governing limitation on everything in this section.
+
+**4. References.**
+
+**Read in full:**
+
+*Alcoholics Anonymous*, first edition, 1939, in the Alcoholics Anonymous Big Book Study Group
+reprint of 1999. The twenty-nine personal stories, printed pages 183 to 400, read for this section;
+the Foreword, the Doctor's Opinion and the eleven chapters of the basic text were read for context.
+Stored as `research/incorporated/BigBook_1939/`, git-ignored with a SHA-256 and a verification
+index.
+
+**Internal, and reproducible from this repository:**
+
+`model/aa_group_model.py` at the canonical hash for the arrival term of A2.7 and the identification
+column of A2.2. A12.5 for the Recovery Dharma census that forms the other half of the bound. No
+cache is read or written by this section.
+
+**What was not read:**
+
+AA's actual fourth edition of 2001, which was the document requested and which the project does not
+hold. Its stories are a different selection made sixty-two years later, and a census of them would
+be a genuinely separate finding: it would show how the fellowship's recruitment channel had changed
+across the period in which telephone, treatment referral and eventually the internet became
+available. That comparison is the obvious next piece of work and this section does not attempt it.
+
+Any systematic literature on referral pathways into mutual-aid groups, which was not searched. The
+census here is of one book's self-selected accounts and is not a study.
 
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
 
@@ -6318,6 +7013,99 @@ fails. It is disclosed rather than repaired after seeing the result.
 
 ---
 
+## A follow-up: asking the same questions about a different fellowship
+
+Everything above is about one fellowship. The model was built around AA's twelve Steps
+and twelve Traditions, and it takes those two lists as its two inputs. A fair question is
+whether any of it reaches further. In August 2026 that question was asked directly, about
+Recovery Dharma, a peer-led Buddhist recovery fellowship whose program book is published
+free under a Creative Commons licence.
+
+The specific question was whether the model shows the twelve Steps simplified into the
+Dharma. It does not, and the reasons are worth stating here because they mark the edge of
+what this primer covers.
+
+**The dates run the wrong way.** The Eightfold Path is roughly two and a half thousand
+years older than the twelve Steps. Nothing can be a simplification of a document written
+long after it. Recovery Dharma presents its program as an application of early Buddhist
+teaching, not as a rewriting of AA.
+
+**Counting does not support the word either.** Recovery Dharma sets out thirty-five
+enumerated items across seven lists: three jewels, four Noble Truths, eight path factors,
+five precepts, four heart practices, four foundations of mindfulness, and seven
+commitments in a section called The Practice. AA, as this model codes it, is twenty-four
+items across two lists. The comparison that makes simplification look true sets the eight
+path factors against the twelve Steps. That is one list against one list.
+
+**There is a group conscience, and it is the sangha.** A first pass at this said there
+was no Traditions equivalent at all. That was wrong, and the correction is worth stating
+because it turned into the best finding here. Every Recovery Dharma meeting opens with
+members affirming that they trust in the wisdom of the Buddha, the Dharma and the Sangha,
+where the Sangha is the community itself. AA locates ultimate authority in a group
+conscience. Recovery Dharma locates trust in a sangha. That is the same move.
+
+**What is missing is not the authority but the procedure.** There is no charter setting
+out numbered provisions. The fellowship's whole governance commitment is one undivided
+act of trust, rather than twelve separate rules a group could keep or drop one at a
+time. Searching the whole book turns up no "group conscience", no "consensus",
+no "business meeting", no "rotation" and no "bylaws". The jobs the Traditions do are
+real, but several of them sit inside a suggested meeting script that each meeting is
+invited to edit. Confidentiality sits in the closing. Self-support is the basket passed
+near the end. The facilitator says plainly that they hold no authority.
+
+**And the fellowship exists because of the failure this book is about.** Recovery Dharma
+split in 2019 from an earlier Buddhist recovery program that had been built around a
+single named teacher. That program fractured, in the words of one of its own former
+officers, over inequities among its leaders, and people were harmed. The people who
+rebuilt it, including the predecessor's executive director, made the first commitment of
+the new fellowship the one every meeting now reads aloud: it is peer-led and follows no
+one leader or teacher. Nobody involved had heard of this model or of the mathematics
+behind it. They arrived at Traditions Two and Nine on their own, eighty-four years after
+AA, by watching what happened without them. It is one case and it is the fellowship's own
+account of itself, so it corroborates and cannot confirm. Chapter Twenty-Four is where
+the book uses it and says so.
+
+**The deepest difference is the sequence, and it is the one the model can see clearly.**
+Two of the model's central ideas depend on the Steps being worked in order. Growth on each
+Step is gated by the Step before it. That gate is why the practice which brings in new
+members, Step Twelve, is also the most expensive one to reach, and why a group's ability
+to grow lags its ability to hold people. Recovery Dharma's path is grouped under three
+headings and practiced at the same time rather than in order. Take away the sequence and
+there is no longer any reason for the member-attracting practice to be the costly one. So
+those two ideas simply do not carry across.
+
+None of this changes a single figure above. What it changes is the scope a reader should
+give them. This model is not about recovery groups in general. It is about groups that
+have a numbered sequence of practices and a fixed written charter. Recovery Dharma has
+neither, and a model with one Step matrix and one Tradition matrix has nowhere to put a
+fellowship built that way.
+
+Two cautions, in the spirit of the section above. Nothing here compares the two
+fellowships for effectiveness, and nothing in this project could. Nothing here is advice
+about which room anyone should walk into. The full comparison, with the page references
+and the arithmetic, is appendix section A12, and it is written to stand alone.
+
+**A second reading, from the other end.** The model assumes that most people arrive
+because a member brought them, rather than finding the group on their own. That is one of
+the hundred and eighteen chosen numbers and it had never been checked against anything.
+In August 2026 the twenty-nine personal stories in the 1939 first edition of *Alcoholics
+Anonymous* were read for exactly this. They support the assumption for that fellowship at
+that time: the recurring shape is a recovered drinker turning up in person, often several
+of them, and in one case about twenty men visiting a single man in hospital. Only one
+story describes somebody reached without a visit, by letter and a copy of the book, and
+the fellowship presents that as an experiment it was unsure of, recording that it had
+begun to think the book inadequate without personal contact.
+
+Set beside Recovery Dharma, where almost everybody arrived through a website, a free
+book, a flier, a therapist or a chaplain, the two readings bound the assumption rather
+than confirm it. How a fellowship recruits is a fact about that fellowship and that
+period, not about mutual-aid groups in general, and the model should be read as speaking
+about AA in its founding decades. Appendix section A13 carries the census and its
+limits, of which the largest is that the stories were selected to persuade and everyone
+in them recovered.
+
+---
+
 ## Where every figure comes from
 
 The five headings below are the book's canonical reference headings, in the order
@@ -6346,6 +7134,15 @@ Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Uti
 N.Y.: B. S. Merrell. The Washingtonians' own manual, used here for the written
 analogues of Traditions 4, 7, 9 and 10 and for their deliberate opposite position on
 anonymity. Read at source; saved in `research/`.
+
+Recovery Dharma Global (2023). *Recovery Dharma.* Second edition. Recovery Dharma Inc.
+CC BY-NC-SA 4.0. The only source for the follow-up section above. Read: the front matter,
+the whole of Section I, the whole of Section II with its fourteen personal recovery
+stories, and the glossary, meeting format and dedication of merit. Only the meditations
+and inquiry questions were not read. The 2019 split is reported in the stories by people
+who held office in the predecessor organization, whose founder is named in that source
+and is deliberately not named here. Saved in
+`research/incorporated/RecoveryDharma_2023/`.
 
 **Cited at a remove:**
 
@@ -6400,6 +7197,21 @@ Tradition 3's retention mechanism is illustration rather than evidence.
 The literature on skill depreciation rates in adults, which would say whether six per
 cent a week is the right order of magnitude for anything comparable. It is the most
 easily improved number in the model and it has not been tried.
+
+From Recovery Dharma, only the selected meditations and the inquiry questions, which are
+practice material rather than description. The fourteen personal stories were read after
+a first pass had skipped them, and skipping them was the reason that pass got the
+governance question wrong.
+
+Anything independent about the 2019 split. The account above rests entirely on the
+successor fellowship's own literature, written by people who left the predecessor. No
+press coverage and no statement from the other side was sought. That is a one-sided
+record and the book's use of it inherits the weakness.
+
+The research literature on Buddhist and mindfulness-based recovery programs, which was
+not searched at all. The follow-up section compares program documents and one
+fellowship's account of its own history, and knows nothing about either fellowship's
+outcomes.
 
 # Appendix: The Working Paper
 

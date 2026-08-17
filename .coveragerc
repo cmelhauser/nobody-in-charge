@@ -1,0 +1,36 @@
+# Coverage configuration.
+#
+# SCOPE. The 100 per cent gate covers `model/aa_group_model.py`, the canonical model.
+# That file is the one the whole project rests on: it is hash-frozen at the release
+# digest, every cache is linked to it, and its semantics are what the manuscript, the
+# paper and the primer describe. It is pure computation with no I/O and is therefore
+# both worth testing exhaustively and cheap to test.
+#
+# The scripts under `tools/` and the analysis scripts under `model/` are deliberately
+# NOT in this gate. They are batch jobs and command-line entry points: they read and
+# write hash-linked caches, render PDFs, and execute Monte Carlo designs that take
+# minutes to hours. Unit-testing them to 100 per cent would mean either running the
+# release designs on every commit or mocking so much that the tests stopped meaning
+# anything. They are covered instead by `tests/test_tools_integration.py`, which runs
+# each one for real and asserts it succeeds, and by the release gate itself.
+#
+# `model/aa_group_model.py` cannot carry `# pragma: no cover` comments, because editing
+# the file at all changes its SHA-256 and invalidates the release. The single
+# unreachable line is therefore excluded by pattern below, with its justification.
+[run]
+branch = False
+include =
+    model/aa_group_model.py
+
+[report]
+show_missing = True
+skip_covered = False
+fail_under = 100
+exclude_also =
+    # Defensive re-check of closure after the arrival draw in simulate(). It cannot
+    # execute: the loop breaks on alive.sum() == 0 before arrivals are drawn, so
+    # n_after is always at least one by the time this line is reached. Verified by
+    # reading model/aa_group_model.py lines 262 to 291.
+    if n_after == 0 and closure_week is None:
+    # Script entry points are exercised by running the module, not by importing it.
+    if __name__ == .__main__.:

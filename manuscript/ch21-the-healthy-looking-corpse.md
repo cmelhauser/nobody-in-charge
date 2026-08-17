@@ -92,7 +92,7 @@ Conditioning is what makes the practice mean incomplete. The mean among eleven v
 The unreferred condition, both views:
 
 | Year | Exists | Viable | Members, all runs | Members, viable runs | Established practice, viable runs |
-|---|---|---|---|---|---|
+|--------|--------|--------|----------------|----------------|------------------------|
 | 2 | 1.000 | 1.000 | 30.38 ± 0.70 | 30.38 ± 0.70 | 0.3585 ± 0.0049 |
 | 5 | 1.000 | 0.970 | 21.55 ± 1.01 | 22.07 ± 1.00 | 0.3479 ± 0.0058 |
 | 10 | 0.9475 | 0.660 | 11.68 ± 1.02 | 16.47 ± 1.18 | 0.3475 ± 0.0084 |
