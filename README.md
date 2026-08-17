@@ -177,10 +177,22 @@ python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/build_book.py
 latexmk -pdf -interaction=nonstopmode paper/anonymity-as-an-aggregation-condition.tex
-pandoc reference/PRIMER-steps-and-traditions.md \
-  -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=xelatex
+python3 tools/build_primer.py
 python3 tools/check_release.py
 ```
+
+Building the book and the primer needs pandoc, a TeX engine, and the **TeX Gyre Pagella**
+font, which both builds request from fontconfig by name. On Debian or Ubuntu that font is
+`fonts-texgyre`; on macOS install the OTFs from the TeX Gyre project or a TeX distribution.
+Without it XeTeX stops with an unrecoverable error before it typesets anything, which is what
+CI did on 17 August 2026 when the font turned out to be present only in the author's personal
+font library.
+
+The primer is built by `tools/build_primer.py` and not by a hand-typed pandoc command. The
+script holds the one inch margins and the line-breaking settings that keep long file paths
+inside the type block, so the Markdown source stays free of LaTeX and
+`tools/check_chapter.py` can read it as prose. A bare `pandoc` call renders the primer at
+LaTeX's default article margins and is not the release artifact.
 
 The first four commands regenerate files the release check requires but that are otherwise easy
 to forget: `inventory_model_choices.py` writes `research/model-choice-inventory.json`, which

@@ -97,14 +97,24 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
-      - name: Install pandoc and tectonic
+      - name: Install pandoc, tectonic, and the TeX Gyre fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends pandoc
+          sudo apt-get install -y --no-install-recommends pandoc fonts-texgyre
           curl -fsSL https://drop-sh.fullyjustified.net | sh
           sudo mv tectonic /usr/local/bin/
+          fc-cache -f
           pandoc --version | head -1
           tectonic --version
+
+      # Both builds ask fontspec for "TeX Gyre Pagella" by name, which is a fontconfig
+      # lookup and not something tectonic can supply from its bundle. Fail here, with a
+      # clear message, rather than 40 lines deep in a XeTeX transcript.
+      - name: The book font must be visible to fontconfig
+        run: |
+          fc-list | grep -qi 'TeX Gyre Pagella' \
+            || { echo 'TeX Gyre Pagella not installed; the PDF builds will fail'; exit 1; }
+          echo "found: $(fc-list | grep -ci 'TeX Gyre Pagella') TeX Gyre Pagella faces"
 
       - name: Rebuild the primer and the book
         run: |

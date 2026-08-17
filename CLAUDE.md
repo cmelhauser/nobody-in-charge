@@ -226,10 +226,15 @@ viability threshold 5, and the 22 + 12 + 49 + 35 = 118 decomposition, so a chang
 build rather than being noticed by a reader.
 
 GitHub Actions runs two jobs, defined in `.github/workflows/ci.yml`. `checks` is fast and
-gates every push and pull request. `release-gate` installs pandoc and tectonic, rebuilds the
-book and the primer, asserts zero overfull boxes, and runs `check_release.py`; it rebuilds
-rather than trusting the committed PDFs because a fresh clone gives every file the same
-checkout timestamp.
+gates every push and pull request. `release-gate` installs pandoc, tectonic, and the TeX Gyre
+fonts, rebuilds the book and the primer, asserts zero overfull boxes, and runs
+`check_release.py`; it rebuilds rather than trusting the committed PDFs because a fresh clone
+gives every file the same checkout timestamp.
+
+Both PDF builds ask fontconfig for **TeX Gyre Pagella** by name, so that font is a build
+dependency and not a nicety. It is `fonts-texgyre` on Debian and Ubuntu. Missing, XeTeX halts
+with an unrecoverable error before typesetting anything, so `release-gate` checks for the font
+explicitly and fails with a sentence rather than a transcript.
 
 The standalone primer is rebuilt by `python3 tools/build_primer.py`, which holds its typography so
 the Markdown stays free of LaTeX; the paper is rebuilt from its LaTeX source. All three PDFs use one
