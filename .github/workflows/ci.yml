@@ -131,8 +131,16 @@ jobs:
               path = pathlib.Path(log)
               if not path.exists():
                   continue
-              hits = set(re.findall(r"Overfull .hbox \((\d+\.?\d*)pt", path.read_text(errors="ignore")))
+              lines = path.read_text(errors="ignore").splitlines()
+              hits = [i for i, line in enumerate(lines)
+                      if re.search(r"Overfull .hbox \(\d+\.?\d*pt", line)]
               print(f"{name}: {len(hits)} overfull boxes")
+              # Print the offending line and the text TeX could not fit. A bare count
+              # cannot be acted on, and the log dies with the runner.
+              for i in hits:
+                  for line in lines[i:i + 4]:
+                      print("    " + line)
+                  print()
               bad |= bool(hits)
           sys.exit(1 if bad else 0)
           PY
