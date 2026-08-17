@@ -98,7 +98,7 @@ Three founding conditions, twenty-five founders each, identical total initial pr
 Viability carries a 95 per cent Wilson interval; continuous means carry a 95 per cent half-width. Conditions share seeds and random streams, so comparisons use paired differences.
 
 | Condition | Endpoint viable | 95% interval | Mean N | ± | Established practice | Established count |
-|---|---|---|---|---|---|---|
+|----------------------|-----------|-----------|-----------|-----------|-----------|-----------|
 | even | 0.985 | 0.968 to 0.993 | 17.80 | 0.88 | 0.2645 | 13.97 |
 | concentrated | 0.9875 | 0.971 to 0.995 | 18.09 | 0.99 | 0.2628 | 14.16 |
 | split | 0.985 | 0.968 to 0.993 | 17.45 | 0.93 | 0.2660 | 13.89 |

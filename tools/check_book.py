@@ -263,8 +263,16 @@ HIST = re.compile(r'for months|for years|for several sessions|had survived sever
 def check_history():
     log = open(P('research', 'progress-log.md')).read() if os.path.exists(P('research', 'progress-log.md')) else ''
     dated = bool(re.search(r'\b20\d\d\b', log))
+    # Widened 16 August 2026. The rule is about claims regarding THIS PROJECT's history, and
+    # the four files below are exactly where such a claim would live, but they were not being
+    # scanned: HANDOFF.md and BOOK-PLAN.md narrate the project's own course, and AGENTS.md and
+    # AGENT_VERIFY.md instruct an agent about it. All four were clean when added, so this
+    # closes a gap rather than papering over a finding. Chapters stay out on purpose: their
+    # durations are sourced history about the Washingtonians and AA, or model output, neither
+    # of which the progress log is the authority for.
     targets = [P('CLAUDE.md'), P('README.md'), P('appendix', 'APPENDIX.md'),
-               P('research', 'PARAMETERS.md')] + glob.glob(P('plans', '*.md'))
+               P('research', 'PARAMETERS.md'), P('HANDOFF.md'), P('AGENTS.md'),
+               P('AGENT_VERIFY.md'), P('BOOK-PLAN.md')] + glob.glob(P('plans', '*.md'))
     for p in targets:
         if not os.path.exists(p): continue
         for ln, line in enumerate(open(p).read().split('\n'), 1):

@@ -85,13 +85,27 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
-Seven of the 26 sources are **record only**: no document exists at any time, which is a stronger
+Seven of the 27 sources are **record only**: no document exists at any time, which is a stronger
 condition than git-ignored. Each carries `"record_only": true` in its metadata. Three of those
 seven have no verification index because no text was retained to build one from. Neither is drift
 and neither should be reported as a missing source.
 
 A directory's leading token must be at least three characters, distinctive, and unique across the
 corpus, because `tools/check_book.py` identifies a source in prose by that token.
+
+## Tests
+
+`python3 -m pytest` after `pip install -r requirements-dev.txt`. No source document is needed.
+
+The coverage gate is 100 per cent of `model/aa_group_model.py` and is enforced by `.coveragerc`.
+**Never edit that file to make a test pass**: its SHA-256 is the release identity, and
+`tests/test_release_invariants.py` pins the digest along with capacity 60, viability 5, and the
+118-value decomposition. If a test there fails, find out whether the model was changed on
+purpose and run the synchronization rule before touching anything.
+
+`tools/` and the analysis scripts sit outside the coverage gate on purpose; they are batch jobs,
+covered instead by `tests/test_tools_integration.py`, which runs each for real. Slow work behind
+`NIC_SLOW_TESTS=1`.
 
 ## Before you commit
 

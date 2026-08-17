@@ -8,8 +8,6 @@ author:
 date: "6 August 2026"
 ---
 
-# What the Model Says About the Twelve Steps and the Twelve Traditions
-
 Released to the public domain under The Unlicense. See the repository's attribution and license
 notices. The AI writing collaboration used a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6
 Sol and Terra models.
@@ -708,6 +706,99 @@ fails. It is disclosed rather than repaired after seeing the result.
 
 ---
 
+## A follow-up: asking the same questions about a different fellowship
+
+Everything above is about one fellowship. The model was built around AA's twelve Steps
+and twelve Traditions, and it takes those two lists as its two inputs. A fair question is
+whether any of it reaches further. In August 2026 that question was asked directly, about
+Recovery Dharma, a peer-led Buddhist recovery fellowship whose program book is published
+free under a Creative Commons licence.
+
+The specific question was whether the model shows the twelve Steps simplified into the
+Dharma. It does not, and the reasons are worth stating here because they mark the edge of
+what this primer covers.
+
+**The dates run the wrong way.** The Eightfold Path is roughly two and a half thousand
+years older than the twelve Steps. Nothing can be a simplification of a document written
+long after it. Recovery Dharma presents its program as an application of early Buddhist
+teaching, not as a rewriting of AA.
+
+**Counting does not support the word either.** Recovery Dharma sets out thirty-five
+enumerated items across seven lists: three jewels, four Noble Truths, eight path factors,
+five precepts, four heart practices, four foundations of mindfulness, and seven
+commitments in a section called The Practice. AA, as this model codes it, is twenty-four
+items across two lists. The comparison that makes simplification look true sets the eight
+path factors against the twelve Steps. That is one list against one list.
+
+**There is a group conscience, and it is the sangha.** A first pass at this said there
+was no Traditions equivalent at all. That was wrong, and the correction is worth stating
+because it turned into the best finding here. Every Recovery Dharma meeting opens with
+members affirming that they trust in the wisdom of the Buddha, the Dharma and the Sangha,
+where the Sangha is the community itself. AA locates ultimate authority in a group
+conscience. Recovery Dharma locates trust in a sangha. That is the same move.
+
+**What is missing is not the authority but the procedure.** There is no charter setting
+out numbered provisions. The fellowship's whole governance commitment is one undivided
+act of trust, rather than twelve separate rules a group could keep or drop one at a
+time. Searching the whole book turns up no "group conscience", no "consensus",
+no "business meeting", no "rotation" and no "bylaws". The jobs the Traditions do are
+real, but several of them sit inside a suggested meeting script that each meeting is
+invited to edit. Confidentiality sits in the closing. Self-support is the basket passed
+near the end. The facilitator says plainly that they hold no authority.
+
+**And the fellowship exists because of the failure this book is about.** Recovery Dharma
+split in 2019 from an earlier Buddhist recovery program that had been built around a
+single named teacher. That program fractured, in the words of one of its own former
+officers, over inequities among its leaders, and people were harmed. The people who
+rebuilt it, including the predecessor's executive director, made the first commitment of
+the new fellowship the one every meeting now reads aloud: it is peer-led and follows no
+one leader or teacher. Nobody involved had heard of this model or of the mathematics
+behind it. They arrived at Traditions Two and Nine on their own, eighty-four years after
+AA, by watching what happened without them. It is one case and it is the fellowship's own
+account of itself, so it corroborates and cannot confirm. Chapter Twenty-Four is where
+the book uses it and says so.
+
+**The deepest difference is the sequence, and it is the one the model can see clearly.**
+Two of the model's central ideas depend on the Steps being worked in order. Growth on each
+Step is gated by the Step before it. That gate is why the practice which brings in new
+members, Step Twelve, is also the most expensive one to reach, and why a group's ability
+to grow lags its ability to hold people. Recovery Dharma's path is grouped under three
+headings and practiced at the same time rather than in order. Take away the sequence and
+there is no longer any reason for the member-attracting practice to be the costly one. So
+those two ideas simply do not carry across.
+
+None of this changes a single figure above. What it changes is the scope a reader should
+give them. This model is not about recovery groups in general. It is about groups that
+have a numbered sequence of practices and a fixed written charter. Recovery Dharma has
+neither, and a model with one Step matrix and one Tradition matrix has nowhere to put a
+fellowship built that way.
+
+Two cautions, in the spirit of the section above. Nothing here compares the two
+fellowships for effectiveness, and nothing in this project could. Nothing here is advice
+about which room anyone should walk into. The full comparison, with the page references
+and the arithmetic, is appendix section A12, and it is written to stand alone.
+
+**A second reading, from the other end.** The model assumes that most people arrive
+because a member brought them, rather than finding the group on their own. That is one of
+the hundred and eighteen chosen numbers and it had never been checked against anything.
+In August 2026 the twenty-nine personal stories in the 1939 first edition of *Alcoholics
+Anonymous* were read for exactly this. They support the assumption for that fellowship at
+that time: the recurring shape is a recovered drinker turning up in person, often several
+of them, and in one case about twenty men visiting a single man in hospital. Only one
+story describes somebody reached without a visit, by letter and a copy of the book, and
+the fellowship presents that as an experiment it was unsure of, recording that it had
+begun to think the book inadequate without personal contact.
+
+Set beside Recovery Dharma, where almost everybody arrived through a website, a free
+book, a flier, a therapist or a chaplain, the two readings bound the assumption rather
+than confirm it. How a fellowship recruits is a fact about that fellowship and that
+period, not about mutual-aid groups in general, and the model should be read as speaking
+about AA in its founding decades. Appendix section A13 carries the census and its
+limits, of which the largest is that the stories were selected to persuade and everyone
+in them recovered.
+
+---
+
 ## Where every figure comes from
 
 The five headings below are the book's canonical reference headings, in the order
@@ -736,6 +827,15 @@ Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Uti
 N.Y.: B. S. Merrell. The Washingtonians' own manual, used here for the written
 analogues of Traditions 4, 7, 9 and 10 and for their deliberate opposite position on
 anonymity. Read at source; saved in `research/`.
+
+Recovery Dharma Global (2023). *Recovery Dharma.* Second edition. Recovery Dharma Inc.
+CC BY-NC-SA 4.0. The only source for the follow-up section above. Read: the front matter,
+the whole of Section I, the whole of Section II with its fourteen personal recovery
+stories, and the glossary, meeting format and dedication of merit. Only the meditations
+and inquiry questions were not read. The 2019 split is reported in the stories by people
+who held office in the predecessor organization, whose founder is named in that source
+and is deliberately not named here. Saved in
+`research/incorporated/RecoveryDharma_2023/`.
 
 **Cited at a remove:**
 
@@ -790,3 +890,18 @@ Tradition 3's retention mechanism is illustration rather than evidence.
 The literature on skill depreciation rates in adults, which would say whether six per
 cent a week is the right order of magnitude for anything comparable. It is the most
 easily improved number in the model and it has not been tried.
+
+From Recovery Dharma, only the selected meditations and the inquiry questions, which are
+practice material rather than description. The fourteen personal stories were read after
+a first pass had skipped them, and skipping them was the reason that pass got the
+governance question wrong.
+
+Anything independent about the 2019 split. The account above rests entirely on the
+successor fellowship's own literature, written by people who left the predecessor. No
+press coverage and no statement from the other side was sought. That is a one-sided
+record and the book's use of it inherits the weakness.
+
+The research literature on Buddhist and mindfulness-based recovery programs, which was
+not searched at all. The follow-up section compares program documents and one
+fellowship's account of its own history, and knows nothing about either fellowship's
+outcomes.

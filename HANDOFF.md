@@ -174,7 +174,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-26 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+27 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
