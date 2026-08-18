@@ -155,6 +155,25 @@ jobs:
                               print(f"    --> {tex}:{num}")
                               for k in range(max(0, num - 2), min(len(src), num + 1)):
                                   print(f"        {k + 1}: {src[k][:200]}")
+                              # The column spec decides the row width. Content changes
+                              # that leave a deficit bit-identical mean the geometry is at
+                              # fault, so print the spec and the sum of its fractions.
+                              b = next((j for j in range(num - 1, -1, -1)
+                                        if "begin{longtable}" in src[j]), None)
+                              if b is not None:
+                                  spec = []
+                                  for j in range(b, min(len(src), b + 16)):
+                                      spec.append(src[j])
+                                      if src[j].lstrip().startswith("\\toprule"):
+                                          break
+                                  print("    spec at line %d:" % (b + 1))
+                                  for line in spec:
+                                      print("        " + line[:160])
+                                  fr = [float(x) for x in
+                                        re.findall(r"real\{([0-9.]+)\}", "\n".join(spec))]
+                                  if fr:
+                                      print("        fractions sum to %.4f over %d columns"
+                                            % (sum(fr), len(fr)))
               bad |= bool(hits)
           sys.exit(1 if bad else 0)
           PY
