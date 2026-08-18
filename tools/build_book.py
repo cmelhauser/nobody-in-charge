@@ -111,6 +111,11 @@ header-includes:
   # The shave stays at 1pt, its original size, for pandoc's four-place rounding; removing
   # it costs twelve overfull boxes. Enlarging it makes this case worse, because a narrower
   # column is the problem here and not the cure.
+  # Load the language explicitly so hyphenation patterns are certainly active. Without a
+  # language selected, whether TeX hyphenates at all depends on the distribution's
+  # defaults, and a build that cannot hyphenate cannot break a long word in a narrow
+  # table column however the column is aligned.
+  - \\usepackage[english]{{babel}}
   - \\usepackage{{ragged2e}}
   - \\newcommand{{\\nictabragged}}{{\\RaggedRight\\hspace{{0pt}}}}
   - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\let\\raggedright\\nictabragged\\addtolength{{\\linewidth}}{{-1pt}}}}
@@ -272,9 +277,44 @@ def unwrap_pm(md):
     lines = md.split('\n')
     for i, line in enumerate(lines):
         if line.lstrip().startswith('|'):
-            lines[i] = re.sub(r'\\\[([0-9][0-9.]*), *([0-9][0-9.]*)\\\]',
-                              r'\1 to \2', line)
+            lines[i] = soften(re.sub(r'\\\[([0-9][0-9.]*), *([0-9][0-9.]*)\\\]',
+                                     r'\1 to \2', line))
     return '\n'.join(lines)
+
+
+# Suffixes long enough to leave a break English would make, longest first. "ed" is
+# deliberately absent: it produced "hypothesiz-ed", which is not a break English
+# makes, and a wrong hyphen in a book is worse than the problem it solves.
+_SUFFIXES = ('tion', 'sion', 'ment', 'ness', 'able', 'ible', 'ing')
+
+
+def soften(row):
+    """Give an over-long word in a table cell somewhere to break.
+
+    Pandoc fixes each column's width as a fraction of the table, and the fractions are
+    not stable across pandoc versions: the same table gives its first column 0.2577 here
+    and 0.1154 on the machine that builds the release. A word that fits comfortably in
+    the first is wider than the second, and a word wider than its column runs into the
+    margin rather than wrapping.
+
+    Hyphenation would handle it, but only where it is available and allowed, and in a
+    table cell it is neither reliably: pandoc sets columns \\raggedright, which suppresses
+    it, and TeX will not hyphenate the first word of a paragraph, which is what a cell's
+    content is. A soft hyphen sidesteps all of that. Pandoc writes U+00AD as an explicit
+    \\-, which TeX honours whatever the alignment, whatever the patterns, and wherever the
+    word sits.
+
+    Only a known suffix is split off, and only where at least four letters remain before
+    it, so the break is one English would make. Anything else is left alone: a wrong
+    hyphen in a book is worse than a wide column.
+    """
+    def split_word(match):
+        word = match.group(0)
+        for suffix in _SUFFIXES:
+            if word.lower().endswith(suffix) and len(word) - len(suffix) >= 4:
+                return word[:-len(suffix)] + '\u00ad' + word[-len(suffix):]
+        return word
+    return re.sub(r'[A-Za-z]{11,}', split_word, row)
 
 
 def resolve_paper_crossrefs(md):

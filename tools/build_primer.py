@@ -59,6 +59,8 @@ HEADER_INCLUDES = r"""
 \usepackage[htt]{hyphenat}
 \usepackage{xurl}
 \usepackage{etoolbox}
+% Load the language so hyphenation patterns are certainly active.
+\usepackage[english]{babel}
 \usepackage{ragged2e}
 % Pandoc's \raggedright stops TeX hyphenating, and TeX will not hyphenate the first
 % word of a paragraph, which is what a table cell's content is. Both have to go for a
