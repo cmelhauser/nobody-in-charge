@@ -3635,3 +3635,32 @@ That proxy was wrong, because reducing the whole table's width moves a one-eight
 eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
 the real difference was the rendered width of one cell.
 
+### 17 August 2026: the actual cause, which was arithmetic and not typography
+
+The plus-minus change did not fix it, and the way it failed gave the answer. The deficit after
+that change was 6.82304pt, identical to the digit with the deficit before it. A content change
+that leaves the overflow bit-identical is not a content problem.
+
+The numbers say what it is. The deficit was 8.21pt at `tabcolsep` 4pt and 6.82pt at 3pt: twice
+the column padding both times, plus a fraction of a point. Pandoc sizes an n-column table against
+`linewidth - 2(n-1)tabcolsep`, which is correct only when the column spec is guarded with `@{}`
+at both ends so LaTeX suppresses the outer padding. Where those guards are missing LaTeX adds
+`2*tabcolsep` that pandoc never subtracted, and every row of a full-width table overhangs by
+exactly that. The local pandoc emits the guards and the runner's does not, which is why this was
+invisible here and reproducible there.
+
+The fix reclaims `2\tabcolsep` inside the longtable environment, plus 2pt for the column-width
+rounding the old `-1pt` was for. It is written in terms of `\tabcolsep` rather than as a number,
+so changing the padding cannot reintroduce the bug. Where the guards are present it costs about
+one per cent of table width and is invisible.
+
+Three attempts preceded this and two of them were wrong for the same reason: they treated a
+constant offset as if it were a margin problem. Raising the shave, shrinking the font, and
+rewriting the cells all buy width, and none of them addresses a term that was never subtracted.
+The plus-minus change is kept because it is right on its own merits, matching how the book's own
+chapters print the same quantities and removing unbreakable boxes from a narrow column, but it is
+not what fixed this.
+
+The diagnostic that made it findable was worth more than any of the fixes: printing the deficit
+in points, at two settings, is what turned this from a typography puzzle into arithmetic.
+

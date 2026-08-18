@@ -36,7 +36,19 @@ header-includes:
   # a point. Shaving a point off the table's working width absorbs that exactly, and
   # reaches the tables converted from the paper's LaTeX, whose widths this repository
   # cannot set at source.
-  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-1pt}}
+  # Pandoc sizes the columns of an n-column table against (linewidth - 2(n-1)tabcolsep),
+  # which is right only when the column spec is guarded with @{} at both ends so LaTeX
+  # suppresses the outer padding. Not every pandoc version emits those guards, and when
+  # they are missing LaTeX adds 2*tabcolsep that pandoc never subtracted, so every row of
+  # a full-width table overhangs by exactly that much. This is what failed CI on 17 August
+  # 2026: the deficit was 8.21pt at tabcolsep 4pt and 6.82pt at 3pt, which is 2*tabcolsep
+  # both times plus a fraction of a point of column-width rounding.
+  #
+  # Reclaiming 2\tabcolsep costs about one per cent of table width where the guards are
+  # present and is invisible; where they are absent it is the difference between a table
+  # inside the type block and one outside it. The extra 2pt covers the rounding: pandoc
+  # writes each fraction to four places, so a seven-column table can sum above 1.
+  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-2\tabcolsep}\addtolength{\linewidth}{-2pt}}
   # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
   # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
   # taken out of the text before the columns are measured, and a wide table with
