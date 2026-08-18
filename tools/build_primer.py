@@ -59,7 +59,13 @@ HEADER_INCLUDES = r"""
 \usepackage[htt]{hyphenat}
 \usepackage{xurl}
 \usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\footnotesize}
+\usepackage{ragged2e}
+% Pandoc's \raggedright stops TeX hyphenating, and TeX will not hyphenate the first
+% word of a paragraph, which is what a table cell's content is. Both have to go for a
+% long word in a narrow column to break. Column fractions are not stable across pandoc
+% versions, so a column that is roomy here can be narrow elsewhere.
+\newcommand{\nictabragged}{\RaggedRight\hspace{0pt}}
+\AtBeginEnvironment{longtable}{\footnotesize\let\raggedright\nictabragged}
 \setlength{\tabcolsep}{4pt}
 """
 
