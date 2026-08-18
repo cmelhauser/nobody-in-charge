@@ -94,19 +94,13 @@ header-includes:
   # a point. Shaving a point off the table's working width absorbs that exactly, and
   # reaches the tables converted from the paper's LaTeX, whose widths this repository
   # cannot set at source.
-  # Pandoc sizes the columns of an n-column table against (linewidth - 2(n-1)tabcolsep),
-  # which is right only when the column spec is guarded with @{{}} at both ends so LaTeX
-  # suppresses the outer padding. Not every pandoc version emits those guards, and when
-  # they are missing LaTeX adds 2*tabcolsep that pandoc never subtracted, so every row of
-  # a full-width table overhangs by exactly that much. This is what failed CI on 17 August
-  # 2026: the deficit was 8.21pt at tabcolsep 4pt and 6.82pt at 3pt, which is 2*tabcolsep
-  # both times plus a fraction of a point of column-width rounding.
-  #
-  # Reclaiming 2\\tabcolsep costs about one per cent of table width where the guards are
-  # present and is invisible; where they are absent it is the difference between a table
-  # inside the type block and one outside it. The extra 2pt covers the rounding: pandoc
-  # writes each fraction to four places, so a seven-column table can sum above 1.
-  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\addtolength{{\\linewidth}}{{-2\\tabcolsep}}\\addtolength{{\\linewidth}}{{-2pt}}}}
+  # Pandoc rounds each column fraction to four places, so an equal-width table of six or
+  # seven columns can sum above 1.0 and overhang the text block by a fraction of a point.
+  # Shaving a point off the table's working width absorbs that, and reaches the tables
+  # converted from the paper's LaTeX, whose widths this repository cannot set at source.
+  # Removing it costs twelve overfull boxes, so it is load-bearing; enlarging it does not
+  # help the case below, which was an unbreakable cell rather than a rounding error.
+  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\addtolength{{\\linewidth}}{{-1pt}}}}
   # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
   # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
   # taken out of the text before the columns are measured, and a wide table with
@@ -255,7 +249,19 @@ def unwrap_pm(md):
     than buying margin against it, which is why this is preferred to shrinking every
     table in the book until the worst row happens to fit.
     """
-    return re.sub(r'\$([0-9][0-9.]*) *\\pm *([0-9][0-9.]*)\$', r'\1 ± \2', md)
+    md = re.sub(r'\$([0-9][0-9.]*) *\\pm *([0-9][0-9.]*)\$', r'\1 ± \2', md)
+    # Intervals inside table rows only, written as the book's own chapters write them.
+    # "[0.9860, 0.9996]" has no breakpoint before the comma, so its first chunk is a
+    # single 41pt box; pandoc had given that column 8.25 per cent of the table, about
+    # 33pt, and an unbreakable box wider than its column runs into the margin instead of
+    # wrapping. "0.9860 to 0.9996" breaks into chunks no wider than a bare number. Prose
+    # is left alone: the bracket form is the project's convention outside tables.
+    lines = md.split('\n')
+    for i, line in enumerate(lines):
+        if line.lstrip().startswith('|'):
+            lines[i] = re.sub(r'\\\[([0-9][0-9.]*), *([0-9][0-9.]*)\\\]',
+                              r'\1 to \2', line)
+    return '\n'.join(lines)
 
 
 def resolve_paper_crossrefs(md):
