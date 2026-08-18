@@ -97,26 +97,29 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
-      # Both halves of this reach the network and both have hung in practice, once for
-      # ten minutes on the apt mirror before the job was killed by hand. Bound them and
-      # retry, so a bad mirror costs a minute and a retry rather than the whole job.
+      # Both halves of this reach the network and both have stalled in practice. The
+      # observed failure is the runner's Azure apt mirror going unreachable: apt logs a
+      # column of "Ign:" lines, falls back to archive.ubuntu.com, and takes minutes about
+      # it. Retrying made that worse, because it repeated a slow operation rather than a
+      # fast failure. So point apt at the mirror that answers, bound every request, and
+      # do not retry the update.
       - name: Install pandoc, tectonic, and the TeX Gyre fonts
-        timeout-minutes: 8
+        timeout-minutes: 12
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
           set -euo pipefail
-          for attempt in 1 2 3; do
-            if timeout 180 sudo -E apt-get update -o Acquire::Retries=3; then
-              break
-            fi
-            echo "apt-get update failed, attempt $attempt"
-            sleep 5
-          done
+          sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' \
+            /etc/apt/sources.list /etc/apt/sources.list.d/*.list \
+            /etc/apt/sources.list.d/*.sources 2>/dev/null || true
+          timeout 300 sudo -E apt-get update \
+            -o Acquire::Retries=2 \
+            -o Acquire::http::Timeout=15 \
+            -o Acquire::https::Timeout=15
           timeout 300 sudo -E apt-get install -y --no-install-recommends \
             pandoc fonts-texgyre
           for attempt in 1 2 3; do
-            if timeout 180 curl -fsSL --retry 3 --retry-delay 5 \
+            if timeout 120 curl -fsSL --retry 2 --retry-delay 3 \
                  https://drop-sh.fullyjustified.net | sh; then
               break
             fi
@@ -130,7 +133,7 @@ jobs:
 
       # Both builds ask fontspec for "TeX Gyre Pagella" by name, which is a fontconfig
       # lookup and not something tectonic can supply from its bundle. Fail here, with a
-      # clear message, rather than 40 lines deep in a XeTeX transcript.
+      # clear message, rather than forty lines deep in a XeTeX transcript.
       - name: The book font must be visible to fontconfig
         run: |
           fc-list | grep -qi 'TeX Gyre Pagella' \
