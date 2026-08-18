@@ -221,7 +221,29 @@ def convert_paper():
             capture_output=True, text=True, check=True).stdout
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
         raise SystemExit('could not convert the paper: %s' % exc)
-    return demote_subscripts(resolve_paper_crossrefs(md)).strip() + '\n'
+    return demote_subscripts(unwrap_pm(resolve_paper_crossrefs(md))).strip() + '\n'
+
+
+def unwrap_pm(md):
+    """Write the paper's `$a \\pm b$` cells as plain text, so a table row can break.
+
+    This is a typesetting fix with a real cause. Pandoc sizes each longtable column as a
+    fraction of the text width, and the fractions come from the markdown intermediate,
+    not from what the cells actually render to. The paper's seven-column scenario table
+    gives `$N$ if viable, y10` about an eighth of the width, and `$29.40 \\pm 1.16$` set
+    as maths is a single unbreakable box very close to that. Set maths cannot be
+    hyphenated or broken, so when it does not fit it runs into the margin rather than
+    wrapping, and how close it comes depends on the font build: the same source overflows
+    on the Debian packaging of TeX Gyre Pagella and fits on the OTFs used here, which is
+    what broke CI on 17 August 2026.
+
+    Written as text the value keeps its meaning, matches how the book's own chapters
+    already print the same quantities, and gains two ordinary breakpoints around the
+    sign, so a tight cell wraps instead of overflowing. That removes the failure rather
+    than buying margin against it, which is why this is preferred to shrinking every
+    table in the book until the worst row happens to fit.
+    """
+    return re.sub(r'\$([0-9][0-9.]*) *\\pm *([0-9][0-9.]*)\$', r'\1 ± \2', md)
 
 
 def resolve_paper_crossrefs(md):

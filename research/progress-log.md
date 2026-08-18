@@ -3603,3 +3603,35 @@ unresolved result cannot distinguish a Tradition that does little from one coded
 little. Each of those was already implied somewhere in the project and none was stated where a
 reader of the primer would meet it.
 
+### 17 August 2026: the overfull box was unbreakable maths, not a tight margin
+
+The `tabcolsep` change reduced the overflow from 8.21pt to 6.82pt and did not remove it, which
+was the useful failure. Reducing column padding widens each column by the padding saved times
+that column's fraction, and the binding column here is an eighth of the table, so 1pt of padding
+bought about a seventh of a point. The lesson is that global width settings barely reach a narrow
+column, and chasing this by shrinking every table in the book until the worst row happened to fit
+would have been buying margin against a defect rather than removing it.
+
+The defect: pandoc sizes each longtable column as a fraction fixed in the markdown intermediate,
+not by what the cells render to, and the paper's seven-column scenario table gives
+`$N$ if viable, y10` about an eighth of the width. Set as maths, `$29.40 \pm 1.16$` is one
+unbreakable box very near that width. Maths cannot be hyphenated or broken, so a cell that does
+not fit runs into the margin instead of wrapping, and whether it fits depends on the font build.
+
+`tools/build_book.py` now writes those cells as text when converting the paper, so the value
+keeps its meaning, matches how the book's own chapters already print the same quantities, and
+gains ordinary breakpoints around the sign. A tight cell now wraps. `tabcolsep` stays at 3pt,
+which is worth having on its own.
+
+Two things were tried and rejected, both recorded because they looked reasonable. Widening the
+paper conversion from 90 to 140 columns changes the fractions to match content and made things
+worse, three overfull boxes rather than one, because it reallocates width away from other tables.
+Shrinking longtables to `\scriptsize` was measured rather than assumed and was not enough: the
+binding cell needed about 17 per cent and `\scriptsize` gives 11.
+
+A note on method, since this cost two red builds. The first attempt calibrated headroom by
+rebuilding with the table width artificially reduced, and concluded 3pt had 14 to 20pt of slack.
+That proxy was wrong, because reducing the whole table's width moves a one-eighth column by an
+eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
+the real difference was the rendered width of one cell.
+
