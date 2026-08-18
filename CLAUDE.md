@@ -153,7 +153,7 @@ decided against the real text at build time. With no documents present, every ci
 pair still verifies. If a re-acquired file's hash differs from the record, the index is stale and
 must be rebuilt rather than trusted.
 
-**Ten sources are held as record only, with no document at any time.** This is a distinct
+**Eleven sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
 store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026

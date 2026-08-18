@@ -1136,7 +1136,7 @@ had looked.
 
 ---
 
-## A13. The 1939 stories read against the model's arrival term
+## A13. The personal stories read against the model's arrival term
 
 A12 compared program documents. This section does something narrower and evidentially stronger: it
 reads twenty-nine first-person accounts against one specific modelling choice, the arrival term in
@@ -1248,6 +1248,54 @@ A census of how people say they arrived cannot set a rate. It also cannot speak 
 twenty-nine accounts are of people who recovered and were chosen for a book intended to persuade, so
 they are the least representative sample imaginable of everyone the fellowship met. Nothing here
 touches retention, dropout or group survival.
+
+### A13.7 The same census on the fourth edition, and what moves
+
+The 1939 reading was carried on this list as unextendable, because the fourth edition of
+2001 carries a different set of stories and the project did not hold it. The Human Author owns
+several copies and supplied the text on 17 August 2026, and AAWS also posts the book in per-section
+PDFs, so the obstacle was never as solid as this appendix said.
+
+The fourth edition has forty-two personal stories in three parts: ten Pioneers, seventeen They
+Stopped in Time, fifteen They Lost Nearly All.
+
+**The coding rule had to be extended, and the reason is itself the finding.** A13.2 asks whether a
+recovered alcoholic made contact with the subject before the subject stopped drinking. In 1939 that
+question had two answers, because a person who wanted to find the fellowship had almost no way to
+do so: it was small, unadvertised, and not yet in any telephone directory. By 2001 there are three
+answers, and the middle one could not have existed in 1939.
+
+| Initiating channel | Stories | Share of classifiable |
+|---|---:|---:|
+| A member sought the subject out | 13 | 43% |
+| The subject contacted the fellowship | 6 | 20% |
+| A professional or an institution referred | 11 | 37% |
+| Channel not stated plainly enough to code | 12 | |
+
+Thirty of the forty-two state the channel plainly. Twelve do not, and they are reported as
+unresolved rather than assigned, on the same principle the release gate applies to an interval
+crossing zero.
+
+**What this supports.** The model's arrival term has two parts, an exogenous rate and a
+member-carried rate scaled by Step 12 practice, and the fourth edition shows both operating. The
+exogenous term is not a modelling convenience: its code comment names courts, treatment and
+desperation, and the stories supply a judge sending a man to A.A. for a month, a college requiring
+attendance as a condition of readmission, counsellors producing meeting lists, and repeated arrival
+through treatment centres. In 1939 that term had almost nothing to point at. It now has more than a
+third of the classifiable stories.
+
+**What this bounds.** The member-initiated share falls from twenty of twenty-six in 1939, seventy-
+seven per cent, to thirteen of thirty here, forty-three per cent. The model holds `lam_exog` fixed
+at 0.12 per week for every run, so it cannot represent that shift at all. A fellowship large enough
+to be found in a telephone book, and embedded in courts and treatment systems that refer to it, has
+an exogenous arrival rate that grew with its own institutional presence. That is a mechanism the
+model does not contain, and the two censuses together are the clearest evidence in this appendix
+that it should be treated as a limitation rather than a detail.
+
+**What it is not.** Neither census is a sample. The stories are selected by the fellowship for
+publication, and selection on outcome is total: every subject recovered. Nothing here estimates
+the arrival mix in the population, and the comparison between editions is a comparison between two
+edited collections sixty-two years apart, not a time series.
 
 ### A13.6 The Machinery
 

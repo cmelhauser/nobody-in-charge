@@ -378,6 +378,17 @@ and a structure could satisfy it exactly while rotating twelve people through a 
 eight hundred. Supports Chapter 10 and the primer's Tradition 9 entry. The long-form Concepts and
 their accompanying essays were not read.
 
+*Alcoholics Anonymous World Services, Alcoholics Anonymous, Fourth Edition (2001).* **Read in part
+at source on 17 August 2026**, held as record only under `research/incorporated/BigBook_2001/`.
+Supplied by the Human Author, who owns several copies; AAWS also posts the book in per-section
+PDFs. Title page, copyright page, contents and all three parts of the personal stories were read;
+the programme chapters were not, being unchanged from 1939 and covered by `BigBook_1939`. Supports
+Appendix A13.7, which repeats the 1939 arrival census on the forty-two stories of this edition:
+thirteen member-initiated, six subject-initiated, eleven professional or institutional, twelve
+unresolved and reported as unresolved. Member-initiated arrival is 43 per cent of the classifiable
+stories against 77 per cent in 1939. **Neither census is a sample**: the stories are selected by
+the fellowship for publication and selection on outcome is total.
+
 *Jensen, Karen, and Matthew Abrahams, "Buddha Buzz Weekly: Refuge Recovery Splits," Tricycle: The
 Buddhist Review, 13 July 2019.* **Read in full at source on 17 August 2026**, held as record only
 under `research/incorporated/Tricycle_2019/`. The independent account of the 2019 schism that
