@@ -64,3 +64,8 @@ research/elicitation/*.toc
 coverage.xml
 htmlcov/
 .pytest_cache/
+
+# CI toolchain caches, kept inside the workspace so no path in the workflow is
+# home-relative. See .github/workflows/ci.yml.
+.tex-cache/
+.xdg/

@@ -110,6 +110,14 @@ purpose and run the synchronization rule before touching anything.
 covered instead by `tests/test_tools_integration.py`, which runs each for real. Slow work behind
 `NIC_SLOW_TESTS=1`.
 
+CI has two jobs. `checks` needs pip and nothing else and gates every push: the suite, the model
+hash, corpus drift, portability, the book checks, and `check_release.py --skip-artifacts`, which
+is 131 of the 136 release checks. `documents` renders the PDFs and runs the full gate, on `main`
+only, because it needs pandoc, tectonic and a font, and every environmental failure this
+repository has had came from those three fetches. **Do not move a check into `documents` that
+does not need a rendered PDF.** The whole point of the split is that a CTAN timeout must not stop
+the release checks running.
+
 ## Before you commit
 
 ```bash

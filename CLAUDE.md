@@ -250,11 +250,26 @@ release identity. `tests/test_release_invariants.py` pins the digest, room capac
 viability threshold 5, and the 22 + 12 + 49 + 35 = 118 decomposition, so a change fails the
 build rather than being noticed by a reader.
 
-GitHub Actions runs two jobs, defined in `.github/workflows/ci.yml`. `checks` is fast and
-gates every push and pull request. `release-gate` installs pandoc, tectonic, and the TeX Gyre
-fonts, rebuilds the book and the primer, asserts zero overfull boxes, and runs
-`check_release.py`; it rebuilds rather than trusting the committed PDFs because a fresh clone
-gives every file the same checkout timestamp.
+GitHub Actions runs two jobs, defined in `.github/workflows/ci.yml`, split by what can be
+verified without a network.
+
+`checks` gates every push and pull request across Python 3.11, 3.12 and 3.13. It needs pip and
+nothing else and runs everything that does not require a rendered PDF: the suite with its
+coverage gate, the model hash, corpus drift, portability, the book-level checks, and 131 of the
+136 release-gate checks via `check_release.py --skip-artifacts`.
+
+`documents` renders the three PDFs, asserts zero overfull boxes, and runs the full gate and the
+slow integration tests. It runs on `main` and on demand, not on pull requests, and it rebuilds
+rather than trusting the committed PDFs because a fresh clone gives every file one checkout
+timestamp.
+
+**The split is the point.** Every environmental failure this repository has had came from the
+three network fetches the document job needs: a hung apt mirror, a CTAN mirror timing out, a
+certificate that would not verify, and four cold-cache fetches inside tectonic. Before the split
+those failures meant the release checks did not run at all, because they sat behind the
+toolchain. `--skip-artifacts` omits exactly seven checks, the ones asserting a rendered artifact
+is newer than its sources, which a fresh clone can satisfy only by building the artifact and then
+declaring it fresh. Run the full gate before a release.
 
 Continuous integration pins **pandoc 3.10.2**, and the pin is load-bearing rather than tidy.
 Pandoc computes the column widths of every table in the book and does not compute them the same

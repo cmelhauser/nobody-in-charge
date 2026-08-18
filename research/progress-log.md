@@ -3929,3 +3929,39 @@ collections sixty-two years apart, not a time series, and estimates nothing abou
 The corpus is 31 sources, eleven record only, seven without a verification index. Nothing was
 copied into the repository.
 
+### 18 August 2026: continuous integration split by what a network can break
+
+Eleven of the last twenty runs failed and every failure was in one job. The fast job has never
+failed for an environmental reason; the release-gate job failed on a hung apt mirror, a CTAN
+mirror timing out, a certificate that would not verify, and four separate cold-cache fetches
+inside tectonic.
+
+The diagnosis was in the numbers rather than the logs. Of the 136 release-gate checks, **seven**
+concern rendered artifacts. The other 129 are cache existence and completeness, model and script
+hash currency, the registered design counts, and the model invariants, and not one of them needs a
+TeX toolchain. They were sitting behind pandoc, tectonic and a font download, so a CTAN timeout
+meant the checks that actually catch a stale cache did not run at all. That is backwards, and it
+was the real defect rather than any individual flake.
+
+`check_release.py` now takes `--skip-artifacts`, which omits those seven and nothing else. The
+fast job runs the remaining 131 on every push and pull request across three Python versions, with
+no network beyond pip. The renamed `documents` job builds the three PDFs, asserts zero overfull
+boxes and runs the full gate, on `main` and on demand.
+
+Calling that a weakened checker would be the wrong reading, and the flag's comment argues the
+case. In a fresh clone every file carries one checkout timestamp, so "artifact newer than its
+source" can only be satisfied by building the artifact and then asserting the thing just built is
+newer than its input. That is circular and says nothing about the PDFs committed. A release still
+runs the full gate with the artifacts built, which is where those seven mean something.
+
+Three stability changes came with it. The tectonic bundle and the font directory are now cached
+between runs, which removes the cold-fetch failure mode rather than retrying through it. Both
+caches live inside the workspace rather than under the runner's home directory, because
+`check_portability.py` flags a home-relative path in any tracked file and does not exempt CI; it
+caught the first attempt immediately. And the diagnostic scaffolding built while chasing the
+overfull box, the resolved-source-line dump and the column-spec probe, is gone: pandoc is pinned
+now, so the geometry that produced it cannot drift.
+
+The file went from 280 lines to 219, and the useful checks went from running sometimes to running
+on every push.
+
