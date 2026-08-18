@@ -111,6 +111,14 @@ record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were al
 Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
 sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three are record only.
 
+Three more were added on 17 August 2026, bringing the corpus to 30, and all three are record
+only: AAWS service material SMF-132, the Twelve Concepts for World Service in short form, and
+*Tricycle*'s contemporaneous account of the 2019 Recovery Dharma schism. The first two are
+published free by AAWS and the third at the publisher's own site; each closed an item that had
+been carried as unobtainable without anyone checking. SMF-132 supplies Chapter 21's out-of-sample
+comparison, the Concepts narrow Chapter 10's rotation claim, and *Tricycle* corrects where
+Appendix A12.4 draws its contrast.
+
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full; only the meditations and inquiry questions were not. It supports appendix A12 and four
 paragraphs of Chapter 24. It is held on the ordinary footing, git-ignored with a hash and an index.
@@ -145,7 +153,7 @@ decided against the real text at build time. With no documents present, every ci
 pair still verifies. If a re-acquired file's hash differs from the record, the index is stale and
 must be rebuilt rather than trusted.
 
-**Seven sources are held as record only, with no document at any time.** This is a distinct
+**Ten sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
 store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026

@@ -3803,3 +3803,60 @@ telling a reader not to trust any shorter list, including its own paragraph.
 
 Nothing was closed by editing. Five of these need a book bought and read.
 
+### 17 August 2026: three items closed by checking whether the publisher gives them away
+
+Five items on the remaining-work list had been described, by me, as needing a copyrighted book
+bought and read, and therefore as impossible from here. That was true of two of them. It was never
+checked for the other three, and all three are published free and officially.
+
+**SMF-132**, the worldwide group-and-member series, is a free PDF on aa.org. It had sat on the
+list since 2 August, first behind a policy that was retired on 10 August and then behind nothing
+at all. Read at source on 17 August. It closes the out-of-sample comparison Chapter 21 proposed:
+reported members divided by reported groups gives 18.4 per group on average across 2001 to 2020,
+falling from 22.1 to 16.5 over that period, against a modelled endpoint membership at full
+adherence of 17.80 [16.92, 18.68]. The model was not fitted to it. Room capacity, arrival and
+dropout were set long before the table was read.
+
+**That is recorded as a consistency check and not a validation, and the source is the reason.**
+AA keeps no membership lists; these are reports from groups registered with general service
+offices. A ratio of two estimated aggregates is not a sample of group sizes, carries no interval,
+and describes no distribution, which is certainly skewed. The model produces a distribution and
+the table produces a point. They agree at the point. The chapter now says so in a sentence and
+keeps its two older limitations, that the series is worldwide rather than regional and that a
+count of groups is not a count of group deaths.
+
+**The Twelve Concepts for World Service** are also free on aa.org, in short form. They had been
+listed as unread and as the place where the fellowship's own thinking about rotation is set out at
+greatest length, with a note that the last AA text left unread on copyright grounds turned out to
+contain the strongest objection to this book's argument. Read on 17 August. The finding is a
+narrowing rather than a reversal, and it is more interesting than the claim it replaces.
+
+Concept 4, the Right of Participation, asks for voting representation in reasonable proportion to
+the responsibility each element of the structure discharges. So AA does hold a proportionality
+principle about service, explicitly, and Chapter 10 had assumed it held none. But it proportions a
+different pair: voting weight to responsibility, where the model's result concerns the size of the
+rotating pool relative to the size of the group. A structure could satisfy Concept 4 exactly and
+still rotate twelve people through a fellowship of eight hundred, which is the configuration
+Chapter 10 shows to be a permanent oligarchy. The claim is now that AA has the instinct for
+proportion and applies it to representation rather than to the pool.
+
+**An independent account of the 2019 Recovery Dharma schism** exists, in *Tricycle*, 13 July 2019.
+Appendix A12.4 had rested entirely on the successor fellowship's own literature, written by people
+who left, which is the weakest evidential position available for a claim about why a schism
+happened. The independent account confirms the structure from outside and corrects the contrast.
+Both organizations describe their meetings as peer-led and democratically run, and the
+predecessor's own book did so before the split, so the difference was never that one had peer-led
+meetings. What separates them is the layer above the meeting: teacher-led retreats and a
+professional treatment option on one side, nothing above the sangha on the other.
+
+That correction improves the fit rather than damaging it. The model has no representation of a
+meeting's internal democracy, which both fellowships share. It has a governance layer that can be
+concentrated or diffuse, and the split is precisely about whether such a layer exists at all.
+
+All three are held as **record only**, which brings the corpus to 30 sources, ten of them record
+only and six of those without a verification index. Nothing was downloaded into the repository.
+The rule stands: read what is lawfully readable, hold nothing, record the provenance.
+
+The general lesson is not about AA literature. Three items sat on a list as impossible because
+nobody asked whether the publisher gives them away, and the cost of asking was one search each.
+

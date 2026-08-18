@@ -772,6 +772,23 @@ no knowledge of this model, and no interest in Golub and Jackson, responded to c
 influence by abolishing the office that concentrated it. That is Traditions 2 and 9 arrived at
 independently, in 2019, under pressure.
 
+**An independent account corrects where that line falls, and the correction improves the fit.**
+Everything above comes from the successor's own literature, written by people who left, which is
+the weakest possible evidential position for a claim about why a schism happened. *Tricycle*
+covered the split on 13 July 2019 and was read at source on 17 August 2026. It confirms the
+structural fact from outside: two nonprofits came out of 2019, the continuing body retained
+associated teacher-led retreats and professional treatment options, the successor was formed
+without them, and individual sanghas chose between them. It also corrects the contrast. Both
+organizations describe their *meetings* as peer-led and democratically run, and the predecessor's
+own book did so before the split, so the difference was never that one had peer-led meetings and
+the other did not. What separates them is the layer above the meeting.
+
+That is a better fit to what this book models, not a worse one. The model has no representation of
+a meeting's internal democracy, which both fellowships share and always did. What it has is a
+governance layer that can be concentrated or diffuse, and the split is precisely about whether
+such a layer exists above the group at all. The independent source therefore narrows the claim to
+the one the model can actually speak to.
+
 And there *is* a decision procedure, at least once, even though none is written down. The
 transition was not decreed: "all of the meetings in our area voted to switch from Refuge to RD"
 (119). A vote across meetings is a group-conscience act in everything but name, and its existence

@@ -2318,6 +2318,8 @@ Before that number gets used, it has to survive an objection that would make it 
 
 Chapter Eight sets it out with the source and the arithmetic, so I will not repeat either. The short form is that AA's own 1953 commentary denies the premise this chapter starts from. It says the committee that rotates cannot govern or direct anything, and it puts the fellowship's real influence in a class of former officeholders it calls elder statesmen, who hold nothing and therefore rotate out of nothing.
 
+The fellowship's fullest statement on service structure says something adjacent to this chapter's claim, and the gap between them is the point. The Twelve Concepts for World Service, adopted in 1962, are where AA sets out how its service bodies should be composed, and Concept 4 establishes what it calls the Right of Participation: voting representation in reasonable proportion to the responsibility each part of the structure discharges. So AA does hold a proportionality principle about service, explicitly and in its own words, and I had assumed it held none. But it proportions a different pair. Concept 4 proportions voting weight to responsibility discharged. This chapter's result concerns the size of the rotating pool relative to the size of the group being served. A structure could satisfy Concept 4 exactly, every body weighted precisely to what it is answerable for, and still rotate twelve people through a fellowship of eight hundred, which is the configuration the arithmetic above shows to be a permanent oligarchy. The claim I started with was that AA never says how many people. The claim I can defend after reading the Concepts is narrower and more interesting: AA has the instinct for proportion and applies it to representation rather than to the pool.
+
 If that is accurate, this chapter has been measuring the wrong quantity. A pool is a remedy for influence held inside it.
 
 So I priced the combination, and the result is in Chapter Eight's Machinery rather than here. What it comes to is this: a group that adopts the recommendation below in full, and also defers to a small permanent advisory class, diverges from an evenly weighted room anyway, and diverges faster the larger it gets. Following the advice correctly does not close the gap, because the advice does not reach what is opening it.
@@ -2410,6 +2412,14 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a record with no document.
 
+W., Bill. *The Twelve Concepts for World Service* (Short Form), SMF-114. Adopted 1962. Read at
+source on 17 August 2026 from the fellowship's own free posting and held as record only under
+`research/incorporated/TwelveConcepts_1962/`. Used here for Concept 4, the Right of
+Participation, and for Concept 9 on the passage of primary service leadership from the founders
+to the trustees. The long-form Concepts and the essays accompanying them in the Service Manual
+were not read; if a rule about the size of a rotating pool exists anywhere, the Concept 4 essay
+is where it would be.
+
 **Cited at a remove:**
 
 Nothing.
@@ -2426,7 +2436,7 @@ The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the
 
 Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
 
-The Twelve Concepts of World Service, which is where the fellowship's own thinking about rotation is set out at greatest length, are AA copyright and have still not been read. That gap is now conspicuous rather than incidental: the last time this chapter left an AA text unread on those grounds, the text turned out to contain the strongest objection to the chapter's own argument.
+Nothing further on the Concepts. They were read on 17 August 2026 and are now discussed above rather than listed here as a gap.
 
 # Chapter Eleven: What the Washingtonians Lacked
 
@@ -4391,9 +4401,9 @@ For comparison, viable baseline groups average 29.40 members and 0.3016 establis
 
 **The historical application is a candidate mechanism and not a finding, and the chapter says so twice.** I want it recorded here as well. The argument is that the thinness of the Washingtonian decline record is consistent with a failure mode that leaves no trace in surviving institutions. It is consistent with several other explanations, including the one Chapter Two documents at length, which is that the record was curated by a man with an interest in what the movement should have been. The two explanations predict the same silence and nothing in the surviving material distinguishes them.
 
-**The claim about AA's group counts is now specific, and the series has still not been obtained.** The document is service material SMF-132, *Estimated Worldwide A.A. Individual and Group Membership*, published by the General Service Office as a table of groups and members by year. That is the right instrument for the test this chapter proposes and it is named here so a future session does not have to find it again. It was located on 2 August 2026 and has not been read. The reason given here used to be that the project does not acquire AAWS publications; that rule was corrected on 10 August 2026, when the 1953 commentary was read in full, and it no longer applies. AAWS distributes SMF-132 under a content-use policy permitting a single printed copy, which permits reading it. So the honest statement is that it has not been obtained, and that obtaining it is now a task rather than a policy question. Two further limitations would remain even with it in hand. The series is worldwide rather than regional, so the natural experiment the chapter proposes, a region whose referral pipeline changed sharply, would need finer data than SMF-132 carries. And a count of groups is not a count of group deaths, since the total moves with births as well.
+**The series has now been obtained and read, and it supplies one number.** The document is service material SMF-132, *Estimated Worldwide A.A. Individual and Group Membership*, published free by the General Service Office as a table of groups and members by year, 1935 to 2020. It was located on 2 August 2026, left unread on a policy ground that was itself corrected on 10 August, and read at source on 17 August 2026. Dividing reported members by reported groups gives a mean of 18.4 members per group across 2001 to 2020, ranging from 16.5 to 22.1 and falling steadily as groups are added faster than members. The model's endpoint membership at full adherence is 17.80, with a 95 per cent interval of [16.92, 18.68] on 400 seeds at thirty years. That sits inside the observed range and close to its mean, and the model was not fitted to it: room capacity, arrival and dropout were all set before this table was read, which is what makes the comparison out of sample at all. **It is a consistency check and not a validation, and the source says why.** AA keeps no membership lists, and these are reports from groups registered with general service offices. A ratio of two estimated aggregates is not a sample of group sizes: it carries no interval, and it says nothing about a distribution that is certainly skewed. The model produces a distribution and the table produces a point. They agree at the point, which is worth a sentence and not a chapter. Two limitations named earlier survive unchanged. The series is worldwide rather than regional, so the natural experiment this chapter proposes, a region whose referral pipeline changed sharply, still needs finer data than SMF-132 carries. And a count of groups is not a count of group deaths, because the total moves with births as well.
 
-**Nothing here is validated.** The trajectories are model output and have never been compared against a real group. The expanded sensitivity suite measures dependence on authored choices; it does not validate the durations, the absolute group sizes or the historical application.
+**Almost nothing here is validated.** The trajectories are model output and have never been compared against a real group. The one comparison that now exists, mean group size against SMF-132, touches a single endpoint number and not a trajectory, and is a consistency check rather than a test. The expanded sensitivity suite measures dependence on authored choices; it does not validate the durations, the absolute group sizes or the historical application.
 
 ### 4. References
 
@@ -4402,6 +4412,8 @@ For comparison, viable baseline groups average 29.40 members and 0.3016 establis
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. Saved under `research/incorporated/Maxwell_1950/`; see Chapter One for the note on the retyped copy. Used here only for the character of the decline record, which is discussed at length in Chapter Two.
 
 Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Saved in `research/`. Used here for the same purpose.
+
+Alcoholics Anonymous World Services. *Estimated Worldwide A.A. Individual and Group Membership*, SMF-132, Rev. 12/20. Read at source on 17 August 2026 and held as record only under `research/incorporated/SMF132_2020/`. Used here for the members-per-group ratio and for the method note that limits it.
 
 **Cited at a remove:**
 
@@ -4413,7 +4425,7 @@ Nothing.
 
 **What was not read:**
 
-SMF-132, discussed above. I have not obtained it. Also not read: any survival analysis of voluntary associations that would say whether bimodal group mortality is a real phenomenon or an artefact of this model's inflow structure. The chapter's central mechanism therefore has no empirical corroboration of any kind, and a reader should weigh it as an argument about a model rather than a claim about the world.
+Also not read: any survival analysis of voluntary associations that would say whether bimodal group mortality is a real phenomenon or an artefact of this model's inflow structure. The chapter's central mechanism therefore has no empirical corroboration of any kind, and a reader should weigh it as an argument about a model rather than a claim about the world.
 
 # Chapter Twenty-Two: What You Cannot Engineer
 
@@ -5835,6 +5847,23 @@ no knowledge of this model, and no interest in Golub and Jackson, responded to c
 influence by abolishing the office that concentrated it. That is Traditions 2 and 9 arrived at
 independently, in 2019, under pressure.
 
+**An independent account corrects where that line falls, and the correction improves the fit.**
+Everything above comes from the successor's own literature, written by people who left, which is
+the weakest possible evidential position for a claim about why a schism happened. *Tricycle*
+covered the split on 13 July 2019 and was read at source on 17 August 2026. It confirms the
+structural fact from outside: two nonprofits came out of 2019, the continuing body retained
+associated teacher-led retreats and professional treatment options, the successor was formed
+without them, and individual sanghas chose between them. It also corrects the contrast. Both
+organizations describe their *meetings* as peer-led and democratically run, and the predecessor's
+own book did so before the split, so the difference was never that one had peer-led meetings and
+the other did not. What separates them is the layer above the meeting.
+
+That is a better fit to what this book models, not a worse one. The model has no representation of
+a meeting's internal democracy, which both fellowships share and always did. What it has is a
+governance layer that can be concentrated or diffuse, and the split is precisely about whether
+such a layer exists above the group at all. The independent source therefore narrows the claim to
+the one the model can actually speak to.
+
 And there *is* a decision procedure, at least once, even though none is written down. The
 transition was not decreed: "all of the meetings in our area voted to switch from Refuge to RD"
 (119). A vote across meetings is a group-conscience act in everything but name, and its existence
@@ -7207,7 +7236,16 @@ its membership figure carries nothing.
 importance. On that column Tradition 9 does nothing measurable, and it carries one of
 the three headline results in the book.
 
-Rotation is where the model knows something AA does not say. The long form of this
+Rotation is where the model knows something AA does not say, and since 17 August 2026 that
+can be put more precisely. The Twelve Concepts for World Service, adopted in 1962 and the
+fellowship's fullest statement on service structure, do contain a proportionality principle:
+Concept 4 asks for voting representation in reasonable proportion to the responsibility each
+part of the structure discharges. But it proportions voting weight to responsibility, not the
+rotating pool to the size of the group. A structure could satisfy Concept 4 exactly and still
+rotate twelve people through a fellowship of eight hundred. AA has the instinct for proportion
+and applies it to representation rather than to the pool.
+
+The long form of this
 Tradition says rotating leadership is best, and the 1953 commentary warns against
 entrenched power, but neither says how many people. The model says the answer is a
 fraction of the group and not a headcount, and that the difference is not a matter of

@@ -174,7 +174,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-27 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+30 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
@@ -194,7 +194,7 @@ A directory's leading token must be at least three characters and distinctive, b
 directories may not share a leading token, which is why the corpus has `TwelveAndTwelve` and
 `KurtzTalk` rather than a second `AAWS` and a second `Kurtz`.
 
-### Seven sources are record only
+### Ten sources are record only
 
 These have **no document at any time**, which is a stronger condition than the git-ignored
 majority. A verifier should not report either category as a missing source. Each carries
@@ -311,10 +311,8 @@ empty, it reports that Chapter 18 is contradicted. Hold the project to that.
 
 Nothing is blocked on engineering, and nothing here blocks release. Every checker passes, both
 notebooks execute, all three PDFs render with zero overfull boxes, and continuous integration is
-green. What follows is the complete list of open items; it is the single place they are recorded,
-and anything claiming a shorter list is out of date.
-
-They divide sharply, and the division matters more than the count.
+green. This is the complete list and the only place these are recorded; anything claiming a
+shorter one is out of date.
 
 **One item could change a conclusion.**
 
@@ -324,9 +322,8 @@ They divide sharply, and the division matters more than the count.
    `1-respondent-form.pdf` and **never** `4-collator-notes.pdf`, which names the answer the
    exercise exists to elicit.
 
-**The rest qualify a conclusion rather than change one, and every one of them is blocked on a
-document this project does not hold.** None can be closed by further computation, and none should
-be closed by inference from what is already here.
+**Three items need a copyrighted book bought or borrowed.** None can be closed by computation or
+by inference from what is already here.
 
 2. **Confirm the Rohr citations** against a lawfully obtained edition. Both claims drawn from it
    are absence claims, and the copy consulted was an unauthorized posting of an in-print title,
@@ -334,30 +331,40 @@ be closed by inference from what is already here.
 3. **Obtain *Alcoholics Anonymous Comes of Age*, pages 97 to 98.** Kurtz names it as the passage
    that settles the unity versus singleness-of-purpose question Chapter 17 depends on. It is the
    single most valuable unread source, and the last time an AA text was left unread on copyright
-   grounds it turned out to contain the strongest objection to this book's own argument.
+   grounds it turned out to contain the strongest objection to this book's own argument. It is
+   sold rather than posted; AA's own site offers it for purchase only.
 4. **Obtain AA's fourth edition of the Big Book (2001).** What the corpus holds is the 1939 first
    edition; the document offered as a fourth edition on 17 August 2026 was a reprint whose "4th
-   edition" is its own printing number. The 2001 edition carries a different set of stories, and
-   Appendix A13's census of member-carried arrival is therefore a reading of 1939 and cannot be
-   extended to the fellowship as it is now without it.
-5. **Obtain SMF-132**, the AAWS worldwide group-and-member series, for Chapter 21's proposed
-   out-of-sample test. Its content-use policy permits a single printed copy, so reading it is
-   allowed; it is simply not yet obtained.
-6. **Find an independent account of the 2019 Recovery Dharma schism.** Everything the appendix says
-   about it comes from the successor fellowship's own literature, written by people who left. The
-   structural finding, that a teacher-centred predecessor fractured and its successor abolished the
-   office, is corroboration and not confirmation, and a second source is what would change that.
-   Note the standing rule while doing it: the predecessor's founder is named nowhere in this
-   project, and `tools/check_book.py` enforces that.
-7. **The Twelve Concepts of World Service**, where the fellowship's own thinking about rotation is
-   set out at greatest length. Unread.
-8. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
+   edition" is its own printing number. The 2001 edition carries a different set of stories, so
+   Appendix A13's census of member-carried arrival is a reading of 1939 and cannot be extended to
+   the fellowship as it is now without it. AA posts the foreword and preface free but sells the
+   text.
+
+**Two are ordinary scholarly loose ends.**
+
+5. **The Concept 4 essay** in the A.A. Service Manual. The short-form Concepts were read on 17
+   August 2026 and contain no rule about the size of a rotating pool; if one exists anywhere, the
+   essay accompanying Concept 4 is where it would be.
+6. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature.
 
-Item 1 is the one worth chasing. Items 2 to 8 are the ordinary unfinished business of a project
-that reads its sources and says which ones it has not read, which is the method rather than a
-defect in it.
+### Closed on 17 August 2026
+
+Three items that stood on this list were closed by reading sources that turned out to be
+published free and officially, which had been assumed unobtainable without checking.
+
+- **SMF-132**, the worldwide group-and-member series, read at source. It supplies the
+  out-of-sample number Chapter 21 asked for: 18.4 members per group on average across 2001 to
+  2020 against a modelled endpoint of 17.80. Recorded as a consistency check, not a validation.
+- **The Twelve Concepts for World Service**, read in short form. Concept 4 holds a proportionality
+  principle, but between voting weight and responsibility rather than between pool and group, so
+  Chapter 10's claim survives in a narrower and better form.
+- **An independent account of the 2019 Recovery Dharma schism**, from *Tricycle*. It confirms the
+  structure from outside the successor's own literature and corrects where the contrast falls.
+
+The lesson is worth keeping: three items sat here as impossible because nobody checked whether the
+publisher gives them away.
 
 ---
 

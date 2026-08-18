@@ -1,0 +1,28 @@
+{
+ "id": "Tricycle_2019",
+ "title": "Buddha Buzz Weekly: Refuge Recovery Splits",
+ "author": "Jensen, Karen; Abrahams, Matthew",
+ "year": 2019,
+ "publication": "Tricycle: The Buddhist Review",
+ "date": "2019-07-13",
+ "type": "journalism",
+ "status": "read_in_full",
+ "provenance_url": "https://tricycle.org/article/refuge-recovery-splits/",
+ "consulted": "2026-08-17",
+ "topics": [
+  "Recovery Dharma",
+  "Refuge Recovery",
+  "2019 schism",
+  "governance"
+ ],
+ "what_it_supports": "Appendix A12.4. It is the independent account of the 2019 split that HANDOFF.md listed as missing; everything the appendix previously said about the schism came from the successor fellowship's own literature.",
+ "the_correction": "It refines rather than confirms. Both organizations describe their meetings as peer-led and democratically run, so the difference is not that one is peer-led and the other is not. What separates them is the layer above the meeting: the continuing body retained associated teacher-led retreats and professional treatment options, and the successor did not.",
+ "sensitive_handling": "This article names the predecessor's founder. The project does not, and tools/check_book.py enforces that. Only structural and governance facts are drawn from it; no allegation about any individual is repeated or adjudicated here.",
+ "record_only": true,
+ "record_only_reason": "Copyrighted journalism, read at source on the publisher's own site.",
+ "verification_index": "none: no text was retained to build one from.",
+ "rights_note": "Copyrighted journalism, read at source on the publisher's own site. Never stored here; cite to Tricycle.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
