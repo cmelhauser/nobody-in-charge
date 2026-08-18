@@ -90,11 +90,17 @@ cross-reference count.
 `Rohr_2011` carries a provenance problem recorded in full at
 `research/incorporated/Rohr_2011/metadata.json`. The file consulted bore an OceanofPDF.com
 imprint, which is an unauthorized distribution site, and the work is a current in-print commercial
-title, so the posting was plainly not authorized. This is a stronger objection than the
-unverified-authorization cases below. The file was not retained; the bibliographic record was
-confirmed against publisher and library listings independently of it; and both claims the
-manuscript draws from it are **absence** claims, checkable by anyone holding a lawful copy. Before
-release, any Rohr citation should be confirmed against a lawfully obtained edition.
+title, so the posting was plainly not authorized. The file was not retained, and the
+bibliographic record was confirmed against publisher and library listings independently of it.
+
+**Resolved 17 August 2026.** The Human Author holds a lawfully obtained copy of the work. The
+objection was about the project's access resting on an unauthorized posting, and a copy on the
+author's shelf settles that. It is worth being exact about what this does and does not cover: the
+two claims were read from the posted file, and what has changed is that the work is now lawfully
+to hand and re-checkable at will, not that anyone has re-read it. Neither claim carries a page
+citation anywhere in the manuscript, the appendix or the paper, so the difference between the 2011
+Franciscan Media first edition and the 2016 SPCK printing consulted is immaterial to every use
+made of it.
 
 `KurtzTalk_c1984` is dated only by inference and must always be cited as "about 1984". Wilson's
 letters are quoted within it from memory and without page citations, so anything attributed to

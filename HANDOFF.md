@@ -322,18 +322,14 @@ shorter one is out of date.
    `1-respondent-form.pdf` and **never** `4-collator-notes.pdf`, which names the answer the
    exercise exists to elicit.
 
-**Three items need a copyrighted book bought or borrowed.** None can be closed by computation or
+**Two items need a copyrighted book bought or borrowed.** Neither can be closed by computation or
 by inference from what is already here.
-
-2. **Confirm the Rohr citations** against a lawfully obtained edition. Both claims drawn from it
-   are absence claims, and the copy consulted was an unauthorized posting of an in-print title,
-   which is the strongest provenance objection in the corpus.
-3. **Obtain *Alcoholics Anonymous Comes of Age*, pages 97 to 98.** Kurtz names it as the passage
+2. **Obtain *Alcoholics Anonymous Comes of Age*, pages 97 to 98.** Kurtz names it as the passage
    that settles the unity versus singleness-of-purpose question Chapter 17 depends on. It is the
    single most valuable unread source, and the last time an AA text was left unread on copyright
    grounds it turned out to contain the strongest objection to this book's own argument. It is
    sold rather than posted; AA's own site offers it for purchase only.
-4. **Obtain AA's fourth edition of the Big Book (2001).** What the corpus holds is the 1939 first
+3. **Obtain AA's fourth edition of the Big Book (2001).** What the corpus holds is the 1939 first
    edition; the document offered as a fourth edition on 17 August 2026 was a reprint whose "4th
    edition" is its own printing number. The 2001 edition carries a different set of stories, so
    Appendix A13's census of member-carried arrival is a reading of 1939 and cannot be extended to
@@ -342,10 +338,10 @@ by inference from what is already here.
 
 **Two are ordinary scholarly loose ends.**
 
-5. **The Concept 4 essay** in the A.A. Service Manual. The short-form Concepts were read on 17
+4. **The Concept 4 essay** in the A.A. Service Manual. The short-form Concepts were read on 17
    August 2026 and contain no rule about the size of a rotating pool; if one exists anywhere, the
    essay accompanying Concept 4 is where it would be.
-6. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
+5. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature.
 
@@ -362,6 +358,12 @@ published free and officially, which had been assumed unobtainable without check
   Chapter 10's claim survives in a narrower and better form.
 - **An independent account of the 2019 Recovery Dharma schism**, from *Tricycle*. It confirms the
   structure from outside the successor's own literature and corrects where the contrast falls.
+- **The Rohr provenance objection.** The Human Author holds a lawfully obtained copy of
+  *Breathing Under Water*, confirmed 17 August 2026. The objection was always about access
+  resting on an unauthorized posting, not about the accuracy of the reading, and a copy on the
+  author's shelf settles it. No claim drawn from the book carries a page citation, so the edition
+  difference between the 2011 Franciscan Media first edition and the 2016 SPCK printing is
+  immaterial to anything the manuscript says.
 
 The lesson is worth keeping: three items sat here as impossible because nobody checked whether the
 publisher gives them away.
