@@ -2,7 +2,7 @@
 
 1. Treat source status literally. Within this staged corpus, only documents still present in
    `sources/acquired/` may be described as locally archived but unincorporated. Sources moved
-   to `../incorporated/` are active project evidence and are governed by `../SOURCES.md`.
+   to `../incorporated/` are active project evidence and are governed by `../../SOURCES.md`.
 2. Use the original PDF page image to verify every historical quotation and page number. OCR supports search, not final transcription.
 3. Label claims by evidence type: primary historical document, secondary history, empirical research, or theory.
 4. Use ATU documents as evidence of contemporary institutional language and priorities; do not generalize them to all temperance organizations without corroboration.
