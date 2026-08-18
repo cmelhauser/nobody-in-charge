@@ -148,11 +148,16 @@ jobs:
           python tools/summarize_release_gate.py
           python tools/summarize_robustness.py
 
-      - name: Rebuild the primer and the book
+      # All three artifacts, for the same reason: the gate requires each to be at least as
+      # new as its sources, and a fresh clone gives them all one timestamp. The paper is
+      # LaTeX and its header documents two pdflatex passes, which is what latexmk performs
+      # locally; tectonic resolves the passes itself and is already installed here.
+      - name: Rebuild the primer, the book, and the paper
         timeout-minutes: 20
         run: |
           python tools/build_primer.py
           python tools/build_book.py
+          cd paper && tectonic anonymity-as-an-aggregation-condition.tex
 
       - name: No text may sit outside the type block
         run: |
