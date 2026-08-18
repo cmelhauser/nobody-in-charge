@@ -5,7 +5,6 @@ author:
   - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
   - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
-date: "6 August 2026"
 ---
 
 Released to the public domain under The Unlicense. See the repository's attribution and license

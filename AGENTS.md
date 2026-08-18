@@ -7,8 +7,11 @@ two overlap; nothing here contradicts it.
 ## What this project is
 
 A finished book-length research project. A 25-chapter manuscript, an academic paper, a technical
-appendix, a Steps-and-Traditions primer, an executable agent-based model, twenty analysis
-scripts, eighteen hash-linked result caches, two verification notebooks, and seven checkers.
+appendix, a Steps-and-Traditions primer, an executable agent-based model, nineteen analysis
+scripts, eighteen hash-linked result caches, two verification notebooks, and five checkers:
+`check_book.py`, `check_chapter.py`, `check_portability.py`, `check_release.py`, and
+`build_corpus.py --check`. Every count here is countable from the tree, and the cache count is
+the gate's own required list in `tools/check_release.py`.
 
 It argues that three of Alcoholics Anonymous's Twelve Traditions implement a formal condition,
 proved by Golub and Jackson in 2010, for when a group that decides by discussion can be trusted

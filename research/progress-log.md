@@ -3711,3 +3711,45 @@ whose pandoc is not the pinned one.
 Final state: four jobs green, the release gate in about a minute, 136 release checks passing, 100
 tests passing on Python 3.11, 3.12 and 3.13, and zero overfull boxes in both rendered documents.
 
+### 17 August 2026: a production-readiness audit, and the five things it found
+
+A full pass over the repository looking for staleness rather than for a failing check. Every
+checker was already passing, so this was about claims nothing verifies.
+
+**The primer was dated 6 August and had been rewritten on the 17th.** A date in a source file is
+exactly the kind of fact nothing checks and nobody reads. Fixed at the cause rather than the
+symptom: the date is removed from the Markdown and `tools/build_primer.py` now stamps it at build
+time, as `tools/build_book.py` already did, so the printed date is when the artifact was made.
+
+**`CLAUDE.md` ran the release gate before the three builds.** The gate requires every rendered
+artifact to be at least as new as its sources, so the documented order fails on the artifacts it
+is about to be given. `README.md` and the CI job both had it right. Corrected, with a sentence
+saying why the order is not a matter of taste.
+
+**Two counts in `AGENTS.md` were wrong.** Nineteen analysis scripts, not twenty, and five
+checkers rather than seven; the checkers are now named rather than counted. The eighteen caches
+were right, and the count is the gate's own required list. Numbers that cannot be checked should
+be either checkable or absent.
+
+**Two broken relative links**, in the AAWS P-17 README and the staged-corpus agent note, both
+pointing at the wrong directory depth. A sweep of every backtick-quoted file path in every
+Markdown file now resolves cleanly, treating a path as valid if it resolves either from the
+referring file or from the repository root, and excepting the git-ignored corpus documents, whose
+absence is the design.
+
+**The pandoc pin was undocumented outside the workflow.** It governs table geometry, so a builder
+using a different pandoc gets different column widths. Now stated in `README.md` and `CLAUDE.md`
+where someone reproducing the build will meet it.
+
+One thing deliberately left alone. The progress log refers to `kurtz-1991-verification-index.json`
+under its pre-normalisation name. That entry is a dated record of what was true when it was
+written, and correcting it would be rewriting a history rather than fixing a fact.
+
+**The PDFs were measured rather than eyeballed.** All three are A4. Ink extents were computed for
+every page of all three documents: no content reaches the paper edge, the closest approach is
+68pt, and the only breaches of the nominal type block are sub-3pt and are all words ending in a
+period, which is `microtype` protruding terminal punctuation on purpose. A line-collision pass
+flagged candidates that turned out to be inline mathematics and horizontal rules, confirmed by
+rendering the flagged pages. Zero overfull boxes in the book and the primer remains the
+authoritative statement, since it is TeX's own.
+

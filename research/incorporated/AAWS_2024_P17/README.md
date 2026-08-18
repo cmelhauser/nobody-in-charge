@@ -70,4 +70,4 @@ Grapevine issue. The project does not currently make such a claim.
 
 Nothing here is evidence for the mathematical result. It is evidence about what the Traditions
 say, which is layer (b) and layer (c) of the four layers named in
-`../../../agent/SOURCE_INCORPORATION_AGENT.md`, not layer (a).
+`../../staged/agent/SOURCE_INCORPORATION_AGENT.md`, not layer (a).
