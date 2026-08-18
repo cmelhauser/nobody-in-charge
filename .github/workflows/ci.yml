@@ -137,6 +137,17 @@ jobs:
             || { echo 'TeX Gyre Pagella not installed; the PDF builds will fail'; exit 1; }
           echo "found: $(fc-list | grep -ci 'TeX Gyre Pagella') TeX Gyre Pagella faces"
 
+      # The gate requires each derived report to be at least as new as every cache it
+      # summarises. A fresh clone gives every file the same checkout timestamp, so the
+      # reports have to be regenerated here rather than trusted, exactly as the
+      # reproduction sequence in README.md does before the release check. All three read
+      # existing caches and take well under a second; none of them recomputes anything.
+      - name: Regenerate the derived reports
+        run: |
+          python tools/inventory_model_choices.py
+          python tools/summarize_release_gate.py
+          python tools/summarize_robustness.py
+
       - name: Rebuild the primer and the book
         timeout-minutes: 20
         run: |
