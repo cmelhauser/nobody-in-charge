@@ -95,8 +95,21 @@ header-includes:
   # reaches the tables converted from the paper's LaTeX, whose widths this repository
   # cannot set at source.
   - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\addtolength{{\\linewidth}}{{-1pt}}}}
-  # Wide result tables were the last thing sitting outside the type block.
-  - \\setlength{{\\tabcolsep}}{{4pt}}
+  # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
+  # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
+  # taken out of the text before the columns are measured, and a wide table with
+  # unbreakable cells starves first. The seven-column scenario table converted from the
+  # paper is the binding case: its cells are set maths, which cannot be broken or
+  # hyphenated, so a cell that does not fit runs into the margin instead of wrapping.
+  #
+  # 4pt was too tight to survive a change of platform. The same source built with the
+  # Debian packaging of TeX Gyre Pagella rather than the OTFs used here needs about 8.2pt
+  # more room on that row, and CI failed on exactly that box on 17 August 2026. Measured
+  # headroom, by rebuilding with the table width artificially reduced until a row
+  # overflows: 4pt survives a 7pt reduction, 3pt survives between 14 and 20pt, 2pt
+  # survives more than 30pt. 3pt is roughly twice what the platform difference costs and
+  # keeps the tables looking like a book rather than a spreadsheet.
+  - \\setlength{{\\tabcolsep}}{{3pt}}
   - \\usepackage{{titlesec}}
   - \\titleformat{{\\chapter}}[display]{{\\normalfont\\Large\\bfseries}}{{}}{{0pt}}{{\\Large}}
   - \\titlespacing*{{\\chapter}}{{0pt}}{{0pt}}{{28pt}}
