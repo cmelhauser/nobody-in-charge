@@ -433,9 +433,13 @@ def main():
     with open(log, 'w', encoding='utf-8') as fh:
         fh.write(res.stdout + res.stderr)
     if res.returncode != 0:
-        # Print the tail as well as the path. In CI the log file is discarded with the
-        # runner, so a bare path leaves a red build with no way to tell what happened.
-        tail = (res.stdout + res.stderr).splitlines()[-40:]
+        # Print the lines that name the failure, then the tail. Tail alone is not enough:
+        # on a cold runner tectonic emits dozens of "note: downloading" lines after the
+        # error, so the last forty lines can be entirely package fetches.
+        lines = (res.stdout + res.stderr).splitlines()
+        errs = [ln for ln in lines
+                if re.search(r"^!|error:|Error|Undefined|not loadable|not found|LaTeX Error", ln)]
+        tail = (errs[-25:] + ["--- tail ---"] + lines[-15:]) if errs else lines[-40:]
         sys.stderr.write('\n'.join(tail) + '\n')
         raise SystemExit('pandoc failed, see %s' % log)
     print('wrote %s using %s' % (OUT_PDF, engine))
