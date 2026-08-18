@@ -89,23 +89,31 @@ header-includes:
   - \\usepackage[htt]{{hyphenat}}
   - \\usepackage{{xurl}}
   - \\usepackage{{etoolbox}}
-  # Shave the working width a table's columns are measured against, in both of the
-  # lengths pandoc might have used.
+  # Let a long word in a narrow table column break.
   #
-  # Pandoc writes each column as a fraction of a width minus the column padding, and
-  # which width it names depends on the version: some write \\linewidth and some write
-  # \\columnwidth. Setting only one of them silently does nothing wherever the other was
-  # written, and "silently" is the problem. A 1pt shave against \\linewidth looked
-  # load-bearing here, because it is, and had no effect at all on a runner whose pandoc
-  # had written \\columnwidth, where the paper's seven-column scenario table overhung by
-  # 6.82pt through four attempted fixes without the number moving a hair.
+  # Two things stop it, and both have to go. Pandoc sets each column \\raggedright, and
+  # LaTeX's \\raggedright gives the line infinite stretch, so no line is ever bad enough
+  # for TeX to try hyphenating; ragged2e's \\RaggedRight is the same alignment with a
+  # finite stretch, which lets hyphenation happen. That alone is not enough, because TeX
+  # will not hyphenate the first word of a paragraph, and a table cell's content is the
+  # start of one. A zero-width space ahead of it makes the first word an ordinary word.
   #
-  # That constant is the signature. An overflow that does not respond to any change in
-  # the row's content, to five decimal places, is geometry; and an overflow that does not
-  # respond to the width you are setting either means you are setting the wrong length.
-  # Both lengths are set here, so the shave applies whichever the version used. 14pt is
-  # twice the observed shortfall and costs three per cent of table width.
-  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\addtolength{{\\linewidth}}{{-14pt}}\\addtolength{{\\columnwidth}}{{-14pt}}}}
+  # Verified on the failing cell at the width the runner gives it: "unwelcoming, combined
+  # T3 loss" in a 47pt column overflows by 9.358pt under plain \\raggedright, overflows by
+  # exactly the same under \\RaggedRight alone, and fits under both together, breaking as
+  # "unwel-".
+  #
+  # This is needed because column fractions are not stable across pandoc versions. The
+  # runner gives the paper's scenario table a first column of 0.1154 where the local
+  # pandoc gives 0.2577. That was confirmed rather than guessed: shaving the table width
+  # by 14pt moved the overflow by 1.6156pt, which is 0.1154 of 14pt to four decimals.
+  #
+  # The shave stays at 1pt, its original size, for pandoc's four-place rounding; removing
+  # it costs twelve overfull boxes. Enlarging it makes this case worse, because a narrower
+  # column is the problem here and not the cure.
+  - \\usepackage{{ragged2e}}
+  - \\newcommand{{\\nictabragged}}{{\\RaggedRight\\hspace{{0pt}}}}
+  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\let\\raggedright\\nictabragged\\addtolength{{\\linewidth}}{{-1pt}}}}
   # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
   # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
   # taken out of the text before the columns are measured, and a wide table with
