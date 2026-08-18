@@ -124,6 +124,9 @@ the release checks running.
 python3 tools/check_portability.py
 ```
 
+`tools/run_ci_locally.sh` runs both CI jobs here, which is the cheapest way to find out whether a
+push will go red.
+
 Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.
 
 ## What is still outstanding

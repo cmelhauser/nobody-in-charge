@@ -3965,3 +3965,27 @@ now, so the geometry that produced it cannot drift.
 The file went from 280 lines to 219, and the useful checks went from running sometimes to running
 on every push.
 
+### 18 August 2026: continuous integration is runnable here
+
+Both jobs were verified step by step on this machine, and the verification is now a script,
+`tools/run_ci_locally.sh`, because doing it by hand took a dozen commands and nobody repeats
+that. It mirrors the workflow's two jobs in order, takes an optional `checks` or `documents`
+argument, and reports a pass and fail count. Twelve steps, none failing.
+
+Two things about it are worth stating rather than assuming.
+
+It is a convenience and not an authority. The workflow file is the authority, nothing enforces
+that the two agree, and they will drift unless changed together. The script says so at the top.
+
+And it cannot check the thing that has actually broken this repository's CI. Every environmental
+failure came from obtaining pandoc, tectonic or the font on a fresh runner, and the script
+deliberately uses the toolchain already installed here, because reinstalling it would be slower
+and less faithful to what the author builds with. A green local run is evidence about the
+repository, not about the runner.
+
+One incidental finding. Re-running the builds produces three modified PDFs and a modified
+`model-choice-inventory.json` every time, and all four are timestamp churn: the extracted text of
+all three PDFs is byte-identical to the committed versions, and the JSON differs only in
+`created_utc`. Those were reverted rather than committed. Worth knowing before someone reads a
+four-file diff as a content change.
+
