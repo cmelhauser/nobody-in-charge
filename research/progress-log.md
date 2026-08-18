@@ -3635,40 +3635,53 @@ That proxy was wrong, because reducing the whole table's width moves a one-eight
 eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
 the real difference was the rendered width of one cell.
 
-### 17 August 2026: a long word in a narrow column, and two separate reasons it could not break
+### 17 August 2026: continuous integration is green, and what it took
 
-The run that finally identified this was the one that made things worse. Shaving the table width
-by 14pt moved the overflow from 6.82304pt to 8.43867pt, a change of 1.6156pt, which is 0.1154 of
-14pt to four decimal places. 0.1154 is the first column's fraction in the spec the runner's pandoc
-writes. The column was named exactly, by an experiment that failed.
+The workflow added earlier in the day passed for the first time. Eleven runs separate the first
+red build from the first green one, and the failures were five distinct faults rather than one
+fault resisting five attempts. Recording them because the sequence is the useful artefact.
 
-The local pandoc gives that column 0.2577 of the table and the runner's gives it 0.1154, from the
-same markdown. Pandoc's column arithmetic is not stable across versions, which is the real hazard
-here and is not something this repository can pin. At 0.1154 the column is about 47pt and the cell
-begins "unwelcoming,", which is about 56pt. It should have hyphenated and could not, for two
-independent reasons.
+**The font.** Both PDF builds ask fontconfig for TeX Gyre Pagella by name. On this machine it
+sits in a per-user font directory, so every local build had been satisfied by a file that is not
+in the repository and cannot be. A fresh runner has none, and XeTeX stops before typesetting a
+line. The gate now installs `fonts-texgyre` and checks that fontconfig can see the family, so the
+failure is one sentence rather than a transcript.
 
-The first is that pandoc sets every column `\raggedright`, and LaTeX's `\raggedright` gives the
-line infinite stretch, so no line is ever bad enough for TeX to attempt hyphenation. ragged2e's
-`\RaggedRight` is the same alignment with a finite stretch and does allow it. The second is that
-TeX will not hyphenate the first word of a paragraph, and a table cell's content is the beginning
-of one. A zero-width space in front of it makes the first word an ordinary word.
+**The overfull box.** One row of the paper's seven-column scenario table sat 6.82pt outside the
+type block. It took four wrong diagnoses. Content was ruled out correctly, by three rewrites of
+the row that left the deficit identical to five decimal places. Then the deficit was read as twice
+the column padding, which fitted two data points and was wrong. Then as an unbreakable 41pt cell,
+which fitted two more and was also wrong. The experiment that settled it was one that made things
+worse: shaving the table by 14pt moved the overflow by 1.6156pt, which is 0.1154 of 14pt to four
+decimals, and 0.1154 is the first column's fraction in the spec the runner's pandoc writes. The
+column was named by a failed fix.
 
-Either alone leaves the box overfull. Tested directly on the failing cell at the width the runner
-gives it: 9.358pt too wide under plain `\raggedright`, 9.358pt under `\RaggedRight` alone, and
-fitting under both, breaking as "unwel-". Both builds now apply both.
+The cause is that pandoc's column fractions are not stable across versions. The same table gives
+its first column 0.2577 here and 0.1154 there, and "unwelcoming" is wider than the second.
+Hyphenation should have absorbed it and could not be relied on: pandoc sets columns
+`\raggedright`, which suppresses hyphenation, and TeX will not hyphenate the first word of a
+paragraph, which is what a table cell is. The fix writes a soft hyphen into over-long words in
+table rows, which pandoc turns into an explicit `\-` that TeX honours regardless of alignment,
+patterns or position. It applies only to words of eleven letters or more and only splits a known
+suffix with four letters left before it. `ed` was in that list until it produced "hypothesiz-ed".
 
-Three readings were wrong before this one, and the pattern in the errors is the useful part. The
-deficit sat at 6.82304pt through three rewrites of the row's content, which correctly ruled out
-content. It also sat there through shaves of 1pt, 8pt and 14pt against `\linewidth`, which was
-read as the shave being too small when it meant the shave was not connected: the runner's pandoc
-sizes against `\columnwidth`. Once the shave reached the length the table actually used, the
-number moved for the first time, and moved to the answer.
+**The reports.** The gate requires each derived report to be at least as new as every cache it
+summarises, and a fresh clone gives every file one timestamp. The job now regenerates them, which
+also makes it the documented reproduction sequence rather than a subset of it.
 
-The method that worked, after several that did not: change one thing, and read whether the number
-responds. A constant under a change means the cause is elsewhere. A constant under the control you
-are adjusting means the control is disconnected. Both were on display here and only the first was
-recognised at the time.
+**The paper.** Same rule, same cause: the job rebuilt the book and the primer and not the paper,
+so the paper failed the freshness check every time. Tectonic builds it.
 
-The CI diagnostic that prints the column spec and the sum of its fractions is what ended it, and
-it stays. Four builds were spent on plausible reasoning about a spec nobody had looked at.
+**The mirror.** The install step twice hung on the runner's Azure apt mirror, once for ten minutes
+before it was killed by hand. The first attempt at robustness made it worse by retrying a slow
+operation three times instead of failing fast. Rewriting the sources to the mirror that answers,
+with bounded Acquire timeouts and no retry on update, brought the whole job to 1m46s.
+
+The diagnostic work was worth more than any single fix. Printing the deficit in points, then the
+resolved source line, then the column spec and the sum of its fractions, is what turned a
+typography puzzle into arithmetic. Those diagnostics stay in the workflow. The lesson to carry:
+change one thing and read whether the number responds. A constant under a change means the cause
+is elsewhere; a constant under the control you are adjusting means the control is not connected.
+Both were on display here, and only the first was recognised at the time.
+
+The deprecated Node 20 actions were updated in the same pass.
