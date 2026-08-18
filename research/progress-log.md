@@ -3635,34 +3635,40 @@ That proxy was wrong, because reducing the whole table's width moves a one-eight
 eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
 the real difference was the rendered width of one cell.
 
-### 17 August 2026: the shave was being applied to the wrong length
+### 17 August 2026: a long word in a narrow column, and two separate reasons it could not break
 
-Five attempts. The answer was one word in the generated LaTeX, and the only thing that found it
-was printing the column spec the runner's pandoc had actually written.
+The run that finally identified this was the one that made things worse. Shaving the table width
+by 14pt moved the overflow from 6.82304pt to 8.43867pt, a change of 1.6156pt, which is 0.1154 of
+14pt to four decimal places. 0.1154 is the first column's fraction in the spec the runner's pandoc
+writes. The column was named exactly, by an experiment that failed.
 
-    p{(\columnwidth - 12\tabcolsep) * \real{0.1154}}
+The local pandoc gives that column 0.2577 of the table and the runner's gives it 0.1154, from the
+same markdown. Pandoc's column arithmetic is not stable across versions, which is the real hazard
+here and is not something this repository can pin. At 0.1154 the column is about 47pt and the cell
+begins "unwelcoming,", which is about 56pt. It should have hyphenated and could not, for two
+independent reasons.
 
-`\columnwidth`. The local pandoc writes `\linewidth` for the same table. The header shaved
-`\linewidth`, so on the runner it was shaving a length the table never consulted, and every fix
-that worked through that shave was a no-op there. Both lengths are now set, so the shave applies
-whichever the version wrote.
+The first is that pandoc sets every column `\raggedright`, and LaTeX's `\raggedright` gives the
+line infinite stretch, so no line is ever bad enough for TeX to attempt hyphenation. ragged2e's
+`\RaggedRight` is the same alignment with a finite stretch and does allow it. The second is that
+TeX will not hyphenate the first word of a paragraph, and a table cell's content is the beginning
+of one. A zero-width space in front of it makes the first word an ordinary word.
 
-The evidence had been complete for some time and was misread twice. The deficit was 6.82304pt
-through three rewrites of the offending row, which correctly ruled out content. It was also
-6.82304pt at shaves of 1pt, 8pt and 14pt, which should have ruled out the shave just as firmly
-and instead was read as confirmation that the shave was too small. A quantity that ignores the
-control you are moving is telling you the control is not connected.
+Either alone leaves the box overfull. Tested directly on the failing cell at the width the runner
+gives it: 9.358pt too wide under plain `\raggedright`, 9.358pt under `\RaggedRight` alone, and
+fitting under both, breaking as "unwel-". Both builds now apply both.
 
-Worth recording against the temptation to keep adjusting: the fractions sum to 0.9999 over seven
-columns, so pandoc's rounding was never the cause, and none of the theories built on it were
-right. Two of them fitted the data at two settings each and predicted the wrong repair.
+Three readings were wrong before this one, and the pattern in the errors is the useful part. The
+deficit sat at 6.82304pt through three rewrites of the row's content, which correctly ruled out
+content. It also sat there through shaves of 1pt, 8pt and 14pt against `\linewidth`, which was
+read as the shave being too small when it meant the shave was not connected: the runner's pandoc
+sizes against `\columnwidth`. Once the shave reached the length the table actually used, the
+number moved for the first time, and moved to the answer.
 
-What the episode is really about is that this repository builds its PDFs with whatever pandoc is
-on the machine, and pandoc's table geometry is not stable across versions. The header now
-tolerates both spellings. The CI diagnostic that prints the spec and its fraction sum stays,
-because it is what turned a week of plausible guesses into one line of fact.
+The method that worked, after several that did not: change one thing, and read whether the number
+responds. A constant under a change means the cause is elsewhere. A constant under the control you
+are adjusting means the control is disconnected. Both were on display here and only the first was
+recognised at the time.
 
-The two content changes made along the way are kept on their own merits and neither is
-load-bearing: the paper's `\pm` cells are written as text in the book, matching how the book's own
-chapters print the same quantities, and intervals inside table rows are written `a to b`, also the
-book's own form.
+The CI diagnostic that prints the column spec and the sum of its fractions is what ended it, and
+it stays. Four builds were spent on plausible reasoning about a spec nobody had looked at.
