@@ -3635,34 +3635,41 @@ That proxy was wrong, because reducing the whole table's width moves a one-eight
 eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
 the real difference was the rendered width of one cell.
 
-### 17 August 2026: the actual cause was one unbreakable cell in a starved column
+### 17 August 2026: the cause was table geometry, and the tell was a constant
 
-Three wrong diagnoses preceded the right one, and the arithmetic that settled it is worth
-keeping, because each wrong answer was reasonable and testable.
+Four attempts, and the diagnostic that mattered was not any of the fixes. It was noticing that
+the deficit did not move.
 
-The deficit was 8.21pt at `tabcolsep` 4pt and 6.82pt at 3pt. Pandoc sizes a column as a fraction
-of `linewidth - 2(n-1)tabcolsep`, so the column in question, at 8.25 per cent of the table, was
-32.78pt wide at 4pt padding and 33.77pt at 3pt. Adding the deficit to the column gives the width
-of what would not fit: 40.99pt and 40.59pt. The same number twice. A single object of fixed width
-about 41pt, in a column of about 33pt.
+The overflow was 6.82304pt. It was 6.82304pt after the maths cells were rewritten as text. It was
+6.82304pt after the interval was rewritten from `[0.9860, 0.9996]` to `0.9860 to 0.9996`. Three
+independent content changes to the offending row, and the number identical to five decimal
+places. Content cannot be the cause of an overflow it does not move by a hair.
 
-That object is `[0.9860,` in the cell `0.9975 [0.9860, 0.9996]`. There is no breakpoint before
-the comma, so the opening bracket, the number and the comma are one box, and a box wider than its
-column runs into the margin rather than wrapping. Whether it fits at all depends on the font
-build, which is why this was invisible locally and reproducible on the runner.
+What it is: pandoc writes each column as a fraction of `linewidth - 2(n-1)tabcolsep` and rounds
+each fraction to four places, so the columns of a wide table can sum to slightly more than the
+space available. When they do, every row of that table overhangs by the same amount whatever the
+rows contain, which is exactly the constant that was showing. How much the fractions overshoot
+depends on the pandoc version, and the local one and the runner's disagree by 6.82pt on the
+paper's seven-column scenario table. That disagreement is the whole of the difference between a
+clean build here and a failing one there.
 
-Written `0.9860 to 0.9996`, which is how the book's own chapters already write intervals, the
-widest chunk is a bare number and the cell wraps. The rewrite is applied to table rows only;
-prose keeps the bracket form, which is the project's convention.
+The fix is the shave the header already had, at a size that reflects the problem. It was 1pt,
+which covered local rounding and nothing else. It is now 14pt, which covers the observed
+disagreement twice over and costs three per cent of table width. Removing it entirely was tried
+as a test and costs twelve overfull boxes at once, so the mechanism is not in doubt; what was in
+doubt was the magnitude, and 1pt had been hiding how little margin it left.
 
-Two earlier attempts are recorded because they were wrong in an instructive way. Reducing
-`tabcolsep` and rewriting the maths cells both changed the table without touching the binding
-cell, and the second produced the decisive clue: a content change that left the overflow
-identical to five decimal places is a content change to the wrong content. The reading that
-followed, that the overflow was a constant equal to twice the padding, fitted two data points and
-was wrong; removing the compensating `-1pt` shave to test it cost twelve overfull boxes at once,
-which disproved it immediately.
+Two earlier readings were wrong and are recorded because each looked well supported. That the
+deficit equalled twice the column padding fitted two data points exactly and predicted the wrong
+fix. That the binding object was an unbreakable 41pt cell followed from adding the deficit to the
+column width and getting the same answer at two settings, which was arithmetic on a quantity that
+happened to be constant for a different reason.
 
-The general lesson is that an overfull box names a width, and a width can be attributed. Two
-measurements at different settings identify the offending object exactly, and that is cheaper
-than any number of plausible adjustments.
+The two changes those readings produced are kept, because both are improvements on their own
+terms and neither is load-bearing here. The paper's `\pm` cells are written as text in the book,
+matching how the book's own chapters print the same quantities. Intervals inside table rows are
+written `a to b`, which is also the book's own form. `tabcolsep` stays at 3pt.
+
+The method worth keeping: an overfull box reports a width, and a width can be tested. Change the
+content and see whether the number moves. If it does not, stop editing prose and go and read the
+geometry.
