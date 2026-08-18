@@ -37,8 +37,21 @@ header-includes:
   # reaches the tables converted from the paper's LaTeX, whose widths this repository
   # cannot set at source.
   - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-1pt}}
-  # Wide result tables were the last thing sitting outside the type block.
-  - \setlength{\tabcolsep}{4pt}
+  # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
+  # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
+  # taken out of the text before the columns are measured, and a wide table with
+  # unbreakable cells starves first. The seven-column scenario table converted from the
+  # paper is the binding case: its cells are set maths, which cannot be broken or
+  # hyphenated, so a cell that does not fit runs into the margin instead of wrapping.
+  #
+  # 4pt was too tight to survive a change of platform. The same source built with the
+  # Debian packaging of TeX Gyre Pagella rather than the OTFs used here needs about 8.2pt
+  # more room on that row, and CI failed on exactly that box on 17 August 2026. Measured
+  # headroom, by rebuilding with the table width artificially reduced until a row
+  # overflows: 4pt survives a 7pt reduction, 3pt survives between 14 and 20pt, 2pt
+  # survives more than 30pt. 3pt is roughly twice what the platform difference costs and
+  # keeps the tables looking like a book rather than a spreadsheet.
+  - \setlength{\tabcolsep}{3pt}
   - \usepackage{titlesec}
   - \titleformat{\chapter}[display]{\normalfont\Large\bfseries}{}{0pt}{\Large}
   - \titlespacing*{\chapter}{0pt}{0pt}{28pt}
@@ -6328,11 +6341,19 @@ model says about a particular item does not have to reconstruct it from six chap
 Everything here is drawn from the manuscript and is reproducible from
 `model/book-calculations.ipynb`. Nothing here is new.
 
-Every entry comes in two parts. **Technical** states the result and its provenance.
-**In plain terms** says what it would mean to somebody sitting in a room, and says so
-without arithmetic. The second part is an interpretation of the first and is softer
-than it. Where the plain reading would carry further than the technical one supports,
-the entry says where it stops.
+Every entry comes in three parts. **Technical** states the result and its provenance.
+**What was assumed** says, in the same plain language as the rest, which numbers in that
+row somebody chose rather than measured, and what would follow if the choice were wrong.
+**In plain terms** says what the result would mean to somebody sitting in a room, and
+says so without arithmetic. The third part is an interpretation of the first and is
+softer than it. Where the plain reading would carry further than the technical one
+supports, the entry says where it stops.
+
+The middle part is there because the arithmetic in this document is exact and its inputs
+are not. Every figure in Part Four is a correct calculation on two tables that one person
+wrote down from reading, and a reader who sees only the technical line can easily mistake
+the precision of the calculation for the precision of the inputs. Reading the assumption
+beside the result is the intended use of this primer.
 
 Three different instruments produce the findings below, and they are not
 interchangeable. Every entry says which one it used.
@@ -6357,7 +6378,7 @@ from at least 400 seeds and carries an interval.
 
 ---
 
-## Four standing cautions
+## Five standing cautions
 
 **One. The coupling is not used by the simulation.**
 
@@ -6411,6 +6432,31 @@ about whether the group's decisions are any good, which is where Traditions 2, 9
 do most of their work. A Tradition can score near zero here and still be carrying one
 of the book's three headline results. One of them does.
 
+**Five. Three different things were assumed, and they are not equally well tested.**
+
+*Technical.* Every entry below rests on three separable authored choices. First, the list
+of resources: the model says a group supplies eight things and no others. Second, the
+pattern: which of the 96 cells in each matrix are non-zero. Third, the magnitudes: how
+large each non-zero cell is, on a scale from 0 to 1 with no unit outside this model. The
+robustness designs reach these unequally. Plus or minus thirty per cent jitter and the
+randomized-matrix draws test magnitudes. The 64 resource-list variants test the list by
+deleting one resource, merging a pair, or deleting two, and they establish that the Part
+Four verdicts are not an artifact of any single column. They cannot test whether a
+resource should have been *split*, or whether a ninth resource is missing, because both
+require fresh judgement rather than an operation on the existing columns. Nothing tests
+the pattern of zeros against an outside source, which is why a second reader marking the
+non-zero cells is the largest outstanding item in the project.
+
+*In plain terms.* There are three ways these tables could be wrong, and they are not
+equally guarded. The magnitudes have been shaken hard and most results survive. The list
+of eight has been tested by removing entries and combining them, and the headline
+findings hold. What has not been tested at all is the possibility that the list is
+missing something, or that one of the eight is really two things wearing one name. No
+computation can find that, because the test would have to come from outside the tables,
+and everything here is inside them. When a result below looks surprisingly clean,
+the honest question is not whether the arithmetic is right, which it is, but whether the
+eight columns were the right eight.
+
 ---
 
 # Part One. The Twelve Steps
@@ -6432,6 +6478,26 @@ second at 0.99 against the winner's 1.22, the closest any index-mate comes. Unde
 sixty-four resource-list variants Step One regains its index-mate in fifteen of them,
 more than any other Step. *Algebra, plus the simulation's parameter table.*
 
+*What was assumed.* Five of the eight resources were given non-zero entries:
+identification at 1.0, admission at 0.8, visible proof at 0.3, continuity at 0.2 and
+gentle pressure at 0.1. The 1.0 is a ceiling rather than a measurement; it says only
+that nothing in the table needs identification more than this Step does. Two further
+numbers are assumed outside the matrix: a top speed of 0.30 per week, the fastest of
+the twelve, and an exposure to the maintenance gate of 0.05, the lowest of the twelve.
+That 0.05 is not a judgement about Step One specifically. Gate exposure was laid out as
+a straight line from 0.05 at Step One to 1.00 at Step Twelve, so every Step's value on
+that dial follows from its position rather than from anything observed about it.
+
+The reading behind the row is that what an arrival needs is other people naming
+themselves the same way, and a door that opened without asking anything first. Nobody
+measured that. Reverse the two largest entries, so that admission outranks
+identification, and Tradition 3 would win this row more clearly rather than less, so
+the headline result here is not sensitive to that particular judgement. What the row
+does depend on is the claim that identification is a distinct thing a group supplies,
+rather than an aspect of admission. The resource-list test can merge those two columns,
+and does, and Step One is among the fifteen variants where the index pairing comes
+back.
+
 *In plain terms.* This is the Step you cannot take by yourself, and it is tied with the
 twelfth for depending most on other people. What it needs is not advice. It is other
 people in the room saying the same thing about themselves, and a door that opened
@@ -6447,6 +6513,21 @@ redrew the list of what groups supply.
 second at 0.72. Its dominant input is visible proof that recovery happens, at 1.0. The
 index-mate, Tradition 2, ranks seventh at 0.13. *Algebra.*
 
+*What was assumed.* Four non-zero entries: visible proof at 1.0, identification at 0.4,
+continuity at 0.2 and counsel at 0.1. Top speed 0.25 per week, gate exposure 0.136 from
+the straight line. The substantive assumption is the one large number. Coming to
+believe was coded as an evidential matter, so the thing it consumes most is other
+people visibly getting better, and it was coded as needing almost no counsel, 0.1,
+which is the model saying that this Step is not achieved by being talked to.
+
+That is a reading of the Step, and a contestable one. A tradition of interpretation
+holds that Step Two is largely a matter of being persuaded, argued with, or taught, in
+which case counsel should be large and proof small. Had it been coded that way the
+principal supplier would move from Tradition 11 to Tradition 2, and the primer's
+plain-language claim that a group's best argument for itself is the condition of its
+members would not follow. The claim is downstream of the coding, not evidence for
+it.
+
 *In plain terms.* The model treats coming to believe as an evidential matter rather
 than a persuasive one. What the Step consumes is people visibly getting better in front
 of you. That is why the Tradition supplying it is attraction rather than promotion:
@@ -6460,6 +6541,20 @@ the condition of the people in it.
 Tradition 1 second at 0.27. Row sum 0.70, so it asks little of the group in absolute
 terms. Index-mate Tradition 3 ranks seventh at 0.01, the smallest non-zero index-mate
 entry in the matrix. *Algebra.*
+
+*What was assumed.* Four small non-zero entries: counsel at 0.3, visible proof at 0.2,
+continuity at 0.1 and gentle pressure at 0.1, giving the second smallest row sum in the
+table at 0.70. Top speed 0.25 per week, gate exposure 0.223. Every number here is
+small, and that smallness is itself the assumption: the decision was coded as something
+a person does, with a group nearby rather than involved.
+
+This matters more than the individual cells, because the starkest number against the
+index-pairing idea anywhere in the matrix, Tradition 3 ranking seventh at 0.01, is
+partly a consequence of the row being small in total. A row that asks little of a group
+gives every Tradition little, and rank is then decided by fine differences. The finding
+survives the magnitude jitter, so it is not fragile in that sense. But a reader should
+know that the dramatic phrasing rests on a row the author deliberately made
+quiet.
 
 *In plain terms.* The decision asks less of a group than almost any other Step. What it
 does draw on is counsel: somebody to talk it over with. The Tradition sharing its
@@ -6476,6 +6571,18 @@ Tradition 4 governs no resource any Step consumes. That zero is arithmetic and n
 evidence: no multiplicative perturbation can move it. The threshold test that can reach
 it finds that a uniform governance strength of 0.438 would be needed for the index-mate
 to win, against a mean live entry in the governance matrix of 0.374. *Algebra.*
+
+*What was assumed.* Three non-zero entries: gentle pressure at 0.4, counsel at 0.3 and
+identification at 0.1. Top speed 0.18 per week, among the slowest, and gate exposure
+0.309. The reading is that an inventory needs mild expectation that you will actually
+do it and somebody to ask about how, and needs nothing else from a group.
+
+The index-mate's exact zero is not an assumption about Step Four at all. It follows
+from a decision made in the other table, that Tradition 4 governs no resource any Step
+consumes. No perturbation of Step Four's own row can move it, because zero times
+anything is zero. This is the clearest case in the primer of a result that looks like a
+finding and is really a restatement of an input, which is why the entry says so rather
+than counting it.
 
 *In plain terms.* The inventory needs two things from a group: mild expectation that
 you will actually do it, and somebody to ask about how. Tradition 4 supplies neither,
@@ -6495,6 +6602,21 @@ Wilson interval of [99.1, 99.7] on 2,000 draws, and only 17.5 per cent [15.9, 19
 every non-zero magnitude is replaced at random. Its index-mate, Tradition 5, ranks fifth
 at 0.12. *Algebra.*
 
+*What was assumed.* Five non-zero entries, one of them decisive: confidentiality at
+1.0, counsel at 0.3, continuity at 0.2, identification at 0.1 and gentle pressure at
+0.1. Top speed 0.22 per week, gate exposure 0.395. Two separate judgements produce the
+cleanest match in the book, and they were made in two different tables: that Step Five
+is the only Step needing confidentiality at full strength, and that Tradition 12
+supplies confidentiality at full strength.
+
+The entry's own robustness numbers are the honest measure of that. Holding the pattern
+of which cells are non-zero and jittering the magnitudes by thirty per cent, the match
+survives 99.5 per cent of the time. Replacing every non-zero magnitude at random, so
+that only the pattern remains, it survives 17.5 per cent of the time. The gap between
+those two figures is not noise. It is the size of the authored judgement, stated
+numerically, and it is the reason this entry is described as a judgement argued for
+rather than a result computed.
+
 *In plain terms.* Telling someone requires that it stay told. Step Five is the only Step
 that needs confidentiality at full strength, and anonymity is the only Tradition that
 supplies it at full strength. That is the cleanest match in the book, and it is also
@@ -6511,6 +6633,16 @@ second at 0.24, a margin of 0.01 and the narrowest of any row except Step Four's
 is a tie. Row sum 0.60. Index-mate Tradition 6 is a structural zero and ranks ninth. Its
 threshold is 0.417, the lowest of all twelve. *Algebra.*
 
+*What was assumed.* Three non-zero entries: gentle pressure at 0.3, counsel at 0.2 and
+visible proof at 0.1, giving a row sum of 0.60. Top speed 0.20 per week, gate exposure
+0.482. As with Step Three the assumption is mostly the smallness.
+
+The technical line reports that the top two Traditions are separated by 0.01, which is
+below any precision the inputs can support. That is worth stating plainly: where the
+margin between two Traditions is smaller than the rounding in the table that produced
+it, the primer should be read as saying the model has no opinion, and not as saying
+Tradition 1 narrowly wins. The entry is phrased that way deliberately.
+
 *In plain terms.* Becoming willing barely needs a group at all: a little pressure, a
 little counsel, and that is most of it. The two Traditions at the top are so close that
 the model has no real opinion about which one carries it. Of all twelve Steps this is
@@ -6526,6 +6658,18 @@ supplier Tradition 1 at 0.17. The ratio of the most group-dependent Step to this
 governance strength at the mean live entry of 0.374 for all twelve Steps at once, Step
 Seven's index-mate loses by the narrowest margin of the twelve, 0.02. *Algebra.*
 
+*What was assumed.* Three non-zero entries: gentle pressure at 0.2, visible proof at
+0.1 and counsel at 0.1, giving the smallest row sum in the whole table at 0.40. Top
+speed 0.20 per week, gate exposure 0.568.
+
+The six-to-one ratio between the most group-dependent Step and this one is therefore an
+assumption's shadow rather than a discovery. It is arithmetic on a row the author made
+the smallest, because the reading was that asking is the most private thing in the
+programme. The ratio is worth quoting because it makes the reading explicit and
+falsifiable: anyone who thinks Step Seven needs more from a room than Step Four does
+has a specific disagreement with a specific number, which is the most this kind of
+table can offer.
+
 *In plain terms.* This is the most private Step in the programme. If you asked how much
 of each Step happens in a room rather than in a person, Step Seven gives the smallest
 answer, by a factor of six against the largest. That is not a claim that it is easy, or
@@ -6538,6 +6682,17 @@ people can supply, and the answer the model gives is: almost none of it.
 second at 0.29. Its largest consumption is counsel at 0.4. The index-mate, Tradition 8,
 ranks fourth at 0.07, the best rank achieved by any index-mate other than Step One's.
 *Algebra.*
+
+*What was assumed.* Three non-zero entries: counsel at 0.4, gentle pressure at 0.3 and
+confidentiality at 0.1. Top speed 0.18 per week, gate exposure 0.655. The reading is
+that making the list is mostly a matter of having somebody to ask, with some
+expectation that it gets done and a little need for discretion.
+
+The single interesting assumption is the small confidentiality entry. It is the reason
+Tradition 8 reaches fourth here, its best rank anywhere, rather than disappearing.
+Remove that 0.1 and the index-mate's showing gets worse. The primer's claim that the
+pairing is not absurd anywhere therefore rests, in this row, on a judgement about a
+tenth of a unit.
 
 *In plain terms.* Making the list is mostly a matter of having somebody to ask, which
 is why the group conscience supplies it. Its own numbered Tradition does better here
@@ -6556,6 +6711,19 @@ The same intervention does produce resolved decreases in membership, established
 practice and maintenance capacity. Index-mate Tradition 9 is a structural zero and
 ranks eleventh. *Algebra and simulation.*
 
+*What was assumed.* Four non-zero entries: counsel at 0.9, confidentiality at 0.3,
+gentle pressure at 0.2 and continuity at 0.1. The 0.9 is the largest entry in the table
+that is not one of the four maxima. Top speed 0.15 per week, the slowest of the twelve,
+and gate exposure 0.741.
+
+Two of those numbers were chosen to say something the author believed and did not
+measure: that amends is the Step most needing somebody to talk it through with, and the
+one that moves slowest. Both are readings of the practice rather than observations of
+it, and the plain-language sentence about not doing this one quickly is a restatement
+of the assumed speed, not a finding about it. The finding in this entry is the separate
+simulation result about switching off the twelfth Step, which does not depend on Step
+Nine's own row.
+
 *In plain terms.* Amends is the Step that most needs counsel, and it is the slowest
 Step to move, which between them describe something people already know: you do not do
 this one quickly and you do not do it without asking. The finding worth carrying is not
@@ -6573,6 +6741,18 @@ gentle pressure at 0.7 and week-to-week continuity at 0.5, which between them ar
 two resources Tradition 1 supplies most heavily. Index-mate Tradition 10 is a structural
 zero and ranks twelfth, the worst rank in the table. *Algebra.*
 
+*What was assumed.* Four non-zero entries: gentle pressure at 0.7, continuity at 0.5,
+counsel at 0.2 and confidentiality at 0.1. Top speed 0.25 per week, gate exposure
+0.827. The reading is that a daily inventory is a habit, and that habits are held in
+place by the meeting happening again and by other people mildly expecting you at it.
+
+The widest margin in the matrix, 0.51 in Tradition 1's favour, is produced by that
+reading meeting a matching one in the other table, where Tradition 1 was given the two
+largest shares of exactly those two resources: 60 per cent of gentle pressure and 50
+per cent of continuity. The two tables were written by the same person, so agreement
+between them is not independent corroboration. This row is the clearest place in the
+primer where a striking number comes from one judgement appearing twice.
+
 *In plain terms.* Daily inventory is a habit, and habits need the two things a group
 supplies steadily rather than dramatically: the meeting happening again next week, and
 other people mildly expecting you at it. That is the whole of what the model means by
@@ -6588,6 +6768,20 @@ it forms the maintenance capacity term: the model computes a member's capacity t
 what they have as a Hill function of the mean of Steps Ten, Eleven and Twelve, and that
 capacity multiplies the growth of every Step, weighted by an exposure rising from 0.05
 at Step One to 1.00 at Step Twelve. *Algebra and the simulation's structure.*
+
+*What was assumed.* Four non-zero entries: gentle pressure at 0.4, continuity at 0.2,
+visible proof at 0.1 and counsel at 0.1. Top speed 0.20 per week, gate exposure 0.914.
+The row itself is unremarkable and was meant to be.
+
+The consequential assumption about this Step is structural and lives outside its row.
+The model computes maintenance capacity from the mean of Steps Ten, Eleven and Twelve,
+and that grouping was chosen rather than derived: three Steps were nominated as the
+maintenance Steps and the other nine were not. The straight-line gate exposure then
+decides how much that capacity matters to each Step, from 0.05 at Step One to 1.00 at
+Step Twelve. Both the choice of which three, and the straightness of that line, are
+modelling conveniences. The plain-language claim that the last three Steps stop the
+first nine leaking away is a description of that construction, and would be false in a
+model that nominated a different three.
 
 *In plain terms.* Its own row is unremarkable. Its importance is structural: along with
 Ten and Twelve it is what the model calls maintenance, the capacity to keep hold of what
@@ -6615,6 +6809,23 @@ at 0.12, and this
 is the fragile row of Part Four: the top two are 1.25 and 1.10, a margin of 0.15, and
 the Step Twelve to Tradition 5 assignment survives only 67.3 per cent [65.3, 69.4] of
 draws at plus or minus thirty per cent jitter. *Algebra and simulation.*
+
+*What was assumed.* Seven of the eight resources are non-zero, the most of any Step:
+recipient opportunity at 1.0, continuity at 0.6, gentle pressure at 0.3, admission at
+0.2, and identification, visible proof and counsel at 0.1 each. Top speed 0.22 per
+week, gate exposure 1.00, the maximum, again by position on the straight line.
+
+The recipient resource carries the weight here and is the most heavily assumed object
+in the model. It is the only one of the eight defined as a ratio of member states,
+low-practice members per high-practice potential helper, and that definition has a
+consequence the author did not choose but must own: a group with fewer experienced
+members has a *higher* ratio and therefore looks richer in this resource, not poorer.
+It records no tenure, no sponsorship, and no matching between a particular helper and a
+particular newcomer. Whether that ratio is a reasonable stand-in for the opportunity to
+be useful is a hypothesis, and it is the hypothesis on which the thirty per cent
+membership result rests. The row is also the fragile one in Part Four for a separate
+reason: the top two Traditions are 1.25 and 1.10, and the assignment to Tradition 5
+survives only 67.3 per cent of magnitude draws.
 
 *In plain terms.* Carrying the message is not a reward collected at the end inside this
 model. Turn its growth off and the group loses about thirty per cent of mean endpoint
@@ -6683,6 +6894,22 @@ and gentle pressure at 1.86 are 57.5 per cent of the total, and transferring eit
 to Tradition 5 makes Tradition 5 the leader. Six of eight such transfers cannot flip it
 and two can. *Algebra, with simulation for the degradation figure.*
 
+*What was assumed.* Unity is the only Tradition given a non-zero entry in all eight
+columns: continuity 0.9, gentle pressure 0.6, identification 0.5, visible proof 0.3,
+confidentiality 0.3, admission 0.2, counsel 0.2 and recipient opportunity 0.1. Because
+the governance table is column-normalised, what those numbers do is set shares. Unity
+ends up owning 60 per cent of gentle pressure and 50 per cent of continuity, and much
+smaller shares of everything else.
+
+The decision to let one Tradition touch every resource is the single most consequential
+choice in the governance table, and it is what makes unity the largest load by a wide
+margin. It was not forced. A reader who thinks unity is a property that emerges from the
+other eleven rather than a supplier alongside them would give it an empty row, as the
+five protective Traditions have, and unity's primacy would vanish by construction rather
+than by argument. The project's answer is not that the choice is obviously right but
+that it is testable in one specific place: unity's lead depends on holding continuity and
+gentle pressure, and moving either to Tradition 5 hands over the lead.
+
 *In plain terms.* Unity is not one of the things a group supplies. It is the condition
 of everything a group supplies, which is why it is the only Tradition touching all eight
 and why it is in the top two for ten of the twelve Steps. But look at what that
@@ -6705,6 +6932,20 @@ group's error at 0.279 however large the group grows, against a flat error falli
 one over the square root of N. Five per cent of every row leaves the error 1.84 times
 the flat benchmark at a thousand members, and the factor grows without bound. *Algebra,
 deliberation and simulation.*
+
+*What was assumed.* Four non-zero entries: counsel 0.9, continuity 0.2, gentle pressure
+0.2 and confidentiality 0.1. After column normalisation that makes the group conscience
+the owner of 69 per cent of all counsel in the model, the most concentrated position any
+Tradition holds over any resource except anonymity's hold on confidentiality.
+
+That single assumption is doing nearly all the work in this row, and it encodes a
+specific reading: that when somebody in a meeting has somebody to ask, what they are
+drawing on is the group's collective judgement rather than an individual friendship.
+It is a defensible reading and it is not the only one. Note also that the row and the
+theorem are independent of each other. The Golub and Jackson result about a single member
+holding influence does not come from this table at all, and would stand unchanged if
+every entry in this row were different. That is why the deliberation findings are the
+most robust things in the primer and the load figure is among the least.
 
 *In plain terms.* In the simulation, the group conscience is mostly what supplies
 counsel: it is the Tradition behind there being somebody to ask. Its real work is
@@ -6747,6 +6988,21 @@ newness. The corrected factorial reports governance loss, friction loss, their c
 and their interaction separately. Older combined sweeps cannot be described as retention
 only. *Algebra and simulation.*
 
+*What was assumed.* Four non-zero governance entries: admission 1.0, recipient
+opportunity 0.8, identification 0.4 and continuity 0.1, giving it 71 per cent of
+admission and a third of recipient opportunity. Two further assumptions matter more than
+the cells. The first is an absence: because the Tradition removes a group's power to
+refuse anyone, Tradition 3 was deliberately left out of the arrival rate, so in the
+default model an open door does not bring more people through it. The second is the
+dropout friction path, where the effect is weighted by the exponential of minus six times
+a member's mean practice.
+
+That weighting is an assumption with a specific and easily misread consequence. It
+concentrates the effect on members whose practice is near zero, and the model has no
+concept of tenure, so those are not newcomers. They are members with little practice,
+who may have been in the room for years. Every plain-language reading of this Tradition
+has to be policed on that point, and the earlier version of this primer failed to.
+
 *In plain terms.* In the default model a group cannot decide who turns up, but it can
 affect what people receive and whether low-practice members stay. Those are two distinct
 mechanisms, and the old description collapsed them into one. The model records practice,
@@ -6763,6 +7019,19 @@ of everything else. Degrading it alone costs 0.88 members [0.26, 1.50], identica
 Tradition 7's to the last digit because the two enter the same term symmetrically. That
 identity is an artefact of the model's construction, not a finding about the Traditions.
 *Algebra and simulation.*
+
+*What was assumed.* The empty row is the assumption. Autonomy was coded as governing
+none of the eight resources, which makes its load exactly zero, and that zero then
+propagates into every Step's index-mate comparison as an unbeatable disadvantage. Its
+only route into the simulation is a multiplier it shares with Tradition 7.
+
+Both halves of that were chosen. Deciding that a Tradition protects rather than supplies
+is a judgement about what kind of thing it is, and pairing it with self-support in a
+single symmetric term is a modelling convenience with no evidential content whatever. The
+entry already says the identical membership figures are an artefact; the deeper point is
+that the whole protective category is an authored partition of the twelve, not a result.
+Five Traditions were placed on one side of it and seven on the other before any
+calculation was done.
 
 *In plain terms.* Autonomy hands the Steps nothing directly. Its whole job in the model
 is keeping the other Traditions from being overridden from outside, and it does that
@@ -6781,6 +7050,20 @@ the strongest form of the objection that later AA literature substituted unity f
 single-purposedness. Six of the eight possible transfers cannot flip it and two can.
 *Algebra and simulation.*
 
+*What was assumed.* Six non-zero entries: recipient opportunity 0.9, visible proof 0.5,
+identification 0.4, continuity 0.3, gentle pressure 0.2 and admission 0.1. Its share of
+recipient opportunity, 38 per cent, is the largest any Tradition holds of that column,
+which is what makes it the principal supplier of Step Twelve.
+
+The contest with unity described in the technical line is therefore a contest between two
+authored rows, and the numbers deciding it are 0.9 and 0.6 in one row against 0.3 and 0.2
+in the other on the same two resources. Nothing outside the author's reading placed them
+that way. This is the most honest place in the primer to see what the whole apparatus
+rests on. A real and unsettled question about AA, whether unity or single-purposedness is
+the load-bearing idea, is here decided by four numbers one person wrote down. The
+project's contribution is not the answer but the demonstration that those four numbers
+are where the answer lives.
+
 *In plain terms.* Singleness of purpose is unity's only real rival for the most
 load-bearing Tradition, and the whole contest comes down to who owns two things: the
 meeting continuing to happen, and the pull of other people expecting you there. If those
@@ -6798,6 +7081,17 @@ singleness of purpose. Degrading it alone costs 0.23 members [-0.24, 0.69],
 replications. Identical to Tradition 10's figure for the same structural reason as the
 Tradition 4 and 7 pair. *Algebra and simulation.*
 
+*What was assumed.* An empty governance row, and a multiplier shared with Tradition 10
+acting on the effective adherence of singleness of purpose. The pairing is the
+interesting assumption: it says that refusing endorsements and refusing outside issues
+protect the same thing, and protect it in the same way, so the model gives them one
+mechanism between them.
+
+That is a claim, not an observation, and it has the same consequence as the Tradition 4
+and 7 pairing: the two members of the pair are guaranteed identical numbers before any
+simulation runs. When two Traditions in this primer report the same figure to the last
+digit, that is always construction and never evidence.
+
 *In plain terms.* Refusing endorsements supplies nothing to any Step. Its job is
 protecting the group's single purpose from being diluted, alongside Tradition 10. The
 simulation cannot tell its effect apart from nothing at all, and the correct reading of
@@ -6814,6 +7108,17 @@ members cannot cover the rent supplies continuity at 0.45 rather than 1.0. That
 mechanism is not attributed to Tradition 7 in the governance matrix. *Algebra and
 simulation.*
 
+*What was assumed.* An empty governance row, and the shared multiplier with Tradition 4.
+The consequential assumption is where money went instead. The model does represent
+solvency, through a term that drops the continuity resource from 1.0 to 0.45 when a
+group's established members cannot cover the rent, but that term was attached to the
+group's finances directly rather than to the Tradition that produces them.
+
+So the zero in this row is not a claim that self-support does not matter. It is a
+bookkeeping decision about where to attach an effect the model plainly contains. The
+entry says a second person building the table would likely disagree here, and this is
+what they would be disagreeing with: not a finding, but an attribution.
+
 *In plain terms.* Passing the basket looks after nothing directly in the matrix, and yet
 money is unmistakably in the model somewhere else: a group that cannot pay its rent
 supplies week-to-week continuity at less than half strength, and continuity is one of
@@ -6829,6 +7134,17 @@ confidentiality the largest at 0.41 of the total. Principal supplier for no Step
 runner-up for none. Degrading it alone changes membership by -0.20 members
 [-0.71, 0.31], **unresolved**.
 *Algebra and simulation.*
+
+*What was assumed.* Four small non-zero entries: confidentiality 0.3, and
+identification, visible proof and counsel at 0.1 each, the smallest set of non-zero
+values given to any Tradition that has any. The reading is that keeping the fellowship
+unpaid mainly protects candour, which is why confidentiality is the largest of the four.
+
+Everything the primer says about this Tradition follows from those four small numbers,
+which is why the entry says the model can say least about it. The unresolved membership
+figure is not independent evidence of unimportance: a row built small will produce small
+effects, and the design cannot separate a Tradition that does little from one the author
+coded as doing little. Both readings fit the same output.
 
 *In plain terms.* This is the Tradition the model can say least about. It touches four
 things lightly, leads on none of them, and its cost in members cannot be told apart from
@@ -6847,6 +7163,20 @@ keeps falling as one over N, so the gap grows without limit: a pool of twelve si
 needed to stay within a factor of two of flat is 26 per cent of the group at every size
 tested from fifty to eight hundred. The 26 per cent depends on the parameter choices;
 the divergence does not. *Algebra, deliberation and simulation.*
+
+*What was assumed.* An empty governance row, so the entire membership column result for
+this Tradition is a consequence of a coding decision rather than a measurement.
+
+The rotation finding is the important thing here and it rests on different assumptions
+altogether. It comes from the deliberation model, not from the matrices, and it assumes
+that influence is concentrated in whoever currently holds a service position and is
+shared evenly within the rotating pool. That is a stylised picture of how attention works
+in a room. What makes the result durable is that its conclusion does not depend on the
+details: any fixed pool in a growing group floors influence above the flat benchmark, so
+the divergence follows from the arithmetic of a constant divided by a growing number. The
+26 per cent is parameter-dependent and is offered as an order of magnitude. The
+divergence is not, and that distinction is why this entry carries a headline result while
+its membership figure carries nothing.
 
 *In plain terms.* This is the sharpest warning against reading the membership column as
 importance. On that column Tradition 9 does nothing measurable, and it carries one of
@@ -6881,6 +7211,17 @@ on singleness of purpose. Degrading it alone costs 0.23 members [-0.24, 0.69],
 material bears on it more than the model does: the Washingtonians had a written analogue
 of this Tradition in print within two years of founding. *Algebra and simulation.*
 
+*What was assumed.* An empty governance row and the multiplier shared with Tradition 6,
+with the same consequence: its membership figure is identical to Tradition 6's by
+construction.
+
+There is a further assumption worth naming because the model cannot see past it. Outside
+issues enter this model only as a dilution of singleness of purpose. Nothing represents a
+group splitting over a disagreement, losing members to a controversy, or attracting
+people because of a position it took. Those are the things the Tradition appears to be
+about, and the model contains none of them, so silence here is not a small effect but an
+absent mechanism.
+
 *In plain terms.* Staying out of outside controversies supplies nothing directly and
 protects single purpose. The model cannot resolve its effect. The history is the more
 interesting evidence here, and it cuts against the easy story: the Washingtonians wrote
@@ -6900,6 +7241,20 @@ attraction loss costs 5.42 members [4.52, 6.33], governance loss costs 2.29
 about 98 per cent endpoint-viable. Older tables that set the Tradition itself to zero are
 mixed interventions, not pure attraction tests. *Algebra and simulation.*
 
+*What was assumed.* Four non-zero entries: visible proof 0.7, recipient opportunity 0.6,
+identification 0.2 and continuity 0.2, giving it 44 per cent of visible proof. Unlike
+Tradition 3 it also has a direct route into arrivals: the model's inflow is an exogenous
+term plus a term scaling with the attraction adherence multiplied by the twelfth Step
+practice in the room.
+
+That asymmetry between Traditions 3 and 11 is the most important assumption in Part Two
+and it is a deliberate one. The model says a group cannot increase how many people arrive
+by opening its door wider, because the door is already open by Tradition 3, and can
+increase it by being visibly worth arriving at. Because attraction moves both the
+governance path and the arrival path together, an ordinary change to this Tradition's
+adherence is a mixed intervention, and the primer separates the two paths rather than
+reporting their sum.
+
 *In plain terms.* Attraction and resource governance are different jobs in this model.
 Removing attraction makes the thirty-year group smaller without producing closure in these
 runs; removing governance also matters. Removing both is not the sum of removing each. No
@@ -6916,6 +7271,19 @@ term symmetrically with Tradition 9. Because the two enter identically there, th
 difference between their measured losses, 0.99 against 0.02, is associated with Tradition 12's own
 governance row. In the deliberation model it is the third of the three holding maximum
 influence near one over N. *Algebra, deliberation and simulation.*
+
+*What was assumed.* Five non-zero entries, one of them decisive: confidentiality 1.0,
+identification 0.3, and admission, counsel and continuity at 0.1 each. The 1.0 gives
+anonymity 59 per cent of all confidentiality in the model, the largest single share any
+Tradition holds of any resource.
+
+This is the assumption that produces the cleanest result in the book, and it was made
+independently of the matching assumption in Step Five's row only in the weak sense that
+the two were written at different times by the same person. Both encode the same belief,
+that what anonymity does is make disclosure safe. The primer's Step Five entry gives the
+numerical size of that belief: the match survives 99.5 per cent of magnitude jitter and
+17.5 per cent of full magnitude replacement. Read the two entries together, because
+neither is independent evidence for the other.
 
 *In plain terms.* Anonymity does two separate jobs and they are easy to run together.
 The first is ordinary and immediate: it is what makes confidentiality available, and

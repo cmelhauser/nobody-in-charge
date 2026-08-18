@@ -92,7 +92,9 @@ affected layer:
 - manuscript chapters and preface;
 - `appendix/APPENDIX.md`;
 - `paper/anonymity-as-an-aggregation-condition.tex`;
-- `reference/PRIMER-steps-and-traditions.md`, including its plain-language paragraph;
+- `reference/PRIMER-steps-and-traditions.md`, including its plain-language paragraph
+  and, for any change to `S`, `GOV`, a step speed or the gate ramp, the
+  **What was assumed** block of every entry that quotes the changed value;
 - `research/PARAMETERS.md`, `research/SOURCES.md`, and claim registers;
 - `README.md`, all applicable plans, `research/progress-log.md`, and `AGENT_VERIFY.md`;
 - the book, paper, and primer PDFs.
@@ -183,6 +185,12 @@ reproduced, and not obtained.
 - Use plain-language equations in manuscript Markdown; the paper remains LaTeX.
 - No subheadings or tables in a chapter's narrative. Use horizontal rules between narrative
   sections; tables belong in The Machinery.
+- Primer entries carry three parts, in this order: **Technical**, **What was assumed**,
+  **In plain terms**. The middle part states which numbers in that row were authored rather
+  than measured, quotes them, and says what would follow if the choice were wrong. It is
+  written in the same plain language as the third part. Do not add an entry with only two
+  parts, and do not let the middle part drift out of step with `model/aa_group_model.py`,
+  which is where every value it quotes is defined.
 - Every chapter ends with The Machinery and its reference-status headings, in this order, using
   the ones that apply: Read in full; Cited at a remove; Referenced but not reproduced; Internal,
   and reproducible from this repository; What was not read. A heading with nothing under it is
