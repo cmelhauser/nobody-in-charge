@@ -8402,10 +8402,10 @@ the cross-run standard error.
 
 | Condition | Viable y10 | $N$ if viable, y10 | Quality y10 | Viable y30 | 95% int. | Quality y30 |
 |:---|---:|---:|---:|---:|---:|---:|
-| nothing wrong | 0.9975 \[0.9860, 0.9996\] | $29.40 \pm 1.16$ | $0.3016 \pm 0.0052$ | 0.985 | 0.968--0.993 | $0.2648 \pm 0.0058$ |
-| invisible | 0.9925 \[0.9782, 0.9974\] | $12.98 \pm 0.34$ | $0.2949 \pm 0.0079$ | 0.985 | 0.968--0.993 | $0.2592 \pm 0.0071$ |
-| unreferred | 0.660 \[0.612, 0.705\] | $16.47 \pm 1.18$ | $0.3475 \pm 0.0084$ | 0.0275 | 0.015--0.049 | $0.3642 \pm 0.0443$ |
-| unwelcoming | 0.905 \[0.872, 0.930\] | $15.70 \pm 0.82$ | $0.3597 \pm 0.0097$ | 0.5475 | 0.499--0.596 | $0.3211 \pm 0.0134$ |
+| nothing wrong | 0.9975 \[0.9860, 0.9996\] | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968--0.993 | 0.2648 ± 0.0058 |
+| invisible | 0.9925 \[0.9782, 0.9974\] | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968--0.993 | 0.2592 ± 0.0071 |
+| unreferred | 0.660 \[0.612, 0.705\] | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015--0.049 | 0.3642 ± 0.0443 |
+| unwelcoming | 0.905 \[0.872, 0.930\] | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499--0.596 | 0.3211 ± 0.0134 |
 
 : Decline scenarios, **400 paired seeds**, 1,560-week horizon. *Invisible* sets only
 Tradition 11's attraction path to zero; *unreferred* sets exogenous inflow to zero;
@@ -8413,7 +8413,7 @@ Tradition 11's attraction path to zero; *unreferred* sets exogenous inflow to z
 at year thirty, so its conditional quality interval is wide. {#tab:decline}
 
 Membership counted over all runs with closures as zero reaches, at year thirty,
-$17.80 \pm 0.88$, $12.38 \pm 0.34$, $0.51 \pm 0.23$ and $6.76 \pm 0.59$ respectively.
+17.80 ± 0.88, 12.38 ± 0.34, 0.51 ± 0.23 and 6.76 ± 0.59 respectively.
 
 Three signatures separate. Attraction loss leaves a smaller remnant sustained by referrals
 and produces no closure. Referral loss closes 89.5 per cent of groups by year thirty,
@@ -8435,8 +8435,8 @@ conflates.
 
 | Series | y5 | y10 | y20 | y30 |
 |:---|---:|---:|---:|---:|
-| unreferred, all runs | $21.55 \pm 1.01$ | $11.68 \pm 1.02$ | $2.50 \pm 0.48$ | $0.51 \pm 0.23$ |
-| unreferred, viable only | $22.07 \pm 1.00$ | $16.47 \pm 1.18$ | $11.39 \pm 1.37$ | $12.27 \pm 3.81$ |
+| unreferred, all runs | 21.55 ± 1.01 | 11.68 ± 1.02 | 2.50 ± 0.48 | 0.51 ± 0.23 |
+| unreferred, viable only | 22.07 ± 1.00 | 16.47 ± 1.18 | 11.39 ± 1.37 | 12.27 ± 3.81 |
 | viable fraction | 0.970 | 0.660 | 0.1725 | 0.0275 \[0.015, 0.049\] |
 
 : Unconditional versus viability-conditioned membership under referral loss. Both decline
