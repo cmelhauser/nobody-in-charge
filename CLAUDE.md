@@ -166,7 +166,10 @@ Traditions* (1953), Rohr (2011), and the Kurtz talk of about 1984. Rohr carries 
 provenance objection than any other source, recorded in full in its `metadata.json`: the copy
 consulted was an unauthorized posting of a current in-print title. It was not retained, its
 bibliographic record was confirmed independently of it, and both claims drawn from it are absence
-claims. Any Rohr citation must be confirmed against a lawfully obtained edition before release.
+claims. **Resolved 17 August 2026:** the Human Author holds a lawfully obtained copy, which is
+what the objection required, since it concerned the project's access and not the accuracy of the
+reading. No Rohr claim carries a page citation anywhere, so the edition difference between the
+2011 first edition cited and the 2016 printing consulted reaches nothing the book says.
 
 **Reading a copyrighted work and holding one are different acts, and the project rule is about
 holding.** Several chapters formerly said "this project does not acquire AA copyright material"
