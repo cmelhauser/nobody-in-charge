@@ -88,8 +88,8 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
-Ten of the 30 sources are **record only**: no document exists at any time, which is a stronger
-condition than git-ignored. Each carries `"record_only": true` in its metadata. Six of those ten
+Eleven of the 31 sources are **record only**: no document exists at any time, which is a stronger
+condition than git-ignored. Each carries `"record_only": true` in its metadata. Seven of those eleven
 have no verification index because no text was retained to build one from. Neither is drift
 and neither should be reported as a missing source.
 

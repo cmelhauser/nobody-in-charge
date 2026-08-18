@@ -1,0 +1,27 @@
+{
+ "id": "BigBook_2001",
+ "title": "Alcoholics Anonymous, Fourth Edition",
+ "author": "Alcoholics Anonymous World Services",
+ "year": 2001,
+ "edition_note": "Fourth Edition, New and Revised 2001; copyright 1939, 1955, 1976, 2001. ISBN 9781893007161. Consulted as the per-section PDFs AAWS posts, supplied by the Human Author, who owns several copies.",
+ "type": "fellowship literature",
+ "status": "read_in_part",
+ "provenance_url": "https://www.aa.org/the-big-book",
+ "consulted": "2026-08-17",
+ "topics": [
+  "personal stories",
+  "arrival channel",
+  "member-carried message"
+ ],
+ "what_it_supports": "Appendix A13.7. Supplies the forty-two personal stories of the fourth edition, against which the 1939 arrival census was repeated.",
+ "what_was_read": "The title page, copyright page, contents, and all three parts of the personal stories. The chapters of the recovery programme were not read for this purpose; they are unchanged from 1939 and are covered by BigBook_1939.",
+ "the_finding": "Thirty of the forty-two stories state the initiating channel plainly. Thirteen describe a member seeking the subject out, six a subject contacting the fellowship, eleven a professional or institutional referral. The member-initiated share is 43 per cent against 77 per cent in 1939, and the middle category could not have existed in 1939 because the fellowship was not yet findable. Twelve are unresolved and are reported as unresolved.",
+ "estimand_caution": "Neither census is a sample. The stories are selected by the fellowship for publication and selection on outcome is total: every subject recovered. The comparison is between two edited collections sixty-two years apart, not a time series, and estimates nothing about the population.",
+ "record_only": true,
+ "record_only_reason": "Copyrighted AAWS literature. Read from the author's own copies and the publisher's own per-section postings; never stored in this repository.",
+ "verification_index": "none: no text was retained to build one from.",
+ "rights_note": "Copyrighted AAWS literature. Read from the Human Author's own copies and the publisher's per-section postings; never stored here.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

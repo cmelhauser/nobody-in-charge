@@ -174,7 +174,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-30 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+31 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
@@ -194,7 +194,7 @@ A directory's leading token must be at least three characters and distinctive, b
 directories may not share a leading token, which is why the corpus has `TwelveAndTwelve` and
 `KurtzTalk` rather than a second `AAWS` and a second `Kurtz`.
 
-### Ten sources are record only
+### Eleven sources are record only
 
 These have **no document at any time**, which is a stronger condition than the git-ignored
 majority. A verifier should not report either category as a missing source. Each carries
@@ -322,26 +322,19 @@ shorter one is out of date.
    `1-respondent-form.pdf` and **never** `4-collator-notes.pdf`, which names the answer the
    exercise exists to elicit.
 
-**Two items need a copyrighted book bought or borrowed.** Neither can be closed by computation or
-by inference from what is already here.
+**One item needs a copyrighted book bought or borrowed.** It cannot be closed by computation or by
+inference from what is already here.
 2. **Obtain *Alcoholics Anonymous Comes of Age*, pages 97 to 98.** Kurtz names it as the passage
    that settles the unity versus singleness-of-purpose question Chapter 17 depends on. It is the
    single most valuable unread source, and the last time an AA text was left unread on copyright
    grounds it turned out to contain the strongest objection to this book's own argument. It is
    sold rather than posted; AA's own site offers it for purchase only.
-3. **Obtain AA's fourth edition of the Big Book (2001).** What the corpus holds is the 1939 first
-   edition; the document offered as a fourth edition on 17 August 2026 was a reprint whose "4th
-   edition" is its own printing number. The 2001 edition carries a different set of stories, so
-   Appendix A13's census of member-carried arrival is a reading of 1939 and cannot be extended to
-   the fellowship as it is now without it. AA posts the foreword and preface free but sells the
-   text.
-
 **Two are ordinary scholarly loose ends.**
 
-4. **The Concept 4 essay** in the A.A. Service Manual. The short-form Concepts were read on 17
+3. **The Concept 4 essay** in the A.A. Service Manual. The short-form Concepts were read on 17
    August 2026 and contain no rule about the size of a rotating pool; if one exists anywhere, the
    essay accompanying Concept 4 is where it would be.
-5. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
+4. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature.
 
@@ -358,6 +351,10 @@ published free and officially, which had been assumed unobtainable without check
   Chapter 10's claim survives in a narrower and better form.
 - **An independent account of the 2019 Recovery Dharma schism**, from *Tricycle*. It confirms the
   structure from outside the successor's own literature and corrects where the contrast falls.
+- **AA's fourth edition of the Big Book.** The Human Author owns several copies and supplied the
+  text; AAWS also posts the book in per-section PDFs. Appendix A13.7 now repeats the 1939 arrival
+  census on all forty-two stories of the 2001 edition: member-initiated arrival falls from 77 per
+  cent to 43 per cent of the classifiable stories, with twelve unresolved and reported as such.
 - **The Rohr provenance objection.** The Human Author holds a lawfully obtained copy of
   *Breathing Under Water*, confirmed 17 August 2026. The objection was always about access
   resting on an unauthorized posting, not about the accuracy of the reading, and a copy on the
