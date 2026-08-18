@@ -190,11 +190,12 @@ jobs:
       - name: Rebuild the primer, the book, and the paper
         timeout-minutes: 20
         run: |
-          python tools/build_primer.py
-          python tools/build_book.py
-          # Tectonic downloads support files on demand and that has failed twice on a
-          # cold cache, once on lmmi5.tfm and once on ecrm1095.tfm, both transient. A
-          # second run reuses whatever the first retrieved, so one retry is enough.
+          # Tectonic fetches support files on demand and that has failed four times on a
+          # cold cache: lmmi5.tfm, ecrm1095.tfm and twice mid-package. Every failure was
+          # transient and a second run reuses whatever the first retrieved, so one retry
+          # each is enough. Only the paper had one; all three have one now.
+          python tools/build_primer.py || python tools/build_primer.py
+          python tools/build_book.py   || python tools/build_book.py
           cd paper
           tectonic anonymity-as-an-aggregation-condition.tex \
             || tectonic anonymity-as-an-aggregation-condition.tex
