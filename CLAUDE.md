@@ -227,6 +227,9 @@ cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
 python3 tools/check_release.py
 ```
 
+`tools/run_ci_locally.sh` runs both continuous-integration jobs in this order on the local
+machine, and takes an optional `checks` or `documents` argument to run one of them.
+
 `check_release.py` runs last, and the order is not a matter of taste. The gate requires every
 rendered artifact to be at least as new as the sources feeding it, so running it before the three
 builds fails on the artifacts it is about to be given. The full sequence, including the caches and

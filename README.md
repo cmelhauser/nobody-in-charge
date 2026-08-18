@@ -154,6 +154,17 @@ under `tools/` are batch jobs and entry points rather than libraries, so they si
 coverage gate and are covered by `tests/test_tools_integration.py`, which runs each one for
 real.
 
+To run what CI runs, in the same order, on this machine:
+
+```bash
+tools/run_ci_locally.sh
+```
+
+It takes an optional `checks` or `documents` argument to run one job. The workflow file is the
+authority and nothing enforces that the two stay in step, so change both together. The one thing
+the script cannot check is the one thing that has actually broken CI: whether a fresh runner can
+obtain pandoc, tectonic and the font.
+
 GitHub Actions runs two jobs, split by what can be checked without a network. `checks` gates every
 push and pull request on Python 3.11, 3.12 and 3.13: the suite, the model hash, corpus drift,
 portability, the book-level checks, and 131 of the 136 release-gate checks. `documents` runs on
