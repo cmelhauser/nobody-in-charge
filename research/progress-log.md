@@ -3635,41 +3635,34 @@ That proxy was wrong, because reducing the whole table's width moves a one-eight
 eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
 the real difference was the rendered width of one cell.
 
-### 17 August 2026: the cause was table geometry, and the tell was a constant
+### 17 August 2026: the shave was being applied to the wrong length
 
-Four attempts, and the diagnostic that mattered was not any of the fixes. It was noticing that
-the deficit did not move.
+Five attempts. The answer was one word in the generated LaTeX, and the only thing that found it
+was printing the column spec the runner's pandoc had actually written.
 
-The overflow was 6.82304pt. It was 6.82304pt after the maths cells were rewritten as text. It was
-6.82304pt after the interval was rewritten from `[0.9860, 0.9996]` to `0.9860 to 0.9996`. Three
-independent content changes to the offending row, and the number identical to five decimal
-places. Content cannot be the cause of an overflow it does not move by a hair.
+    p{(\columnwidth - 12\tabcolsep) * \real{0.1154}}
 
-What it is: pandoc writes each column as a fraction of `linewidth - 2(n-1)tabcolsep` and rounds
-each fraction to four places, so the columns of a wide table can sum to slightly more than the
-space available. When they do, every row of that table overhangs by the same amount whatever the
-rows contain, which is exactly the constant that was showing. How much the fractions overshoot
-depends on the pandoc version, and the local one and the runner's disagree by 6.82pt on the
-paper's seven-column scenario table. That disagreement is the whole of the difference between a
-clean build here and a failing one there.
+`\columnwidth`. The local pandoc writes `\linewidth` for the same table. The header shaved
+`\linewidth`, so on the runner it was shaving a length the table never consulted, and every fix
+that worked through that shave was a no-op there. Both lengths are now set, so the shave applies
+whichever the version wrote.
 
-The fix is the shave the header already had, at a size that reflects the problem. It was 1pt,
-which covered local rounding and nothing else. It is now 14pt, which covers the observed
-disagreement twice over and costs three per cent of table width. Removing it entirely was tried
-as a test and costs twelve overfull boxes at once, so the mechanism is not in doubt; what was in
-doubt was the magnitude, and 1pt had been hiding how little margin it left.
+The evidence had been complete for some time and was misread twice. The deficit was 6.82304pt
+through three rewrites of the offending row, which correctly ruled out content. It was also
+6.82304pt at shaves of 1pt, 8pt and 14pt, which should have ruled out the shave just as firmly
+and instead was read as confirmation that the shave was too small. A quantity that ignores the
+control you are moving is telling you the control is not connected.
 
-Two earlier readings were wrong and are recorded because each looked well supported. That the
-deficit equalled twice the column padding fitted two data points exactly and predicted the wrong
-fix. That the binding object was an unbreakable 41pt cell followed from adding the deficit to the
-column width and getting the same answer at two settings, which was arithmetic on a quantity that
-happened to be constant for a different reason.
+Worth recording against the temptation to keep adjusting: the fractions sum to 0.9999 over seven
+columns, so pandoc's rounding was never the cause, and none of the theories built on it were
+right. Two of them fitted the data at two settings each and predicted the wrong repair.
 
-The two changes those readings produced are kept, because both are improvements on their own
-terms and neither is load-bearing here. The paper's `\pm` cells are written as text in the book,
-matching how the book's own chapters print the same quantities. Intervals inside table rows are
-written `a to b`, which is also the book's own form. `tabcolsep` stays at 3pt.
+What the episode is really about is that this repository builds its PDFs with whatever pandoc is
+on the machine, and pandoc's table geometry is not stable across versions. The header now
+tolerates both spellings. The CI diagnostic that prints the spec and its fraction sum stays,
+because it is what turned a week of plausible guesses into one line of fact.
 
-The method worth keeping: an overfull box reports a width, and a width can be tested. Change the
-content and see whether the number moves. If it does not, stop editing prose and go and read the
-geometry.
+The two content changes made along the way are kept on their own merits and neither is
+load-bearing: the paper's `\pm` cells are written as text in the book, matching how the book's own
+chapters print the same quantities, and intervals inside table rows are written `a to b`, also the
+book's own form.

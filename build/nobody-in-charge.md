@@ -31,24 +31,23 @@ header-includes:
   - \usepackage[htt]{hyphenat}
   - \usepackage{xurl}
   - \usepackage{etoolbox}
-  # Shave the working width a table's columns are measured against.
+  # Shave the working width a table's columns are measured against, in both of the
+  # lengths pandoc might have used.
   #
-  # Pandoc writes each column as a fraction of (linewidth - 2(n-1)tabcolsep) and rounds
-  # the fraction to four places, so the columns of a wide table can sum to slightly more
-  # than the space available and every row of it then overhangs by the same amount,
-  # whatever the rows contain. How much depends on the pandoc version: the local one and
-  # the one on the runner disagree by 6.82pt on the paper's seven-column scenario table,
-  # which is the whole of the difference between a clean build here and a failing one
-  # there.
+  # Pandoc writes each column as a fraction of a width minus the column padding, and
+  # which width it names depends on the version: some write \linewidth and some write
+  # \columnwidth. Setting only one of them silently does nothing wherever the other was
+  # written, and "silently" is the problem. A 1pt shave against \linewidth looked
+  # load-bearing here, because it is, and had no effect at all on a runner whose pandoc
+  # had written \columnwidth, where the paper's seven-column scenario table overhung by
+  # 6.82pt through four attempted fixes without the number moving a hair.
   #
-  # This is the only lever that reaches the problem, and the size of it is not cosmetic.
-  # 1pt was enough for local rounding and nothing else; removing it entirely costs twelve
-  # overfull boxes, so it was doing real work and hid how little margin it left. 14pt
-  # covers the observed disagreement twice over and costs three per cent of table width,
-  # which is not visible. Content changes do not reach this: three separate rewrites of
-  # the offending row left the overflow identical to five decimal places, which is what
-  # a geometry problem looks like.
-  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-14pt}}
+  # That constant is the signature. An overflow that does not respond to any change in
+  # the row's content, to five decimal places, is geometry; and an overflow that does not
+  # respond to the width you are setting either means you are setting the wrong length.
+  # Both lengths are set here, so the shave applies whichever the version used. 14pt is
+  # twice the observed shortfall and costs three per cent of table width.
+  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-14pt}\addtolength{\columnwidth}{-14pt}}
   # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
   # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
   # taken out of the text before the columns are measured, and a wide table with
