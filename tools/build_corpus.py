@@ -102,6 +102,8 @@ RIGHTS = {
                             "aa.org."),
     "Tricycle_2019": ("Copyrighted journalism, read at source on the publisher's own site. "
                       "Never stored here; cite to Tricycle."),
+    "BigBook_2001": ("Copyrighted AAWS literature. Read from the Human Author's own copies and "
+                     "the publisher's per-section postings; never stored here."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 

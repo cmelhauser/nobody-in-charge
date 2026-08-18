@@ -3889,3 +3889,43 @@ The pattern from earlier in the day repeated. Three items sat on the remaining-w
 impossible because nobody checked whether the publisher gives them away. This one sat there
 because nobody asked the author whether he owned the book.
 
+### 17 August 2026: the fourth edition arrives, and the arrival census is repeated
+
+The Human Author owns several copies of the 2001 fourth edition and supplied the text; AAWS also
+posts the book in per-section PDFs. That closes the last of the acquisition items, and it closes it
+the same way the previous four closed, which is to say that the obstacle was never checked.
+
+Appendix A13 previously read the twenty-six story segments of the 1939 first edition and found
+explicit personal-contact language in twenty of them. A13.7 now repeats that on all forty-two
+stories of the fourth edition.
+
+**The coding rule had to be extended, and the extension is the finding.** A13.2 asks whether a
+recovered alcoholic made contact before the subject stopped drinking. In 1939 that has two answers,
+because someone who wanted to find the fellowship had almost no way to: it was small, unadvertised
+and in no directory. By 2001 there are three, and the middle one is new. Thirteen stories describe
+a member seeking the subject out, six a subject going looking and finding the fellowship, eleven a
+professional or an institution referring. Twelve do not state the channel plainly and are reported
+as unresolved rather than assigned, on the principle the release gate applies to an interval
+crossing zero.
+
+Member-initiated arrival is 43 per cent of the thirty classifiable stories, against 77 per cent in
+1939.
+
+**What it supports.** The model's arrival term has an exogenous part and a member-carried part, and
+the code comment on `lam_exog` names courts, treatment and desperation. In 1939 that term had
+almost nothing to point at. The fourth edition supplies a judge sending a man to A.A. for a month,
+a college making attendance a condition of readmission, counsellors producing meeting lists, and
+repeated arrival through treatment centres.
+
+**What it bounds, and this is the more useful half.** `lam_exog` is fixed at 0.12 per week in every
+run. The two censuses together say that a fellowship's exogenous arrival rate grows with its own
+institutional presence, which the model cannot represent at all. That is now stated in the appendix
+as a limitation rather than left as a detail.
+
+**What neither census is.** A sample. The stories are selected by the fellowship for publication
+and selection on outcome is total: every subject recovered. The comparison is between two edited
+collections sixty-two years apart, not a time series, and estimates nothing about any population.
+
+The corpus is 31 sources, eleven record only, seven without a verification index. Nothing was
+copied into the repository.
+
