@@ -860,7 +860,16 @@ its membership figure carries nothing.
 importance. On that column Tradition 9 does nothing measurable, and it carries one of
 the three headline results in the book.
 
-Rotation is where the model knows something AA does not say. The long form of this
+Rotation is where the model knows something AA does not say, and since 17 August 2026 that
+can be put more precisely. The Twelve Concepts for World Service, adopted in 1962 and the
+fellowship's fullest statement on service structure, do contain a proportionality principle:
+Concept 4 asks for voting representation in reasonable proportion to the responsibility each
+part of the structure discharges. But it proportions voting weight to responsibility, not the
+rotating pool to the size of the group. A structure could satisfy Concept 4 exactly and still
+rotate twelve people through a fellowship of eight hundred. AA has the instinct for proportion
+and applies it to representation rather than to the pool.
+
+The long form of this
 Tradition says rotating leadership is best, and the 1953 commentary warns against
 entrenched power, but neither says how many people. The model says the answer is a
 fraction of the group and not a headcount, and that the difference is not a matter of

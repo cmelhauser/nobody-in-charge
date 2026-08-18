@@ -346,14 +346,41 @@ than the decision to have one dial per step. The copy held is the author manuscr
 pagination is not the journal's.
 
 *Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group
-Membership."* Located and not acquired. It is the group-and-member series by year that Chapter
-21 proposes as the starting point for an out-of-sample test. It is AAWS material distributed
-under a content-use policy permitting a single printed copy. That policy permits reading, and
-since the rule correction of 10 August 2026 the project reads what it may lawfully read and holds
-nothing. **Superseded wording:** this entry previously said the project does not acquire AAWS
-publications on the book's behalf, which is no longer the rule. SMF-132 is simply not yet
-obtained, and obtaining it is now a task rather than a policy question. Recorded here so the
-identifier does not have to be found again.
+Membership,"* Rev. 12/20. **Read in full at source on 17 August 2026** from the fellowship's own
+free posting, and held as record only under `research/incorporated/SMF132_2020/`. It is the
+group-and-member series by year that Chapter 21 proposes as the starting point for an
+out-of-sample test, and it now supplies one. Dividing reported members by reported groups gives
+18.4 members per group on average across 2001 to 2020, ranging from 16.5 to 22.1 and falling
+steadily; the model's endpoint membership at full adherence is 17.80 [16.92, 18.68]. **Read that
+as a consistency check and not a validation.** AA keeps no membership lists, the figures are
+reports from groups registered with general service offices, and a ratio of two estimated
+aggregates is not a sample of group sizes: it carries no interval and describes no distribution.
+The series is also worldwide rather than regional, so the natural experiment Chapter 21 wants
+still needs finer data. **Superseded wording:** this entry previously said the source was located
+and not acquired, and before that that the project does not acquire AAWS publications on the
+book's behalf. Neither is now the case.
+
+*W., Bill, The Twelve Concepts for World Service (Short Form), SMF-114, adopted 1962.* **Read in
+full at source on 17 August 2026**, held as record only under
+`research/incorporated/TwelveConcepts_1962/`. This was listed for months as the place where the
+fellowship's own thinking about rotation is set out at greatest length, and unread. It is now
+read, and the finding is a narrowing rather than a confirmation. Concept 4, the Right of
+Participation, asks for voting representation in reasonable proportion to the responsibility each
+element of the structure discharges, so AA does hold a proportionality principle about service.
+It proportions voting weight to responsibility, not the rotating pool to the size of the group,
+and a structure could satisfy it exactly while rotating twelve people through a fellowship of
+eight hundred. Supports Chapter 10 and the primer's Tradition 9 entry. The long-form Concepts and
+their accompanying essays were not read.
+
+*Jensen, Karen, and Matthew Abrahams, "Buddha Buzz Weekly: Refuge Recovery Splits," Tricycle: The
+Buddhist Review, 13 July 2019.* **Read in full at source on 17 August 2026**, held as record only
+under `research/incorporated/Tricycle_2019/`. The independent account of the 2019 schism that
+Appendix A12.4 previously lacked, everything there having come from the successor fellowship's own
+literature. It confirms the structure from outside and corrects the contrast: both organizations
+describe their meetings as peer-led and democratically run, and what separates them is the layer
+above the meeting, teacher-led retreats and professional treatment on one side and nothing above
+the sangha on the other. The article names the predecessor's founder; this project does not, and
+`tools/check_book.py` fails the build if the name appears.
 
 ---
 

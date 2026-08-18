@@ -1,0 +1,28 @@
+{
+ "id": "SMF132_2020",
+ "title": "Estimated Worldwide A.A. Individual and Group Membership (SMF-132)",
+ "author": "Alcoholics Anonymous World Services, General Service Office",
+ "year": 2020,
+ "edition_note": "Rev. 12/20. Series runs 1935 to 2020.",
+ "type": "service material, statistical series",
+ "status": "read_in_full",
+ "provenance_url": "https://www.aa.org/sites/default/files/literature/assets/smf-132_en.pdf",
+ "sha256_of_scan_consulted": "df5b80ad2c62ded0530744961372f64cd1acbfdce36b3230aca819dc7ec11cca",
+ "bytes_of_scan_consulted": 60941,
+ "consulted": "2026-08-17",
+ "topics": [
+  "A.A. membership",
+  "group counts",
+  "mean group size",
+  "out-of-sample check"
+ ],
+ "what_it_supports": "Chapter 21's proposed out-of-sample comparison. Supplies reported worldwide active membership and group counts for 1935 to 2020, from which a members-per-group ratio can be formed.",
+ "estimand_caution": "The published figures are two separately estimated aggregates, not a sample of group sizes. Their ratio is a mean only if both counts cover the same population, and A.A. states plainly that it keeps no formal membership lists and that the figures rest on reports from groups listed with general service offices. The ratio therefore carries no interval and no distribution, and cannot be compared to a modelled distribution as though it were a sample.",
+ "record_only": true,
+ "record_only_reason": "Freely published service material. Read at source and not stored, per the project's uniform rule that it holds no source document.",
+ "verification_index": "none: no text was retained to build one from. The numbers drawn from it are reproduced in research/SOURCES.md and in Chapter 21, and are re-checkable against the recorded URL.",
+ "rights_note": "A.A.W.S. service material, published free on aa.org. Read at source and never stored; cite from aa.org.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

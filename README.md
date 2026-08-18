@@ -246,7 +246,7 @@ source for a subject is citing a work that contains it, using the indexes; with 
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
 with `python3 tools/build_corpus.py`, or audit it with `--check`.
 
-Seven of the 27 sources are held as record only, with no document at any time: AAWS pamphlet
+Ten of the 30 sources are held as record only, with no document at any time: AAWS pamphlet
 P-17 and Kurtz (1991), which are copyrighted works the project chose never to store; DeGroot
 (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
 authorization and which the project's rights review directs be cited within limits rather than

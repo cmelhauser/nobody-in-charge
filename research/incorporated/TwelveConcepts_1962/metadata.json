@@ -1,0 +1,28 @@
+{
+ "id": "TwelveConcepts_1962",
+ "title": "The Twelve Concepts for World Service (Short Form), SMF-114",
+ "author": "W., Bill (Alcoholics Anonymous World Services)",
+ "year": 1962,
+ "edition_note": "Short form as posted by A.A.W.S.; the Concepts were adopted in 1962.",
+ "type": "fellowship literature, service structure",
+ "status": "read_in_full",
+ "provenance_url": "https://www.aa.org/sites/default/files/literature/assets/smf-114_en.pdf",
+ "sha256_of_scan_consulted": "e2a58785918f87e3c098cb029214d556ad27f9be1746a4eab8dd26f7557a92fb",
+ "bytes_of_scan_consulted": 83980,
+ "consulted": "2026-08-17",
+ "topics": [
+  "service structure",
+  "rotation",
+  "participation",
+  "leadership"
+ ],
+ "what_it_supports": "Chapter 10 and the primer's Tradition 9 entry. It is the fellowship's most extended statement on service structure and the strongest place to look for a rule about the size of a rotating pool.",
+ "the_finding": "It does not state one. Concept 4, the Right of Participation, asks for voting representation in reasonable proportion to the responsibility each element discharges. That is a proportionality principle, but it proportions voting weight to responsibility, not the size of a rotating pool to the size of the group. The model's rotation result therefore remains something A.A. does not say, now checked against the fellowship's fullest treatment rather than only against Tradition 9 and the 1953 commentary.",
+ "record_only": true,
+ "record_only_reason": "Copyrighted A.A.W.S. literature, published free on aa.org, which permits printing a single copy. Read at source and never stored.",
+ "verification_index": "none: no text was retained to build one from.",
+ "rights_note": "Copyrighted A.A.W.S. literature, published free on aa.org, which permits printing a single copy. Never stored here; cite from aa.org.",
+ "legacy_stem": null,
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
