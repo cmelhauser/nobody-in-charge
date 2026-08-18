@@ -3860,3 +3860,32 @@ The rule stands: read what is lawfully readable, hold nothing, record the proven
 The general lesson is not about AA literature. Three items sat on a list as impossible because
 nobody asked whether the publisher gives them away, and the cost of asking was one search each.
 
+### 17 August 2026: the Rohr objection is closed, and it never needed a purchase
+
+I listed this as needing a copyrighted book bought or borrowed. That was wrong twice over, and the
+Human Author said so: he owns the book.
+
+The objection was never about acquisition. `Rohr_2011` was catalogued on 10 August with the
+strongest provenance problem in the corpus, that the copy read bore an OceanofPDF.com imprint and
+was therefore an unauthorized posting of a current in-print title. What that puts in doubt is the
+project's *access*, not the accuracy of the reading, and a lawfully obtained copy on the author's
+shelf settles it. The record now says so, in `CLAUDE.md`, `research/SOURCES.md`, the source's own
+`metadata.json` and `HANDOFF.md` section 10.
+
+Two things are worth stating precisely rather than waving through.
+
+What changed is that the work is lawfully to hand and re-checkable at will. Nobody has re-read it
+against the owned copy, and the two claims stand as they were read on 10 August. That is the
+ordinary footing of every other source here and is not a weakness peculiar to this one.
+
+The edition difference is immaterial, and it is worth recording why rather than asserting it. The
+citation prints the 2011 Franciscan Media first edition; the copy consulted was the 2016 SPCK
+printing. A grep for page citations to Rohr across the manuscript, the appendix and the paper
+returns none: every use is a year cite attached to an unquantified statement about how the book
+reads its subject, which is the weakest use the four-layer rule allows. Pagination therefore
+reaches nothing the book says.
+
+The pattern from earlier in the day repeated. Three items sat on the remaining-work list as
+impossible because nobody checked whether the publisher gives them away. This one sat there
+because nobody asked the author whether he owned the book.
+
