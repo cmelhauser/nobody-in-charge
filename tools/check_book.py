@@ -17,7 +17,7 @@ checks the seven things that went wrong, so they fail loudly next time.
 
 Exit code 1 if any FAIL. Warnings do not fail.
 """
-import re, os, sys, json, glob, itertools
+import re, os, sys, json, glob, hashlib, itertools
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def P(*a): return os.path.join(ROOT, *a)
@@ -473,9 +473,51 @@ def check_sources():
                         f'{len(texts)} saved sources, all supported')
 
 
+# Names this project has undertaken not to print, stored as SHA-256 of the lowercased
+# form so that enforcing the rule does not require writing the name in the repository.
+#
+# There is one entry. The founder of the organization Recovery Dharma split from in 2019
+# is named in `RecoveryDharma_2023` in connection with its collapse, and the project's
+# rule, in CLAUDE.md and in that source's own metadata, is that he is named nowhere here.
+# The structural claim, that the predecessor was organized around a founding teacher and
+# the successor abolished the office, does not need the name, and this project cannot
+# adjudicate an allegation about a living person. The appendix named him anyway between
+# 16 and 17 August 2026, and it shipped in a rendered PDF before this check existed.
+WITHHELD = {
+    '56d447a05a7c48cdd011b0485110052b6cf0ecdad090fe4e70d98aae3a8d71be',  # full name
+    '4d8d163722179946e84391aa25ab3a73b3a02b3202d0eebd0d0d882e51a1431c',  # surname alone
+}
+
+
+def check_withheld_names():
+    """Fail if a name the project has undertaken not to print appears in prose."""
+    targets = (glob.glob(P('manuscript', '*.md')) + glob.glob(P('reference', '*.md'))
+               + glob.glob(P('plans', '*.md'))
+               + [P('appendix', 'APPENDIX.md'), P('README.md'), P('HANDOFF.md'),
+                  P('CLAUDE.md'), P('AGENTS.md'), P('AGENT_VERIFY.md'),
+                  P('paper', 'anonymity-as-an-aggregation-condition.tex')])
+    hits = 0
+    for path in targets:
+        if not os.path.exists(path):
+            continue
+        text = open(path, encoding='utf-8', errors='ignore').read()
+        words = re.findall(r"[A-Za-z][A-Za-z'-]+", text)
+        grams = [w.lower() for w in words]
+        grams += [f'{a.lower()} {b.lower()}' for a, b in zip(words, words[1:])]
+        for g in set(grams):
+            if hashlib.sha256(g.encode()).hexdigest() in WITHHELD:
+                hits += 1
+                fail('names', f'{os.path.basename(path)}: prints a name the project '
+                              f'has undertaken to withhold')
+                break
+    if not hits:
+        note('names', 'no withheld name appears in the manuscript, appendix, primer or paper')
+
+
 if __name__ == '__main__':
     for fn in (check_figures, check_intervals, check_repetition, check_forward,
-               check_status, check_history, check_sources):
+               check_status, check_history, check_sources,
+               check_withheld_names):
         try:
             fn()
         except Exception as e:

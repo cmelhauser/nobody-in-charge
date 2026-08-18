@@ -309,23 +309,55 @@ empty, it reports that Chapter 18 is contradicted. Hold the project to that.
 
 ## 10. What actually remains
 
-Nothing is blocked on engineering. In rough order of how much each could change:
+Nothing is blocked on engineering, and nothing here blocks release. Every checker passes, both
+notebooks execute, all three PDFs render with zero overfull boxes, and continuous integration is
+green. What follows is the complete list of open items; it is the single place they are recorded,
+and anything claiming a shorter list is out of date.
 
-1. **The elicitation round.** Needs two or three human respondents. The only outstanding item that
-   could change a conclusion rather than qualify one.
-2. **Confirm the Rohr citations** against a lawfully obtained edition.
+They divide sharply, and the division matters more than the count.
+
+**One item could change a conclusion.**
+
+1. **The elicitation round.** Part Four rests on a twelve-by-eight matrix one person wrote down,
+   and no computation can test its pattern of empty cells because every check holds that pattern
+   fixed. It needs two or three human respondents. The packet is `research/elicitation/`; send
+   `1-respondent-form.pdf` and **never** `4-collator-notes.pdf`, which names the answer the
+   exercise exists to elicit.
+
+**The rest qualify a conclusion rather than change one, and every one of them is blocked on a
+document this project does not hold.** None can be closed by further computation, and none should
+be closed by inference from what is already here.
+
+2. **Confirm the Rohr citations** against a lawfully obtained edition. Both claims drawn from it
+   are absence claims, and the copy consulted was an unauthorized posting of an in-print title,
+   which is the strongest provenance objection in the corpus.
 3. **Obtain *Alcoholics Anonymous Comes of Age*, pages 97 to 98.** Kurtz names it as the passage
-   that settles the unity/singleness-of-purpose question Chapter 17 depends on. It is the single
-   most valuable unread source, and the last time an AA text was left unread on copyright grounds
-   it turned out to contain the strongest objection to the book's own argument.
-4. **Obtain SMF-132**, the AAWS worldwide group-and-member series, for Chapter 21's proposed
+   that settles the unity versus singleness-of-purpose question Chapter 17 depends on. It is the
+   single most valuable unread source, and the last time an AA text was left unread on copyright
+   grounds it turned out to contain the strongest objection to this book's own argument.
+4. **Obtain AA's fourth edition of the Big Book (2001).** What the corpus holds is the 1939 first
+   edition; the document offered as a fourth edition on 17 August 2026 was a reprint whose "4th
+   edition" is its own printing number. The 2001 edition carries a different set of stories, and
+   Appendix A13's census of member-carried arrival is therefore a reading of 1939 and cannot be
+   extended to the fellowship as it is now without it.
+5. **Obtain SMF-132**, the AAWS worldwide group-and-member series, for Chapter 21's proposed
    out-of-sample test. Its content-use policy permits a single printed copy, so reading it is
    allowed; it is simply not yet obtained.
-5. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
+6. **Find an independent account of the 2019 Recovery Dharma schism.** Everything the appendix says
+   about it comes from the successor fellowship's own literature, written by people who left. The
+   structural finding, that a teacher-centred predecessor fractured and its successor abolished the
+   office, is corroboration and not confirmation, and a second source is what would change that.
+   Note the standing rule while doing it: the predecessor's founder is named nowhere in this
+   project, and `tools/check_book.py` enforces that.
+7. **The Twelve Concepts of World Service**, where the fellowship's own thinking about rotation is
+   set out at greatest length. Unread.
+8. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature.
-6. **The Twelve Concepts of World Service**, where the fellowship's own thinking about rotation is
-   set out at greatest length. Unread.
+
+Item 1 is the one worth chasing. Items 2 to 8 are the ordinary unfinished business of a project
+that reads its sources and says which ones it has not read, which is the method rather than a
+defect in it.
 
 ---
 

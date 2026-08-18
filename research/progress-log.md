@@ -3753,3 +3753,53 @@ flagged candidates that turned out to be inline mathematics and horizontal rules
 rendering the flagged pages. Zero overfull boxes in the book and the primer remains the
 authoritative statement, since it is TeX's own.
 
+### 17 August 2026: the appendix named the person the project undertook not to name
+
+Looking for open items found a rule violation instead, and it is the most serious thing this
+session turned up.
+
+`appendix/APPENDIX.md` named the founder of the organization Recovery Dharma split from in 2019,
+in a paragraph that goes on to quote a contributor describing a community "heavily influenced by
+unhealthy masculinity" where "people were harmed". The rule against it is stated twice, in
+`CLAUDE.md` and in that source's own `metadata.json`, and the reason is not squeamishness: the
+structural claim does not need the name, and this project cannot adjudicate an allegation about a
+living person. It had shipped in a rendered PDF.
+
+The sentence now describes him by role. The argument is unchanged, because the argument was never
+about who he was: a teacher-centred predecessor fractured, and the successor's constitution
+abolishes the office. The point survives the name's removal intact, which is the evidence that it
+was never doing any work.
+
+**The rule is now enforced rather than merely written down.** `tools/check_book.py` grew a
+`check_withheld_names` pass over the manuscript, appendix, primer, plans, front-matter documents
+and the paper. It cannot contain the name, because a checker that stores the string it forbids
+publishes it; it stores SHA-256 digests of the lowercased full name and surname and hashes every
+word and adjacent word pair it finds. It was regression-tested by reinserting the name across a
+line break, which it caught, and it reports clean now.
+
+Removing the name exposed a second thing worth recording. Reflowing the paragraph moved "for five
+years" onto a line without a quotation mark, and the duration checker caught it, having previously
+skipped that line as a quoted example. The tenure was dropped rather than the checker widened: the
+claim being made is that the contributors were officers of the predecessor, and how long one of
+them held a post is not part of it. The checker's own comment says do not widen the exemption, and
+it was right.
+
+### 17 August 2026: the open-items list was three different lists, none complete
+
+`HANDOFF.md` section 10 listed six items, `AGENTS.md` announced "the one thing still outstanding",
+and a summary written in this session named three, two of which were recorded nowhere. Four
+accounts of what remains, no two alike.
+
+Section 10 is now the single list, and it says so. It has eight items in two groups, because the
+grouping carries the information: one item could change a conclusion, and seven qualify one. Every
+item in the second group is blocked on a document the project does not hold, which is stated
+plainly so that nobody tries to close one by inference. The two that were missing are AA's actual
+fourth edition of 2001, without which Appendix A13's census is a reading of 1939 and not of the
+fellowship as it is now, and an independent account of the 2019 schism, everything about which
+currently comes from the successor's own literature.
+
+`AGENTS.md` no longer claims one outstanding item and points at section 10 instead, with a line
+telling a reader not to trust any shorter list, including its own paragraph.
+
+Nothing was closed by editing. Five of these need a book bought and read.
+
