@@ -97,27 +97,37 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
-      # Both halves of this reach the network and both have stalled in practice. The
-      # observed failure is the runner's Azure apt mirror going unreachable: apt logs a
-      # column of "Ign:" lines, falls back to archive.ubuntu.com, and takes minutes about
-      # it. Retrying made that worse, because it repeated a slow operation rather than a
-      # fast failure. So point apt at the mirror that answers, bound every request, and
-      # do not retry the update.
+      # No apt. The runner's Azure mirror went unreachable twice, and apt spent minutes
+      # timing out before falling back; rewriting the sources to a working mirror did not
+      # take, and retrying only repeated a slow failure. Everything needed here is a
+      # direct download, which is faster and cannot be broken by a mirror.
+      #
+      # Pandoc is pinned, and the pin is the point. Pandoc computes the column widths of
+      # every table in the book, and it does not compute them the same way across
+      # versions: an unpinned runner gave the paper's scenario table a first column of
+      # 0.1154 where 3.10.2 gives 0.2577, which put a row outside the type block and cost
+      # a day. Pinning it to the version the book is written against makes the rendered
+      # artifacts here the same as the ones an author sees locally. Raise it deliberately,
+      # and re-read the PDFs when you do.
       - name: Install pandoc, tectonic, and the TeX Gyre fonts
-        timeout-minutes: 12
+        timeout-minutes: 10
         env:
-          DEBIAN_FRONTEND: noninteractive
+          PANDOC_VERSION: "3.10.2"
         run: |
           set -euo pipefail
-          sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' \
-            /etc/apt/sources.list /etc/apt/sources.list.d/*.list \
-            /etc/apt/sources.list.d/*.sources 2>/dev/null || true
-          timeout 300 sudo -E apt-get update \
-            -o Acquire::Retries=2 \
-            -o Acquire::http::Timeout=15 \
-            -o Acquire::https::Timeout=15
-          timeout 300 sudo -E apt-get install -y --no-install-recommends \
-            pandoc fonts-texgyre
+          curl -fsSL --retry 3 --retry-delay 3 -o /tmp/pandoc.deb \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i /tmp/pandoc.deb
+
+          # The fonts both PDF builds ask fontconfig for, by name, from CTAN.
+          mkdir -p "$HOME/.local/share/fonts"
+          for face in regular italic bold bolditalic; do
+            curl -fsSL --retry 3 --retry-delay 3 \
+              -o "$HOME/.local/share/fonts/texgyrepagella-$face.otf" \
+              "https://mirrors.ctan.org/fonts/tex-gyre/opentype/texgyrepagella-$face.otf"
+          done
+          fc-cache -f
+
           for attempt in 1 2 3; do
             if timeout 120 curl -fsSL --retry 2 --retry-delay 3 \
                  https://drop-sh.fullyjustified.net | sh; then
@@ -127,7 +137,7 @@ jobs:
             sleep 5
           done
           sudo mv tectonic /usr/local/bin/
-          fc-cache -f
+
           pandoc --version | head -1
           tectonic --version
 
