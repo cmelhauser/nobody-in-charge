@@ -92,6 +92,17 @@ jobs:
       - name: Book-level checks
         run: python tools/check_book.py
 
+      # The gate asks that each derived report be at least as new as the caches it
+      # summarises, and a fresh clone gives every file one checkout timestamp, with
+      # ordering enough to leave a cache microseconds ahead of the report. All three read
+      # existing caches, need no network and take under a second between them, so the fast
+      # job regenerates them rather than skipping the check.
+      - name: Regenerate the derived reports
+        run: |
+          python tools/inventory_model_choices.py
+          python tools/summarize_release_gate.py
+          python tools/summarize_robustness.py
+
       # Everything the release gate can decide without a rendered PDF: cache existence and
       # completeness, model and script hash currency, the registered design counts, and the
       # model invariants. The seven artifact-freshness checks are omitted here because a
