@@ -36,19 +36,13 @@ header-includes:
   # a point. Shaving a point off the table's working width absorbs that exactly, and
   # reaches the tables converted from the paper's LaTeX, whose widths this repository
   # cannot set at source.
-  # Pandoc sizes the columns of an n-column table against (linewidth - 2(n-1)tabcolsep),
-  # which is right only when the column spec is guarded with @{} at both ends so LaTeX
-  # suppresses the outer padding. Not every pandoc version emits those guards, and when
-  # they are missing LaTeX adds 2*tabcolsep that pandoc never subtracted, so every row of
-  # a full-width table overhangs by exactly that much. This is what failed CI on 17 August
-  # 2026: the deficit was 8.21pt at tabcolsep 4pt and 6.82pt at 3pt, which is 2*tabcolsep
-  # both times plus a fraction of a point of column-width rounding.
-  #
-  # Reclaiming 2\tabcolsep costs about one per cent of table width where the guards are
-  # present and is invisible; where they are absent it is the difference between a table
-  # inside the type block and one outside it. The extra 2pt covers the rounding: pandoc
-  # writes each fraction to four places, so a seven-column table can sum above 1.
-  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-2\tabcolsep}\addtolength{\linewidth}{-2pt}}
+  # Pandoc rounds each column fraction to four places, so an equal-width table of six or
+  # seven columns can sum above 1.0 and overhang the text block by a fraction of a point.
+  # Shaving a point off the table's working width absorbs that, and reaches the tables
+  # converted from the paper's LaTeX, whose widths this repository cannot set at source.
+  # Removing it costs twelve overfull boxes, so it is load-bearing; enlarging it does not
+  # help the case below, which was an unbreakable cell rather than a rounding error.
+  - \AtBeginEnvironment{longtable}{\footnotesize\addtolength{\linewidth}{-1pt}}
   # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
   # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
   # taken out of the text before the columns are measured, and a wide table with
@@ -8104,11 +8098,11 @@ robustness.
 
 | Design | T1 leads | Index-pairing wrong, all | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
 |:---|---:|---:|---:|---:|
-| jitter $\pm$`<!-- -->`{=html}15% | 100.0 \[99.8, 100.0\] | 98.8 \[98.2, 99.2\] | 100.0 \[99.8, 100.0\] | 89.7 \[88.3, 91.0\] |
-| jitter $\pm$`<!-- -->`{=html}30% | 100.0 \[99.8, 100.0\] | 85.5 \[83.9, 87.0\] | 99.5 \[99.1, 99.7\] | 67.3 \[65.3, 69.4\] |
-| jitter $\pm$`<!-- -->`{=html}50% | 98.0 \[97.3, 98.5\] | 72.5 \[70.5, 74.4\] | 88.7 \[87.2, 90.0\] | 52.9 \[50.7, 55.1\] |
-| jitter $\pm$`<!-- -->`{=html}75% | 86.8 \[85.3, 88.3\] | 65.2 \[63.0, 67.2\] | 71.5 \[69.5, 73.4\] | 43.8 \[41.6, 45.9\] |
-| **structural** | **75.4 \[73.5, 77.2\]** | **40.6 \[38.5, 42.8\]** | **17.5 \[15.9, 19.2\]** | **27.6 \[25.7, 29.7\]** |
+| jitter $\pm$`<!-- -->`{=html}15% | 100.0 99.8 to 100.0 | 98.8 98.2 to 99.2 | 100.0 99.8 to 100.0 | 89.7 88.3 to 91.0 |
+| jitter $\pm$`<!-- -->`{=html}30% | 100.0 99.8 to 100.0 | 85.5 83.9 to 87.0 | 99.5 99.1 to 99.7 | 67.3 65.3 to 69.4 |
+| jitter $\pm$`<!-- -->`{=html}50% | 98.0 97.3 to 98.5 | 72.5 70.5 to 74.4 | 88.7 87.2 to 90.0 | 52.9 50.7 to 55.1 |
+| jitter $\pm$`<!-- -->`{=html}75% | 86.8 85.3 to 88.3 | 65.2 63.0 to 67.2 | 71.5 69.5 to 73.4 | 43.8 41.6 to 45.9 |
+| **structural** | **75.4 73.5 to 77.2** | **40.6 38.5 to 42.8** | **17.5 15.9 to 19.2** | **27.6 25.7 to 29.7** |
 
 : Percentage of draws in which each claim holds. Wilson intervals at 95 per cent on
 $n = 2{,}000$. The two 100.0 entries are 2,000 of 2,000 and should be read as "not
@@ -8414,10 +8408,10 @@ the cross-run standard error.
 
 | Condition | Viable y10 | $N$ if viable, y10 | Quality y10 | Viable y30 | 95% int. | Quality y30 |
 |:---|---:|---:|---:|---:|---:|---:|
-| nothing wrong | 0.9975 \[0.9860, 0.9996\] | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968--0.993 | 0.2648 ± 0.0058 |
-| invisible | 0.9925 \[0.9782, 0.9974\] | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968--0.993 | 0.2592 ± 0.0071 |
-| unreferred | 0.660 \[0.612, 0.705\] | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015--0.049 | 0.3642 ± 0.0443 |
-| unwelcoming | 0.905 \[0.872, 0.930\] | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499--0.596 | 0.3211 ± 0.0134 |
+| nothing wrong | 0.9975 0.9860 to 0.9996 | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968--0.993 | 0.2648 ± 0.0058 |
+| invisible | 0.9925 0.9782 to 0.9974 | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968--0.993 | 0.2592 ± 0.0071 |
+| unreferred | 0.660 0.612 to 0.705 | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015--0.049 | 0.3642 ± 0.0443 |
+| unwelcoming | 0.905 0.872 to 0.930 | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499--0.596 | 0.3211 ± 0.0134 |
 
 : Decline scenarios, **400 paired seeds**, 1,560-week horizon. *Invisible* sets only
 Tradition 11's attraction path to zero; *unreferred* sets exogenous inflow to zero;
@@ -8449,7 +8443,7 @@ conflates.
 |:---|---:|---:|---:|---:|
 | unreferred, all runs | 21.55 ± 1.01 | 11.68 ± 1.02 | 2.50 ± 0.48 | 0.51 ± 0.23 |
 | unreferred, viable only | 22.07 ± 1.00 | 16.47 ± 1.18 | 11.39 ± 1.37 | 12.27 ± 3.81 |
-| viable fraction | 0.970 | 0.660 | 0.1725 | 0.0275 \[0.015, 0.049\] |
+| viable fraction | 0.970 | 0.660 | 0.1725 | 0.0275 0.015 to 0.049 |
 
 : Unconditional versus viability-conditioned membership under referral loss. Both decline
 sharply; conditioning still hides the mass of closures but no longer makes membership look

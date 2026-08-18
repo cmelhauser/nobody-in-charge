@@ -3635,32 +3635,34 @@ That proxy was wrong, because reducing the whole table's width moves a one-eight
 eighth of that amount. The proxy has to act on the same quantity as the real difference, and here
 the real difference was the rendered width of one cell.
 
-### 17 August 2026: the actual cause, which was arithmetic and not typography
+### 17 August 2026: the actual cause was one unbreakable cell in a starved column
 
-The plus-minus change did not fix it, and the way it failed gave the answer. The deficit after
-that change was 6.82304pt, identical to the digit with the deficit before it. A content change
-that leaves the overflow bit-identical is not a content problem.
+Three wrong diagnoses preceded the right one, and the arithmetic that settled it is worth
+keeping, because each wrong answer was reasonable and testable.
 
-The numbers say what it is. The deficit was 8.21pt at `tabcolsep` 4pt and 6.82pt at 3pt: twice
-the column padding both times, plus a fraction of a point. Pandoc sizes an n-column table against
-`linewidth - 2(n-1)tabcolsep`, which is correct only when the column spec is guarded with `@{}`
-at both ends so LaTeX suppresses the outer padding. Where those guards are missing LaTeX adds
-`2*tabcolsep` that pandoc never subtracted, and every row of a full-width table overhangs by
-exactly that. The local pandoc emits the guards and the runner's does not, which is why this was
-invisible here and reproducible there.
+The deficit was 8.21pt at `tabcolsep` 4pt and 6.82pt at 3pt. Pandoc sizes a column as a fraction
+of `linewidth - 2(n-1)tabcolsep`, so the column in question, at 8.25 per cent of the table, was
+32.78pt wide at 4pt padding and 33.77pt at 3pt. Adding the deficit to the column gives the width
+of what would not fit: 40.99pt and 40.59pt. The same number twice. A single object of fixed width
+about 41pt, in a column of about 33pt.
 
-The fix reclaims `2\tabcolsep` inside the longtable environment, plus 2pt for the column-width
-rounding the old `-1pt` was for. It is written in terms of `\tabcolsep` rather than as a number,
-so changing the padding cannot reintroduce the bug. Where the guards are present it costs about
-one per cent of table width and is invisible.
+That object is `[0.9860,` in the cell `0.9975 [0.9860, 0.9996]`. There is no breakpoint before
+the comma, so the opening bracket, the number and the comma are one box, and a box wider than its
+column runs into the margin rather than wrapping. Whether it fits at all depends on the font
+build, which is why this was invisible locally and reproducible on the runner.
 
-Three attempts preceded this and two of them were wrong for the same reason: they treated a
-constant offset as if it were a margin problem. Raising the shave, shrinking the font, and
-rewriting the cells all buy width, and none of them addresses a term that was never subtracted.
-The plus-minus change is kept because it is right on its own merits, matching how the book's own
-chapters print the same quantities and removing unbreakable boxes from a narrow column, but it is
-not what fixed this.
+Written `0.9860 to 0.9996`, which is how the book's own chapters already write intervals, the
+widest chunk is a bare number and the cell wraps. The rewrite is applied to table rows only;
+prose keeps the bracket form, which is the project's convention.
 
-The diagnostic that made it findable was worth more than any of the fixes: printing the deficit
-in points, at two settings, is what turned this from a typography puzzle into arithmetic.
+Two earlier attempts are recorded because they were wrong in an instructive way. Reducing
+`tabcolsep` and rewriting the maths cells both changed the table without touching the binding
+cell, and the second produced the decisive clue: a content change that left the overflow
+identical to five decimal places is a content change to the wrong content. The reading that
+followed, that the overflow was a constant equal to twice the padding, fitted two data points and
+was wrong; removing the compensating `-1pt` shave to test it cost twelve overfull boxes at once,
+which disproved it immediately.
 
+The general lesson is that an overfull box names a width, and a width can be attributed. Two
+measurements at different settings identify the offending object exactly, and that is cheaper
+than any number of plausible adjustments.
