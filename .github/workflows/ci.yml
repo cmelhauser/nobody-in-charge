@@ -97,11 +97,32 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
+      # Both halves of this reach the network and both have hung in practice, once for
+      # ten minutes on the apt mirror before the job was killed by hand. Bound them and
+      # retry, so a bad mirror costs a minute and a retry rather than the whole job.
       - name: Install pandoc, tectonic, and the TeX Gyre fonts
+        timeout-minutes: 8
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends pandoc fonts-texgyre
-          curl -fsSL https://drop-sh.fullyjustified.net | sh
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if timeout 180 sudo -E apt-get update -o Acquire::Retries=3; then
+              break
+            fi
+            echo "apt-get update failed, attempt $attempt"
+            sleep 5
+          done
+          timeout 300 sudo -E apt-get install -y --no-install-recommends \
+            pandoc fonts-texgyre
+          for attempt in 1 2 3; do
+            if timeout 180 curl -fsSL --retry 3 --retry-delay 5 \
+                 https://drop-sh.fullyjustified.net | sh; then
+              break
+            fi
+            echo "tectonic download failed, attempt $attempt"
+            sleep 5
+          done
           sudo mv tectonic /usr/local/bin/
           fc-cache -f
           pandoc --version | head -1
@@ -117,6 +138,7 @@ jobs:
           echo "found: $(fc-list | grep -ci 'TeX Gyre Pagella') TeX Gyre Pagella faces"
 
       - name: Rebuild the primer and the book
+        timeout-minutes: 20
         run: |
           python tools/build_primer.py
           python tools/build_book.py
