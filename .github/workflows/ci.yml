@@ -135,11 +135,18 @@ jobs:
               if not path.exists():
                   continue
               lines = path.read_text(errors="ignore").splitlines()
-              hits = sorted({line.strip() for line in lines
-                             if re.search(r"Overfull .hbox \(\d+\.?\d*pt", line)})
+              idx = [i for i, line in enumerate(lines)
+                     if re.search(r"Overfull .hbox \(\d+\.?\d*pt", line)]
+              hits = sorted({lines[i].strip() for i in idx})
               print(f"{name}: {len(hits)} overfull boxes")
               for hit in hits:
                   print("    " + hit)
+              # TeX prints the text it could not fit on the lines after the warning.
+              # That is the only source that names the offending box directly.
+              for i in idx[:2]:
+                  print("    log context:")
+                  for line in lines[i:i + 10]:
+                      print("        " + line[:160])
               # Resolve each warning back to the source line that caused it. TeX names a
               # line in the LaTeX it was handed, which is thrown away after the run, so
               # regenerate it with the same pandoc and quote the line. Without this the
