@@ -124,7 +124,10 @@ jobs:
       - name: No text may sit outside the type block
         run: |
           python - <<'PY'
-          import pathlib, re, sys
+          import pathlib, re, subprocess, sys
+          SOURCES = {"book": "build/nobody-in-charge.md",
+                     "primer": "reference/PRIMER-steps-and-traditions.md"}
+          EXTRA = {"book": ["--top-level-division=chapter"]}
           bad = False
           for name, log in (("book", "build/pandoc.log"),
                             ("primer", "build/primer-pandoc.log")):
@@ -132,15 +135,26 @@ jobs:
               if not path.exists():
                   continue
               lines = path.read_text(errors="ignore").splitlines()
-              hits = [i for i, line in enumerate(lines)
-                      if re.search(r"Overfull .hbox \(\d+\.?\d*pt", line)]
+              hits = sorted({line.strip() for line in lines
+                             if re.search(r"Overfull .hbox \(\d+\.?\d*pt", line)})
               print(f"{name}: {len(hits)} overfull boxes")
-              # Print the offending line and the text TeX could not fit. A bare count
-              # cannot be acted on, and the log dies with the runner.
-              for i in hits:
-                  for line in lines[i:i + 4]:
-                      print("    " + line)
-                  print()
+              for hit in hits:
+                  print("    " + hit)
+              # Resolve each warning back to the source line that caused it. TeX names a
+              # line in the LaTeX it was handed, which is thrown away after the run, so
+              # regenerate it with the same pandoc and quote the line. Without this the
+              # warning names a line number in a file nobody can look at.
+              if hits and name in SOURCES:
+                  tex = pathlib.Path(f"build/{name}-resolved.tex")
+                  subprocess.run(["pandoc", SOURCES[name], "-s", "-t", "latex",
+                                  *EXTRA.get(name, []), "-o", str(tex)], check=False)
+                  if tex.exists():
+                      src = tex.read_text(errors="ignore").splitlines()
+                      for hit in hits:
+                          for num in {int(n) for n in re.findall(r":(\d+):", hit)}:
+                              print(f"    --> {tex}:{num}")
+                              for k in range(max(0, num - 2), min(len(src), num + 1)):
+                                  print(f"        {k + 1}: {src[k][:200]}")
               bad |= bool(hits)
           sys.exit(1 if bad else 0)
           PY
