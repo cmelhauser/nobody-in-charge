@@ -53,6 +53,11 @@ header-includes:
   # The shave stays at 1pt, its original size, for pandoc's four-place rounding; removing
   # it costs twelve overfull boxes. Enlarging it makes this case worse, because a narrower
   # column is the problem here and not the cure.
+  # Load the language explicitly so hyphenation patterns are certainly active. Without a
+  # language selected, whether TeX hyphenates at all depends on the distribution's
+  # defaults, and a build that cannot hyphenate cannot break a long word in a narrow
+  # table column however the column is aligned.
+  - \usepackage[english]{babel}
   - \usepackage{ragged2e}
   - \newcommand{\nictabragged}{\RaggedRight\hspace{0pt}}
   - \AtBeginEnvironment{longtable}{\footnotesize\let\raggedright\nictabragged\addtolength{\linewidth}{-1pt}}
@@ -7788,12 +7793,12 @@ are not sufficient for the consensus-error equation above.
 
 | **Tradition (paraphrase)** | **Formal content** | **Role** |
 |:---|:---|:---|
-| 2\. Group conscience; leaders serve, do not govern | Offices are hypothesized not to confer persistent attention received | Proposed mechanism reducing stationary concentration |
-| 9\. No hierarchy; service rotates | Office-linked attention is periodically reassigned across a broad pool | Proposed mechanism preventing persistent stationary concentration |
-| 12\. Anonymity; principles before personalities | Some status cues on which attention may condition are suppressed | Proposed mechanism reducing one source of concentration |
-| 1\. Common welfare first | $A$ strongly connected | Precondition for convergence |
-| 4\. Group autonomy | No cross-group influence aggregation | No prominent group at higher levels |
-| 3\. Desire to stop drinking is the only requirement for membership | $N$ unbounded; no screening on membership | Makes the asymptotic regime the relevant one |
+| 2\. Group conscience; leaders serve, do not govern | Offices are hypothesized not to confer persistent attention received | Proposed mechanism reducing stationary concentra­tion |
+| 9\. No hierarchy; service rotates | Office-linked attention is periodically reassigned across a broad pool | Proposed mechanism preventing persistent stationary concentra­tion |
+| 12\. Anonymity; principles before personalities | Some status cues on which attention may condition are suppressed | Proposed mechanism reducing one source of concentra­tion |
+| 1\. Common welfare first | $A$ strongly connected | Precondi­tion for convergence |
+| 4\. Group autonomy | No cross-group influence aggrega­tion | No prominent group at higher levels |
+| 3\. Desire to stop drinking is the only require­ment for membership | $N$ unbounded; no screening on membership | Makes the asymptotic regime the relevant one |
 
 : The mapping. **This table is an interpretation of the Traditions' wording, not a
 result.** It is the paper's central and least verified step. {#tab:mapping}
@@ -8425,7 +8430,7 @@ the cross-run standard error.
 | nothing wrong | 0.9975 0.9860 to 0.9996 | 29.40 ± 1.16 | 0.3016 ± 0.0052 | 0.985 | 0.968--0.993 | 0.2648 ± 0.0058 |
 | invisible | 0.9925 0.9782 to 0.9974 | 12.98 ± 0.34 | 0.2949 ± 0.0079 | 0.985 | 0.968--0.993 | 0.2592 ± 0.0071 |
 | unreferred | 0.660 0.612 to 0.705 | 16.47 ± 1.18 | 0.3475 ± 0.0084 | 0.0275 | 0.015--0.049 | 0.3642 ± 0.0443 |
-| unwelcoming | 0.905 0.872 to 0.930 | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499--0.596 | 0.3211 ± 0.0134 |
+| unwelcom­ing | 0.905 0.872 to 0.930 | 15.70 ± 0.82 | 0.3597 ± 0.0097 | 0.5475 | 0.499--0.596 | 0.3211 ± 0.0134 |
 
 : Decline scenarios, **400 paired seeds**, 1,560-week horizon. *Invisible* sets only
 Tradition 11's attraction path to zero; *unreferred* sets exogenous inflow to zero;
@@ -8486,9 +8491,9 @@ a reference group of 13.10 members.
 | T4 autonomy            | protective |         0.88 |           0.62 |  2.8 |
 | T7 self-support        | protective |         0.88 |           0.62 |  2.8 |
 | T2 group conscience    | enabling   |         0.48 |           0.62 |  1.5 |
-| T6 no endorsement      | protective |         0.23 |           0.46 |  1.0 |
+| T6 no endorse­ment      | protective |         0.23 |           0.46 |  1.0 |
 | T10 no outside opinion | protective |         0.23 |           0.46 |  1.0 |
-| T9 no organization     | protective |         0.02 |           0.43 |  0.1 |
+| T9 no organiza­tion     | protective |         0.02 |           0.43 |  0.1 |
 | T8 non-professional    | enabling   |        -0.20 |           0.51 | -0.8 |
 
 : Single-Tradition degradation, **400 paired replications** under common random numbers.
