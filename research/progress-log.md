@@ -3547,3 +3547,59 @@ The lesson is the one the clean-clone rehearsal was supposed to teach and half t
 rehearsal ran the fast checks and caught a home-relative path, but it did not rebuild the PDFs,
 so a host-local font dependency survived it.
 
+### 17 August 2026, later still: the overfull box, and what it was
+
+The second CI run got further. The font fix worked, both PDFs built, and the gate then failed
+on a single overfull box in the book, 8.2pt too wide, which is about three millimetres of text
+sitting outside the type block. The primer was clean.
+
+Finding it took a diagnostic that did not exist. TeX reports the line number of the LaTeX it was
+handed, pandoc discards that file after the run, and Ubuntu ships an older pandoc whose template
+shifts every line number, so the warning pointed into a file nobody could open and the local line
+numbers did not match. The gate now regenerates the intermediate LaTeX with the same pandoc and
+quotes the offending line, which identified it immediately: the seven-column scenario table
+converted from the paper's LaTeX, first data row.
+
+The cause is worth recording because it is not obvious. Pandoc sizes each `p` column as a
+fraction of `linewidth - 2*ncols*tabcolsep`, so column padding is subtracted from the text width
+before the columns are measured. A wide table pays that padding seven times over, and the cells
+in this one are set maths, which cannot be broken or hyphenated: a cell that does not fit runs
+into the margin rather than wrapping. At `tabcolsep` 4pt the row had less than 8pt of slack, and
+the Debian packaging of TeX Gyre Pagella is enough wider than the OTFs used here to consume it.
+
+The headroom was measured rather than guessed, by rebuilding with the table width artificially
+reduced until a row overflowed: 4pt survives a 7pt reduction, 3pt survives between 14 and 20pt,
+2pt survives more than 30pt. The setting is now 3pt, roughly twice what the platform difference
+costs, which keeps the tables looking like a book. The measurement is written into the header
+comment in `tools/build_book.py` so the next person does not have to redo it.
+
+Note what this says about the earlier `-1pt` shave, which was added for pandoc's column-width
+rounding. It was correct and it was not sufficient, because it addressed a rounding error of a
+tenth of a point while the binding constraint was two orders of magnitude larger.
+
+### 17 August 2026: the primer entries now state their own assumptions
+
+Every entry in the primer was carrying a result and hiding its inputs. The arithmetic in Part
+Four is exact and its inputs are one person's reading, and a reader who saw only the technical
+line could easily mistake the precision of the calculation for the precision of the matrices.
+
+Each of the twenty-four entries now carries a third part, **What was assumed**, between the
+technical statement and the plain reading. It quotes the actual authored cells for that row, the
+step speed and gate exposure where they apply, and says in plain language what would follow if
+the choice were wrong. The values were read out of `model/aa_group_model.py` rather than
+transcribed, so they are the model's and not a paraphrase.
+
+A fifth standing caution was added because the three kinds of assumption are not equally well
+guarded. The magnitudes are tested by jitter and by wholesale replacement. The resource list is
+tested by the 64 leave-one-out, merge and drop-two variants. Nothing tests whether a resource
+should have been split or a ninth one added, because that needs judgement from outside the
+tables, and no computation inside them can supply it.
+
+Several entries got sharper in the writing. Step Four's index-mate zero is a restatement of an
+input rather than a finding. Step Ten's widest-margin result comes from the same judgement
+appearing in both tables, so it is not independent corroboration. Tradition 4 and 7, and
+Tradition 6 and 10, are guaranteed identical figures before any simulation runs. Tradition 8's
+unresolved result cannot distinguish a Tradition that does little from one coded as doing
+little. Each of those was already implied somewhere in the project and none was stated where a
+reader of the primer would meet it.
+
