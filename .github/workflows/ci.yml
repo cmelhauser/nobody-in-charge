@@ -132,7 +132,11 @@ jobs:
             dest="$HOME/.local/share/fonts/texgyrepagella-$face.otf"
             got=""
             for base in $MIRRORS; do
-              if curl -fsSL --retry 2 --retry-delay 3 --max-time 60 \
+              # Fail fast per mirror: the loop over mirrors is the retry, so retrying
+              # inside it multiplies a dead host's cost by three. A CTAN mirror timed out
+              # on 18 August 2026 and 60s attempts with two retries each, over four faces,
+              # consumed the whole ten-minute step before reaching a mirror that answered.
+              if curl -fsSL --connect-timeout 8 --max-time 45 \
                    -o "$dest" "$base/texgyrepagella-$face.otf" \
                  && [ -s "$dest" ] \
                  && [ "$(head -c 4 "$dest" | tr -d '\0')" = "OTTO" ]; then
