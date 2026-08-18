@@ -3685,3 +3685,29 @@ is elsewhere; a constant under the control you are adjusting means the control i
 Both were on display here, and only the first was recognised at the time.
 
 The deprecated Node 20 actions were updated in the same pass.
+
+### 17 August 2026: pandoc is pinned, and that is the durable part
+
+The green build came from removing apt rather than fixing it. The runner's Azure mirror went
+unreachable three times, the sources rewrite did not take, and retrying only repeated a slow
+failure. Pandoc now comes from its GitHub release as a `.deb` and the TeX Gyre fonts from CTAN.
+Neither can be broken by a mirror, and the whole job dropped to about a minute.
+
+The pin matters more than the speed. Pandoc computes the column widths of every table in the book,
+and it does not compute them the same way across versions. That single fact produced the overfull
+box, four wrong diagnoses, and most of a day: the unpinned runner gave the paper's scenario table
+a first column of 0.1154 where 3.10.2 gives 0.2577. CI now installs 3.10.2, which is the version
+the book is written against, so the artifacts it renders are the ones an author sees locally.
+
+This is the same discipline the project already applies to results and had not applied to
+rendering. The model is hash-frozen and the caches record the hashes they were made with, but the
+PDFs were built by whatever pandoc happened to be installed. Raising the pin is now a deliberate
+act, and the PDFs should be re-read when it happens.
+
+The soft hyphens stay. They are no longer load-bearing, because CI and local now agree on the
+column widths, but they cost nothing and they are what makes a narrow column safe on a machine
+whose pandoc is not the pinned one.
+
+Final state: four jobs green, the release gate in about a minute, 136 release checks passing, 100
+tests passing on Python 3.11, 3.12 and 3.13, and zero overfull boxes in both rendered documents.
+
