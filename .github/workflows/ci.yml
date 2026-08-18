@@ -119,12 +119,30 @@ jobs:
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
           sudo dpkg -i /tmp/pandoc.deb
 
-          # The fonts both PDF builds ask fontconfig for, by name, from CTAN.
+          # The fonts both PDF builds ask fontconfig for, by name. Explicit mirrors rather
+          # than the CTAN redirector: the redirector sends you to whichever mirror it
+          # likes, and one of those failed certificate verification on a runner. Each
+          # download is checked for the OpenType magic before it counts, so a captive
+          # portal or an error page cannot masquerade as a font.
           mkdir -p "$HOME/.local/share/fonts"
+          MIRRORS="https://ctan.math.illinois.edu/fonts/tex-gyre/opentype
+                   https://ftp.fau.de/ctan/fonts/tex-gyre/opentype
+                   https://mirrors.ctan.org/fonts/tex-gyre/opentype"
           for face in regular italic bold bolditalic; do
-            curl -fsSL --retry 3 --retry-delay 3 \
-              -o "$HOME/.local/share/fonts/texgyrepagella-$face.otf" \
-              "https://mirrors.ctan.org/fonts/tex-gyre/opentype/texgyrepagella-$face.otf"
+            dest="$HOME/.local/share/fonts/texgyrepagella-$face.otf"
+            got=""
+            for base in $MIRRORS; do
+              if curl -fsSL --retry 2 --retry-delay 3 --max-time 60 \
+                   -o "$dest" "$base/texgyrepagella-$face.otf" \
+                 && [ -s "$dest" ] \
+                 && [ "$(head -c 4 "$dest" | tr -d '\0')" = "OTTO" ]; then
+                got="$base"; break
+              fi
+              echo "mirror failed for $face: $base"
+            done
+            if [ -z "$got" ]; then
+              echo "could not fetch texgyrepagella-$face.otf from any mirror"; exit 1
+            fi
           done
           fc-cache -f
 
@@ -170,7 +188,12 @@ jobs:
         run: |
           python tools/build_primer.py
           python tools/build_book.py
-          cd paper && tectonic anonymity-as-an-aggregation-condition.tex
+          # Tectonic downloads support files on demand and that has failed twice on a
+          # cold cache, once on lmmi5.tfm and once on ecrm1095.tfm, both transient. A
+          # second run reuses whatever the first retrieved, so one retry is enough.
+          cd paper
+          tectonic anonymity-as-an-aggregation-condition.tex \
+            || tectonic anonymity-as-an-aggregation-condition.tex
 
       - name: No text may sit outside the type block
         run: |
