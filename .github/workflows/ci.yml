@@ -139,7 +139,7 @@ jobs:
       # cache. Caching the bundle removes that failure mode after the first successful run
       # rather than retrying through it.
       - name: Cache the TeX toolchain
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             .tex-cache
