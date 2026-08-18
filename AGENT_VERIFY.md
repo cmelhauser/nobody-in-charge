@@ -40,7 +40,7 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds 27 sources: those the project
+2. **Incorporated local copies.** `research/incorporated/` holds 30 sources: those the project
    used before the acquired corpus arrived, the six promoted out of the staged corpus, six
    added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
@@ -67,7 +67,7 @@ vocabulary-only verification index.
 **Do not report a missing document as a missing source, and do not restore one.** To check a
 source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256.
 
-**Seven sources are held as record only, with no document at any time.** This is a distinct
+**Ten sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
 store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026

@@ -59,6 +59,8 @@ Before that number gets used, it has to survive an objection that would make it 
 
 Chapter Eight sets it out with the source and the arithmetic, so I will not repeat either. The short form is that AA's own 1953 commentary denies the premise this chapter starts from. It says the committee that rotates cannot govern or direct anything, and it puts the fellowship's real influence in a class of former officeholders it calls elder statesmen, who hold nothing and therefore rotate out of nothing.
 
+The fellowship's fullest statement on service structure says something adjacent to this chapter's claim, and the gap between them is the point. The Twelve Concepts for World Service, adopted in 1962, are where AA sets out how its service bodies should be composed, and Concept 4 establishes what it calls the Right of Participation: voting representation in reasonable proportion to the responsibility each part of the structure discharges. So AA does hold a proportionality principle about service, explicitly and in its own words, and I had assumed it held none. But it proportions a different pair. Concept 4 proportions voting weight to responsibility discharged. This chapter's result concerns the size of the rotating pool relative to the size of the group being served. A structure could satisfy Concept 4 exactly, every body weighted precisely to what it is answerable for, and still rotate twelve people through a fellowship of eight hundred, which is the configuration the arithmetic above shows to be a permanent oligarchy. The claim I started with was that AA never says how many people. The claim I can defend after reading the Concepts is narrower and more interesting: AA has the instinct for proportion and applies it to representation rather than to the pool.
+
 If that is accurate, this chapter has been measuring the wrong quantity. A pool is a remedy for influence held inside it.
 
 So I priced the combination, and the result is in Chapter Eight's Machinery rather than here. What it comes to is this: a group that adopts the recommendation below in full, and also defers to a small permanent advisory class, diverges from an evenly weighted room anyway, and diverges faster the larger it gets. Following the advice correctly does not close the gap, because the advice does not reach what is opening it.
@@ -151,6 +153,14 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a record with no document.
 
+W., Bill. *The Twelve Concepts for World Service* (Short Form), SMF-114. Adopted 1962. Read at
+source on 17 August 2026 from the fellowship's own free posting and held as record only under
+`research/incorporated/TwelveConcepts_1962/`. Used here for Concept 4, the Right of
+Participation, and for Concept 9 on the passage of primary service leadership from the founders
+to the trustees. The long-form Concepts and the essays accompanying them in the Service Manual
+were not read; if a rule about the size of a rotating pool exists anywhere, the Concept 4 essay
+is where it would be.
+
 **Cited at a remove:**
 
 Nothing.
@@ -167,4 +177,4 @@ The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the
 
 Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
 
-The Twelve Concepts of World Service, which is where the fellowship's own thinking about rotation is set out at greatest length, are AA copyright and have still not been read. That gap is now conspicuous rather than incidental: the last time this chapter left an AA text unread on those grounds, the text turned out to contain the strongest objection to the chapter's own argument.
+Nothing further on the Concepts. They were read on 17 August 2026 and are now discussed above rather than listed here as a gap.

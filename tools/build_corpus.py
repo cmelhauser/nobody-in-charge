@@ -91,6 +91,17 @@ RIGHTS = {
                   "consulted was an unauthorized posting; see metadata.json."),
     "KurtzTalk_c1984": ("Transcript of a recorded talk; rights position not established. Never "
                         "stored here."),
+    # Added 17 August 2026, closing three items from HANDOFF.md section 10. All three are
+    # record only. The first two are published free by A.A.W.S. and could lawfully be held;
+    # they are not, because the rule is uniform. Named here rather than left to
+    # DEFAULT_RIGHTS, which asserts a pre-1929 public-domain position false for all three.
+    "SMF132_2020": ("A.A.W.S. service material, published free on aa.org. Read at source and "
+                    "never stored; cite from aa.org."),
+    "TwelveConcepts_1962": ("Copyrighted A.A.W.S. literature, published free on aa.org, which "
+                            "permits printing a single copy. Never stored here; cite from "
+                            "aa.org."),
+    "Tricycle_2019": ("Copyrighted journalism, read at source on the publisher's own site. "
+                      "Never stored here; cite to Tricycle."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 

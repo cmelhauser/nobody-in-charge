@@ -88,9 +88,9 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
-Seven of the 27 sources are **record only**: no document exists at any time, which is a stronger
-condition than git-ignored. Each carries `"record_only": true` in its metadata. Three of those
-seven have no verification index because no text was retained to build one from. Neither is drift
+Ten of the 30 sources are **record only**: no document exists at any time, which is a stronger
+condition than git-ignored. Each carries `"record_only": true` in its metadata. Six of those ten
+have no verification index because no text was retained to build one from. Neither is drift
 and neither should be reported as a missing source.
 
 A directory's leading token must be at least three characters, distinctive, and unique across the
@@ -126,9 +126,11 @@ check holds that pattern fixed. The packet to send is `research/elicitation/`. S
 `1-respondent-form.pdf`. **Never send `4-collator-notes.pdf`**, which names the answer the exercise
 exists to elicit.
 
-Seven more qualify a conclusion rather than change one, and each is blocked on a document this
-project does not hold. `HANDOFF.md` section 10 is the complete list and the only place they are
-recorded; do not treat any shorter list, including this paragraph, as the full account.
+Five more qualify a conclusion rather than change one: three need a copyrighted book bought or
+borrowed, two are scholarly loose ends. `HANDOFF.md` section 10 is the complete list and the only
+place they are recorded; do not treat any shorter list, including this paragraph, as the full
+account. Three items were closed on 17 August 2026 by checking whether the publisher gives them
+away, which it did.
 
 ## House style, if you touch prose
 
