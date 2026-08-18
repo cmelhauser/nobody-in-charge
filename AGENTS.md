@@ -118,12 +118,17 @@ python3 tools/check_portability.py
 
 Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.
 
-## The one thing still outstanding
+## What is still outstanding
 
-The elicitation round. Part Four rests on a twelve-by-eight matrix one person wrote down, and no
-computation can test its pattern of empty cells because every check holds that pattern fixed. The
-packet to send is `research/elicitation/`. Send `1-respondent-form.pdf`. **Never send
-`4-collator-notes.pdf`**, which names the answer the exercise exists to elicit.
+One item could change a conclusion: the elicitation round. Part Four rests on a twelve-by-eight
+matrix one person wrote down, and no computation can test its pattern of empty cells because every
+check holds that pattern fixed. The packet to send is `research/elicitation/`. Send
+`1-respondent-form.pdf`. **Never send `4-collator-notes.pdf`**, which names the answer the exercise
+exists to elicit.
+
+Seven more qualify a conclusion rather than change one, and each is blocked on a document this
+project does not hold. `HANDOFF.md` section 10 is the complete list and the only place they are
+recorded; do not treat any shorter list, including this paragraph, as the full account.
 
 ## House style, if you touch prose
 

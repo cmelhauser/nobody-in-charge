@@ -5814,9 +5814,11 @@ asymmetry, and it is a difference in the *specification* of governance rather th
 
 **The fellowship exists because of a governance failure of exactly the kind this book models.**
 Recovery Dharma is a 2019 schism from Refuge Recovery, and the personal stories, written by people
-who were officers of the predecessor, say so plainly. One contributor followed the predecessor's founding teacher, whose meditation organization was the hub from which Refuge Recovery grew, and
-became its Executive Director (84). Another managed its retreats and co-hosted its conferences for
-five years (98). Her account of what happened is the passage to read twice: the community "was
+who were officers of the predecessor, say so plainly. One contributor followed the predecessor's
+founding teacher, whose meditation organization was the hub from which Refuge Recovery grew, and
+became Refuge Recovery's Executive Director (84). Another managed its retreats and co-hosted
+its conferences (98). Her account of what happened is the passage to read twice: the
+community "was
 heavily influenced by unhealthy masculinity and inequities among leaders", and "Great heartache
 ensued as people were harmed and a sangha was fractured" (98). A third contributor describes
 arriving at the 2019 Refuge Recovery conference and "walking into division", and calls it the
