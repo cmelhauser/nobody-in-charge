@@ -1,21 +1,25 @@
 name: CI
 
-# Two jobs on purpose.
+# Two jobs, split by what they can verify without a network.
 #
-# `checks` is the fast one and gates every push and pull request: unit tests for the
-# canonical model at 100 per cent coverage, plus every checker that does not need a
-# TeX toolchain. It runs in under a minute and needs nothing but Python and numpy.
+# `checks` gates every push and pull request. It needs Python and pip and nothing else,
+# and it runs every check that does not require a rendered PDF: the test suite with its
+# coverage gate, the model hash, corpus drift, portability, the book-level checks, and
+# 131 of the 136 release-gate checks. It has never failed for an environmental reason.
 #
-# `release-gate` is the slow one. It installs pandoc and tectonic, rebuilds the book
-# and the primer, and then runs the fail-closed release gate. It has to rebuild rather
-# than trust the committed PDFs, because a fresh clone gives every file the same
-# checkout timestamp and the gate legitimately requires each artifact to be at least
-# as new as its sources.
+# `documents` renders the three PDFs. It needs pandoc, a TeX engine and a font, so it
+# reaches the network three times, and that is where every environmental failure in this
+# repository's history has come from: a hung apt mirror, a CTAN mirror timing out, a
+# certificate that would not verify, and four separate cold-cache fetches inside tectonic.
+# Its toolchain is therefore cached, pinned where pinning is possible, and bounded so a
+# dead host costs seconds. It runs on main and on demand, not on pull requests.
 #
-# No source document is present in CI. Every source in `research/incorporated/` is
-# git-ignored by design, and the citation checker is built to work from the committed
-# verification indexes alone. If CI ever starts failing for want of a document, the
-# fault is in the checker, not in the absence of the document.
+# The split matters more than either job. Before it, a CTAN timeout meant none of the
+# release checks ran at all, because they lived behind the toolchain. They no longer do.
+#
+# No source document is present in CI. Every source under `research/incorporated/` is
+# git-ignored by design and the citation checker works from the committed verification
+# indexes alone. If CI ever fails for want of a document, the fault is in the checker.
 
 on:
   push:
@@ -31,10 +35,23 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Pinned because pandoc computes the column widths of every table in the book and does
+  # not compute them the same way across versions. An unpinned runner once gave the
+  # paper's scenario table a first column of 0.1154 where 3.10.2 gives 0.2577, which put
+  # a row outside the type block. Raise deliberately and re-read the PDFs.
+  PANDOC_VERSION: "3.10.2"
+  # Both caches live inside the workspace rather than under the runner's home directory,
+  # so no path in this file is home-relative. tools/check_portability.py enforces that
+  # across every tracked file and does not make an exception for CI.
+  TECTONIC_CACHE_DIR: ${{ github.workspace }}/.tex-cache
+  XDG_DATA_HOME: ${{ github.workspace }}/.xdg
+
 jobs:
   checks:
     name: Tests and checkers
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -42,8 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
@@ -76,17 +92,24 @@ jobs:
       - name: Book-level checks
         run: python tools/check_book.py
 
-  release-gate:
-    name: Release gate with rendered artifacts
+      # Everything the release gate can decide without a rendered PDF: cache existence and
+      # completeness, model and script hash currency, the registered design counts, and the
+      # model invariants. The seven artifact-freshness checks are omitted here because a
+      # fresh clone gives every file one timestamp, so they can only be satisfied by
+      # building an artifact and then asserting it is newer than its input. The `documents`
+      # job runs the full gate.
+      - name: Release gate, less the rendered artifacts
+        run: python tools/check_release.py --skip-artifacts
+
+  documents:
+    name: Rendered documents
     runs-on: ubuntu-latest
-    # The gate is the shippability question, not the correctness question. Run it on
-    # main and on demand rather than on every pull-request push.
+    timeout-minutes: 25
     if: github.event_name != 'pull_request'
     steps:
       - uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -97,45 +120,41 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
-      # No apt. The runner's Azure mirror went unreachable twice, and apt spent minutes
-      # timing out before falling back; rewriting the sources to a working mirror did not
-      # take, and retrying only repeated a slow failure. Everything needed here is a
-      # direct download, which is faster and cannot be broken by a mirror.
-      #
-      # Pandoc is pinned, and the pin is the point. Pandoc computes the column widths of
-      # every table in the book, and it does not compute them the same way across
-      # versions: an unpinned runner gave the paper's scenario table a first column of
-      # 0.1154 where 3.10.2 gives 0.2577, which put a row outside the type block and cost
-      # a day. Pinning it to the version the book is written against makes the rendered
-      # artifacts here the same as the ones an author sees locally. Raise it deliberately,
-      # and re-read the PDFs when you do.
-      - name: Install pandoc, tectonic, and the TeX Gyre fonts
-        timeout-minutes: 10
-        env:
-          PANDOC_VERSION: "3.10.2"
+      # Tectonic fetches TeX support files on demand and has failed four times on a cold
+      # cache. Caching the bundle removes that failure mode after the first successful run
+      # rather than retrying through it.
+      - name: Cache the TeX toolchain
+        uses: actions/cache@v4
+        with:
+          path: |
+            .tex-cache
+            .xdg
+          key: tex-${{ runner.os }}-${{ env.PANDOC_VERSION }}-v2
+
+      - name: Install pandoc, tectonic and the book font
         run: |
           set -euo pipefail
-          curl -fsSL --retry 3 --retry-delay 3 -o /tmp/pandoc.deb \
+
+          curl -fsSL --retry 3 --retry-delay 3 --connect-timeout 10 -o /tmp/pandoc.deb \
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
           sudo dpkg -i /tmp/pandoc.deb
 
-          # The fonts both PDF builds ask fontconfig for, by name. Explicit mirrors rather
-          # than the CTAN redirector: the redirector sends you to whichever mirror it
-          # likes, and one of those failed certificate verification on a runner. Each
-          # download is checked for the OpenType magic before it counts, so a captive
-          # portal or an error page cannot masquerade as a font.
-          mkdir -p "$HOME/.local/share/fonts"
-          MIRRORS="https://ctan.math.illinois.edu/fonts/tex-gyre/opentype
-                   https://ftp.fau.de/ctan/fonts/tex-gyre/opentype
-                   https://mirrors.ctan.org/fonts/tex-gyre/opentype"
+          # Explicit mirrors, not the CTAN redirector, which once sent a runner to a host
+          # whose certificate would not verify. Short connect timeout and no inner retry:
+          # the loop over mirrors is the retry, so retrying inside it multiplies a dead
+          # host's cost. Each file is checked for the OpenType magic, so an error page
+          # cannot masquerade as a font.
+          mkdir -p "$XDG_DATA_HOME/fonts"
+          MIRRORS="https://ftp.fau.de/ctan/fonts/tex-gyre/opentype
+                   https://mirrors.ctan.org/fonts/tex-gyre/opentype
+                   https://ctan.math.illinois.edu/fonts/tex-gyre/opentype"
           for face in regular italic bold bolditalic; do
-            dest="$HOME/.local/share/fonts/texgyrepagella-$face.otf"
+            dest="$XDG_DATA_HOME/fonts/texgyrepagella-$face.otf"
+            if [ -s "$dest" ] && [ "$(head -c 4 "$dest" | tr -d '\0')" = "OTTO" ]; then
+              continue                      # restored from cache
+            fi
             got=""
             for base in $MIRRORS; do
-              # Fail fast per mirror: the loop over mirrors is the retry, so retrying
-              # inside it multiplies a dead host's cost by three. A CTAN mirror timed out
-              # on 18 August 2026 and 60s attempts with two retries each, over four faces,
-              # consumed the whole ten-minute step before reaching a mirror that answered.
               if curl -fsSL --connect-timeout 8 --max-time 45 \
                    -o "$dest" "$base/texgyrepagella-$face.otf" \
                  && [ -s "$dest" ] \
@@ -144,56 +163,34 @@ jobs:
               fi
               echo "mirror failed for $face: $base"
             done
-            if [ -z "$got" ]; then
-              echo "could not fetch texgyrepagella-$face.otf from any mirror"; exit 1
-            fi
+            [ -n "$got" ] || { echo "no mirror served texgyrepagella-$face.otf"; exit 1; }
           done
           fc-cache -f
 
-          for attempt in 1 2 3; do
-            if timeout 120 curl -fsSL --retry 2 --retry-delay 3 \
-                 https://drop-sh.fullyjustified.net | sh; then
-              break
-            fi
-            echo "tectonic download failed, attempt $attempt"
-            sleep 5
-          done
-          sudo mv tectonic /usr/local/bin/
+          if ! command -v tectonic >/dev/null; then
+            curl -fsSL --retry 2 --retry-delay 3 --connect-timeout 10 \
+              https://drop-sh.fullyjustified.net | sh
+            sudo mv tectonic /usr/local/bin/
+          fi
 
           pandoc --version | head -1
           tectonic --version
-
-      # Both builds ask fontspec for "TeX Gyre Pagella" by name, which is a fontconfig
-      # lookup and not something tectonic can supply from its bundle. Fail here, with a
-      # clear message, rather than forty lines deep in a XeTeX transcript.
-      - name: The book font must be visible to fontconfig
-        run: |
           fc-list | grep -qi 'TeX Gyre Pagella' \
-            || { echo 'TeX Gyre Pagella not installed; the PDF builds will fail'; exit 1; }
-          echo "found: $(fc-list | grep -ci 'TeX Gyre Pagella') TeX Gyre Pagella faces"
+            || { echo 'TeX Gyre Pagella missing; the PDF builds will fail'; exit 1; }
 
-      # The gate requires each derived report to be at least as new as every cache it
-      # summarises. A fresh clone gives every file the same checkout timestamp, so the
-      # reports have to be regenerated here rather than trusted, exactly as the
-      # reproduction sequence in README.md does before the release check. All three read
-      # existing caches and take well under a second; none of them recomputes anything.
+      # The gate requires each derived report to be at least as new as the caches it
+      # summarises, and a fresh clone gives them all one timestamp. All three read existing
+      # caches and take under a second between them.
       - name: Regenerate the derived reports
         run: |
           python tools/inventory_model_choices.py
           python tools/summarize_release_gate.py
           python tools/summarize_robustness.py
 
-      # All three artifacts, for the same reason: the gate requires each to be at least as
-      # new as its sources, and a fresh clone gives them all one timestamp. The paper is
-      # LaTeX and its header documents two pdflatex passes, which is what latexmk performs
-      # locally; tectonic resolves the passes itself and is already installed here.
-      - name: Rebuild the primer, the book, and the paper
-        timeout-minutes: 20
+      # One retry each: every tectonic failure seen here has been a transient fetch, and a
+      # second run reuses whatever the first retrieved.
+      - name: Build the primer, the book and the paper
         run: |
-          # Tectonic fetches support files on demand and that has failed four times on a
-          # cold cache: lmmi5.tfm, ecrm1095.tfm and twice mid-package. Every failure was
-          # transient and a second run reuses whatever the first retrieved, so one retry
-          # each is enough. Only the paper had one; all three have one now.
           python tools/build_primer.py || python tools/build_primer.py
           python tools/build_book.py   || python tools/build_book.py
           cd paper
@@ -203,76 +200,23 @@ jobs:
       - name: No text may sit outside the type block
         run: |
           python - <<'PY'
-          import pathlib, re, subprocess, sys
-          SOURCES = {"book": "build/nobody-in-charge.md",
-                     "primer": "reference/PRIMER-steps-and-traditions.md"}
-          EXTRA = {"book": ["--top-level-division=chapter"]}
+          import pathlib, re, sys
           bad = False
           for name, log in (("book", "build/pandoc.log"),
                             ("primer", "build/primer-pandoc.log")):
               path = pathlib.Path(log)
               if not path.exists():
                   continue
-              lines = path.read_text(errors="ignore").splitlines()
-              idx = [i for i, line in enumerate(lines)
-                     if re.search(r"Overfull .hbox \(\d+\.?\d*pt", line)]
-              hits = sorted({lines[i].strip() for i in idx})
+              hits = sorted({ln.strip() for ln in path.read_text(errors="ignore").splitlines()
+                             if re.search(r"Overfull .hbox \(\d+\.?\d*pt", ln)})
               print(f"{name}: {len(hits)} overfull boxes")
               for hit in hits:
                   print("    " + hit)
-              # TeX prints the text it could not fit on the lines after the warning.
-              # That is the only source that names the offending box directly.
-              for i in idx[:2]:
-                  print("    log context:")
-                  for line in lines[i:i + 10]:
-                      print("        " + line[:160])
-              # Resolve each warning back to the source line that caused it. TeX names a
-              # line in the LaTeX it was handed, which is thrown away after the run, so
-              # regenerate it with the same pandoc and quote the line. Without this the
-              # warning names a line number in a file nobody can look at.
-              if hits and name in SOURCES:
-                  tex = pathlib.Path(f"build/{name}-resolved.tex")
-                  subprocess.run(["pandoc", SOURCES[name], "-s", "-t", "latex",
-                                  *EXTRA.get(name, []), "-o", str(tex)], check=False)
-                  if tex.exists():
-                      src = tex.read_text(errors="ignore").splitlines()
-                      for hit in hits:
-                          for num in {int(n) for n in re.findall(r":(\d+):", hit)}:
-                              print(f"    --> {tex}:{num}")
-                              for k in range(max(0, num - 2), min(len(src), num + 1)):
-                                  print(f"        {k + 1}: {src[k][:200]}")
-                              # The column spec decides the row width. Content changes
-                              # that leave a deficit bit-identical mean the geometry is at
-                              # fault, so print the spec and the sum of its fractions.
-                              b = next((j for j in range(num - 1, -1, -1)
-                                        if "begin{longtable}" in src[j]), None)
-                              if b is not None:
-                                  spec = []
-                                  for j in range(b, min(len(src), b + 16)):
-                                      spec.append(src[j])
-                                      if src[j].lstrip().startswith("\\toprule"):
-                                          break
-                                  print("    spec at line %d:" % (b + 1))
-                                  for line in spec:
-                                      print("        " + line[:160])
-                                  fr = [float(x) for x in
-                                        re.findall(r"real\{([0-9.]+)\}", "\n".join(spec))]
-                                  if fr:
-                                      print("        fractions sum to %.4f over %d columns"
-                                            % (sum(fr), len(fr)))
-                                  head = "\n".join(src[:400])
-                                  for probe in ("ragged2e", "nictabragged",
-                                                "RaggedRight"):
-                                      print("        preamble has %-14s %s"
-                                            % (probe, probe in "\n".join(src)))
-                                  print("    rows after the offending line:")
-                                  for k in range(num, min(len(src), num + 10)):
-                                      print("        " + src[k][:120])
               bad |= bool(hits)
           sys.exit(1 if bad else 0)
           PY
 
-      - name: Release gate and the slow integration tests
+      - name: Full release gate and the slow integration tests
         env:
           NIC_SLOW_TESTS: "1"
         run: |
