@@ -155,7 +155,8 @@ coverage gate and are covered by `tests/test_tools_integration.py`, which runs e
 real.
 
 GitHub Actions runs a fast job on every push and pull request, and a slower one on `main` that
-installs pandoc and tectonic, rebuilds the book and the primer, requires zero overfull boxes,
+installs a pinned pandoc, tectonic and the fonts, rebuilds all three PDFs, requires zero overfull
+boxes,
 and runs the fail-closed release gate. See `.github/workflows/ci.yml`.
 
 ## Reproduction and release checks
@@ -181,8 +182,15 @@ python3 tools/build_primer.py
 python3 tools/check_release.py
 ```
 
-Building the book and the primer needs pandoc, a TeX engine, and the **TeX Gyre Pagella**
-font, which both builds request from fontconfig by name. On Debian or Ubuntu that font is
+Building the book and the primer needs **pandoc 3.10.2**, a TeX engine, and the **TeX Gyre
+Pagella** font, which both builds request from fontconfig by name.
+
+The pandoc version is not incidental. Pandoc computes the column widths of every table in the
+book, and it does not compute them the same way across versions: a different release gave the
+paper's seven-column scenario table a first column of 0.1154 where 3.10.2 gives 0.2577, which put
+a row outside the type block. Continuous integration installs 3.10.2 for that reason, and a local
+build with a different pandoc may place tables differently. Raise the pin deliberately, in
+`.github/workflows/ci.yml`, and re-read the rendered PDFs when you do. On Debian or Ubuntu that font is
 `fonts-texgyre`; on macOS install the OTFs from the TeX Gyre project or a TeX distribution.
 Without it XeTeX stops with an unrecoverable error before it typesets anything, which is what
 CI did on 17 August 2026 when the font turned out to be present only in the author's personal

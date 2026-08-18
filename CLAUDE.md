@@ -210,10 +210,16 @@ python3 tools/run_notebook.py
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
-python3 tools/check_release.py
 python3 tools/build_book.py
 python3 tools/build_primer.py
+cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
+python3 tools/check_release.py
 ```
+
+`check_release.py` runs last, and the order is not a matter of taste. The gate requires every
+rendered artifact to be at least as new as the sources feeding it, so running it before the three
+builds fails on the artifacts it is about to be given. The full sequence, including the caches and
+derived reports this block assumes are already current, is in `README.md`.
 
 ## Tests and CI
 
@@ -238,6 +244,11 @@ gates every push and pull request. `release-gate` installs pandoc, tectonic, and
 fonts, rebuilds the book and the primer, asserts zero overfull boxes, and runs
 `check_release.py`; it rebuilds rather than trusting the committed PDFs because a fresh clone
 gives every file the same checkout timestamp.
+
+Continuous integration pins **pandoc 3.10.2**, and the pin is load-bearing rather than tidy.
+Pandoc computes the column widths of every table in the book and does not compute them the same
+way across versions, so an unpinned build can push a table row outside the type block. Raise it
+deliberately and re-read the PDFs.
 
 Both PDF builds ask fontconfig for **TeX Gyre Pagella** by name, so that font is a build
 dependency and not a nicety. It is `fonts-texgyre` on Debian and Ubuntu. Missing, XeTeX halts

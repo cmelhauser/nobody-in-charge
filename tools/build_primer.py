@@ -29,6 +29,7 @@ from __future__ import annotations
 import shutil
 import subprocess
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -83,7 +84,12 @@ def main() -> int:
     header.parent.mkdir(parents=True, exist_ok=True)
     header.write_text(HEADER_INCLUDES.strip() + "\n")
 
+    # Dated at build time, as the book is. The primer carried a hard-coded "6 August
+    # 2026" through a substantial revision on the 17th, which is exactly how a date in a
+    # source file goes wrong: nothing checks it and nobody looks at it. Computing it here
+    # means the printed date is the date the artifact was actually made.
     cmd = ["pandoc", str(SRC), "-o", str(OUT), "--pdf-engine=" + engine,
+           "-M", "date=Revised " + date.today().strftime("%-d %B %Y"),
            "--include-in-header", str(header)]
     for key, value in VARIABLES:
         cmd += ["-V", "%s=%s" % (key, value)]
