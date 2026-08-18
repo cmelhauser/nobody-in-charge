@@ -245,8 +245,9 @@ with an unrecoverable error before typesetting anything, so `release-gate` check
 explicitly and fails with a sentence rather than a transcript.
 
 The standalone primer is rebuilt by `python3 tools/build_primer.py`, which holds its typography so
-the Markdown stays free of LaTeX; the paper is rebuilt from its LaTeX source. All three PDFs use one
-inch margins and must render with zero overfull boxes. `build_book.py` and `build_primer.py` both
+the Markdown stays free of LaTeX; the paper is rebuilt from its LaTeX source. The paper and the
+primer use one inch margins; the book uses 1.05 inches, which is a deliberate difference and not
+drift. All three must render with zero overfull boxes. `build_book.py` and `build_primer.py` both
 report the overfull count, and a nonzero count means text is sitting outside the type block.
 Render and visually inspect all three PDFs. Confirm that each artifact is newer than every
 source that feeds it, has no clipping or broken tables, and contains no retired language.
