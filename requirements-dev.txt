@@ -13,4 +13,9 @@ ruff>=0.6
 # Shell lint, so tools/run_ci_locally.sh can check the shell scripts the way CI
 # does. The wheel bundles the shellcheck binary, so no system package is needed.
 shellcheck-py>=0.10
+# PDF inspection for tools/check_pdfs.py. Pure Python on purpose: the first version
+# of that checker shelled out to poppler, passed here and failed on the runner,
+# which had no pdfinfo. A checker with an undeclared system dependency is a checker
+# that does not run.
+pypdf>=4.0
 
