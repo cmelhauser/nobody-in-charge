@@ -172,6 +172,12 @@ If this fails because PDFs are older than their sources, build and visually veri
 then rerun it. Do not waive any cache-status, model-hash, analysis-hash, expected-job-count,
 notebook, source-boundary, or stale-language failure.
 
+`tools/run_ci_locally.sh` runs both continuous-integration jobs here, which is the quickest way
+to reach the same 136 checks along with the tests, the builds and the overfull gate. Verifying a
+release means running `check_release.py` with the artifacts built, not `--skip-artifacts`: that
+flag omits the seven rendered-artifact checks and exists only for a fresh clone, where every file
+carries one checkout timestamp.
+
 Expected major cache sizes:
 
 | Cache | Required work |

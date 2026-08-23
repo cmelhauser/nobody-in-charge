@@ -3989,3 +3989,26 @@ all three PDFs is byte-identical to the committed versions, and the JSON differs
 `created_utc`. Those were reverted rather than committed. Worth knowing before someone reads a
 four-file diff as a content change.
 
+### 18 August 2026: a staleness pass after the CI rewrite, and the two things it found
+
+A sweep for claims that had stopped being true, rather than for a failing check. Everything was
+already green, which is the condition under which this kind of drift survives.
+
+**A job name I changed myself.** The CI rewrite renamed `release-gate` to `documents`, and
+`CLAUDE.md` still said `release-gate` checks for the font. One line, and exactly the sort of
+reference that is wrong for months because nothing reads it. The same line has been widened to
+say where CI actually gets the font, from CTAN mirrors with a cache, since `fonts-texgyre` is
+the Debian route and not what the workflow does.
+
+**A propagation gap in the verification document.** `tools/run_ci_locally.sh` was documented in
+`README.md`, `CLAUDE.md` and `AGENTS.md` and not in `AGENT_VERIFY.md`, which the synchronisation
+rule lists as a layer of its own. It is there now, together with the point a verifier most needs:
+that verifying a release means running `check_release.py` with the artifacts built, never with
+`--skip-artifacts`, because that flag omits precisely the seven checks a release cares about.
+
+Everything else checked out against the tree rather than against itself. 31 corpus sources, 11 of
+them record only and 7 of those without a verification index; 18 required caches, taken from the
+gate's own list; 19 analysis scripts; 25 numbered chapters; 131 and 136 checks in the two modes.
+No retired phrase survives outside the rules that forbid it, the withheld name appears nowhere,
+and every backtick-quoted file path in every Markdown file resolves.
+
