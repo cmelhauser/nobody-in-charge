@@ -118,13 +118,23 @@ repository has had came from those three fetches. **Do not move a check into `do
 does not need a rendered PDF.** The whole point of the split is that a CTAN timeout must not stop
 the release checks running.
 
-## Branch and pull request flow
+## Branches, tags and releases
 
-Branch, then merge through a pull request. Do not commit to `main` directly.
+`RELEASING.md` is the authority. The short version:
 
-`lint` and `checks` run on pull requests; `documents` renders the PDFs and runs only on
-`main`, so a green pull request is not a green release. Run `tools/run_ci_locally.sh` before
-merging, which covers all three.
+- **Never commit to `main`.** Branch, open a pull request, let CI run. Prefixes: `model/`,
+  `fix/`, `docs/`, `ci/`, `source/`.
+- `lint` and `checks` run on pull requests; `documents` renders the PDFs and runs only on
+  `main`, so **a green pull request is not a green release**. Run `tools/run_ci_locally.sh`
+  before merging, which covers all three.
+- **Never create a tag to mark work finished.** A tag asserts six conditions listed in
+  `RELEASING.md`, including the full gate with no `--skip-artifacts`. Asserting them without
+  checking is worse than not tagging.
+- Versions are semantic, mapped to what can change here: MAJOR is a changed model hash or a
+  reversed conclusion, MINOR is new evidence or analysis, PATCH is corrections and tooling.
+  Below 1.0 until the elicitation round closes.
+- A GitHub Release is a publication, and this repository is public. **Do not publish one
+  unless the Human Author asks.**
 
 ## Lint
 
