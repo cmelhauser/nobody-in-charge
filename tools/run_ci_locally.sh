@@ -20,7 +20,9 @@
 # using what the author actually builds with. That is also the one thing this cannot check:
 # whether a fresh runner can obtain pandoc, tectonic and the font.
 set -uo pipefail
-cd "$(dirname "$0")/.."
+# Everything below assumes the repository root. If this fails, running the checks
+# against whatever directory we happen to be in would be worse than not running them.
+cd "$(dirname "$0")/.." || { echo "cannot reach the repository root" >&2; exit 1; }
 
 PY=python3
 [ -x .venv/bin/python ] && PY=.venv/bin/python
@@ -92,8 +94,11 @@ if [ "$job" = all ] || [ "$job" = lint ]; then
   else
     echo "ruff not installed; skipping lint"
   fi
-  if command -v shellcheck >/dev/null; then
-    step "shell lint" shellcheck tools/run_ci_locally.sh
+  SHCK=""
+  [ -x .venv/bin/shellcheck ] && SHCK=.venv/bin/shellcheck
+  [ -z "$SHCK" ] && command -v shellcheck >/dev/null && SHCK=shellcheck
+  if [ -n "$SHCK" ]; then
+    step "shell lint" "$SHCK" tools/run_ci_locally.sh
   else
     echo "shellcheck not installed; skipping"
   fi

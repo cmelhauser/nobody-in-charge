@@ -4057,3 +4057,18 @@ the paper edge across all three documents is 68pt.
 
 The workflow is linted too, by actionlint, which also runs shellcheck over every `run:` block.
 
+**The first pull request caught something on the first run.** shellcheck flagged
+`cd "$(dirname "$0")/.."` in the local runner with no failure branch. If that `cd` ever
+failed, the script would run every check against whatever directory it happened to be in and
+report the result as this repository's. That is a worse outcome than not running at all, and
+it was in the script whose entire purpose is to tell you whether a push will go red.
+
+It also exposed a gap in the runner itself: it looked for `shellcheck` only on `PATH`, so it
+skipped the check locally while CI ran it. `shellcheck-py` is now a dev dependency, which
+bundles the binary, and the runner looks in `.venv/bin` first, as it already did for ruff.
+Local and CI now run the same three linters.
+
+Note which job caught it. `documents` was correctly skipped on the pull request, so the
+design worked as intended on its first outing: the fast jobs gate the branch, and the
+rendering job waits for `main`.
+
