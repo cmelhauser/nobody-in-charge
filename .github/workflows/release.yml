@@ -29,7 +29,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      # fetch-depth 0 and fetch-tags, because the step below reads the tag's own message.
+      # A shallow checkout gives the commit and a ref, not the annotated tag object, so
+      # `git for-each-ref --format=%(contents)` comes back without the message and the
+      # check fails on a tag that is in fact correct. That happened on v0.9.0.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
 
       - uses: actions/setup-python@v6
         with:
@@ -100,11 +107,19 @@ jobs:
             echo "not a tag; skipping the message check"
             exit 0
           fi
-          message="$(git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(contents)')"
-          if [ -z "$message" ]; then
-            echo "::error::tag ${GITHUB_REF_NAME} is lightweight; releases must be annotated"
+          kind="$(git cat-file -t "$(git rev-parse "${GITHUB_REF_NAME}")")"
+          if [ "$kind" != "tag" ]; then
+            echo "::error::${GITHUB_REF_NAME} is a lightweight tag; releases must be annotated"
             exit 1
           fi
+          message="$(git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(contents)')"
+          if [ -z "$message" ]; then
+            echo "::error::could not read the message of ${GITHUB_REF_NAME}. If the checkout"
+            echo "::error::is shallow the annotated object is absent; see fetch-tags above."
+            exit 1
+          fi
+          echo "tag message, $(printf '%s' "$message" | wc -l) lines:"
+          printf '%s\n' "$message" | sed 's/^/    /'
           case "$message" in
             *"$digest"*) echo "tag message names the model in the tree" ;;
             *) echo "::error::tag message does not contain the model SHA-256 $digest"; exit 1 ;;
