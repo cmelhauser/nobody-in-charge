@@ -4072,3 +4072,35 @@ Note which job caught it. `documents` was correctly skipped on the pull request,
 design worked as intended on its first outing: the fast jobs gate the branch, and the
 rendering job waits for `main`.
 
+### 18 August 2026: the PDF checker had an undeclared system dependency
+
+The pull request merged green and `main` went red on the next run, which is the gap the
+branch flow documents: `documents` does not run on pull requests, so a green pull request is
+not a green release. It failed on the checker added in that very pull request.
+
+`tools/check_pdfs.py` shelled out to poppler for `pdfinfo`, `pdffonts` and `pdftotext`. Those
+are on this machine and not on the runner, so it passed here and failed there with
+`pdfinfo not found`. **A checker with an undeclared system dependency is a checker that does
+not run**, and I had shipped one while writing about how the local runner cannot check
+whether a fresh runner can obtain its toolchain.
+
+It is rewritten on pypdf, a pip dependency needing nothing from the system: parse, page
+count, page size, font embedding and text extraction all work without a binary. Reinstalling
+apt for one package was the alternative and was rejected; apt is what hung three times, and
+removing it is most of why the job is stable now.
+
+One check could not follow. The ink measurement needs poppler's `pdftotext -bbox`, because
+pypdf's text transformation matrices are not accurate enough for it: on a correct page they
+report a left edge at -0.3pt, which would fail a bound the typesetting has not breached. It
+now runs where poppler exists and reports itself skipped where it does not. That is the
+weakest of the six, since the overfull gate already catches text leaving the type block from
+TeX's side.
+
+**And the skip is counted separately from the passes.** The first version appended the skip
+line to the notes list, so three checks that had not run were reported as three that had
+passed. A check that did not run is not a check that succeeded, and counting it as one is how
+a checker comes to mean nothing.
+
+The negative tests were re-run against the rewrite rather than assumed to still hold: a
+truncated file, and a valid one-page document substituted for the primer. Both are caught.
+
