@@ -107,7 +107,16 @@ jobs:
             echo "not a tag; skipping the message check"
             exit 0
           fi
-          kind="$(git cat-file -t "$(git rev-parse "${GITHUB_REF_NAME}")")"
+          # Fetch the tag object explicitly rather than trusting the checkout to have it.
+          # fetch-depth 0 and fetch-tags were not enough: the runner still resolved v0.9.0
+          # to a commit, so an annotated tag reported as lightweight. Asking for the ref by
+          # name puts the annotated object in the local repository whatever checkout did.
+          git fetch --force --no-tags origin \
+            "refs/tags/${GITHUB_REF_NAME}:refs/tags/${GITHUB_REF_NAME}"
+
+          # for-each-ref reports the object the ref points at, without peeling it to the
+          # commit the way rev-parse does. That distinction is the whole check here.
+          kind="$(git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(objecttype)')"
           if [ "$kind" != "tag" ]; then
             echo "::error::${GITHUB_REF_NAME} is a lightweight tag; releases must be annotated"
             exit 1
