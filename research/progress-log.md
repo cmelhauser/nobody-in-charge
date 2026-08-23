@@ -4012,3 +4012,48 @@ gate's own list; 19 analysis scripts; 25 numbered chapters; 131 and 136 checks i
 No retired phrase survives outside the rules that forbid it, the withheld name appears nowhere,
 and every backtick-quoted file path in every Markdown file resolves.
 
+### 18 August 2026: branch flow, lint, and checks on what the PDFs actually are
+
+Three changes, and the lint one had a trap in it worth recording.
+
+**Branch and pull request flow.** Work now happens on a branch and merges through a pull
+request; `main` takes no direct commits. `lint` and `checks` run on pull requests and
+`documents` does not, because it renders PDFs and needs a network, so a green pull request is
+not a green release. `tools/run_ci_locally.sh` runs all three and is what closes that gap.
+
+**Lint, and the file it must not touch.** `ruff` with a deliberately narrow ruleset: syntax
+errors, pyflakes, bugbear. The wider style rules were measured before being rejected rather
+than rejected on taste. Clearing them would mean reformatting 373 long lines and 19 import
+blocks, much of it in files whose bytes are load-bearing.
+
+That is the trap. Nineteen analysis scripts under `model/` record their SHA-256 in the caches
+they produced, and `check_release.py` fails if a script hash stops matching its cache.
+Removing an unused import from one of them would invalidate a cache that took hours to
+compute, to silence a warning about a line that does nothing. **A linter pointed at a
+hash-pinned file is a hazard rather than a safety net.** They carry waivers by rule, not
+wholesale, so a genuine defect in them still fails.
+
+`model/aa_group_model.py` was the interesting case: it passes the full ruleset clean, with no
+waiver needed. CI now asserts that with `--isolated`, which ignores `ruff.toml` entirely, so
+the waivers written for its neighbours cannot reach the one file that is the release identity.
+
+Four real defects were fixed in code that is free to change. Three `zip()` calls without an
+explicit `strict=`, which is silent truncation waiting to happen in a checker: two compare a
+slice against a term of the same length and are now `strict=True`, which turns a slicing
+mistake into an exception; the third is the bigram idiom in `check_withheld_names`, where the
+iterables are deliberately ragged and `strict=False` says so. And one exception raised inside
+an `except` without chaining.
+
+**A checker for what the PDFs are, not what the log said.** `tools/check_pdfs.py`: each
+document parses, has a plausible page count, is A4, embeds every font, yields extractable
+text, and keeps its ink clear of the paper edge. The overfull gate reads what TeX chose to
+warn about; this reads the rendered result. It was negative-tested rather than trusted, by
+truncating a PDF and by substituting a valid one-page document, and it caught both.
+
+One deliberate choice in it. The ink bound is the paper edge, not the type block, because
+microtype sets terminal punctuation a point or two into the margin on purpose and a
+type-block bound would fail on correct typesetting. Measured, the closest any ink comes to
+the paper edge across all three documents is 68pt.
+
+The workflow is linted too, by actionlint, which also runs shellcheck over every `run:` block.
+

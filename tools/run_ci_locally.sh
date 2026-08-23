@@ -80,6 +80,26 @@ build_docs() {
 
 job="${1:-all}"
 
+if [ "$job" = all ] || [ "$job" = lint ]; then
+  printf '\033[1m--- job: lint ---\033[0m\n'
+  RUFF=""
+  [ -x .venv/bin/ruff ] && RUFF=.venv/bin/ruff
+  [ -z "$RUFF" ] && command -v ruff >/dev/null && RUFF=ruff
+  if [ -n "$RUFF" ]; then
+    step "python lint" "$RUFF" check .
+    step "canonical model takes no lint waiver" \
+         "$RUFF" check model/aa_group_model.py --isolated --select E9,F,B
+  else
+    echo "ruff not installed; skipping lint"
+  fi
+  if command -v shellcheck >/dev/null; then
+    step "shell lint" shellcheck tools/run_ci_locally.sh
+  else
+    echo "shellcheck not installed; skipping"
+  fi
+fi
+
+
 if [ "$job" = all ] || [ "$job" = checks ]; then
   printf '\033[1m--- job: checks ---\033[0m\n'
   step "tests and the 100 per cent coverage gate" \
@@ -100,6 +120,7 @@ if [ "$job" = all ] || [ "$job" = documents ]; then
     step "derived reports"     reports
     step "build all three PDFs" build_docs
     step "no text outside the type block" overfull_gate
+    step "PDFs are sound documents" "$PY" tools/check_pdfs.py
     step "full release gate"   "$PY" tools/check_release.py
     step "slow integration tests" env NIC_SLOW_TESTS=1 "$PY" -m pytest tests/test_tools_integration.py -q
   fi

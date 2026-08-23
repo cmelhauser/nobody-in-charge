@@ -358,7 +358,8 @@ def fuzzy_in(term, blob, thresh=0.72):
         k = blob.find(first, start)
         if k < 0 or k + L > len(blob): return False
         w = blob[k:k + L]
-        if sum(a == b for a, b in zip(w, term)) / L >= thresh: return True
+        # Both are exactly L; the guard above rejects a short tail.
+        if sum(a == b for a, b in zip(w, term, strict=True)) / L >= thresh: return True
         start = k + 1
 
 def window(seg, name, texts, sentences=2):
@@ -503,7 +504,10 @@ def check_withheld_names():
         text = open(path, encoding='utf-8', errors='ignore').read()
         words = re.findall(r"[A-Za-z][A-Za-z'-]+", text)
         grams = [w.lower() for w in words]
-        grams += [f'{a.lower()} {b.lower()}' for a, b in zip(words, words[1:])]
+        # Deliberately ragged: the second iterable is one shorter, which is the point
+        # of a bigram. strict would raise on every call.
+        grams += [f'{a.lower()} {b.lower()}'
+                  for a, b in zip(words, words[1:], strict=False)]
         for g in set(grams):
             if hashlib.sha256(g.encode()).hexdigest() in WITHHELD:
                 hits += 1
