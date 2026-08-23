@@ -118,6 +118,21 @@ repository has had came from those three fetches. **Do not move a check into `do
 does not need a rendered PDF.** The whole point of the split is that a CTAN timeout must not stop
 the release checks running.
 
+## Branch and pull request flow
+
+Branch, then merge through a pull request. Do not commit to `main` directly.
+
+`lint` and `checks` run on pull requests; `documents` renders the PDFs and runs only on
+`main`, so a green pull request is not a green release. Run `tools/run_ci_locally.sh` before
+merging, which covers all three.
+
+## Lint
+
+`ruff check .`, narrow by design and configured in `ruff.toml`. **Never let it edit a file
+under `model/`**: those record their SHA-256 in the caches they produced and a reformat
+invalidates hours of computation. They carry per-rule waivers.
+`model/aa_group_model.py` takes none and CI asserts it with `--isolated`.
+
 ## Before you commit
 
 ```bash
