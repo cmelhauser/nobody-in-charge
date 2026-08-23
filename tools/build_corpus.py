@@ -193,7 +193,9 @@ def fuzzy_in(term: str, blob: str, thresh: float = 0.72) -> bool:
     step = max(1, n // 4)
     for i in range(0, len(blob) - n, step):
         window = blob[i:i + n]
-        hits = sum(1 for a, b in zip(term, window) if a == b)
+        # Both are exactly n: n is len(term) and the loop stops at len(blob) - n, so
+        # strict catches a slicing mistake here rather than silently comparing less.
+        hits = sum(1 for a, b in zip(term, window, strict=True) if a == b)
         if hits / n >= thresh:
             return True
     return False

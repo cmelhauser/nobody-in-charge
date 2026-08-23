@@ -1,0 +1,33 @@
+# Lint configuration.
+#
+# The ruleset is deliberately narrow: syntax errors and pyflakes, plus bugbear. Those
+# catch defects. The wider style rules were measured against this repository and rejected,
+# because clearing them would mean reformatting 373 long lines and 19 import blocks across
+# working checkers and, worse, across files whose bytes are pinned. A linter that forces
+# edits to hash-pinned code is not a safety net, it is a hazard.
+line-length = 100
+extend-exclude = [
+    # Executed artifacts. Their stored output is checked by the release gate, and editing a
+    # cell to satisfy a linter would change output the gate is entitled to trust.
+    "*.ipynb",
+    ".venv",
+]
+
+[lint]
+select = ["E9", "F", "B"]
+
+# The analysis scripts under model/ are exempted from the four rules they trip. Their bytes
+# are load-bearing: each records its SHA-256 in the cache it produced, and
+# `tools/check_release.py` fails if a script hash stops matching its cache. Removing an
+# unused import from one of them would invalidate a cache that took hours to compute, in
+# order to silence a warning about a line that does nothing.
+#
+# The exemption is by rule, not wholesale, so a genuine defect in one of these files still
+# fails: an undefined name (F821) or a syntax error is not waived here.
+#
+# It does cover model/aa_group_model.py, which is only a convenience, because that file
+# passes clean. CI asserts that separately with `ruff check model/aa_group_model.py
+# --isolated`, which ignores this configuration entirely, so the most pinned file in the
+# project cannot quietly acquire a waiver it did not need.
+[lint.per-file-ignores]
+"model/*.py" = ["F401", "F841", "B905", "B007"]

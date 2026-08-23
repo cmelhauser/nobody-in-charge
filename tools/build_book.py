@@ -244,7 +244,7 @@ def convert_paper():
              '--shift-heading-level-by=1'],
             capture_output=True, text=True, check=True).stdout
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
-        raise SystemExit('could not convert the paper: %s' % exc)
+        raise SystemExit('could not convert the paper: %s' % exc) from exc
     return demote_subscripts(unwrap_pm(resolve_paper_crossrefs(md))).strip() + '\n'
 
 
