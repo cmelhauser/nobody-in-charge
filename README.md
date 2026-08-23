@@ -155,6 +155,8 @@ coverage gate and are covered by `tests/test_tools_integration.py`, which runs e
 real.
 
 Work happens on a branch and merges through a pull request; `main` takes no direct commits.
+`RELEASING.md` covers branch naming, the version scheme and what a tag has to have earned;
+`CHANGELOG.md` records what changed between tags.
 `lint` and `checks` run on every pull request, `documents` only on `main`, so a green pull
 request is not a green release and the local runner below is what closes that gap.
 

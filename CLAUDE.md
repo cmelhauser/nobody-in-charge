@@ -251,6 +251,12 @@ gh pr create --fill
 and needs a network; it runs on `main` after merge. So a green pull request is not a green
 release, and `tools/run_ci_locally.sh` is what closes that gap before you merge.
 
+**`RELEASING.md` is the authority on branches, versions and tags**, including what a tag has
+to have earned before it is applied and why this stays below 1.0. `CHANGELOG.md` records what
+changed between tags, with the model hash for each, since every cache is keyed to it. Do not
+publish a GitHub Release without being asked: the repository is public and a release is a
+publication rather than a mark in the history.
+
 ## Lint
 
 `ruff check .`, configured in `ruff.toml`. The ruleset is narrow on purpose: syntax errors,

@@ -270,9 +270,14 @@ def check_history():
     # closes a gap rather than papering over a finding. Chapters stay out on purpose: their
     # durations are sourced history about the Washingtonians and AA, or model output, neither
     # of which the progress log is the authority for.
+    # Widened again 18 August 2026 for CHANGELOG.md and RELEASING.md. A changelog is a
+    # narration of this project's own history and is the most likely place for an
+    # unsupportable duration claim to appear next; RELEASING.md explains why the version is
+    # what it is, which is the same kind of statement. Both were clean when added.
     targets = [P('CLAUDE.md'), P('README.md'), P('appendix', 'APPENDIX.md'),
                P('research', 'PARAMETERS.md'), P('HANDOFF.md'), P('AGENTS.md'),
-               P('AGENT_VERIFY.md'), P('BOOK-PLAN.md')] + glob.glob(P('plans', '*.md'))
+               P('AGENT_VERIFY.md'), P('BOOK-PLAN.md'), P('CHANGELOG.md'),
+               P('RELEASING.md')] + glob.glob(P('plans', '*.md'))
     for p in targets:
         if not os.path.exists(p): continue
         for ln, line in enumerate(open(p).read().split('\n'), 1):

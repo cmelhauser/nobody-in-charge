@@ -4104,3 +4104,43 @@ a checker comes to mean nothing.
 The negative tests were re-run against the rewrite rather than assumed to still hold: a
 truncated file, and a valid one-page document substituted for the primer. Both are caught.
 
+### 18 August 2026: a branch, tag and release structure, built around the model hash
+
+The repository had no tags, no releases and no changelog. What it did have was an identity
+already: the SHA-256 of `model/aa_group_model.py`, which every cache records and the gate
+checks. The scheme is built on that rather than imported from a library project, because
+nobody depends on an API here and what a version has to describe is the state of an argument.
+
+**`RELEASING.md`** is the authority. Branch prefixes, `model/` being the serious one because
+it changes the release identity and invalidates every cache keyed to it. Semantic versioning
+mapped to what can actually change: MAJOR is a changed model hash or a reversed conclusion,
+MINOR is new evidence or analysis, PATCH is corrections and tooling.
+
+**It stays below 1.0 while the elicitation round is open**, and the reason is stated rather
+than implied: Part Four rests on a matrix one person wrote down, no computation can test its
+pattern of empty cells because every check holds that pattern fixed, and until a second reader
+marks those cells the central claim has not been checked by anyone but its author. 1.0 means
+that item is closed, not that the prose is finished.
+
+**A tag has to be earned**, and the six conditions are listed. The one worth repeating is that
+a release runs `check_release.py` with no `--skip-artifacts`: those seven artifact checks are
+the entire point of a release, and the flag exists for a fresh clone.
+
+**`.github/workflows/release.yml`** runs on a version tag and re-runs the full gate against the
+tagged tree. It cannot make a bad tag good and does not pretend to; what it does is record
+publicly whether the claim held. It also rejects a lightweight tag, and rejects an annotated
+one whose message does not contain the model SHA-256 in the tree. A tag that does not say
+which model produced it is close to useless here, since every number downstream is keyed to
+that hash.
+
+**`CHANGELOG.md`** records what changed between tags with the model hash for each, so that
+somebody who wants the difference between two versions does not have to read a progress log
+that is now several thousand lines.
+
+A GitHub Release is treated as a publication rather than a mark in the history, and the rule
+written down for agents is not to publish one unless asked. The repository is public.
+
+`tools/check_book.py` now scans `CHANGELOG.md` and `RELEASING.md` for unsupportable duration
+claims about the project. A changelog is the most likely place for the next one to appear.
+Both were clean when added.
+
