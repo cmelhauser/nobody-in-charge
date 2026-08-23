@@ -4171,3 +4171,25 @@ verification against it. Nothing depends on it, it is minutes old, and a tag who
 verification failed is worse than no tag: `RELEASING.md` says a tag is a claim, and a claim
 with a failed check attached invites exactly the wrong inference, that the tree was bad.
 
+### 18 August 2026: the tag check, second attempt, and why the first fix was not enough
+
+`fetch-depth: 0` with `fetch-tags: true` did not put the annotated tag object on the runner.
+The improved diagnostic is what showed it: the second run reported `v0.9.0 is a lightweight
+tag`, which is false locally and was the useful sentence, because the first version would have
+reported the same unhelpful mismatch twice.
+
+The step now fetches the tag by ref itself, `refs/tags/NAME:refs/tags/NAME`, so the annotated
+object is present whatever the checkout action did or did not do. Depending on a third party's
+default for something a check is built on was the mistake, and it took two runs to see it.
+
+It also stops using `git rev-parse` to identify the object. `rev-parse` peels an annotated tag
+to the commit it points at, so `cat-file -t` on its output answers a different question from
+the one being asked. `for-each-ref --format='%(objecttype)'` reports what the ref points at
+without peeling, which is the distinction the check exists to make.
+
+Tested both ways locally against a deliberately constructed lightweight tag, rather than
+assumed. That test also showed why the original empty-message branch could never have worked:
+`%(contents)` on a lightweight tag returns the commit message, not an empty string, so a
+lightweight tag would have sailed past a check looking for emptiness and failed later with the
+wrong reason.
+
