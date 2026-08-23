@@ -7,3 +7,10 @@ numpy>=1.26
 pytest>=8.0
 pytest-cov>=5.0
 coverage>=7.4
+# Lint. Floors rather than pins, as above: the ruleset is narrow enough that a
+# newer ruff will not start failing the build on style.
+ruff>=0.6
+# Shell lint, so tools/run_ci_locally.sh can check the shell scripts the way CI
+# does. The wheel bundles the shellcheck binary, so no system package is needed.
+shellcheck-py>=0.10
+
