@@ -1,0 +1,155 @@
+name: Release
+
+# Runs when a version tag is pushed, and re-runs the full gate against the tagged tree.
+#
+# A tag is a claim: that at this commit the release conditions in RELEASING.md held. This
+# cannot make a bad tag good, and it deliberately does not try to. What it does is record
+# publicly whether the claim held, so a tag that was applied to a broken state says so instead
+# of sitting in the history looking authoritative.
+#
+# It is the `documents` job's work plus the full gate, with no --skip-artifacts, because the
+# seven artifact-freshness checks are the ones a release is actually about.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PANDOC_VERSION: "3.10.2"
+  TECTONIC_CACHE_DIR: ${{ github.workspace }}/.tex-cache
+  XDG_DATA_HOME: ${{ github.workspace }}/.xdg
+
+jobs:
+  verify:
+    name: Verify the tagged tree
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Cache the TeX toolchain
+        uses: actions/cache@v6
+        with:
+          path: |
+            .tex-cache
+            .xdg
+          key: tex-${{ runner.os }}-${{ env.PANDOC_VERSION }}-v2
+
+      - name: Install pandoc, tectonic and the book font
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 3 --connect-timeout 10 -o /tmp/pandoc.deb \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i /tmp/pandoc.deb
+
+          mkdir -p "$XDG_DATA_HOME/fonts"
+          MIRRORS="https://ftp.fau.de/ctan/fonts/tex-gyre/opentype
+                   https://mirrors.ctan.org/fonts/tex-gyre/opentype
+                   https://ctan.math.illinois.edu/fonts/tex-gyre/opentype"
+          for face in regular italic bold bolditalic; do
+            dest="$XDG_DATA_HOME/fonts/texgyrepagella-$face.otf"
+            if [ -s "$dest" ] && [ "$(head -c 4 "$dest" | tr -d '\0')" = "OTTO" ]; then
+              continue
+            fi
+            got=""
+            for base in $MIRRORS; do
+              if curl -fsSL --connect-timeout 8 --max-time 45 \
+                   -o "$dest" "$base/texgyrepagella-$face.otf" \
+                 && [ -s "$dest" ] \
+                 && [ "$(head -c 4 "$dest" | tr -d '\0')" = "OTTO" ]; then
+                got="$base"; break
+              fi
+            done
+            [ -n "$got" ] || { echo "no mirror served texgyrepagella-$face.otf"; exit 1; }
+          done
+          fc-cache -f
+
+          TECTONIC_BIN="$TECTONIC_CACHE_DIR/bin"
+          mkdir -p "$TECTONIC_BIN"
+          if [ ! -x "$TECTONIC_BIN/tectonic" ]; then
+            curl -fsSL --retry 2 --retry-delay 3 --connect-timeout 10 \
+              https://drop-sh.fullyjustified.net | sh
+            mv tectonic "$TECTONIC_BIN/"
+          fi
+          echo "$TECTONIC_BIN" >> "$GITHUB_PATH"
+
+      # The tag message is where the release state is recorded, and the model hash is the
+      # part of it that matters, because every cache is keyed to that hash. A tag claiming a
+      # model that is not the one in the tree is worse than no tag.
+      - name: The tag must name the model it was built from
+        run: |
+          set -euo pipefail
+          digest="$(python -c "import hashlib,pathlib;print(hashlib.sha256(pathlib.Path('model/aa_group_model.py').read_bytes()).hexdigest())")"
+          echo "model in tree: $digest"
+          if [ "${GITHUB_REF_TYPE:-}" != "tag" ]; then
+            echo "not a tag; skipping the message check"
+            exit 0
+          fi
+          message="$(git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(contents)')"
+          if [ -z "$message" ]; then
+            echo "::error::tag ${GITHUB_REF_NAME} is lightweight; releases must be annotated"
+            exit 1
+          fi
+          case "$message" in
+            *"$digest"*) echo "tag message names the model in the tree" ;;
+            *) echo "::error::tag message does not contain the model SHA-256 $digest"; exit 1 ;;
+          esac
+
+      - name: Regenerate the derived reports
+        run: |
+          python tools/inventory_model_choices.py
+          python tools/summarize_release_gate.py
+          python tools/summarize_robustness.py
+
+      - name: Build the primer, the book and the paper
+        run: |
+          python tools/build_primer.py || python tools/build_primer.py
+          python tools/build_book.py   || python tools/build_book.py
+          cd paper
+          tectonic anonymity-as-an-aggregation-condition.tex \
+            || tectonic anonymity-as-an-aggregation-condition.tex
+
+      - name: No text may sit outside the type block
+        run: |
+          python - <<'PY'
+          import pathlib, re, sys
+          bad = False
+          for name, log in (("book", "build/pandoc.log"),
+                            ("primer", "build/primer-pandoc.log")):
+              path = pathlib.Path(log)
+              if not path.exists():
+                  continue
+              hits = sorted({ln.strip() for ln in path.read_text(errors="ignore").splitlines()
+                             if re.search(r"Overfull .hbox \(\d+\.?\d*pt", ln)})
+              print(f"{name}: {len(hits)} overfull boxes")
+              for hit in hits:
+                  print("    " + hit)
+              bad |= bool(hits)
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: The rendered PDFs are sound documents
+        run: python tools/check_pdfs.py
+
+      # No --skip-artifacts. The seven artifact checks are what a release is about.
+      - name: Full release gate and the slow integration tests
+        env:
+          NIC_SLOW_TESTS: "1"
+        run: |
+          python tools/check_release.py
+          python -m pytest tests/test_tools_integration.py
