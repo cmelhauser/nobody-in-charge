@@ -235,6 +235,38 @@ rendered artifact to be at least as new as the sources feeding it, so running it
 builds fails on the artifacts it is about to be given. The full sequence, including the caches and
 derived reports this block assumes are already current, is in `README.md`.
 
+## Branch and pull request flow
+
+Work on a branch and merge through a pull request. Do not commit to `main` directly. The
+branch name should say what the change is for: `ci/`, `fix/`, `docs/`, `model/`.
+
+```bash
+git checkout -b fix/what-this-is
+# ... work, then before pushing:
+tools/run_ci_locally.sh
+gh pr create --fill
+```
+
+`lint` and `checks` run on every pull request. `documents` does not, because it renders PDFs
+and needs a network; it runs on `main` after merge. So a green pull request is not a green
+release, and `tools/run_ci_locally.sh` is what closes that gap before you merge.
+
+## Lint
+
+`ruff check .`, configured in `ruff.toml`. The ruleset is narrow on purpose: syntax errors,
+pyflakes and bugbear. The wider style rules were measured against this repository and
+rejected, because clearing them would mean reformatting 373 long lines and 19 import blocks
+across working checkers and across files whose bytes are pinned.
+
+**A linter must never be allowed to edit a hash-pinned file.** The analysis scripts under
+`model/` record their SHA-256 in the caches they produced, so removing an unused import from
+one would invalidate a cache that took hours to compute. They carry per-file waivers, by rule
+rather than wholesale, so a genuine defect in them still fails.
+
+`model/aa_group_model.py` is the exception and takes no waiver. It passes the full ruleset
+clean, and CI asserts that with `--isolated`, which ignores `ruff.toml` entirely so the
+waivers cannot reach it.
+
 ## Tests and CI
 
 `python3 -m pytest` runs the suite. It needs `requirements-dev.txt` and nothing else, and it
@@ -284,6 +316,13 @@ dependency and not a nicety. Missing, XeTeX halts with an unrecoverable error be
 anything, so the `documents` job checks for the font explicitly and fails with a sentence rather
 than a transcript. CI takes the OTFs from CTAN mirrors and caches them; on Debian and Ubuntu the
 package is `fonts-texgyre`.
+
+`tools/check_pdfs.py` checks the rendered result rather than the build log: that each PDF
+parses, is A4, embeds every font, yields extractable text, and keeps its ink clear of the
+paper edge. The overfull gate reads what TeX chose to warn about; this reads what came out.
+The edge bound is the paper, not the type block, because microtype deliberately sets
+terminal punctuation a point or two into the margin and a type-block bound would fail on
+correct typesetting.
 
 The standalone primer is rebuilt by `python3 tools/build_primer.py`, which holds its typography so
 the Markdown stays free of LaTeX; the paper is rebuilt from its LaTeX source. The paper and the
