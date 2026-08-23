@@ -4144,3 +4144,30 @@ written down for agents is not to publish one unless asked. The repository is pu
 claims about the project. A changelog is the most likely place for the next one to appear.
 Both were clean when added.
 
+### 18 August 2026: the release workflow failed on the first tag, and the tag was fine
+
+`v0.9.0` was pushed after verifying all six conditions in `RELEASING.md`, and the release
+workflow rejected it: the tag message did not contain the model SHA-256. The message does
+contain it. The check was broken, not the tag.
+
+`actions/checkout` does a shallow fetch by default. That gives the commit and a ref, but not
+the annotated tag object, so `git for-each-ref --format='%(contents)'` returns nothing useful
+and a correct tag fails. The fix is `fetch-depth: 0` with `fetch-tags: true`, and the logic was
+reproduced locally against the real tag before pushing rather than guessed at again.
+
+Two things were wrong beyond the fetch depth, and both mattered more than the depth did.
+
+The lightweight-tag branch could not fire. It tested for an empty message, but an unfetched
+annotated tag also yields an empty message, so a genuine lightweight tag and a fetch problem
+produced the same error. It now asks `git cat-file -t` what the object actually is, which
+distinguishes them.
+
+And the failure said only that the message did not contain the hash, without showing the
+message. A check that reports a mismatch should show what it compared; this one sent me to
+read a tag I had written twenty minutes earlier. It now prints the message.
+
+The tag itself is being deleted and re-applied rather than left in place with a red
+verification against it. Nothing depends on it, it is minutes old, and a tag whose recorded
+verification failed is worse than no tag: `RELEASING.md` says a tag is a claim, and a claim
+with a failed check attached invites exactly the wrong inference, that the tree was bad.
+
