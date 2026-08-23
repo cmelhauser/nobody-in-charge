@@ -154,6 +154,10 @@ under `tools/` are batch jobs and entry points rather than libraries, so they si
 coverage gate and are covered by `tests/test_tools_integration.py`, which runs each one for
 real.
 
+Work happens on a branch and merges through a pull request; `main` takes no direct commits.
+`lint` and `checks` run on every pull request, `documents` only on `main`, so a green pull
+request is not a green release and the local runner below is what closes that gap.
+
 To run what CI runs, in the same order, on this machine:
 
 ```bash
