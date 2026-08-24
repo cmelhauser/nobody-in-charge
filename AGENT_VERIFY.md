@@ -34,6 +34,10 @@ robustness comes from additional parameter draws, perturbation distances, struct
 trajectories, horizons, and integration steps, not from 1,000 modeled members or a blanket
 1,000-seed confirmatory rule.
 
+The current tag is `v0.9.0`, at this SHA-256, published as a GitHub pre-release on 23 August
+2026. `RELEASING.md` and `CHANGELOG.md` are authoritative on what that tag and that publication
+required and recorded; do not treat a passing verification here as license to cut a new one.
+
 ## Source boundary
 
 Three statuses must remain distinct.
