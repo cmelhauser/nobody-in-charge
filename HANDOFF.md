@@ -5,8 +5,12 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 16 August 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 24 August 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
+
+`v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
+The branch, tag and CI structure that made that possible is built and exercised end to end. It
+does not close any item in section 10 below.
 
 ---
 
@@ -96,14 +100,16 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 10 August 2026, everything passes:
+As of 24 August 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `tools/check_release.py` | 136 checks, 0 failed |
+| `python3 -m pytest` | all passed, three skipped (poppler-dependent) |
+| `tools/check_release.py --skip-artifacts` | 131 checks, 0 failed (full 136 confirmed at the `v0.9.0` tag; see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
+| `tools/build_corpus.py --check` | 0 corpus problems |
 | `model/book-calculations.ipynb` | 8 cells, 71 assertions, clean |
 | `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 95 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |

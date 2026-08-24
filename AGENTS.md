@@ -134,7 +134,8 @@ the release checks running.
   reversed conclusion, MINOR is new evidence or analysis, PATCH is corrections and tooling.
   Below 1.0 until the elicitation round closes.
 - A GitHub Release is a publication, and this repository is public. **Do not publish one
-  unless the Human Author asks.**
+  unless the Human Author asks.** `v0.9.0` is currently tagged and published this way, as a
+  pre-release with the three PDFs attached; that does not authorize the next one.
 
 ## Lint
 
