@@ -4193,3 +4193,30 @@ assumed. That test also showed why the original empty-message branch could never
 lightweight tag would have sailed past a check looking for emptiness and failed later with the
 wrong reason.
 
+### 23 August 2026: the release itself, published and verified
+
+`v0.9.0` was published as a GitHub Release, marked pre-release because the repository stays
+below 1.0 while the elicitation round is open. The three rendered PDFs were attached, then
+downloaded back and hashed against the files at the tagged commit: all three matched, so what a
+reader gets from the release page is provably what the tag verified, not a second copy that
+only looked right at upload time.
+
+`gh release list` was checked empty before publishing, closing the one open question left from
+the tag work: whether an earlier attempt had left a partial release behind. It had not.
+
+### 24 August 2026: a staleness pass and the release recorded in prose, not just in git
+
+Nothing here was stale. Reran the full check surface: `pytest`, `check_release.py
+--skip-artifacts` (131/131; the seven artifact checks only run against a tagged tree, and
+passed there at tag time), `check_book.py`, `check_chapter.py` on the primer,
+`check_portability.py`, `build_corpus.py --check`, and `elicitation_compare.py --self-test`.
+All clear. `git fetch --prune`, `gh pr list`, and `gh release list` confirmed no stray branches,
+every pull request merged, and exactly one release matching the one tag.
+
+What was missing was not code but record: `README.md`, `RELEASING.md`, `CHANGELOG.md`,
+`AGENTS.md`, and `AGENT_VERIFY.md` all described the release *process* without saying a release
+had actually happened. Each now states that `v0.9.0` is tagged and published, with the date and
+a link, without loosening the standing rule that the next one still needs the Human Author to
+ask for it. `HANDOFF.md`'s header date and verification table were refreshed to today rather
+than left reading 16 and 10 August.
+

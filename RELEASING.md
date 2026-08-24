@@ -94,6 +94,13 @@ Tagging is the routine act; publishing is not.
 If one is published, attach the three rendered PDFs, since a reader wanting the book should not
 have to build a TeX toolchain to read it.
 
+`v0.9.0` was published this way on 23 August 2026, at the Human Author's request, as a
+[pre-release](https://github.com/cmelhauser/nobody-in-charge/releases/tag/v0.9.0): marked
+pre-release because the repository is below 1.0, not because the publication itself was
+provisional. All three PDFs are attached and were verified byte-identical to the files at the
+tagged commit after upload. This is the only GitHub Release to date; the rule above still
+governs the next one.
+
 ---
 
 ## For agents
