@@ -54,6 +54,10 @@ for the first time; the practice first-order column remains withheld.
 - Independent verification brief: `AGENT_VERIFY.md`
 - Canonical workspace: the current Git checkout; all documented project paths are relative to
   the repository root and the checkout may be placed anywhere
+- Current tag: `v0.9.0`, published 23 August 2026 as a GitHub
+  [pre-release](https://github.com/cmelhauser/nobody-in-charge/releases/tag/v0.9.0) with the
+  three rendered PDFs attached, marked pre-release because the elicitation round is open, not
+  because anything in it is provisional. See `RELEASING.md` and `CHANGELOG.md`.
 
 Source files and hash-linked caches are authoritative. Generated Markdown and PDFs are not
 authoritative until `tools/check_release.py` passes and their build dates follow every source.
