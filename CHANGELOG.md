@@ -51,6 +51,12 @@ Canonical model SHA-256:
   principle, but between voting weight and responsibility, not pool and group
 - The Rohr provenance objection closed: the Human Author holds a lawful copy
 
+**Published**
+
+As a GitHub [pre-release](https://github.com/cmelhauser/nobody-in-charge/releases/tag/v0.9.0)
+on 23 August 2026, with the three rendered PDFs attached, verified byte-identical to the files
+at this tag.
+
 **Open**
 
 The elicitation round, and the items in section 10 of `HANDOFF.md`.
