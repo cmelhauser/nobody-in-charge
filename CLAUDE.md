@@ -226,6 +226,7 @@ python3 tools/run_notebook.py
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
+python3 tools/check_docs.py
 python3 tools/build_book.py
 python3 tools/build_primer.py
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
@@ -302,8 +303,9 @@ verified without a network. `lint` runs ruff, actionlint and shellcheck and need
 
 `checks` gates every push and pull request across Python 3.11, 3.12 and 3.13. It needs pip and
 nothing else and runs everything that does not require a rendered PDF: the suite with its
-coverage gate, the model hash, corpus drift, portability, the book-level checks, and 131 of the
-136 release-gate checks via `check_release.py --skip-artifacts`.
+coverage gate, the model hash, corpus drift, portability, the book-level checks,
+`check_docs.py`, and 131 of the 136 release-gate checks via `check_release.py
+--skip-artifacts`.
 
 `documents` renders the three PDFs, asserts zero overfull boxes, and runs the full gate and the
 slow integration tests. It runs on `main` and on demand, not on pull requests, and it rebuilds

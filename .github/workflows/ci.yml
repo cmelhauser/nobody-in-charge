@@ -136,6 +136,13 @@ jobs:
       - name: Book-level checks
         run: python tools/check_book.py
 
+      # Counts stated in prose, re-derived from the tree: CI jobs, checkers, corpus size and
+      # record-only status, analysis scripts, chapters, and every relative link. The page-count
+      # checks report themselves skipped here because no PDF is built in this job; `documents`
+      # runs the same file with the artifacts present and enforces them.
+      - name: Documentation matches the tree
+        run: python tools/check_docs.py
+
       # The gate asks that each derived report be at least as new as the caches it
       # summarises, and a fresh clone gives every file one checkout timestamp, with
       # ordering enough to leave a cache microseconds ahead of the report. All three read
@@ -285,6 +292,11 @@ jobs:
       # and keeps its ink clear of the paper edge.
       - name: The rendered PDFs are sound documents
         run: python tools/check_pdfs.py
+
+      # Same file as the fast job, but with the PDFs present, so the page-count claims that
+      # skipped there are enforced here.
+      - name: Documentation matches the tree, including page counts
+        run: python tools/check_docs.py
 
       - name: Full release gate and the slow integration tests
         env:

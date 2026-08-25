@@ -8,10 +8,11 @@ two overlap; nothing here contradicts it.
 
 A finished book-length research project. A 25-chapter manuscript, an academic paper, a technical
 appendix, a Steps-and-Traditions primer, an executable agent-based model, nineteen analysis
-scripts, eighteen hash-linked result caches, two verification notebooks, and six checkers:
-`check_book.py`, `check_chapter.py`, `check_portability.py`, `check_release.py`,
-`check_pdfs.py`, and `build_corpus.py --check`. Every count here is countable from the tree, and
-the cache count is the gate's own required list in `tools/check_release.py`.
+scripts, eighteen hash-linked result caches, two verification notebooks, and seven checkers:
+`check_book.py`, `check_chapter.py`, `check_docs.py`, `check_pdfs.py`, `check_portability.py`,
+`check_release.py`, and `build_corpus.py --check`. Every count here is countable from the tree,
+the cache count is the gate's own required list in `tools/check_release.py`, and
+`check_docs.py` is what now enforces that this paragraph stays true.
 
 It argues that three of Alcoholics Anonymous's Twelve Traditions implement a formal condition,
 proved by Golub and Jackson in 2010, for when a group that decides by discussion can be trusted
@@ -128,7 +129,7 @@ whole point of the split is that a CTAN timeout must not stop the release checks
 - `lint` and `checks` run on pull requests; `documents` renders the PDFs and runs only on
   `main`, so **a green pull request is not a green release**. Run `tools/run_ci_locally.sh`
   before merging, which covers all three.
-- **Never create a tag to mark work finished.** A tag asserts six conditions listed in
+- **Never create a tag to mark work finished.** A tag asserts seven conditions listed in
   `RELEASING.md`, including the full gate with no `--skip-artifacts`. Asserting them without
   checking is worse than not tagging.
 - Versions are semantic, mapped to what can change here: MAJOR is a changed model hash or a

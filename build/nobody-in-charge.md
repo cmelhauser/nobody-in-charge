@@ -5,7 +5,7 @@ author:
   - "Human Author: Christopher Melhauser"
   - "AI Writing Collaborator: theonlymuffinbot"
   - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
-date: "Draft of 23 August 2026"
+date: "Draft of 25 August 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]

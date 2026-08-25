@@ -64,9 +64,11 @@ it has to be earned. All of these, in this order:
    checks are the point of a release; skipping them is for a fresh clone, never for a tag.
 3. `python3 tools/check_pdfs.py` clean, with poppler present so the ink measurement runs
    rather than skips.
-4. Both notebooks execute cleanly.
-5. CI green on `main` at that commit, including the `documents` job.
-6. An independent verifier can return the documented verdict using `AGENT_VERIFY.md`.
+4. `python3 tools/check_docs.py` clean **with the PDFs built**, so the page-count claims are
+   enforced rather than skipped.
+5. Both notebooks execute cleanly.
+6. CI green on `main` at that commit, including the `documents` job.
+7. An independent verifier can return the documented verdict using `AGENT_VERIFY.md`.
 
 Then tag. **Annotated, never lightweight**, because the message is where the state is recorded:
 
@@ -108,7 +110,7 @@ governs the next one.
 - Never commit to `main`. Branch, open a pull request, let CI run.
 - `lint` and `checks` run on pull requests. `documents` does not, so **a green pull request is
   not a green release**; run `tools/run_ci_locally.sh` before merging.
-- Never create a tag to mark work finished. A tag asserts the six conditions above, and
+- Never create a tag to mark work finished. A tag asserts the seven conditions above, and
   asserting them without checking is worse than not tagging.
 - If the model hash changes, that is a MAJOR release and the synchronisation rule in
   `CLAUDE.md` applies to every layer before anything is tagged.
