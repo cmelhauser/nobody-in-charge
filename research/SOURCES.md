@@ -730,9 +730,10 @@ text. It exists so `tools/check_book.py` can confirm that a cited subject appear
 work without the repository holding a redistributable copy. **This follows the precedent
 used for other in-copyright sources. Maxwell 1950 is also read in full, but unlike Kurtz its
 retyped reproduction and text are saved privately under research/incorporated/Maxwell_1950/.
-There are thirteen active text files outside the staged corpus: eleven source transcriptions
-or OCR files plus the incorporated Maxwell text and Golub-Jackson OCR. Their individual
-rights and reliability differ and are stated in their entries.
+Each source that is not record-only keeps one text file beside its document, so the twenty
+sources holding a document carry one transcription or OCR file apiece and the eleven record-only
+entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
+not drift. Their individual rights and reliability differ and are stated in their entries.
 
 **The single most valuable thing it contains, for this book:** the folk account of the
 Washingtonians' death has an author, a date and a motive. Kurtz tracks it to Bill Wilson's

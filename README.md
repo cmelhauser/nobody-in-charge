@@ -175,11 +175,13 @@ authority and nothing enforces that the two stay in step, so change both togethe
 the script cannot check is the one thing that has actually broken CI: whether a fresh runner can
 obtain pandoc, tectonic and the font.
 
-GitHub Actions runs two jobs, split by what can be checked without a network. `checks` gates every
-push and pull request on Python 3.11, 3.12 and 3.13: the suite, the model hash, corpus drift,
-portability, the book-level checks, and 131 of the 136 release-gate checks. `documents` runs on
-`main`, installs a pinned pandoc, tectonic and the book font, rebuilds all three PDFs, requires
-zero overfull boxes, and runs the full fail-closed gate. See `.github/workflows/ci.yml`.
+GitHub Actions runs three jobs, split by what can be checked without a network. `lint` runs ruff,
+actionlint and shellcheck, and asserts that the canonical model takes no lint waiver. `checks`
+gates every push and pull request on Python 3.11, 3.12 and 3.13: the suite, the model hash, corpus
+drift, portability, the book-level checks, and 131 of the 136 release-gate checks. `documents`
+runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds all three PDFs,
+requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`, and runs the
+full fail-closed gate. See `.github/workflows/ci.yml`.
 
 ## Reproduction and release checks
 
@@ -201,6 +203,7 @@ python3 tools/check_portability.py
 python3 tools/build_book.py
 latexmk -pdf -interaction=nonstopmode paper/anonymity-as-an-aggregation-condition.tex
 python3 tools/build_primer.py
+python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
 
@@ -272,8 +275,11 @@ Eleven of the 31 sources are held as record only, with no document at any time: 
 P-17 and Kurtz (1991), which are copyrighted works the project chose never to store; DeGroot
 (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
 authorization and which the project's rights review directs be cited within limits rather than
-archived; and, added 10 August 2026, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
-and the Kurtz talk of about 1984.
+archived; added 10 August 2026, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
+and the Kurtz talk of about 1984; and added 17 August 2026, AAWS service material SMF-132, the
+Twelve Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism,
+and the fourth edition of the Big Book. The authority for the category is `"record_only": true`
+in each source's `metadata.json`.
 
 Recovery Dharma (2023), added 16 August 2026 for appendix A12, is held on the ordinary footing:
 document present locally, git-ignored, hashed, and indexed. It is the one source in the corpus

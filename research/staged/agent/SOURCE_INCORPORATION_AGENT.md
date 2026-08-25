@@ -9,6 +9,6 @@
 5. Use Pagano (2004) for its specific prospective Project MATCH analysis of AA-related helping; do not convert its association into a universal causal claim.
 6. Use Greenfield and Tonigan (2013) for measurement and adoption of 12-step practices; keep its sample and design limitations visible.
 7. Do not evade access controls. Add a source only after its license, public-domain status, or authorized access is documented in metadata.
-8. When adding an item, retain the original file, checksum it, provide a citation, metadata JSON, an OCR/search text file where lawful, and a short source summary.
+8. When adding an item, retain the original file, checksum it, provide a citation, metadata JSON, an OCR/search text file where lawful, and a short source summary. **Superseded in mechanism:** do not assemble any of that by hand. Run `python3 tools/build_corpus.py` from the repository root, which normalizes the layout and rebuilds any stale verification index; `--check` audits without changing anything. No source document is committed, and `../../../CLAUDE.md` is the current authority.
 
 9. For the *Nobody in Charge* argument, distinguish four layers: (a) the mathematical theorem and its assumptions; (b) historical/organizational facts about AA; (c) an explicit model mapping Traditions to network constraints; and (d) the book's novel deductions. Do not cite a historical source as though it proves the theorem, or the theorem as though it proves the historical mapping.

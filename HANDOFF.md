@@ -90,11 +90,11 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 34 pages
 - a technical appendix, `appendix/APPENDIX.md`
 - a Steps-and-Traditions primer, `reference/PRIMER-steps-and-traditions.md`
-- the frozen model and 20 analysis scripts, `model/`
+- the frozen model and 19 analysis scripts, `model/`
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 270 pages, paper 34, primer 18
+- three built PDFs: book 296 pages, paper 34, primer 23
 
 ---
 
@@ -151,8 +151,9 @@ python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/build_book.py
 cd paper && latexmk -xelatex -interaction=nonstopmode anonymity-as-an-aggregation-condition.tex && cd ..
-pandoc reference/PRIMER-steps-and-traditions.md -o reference/PRIMER-steps-and-traditions.pdf --pdf-engine=xelatex
+python3 tools/build_primer.py
 sh research/elicitation/build.sh
+python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
 

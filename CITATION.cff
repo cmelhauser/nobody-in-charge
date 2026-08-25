@@ -3,7 +3,9 @@ message: "If you use this project, please cite it as below."
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 type: software
-date-released: 2026-08-16
+version: "0.9.0"
+date-released: 2026-08-23
+repository-code: "https://github.com/cmelhauser/nobody-in-charge"
 authors:
   - family-names: "Melhauser"
     given-names: "Christopher"

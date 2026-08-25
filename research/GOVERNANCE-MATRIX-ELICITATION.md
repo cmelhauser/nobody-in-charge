@@ -1,5 +1,10 @@
 # The governance matrix: an elicitation form for a second reader
 
+> **Do not send this file to a respondent.** It is the working source, and it carries the
+> collator's section further down, which names what the exercise exists to elicit. The packet to
+> send is `research/elicitation/1-respondent-form.pdf`, built by `sh research/elicitation/build.sh`;
+> **never send `4-collator-notes.pdf`.** Section 9 of `HANDOFF.md` covers the round.
+
 **What this is for.** The book's Part Four rests on a twelve-by-eight table saying which of AA's
 Traditions governs the supply of which of eight things a group produces for its members. One
 person built that table. No amount of further computation can test whether it is right, because
