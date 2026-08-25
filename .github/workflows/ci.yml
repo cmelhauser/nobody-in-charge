@@ -137,9 +137,9 @@ jobs:
         run: python tools/check_book.py
 
       # Counts stated in prose, re-derived from the tree: CI jobs, checkers, corpus size and
-      # record-only status, analysis scripts, chapters, and every relative link. The page-count
-      # checks report themselves skipped here because no PDF is built in this job; `documents`
-      # runs the same file with the artifacts present and enforces them.
+      # record-only status, analysis scripts, chapters, and every relative link. The three PDFs
+      # are committed, so the page-count checks run here too, against the committed artifacts.
+      # `documents` runs the same file after rebuilding them, which is the stronger test.
       - name: Documentation matches the tree
         run: python tools/check_docs.py
 
@@ -293,8 +293,8 @@ jobs:
       - name: The rendered PDFs are sound documents
         run: python tools/check_pdfs.py
 
-      # Same file as the fast job, but with the PDFs present, so the page-count claims that
-      # skipped there are enforced here.
+      # Same file as the fast job, but after the PDFs have been rebuilt from source rather
+      # than read as committed. A page-count claim can only be confirmed against a fresh build.
       - name: Documentation matches the tree, including page counts
         run: python tools/check_docs.py
 
