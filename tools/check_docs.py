@@ -28,9 +28,11 @@ What is deliberately not checked:
                          paragraph legal.
   generated output       `build/` is rebuilt from sources that are themselves checked.
 
-Page counts need the rendered PDFs, so that check reports itself skipped when they are absent
-rather than passing silently. The network-free CI job therefore skips it and `documents`
-enforces it, which is the same split `check_release.py --skip-artifacts` already draws.
+Page counts need the rendered PDFs. All three are committed, so in practice they are present
+and the check runs everywhere; the skip path exists for a tree where one has been deleted or not
+yet built, and reports itself rather than passing silently, because a check that did not run is
+not a check that succeeded. The `documents` job runs this file after rebuilding the PDFs from
+source, which is the only place a page count is confirmed against a fresh build.
 
 Run from anywhere:  python3 tools/check_docs.py
 """
