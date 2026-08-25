@@ -64,8 +64,8 @@ it has to be earned. All of these, in this order:
    checks are the point of a release; skipping them is for a fresh clone, never for a tag.
 3. `python3 tools/check_pdfs.py` clean, with poppler present so the ink measurement runs
    rather than skips.
-4. `python3 tools/check_docs.py` clean **with the PDFs built**, so the page-count claims are
-   enforced rather than skipped.
+4. `python3 tools/check_docs.py` clean **after rebuilding the PDFs**, so the page-count claims
+   are confirmed against a fresh build rather than against the committed artifacts.
 5. Both notebooks execute cleanly.
 6. CI green on `main` at that commit, including the `documents` job.
 7. An independent verifier can return the documented verdict using `AGENT_VERIFY.md`.
