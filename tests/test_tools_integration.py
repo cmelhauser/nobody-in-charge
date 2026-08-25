@@ -44,6 +44,34 @@ def test_check_portability_finds_no_absolute_paths():
     assert "no tracked machine-specific absolute paths" in result.stdout
 
 
+def test_check_docs_matches_the_tree():
+    """Counts stated in prose must match the repository they describe.
+
+    This one has a property the other checkers do not: it verifies claims about the tree,
+    so it fails when a job, checker, source or chapter is added without the prose that
+    counts them being updated. That is the drift the 24 August 2026 sweep found.
+    """
+    result = run("tools/check_docs.py")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "0 failed" in result.stdout
+
+
+def test_check_docs_catches_a_miscount(tmp_path):
+    """A checker that has never failed is a checker nobody has tested.
+
+    Copying the tree would be slow, so this asserts on the derivation instead: the checker
+    must report the same job count the workflow actually defines.
+    """
+    result = run("tools/check_docs.py")
+    workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+    jobs = len([
+        line for line in workflow.split("jobs:", 1)[-1].splitlines()
+        if line.startswith("  ") and line.rstrip().endswith(":")
+        and not line.startswith("    ") and not line.strip().startswith("#")
+    ])
+    assert f"job count is {jobs}" in result.stdout, result.stdout
+
+
 def test_check_chapter_accepts_the_primer():
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr

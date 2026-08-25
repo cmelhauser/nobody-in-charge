@@ -178,7 +178,8 @@ obtain pandoc, tectonic and the font.
 GitHub Actions runs three jobs, split by what can be checked without a network. `lint` runs ruff,
 actionlint and shellcheck, and asserts that the canonical model takes no lint waiver. `checks`
 gates every push and pull request on Python 3.11, 3.12 and 3.13: the suite, the model hash, corpus
-drift, portability, the book-level checks, and 131 of the 136 release-gate checks. `documents`
+drift, portability, the book-level checks, `check_docs.py`, and 131 of the 136 release-gate
+checks. `documents`
 runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds all three PDFs,
 requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`, and runs the
 full fail-closed gate. See `.github/workflows/ci.yml`.
@@ -200,6 +201,7 @@ python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
+python3 tools/check_docs.py
 python3 tools/build_book.py
 latexmk -pdf -interaction=nonstopmode paper/anonymity-as-an-aggregation-condition.tex
 python3 tools/build_primer.py

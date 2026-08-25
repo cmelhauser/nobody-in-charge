@@ -109,6 +109,7 @@ As of 24 August 2026, everything passes:
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
+| `tools/check_docs.py` | 19 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `model/book-calculations.ipynb` | 8 cells, 71 assertions, clean |
 | `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 95 assertions, clean |
@@ -149,6 +150,7 @@ python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
+python3 tools/check_docs.py
 python3 tools/build_book.py
 cd paper && latexmk -xelatex -interaction=nonstopmode anonymity-as-an-aggregation-condition.tex && cd ..
 python3 tools/build_primer.py
