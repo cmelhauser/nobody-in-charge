@@ -115,6 +115,7 @@ if [ "$job" = all ] || [ "$job" = checks ]; then
   step "corpus drift"                "$PY" tools/build_corpus.py --check
   step "portability"                 "$PY" tools/check_portability.py
   step "book-level checks"           "$PY" tools/check_book.py
+  step "documentation matches the tree" "$PY" tools/check_docs.py
   step "derived reports"             reports
   step "release gate, less artifacts" "$PY" tools/check_release.py --skip-artifacts
 fi
@@ -128,6 +129,7 @@ if [ "$job" = all ] || [ "$job" = documents ]; then
     step "build all three PDFs" build_docs
     step "no text outside the type block" overfull_gate
     step "PDFs are sound documents" "$PY" tools/check_pdfs.py
+    step "documentation, including page counts" "$PY" tools/check_docs.py
     step "full release gate"   "$PY" tools/check_release.py
     step "slow integration tests" env NIC_SLOW_TESTS=1 "$PY" -m pytest tests/test_tools_integration.py -q
   fi

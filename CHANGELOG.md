@@ -12,6 +12,22 @@ someone who wants to know what changed between two tags does not have to read it
 
 ## [Unreleased]
 
+### Added
+
+- `tools/check_docs.py`, which re-derives the counts this repository states about itself and
+  fails when prose disagrees with the tree: CI jobs, checkers, corpus size and record-only
+  status, analysis scripts, chapters, relative links, the model hash, and the rendered page
+  counts. It exists because the 24 August 2026 sweep found that every stale claim in the
+  documentation was a count a tool could have checked and nothing did.
+
+### Fixed
+
+- The record of the `lint` job, `check_pdfs.py` and `BigBook_2001`, none of which had been
+  propagated into the documents that count them. Totals were right and enumerations were short.
+- `HANDOFF.md` built the primer with a bare `pandoc` call, which `README.md` says is not the
+  release artifact; it now calls `tools/build_primer.py`.
+- `CITATION.cff` carried no version and a release date preceding the tag.
+
 ## [0.9.0] - 2026-08-18
 
 First tagged state. The manuscript, paper, appendix and primer are complete and every checker

@@ -4275,3 +4275,48 @@ published release would have cited it as undated and unversioned. It now carries
 The pattern worth keeping: every one of these was a *count or an enumeration* that a tool could
 have re-derived, sitting in prose no checker reads. The checkers verify numbers that come from
 caches. Nothing verifies a sentence that says how many jobs CI has.
+
+### 24 August 2026: a checker for the sentences, because nothing was reading them
+
+The sweep earlier today found eleven stale claims and every one was a count. Not a number from
+a cache, which the gate already guards, but a sentence saying how many jobs continuous
+integration has, how many checkers the tree holds, how many sources the corpus contains. The
+gate never looked at any of them, so they drifted for five days without anything noticing.
+
+`tools/check_docs.py` closes that. It derives each value from the tree and then scans tracked
+Markdown for claims that contradict it: CI job names and count from the workflow, checkers from
+`tools/check_*.py`, corpus size and record-only status from the `metadata.json` files, analysis
+scripts from `model/`, chapters from `manuscript/`, every relative link, every digest labelled
+as the model hash, and the three rendered page counts.
+
+Three design decisions worth keeping.
+
+**It refuses to flag history.** `research/progress-log.md` is excluded outright and blockquoted
+lines are skipped everywhere else, because a retired claim kept in a blockquote is how this
+project records what it used to believe. `CLAUDE.md` narrates the corpus growing through 26 and
+27 on its way to 31, and all three numbers are correct; only present-tense phrasing is checked.
+A checker that fails on a correct historical statement teaches people to ignore it.
+
+**The label decides, not the neighbourhood.** The first version flagged two digests as wrong
+model hashes. Both were correct: one an analysis-script hash in a generated report, one the
+SHA-256 of the P-17 PDF. The repository is full of legitimate non-canonical digests, so the test
+is now what the digest's own label calls it, read from the text before it on its line or from
+the nearest preceding line when it stands alone.
+
+**Page counts skip rather than pass when the PDFs are absent.** That is what lets the same file
+run in the network-free job and in `documents`, and it follows `check_pdfs.py`, which already
+counts a skip apart from a pass on the principle that a check which did not run is not a check
+that succeeded.
+
+Tested by breaking things rather than by trusting green output: the job count regressed to two,
+the corpus to 30, a page count to 270, a link pointed at nothing, a job was renamed in the
+workflow while prose still named it, and the book PDF was moved aside. Six deliberate defects,
+six catches with file and line, and the skip path confirmed.
+
+It caught itself immediately. Adding it made the checker count seven while `AGENTS.md` said six,
+under a sentence promising the count was countable from the tree. That is the entire point, and
+it is now the seventh condition in `RELEASING.md`, wired into both CI jobs, the local runner, and
+`tests/test_tools_integration.py`.
+
+What it does not do is judge prose. It checks arithmetic about the repository, which is the part
+a machine can own. Whether a paragraph still means what it says is still a reading job.

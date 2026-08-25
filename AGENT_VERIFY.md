@@ -182,6 +182,10 @@ If this fails because PDFs are older than their sources, build and visually veri
 then rerun it. Do not waive any cache-status, model-hash, analysis-hash, expected-job-count,
 notebook, source-boundary, or stale-language failure.
 
+`tools/check_docs.py` is a separate question from the gate and worth running early: it re-derives
+the counts this repository states about itself, so a failure there means a document disagrees with
+the tree rather than with a cache.
+
 `tools/run_ci_locally.sh` runs all three continuous-integration jobs here, which is the quickest
 way to reach the same 136 checks along with the tests, the builds and the overfull gate. Verifying a
 release means running `check_release.py` with the artifacts built, not `--skip-artifacts`: that
