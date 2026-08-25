@@ -48,9 +48,12 @@ Three statuses must remain distinct.
    used before the acquired corpus arrived, the six promoted out of the staged corpus, six
    added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
-   and the Kurtz talk of about 1984, and Recovery Dharma (2023) added on 16 August 2026 for
-   appendix A12. A directory's leading token must be at least three characters
-   and distinctive, because `check_book.py` identifies a source in prose by that token.
+   and the Kurtz talk of about 1984, Recovery Dharma (2023) added on 16 August 2026 for
+   appendix A12, and four added on 17 August 2026: AAWS service material SMF-132, the Twelve
+   Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism, and
+   the fourth edition of the Big Book, which supports Appendix A13.7. A directory's leading token
+   must be at least three characters and distinctive, because `check_book.py` identifies a
+   source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
    already taken by P-17 and by Kurtz (1991), and two directories sharing a leading token would
    collide.
@@ -78,8 +81,11 @@ store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted
 from scans whose posting authorization is unverified, and the project's own rights review directs
 that they be cited and quoted within limits rather than archived. Three more were added on
 10 August 2026: AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011) and the Kurtz talk
-of about 1984. Each record keeps the citation, the rights position, the hash of the copy
-consulted, and the passages verified from it.
+of about 1984. Four more were added on 17 August 2026: AAWS service material SMF-132, the Twelve
+Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism, and the
+fourth edition of the Big Book. That is the full eleven, and `"record_only": true` in each
+`metadata.json` is the authority. Each record keeps the citation, the rights position, the hash
+of the copy consulted, and the passages verified from it.
 
 `RecoveryDharma_2023`, added 16 August 2026, is **not** in that category. It is an ordinary
 git-ignored source with a document, a SHA-256 and a verification index. It is worth one line here
@@ -176,8 +182,8 @@ If this fails because PDFs are older than their sources, build and visually veri
 then rerun it. Do not waive any cache-status, model-hash, analysis-hash, expected-job-count,
 notebook, source-boundary, or stale-language failure.
 
-`tools/run_ci_locally.sh` runs both continuous-integration jobs here, which is the quickest way
-to reach the same 136 checks along with the tests, the builds and the overfull gate. Verifying a
+`tools/run_ci_locally.sh` runs all three continuous-integration jobs here, which is the quickest
+way to reach the same 136 checks along with the tests, the builds and the overfull gate. Verifying a
 release means running `check_release.py` with the artifacts built, not `--skip-artifacts`: that
 flag omits the seven rendered-artifact checks and exists only for a fresh clone, where every file
 carries one checkout timestamp.

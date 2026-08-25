@@ -9,8 +9,9 @@ GPT-5.6 Sol and Terra models. Unpublished and written for its own sake.
 Audience: the general reader who has never thought about how AA is governed. See
 `ATTRIBUTION.md` and `LICENSE`.
 
-Supersedes all earlier plans. Part-level detail lives in `plans/PART-1-PLAN.md` and
-`plans/PART-2-PLAN.md`. `README.md` is the index and current status.
+Supersedes all earlier plans. Part-level detail lives in `plans/PART-1-PLAN.md` through
+`plans/PART-5-PLAN.md`, whose quantitative and status language is in turn superseded by
+`plans/RELEASE-GATE-PLAN.md`. `README.md` is the index and current status.
 
 ---
 
@@ -320,7 +321,7 @@ falsified outright.
 7. **Introduction**, written last, once the thesis has stopped moving.
 
 **Superseded 9 August 2026. The book is complete.** All six parts are drafted: 25 chapters plus
-the preface and the introduction, assembled by `tools/build_book.py` into a 260-page PDF. Part Six
+the preface and the introduction, assembled by `tools/build_book.py` into a PDF that now runs to 296 pages. Part Six
 and the introduction, described below as outstanding, were written. Chapter 22 is no longer
 provisional: it stands at about 2,300 words and cites Carrell, Sacerdote and West, whose three
 figures are registered as source figures in `tools/check_book.py`.

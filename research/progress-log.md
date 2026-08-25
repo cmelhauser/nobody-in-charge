@@ -4220,3 +4220,58 @@ a link, without loosening the standing rule that the next one still needs the Hu
 ask for it. `HANDOFF.md`'s header date and verification table were refreshed to today rather
 than left reading 16 and 10 August.
 
+
+### 24 August 2026: a sweep of all 121 tracked Markdown files, and what a release left behind
+
+Read every tracked `.md` file outside `build/` against the tree rather than against itself.
+Mechanical checks first: every 64-hex string against the canonical hash, every relative
+Markdown link resolved from its own directory (121 files, zero broken), every backticked path
+resolved, and every stated count re-derived from the repository.
+
+Nothing scientific was stale. What was stale was the record of the three changes made between
+18 and 23 August, none of which had been propagated the way the synchronisation rule requires.
+
+**The `lint` job.** Added 18 August, and six sentences still said continuous integration had two
+jobs: `README.md`, `CLAUDE.md`, `AGENTS.md` twice, `AGENT_VERIFY.md`, and the header comment of
+`tools/run_ci_locally.sh`, which documented a `checks` or `documents` argument while the script
+had supported `lint` since the day it was written. `RELEASING.md` and `CHANGELOG.md` had it
+right, which is how the contradiction was visible at all.
+
+**`check_pdfs.py`.** Added 18 August and named in `RELEASING.md`'s release conditions, but absent
+from the reproduction sequences in `README.md`, `CLAUDE.md` and `HANDOFF.md`, and absent from
+`AGENTS.md`'s inventory, which said five checkers and listed five while the tree held six. That
+inventory claims to be countable from the tree, so it was wrong on its own terms.
+
+**`BigBook_2001`.** Read 17 August, record-only, and the thirty-first source. `CLAUDE.md`'s
+corpus narrative stopped at thirty and never named it; `README.md`'s record-only paragraph said
+eleven and enumerated seven; `AGENT_VERIFY.md` enumerated the corpus twice and omitted all four
+of the 17 August additions from both lists. The totals were right everywhere and the
+enumerations were short, which is the failure mode that reads as correct.
+
+Three more, found by re-deriving rather than by reading. `HANDOFF.md` gave the built PDFs as 270,
+34 and 18 pages against an actual 296, 34 and 23, and credited `model/` with 20 analysis scripts
+when it holds the frozen model plus 19. `BOOK-PLAN.md` still called the book a 260-page PDF.
+
+`HANDOFF.md`'s reproduction block told the reader to build the primer with a bare `pandoc`
+command, which `README.md` explicitly says is not the release artifact, because it renders at
+LaTeX's default article margins instead of the one inch `build_primer.py` holds. The two files
+had disagreed since `build_primer.py` was introduced. `HANDOFF.md` now calls the script.
+
+Two items were not stale so much as unverifiable. `research/SOURCES.md` asserted thirteen active
+text files, a count of git-ignored local working files that no fresh clone can check and that had
+grown to twenty. It now derives from the corpus instead: the twenty sources holding a document
+carry one text file each, the eleven record-only entries carry none, and a clone with none of
+them is not drift. And `research/GOVERNANCE-MATRIX-ELICITATION.md`, the working source for the
+elicitation form, carries the collator's section inline, so sending that file would spoil the
+round exactly as sending `4-collator-notes.pdf` would. It now says so in a banner at the top and
+points at `1-respondent-form.pdf`.
+
+`research/staged/agent/SOURCE_INCORPORATION_AGENT.md` still gave a by-hand recipe for adding a
+source, which the current rule forbids; it now points at `tools/build_corpus.py`. `CITATION.cff`
+had no `version` and a `date-released` of 16 August, predating the tag, so anyone citing the
+published release would have cited it as undated and unversioned. It now carries 0.9.0,
+23 August, and the repository URL.
+
+The pattern worth keeping: every one of these was a *count or an enumeration* that a tool could
+have re-derived, sitting in prose no checker reads. The checkers verify numbers that come from
+caches. Nothing verifies a sentence that says how many jobs CI has.
