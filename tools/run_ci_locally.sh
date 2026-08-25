@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 # Run what continuous integration runs, in the same order, on this machine.
 #
-# The workflow in .github/workflows/ci.yml has two jobs, split by whether a step needs a
-# network. This mirrors both so the split can be checked before pushing rather than after:
+# The workflow in .github/workflows/ci.yml has three jobs, split by whether a step needs a
+# network. This mirrors all three so the split can be checked before pushing rather than after:
 #
+#   lint        every push and pull request, needs ruff and shellcheck
 #   checks      every push and pull request, needs pip and nothing else
 #   documents   main and on demand, needs pandoc, tectonic and TeX Gyre Pagella
 #
 # Usage:
-#   tools/run_ci_locally.sh            both jobs
+#   tools/run_ci_locally.sh            all three jobs
+#   tools/run_ci_locally.sh lint       the lint job only
 #   tools/run_ci_locally.sh checks     the fast job only
 #   tools/run_ci_locally.sh documents  the rendering job only
 #
