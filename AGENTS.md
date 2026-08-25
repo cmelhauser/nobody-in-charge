@@ -8,10 +8,10 @@ two overlap; nothing here contradicts it.
 
 A finished book-length research project. A 25-chapter manuscript, an academic paper, a technical
 appendix, a Steps-and-Traditions primer, an executable agent-based model, nineteen analysis
-scripts, eighteen hash-linked result caches, two verification notebooks, and five checkers:
-`check_book.py`, `check_chapter.py`, `check_portability.py`, `check_release.py`, and
-`build_corpus.py --check`. Every count here is countable from the tree, and the cache count is
-the gate's own required list in `tools/check_release.py`.
+scripts, eighteen hash-linked result caches, two verification notebooks, and six checkers:
+`check_book.py`, `check_chapter.py`, `check_portability.py`, `check_release.py`,
+`check_pdfs.py`, and `build_corpus.py --check`. Every count here is countable from the tree, and
+the cache count is the gate's own required list in `tools/check_release.py`.
 
 It argues that three of Alcoholics Anonymous's Twelve Traditions implement a formal condition,
 proved by Golub and Jackson in 2010, for when a group that decides by discussion can be trusted
@@ -110,13 +110,14 @@ purpose and run the synchronization rule before touching anything.
 covered instead by `tests/test_tools_integration.py`, which runs each for real. Slow work behind
 `NIC_SLOW_TESTS=1`.
 
-CI has two jobs. `checks` needs pip and nothing else and gates every push: the suite, the model
-hash, corpus drift, portability, the book checks, and `check_release.py --skip-artifacts`, which
-is 131 of the 136 release checks. `documents` renders the PDFs and runs the full gate, on `main`
-only, because it needs pandoc, tectonic and a font, and every environmental failure this
-repository has had came from those three fetches. **Do not move a check into `documents` that
-does not need a rendered PDF.** The whole point of the split is that a CTAN timeout must not stop
-the release checks running.
+CI has three jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
+model takes no lint waiver. `checks` needs pip and nothing else and gates every push: the suite,
+the model hash, corpus drift, portability, the book checks, and `check_release.py
+--skip-artifacts`, which is 131 of the 136 release checks. `documents` renders the PDFs, checks
+them with `check_pdfs.py`, and runs the full gate, on `main` only, because it needs pandoc,
+tectonic and a font, and every environmental failure this repository has had came from those
+three fetches. **Do not move a check into `documents` that does not need a rendered PDF.** The
+whole point of the split is that a CTAN timeout must not stop the release checks running.
 
 ## Branches, tags and releases
 
@@ -150,7 +151,7 @@ invalidates hours of computation. They carry per-rule waivers.
 python3 tools/check_portability.py
 ```
 
-`tools/run_ci_locally.sh` runs both CI jobs here, which is the cheapest way to find out whether a
+`tools/run_ci_locally.sh` runs all three CI jobs here, which is the cheapest way to find out whether a
 push will go red.
 
 Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.

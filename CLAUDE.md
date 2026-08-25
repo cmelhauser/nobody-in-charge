@@ -111,13 +111,16 @@ record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were al
 Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
 sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three are record only.
 
-Three more were added on 17 August 2026, bringing the corpus to 30, and all three are record
-only: AAWS service material SMF-132, the Twelve Concepts for World Service in short form, and
-*Tricycle*'s contemporaneous account of the 2019 Recovery Dharma schism. The first two are
-published free by AAWS and the third at the publisher's own site; each closed an item that had
-been carried as unobtainable without anyone checking. SMF-132 supplies Chapter 21's out-of-sample
-comparison, the Concepts narrow Chapter 10's rotation claim, and *Tricycle* corrects where
-Appendix A12.4 draws its contrast.
+Four more were added on 17 August 2026, bringing the corpus to its present 31, and all four are
+record only: AAWS service material SMF-132, the Twelve Concepts for World Service in short form,
+*Tricycle*'s contemporaneous account of the 2019 Recovery Dharma schism, and the fourth edition
+of the Big Book. The first two are published free by AAWS and the third at the publisher's own
+site; each closed an item that had been carried as unobtainable without anyone checking. SMF-132
+supplies Chapter 21's out-of-sample comparison, the Concepts narrow Chapter 10's rotation claim,
+and *Tricycle* corrects where Appendix A12.4 draws its contrast. `BigBook_2001` was supplied by
+the Human Author, who owns several copies, and supports Appendix A13.7, which repeats the 1939
+arrival census on the forty-two stories of that edition. Its programme chapters were not read,
+being unchanged from 1939 and covered by `BigBook_1939`.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full; only the meditations and inquiry questions were not. It supports appendix A12 and four
@@ -155,8 +158,10 @@ must be rebuilt rather than trusted.
 
 **Eleven sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
-source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
-store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
+source. They are the four named here, the three added on 10 August 2026 in the paragraph below,
+and the four added on 17 August 2026 described under the source boundary above; the authority is
+`"record_only": true` in each `metadata.json`. AAWS pamphlet P-17 and Kurtz (1991) are
+copyrighted works the project chose never to store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
 from scans whose posting authorization is unverified, and the project's own rights review directs
 that they be cited and quoted within limits rather than archived. Each record keeps the citation,
 the rights position, the hash of the scan consulted, and the passages verified from it.
@@ -224,11 +229,12 @@ python3 tools/check_portability.py
 python3 tools/build_book.py
 python3 tools/build_primer.py
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
+python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
 
-`tools/run_ci_locally.sh` runs both continuous-integration jobs in this order on the local
-machine, and takes an optional `checks` or `documents` argument to run one of them.
+`tools/run_ci_locally.sh` runs all three continuous-integration jobs in this order on the local
+machine, and takes an optional `lint`, `checks` or `documents` argument to run one of them.
 
 `check_release.py` runs last, and the order is not a matter of taste. The gate requires every
 rendered artifact to be at least as new as the sources feeding it, so running it before the three
@@ -291,8 +297,8 @@ release identity. `tests/test_release_invariants.py` pins the digest, room capac
 viability threshold 5, and the 22 + 12 + 49 + 35 = 118 decomposition, so a change fails the
 build rather than being noticed by a reader.
 
-GitHub Actions runs two jobs, defined in `.github/workflows/ci.yml`, split by what can be
-verified without a network.
+GitHub Actions runs three jobs, defined in `.github/workflows/ci.yml`, split by what can be
+verified without a network. `lint` runs ruff, actionlint and shellcheck and needs nothing else.
 
 `checks` gates every push and pull request across Python 3.11, 3.12 and 3.13. It needs pip and
 nothing else and runs everything that does not require a rendered PDF: the suite with its
