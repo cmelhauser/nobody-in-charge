@@ -161,7 +161,7 @@ real.
 Work happens on a branch and merges through a pull request; `main` takes no direct commits.
 `RELEASING.md` covers branch naming, the version scheme and what a tag has to have earned;
 `CHANGELOG.md` records what changed between tags.
-`lint` and `checks` run on every pull request, `documents` only on `main`, so a green pull
+`lint`, `unit-tests` and `checkers` run on every pull request, `documents` only on `main`, so a green pull
 request is not a green release and the local runner below is what closes that gap.
 
 To run what CI runs, in the same order, on this machine:
@@ -170,19 +170,19 @@ To run what CI runs, in the same order, on this machine:
 tools/run_ci_locally.sh
 ```
 
-It takes an optional `checks` or `documents` argument to run one job. The workflow file is the
-authority and nothing enforces that the two stay in step, so change both together. The one thing
-the script cannot check is the one thing that has actually broken CI: whether a fresh runner can
-obtain pandoc, tectonic and the font.
+It takes an optional `lint`, `unit-tests`, `checkers`, `checks` or `documents` argument to run one job.
+The workflow file is the authority and nothing enforces that the two stay in step, so change both
+together. The one thing the script cannot check is the one thing that has actually broken CI:
+whether a fresh runner can obtain pandoc, tectonic and the font.
 
-GitHub Actions runs three jobs, split by what can be checked without a network. `lint` runs ruff,
-actionlint and shellcheck, and asserts that the canonical model takes no lint waiver. `checks`
-gates every push and pull request on Python 3.11, 3.12 and 3.13: the suite, the model hash, corpus
+GitHub Actions runs four jobs, split by what can be checked without a network and by what depends
+on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
+model takes no lint waiver. `unit-tests` runs pytest and the model hash: on pull requests it uses
+Python 3.12 only; on `main` it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 131 of the 136 release-gate
-checks. `documents`
-runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds all three PDFs,
-requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`, and runs the
-full fail-closed gate. See `.github/workflows/ci.yml`.
+checks. `documents` runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds
+all three PDFs, requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`,
+and runs the full fail-closed gate. See `.github/workflows/ci.yml`.
 
 ## Reproduction and release checks
 
