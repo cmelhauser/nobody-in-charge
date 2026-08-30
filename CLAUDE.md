@@ -234,8 +234,9 @@ python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
 
-`tools/run_ci_locally.sh` runs all three continuous-integration jobs in this order on the local
-machine, and takes an optional `lint`, `checks` or `documents` argument to run one of them.
+`tools/run_ci_locally.sh` runs all four continuous-integration jobs in this order on the local
+machine, and takes an optional `lint`, `unit-tests`, `checkers`, `checks` or `documents` argument
+to run one of them.
 
 `check_release.py` runs last, and the order is not a matter of taste. The gate requires every
 rendered artifact to be at least as new as the sources feeding it, so running it before the three
@@ -254,7 +255,7 @@ tools/run_ci_locally.sh
 gh pr create --fill
 ```
 
-`lint` and `checks` run on every pull request. `documents` does not, because it renders PDFs
+`lint`, `unit-tests` and `checkers` run on every pull request. `documents` does not, because it renders PDFs
 and needs a network; it runs on `main` after merge. So a green pull request is not a green
 release, and `tools/run_ci_locally.sh` is what closes that gap before you merge.
 
@@ -298,14 +299,13 @@ release identity. `tests/test_release_invariants.py` pins the digest, room capac
 viability threshold 5, and the 22 + 12 + 49 + 35 = 118 decomposition, so a change fails the
 build rather than being noticed by a reader.
 
-GitHub Actions runs three jobs, defined in `.github/workflows/ci.yml`, split by what can be
+GitHub Actions runs four jobs, defined in `.github/workflows/ci.yml`, split by what can be
 verified without a network. `lint` runs ruff, actionlint and shellcheck and needs nothing else.
 
-`checks` gates every push and pull request across Python 3.11, 3.12 and 3.13. It needs pip and
-nothing else and runs everything that does not require a rendered PDF: the suite with its
-coverage gate, the model hash, corpus drift, portability, the book-level checks,
-`check_docs.py`, and 131 of the 136 release-gate checks via `check_release.py
---skip-artifacts`.
+`unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
+it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12 and covers everything that does not
+require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
+131 of the 136 release-gate checks via `check_release.py --skip-artifacts`.
 
 `documents` renders the three PDFs, asserts zero overfull boxes, and runs the full gate and the
 slow integration tests. It runs on `main` and on demand, not on pull requests, and it rebuilds

@@ -186,7 +186,7 @@ notebook, source-boundary, or stale-language failure.
 the counts this repository states about itself, so a failure there means a document disagrees with
 the tree rather than with a cache.
 
-`tools/run_ci_locally.sh` runs all three continuous-integration jobs here, which is the quickest
+`tools/run_ci_locally.sh` runs all four continuous-integration jobs here, which is the quickest
 way to reach the same 136 checks along with the tests, the builds and the overfull gate. Verifying a
 release means running `check_release.py` with the artifacts built, not `--skip-artifacts`: that
 flag omits the seven rendered-artifact checks and exists only for a fresh clone, where every file
