@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 # Run what continuous integration runs, in the same order, on this machine.
 #
-# The workflow in .github/workflows/ci.yml has three jobs, split by whether a step needs a
-# network. This mirrors all three so the split can be checked before pushing rather than after:
+# The workflow in .github/workflows/ci.yml has four jobs, split by whether a step needs a
+# network and by whether it depends on the Python version:
 #
-#   lint        every push and pull request, needs ruff and shellcheck
-#   checks      every push and pull request, needs pip and nothing else
-#   documents   main and on demand, needs pandoc, tectonic and TeX Gyre Pagella
+#   lint         every push and pull request, needs ruff and shellcheck
+#   unit-tests   every push and pull request, needs pip and nothing else
+#   checkers     every push and pull request, needs pip and nothing else
+#   checks       unit-tests and checkers together
+#   documents    main and on demand, needs pandoc, tectonic and TeX Gyre Pagella
 #
 # Usage:
-#   tools/run_ci_locally.sh            all three jobs
-#   tools/run_ci_locally.sh lint       the lint job only
-#   tools/run_ci_locally.sh checks     the fast job only
-#   tools/run_ci_locally.sh documents  the rendering job only
+#   tools/run_ci_locally.sh                 all four jobs
+#   tools/run_ci_locally.sh lint            the lint job only
+#   tools/run_ci_locally.sh unit-tests      pytest and the model hash only
+#   tools/run_ci_locally.sh checkers        the checker scripts only
+#   tools/run_ci_locally.sh checks          unit-tests and checkers together
+#   tools/run_ci_locally.sh documents       the rendering job only
 #
 # This is a convenience, not an authority. The workflow file is the authority, and if the
 # two drift apart the workflow is right. Keep them in step by hand; nothing enforces it.
@@ -106,12 +110,15 @@ if [ "$job" = all ] || [ "$job" = lint ]; then
   fi
 fi
 
-
-if [ "$job" = all ] || [ "$job" = checks ]; then
-  printf '\033[1m--- job: checks ---\033[0m\n'
+if [ "$job" = all ] || [ "$job" = checks ] || [ "$job" = unit-tests ]; then
+  printf '\033[1m--- job: unit-tests ---\033[0m\n'
   step "tests and the 100 per cent coverage gate" \
        "$PY" -m pytest --cov --cov-report=term-missing -q
-  step "canonical model hash"        model_hash
+  step "canonical model hash" model_hash
+fi
+
+if [ "$job" = all ] || [ "$job" = checks ] || [ "$job" = checkers ]; then
+  printf '\033[1m--- job: checkers ---\033[0m\n'
   step "corpus drift"                "$PY" tools/build_corpus.py --check
   step "portability"                 "$PY" tools/check_portability.py
   step "book-level checks"           "$PY" tools/check_book.py

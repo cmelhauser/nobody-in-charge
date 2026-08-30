@@ -111,9 +111,10 @@ purpose and run the synchronization rule before touching anything.
 covered instead by `tests/test_tools_integration.py`, which runs each for real. Slow work behind
 `NIC_SLOW_TESTS=1`.
 
-CI has three jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
-model takes no lint waiver. `checks` needs pip and nothing else and gates every push: the suite,
-the model hash, corpus drift, portability, the book checks, and `check_release.py
+CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
+model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12
+and 3.13 on `main`, and on 3.12 only on pull requests. `checkers` needs pip and nothing else and
+gates every push: corpus drift, portability, the book checks, and `check_release.py
 --skip-artifacts`, which is 131 of the 136 release checks. `documents` renders the PDFs, checks
 them with `check_pdfs.py`, and runs the full gate, on `main` only, because it needs pandoc,
 tectonic and a font, and every environmental failure this repository has had came from those
@@ -126,9 +127,9 @@ whole point of the split is that a CTAN timeout must not stop the release checks
 
 - **Never commit to `main`.** Branch, open a pull request, let CI run. Prefixes: `model/`,
   `fix/`, `docs/`, `ci/`, `source/`.
-- `lint` and `checks` run on pull requests; `documents` renders the PDFs and runs only on
+- `lint`, `unit-tests` and `checkers` run on pull requests; `documents` renders the PDFs and runs only on
   `main`, so **a green pull request is not a green release**. Run `tools/run_ci_locally.sh`
-  before merging, which covers all three.
+  before merging, which covers all four.
 - **Never create a tag to mark work finished.** A tag asserts seven conditions listed in
   `RELEASING.md`, including the full gate with no `--skip-artifacts`. Asserting them without
   checking is worse than not tagging.
@@ -152,7 +153,7 @@ invalidates hours of computation. They carry per-rule waivers.
 python3 tools/check_portability.py
 ```
 
-`tools/run_ci_locally.sh` runs all three CI jobs here, which is the cheapest way to find out whether a
+`tools/run_ci_locally.sh` runs all four CI jobs here, which is the cheapest way to find out whether a
 push will go red.
 
 Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.
