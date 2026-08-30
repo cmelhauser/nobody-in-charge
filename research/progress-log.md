@@ -4320,3 +4320,12 @@ it is now the seventh condition in `RELEASING.md`, wired into both CI jobs, the 
 
 What it does not do is judge prose. It checks arithmetic about the repository, which is the part
 a machine can own. Whether a paragraph still means what it says is still a reading job.
+
+### 30 August 2026: split unit-tests from checkers in continuous integration
+
+The `checks` job ran pytest and every version-independent checker three times, once per Python
+version, which tripled the runner minutes without adding coverage. The workflow now has four jobs:
+`lint`, `unit-tests`, `checkers`, and `documents`. `unit-tests` keeps the matrix; pull requests
+use 3.12 only and `main` still runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12. The lint
+job uses `shellcheck-py` from pip instead of an apt package. `tools/run_ci_locally.sh` gained
+`unit-tests` and `checkers` arguments; `checks` remains an alias for both.

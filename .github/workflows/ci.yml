@@ -1,11 +1,12 @@
 name: CI
 
-# Two jobs, split by what they can verify without a network.
+# Four jobs, split by what they can verify without a network and by what depends on the
+# Python version.
 #
-# `checks` gates every push and pull request. It needs Python and pip and nothing else,
-# and it runs every check that does not require a rendered PDF: the test suite with its
-# coverage gate, the model hash, corpus drift, portability, the book-level checks, and
-# 131 of the 136 release-gate checks. It has never failed for an environmental reason.
+# `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only;
+# on `main` and on demand it runs 3.11, 3.12 and 3.13. The version-independent checkers
+# live in `checkers`, which runs once on 3.12, so the release gate and the book-level
+# checks are not repeated across the matrix.
 #
 # `documents` renders the three PDFs. Every environmental failure in this repository's
 # history came from the fetches this job needs: a hung apt mirror, a CTAN mirror timing
@@ -18,7 +19,7 @@ name: CI
 # is the residual risk and it is not zero. It runs on main and on demand, not on pull
 # requests.
 #
-# The split matters more than either job. Before it, a CTAN timeout meant none of the
+# The split matters more than any single job. Before it, a CTAN timeout meant none of the
 # release checks ran at all, because they lived behind the toolchain. They no longer do.
 #
 # No source document is present in CI. Every source under `research/incorporated/` is
@@ -69,7 +70,7 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-dev.txt
 
-      - name: Install ruff
+      - name: Install ruff and shellcheck
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
@@ -87,19 +88,18 @@ jobs:
       - name: Lint this workflow
         uses: raven-actions/actionlint@v2
 
+      # shellcheck-py is a dev dependency; no apt package is needed.
       - name: Lint the shell scripts
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
-          shellcheck tools/*.sh
+        run: shellcheck tools/*.sh
 
-  checks:
-    name: Tests and checkers
+  unit-tests:
+    name: Unit tests (${{ matrix.python-version }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11", "3.12", "3.13"]
+        python-version: ${{ github.event_name == 'pull_request' && fromJSON('["3.12"]') || fromJSON('["3.11", "3.12", "3.13"]') }}
     steps:
       - uses: actions/checkout@v5
 
@@ -126,6 +126,24 @@ jobs:
           print("model sha256:", digest)
           sys.exit(0 if digest == expected else "model hash changed; see CLAUDE.md")
           PY
+
+  checkers:
+    name: Checkers
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
 
       - name: Corpus has no drift
         run: python tools/build_corpus.py --check
