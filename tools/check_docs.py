@@ -185,7 +185,7 @@ def check_ci_jobs() -> None:
         ok(f"no prose says 'both jobs' while the workflow defines {len(jobs)}")
 
     # Every job named in prose must exist, which catches a rename as well as a miscount.
-    named = re.compile(r"`(lint|checks|documents|release)`")
+    named = re.compile(r"`(lint|unit-tests|checkers|documents|release)`")
     unknown = []
     for path in tracked_markdown():
         for number, line in prose_lines(path):
@@ -290,9 +290,13 @@ def check_local_runner() -> None:
     """The runner's own header must document every job it implements."""
     path = ROOT / "tools/run_ci_locally.sh"
     text = path.read_text(encoding="utf-8")
-    implemented = set(re.findall(r'\$job"?\s*=\s*([a-z]+)', text)) - {"all"}
+    implemented = set(re.findall(r'\$job"\s*=\s*([a-z][a-z-]*)', text)) - {"all"}
     header = text.split("set -", 1)[0]
-    documented = set(re.findall(r"^#\s+(lint|checks|documents)\s{2,}", header, re.MULTILINE))
+    documented = set(re.findall(
+        r"^#\s+(lint|unit-tests|checkers|checks|documents)\s{2,}",
+        header,
+        re.MULTILINE,
+    ))
     missing = implemented - documented
     if missing:
         fail(

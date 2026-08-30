@@ -59,7 +59,7 @@ independently, the central claim has not been checked by anyone but its author.
 A tag asserts that the repository was in a releasable state at that commit. It is a claim, so
 it has to be earned. All of these, in this order:
 
-1. `tools/run_ci_locally.sh` clean, all three jobs.
+1. `tools/run_ci_locally.sh` clean, all four jobs.
 2. `python3 tools/check_release.py` with **no** `--skip-artifacts`. The seven artifact
    checks are the point of a release; skipping them is for a fresh clone, never for a tag.
 3. `python3 tools/check_pdfs.py` clean, with poppler present so the ink measurement runs
@@ -108,7 +108,7 @@ governs the next one.
 ## For agents
 
 - Never commit to `main`. Branch, open a pull request, let CI run.
-- `lint` and `checks` run on pull requests. `documents` does not, so **a green pull request is
+- `lint`, `unit-tests` and `checkers` run on pull requests. `documents` does not, so **a green pull request is
   not a green release**; run `tools/run_ci_locally.sh` before merging.
 - Never create a tag to mark work finished. A tag asserts the seven conditions above, and
   asserting them without checking is worse than not tagging.
