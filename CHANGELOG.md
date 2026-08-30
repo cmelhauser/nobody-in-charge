@@ -12,6 +12,13 @@ someone who wants to know what changed between two tags does not have to read it
 
 ## [Unreleased]
 
+### Changed
+
+- Continuous integration now splits `unit-tests` from `checkers`, so version-independent
+  checkers run once on Python 3.12 instead of once per matrix cell. Pull requests test on
+  3.12 only; `main` still runs 3.11, 3.12 and 3.13. The lint job uses `shellcheck-py` from
+  pip rather than an apt package.
+
 ### Added
 
 - `tools/check_docs.py`, which re-derives the counts this repository states about itself and
@@ -51,7 +58,7 @@ Canonical model SHA-256:
 - Continuous integration, split so that the checks that need no network run on every push:
   `lint`, `checks` and `documents`
 - `tools/check_pdfs.py`, which checks the rendered result rather than the build log
-- `tools/run_ci_locally.sh`, which runs all three CI jobs on a local machine
+- `tools/run_ci_locally.sh`, added to mirror the CI workflow on a local machine
 - `check_withheld_names` in `tools/check_book.py`, enforcing by digest that a living person
   named in a source is named nowhere in this project
 - Appendix A12, Recovery Dharma read against the model, and A13, the arrival census on the
