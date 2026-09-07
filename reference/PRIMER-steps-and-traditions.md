@@ -2,14 +2,10 @@
 title: "What the Model Says About the Twelve Steps and the Twelve Traditions"
 subtitle: "A reference primer for *Nobody in Charge*"
 author:
-  - "Human Author: Christopher Melhauser"
-  - "AI Writing Collaborator: theonlymuffinbot"
-  - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
+  - "Anonymous"
 ---
 
-Released to the public domain under The Unlicense. See the repository's attribution and license
-notices. The AI writing collaboration used a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6
-Sol and Terra models.
+Released to the public domain under The Unlicense. See the repository's license notice.
 
 ## How to read this
 
