@@ -21,6 +21,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Added
 
+- `WorkingManuscript_1939`: Hazelden's 2010 facsimile of the annotated 1939 multilith, read on
+  every page and held as a git-ignored reading copy at the Human Author's direction, with a
+  written account of the edits and where they bear on the manuscript. It changes no model
+  number, cache or release check. It implies a correction to Chapter 4 and a recount in
+  Appendix A13, both recorded in `HANDOFF.md` section 10 and neither yet made.
 - `tools/check_docs.py`, which re-derives the counts this repository states about itself and
   fails when prose disagrees with the tree: CI jobs, checkers, corpus size and record-only
   status, analysis scripts, chapters, relative links, the model hash, and the rendered page
