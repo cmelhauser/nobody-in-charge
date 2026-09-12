@@ -104,6 +104,14 @@ RIGHTS = {
                       "Never stored here; cite to Tricycle."),
     "BigBook_2001": ("Copyrighted AAWS literature. Read from the Human Author's own copies and "
                      "the publisher's per-section postings; never stored here."),
+    # Added 12 September 2026. In copyright and in print (Hazelden, 2010), so the default
+    # public-domain position is false. Unlike the in-print works above it is held, at the
+    # Human Author's direction, as a git-ignored reading copy made from their photographs
+    # of their own copy; the uniform rule that no document is committed still applies.
+    "WorkingManuscript_1939": ("(c) 2010 Hazelden Foundation, all rights reserved; in print. "
+                               "The Human Author owns the copy; this is a local reading "
+                               "copy made from their photographs of it, held git-ignored "
+                               "at their direction. Never committed or redistributed."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 

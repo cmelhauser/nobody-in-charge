@@ -1,0 +1,45 @@
+{
+ "id": "WorkingManuscript_1939",
+ "title": "The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous",
+ "author": "Alcoholics Anonymous (working manuscript, February-March 1939); Hazelden (facsimile edition, 2010)",
+ "year": 1939,
+ "edition_note": "Hazelden, Center City, Minn., 2010; first printing September 2010; ISBN 9781592859474. Colour facsimile of the single multilith copy onto which comments on the February 1939 pre-publication text were collated, with Hazelden's essays and apparatus.",
+ "type": "primary_organizational_text",
+ "status": "read_in_full",
+ "consulted": "2026-09-12",
+ "provenance": "Photographed by the Human Author from their own copy on 9-11 September 2026 (241 frames, one book page each); ownership confirmed 12 September 2026. Straightened, illumination-flattened and OCRed on 12 September 2026 into the reading copy and text file held here. No online source exists; re-acquire from the printed book by ISBN.",
+ "provenance_url": null,
+ "pages_missing": "Book pages 22-23 were not photographed. Hazelden's apparatus places the multilith title page and Lois W.'s presentation leaf in the front papers, so these are probably those two pages; both are described in Hazelden's essays. The Human Author will photograph them for adding.",
+ "record_only": false,
+ "holding_note": "Held rather than record only, at the Human Author's direction on 12 September 2026: the reading copy and its OCR text are git-ignored like every other document in the corpus and are never committed. This departs from the record-only treatment given to the other in-print copyrighted works here (Rohr 2011, AAWS literature), and is recorded so that nobody mistakes it for drift.",
+ "topics": [
+  "Big Book",
+  "1939 multilith",
+  "editorial process",
+  "Twelve Steps drafting",
+  "Foreword",
+  "Alcoholic Foundation",
+  "personal stories",
+  "Oxford Group vocabulary"
+ ],
+ "what_was_read": "Every facsimile page: the multilith cover, the three handwritten leaves, the Foreword, manuscript pages 1 to 156, the unnumbered Alcoholic Foundation page and the four unnumbered pages of the struck story. Also Hazelden's preface, both essays, the thematic listing of edits and the short publishing history. Wilson's 1954 talk was read only where it concerns the comment round and the Akron vote.",
+ "what_it_supports": "The text of the Steps, the Foreword and the programme chapters as circulated in February 1939, and what changed before print; the evidence for who took part in revising them; early-1939 meeting sizes as the fellowship reported them. See source_summary.md and edits_and_suggested_uses.md.",
+ "comparison_baseline": "Changes were checked against BigBook_1939, a 1999 reprint of the 1939 text. That reprint carries one bracketed editorial note quoting the multilith and omits the 1939 appendix on The Alcoholic Foundation, so the manuscript's Foundation page cannot be compared to print from this corpus.",
+ "estimand_caution": "Handwriting is not attributed beyond what the pages sign or name. Annotations are undated and may belong to different moments, so an edit's presence proves that someone proposed it, not when or on whose authority. Hazelden's essays are secondary, anonymous and partly derived from AA's own copyrighted histories; anything they report from those histories is cited at a remove. The OCR text is a search aid: verify every quotation against the page image.",
+ "verification_index": "Built by tools/build_corpus.py from the OCR text held here.",
+ "rights_note": "(c) 2010 Hazelden Foundation, all rights reserved; in print. The Human Author owns the copy; this is a local reading copy made from their photographs of it, held git-ignored at their direction. Never committed or redistributed.",
+ "legacy_stem": null,
+ "documents": {
+  "WorkingManuscript_1939.pdf": {
+   "sha256": "725c4b1c5ca8587f6eb2b472742f50d7b082e950217063576a8d487ce5ba576b",
+   "bytes": 87374231,
+   "tracked_in_git": false
+  },
+  "WorkingManuscript_1939.txt": {
+   "sha256": "4d2db34b245528681e2a57da2e275fcb320a59a259853986bb308049c0cb3dc6",
+   "bytes": 731734,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

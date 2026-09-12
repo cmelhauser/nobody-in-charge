@@ -89,10 +89,11 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
-Eleven of the 31 sources are **record only**: no document exists at any time, which is a stronger
+Eleven of the 32 sources are **record only**: no document exists at any time, which is a stronger
 condition than git-ignored. Each carries `"record_only": true` in its metadata. Seven of those eleven
 have no verification index because no text was retained to build one from. Neither is drift
-and neither should be reported as a missing source.
+and neither should be reported as a missing source. `WorkingManuscript_1939` is the one in-print
+copyrighted work held rather than record only, git-ignored at the Human Author's direction.
 
 A directory's leading token must be at least three characters, distinctive, and unique across the
 corpus, because `tools/check_book.py` identifies a source in prose by that token.
@@ -166,8 +167,8 @@ check holds that pattern fixed. The packet to send is `research/elicitation/`. S
 `1-respondent-form.pdf`. **Never send `4-collator-notes.pdf`**, which names the answer the exercise
 exists to elicit.
 
-Five more qualify a conclusion rather than change one: three need a copyrighted book bought or
-borrowed, two are scholarly loose ends. `HANDOFF.md` section 10 is the complete list and the only
+The rest qualify or correct rather than change a conclusion: a copyrighted book to buy or borrow,
+scholarly loose ends, and prose corrections the 1939 working manuscript implies. `HANDOFF.md` section 10 is the complete list and the only
 place they are recorded; do not treat any shorter list, including this paragraph, as the full
 account. Three items were closed on 17 August 2026 by checking whether the publisher gives them
 away, which it did.
