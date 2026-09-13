@@ -70,7 +70,9 @@ RENAMES = {
 RIGHTS = {
     "Fatimah_2025": "NIH author manuscript, PMC. Not redistributed here.",
     "Krout_1925": "Published 1925 in the United States; public domain.",
-    "AAWS_2024_P17": "Copyrighted AAWS literature. Not redistributed here; cite from aa.org.",
+    "AAWS_2024_P17": ("Copyrighted AAWS literature, published free as an official PDF on "
+                     "aa.org. Held git-ignored since 13 September 2026 at the Human Author's "
+                     "direction; never committed. Byte-identical to the file read in August."),
     "Maxwell_1950": "Journal article, 1950. Retyped reproduction, not a scan. Not redistributed here.",
     "Golub_Jackson_2010": "Author-hosted PDF. Not redistributed here.",
     "Kurtz_1991": "In copyright, all rights reserved. Never stored as full text.",
@@ -81,29 +83,33 @@ RIGHTS = {
     "RecoveryDharma_2023": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 "
                            "International. Sharing and adaptation permitted with attribution; "
                            "no commercial use. Not committed, per the uniform rule.",
-    # Catalogued 10 August 2026. All three are record only: no document is held at any time,
-    # which is a stronger condition than the git-ignored majority of the corpus. Naming them
-    # here rather than letting DEFAULT_RIGHTS apply matters, because the default asserts a
+    # Catalogued 10 August 2026 as record only, meaning no document was held at all. Since 13
+    # September 2026 the 12&12 and the Kurtz talk are held git-ignored at the Human Author's
+    # direction; Rohr remains record only. Named here because DEFAULT_RIGHTS asserts a
     # pre-1929 public-domain position that is false for each of them.
-    "TwelveAndTwelve_1953": ("Copyrighted AAWS literature, published free per chapter on "
-                             "aa.org. Never stored here; cite from aa.org."),
+    "TwelveAndTwelve_1953": ("Copyrighted AAWS literature, published free per chapter on aa.org. "
+                            "Held git-ignored since 13 September 2026 at the Human Author's "
+                            "direction, assembled from those chapters; never committed."),
     "Rohr_2011": ("In copyright and in print, all rights reserved. Never stored here. The copy "
                   "consulted was an unauthorized posting; see metadata.json."),
-    "KurtzTalk_c1984": ("Transcript of a recorded talk; rights position not established. Never "
-                        "stored here."),
-    # Added 17 August 2026, closing three items from HANDOFF.md section 10. All three are
-    # record only. The first two are published free by A.A.W.S. and could lawfully be held;
-    # they are not, because the rule is uniform. Named here rather than left to
+    "KurtzTalk_c1984": ("A recorded talk sold as an audiobook; the copy held is the Human "
+                       "Author's own transcription. Held git-ignored since 13 September 2026 "
+                       "at their direction; never committed."),
+    # Added 17 August 2026, closing three items from HANDOFF.md section 10, as record only.
+    # SMF-132 and the Concepts, which A.A.W.S. publishes free, are held git-ignored since 13
+    # September 2026; Tricycle, paywalled, is not. Named here rather than left to
     # DEFAULT_RIGHTS, which asserts a pre-1929 public-domain position false for all three.
-    "SMF132_2020": ("A.A.W.S. service material, published free on aa.org. Read at source and "
-                    "never stored; cite from aa.org."),
-    "TwelveConcepts_1962": ("Copyrighted A.A.W.S. literature, published free on aa.org, which "
-                            "permits printing a single copy. Never stored here; cite from "
-                            "aa.org."),
+    "SMF132_2020": ("A.A.W.S. service material, published free on aa.org. Held git-ignored "
+                   "since 13 September 2026 at the Human Author's direction; never "
+                   "committed."),
+    "TwelveConcepts_1962": ("Copyrighted A.A.W.S. literature, published free on aa.org. Held "
+                           "git-ignored since 13 September 2026 at the Human Author's direction; "
+                           "never committed."),
     "Tricycle_2019": ("Copyrighted journalism, read at source on the publisher's own site. "
                       "Never stored here; cite to Tricycle."),
-    "BigBook_2001": ("Copyrighted AAWS literature. Read from the Human Author's own copies and "
-                     "the publisher's per-section postings; never stored here."),
+    "BigBook_2001": ("Copyrighted AAWS literature, posted free per section on aa.org; the "
+                    "Human Author also owns printed copies. Held git-ignored since 13 "
+                    "September 2026 at their direction; never committed."),
     # Added 12 September 2026. In copyright and in print (Hazelden, 2010), so the default
     # public-domain position is false. Unlike the in-print works above it is held, at the
     # Human Author's direction, as a git-ignored reading copy made from their photographs
@@ -112,6 +118,11 @@ RIGHTS = {
                                "The Human Author owns the copy; this is a local reading "
                                "copy made from their photographs of it, held git-ignored "
                                "at their direction. Never committed or redistributed."),
+    # Added 13 September 2026. The full Twelve Concepts with Bill W.'s essays, in the 2024-26
+    # Service Manual that AAWS posts free on its own file host.
+    "ServiceManual_2024": ("Copyrighted A.A.W.S. literature, posted free in full on AAWS's own "
+                           "file host. Held git-ignored since 13 September 2026 at the Human "
+                           "Author's direction; never committed."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 

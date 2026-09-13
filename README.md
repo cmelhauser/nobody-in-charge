@@ -280,15 +280,17 @@ source for a subject is citing a work that contains it, using the indexes; with 
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
 with `python3 tools/build_corpus.py`, or audit it with `--check`.
 
-Eleven of the 32 sources are held as record only, with no document at any time: AAWS pamphlet
-P-17 and Kurtz (1991), which are copyrighted works the project chose never to store; DeGroot
-(1974) and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
-authorization and which the project's rights review directs be cited within limits rather than
-archived; added 10 August 2026, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
-and the Kurtz talk of about 1984; and added 17 August 2026, AAWS service material SMF-132, the
-Twelve Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism,
-and the fourth edition of the Big Book. The authority for the category is `"record_only": true`
-in each source's `metadata.json`.
+Five of the 33 sources are held as record only, with no document at any time: Kurtz (1991), in
+copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have
+unverified posting authorization and which the project's rights review directs be cited within
+limits rather than archived; Rohr (2011), whose consulted copy was an unauthorized posting; and
+*Tricycle* on the 2019 Recovery Dharma schism, paywalled past its opening. The authority for the
+category is `"record_only": true` in each source's `metadata.json`. Six others were record only
+until 13 September 2026, when the Human Author directed that the corpus hold a lawful copy of
+every source it can: AAWS pamphlet P-17, *Twelve Steps and Twelve Traditions*, the Kurtz talk (in
+the Human Author's own transcription), SMF-132, the short-form Twelve Concepts and the fourth
+edition of the Big Book. The same day added the 2024-26 *A.A. Service Manual* with the full
+Twelve Concepts.
 
 Recovery Dharma (2023), added 16 August 2026 for appendix A12, is held on the ordinary footing:
 document present locally, git-ignored, hashed, and indexed. It is the one source in the corpus

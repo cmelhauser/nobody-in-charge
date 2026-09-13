@@ -44,7 +44,7 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds 32 sources: those the project
+2. **Incorporated local copies.** `research/incorporated/` holds 33 sources: those the project
    used before the acquired corpus arrived, the six promoted out of the staged corpus, six
    added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
@@ -52,7 +52,8 @@ Three statuses must remain distinct.
    appendix A12, and four added on 17 August 2026: AAWS service material SMF-132, the Twelve
    Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism, and
    the fourth edition of the Big Book, which supports Appendix A13.7; and, added on 12 September
-   2026, Hazelden's facsimile of the annotated 1939 working manuscript. A directory's leading token
+   2026, Hazelden's facsimile of the annotated 1939 working manuscript; and, added on 13 September
+   2026, the 2024-26 *A.A. Service Manual* with Bill W.'s full Twelve Concepts. A directory's leading token
    must be at least three characters and distinctive, because `check_book.py` identifies a
    source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
@@ -75,17 +76,17 @@ vocabulary-only verification index.
 **Do not report a missing document as a missing source, and do not restore one.** To check a
 source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256.
 
-**Eleven sources are held as record only, with no document at any time.** This is a distinct
+**Five sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
-source. AAWS pamphlet P-17 and Kurtz (1991) are copyrighted works the project chose never to
-store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
-from scans whose posting authorization is unverified, and the project's own rights review directs
-that they be cited and quoted within limits rather than archived. Three more were added on
-10 August 2026: AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011) and the Kurtz talk
-of about 1984. Four more were added on 17 August 2026: AAWS service material SMF-132, the Twelve
-Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism, and the
-fourth edition of the Big Book. That is the full eleven, and `"record_only": true` in each
-`metadata.json` is the authority. Each record keeps the citation, the rights position, the hash
+source. They are Kurtz (1991), in copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine*
+article, consulted on 10 August 2026 from scans whose posting authorization is unverified, which
+the project's own rights review directs be cited and quoted within limits rather than archived;
+Rohr (2011), whose consulted copy was an unauthorized posting; and *Tricycle* on the 2019 Recovery
+Dharma schism, paywalled past its opening. That is the full five, and `"record_only": true` in
+each `metadata.json` is the authority. Six others were record only until 13 September 2026, when
+the Human Author directed that the corpus hold a lawful copy of every source it can: AAWS pamphlet
+P-17, *Twelve Steps and Twelve Traditions*, the Kurtz talk, SMF-132, the short-form Twelve
+Concepts and the fourth edition of the Big Book. Each record keeps the citation, the rights position, the hash
 of the copy consulted, and the passages verified from it.
 
 `RecoveryDharma_2023`, added 16 August 2026, is **not** in that category. It is an ordinary

@@ -1,0 +1,42 @@
+{
+ "id": "ServiceManual_2024",
+ "title": "The A.A. Service Manual Combined with Twelve Concepts for World Service by Bill W., 2024-2026 edition",
+ "author": "Alcoholics Anonymous World Services; the Twelve Concepts and their essays by Bill W. (1962)",
+ "year": 2024,
+ "edition_note": "2024-2026 edition, revised and updated, online (BM-31); 257 PDF pages. The Concepts section is paginated C-1 onward and carries later editorial footnotes on current practice.",
+ "type": "primary_organizational_text",
+ "status": "read_in_part",
+ "consulted": "2026-09-13",
+ "provenance_url": "https://aaws.widen.net/content/wbktsxdemg/pdf/BM-31_2024-2026_AA_Service_Manual_ONLINE.pdf",
+ "record_only": false,
+ "holding_note": "Held since 13 September 2026 at the Human Author's direction, as a git-ignored local copy that is never committed. Downloaded from AAWS's own file host, to which aa.org links.",
+ "topics": [
+  "Twelve Concepts",
+  "rotation",
+  "right of participation",
+  "right of appeal",
+  "minority opinion",
+  "General Service Conference",
+  "delegation"
+ ],
+ "what_was_read": "Concept IV and its essay in full (about 4,600 words); Concept V in full; Concept XI's section on rotation among paid staff and on term length; every passage in the manual that mentions rotation, including the glossary entry and Appendix E. The rest of the manual, which describes current service practice, was not read.",
+ "the_finding": "The Concept IV essay contains no rule about the size of a rotating pool relative to a group. It is about voting participation in proportion to responsibility across trustees, service directors and paid staff, which confirms the narrower reading taken from the short form on 17 August 2026 and closes HANDOFF.md section 10 item 3. Rotation doctrine sits in Concept XI and ties term length to responsibility (a group secretary every six months, a delegate two years, a trustee four), justifies staff rotation as protection against the collapse of a single dominant worker, and warns against attempting more rotation than that. Concept V argues that the well-heard minority is the chief protection against an uninformed or hasty majority, and describes a two-thirds rule, lots drawn between majority and minority candidates, and the delegation of most service decisions to the Conference as an informed minority.",
+ "what_it_supports": "Chapter 10 (a correction of emphasis: AA's own rotation doctrine bounds rotation by responsibility and continuity and says nothing about pool width); HANDOFF.md section 10 item 3 (closed); Part Two's discussion of minorities, supermajorities and delegation, as a statement of the fellowship's intent and not as evidence about how groups behave.",
+ "estimand_caution": "The Concepts are Bill W.'s 1962 prescription for the world service structure, not a description of how home groups rotate, and this edition adds later footnotes. Nothing here measures anything.",
+ "verification_index": "Built by tools/build_corpus.py from the text held here.",
+ "rights_note": "Copyrighted A.A.W.S. literature, posted free in full on AAWS's own file host. Held git-ignored since 13 September 2026 at the Human Author's direction; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "ServiceManual_2024.pdf": {
+   "sha256": "915b2c443775e24fd9d4b130f5d5782297ea408fbb99372cbf07c5ca43e41b6f",
+   "bytes": 11782165,
+   "tracked_in_git": false
+  },
+  "ServiceManual_2024.txt": {
+   "sha256": "724202cde34e700745278b2a8253468538f580afd70886540cc096a475565c0e",
+   "bytes": 963553,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
