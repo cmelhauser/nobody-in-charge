@@ -94,7 +94,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 296 pages, paper 34, primer 23
+- three built PDFs: book 303 pages, paper 34, primer 23
 
 ---
 
@@ -347,8 +347,8 @@ inference from what is already here.
 3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
-   papers have been held since 13 September 2026 (`Dinerstein_2022`, `CohenJohnstonLindner_2023`)
-   and are not yet read.
+   papers were read in full on 13 September 2026. The literature on how fast habits and practices
+   lapse, which is where the decay rate's evidence would have to come from, is still unsearched.
 
 **Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
 not yet made, because they change the author's text.
@@ -369,17 +369,27 @@ each moves a record-only source onto the ordinary footing.
 6. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
-**One is reading that holding a copy has made possible.**
+**One is a confirmatory run the new reading makes worth doing.**
 
-7. **Seven papers held on 13 September 2026 and not yet read:** `Angrist_2014`,
-   `CunhaHeckman_2007`, `CunhaHeckmanSchennach_2010`, `HuSchennach_2008`, `Lembke_nd`,
-   `Dinerstein_2022` and `CohenJohnstonLindner_2023`. Holding them changes no conclusion. The two
-   Cunha papers are worth reading first, because Chapter 13 says its formal apparatus was read at
-   source and `research/SOURCES.md` has never recorded the pages. The last two would begin the
-   skill-depreciation reading that item 3 names.
+7. **The referral-versus-attraction ordering at slower decay.** The one-at-a-time screen reverses
+   the ordering of referral loss against pure attraction loss on final membership when the decay
+   rate is 25, 50 or 75 per cent lower, on three seeds, and at 25 per cent lower the
+   referral-starved group is viable in all three. The reading of 13 September 2026 makes a slower
+   lapse plausible, so a 400-seed paired run of the base, referral-loss and attraction-loss
+   conditions at those three rates would turn a screen into an estimate. It needs a new
+   hash-linked script and cache and changes no released number. The model itself is unchanged,
+   and should stay so until something measures how fast a practice lapses.
 
 ### Closed on 13 September 2026
 
+- **The seven papers held on 13 September 2026 are read**, six in full and one in part, and what
+  they bear on is applied. Chapter 12 sets the decay rate against the two skill-depreciation papers
+  and says how much rides on it; Chapters 12 and 13 correct the three precision points, and Chapter
+  14 stops crediting Cunha, Heckman and Schennach with the depreciation structure, which is
+  Ben-Porath's; Chapter 13 adds their sign-changing estimate as an analogy; Chapters 2 and 15 use
+  Lembke; Chapters 1 and 24 note that the decay rate is among the few values that reverse the
+  referral-versus-attraction ordering; the paper, primer, appendix A11 and `research/PARAMETERS.md`
+  follow. The model is unchanged, for the reason item 7 gives.
 - **The author block in rebuilt books.** `tools/build_book.py`, the preface and the appendix still
   named the Human Author, so every rebuild put the name back into the book that had been
   anonymized by hand. All three now say the book is by an anonymous author, and the book and

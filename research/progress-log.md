@@ -4526,3 +4526,67 @@ occurs in chapter prose the directory token is compound, so no token pairs a cit
 Schennach copy is a JSTOR download that the first author posts, cover page included.
 
 The book and primer were rebuilt, and the full release gate passes, 136 of 136.
+
+### 13 September 2026: the seven new papers, read
+
+The papers downloaded that morning were read the same day: Cunha and Heckman (2007), Cunha, Heckman
+and Schennach (2010), Angrist and Lembke in full; Hu and Schennach, and the two skill-depreciation
+papers, in part. The quotations recorded were checked against page images. Nothing in the
+manuscript or the paper changes, and `research/SOURCES.md` has the detail.
+
+**What holds.** Every attribution Chapters 12 and 13 and the paper make to these works is
+supported, and the paper's claim that Cunha, Heckman and Schennach was read at source is now
+documented page by page. Three precision points came out of it: the book's ρ is their φ, and they
+use ρ for something else; Chapter 12's "multiplicative production of a stage" is a CES in the
+sources; and Chapter 13's "and solve it" says more than they claim for endogenous investment. One
+candidate addition came out too: the sign of their estimated substitution parameter for cognitive
+skill changes between early and late childhood, which is the empirical shape of Chapter 13's
+chain-or-menu question.
+
+**The finding that matters most.** The model's decay rate. Six per cent a week is a half-life of
+about eleven and a half weeks. Dinerstein and colleagues estimate teaching-skill depreciation at 4.3
+and 17.2 per cent a year, half-lives of about sixteen and about four years, and Cohen and colleagues
+find no measurable decline in general skills over up to three years of unemployment. Both measure
+skill, and the model's dial is practice, which may lapse faster, so this does not calibrate the rate.
+It does make Chapter 12's statement that the literature was never consulted untrue, and it points
+the search at habit and relapse rather than labour economics.
+
+**Why nothing was changed.** Each finding changes the author's text. `HANDOFF.md` section 10 carries
+them as item 7 for the Human Author to decide.
+
+### 13 September 2026: what the seven papers bear on, applied
+
+At the Human Author's direction everything `HANDOFF.md` item 7 had carried for decision was
+applied, and the reading was cross-checked against every place in the book it could reach.
+
+**Chapter 12.** The decay rate of six per cent a week is now set, in the narrative and in the
+notes, against the two skill-depreciation papers, whose main texts were read in full for the
+purpose: about four per cent a year for early-career teachers' skill, and no measurable decline in
+workers' cognitive skills over up to three years of unemployment. Reading them in full added two
+caveats, Dinerstein and colleagues' weak district-level first stage and Cohen and colleagues'
+finding that several self-assessed traits, conscientiousness among them, did fall. The chapter now
+says the rate rests entirely on the difference between a practice and a skill, and states how much
+rides on it.
+
+**The cross-check that mattered.** The existing one-at-a-time screen already showed that large
+downward moves of the decay rate are among the few that reverse the ordering of referral loss
+against pure attraction loss on final membership, and at a quarter below the default the
+referral-starved group is viable in all three seeds. Chapter 1 recorded the reversals; it now says
+why they are the ones to watch. Chapter 24, which names that ordering as the strongest candidate
+for an empirical test, now says the decay rate is the assumption to measure alongside it. Appendix
+A11, `research/PARAMETERS.md` and the paper's limitations carry the same point.
+
+**Corrections to attributions.** Chapter 12 no longer credits Cunha and Heckman with
+multiplicative stage production; Chapter 13 says Cunha, Heckman and Schennach address endogenous
+investment rather than solve it, and explains the rho and phi notation; and Chapter 14 no longer
+credits them with a depreciation structure, which their technology does not have. The last was not
+on item 7's list and was found by checking every citation of those papers.
+
+**Additions.** Chapter 13 and the paper add Cunha, Heckman and Schennach's estimate that the
+substitution parameter changes sign between early and late childhood, as an analogy for the design
+of a study. Chapters 2 and 15 use Lembke. The paper's bibliography marks the papers read.
+
+**The model is unchanged.** The two depreciation papers measure skill, and the model's dial is
+practice; neither gives a value for how fast a practice lapses, and replacing one authored number
+with another chosen after reading them would not be an improvement. A 400-seed run of the
+attraction-versus-referral ordering at slower decay is carried as `HANDOFF.md` item 7 instead.
