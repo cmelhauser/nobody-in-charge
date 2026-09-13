@@ -23,8 +23,16 @@ someone who wants to know what changed between two tags does not have to read it
   questions of *Recovery Dharma*. Nothing in the manuscript changes. `research/SOURCES.md`
   records what the full reading found, including the Sons of Temperance's own 1848 count of
   members who broke the pledge, verified against the page image.
+- Appendix A12, the primer's Recovery Dharma entry and Chapters 1 and 2 now state the read scope
+  `research/SOURCES.md` records, and the book and primer PDFs are rebuilt. Chapter 2's list of
+  unread sources also named Krout, Harrison, Marsh and Eddy, all long since read at source.
 
 ### Added
+
+- Seven open-access papers held git-ignored and not yet read: five the paper cites (Angrist 2014,
+  Cunha and Heckman 2007, Cunha, Heckman and Schennach 2010, Hu and Schennach 2008, Lembke n.d.)
+  and two from the skill-depreciation literature Chapter 12 has not consulted (Dinerstein,
+  Megalokonomou and Yannelis; Cohen, Johnston and Lindner). The corpus holds 40 sources.
 
 - Copies of six sources that were record only, held git-ignored at the Human Author's direction:
   P-17, SMF-132 and the short-form Concepts, byte-identical to the files read in August; the
@@ -49,6 +57,9 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- `tools/build_book.py`, the preface and the appendix still named the Human Author, so a rebuild
+  put the name back into a book that had been anonymized by hand. All three now say the book is by
+  an anonymous author, and the committed PDFs are rebuilt from source.
 - The record of the `lint` job, `check_pdfs.py` and `BigBook_2001`, none of which had been
   propagated into the documents that count them. Totals were right and enumerations were short.
 - `HANDOFF.md` built the primer with a bare `pandoc` call, which `README.md` says is not the

@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 7 September 2026"
+date: "Draft of 13 September 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -545,7 +545,7 @@ The pledge text dates from 1840 and is in the public domain.
 
 **Cited at a remove:**
 
-American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The membership and pledge claims; also, through their year-by-year language, Maxwell's index of declining interest. **Status partly upgraded.** Three of these volumes are now held at source and are listed above rather than here: the 1841 annual report, read for its Washingtonian passages, and the 1840 report and 1849 almanac, obtained but consulted only. The series is still cited at a remove for every other year, and Maxwell's index of declining interest still rests on his reading of the run as a whole rather than on mine.
+American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The membership and pledge claims; also, through their year-by-year language, Maxwell's index of declining interest. **Status partly upgraded.** Three of these volumes are now held at source and have been read in full: the 1841 annual report, listed above for its Washingtonian passages, and the 1840 report and the 1849 almanac, read on 13 September 2026, neither of which changes anything in this chapter; what they add is recorded in `research/SOURCES.md`. The series is still cited at a remove for every other year, and Maxwell's index of declining interest still rests on his reading of the run as a whole rather than on mine.
 
 
 
@@ -815,7 +815,7 @@ He did not have the mathematics. The formal claim in Part Two, that three Tradit
 
 **The Marsh problem, now confirmed at source.** Maxwell states directly that the American Temperance Union's publications, edited by Marsh, were a major source for later historians, that Marsh's overriding interest was the temperance cause rather than the reformation of drunkards specifically, and that later historians overlooked how much of Marsh's criticism addressed minority behaviour. This is not my inference; it is Maxwell's, and I had it second-hand before I had it first-hand.
 
-**Still unread.** Krout (1925); Harrison (1860); Marsh's own *Temperance Recollections* (1866); Eddy (1887); the Sons of Temperance material beyond what Maxwell reports. The 1850 membership figures for the Sons come from Maxwell; encyclopaedia sources give slightly different numbers, and I have used his.
+**Once unread, now read.** Krout (1925), Harrison (1860), Marsh's own *Temperance Recollections* (1866) and Eddy (1887) were listed here as unread, and all four have since been read at source. The Sons of Temperance's own record has been reached once: the American Temperance Union's almanac for 1849 prints the order's figures for 1848, read on 13 September 2026 and recorded in `research/SOURCES.md`. The rest of what the Sons published is still unread. The 1850 membership figures for the Sons come from Maxwell; encyclopaedia sources give slightly different numbers, and I have used his.
 
 ### 4. References
 
@@ -5698,9 +5698,9 @@ real group data. It cannot evaluate or advise any individual person's recovery.
 This section answers a question put to the project from outside it, rather than one the model was
 built for. It is deterministic and textual. It adds no cache, no seed, no interval, and no
 stochastic claim, and nothing elsewhere in the release depends on it. The source is
-`research/incorporated/RecoveryDharma_2023/`, read in part on 16 August 2026. Section I, the
-meeting format, the glossary and the dedication of merit were read in full; the fourteen personal
-stories, the selected meditations and the inquiry questions were not.
+`research/incorporated/RecoveryDharma_2023/`, read in full in two passes: Section I, Section II
+with its fourteen personal stories, the meeting format, the glossary and the dedication of merit
+on 16 August 2026, and the selected meditations and the inquiry questions on 13 September 2026.
 
 ### A12.1 The question, and what the model cannot answer
 
@@ -5762,9 +5762,9 @@ opportunity carries the largest governance mass of the eight columns at 2.40.
 |---|---|---|
 | admission | Step 1, 0.800 of column | First Noble Truth, "Addiction **is** suffering" (9); Renunciation in The Practice (xv) |
 | identify | Step 1, 0.588 of column | made optional by design: introductions need no identification beyond a name (150); no requirement to identify yourself in any way (43) |
-| proof | Step 2, 0.526 of column | the fourteen personal stories (57-121, not read); those who have made it to the other side (2, 48) |
+| proof | Step 2, 0.526 of column | the fourteen personal stories (57-121); those who have made it to the other side (2, 48) |
 | confidential | Step 5, 0.667 of column | the closing of the meeting script (151) |
-| counsel | diffuse, Step 9 top at 0.300 | Wise Friends and Mentors (49-50); Reaching Out (46-48) |
+| counsel | diffuse, Step 9 top at 0.300 | Wise Friends and Mentors (49-50); Reaching Out (46-48); the inquiry questions, which suggest working through them with a mentor, wise friend or group and ask whether the reader has one to turn to (136, 139, 143) |
 | recipient | Step 12, sole carrier | Sangha, Wise Friends, Mentors in The Practice (xvi, 148); Service and Generosity (50-52); the newcomer question in the closing (151) |
 | continuity | Step 12 top at 0.286 | Meetings and Growth in The Practice (xv-xvi); the announcements (151) |
 | pressure | diffuse, Step 10 top at 0.226 | the Five Precepts (29); cut against by the group-sharing rule that shares carry no advice (151) |
@@ -6118,9 +6118,10 @@ The counting exercise is arithmetic on the source's own lists: three jewels, fou
 eight path factors, five precepts, four heart practices, four foundations of mindfulness and seven
 commitments in The Practice, totalling thirty-five across seven lists.
 
-**3. Notes on sources.** One source does all the work. Sections I and II were read in full, as were
-the glossary, the meeting format and the dedication of merit. Only the selected meditations and the
-inquiry questions, which are practice material rather than description, were not. Page references
+**3. Notes on sources.** One source does all the work, and all of it has now been read. Sections I
+and II were read in full on 16 August 2026, as were the glossary, the meeting format and the
+dedication of merit. The selected meditations and the inquiry questions, which are practice material
+rather than description, were read on 13 September 2026 and hold no governance text. Page references
 are the printed pagination, which runs sixteen behind the PDF pagination in the arabic range.
 
 **A first pass got the central question wrong, and the record should show how.** That pass read
@@ -6156,14 +6157,21 @@ pages rather than from an independent catalogue entry, which is the one open ite
 **Read in full:**
 
 Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to
-heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Read: the
-contents and front matter through The Practice (ix to xvi); Section I entire (1 to 54); Section II
-entire, the fourteen personal recovery stories (57 to 121); and from Section III the glossary (145
-to 146), the meeting format (147 to 151) and the dedication of merit (152). Source of every page
+heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Read in
+full: the contents and front matter through The Practice (ix to xvi); Section I entire (1 to 54);
+Section II entire, the fourteen personal recovery stories (57 to 121); and Section III entire, the
+selected meditations (122 to 135), the inquiry questions (136 to 144), the glossary (145 to 146),
+the meeting format (147 to 151) and the dedication of merit (152). The meditations and inquiry
+questions were read on 13 September 2026 and the rest on 16 August 2026. Source of every page
 reference in this section and of the four paragraphs in Chapter Twenty-Four. Stored as
 `research/incorporated/RecoveryDharma_2023/`, git-ignored with a SHA-256 and a verification index.
 It is the one source in the corpus whose licence would permit committing the document; the project
 git-ignores it anyway, because the rule is uniform.
+
+Jensen, K., and M. Abrahams (2019). "Buddha Buzz Weekly: Refuge Recovery Splits." *Tricycle: The
+Buddhist Review*, 13 July 2019. Read at source on the publisher's site on 17 August 2026 and held
+as record only. The one independent account A12.4 uses, for the structure of the split and for the
+correction that both organizations describe their meetings as peer-led.
 
 **Referenced but not reproduced:**
 
@@ -6184,17 +6192,11 @@ its own. The source record, read scope and rights position are in
 
 **What was not read:**
 
-From the source, only the selected meditations (122 to 135) and the inquiry questions (136 to 144).
-Both are practice material, guided scripts and prompts for self-inquiry, and neither describes how
-the fellowship is organized. A reader extending A12.3's carrier census might still want the inquiry
-questions, since they are the closest thing the program has to a written inventory and would bear on
-the counsel and gentle-pressure columns.
-
-Nothing independent about the 2019 schism. The account in A12.4 rests entirely on the successor
-organization's own literature, written by people who left the predecessor. No press coverage, court
-record, or statement from the predecessor was sought, and the predecessor's own account of the same
-events has not been read. That is a one-sided record and Chapter Twenty-Four's use of it inherits
-the weakness.
+Little that is independent about the 2019 schism. Beyond the successor organization's own
+literature, written by people who left the predecessor, A12.4 rests on one contemporaneous press
+account, *Tricycle*'s. No court record or statement from the predecessor was sought, and the
+predecessor's own account of the same events has not been read. The record still leans to one side,
+and Chapter Twenty-Four's use of it inherits the weakness.
 
 The empirical literature on Buddhist and mindfulness-based recovery programs, which was not searched
 at all. This section compares program documents and one fellowship's account of its own history. It
@@ -7606,10 +7608,12 @@ analogues of Traditions 4, 7, 9 and 10 and for their deliberate opposite positio
 anonymity. Read at source; saved in `research/`.
 
 Recovery Dharma Global (2023). *Recovery Dharma.* Second edition. Recovery Dharma Inc.
-CC BY-NC-SA 4.0. The only source for the follow-up section above. Read: the front matter,
-the whole of Section I, the whole of Section II with its fourteen personal recovery
-stories, and the glossary, meeting format and dedication of merit. Only the meditations
-and inquiry questions were not read. The 2019 split is reported in the stories by people
+CC BY-NC-SA 4.0. The only source for the follow-up section above. Read in full, in two
+passes: the front matter, the whole of Section I, the whole of Section II with its fourteen
+personal recovery stories, and the glossary, meeting format and dedication of merit on 16
+August 2026, and the meditations and inquiry questions on 13 September 2026. The stories
+were read only after a first pass had skipped them, and skipping them was the reason that
+pass got the governance question wrong. The 2019 split is reported in the stories by people
 who held office in the predecessor organization, whose founder is named in that source
 and is deliberately not named here. Saved in
 `research/incorporated/RecoveryDharma_2023/`.
@@ -7667,11 +7671,6 @@ Tradition 3's retention mechanism is illustration rather than evidence.
 The literature on skill depreciation rates in adults, which would say whether six per
 cent a week is the right order of magnitude for anything comparable. It is the most
 easily improved number in the model and it has not been tried.
-
-From Recovery Dharma, only the selected meditations and the inquiry questions, which are
-practice material rather than description. The fourteen personal stories were read after
-a first pass had skipped them, and skipping them was the reason that pass got the
-governance question wrong.
 
 Anything independent about the 2019 split. The account above rests entirely on the
 successor fellowship's own literature, written by people who left the predecessor. No

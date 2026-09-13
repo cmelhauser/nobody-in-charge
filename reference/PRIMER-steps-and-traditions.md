@@ -1188,10 +1188,12 @@ analogues of Traditions 4, 7, 9 and 10 and for their deliberate opposite positio
 anonymity. Read at source; saved in `research/`.
 
 Recovery Dharma Global (2023). *Recovery Dharma.* Second edition. Recovery Dharma Inc.
-CC BY-NC-SA 4.0. The only source for the follow-up section above. Read: the front matter,
-the whole of Section I, the whole of Section II with its fourteen personal recovery
-stories, and the glossary, meeting format and dedication of merit. Only the meditations
-and inquiry questions were not read. The 2019 split is reported in the stories by people
+CC BY-NC-SA 4.0. The only source for the follow-up section above. Read in full, in two
+passes: the front matter, the whole of Section I, the whole of Section II with its fourteen
+personal recovery stories, and the glossary, meeting format and dedication of merit on 16
+August 2026, and the meditations and inquiry questions on 13 September 2026. The stories
+were read only after a first pass had skipped them, and skipping them was the reason that
+pass got the governance question wrong. The 2019 split is reported in the stories by people
 who held office in the predecessor organization, whose founder is named in that source
 and is deliberately not named here. Saved in
 `research/incorporated/RecoveryDharma_2023/`.
@@ -1249,11 +1251,6 @@ Tradition 3's retention mechanism is illustration rather than evidence.
 The literature on skill depreciation rates in adults, which would say whether six per
 cent a week is the right order of magnitude for anything comparable. It is the most
 easily improved number in the model and it has not been tried.
-
-From Recovery Dharma, only the selected meditations and the inquiry questions, which are
-practice material rather than description. The fourteen personal stories were read after
-a first pass had skipped them, and skipping them was the reason that pass got the
-governance question wrong.
 
 Anything independent about the 2019 split. The account above rests entirely on the
 successor fellowship's own literature, written by people who left the predecessor. No

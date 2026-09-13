@@ -1,0 +1,30 @@
+{
+ "id": "Lembke_nd",
+ "title": "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA): A new perspective on behavior change in self-help organizations for addiction",
+ "authors": [
+  "Anna Lembke"
+ ],
+ "year": null,
+ "type": "working_paper",
+ "status": "acquired_not_read",
+ "held_version": "undated working paper posted by ASREC in its October 2015 uploads",
+ "source_url": "https://www.asrec.org/wp-content/uploads/2015/10/Lembke-Sacrifice-stigma-and-free-riding-in-alcoholics-anonymous.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "Undated working paper posted free by the Association for the Study of Religion, Economics and Culture; copyright the author. Held git-ignored since 13 September 2026; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "Lembke_nd.pdf": {
+   "sha256": "d528ff056881490db46428f60d3ac589bf34440e3c5eb4d50e9264003727d2f4",
+   "bytes": 364152,
+   "tracked_in_git": false
+  },
+  "Lembke_nd.txt": {
+   "sha256": "4cc9826c9e238ce57fb8893b24090b0ca82fa0a179326418458ab4363154ba2d",
+   "bytes": 42298,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

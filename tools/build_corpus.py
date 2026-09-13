@@ -123,6 +123,28 @@ RIGHTS = {
     "ServiceManual_2024": ("Copyrighted A.A.W.S. literature, posted free in full on AAWS's own "
                            "file host. Held git-ignored since 13 September 2026 at the Human "
                            "Author's direction; never committed."),
+    # Added 13 September 2026: five papers the paper cites and two from the skill-depreciation
+    # literature Chapter 12 has not consulted, each posted free by its publisher or an author.
+    # None has been read since it was obtained; research/SOURCES.md keeps each read status.
+    "Angrist_2014": ("NBER Working Paper 19774, posted free by NBER; copyright the author. "
+                     "Held git-ignored since 13 September 2026; never committed."),
+    "CunhaHeckman_2007": ("NBER Working Paper 12840, posted free by NBER; copyright the "
+                          "authors. Held git-ignored since 13 September 2026; never committed."),
+    "CunhaHeckmanSchennach_2010": ("NBER Working Paper 15664, posted free by NBER; copyright "
+                                   "the authors. Held git-ignored since 13 September 2026; "
+                                   "never committed."),
+    "HuSchennach_2008": ("Author-hosted on the first author's university site: a JSTOR "
+                         "download of the Econometrica article with JSTOR's terms-of-use cover "
+                         "page. Held git-ignored since 13 September 2026; never committed or "
+                         "redistributed."),
+    "Lembke_nd": ("Undated working paper posted free by the Association for the Study of "
+                  "Religion, Economics and Culture; copyright the author. Held git-ignored "
+                  "since 13 September 2026; never committed."),
+    "Dinerstein_2022": ("NBER Working Paper 27925, posted free by NBER; copyright the "
+                        "authors. Held git-ignored since 13 September 2026; never committed."),
+    "CohenJohnstonLindner_2023": ("NBER Working Paper 31120, posted free by NBER; copyright "
+                                  "the authors. Held git-ignored since 13 September 2026; "
+                                  "never committed."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 
