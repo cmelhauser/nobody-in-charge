@@ -7,12 +7,12 @@
  ],
  "year": 2008,
  "type": "journal_article_author_hosted",
- "status": "acquired_not_read",
+ "status": "read_in_part",
  "held_version": "Econometrica 76(1): 195-216, as a JSTOR download with its cover page",
  "source_url": "https://www.econ2.jhu.edu/people/hu/Website/HuSchennach2008.pdf",
  "retrieved": "2026-09-13",
  "record_only": false,
- "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below, and read the same day. research/SOURCES.md keeps the read status and what the reading found.",
  "rights_note": "Author-hosted on the first author's university site: a JSTOR download of the Econometrica article with JSTOR's terms-of-use cover page. Held git-ignored since 13 September 2026; never committed or redistributed.",
  "legacy_stem": null,
  "documents": {
@@ -27,5 +27,7 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "read_date": "2026-09-13",
+ "read_scope": "abstract, introduction and the assumptions of section 2 (195 to 200)"
 }

@@ -347,8 +347,8 @@ inference from what is already here.
 3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
-   papers have been held since 13 September 2026 (`Dinerstein_2022`, `CohenJohnstonLindner_2023`)
-   and are not yet read.
+   papers were read in part on 13 September 2026 (item 7). The literature on habit and relapse,
+   which item 7 suggests is where the decay rate's evidence more likely sits, is still unsearched.
 
 **Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
 not yet made, because they change the author's text.
@@ -369,17 +369,35 @@ each moves a record-only source onto the ordinary footing.
 6. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
-**One is reading that holding a copy has made possible.**
+**One is a set of decisions that reading the seven new papers puts to the Human Author.** None
+changes a conclusion. Each changes the author's text, which is why none is made.
+`research/SOURCES.md` sets out the evidence for each.
 
-7. **Seven papers held on 13 September 2026 and not yet read:** `Angrist_2014`,
-   `CunhaHeckman_2007`, `CunhaHeckmanSchennach_2010`, `HuSchennach_2008`, `Lembke_nd`,
-   `Dinerstein_2022` and `CohenJohnstonLindner_2023`. Holding them changes no conclusion. The two
-   Cunha papers are worth reading first, because Chapter 13 says its formal apparatus was read at
-   source and `research/SOURCES.md` has never recorded the pages. The last two would begin the
-   skill-depreciation reading that item 3 names.
+7. **What the seven papers read on 13 September 2026 bear on.**
+   - *Chapter 12's decay rate.* Six per cent a week, a half-life under three months, is one to two
+     orders of magnitude faster than the skill depreciation Dinerstein and colleagues estimate (4.3
+     and 17.2 per cent a year), and Cohen and colleagues find none over up to three years of
+     unemployment. Both measure skill and the model's dial is practice, so this does not calibrate
+     the rate. But Chapter 12's and the primer's statement that the literature was not consulted is
+     no longer true, and the chapter could say what the two papers show and where better evidence
+     probably is.
+   - *Three precision points in Chapters 12 and 13.* The book's ρ is Cunha, Heckman and
+     Schennach's φ, and they use ρ for something else; Chapter 12's "multiplicative production of a
+     stage" is a CES in the sources; Chapter 13's "and solve it" overstates what they claim for
+     endogenous investment.
+   - *A candidate addition to Chapter 13.* In Cunha, Heckman and Schennach's estimates the sign of
+     the substitution parameter changes between early and late childhood for cognitive skill,
+     which is the empirical shape of Chapter 13's chain-or-menu question.
+   - *Two candidate uses of Lembke.* Its reading of AA's entry cost as stigma sits beside Chapter
+     2's contrast with the Sons of Temperance, and its pool of sponsors is the model's recipient
+     resource in other words.
+   - *Read-status markers in the paper.* Its bibliography marks Lembke as cited at a remove and
+     gives Cunha and Heckman (2007) and Angrist no status; all three are now read in full.
 
 ### Closed on 13 September 2026
 
+- **The seven papers held on 13 September 2026 are read**, four in full and three in part. Every
+  attribution the book makes to them holds, with the qualifications and findings carried as item 7.
 - **The author block in rebuilt books.** `tools/build_book.py`, the preface and the appendix still
   named the Human Author, so every rebuild put the name back into the book that had been
   anonymized by hand. All three now say the book is by an anonymous author, and the book and

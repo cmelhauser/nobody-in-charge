@@ -26,10 +26,15 @@ someone who wants to know what changed between two tags does not have to read it
 - Appendix A12, the primer's Recovery Dharma entry and Chapters 1 and 2 now state the read scope
   `research/SOURCES.md` records, and the book and primer PDFs are rebuilt. Chapter 2's list of
   unread sources also named Krout, Harrison, Marsh and Eddy, all long since read at source.
+- The seven papers held on 13 September 2026 are read, four in full and three in part. Nothing in
+  the manuscript changes. `research/SOURCES.md` records that every attribution the book makes to
+  them holds, with three precision points in Chapters 12 and 13, and that the two skill-depreciation
+  papers put the model's decay rate of six per cent a week one to two orders of magnitude above the
+  rates they find for skill.
 
 ### Added
 
-- Seven open-access papers held git-ignored and not yet read: five the paper cites (Angrist 2014,
+- Seven open-access papers held git-ignored: five the paper cites (Angrist 2014,
   Cunha and Heckman 2007, Cunha, Heckman and Schennach 2010, Hu and Schennach 2008, Lembke n.d.)
   and two from the skill-depreciation literature Chapter 12 has not consulted (Dinerstein,
   Megalokonomou and Yannelis; Cohen, Johnston and Lindner). The corpus holds 40 sources.

@@ -1,8 +1,20 @@
 # Summary
 
-The statement of self-productivity and dynamic complementarity in skill formation. Chapters 12 and 13 and the paper cite it for the multistage technology the Steps are modelled on, and Chapter 13 says the formal apparatus was read at source. `research/SOURCES.md` has never recorded the pages, and this copy is what would let it.
+The theoretical statement of the technology of skill formation. Skills at each stage are produced
+from the previous stage's skills and current investment, with self-productivity (skills raise later
+skills) and dynamic complementarity (skills raise the productivity of later investment), defined at
+7 to 10; their joint effect is summed up as "skills beget skills and abilities beget abilities"
+(8). Early and late investment are aggregated by a CES whose parameter φ sets the elasticity of
+substitution 1/(1 - φ), with the Leontief case, in which early neglect cannot be remedied, as its
+limit (11 to 12) and the Cobb-Douglas case at φ = 0 (14).
 
-**Held, not read.** Obtained free on 13 September 2026 at the Human Author's direction and held git-ignored with a SHA-256 and a verification index. It has not been read since it was obtained, so nothing in the book is upgraded by its presence.
+**Read in full on 13 September 2026** in the working-paper version, which is longer than the
+*American Economic Review* Papers and Proceedings article the book cites; page references here are
+the working paper's. It supports what Chapters 12 and 13 and the paper take from it, with one
+qualification recorded in `research/SOURCES.md`: its CES aggregates early and late investment and is
+multiplicative only in the Cobb-Douglas case, so Chapter 12's attribution of multiplicative stage
+production to it is loose. The four-input stage technology the paper adapts is Cunha, Heckman and
+Schennach's, not this paper's.
 
 ## Note on the directory token
 

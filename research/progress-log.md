@@ -4526,3 +4526,30 @@ occurs in chapter prose the directory token is compound, so no token pairs a cit
 Schennach copy is a JSTOR download that the first author posts, cover page included.
 
 The book and primer were rebuilt, and the full release gate passes, 136 of 136.
+
+### 13 September 2026: the seven new papers, read
+
+The papers downloaded that morning were read the same day: Cunha and Heckman (2007), Cunha, Heckman
+and Schennach (2010), Angrist and Lembke in full; Hu and Schennach, and the two skill-depreciation
+papers, in part. The quotations recorded were checked against page images. Nothing in the
+manuscript or the paper changes, and `research/SOURCES.md` has the detail.
+
+**What holds.** Every attribution Chapters 12 and 13 and the paper make to these works is
+supported, and the paper's claim that Cunha, Heckman and Schennach was read at source is now
+documented page by page. Three precision points came out of it: the book's ρ is their φ, and they
+use ρ for something else; Chapter 12's "multiplicative production of a stage" is a CES in the
+sources; and Chapter 13's "and solve it" says more than they claim for endogenous investment. One
+candidate addition came out too: the sign of their estimated substitution parameter for cognitive
+skill changes between early and late childhood, which is the empirical shape of Chapter 13's
+chain-or-menu question.
+
+**The finding that matters most.** The model's decay rate. Six per cent a week is a half-life of
+about eleven and a half weeks. Dinerstein and colleagues estimate teaching-skill depreciation at 4.3
+and 17.2 per cent a year, half-lives of about sixteen and about four years, and Cohen and colleagues
+find no measurable decline in general skills over up to three years of unemployment. Both measure
+skill, and the model's dial is practice, which may lapse faster, so this does not calibrate the rate.
+It does make Chapter 12's statement that the literature was never consulted untrue, and it points
+the search at habit and relapse rather than labour economics.
+
+**Why nothing was changed.** Each finding changes the author's text. `HANDOFF.md` section 10 carries
+them as item 7 for the Human Author to decide.
