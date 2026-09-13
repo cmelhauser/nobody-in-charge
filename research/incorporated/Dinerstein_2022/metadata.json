@@ -8,12 +8,12 @@
  ],
  "year": 2022,
  "type": "working_paper",
- "status": "acquired_not_read",
+ "status": "read_in_part",
  "held_version": "NBER Working Paper 27925, October 2020, revised September 2022",
  "source_url": "https://www.nber.org/system/files/working_papers/w27925/w27925.pdf",
  "retrieved": "2026-09-13",
  "record_only": false,
- "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below, and read the same day. research/SOURCES.md keeps the read status and what the reading found.",
  "rights_note": "NBER Working Paper 27925, posted free by NBER; copyright the authors. Held git-ignored since 13 September 2026; never committed.",
  "legacy_stem": null,
  "documents": {
@@ -28,5 +28,7 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "read_date": "2026-09-13",
+ "read_scope": "abstract, introduction (1 to 6), production model (14 to 16), decomposition and conclusion (37 to 38)"
 }
