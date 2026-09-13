@@ -3,7 +3,7 @@
 *Working note for the Human Author, 12 September 2026. Source: `WorkingManuscript_1939`.*
 
 Every facsimile page of Hazelden's *The Book That Started It All* (2010) was read from the 241
-photographs the Human Author took of their own copy on 9 to 11 September, and every change that mattered was checked against the 1939
+photographs and every change that mattered was checked against the 1939
 text already in the corpus (`BigBook_1939`). Manuscript pages are cited by the number Hazelden prints
 beside each facsimile ("MS p. 30"). Hazelden's own essays are cited as Hazelden's claims, and anything
 they quote from AA's copyrighted histories is at a remove. Quotations are kept to the few words needed
