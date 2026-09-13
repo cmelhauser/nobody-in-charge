@@ -4414,3 +4414,84 @@ command that lives nowhere. It is a reading copy and not a release artifact; the
 does not check it.
 
 **What did not change.** No model value, cache, notebook, release artifact or release check.
+
+### 13 September 2026: a lawful copy of every source the corpus can hold
+
+The Human Author asked for the full corpus: copies of every source, including the eleven held as
+record only, and a search for everything still missing. Record only had been a deliberate choice,
+a stronger condition than git-ignored, and the change is theirs. What it does not change is the
+rule that matters for a public repository: no document is committed.
+
+**What was already on disk.** A search of the Human Author's machine by recorded SHA-256 and by
+Spotlight found two of the August copies. The official P-17 PDF sat, byte-identical, in two older
+non-Git copies of the project, left from the August corpus build. The Kurtz talk transcript read in
+August is the Human Author's own transcription of the audiobook and sat in their documents. The
+Rohr PDF read in August was also there; it is the unauthorized posting the record already flags,
+and it was not copied in. Nothing else was found.
+
+**What was fetched, with approval, and verified.** Sixty-four files from aa.org and AAWS's own file
+host. P-17, SMF-132 and the short-form Concepts match, byte for byte, the digests recorded in
+August. The *Twelve Steps and Twelve Traditions* was reassembled from aa.org's twenty-nine chapter
+PDFs, which the old metadata miscounted as thirty; it comes to 187 pages, as before, and its
+vocabulary overlaps the August index at 0.82, the gap being the different text extractor. The
+2001 Big Book was assembled from thirty-one section PDFs. The chapter PDFs are AES-protected, so
+they were merged with the macOS PDF framework rather than a new Python dependency.
+
+**Six sources left record only**: P-17, the 12&12, the Kurtz talk, SMF-132, the short-form
+Concepts and the 2001 Big Book. Each `metadata.json` keeps its old reason under
+`formerly_record_only`. **Five remain**: Kurtz (1991), DeGroot (1974), the April 1946 *Grapevine*,
+Rohr (2011) and *Tricycle* (2019), each needing a copy only the Human Author can obtain.
+
+**A fourth "unobtainable" item was free.** The Concept 4 essay, carried in `HANDOFF.md` section 10
+as needing a purchase, is in the 2024-26 *A.A. Service Manual*, which AAWS posts whole on its own
+file host. It is now `ServiceManual_2024`, the corpus's thirty-third source. The Concept IV essay is
+about voting participation in proportion to responsibility and holds no rule on the size of a
+rotating pool, which confirms Chapter 10's narrower reading. Rotation doctrine is in Concept XI: it
+was adopted for the staff after one dominant worker, who had hired people who would not compete
+with her, collapsed; it ties term length to responsibility; and it warns against attempting more
+rotation than that. Concept V calls the well-heard minority the chief protection against a hasty
+majority. None of that is yet in the manuscript.
+
+**Checked and not changed.** `check_book.py` names a source by the text before the underscore in
+its directory name. `BigBook_1939` and `BigBook_2001` share "BigBook", which would matter once the
+2001 text exists, but no chapter uses the token, so the collision checks nothing. P-17's "AAWS"
+appears twelve times in the chapters; with its text present every citation-subject pair still
+verifies.
+
+**Still to come.** The partly-read sources on disk, and a second list of free open-access papers
+found in the search, which needs approval before anything is downloaded.
+
+### 13 September 2026: the partly read sources, read to the end
+
+The third part of the approved plan was to finish reading what the corpus already held. Five sources
+had been read only in part: the three American Temperance Union documents, Gough's 1869
+autobiography, and the practice pages of *Recovery Dharma*. All five are now read in full, and
+`research/SOURCES.md` records what each added. Nothing in the manuscript changes; every finding is
+candidate material.
+
+**Recovery Dharma.** The selected meditations and inquiry questions, the only pages left, are
+practice material with no governance text, so appendix A12's absence claim now holds over the whole
+book. The appendix and primer still state the narrower scope, which remains true.
+
+**The ATU volumes.** Three things deserve a chapter's attention. The Sons of Temperance's own
+statistics for 1848, in the 1849 almanac, count 8,001 members who broke the pledge in the year among
+149,372, beside 8,043 expulsions. They were checked against the page image. So was the almanac's
+founding date of 1841, which conflicts with the 1842 call Chapter 2 takes from Eddy and should not
+be adopted. The 1840 report describes temperance beneficial societies in Philadelphia from 1836 with
+the Sons' own rationale, six years before the Sons. And the treasurer's accounts, both checked
+against page images, show one donor, E. C. Delavan, giving 37 per cent of the Union's receipts in
+1839 and 47 per cent in 1840. The 1841 report also carries John Hawkins's account of the Baltimore
+meeting rules, "no sectarianism, no politics or arguments", and an 1833 clause making each
+temperance society independent of every other.
+
+**Gough.** The unread chapters change nothing in Chapter 3. They add Gough's own statement that he
+did not agree with the Washingtonians, his receipts per lecture, the movement's habit of counting
+signatures rather than members kept, and the 1857 to 1860 schism between the moral-suasion League and
+the prohibitionist Alliance that ended in *Gough v. Lees*.
+
+**Not changed, and why.** Appendix A12, the primer, Chapter 1's note that the 1840 report and 1849
+almanac were "obtained but consulted only", and Chapter 2's list of unread Sons material now
+understate the reading. None is false. Correcting them changes the sources of the book and primer,
+so it waits for the next rebuild, and the rebuild waits until `tools/build_book.py` no longer writes
+the author block back into artifacts that `main` carries anonymized. `HANDOFF.md` section 10
+carries it as item 7.
