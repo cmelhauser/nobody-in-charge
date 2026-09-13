@@ -49,9 +49,10 @@ and it carries transcription errors. Citations were checked against that transcr
 one remove from the journal. It paginates as sheets, not as pp. 410-452, so page references from
 it are not reliable.
 
-**AAWS (2024), pamphlet P-17** has no document at all, by decision rather than by accident. It is
-copyrighted AA literature distributed as a free official PDF; the record keeps the citation, the
-aa.org URL, the file hash and the two passages verified against page images.
+**AAWS (2024), pamphlet P-17** was record only by decision until 13 September 2026, when the Human
+Author directed that the corpus hold a lawful copy of every source it can. The copy now held is
+the official PDF from aa.org, byte-identical to the one read in August; the record also keeps the
+two passages verified against page images.
 
 **Kurtz (1991)** is in copyright and was never stored as full text. It has always been held as a
 verification index, and is the source of the pattern now used for everything.

@@ -18,9 +18,21 @@ someone who wants to know what changed between two tags does not have to read it
   checkers run once on Python 3.12 instead of once per matrix cell. Pull requests test on
   3.12 only; `main` still runs 3.11, 3.12 and 3.13. The lint job uses `shellcheck-py` from
   pip rather than an apt package.
+- Five held sources that had been read only in part are now read in full: the three American
+  Temperance Union documents, Gough's 1869 autobiography, and the meditations and inquiry
+  questions of *Recovery Dharma*. Nothing in the manuscript changes. `research/SOURCES.md`
+  records what the full reading found, including the Sons of Temperance's own 1848 count of
+  members who broke the pledge, verified against the page image.
 
 ### Added
 
+- Copies of six sources that were record only, held git-ignored at the Human Author's direction:
+  P-17, SMF-132 and the short-form Concepts, byte-identical to the files read in August; the
+  *Twelve Steps and Twelve Traditions* and the 2001 Big Book, assembled from aa.org's
+  per-chapter PDFs; and the Kurtz talk in the Human Author's own transcription.
+- `ServiceManual_2024`, the 2024-26 *A.A. Service Manual* with Bill W.'s full Twelve Concepts,
+  which AAWS posts free. Its Concept IV essay holds no rule on the size of a rotating pool,
+  which closes the Concept 4 item in `HANDOFF.md` section 10.
 - `WorkingManuscript_1939`: Hazelden's 2010 facsimile of the annotated 1939 multilith, read on
   every page and held as a git-ignored reading copy at the Human Author's direction, with a
   written account of the edits and where they bear on the manuscript. It changes no model

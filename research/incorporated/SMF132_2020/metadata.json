@@ -18,11 +18,26 @@
  ],
  "what_it_supports": "Chapter 21's proposed out-of-sample comparison. Supplies reported worldwide active membership and group counts for 1935 to 2020, from which a members-per-group ratio can be formed.",
  "estimand_caution": "The published figures are two separately estimated aggregates, not a sample of group sizes. Their ratio is a mean only if both counts cover the same population, and A.A. states plainly that it keeps no formal membership lists and that the figures rest on reports from groups listed with general service offices. The ratio therefore carries no interval and no distribution, and cannot be compared to a modelled distribution as though it were a sample.",
- "record_only": true,
- "record_only_reason": "Freely published service material. Read at source and not stored, per the project's uniform rule that it holds no source document.",
+ "record_only": false,
  "verification_index": "none: no text was retained to build one from. The numbers drawn from it are reproduced in research/SOURCES.md and in Chapter 21, and are re-checkable against the recorded URL.",
- "rights_note": "A.A.W.S. service material, published free on aa.org. Read at source and never stored; cite from aa.org.",
+ "rights_note": "A.A.W.S. service material, published free on aa.org. Held git-ignored since 13 September 2026 at the Human Author's direction; never committed.",
  "legacy_stem": null,
- "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents": {
+  "SMF132_2020.pdf": {
+   "sha256": "df5b80ad2c62ded0530744961372f64cd1acbfdce36b3230aca819dc7ec11cca",
+   "bytes": 60941,
+   "tracked_in_git": false
+  },
+  "SMF132_2020.txt": {
+   "sha256": "8e0f1d4cf3b268cb027eade64fcc222019e41cc7175a0a64b2a1e1f9b713fda8",
+   "bytes": 3734,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "formerly_record_only": {
+  "until": "2026-09-13",
+  "reason_then": "Freely published service material. Read at source and not stored, per the project's uniform rule that it holds no source document."
+ },
+ "holding_note": "Held since 13 September 2026 at the Human Author's direction, as a git-ignored local copy that is never committed. The PDF held is byte-identical to the file read in August: its SHA-256 matches the digest recorded then."
 }
