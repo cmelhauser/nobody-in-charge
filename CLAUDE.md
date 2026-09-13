@@ -138,10 +138,13 @@ record only, each now holding a copy obtained free from its publisher or made by
 AAWS pamphlet P-17, SMF-132 and the short-form Concepts, all three byte-identical to the files
 read in August; the *Twelve Steps and Twelve Traditions* and the fourth-edition Big Book,
 assembled from the per-chapter PDFs aa.org posts; and the Kurtz talk, in the Human Author's own
-transcription. The same day added `ServiceManual_2024`, bringing the corpus to its present 33:
-the 2024-26 *A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and
-which settles the Concept 4 question that `HANDOFF.md` section 10 carried. Five sources remain
-record only because no lawful copy is yet in hand.
+transcription. The same day added `ServiceManual_2024`, bringing the corpus to 34: the 2024-26
+*A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and which settles
+the Concept 4 question that `HANDOFF.md` section 10 carried. Seven open-access papers followed,
+five the paper cites and two from the skill-depreciation literature Chapter 12 has not consulted,
+bringing the corpus to its present 40. None of the seven has been read since it was obtained, so
+holding them changes no read status. Five sources remain record only because no lawful copy is
+yet in hand.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book

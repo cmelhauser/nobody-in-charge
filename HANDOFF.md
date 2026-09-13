@@ -183,7 +183,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-33 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+40 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 The newest, `WorkingManuscript_1939` (12 September 2026), is the 1939 multilith with its pencilled
 revisions, held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md`
@@ -346,7 +346,9 @@ inference from what is already here.
 
 3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
-   Rockefeller Archive holdings, and the adult skill-depreciation literature.
+   Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
+   papers have been held since 13 September 2026 (`Dinerstein_2022`, `CohenJohnstonLindner_2023`)
+   and are not yet read.
 
 **Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
 not yet made, because they change the author's text.
@@ -367,19 +369,25 @@ each moves a record-only source onto the ordinary footing.
 6. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
-**One is a sync the source register is ahead of.** Nothing in it is false; it understates.
+**One is reading that holding a copy has made possible.**
 
-7. **Read-scope statements in the book and primer.** Five held sources were read to the end on 13
-   September 2026. Appendix A12 and the primer's Recovery Dharma entry still scope the absence
-   claim to the pages read in August; Chapter 1's note on the American Temperance Union still calls
-   the 1840 report and 1849 almanac "obtained but consulted only"; and Chapter 2 still lists "the
-   Sons of Temperance material beyond what Maxwell reports" as unread, which the 1849 almanac now
-   supplies. Update them at the next rebuild of the book and primer, which should wait until
-   `tools/build_book.py` no longer writes the author block back into the artifacts. What the
-   reading found is in `research/SOURCES.md`.
+7. **Seven papers held on 13 September 2026 and not yet read:** `Angrist_2014`,
+   `CunhaHeckman_2007`, `CunhaHeckmanSchennach_2010`, `HuSchennach_2008`, `Lembke_nd`,
+   `Dinerstein_2022` and `CohenJohnstonLindner_2023`. Holding them changes no conclusion. The two
+   Cunha papers are worth reading first, because Chapter 13 says its formal apparatus was read at
+   source and `research/SOURCES.md` has never recorded the pages. The last two would begin the
+   skill-depreciation reading that item 3 names.
 
 ### Closed on 13 September 2026
 
+- **The author block in rebuilt books.** `tools/build_book.py`, the preface and the appendix still
+  named the Human Author, so every rebuild put the name back into the book that had been
+  anonymized by hand. All three now say the book is by an anonymous author, and the book and
+  primer were rebuilt from source.
+- **The read-scope statements in the book and primer.** Appendix A12, the primer's Recovery Dharma
+  entry and Chapters 1 and 2 now say what `research/SOURCES.md` says. Chapter 2's list of unread
+  sources was stale on four more names than this list had recorded: Krout, Harrison, Marsh and
+  Eddy had all been read at source long before.
 - **The partly read sources on disk.** The three American Temperance Union documents, Gough's
   autobiography and Recovery Dharma's practice pages are read in full. None changes a conclusion.
   The candidates for use are the Sons of Temperance's own 1848 count of members who broke the
