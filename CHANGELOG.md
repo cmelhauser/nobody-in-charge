@@ -65,6 +65,9 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- Appendix A13 counted twenty-nine personal stories in the 1939 edition; its contents page lists
+  thirty. A13, the primer and the source records now say thirty, and A13 says its census covers the
+  twenty-six stories the automatic split recovered. No census figure changes.
 - Chapter 4 said the 1939 comment round softened "you must" to "we ought". The working manuscript
   shows a change of speaker from "you" to "we" that mostly keeps the modal, and the paragraph now
   says so, with each quotation checked against the page images.
