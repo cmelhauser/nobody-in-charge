@@ -166,7 +166,9 @@ at the Human Author's direction; the last sentence of each item says where.
    because no source measures how fast a practice lapses. Chapter 12, the primer, the paper,
    appendix A11 and `research/PARAMETERS.md` now say all of this, and Chapters 1 and 24 note that
    large downward moves of the decay rate are among the few that reverse the ordering of referral
-   loss against attraction loss.
+   loss against attraction loss. A 400-seed paired run the same day confirmed the reversal on final
+   membership at 25 per cent lower, with the ordering still holding on endpoint viability and
+   existence (`research/decay_ordering.json`; Chapter 12 and appendix A7.5).
 6. **Hu and Schennach is correctly described at a remove.** It identifies nonlinear
    errors-in-variables models with nonclassical error from an instrument, assuming some measure of
    location of the error is zero (195 to 197), and Cunha, Heckman and Schennach use it that way (3).

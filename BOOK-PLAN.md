@@ -321,7 +321,7 @@ falsified outright.
 7. **Introduction**, written last, once the thesis has stopped moving.
 
 **Superseded 9 August 2026. The book is complete.** All six parts are drafted: 25 chapters plus
-the preface and the introduction, assembled by `tools/build_book.py` into a PDF that now runs to 303 pages. Part Six
+the preface and the introduction, assembled by `tools/build_book.py` into a PDF that now runs to 306 pages. Part Six
 and the introduction, described below as outstanding, were written. Chapter 22 is no longer
 provisional: it stands at about 2,300 words and cites Carrell, Sacerdote and West, whose three
 figures are registered as source figures in `tools/check_book.py`.

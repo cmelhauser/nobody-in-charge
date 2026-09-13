@@ -47,7 +47,7 @@ def main():
     model_hash = hashlib.sha256((ROOT / "model" / "aa_group_model.py").read_bytes()).hexdigest()
     lines += ["## Provenance", "", f"- Model SHA-256: `{model_hash}`"]
     for name in ("mc_error.json", "tradition_paired.json", "structural.json", "sens3.json",
-                 "tiered.json", "oat_full.json", "morris.json", "sobol.json"):
+                 "tiered.json", "oat_full.json", "decay_ordering.json", "morris.json", "sobol.json"):
         data = load(name)
         meta = data.get("meta", data.get("_meta", {}))
         assert meta.get("status") == "complete", f"{name} incomplete"
@@ -168,6 +168,45 @@ def main():
     ]
 
     morris = load("morris.json")
+    dec = load("decay_ordering.json")
+    cells = collections.defaultdict(dict)
+    for key, row in dec.items():
+        if key != "meta":
+            cells[(row["pc"], row["scen"])][row["seed"]] = row
+    levels = sorted({k[0] for k in cells}, reverse=True)
+    lines += [
+        "", "## Decay-ordering confirmation", "",
+        "The multi-level screen's `delta0` membership reversals, re-estimated at 400 seeds shared by",
+        "all twelve cells, so every contrast is paired by common random numbers. Full adherence",
+        "otherwise, 1,560 weeks, dt 0.5. Attraction is the pure T11 attraction path with governance",
+        "held at one; referral is `lam_exog = 0`.", "",
+        "| delta0 change | Condition | Mean N [95% half-width] | Existence | Viability | Closure |",
+        "|---:|---|---:|---:|---:|---:|",
+    ]
+    for pc in levels:
+        for scen in ("full", "attraction", "referral"):
+            rows = list(cells[(pc, scen)].values())
+            nvals = [r["N"] for r in rows]
+            lines.append(
+                f"| {pc}% | {scen} | {np.mean(nvals):.3f} [{hw(nvals):.3f}] | "
+                f"{np.mean([r['exists'] for r in rows]):.3f} | "
+                f"{np.mean([r['viable'] for r in rows]):.3f} | "
+                f"{np.mean([r['closed'] for r in rows]):.3f} |")
+    lines += [
+        "", "Attraction-minus-referral paired differences:", "",
+        "| delta0 change | Outcome | Mean [95% paired interval] | Strict | Tied | Reversed |",
+        "|---:|---|---:|---:|---:|---:|",
+    ]
+    for pc in levels:
+        a, b = cells[(pc, "attraction")], cells[(pc, "referral")]
+        seeds = sorted(set(a) & set(b))
+        for fld in ("N", "viable", "exists"):
+            diff = np.asarray([a[s][fld] - b[s][fld] for s in seeds], float)
+            h = hw(diff)
+            lines.append(
+                f"| {pc}% | {fld} | {diff.mean():.3f} [{diff.mean() - h:.3f}, {diff.mean() + h:.3f}] | "
+                f"{int((diff > 0).sum())} | {int((diff == 0).sum())} | {int((diff < 0).sum())} |")
+
     lines += [
         "", "## Morris screen", "",
         "Twenty trajectories; values are output change per unit proportional parameter change.",
