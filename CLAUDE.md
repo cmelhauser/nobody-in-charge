@@ -111,7 +111,7 @@ record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were al
 Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
 sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three are record only.
 
-Four more were added on 17 August 2026, bringing the corpus to its present 31, and all four are
+Four more were added on 17 August 2026, bringing the corpus to 31, and all four are
 record only: AAWS service material SMF-132, the Twelve Concepts for World Service in short form,
 *Tricycle*'s contemporaneous account of the 2019 Recovery Dharma schism, and the fourth edition
 of the Big Book. The first two are published free by AAWS and the third at the publisher's own
@@ -121,6 +121,15 @@ and *Tricycle* corrects where Appendix A12.4 draws its contrast. `BigBook_2001` 
 the Human Author, who owns several copies, and supports Appendix A13.7, which repeats the 1939
 arrival census on the forty-two stories of that edition. Its programme chapters were not read,
 being unchanged from 1939 and covered by `BigBook_1939`.
+
+`WorkingManuscript_1939` was added on 12 September 2026, bringing the corpus to its present 32.
+It is Hazelden's 2010 colour facsimile, *The Book That Started It All*, of the single multilith copy
+onto which comments on the February 1939 draft of the Big Book were collated, read on every page
+from photographs the Human Author took of their own copy. It is in copyright and in print, and it
+is the one such work **held rather than record only**: at the Human Author's direction its reading
+copy and OCR text sit git-ignored in its directory with a hash and an index, and are never
+committed. What it supports, and one correction it implies for Chapter 4, are set out in
+`edits_and_suggested_uses.md` in that directory.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full; only the meditations and inquiry questions were not. It supports appendix A12 and four

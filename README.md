@@ -229,6 +229,13 @@ inside the type block, so the Markdown source stays free of LaTeX and
 `tools/check_chapter.py` can read it as prose. A bare `pandoc` call renders the primer at
 LaTeX's default article margins and is not the release artifact.
 
+The typeset copy of the 1939 working-manuscript note,
+`build/WorkingManuscript_1939-edits-and-suggested-uses.pdf`, is built the same way by
+`tools/build_note.py` from `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`,
+with the primer's typography. It cannot sit beside its source, because every PDF under
+`research/incorporated/` is treated as a source document and never committed. It is a reading
+copy rather than a release artifact, and the release gate does not check it.
+
 The first four commands regenerate files the release check requires but that are otherwise easy
 to forget: `inventory_model_choices.py` writes `research/model-choice-inventory.json`, which
 `check_release.py` reads for the registered-value counts; `summarize_release_gate.py` writes
@@ -273,7 +280,7 @@ source for a subject is citing a work that contains it, using the indexes; with 
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
 with `python3 tools/build_corpus.py`, or audit it with `--check`.
 
-Eleven of the 31 sources are held as record only, with no document at any time: AAWS pamphlet
+Eleven of the 32 sources are held as record only, with no document at any time: AAWS pamphlet
 P-17 and Kurtz (1991), which are copyrighted works the project chose never to store; DeGroot
 (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have unverified posting
 authorization and which the project's rights review directs be cited within limits rather than
@@ -287,6 +294,11 @@ Recovery Dharma (2023), added 16 August 2026 for appendix A12, is held on the or
 document present locally, git-ignored, hashed, and indexed. It is the one source in the corpus
 whose licence, CC BY-NC-SA 4.0, would permit committing the document outright. It is git-ignored
 anyway, because the rule is uniform.
+
+The 1939 working manuscript (`WorkingManuscript_1939`, Hazelden's 2010 facsimile), added 12
+September 2026, is held on the same footing at the Human Author's direction, although it is in
+copyright and in print: its reading copy was made from the Human Author's photographs of their own
+copy, and like every document here it is git-ignored and never committed.
 
 **Reading a copyrighted work and holding one are different acts, and the rule here is about
 holding.** Several chapters formerly declined to read AA literature on copyright grounds. That was

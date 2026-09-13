@@ -44,14 +44,15 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds 31 sources: those the project
+2. **Incorporated local copies.** `research/incorporated/` holds 32 sources: those the project
    used before the acquired corpus arrived, the six promoted out of the staged corpus, six
    added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
    and the Kurtz talk of about 1984, Recovery Dharma (2023) added on 16 August 2026 for
    appendix A12, and four added on 17 August 2026: AAWS service material SMF-132, the Twelve
    Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism, and
-   the fourth edition of the Big Book, which supports Appendix A13.7. A directory's leading token
+   the fourth edition of the Big Book, which supports Appendix A13.7; and, added on 12 September
+   2026, Hazelden's facsimile of the annotated 1939 working manuscript. A directory's leading token
    must be at least three characters and distinctive, because `check_book.py` identifies a
    source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
