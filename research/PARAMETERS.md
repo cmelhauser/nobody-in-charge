@@ -40,6 +40,16 @@ truth.
   per cent.
 - Step speeds and nonzero matrix magnitudes receive 50 per cent ranges in the tiered screen.
 
+The decay rate `delta0 = 0.06` per week is the Tier 2 value with the most riding on it, second
+only to `p_gate` in every screen. On 13 September 2026 it was set against the only estimates read
+for anything comparable, Dinerstein, Megalokonomou and Yannelis (2022) on teaching skill and
+Cohen, Johnston and Lindner (2023) on general skills during unemployment. Both measure skills
+rather than practices, and both are one to two orders of magnitude slower. The value was not
+changed: no source measures how fast a practice lapses, and a new authored value chosen after
+reading papers about a different quantity would not be an improvement. Section 8.1 records that
+large downward moves of it reverse the attraction-versus-referral ordering on final membership;
+`research/SOURCES.md` has the reading.
+
 Borrowing a functional form from a literature does not validate the numeric value in this
 application. The two matrices remain author elicitations. Their structural zeros are choices
 that multiplicative perturbation cannot test.
