@@ -4495,3 +4495,34 @@ understate the reading. None is false. Correcting them changes the sources of th
 so it waits for the next rebuild, and the rebuild waits until `tools/build_book.py` no longer writes
 the author block back into artifacts that `main` carries anonymized. `HANDOFF.md` section 10
 carries it as item 7.
+
+### 13 September 2026: the book rebuilt anonymously, read scope synced, seven papers held
+
+Three things the Human Author asked for in one message.
+
+**The author block.** PR #10 anonymized the committed book by editing its rendered files, and the
+primer at source, but three sources still named the Human Author: the YAML header in
+`tools/build_book.py`, the preface's opening paragraph and the appendix's attribution line. Every
+rebuild therefore put the name back, which is why the read-scope corrections below had been
+waiting. All three now say the book is by an anonymous author, in PR #10's wording, and neither
+rebuilt artifact carries a name. The paper's title block still names the Human Author; PR #10 left
+the paper alone and so does this.
+
+**Read scope.** Appendix A12, the primer's Recovery Dharma entry and Chapters 1 and 2 now say what
+`research/SOURCES.md` says. Correcting them turned up more staleness than `HANDOFF.md` item 7 had
+recorded. A12's introduction still said the fourteen stories were unread, false since 16 August; its
+carrier table marked them "not read"; and its list of what was not read said nothing independent
+about the 2019 schism had been consulted, though A12.4 has used *Tricycle* since 17 August and its
+references never listed it. Chapter 2's list of unread sources named Krout, Harrison, Marsh and
+Eddy, all read at source long before. The inquiry questions add one carrier to A12.3's counsel
+column: they suggest working through them with a mentor, wise friend or group, and ask whether the
+reader has one to turn to (136, 139, 143), checked against the page images.
+
+**Seven papers.** With the Human Author's approval, seven free copies were downloaded from NBER, the
+first author's university site and ASREC, and filed as `Angrist_2014`, `CunhaHeckman_2007`,
+`CunhaHeckmanSchennach_2010`, `HuSchennach_2008`, `Lembke_nd`, `Dinerstein_2022` and
+`CohenJohnstonLindner_2023`, bringing the corpus to 40. None has been read. Where a plain surname
+occurs in chapter prose the directory token is compound, so no token pairs a citation. The Hu and
+Schennach copy is a JSTOR download that the first author posts, cover page included.
+
+The book and primer were rebuilt, and the full release gate passes, 136 of 136.

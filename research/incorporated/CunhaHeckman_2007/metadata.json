@@ -1,0 +1,31 @@
+{
+ "id": "CunhaHeckman_2007",
+ "title": "The Technology of Skill Formation",
+ "authors": [
+  "Flavio Cunha",
+  "James J. Heckman"
+ ],
+ "year": 2007,
+ "type": "working_paper",
+ "status": "acquired_not_read",
+ "held_version": "NBER Working Paper 12840, January 2007",
+ "source_url": "https://www.nber.org/system/files/working_papers/w12840/w12840.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "NBER Working Paper 12840, posted free by NBER; copyright the authors. Held git-ignored since 13 September 2026; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "CunhaHeckman_2007.pdf": {
+   "sha256": "b78d465c373fd588ac86dd8a4b98faad32aa4ad1093bb2c76138a43027015d84",
+   "bytes": 275072,
+   "tracked_in_git": false
+  },
+  "CunhaHeckman_2007.txt": {
+   "sha256": "672d8caced9fe4670cc5033561042d9161c7b86ab8ae3196b89ca2a828db5d32",
+   "bytes": 72833,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
