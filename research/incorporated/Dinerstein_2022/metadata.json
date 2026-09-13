@@ -1,0 +1,32 @@
+{
+ "id": "Dinerstein_2022",
+ "title": "Human Capital Depreciation and Returns to Experience",
+ "authors": [
+  "Michael Dinerstein",
+  "Rigissa Megalokonomou",
+  "Constantine Yannelis"
+ ],
+ "year": 2022,
+ "type": "working_paper",
+ "status": "acquired_not_read",
+ "held_version": "NBER Working Paper 27925, October 2020, revised September 2022",
+ "source_url": "https://www.nber.org/system/files/working_papers/w27925/w27925.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "NBER Working Paper 27925, posted free by NBER; copyright the authors. Held git-ignored since 13 September 2026; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "Dinerstein_2022.pdf": {
+   "sha256": "68785062e89c203a06ce4b49195b205cd914f7ce7c84ede8dc52bf7f550ccfcf",
+   "bytes": 8456525,
+   "tracked_in_git": false
+  },
+  "Dinerstein_2022.txt": {
+   "sha256": "f3d0164b73685d9fcf0337889bc0f538965a9a6bee1bdc27517f10b6320ecf8f",
+   "bytes": 234718,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

@@ -1,0 +1,30 @@
+{
+ "id": "Angrist_2014",
+ "title": "The Perils of Peer Effects",
+ "authors": [
+  "Joshua D. Angrist"
+ ],
+ "year": 2014,
+ "type": "working_paper",
+ "status": "acquired_not_read",
+ "held_version": "NBER Working Paper 19774, December 2013",
+ "source_url": "https://www.nber.org/system/files/working_papers/w19774/w19774.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "NBER Working Paper 19774, posted free by NBER; copyright the author. Held git-ignored since 13 September 2026; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "Angrist_2014.pdf": {
+   "sha256": "fc267229560db28873e98b02fabc0338d451bf796891f3ba69a1273b7e7bd9b3",
+   "bytes": 667928,
+   "tracked_in_git": false
+  },
+  "Angrist_2014.txt": {
+   "sha256": "1d8218f85a458fb5883aeeec2f67708a273209ade4bf29904b8fa91ff746f4ba",
+   "bytes": 68291,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
