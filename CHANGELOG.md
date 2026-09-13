@@ -65,6 +65,9 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- Chapter 4 said the 1939 comment round softened "you must" to "we ought". The working manuscript
+  shows a change of speaker from "you" to "we" that mostly keeps the modal, and the paragraph now
+  says so, with each quotation checked against the page images.
 - Three attributions to Cunha, Heckman and Schennach: the book's rho is their phi, Chapter 12's
   "multiplicative production of a stage" is a CES in their papers, and Chapter 13's "and solve it"
   overstated their claim. Chapter 14 also credited them with a depreciation structure their
