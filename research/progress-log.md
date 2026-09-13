@@ -4617,3 +4617,20 @@ renumbered) and the changelog.
 
 **What did not change.** No model value, cache or notebook. The paper, the appendix and the primer
 never carried the claim.
+
+### 13 September 2026: Appendix A13's count of the 1939 stories
+
+**The error.** A13 said the 1939 edition has twenty-nine personal stories. Its contents page lists
+thirty, from "The Doctor's Nightmare" to "Ace Full Seven-Eleven", and the working manuscript
+accounts for every one: nineteen in the circulated draft, a twentieth struck through there and
+printed anyway, and ten added after the draft went out.
+
+**What changed.** A13 now says thirty wherever it counted the stories, and states that the census
+covers the twenty-six story segments the automatic split recovered; the split did not separate the
+other four and was not retained, so which four is not recorded. The primer, `research/SOURCES.md`
+and the `BigBook_1939` summary say thirty, and the working-manuscript note records the recount as
+made. `HANDOFF.md` section 10 item 4 is closed and the rest renumbered.
+
+**What did not change.** Every census figure, including twenty of twenty-six and its comparison
+with the 2001 edition, was computed over the recovered segments and stands. No model value, cache
+or notebook.

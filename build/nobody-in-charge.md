@@ -6238,7 +6238,7 @@ had looked.
 ## A13. The personal stories read against the model's arrival term
 
 A12 compared program documents. This section does something narrower and evidentially stronger: it
-reads twenty-nine first-person accounts against one specific modelling choice, the arrival term in
+reads the thirty first-person accounts of 1939 against one specific modelling choice, the arrival term in
 A2.7, and asks whether the fellowship the model was built from actually recruits the way the model
 says. It is a coding exercise on text. It adds no cache, no seed and no interval, and it changes no
 number in the release.
@@ -6250,8 +6250,11 @@ Its title page reads "The 4th Edition of Alcoholics Anonymous" and immediately b
 contains a complete reprint of the 1st edition 1939", published by the Alcoholics Anonymous Big
 Book Study Group and marked "No Copyright 1999". The fourth edition is the numbering of the
 reprinter's own printing, not of AA's editions. Its contents are the 1939 first edition: the
-Foreword, the Doctor's Opinion, the eleven chapters of the basic text, and the twenty-nine personal
-stories of that edition, from "The Doctor's Nightmare" through "Ace Full Seven-Eleven". AA's actual
+Foreword, the Doctor's Opinion, the eleven chapters of the basic text, and the thirty personal
+stories of that edition, from "The Doctor's Nightmare" through "Ace Full Seven-Eleven". An earlier
+version of this section counted twenty-nine. The contents page lists thirty, and the 1939 working
+manuscript accounts for all of them: nineteen in the circulated draft, a twentieth struck through
+there and printed anyway, and ten added after the draft went out. AA's actual
 fourth edition of 2001 carries an entirely different set of stories and roughly four hundred more
 pages.
 
@@ -6284,7 +6287,9 @@ arrival still passes through a member; the family is the broker, not the channel
 
 Twenty-seven segments were recovered automatically from the running heads. One of them, "A Vision
 For You", is Chapter 11 of the basic text rather than a story, and is excluded, leaving twenty-six
-story segments. Explicit personal-contact language appears in twenty of the twenty-six.
+story segments out of the book's thirty stories. The automatic split did not separate the other
+four, and it was not retained, so which four is not recorded; they are outside the count rather than
+coded. Explicit personal-contact language appears in twenty of the twenty-six.
 
 That count is a **lower bound and should be read as one**, because the matcher keys on a fixed
 phrase list and misses accounts describing the same event in other words. The six segments without a
@@ -6321,7 +6326,7 @@ was based on the absence of a personal visit.
 
 **It supports the architecture of the arrival term for the fellowship the model was built from.**
 The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
-in twenty-nine independent accounts, and the one case of arrival without a member is presented by
+in the twenty-six accounts the census covers, and the one case of arrival without a member is presented by
 the fellowship as an untested experiment about which it recorded doubt.
 
 **It bounds that architecture to that fellowship, and A12.5 is the other half of the bound.** The
@@ -6344,7 +6349,7 @@ matrix loads most heavily onto Step 1, described from the inside.
 **What it does not do.** It does not validate any numerical value. `lam_exog`, `lam0` and the
 attraction multiplier remain three of the hundred and eighteen registered values, fitted to nothing.
 A census of how people say they arrived cannot set a rate. It also cannot speak to survivorship: the
-twenty-nine accounts are of people who recovered and were chosen for a book intended to persuade, so
+thirty accounts are of people who recovered and were chosen for a book intended to persuade, so
 they are the least representative sample imaginable of everyone the fellowship met. Nothing here
 touches retention, dropout or group survival.
 
@@ -6399,8 +6404,8 @@ edited collections sixty-two years apart, not a time series.
 ### A13.6 The Machinery
 
 **1. What the census says.** The model's arrival term gives the member-carried channel the dominant
-role. Twenty-nine first-person accounts from 1939 describe arrival that way, with a lower bound of
-twenty of twenty-six story segments carrying explicit personal-contact language, and the single
+role. The 1939 accounts describe arrival that way, with a lower bound of twenty of the twenty-six
+story segments recovered from the thirty stories carrying explicit personal-contact language, and the single
 counter-case is one the fellowship itself flagged as an untested experiment about which it recorded
 doubt. Read beside A12.5, where a modern fellowship arrives almost entirely without members, the
 pair localizes the arrival weighting as a property of a fellowship and a period rather than of
@@ -6409,7 +6414,7 @@ mutual-aid groups in general.
 **2. The technical version.** The estimand is the arrival intensity of A2.7. The coding rule is in
 A13.2 and treats a family broker as member-carried. Segmentation was automatic from running heads
 and recovered twenty-seven segments, of which one is a chapter and is excluded, leaving twenty-six
-of the twenty-nine stories. The phrase matcher is a lower bound; A13.3 names all six segments it
+of the thirty stories. The phrase matcher is a lower bound; A13.3 names all six segments it
 failed to match and identifies two as certain false negatives, so a reader can see the size and
 direction of the error rather than take the figure on trust.
 No number in the release changes. No cache, seed, horizon or interval is involved, and nothing here
@@ -6431,7 +6436,7 @@ is the governing limitation on everything in this section.
 **Read in full:**
 
 *Alcoholics Anonymous*, first edition, 1939, in the Alcoholics Anonymous Big Book Study Group
-reprint of 1999. The twenty-nine personal stories, printed pages 183 to 400, read for this section;
+reprint of 1999. The thirty personal stories, printed pages 183 to 400, read for this section;
 the Foreword, the Doctor's Opinion and the eleven chapters of the basic text were read for context.
 Stored as `research/incorporated/BigBook_1939/`, git-ignored with a SHA-256 and a verification
 index.
@@ -7590,7 +7595,7 @@ and the arithmetic, is appendix section A12, and it is written to stand alone.
 **A second reading, from the other end.** The model assumes that most people arrive
 because a member brought them, rather than finding the group on their own. That is one of
 the hundred and eighteen chosen numbers and it had never been checked against anything.
-In August 2026 the twenty-nine personal stories in the 1939 first edition of *Alcoholics
+In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
 that time: the recurring shape is a recovered drinker turning up in person, often several
 of them, and in one case about twenty men visiting a single man in hospital. Only one

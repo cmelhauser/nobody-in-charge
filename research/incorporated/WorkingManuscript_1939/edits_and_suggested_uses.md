@@ -295,8 +295,8 @@ Nothing here changes a model value, a cache or a release check.
 ## Suggested uses in the manuscript
 
 In rough order of value. The first, a correction, was made on 13 September 2026: Chapter 4 now says
-what the pages show. None of the others has been made, and the A13 recount is listed in `HANDOFF.md`
-section 10.
+what the pages show. The recount in item 9 was made the same day: Appendix A13 now counts thirty
+stories and records how the working manuscript accounts for them. None of the others has been made.
 
 1. **Chapter 4, a correction.** Replace "the softening of 'you must' to 'we ought'" with what the pages
    show: instruction to "you" rewritten as a report of what "we" did, the modal usually kept, and some
