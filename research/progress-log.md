@@ -4329,3 +4329,88 @@ version, which tripled the runner minutes without adding coverage. The workflow 
 use 3.12 only and `main` still runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12. The lint
 job uses `shellcheck-py` from pip instead of an apt package. `tools/run_ci_locally.sh` gained
 `unit-tests` and `checkers` arguments; `checks` remains an alias for both.
+
+### 12 September 2026: the 1939 working manuscript, read on every page
+
+The Human Author supplied 241 photographs of Hazelden's *The Book That Started It All* (2010), the
+colour facsimile of the multilith copy onto which the comments on the February 1939 draft of the
+Big Book were collated, and asked for a cleaned PDF, a reading, a corpus entry, and a summary with
+suggested uses for the manuscript.
+
+**Processing.** The frames came in four orientations, with shadow fall-off and some faint
+impressions. Each was straightened by running a fast OCR pass at every rotation and keeping the one
+that returned the most common English words; a plain letter count had picked upside-down pages.
+Each was flattened by dividing it by a text-free estimate of its own illumination, given a black
+point where the print was faint, and OCRed with Apple's Vision framework. Three frames needed their
+orientation forced by hand. The reading copy keeps colour on the 168 facsimile pages, because the
+annotations are told apart by pencil colour, and drops it on the typeset ones; an invisible text
+layer makes it searchable. Book pages 22 and 23 were not photographed.
+
+**Holding.** It is in copyright and in print, which in this corpus has so far meant record only.
+The Human Author asked for the PDF in the corpus as well as in their Downloads folder, so it is held
+on the ordinary footing, git-ignored with a hash and an index. The departure is written into its
+`metadata.json`, into a named rights entry in `tools/build_corpus.py`, and into `CLAUDE.md`, so that
+it reads as a decision and not as drift.
+
+**Method.** Every facsimile page was read as an image rather than from the OCR, and every change
+that mattered was checked against `BigBook_1939`. Two limits of that baseline surfaced: it carries
+one bracketed editorial note quoting the multilith, and it omits the 1939 appendix on the Alcoholic
+Foundation, so the manuscript's Foundation page cannot be compared with print from the corpus.
+
+**What it found**, set out with page references in `edits_and_suggested_uses.md`:
+
+- Step 3's "as we understood Him" is typed in the circulated draft; Step 11's is written in by hand
+  over a struck "a Power above us"; and the "choose your own conception of God" episode in Bill's
+  Story is a handwritten insert on two loose leaves that the draft did not contain.
+- Instruction to "you" becomes a report of what "we" did on nearly every programme page, and
+  selling, kneeling and the throw-the-book-away ultimatum go with it. The readers' own word for what
+  they objected to was moulds, borrowed from a story typed in the same draft.
+- "Group" comes out wherever the text speaks as a body, partly to shed the Oxford Group, and at the
+  galleys a "rule" became a "principle"; "the Fellowship" became "Fellowships" in each city and hamlet.
+- The Foreword already held public anonymity, no organization, no fees and a single requirement,
+  beside a proposed trust with a permanent outside majority whose approval every business engagement
+  needed.
+- Ten of the thirty printed stories were added after the draft circulated; the one story struck with
+  a withdrawal note was printed anyway, at the very end.
+- Members' own meeting sizes for early 1939 run from thirty to eighty: a consistency check on the
+  model's room of sixty, not a validation.
+
+**What it corrects.** Chapter 4 says the comment round softened "you must" to "we ought". The pages
+show the person changing, not the modal: "You must take the lead" became "we found we had to" in
+pencil and "We must take the lead" in print, and no "you must" becomes "we ought" anywhere. The
+chapter is not changed here, because it is the author's text; the correction is item 5 in
+`HANDOFF.md` section 10. Item 6 is Appendix A13's count of twenty-nine 1939 stories, where the
+contents page of `BigBook_1939` lists thirty titles.
+
+**A stale sentence found on the way.** `AGENTS.md` still said five items qualified a conclusion,
+three of them needing a copyrighted book, when section 10 had listed one book and two loose ends
+since 17 August. `check_docs.py` could not catch it, because the number describes another file's
+list. The sentence now points at the list instead of restating its size.
+
+**Ownership.** The Human Author confirmed the same day that the copy photographed is their own, and
+the rights note says so, as `BigBook_2001`'s does. Book pages 22 and 23 are to follow.
+
+**What did not change.** No model value, cache, notebook, rendered PDF or release check.
+
+### 13 September 2026: the working-manuscript note, typeset and committed
+
+The Human Author asked for a formatted PDF of `edits_and_suggested_uses.md`, and for the note,
+that PDF and the reading copy to be saved in the repository with the reading copy git-ignored.
+
+**The reading copy** needed nothing. The copy in the Downloads folder is byte-identical to
+`WorkingManuscript_1939.pdf`, whose SHA-256 matches `metadata.json`, and the corpus rule in
+`.gitignore` already ignores it.
+
+**The note.** The Downloads copy had been edited that morning and differed from the committed
+one in a single clause: the opening paragraph no longer says who photographed the book or on
+which days. The committed copy now matches it. The provenance is unchanged in `metadata.json`.
+
+**The PDF** cannot sit beside the note. Every PDF under `research/incorporated/` is a source
+document by rule, `test_no_source_document_is_tracked_by_git` fails if one is tracked, and
+`build_corpus.py` would take a second PDF in that directory for the source. It is committed as
+`build/WorkingManuscript_1939-edits-and-suggested-uses.pdf` and built by a new
+`tools/build_note.py`, with the primer's typography, so that it is not the product of a pandoc
+command that lives nowhere. It is a reading copy and not a release artifact; the release gate
+does not check it.
+
+**What did not change.** No model value, cache, notebook, release artifact or release check.

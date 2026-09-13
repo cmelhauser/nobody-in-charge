@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 24 August 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 12 September 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -183,8 +183,12 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-31 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+32 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
+The newest, `WorkingManuscript_1939` (12 September 2026), is the 1939 multilith with its pencilled
+revisions, held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md`
+sets out what it implies for the manuscript; the two corrections among those are listed in
+section 10.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
 `.pdf`, `.txt`, `.djvu` and `.epub` under `research/incorporated/` and `research/staged/`. What is
@@ -346,6 +350,19 @@ inference from what is already here.
 4. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature.
+
+**Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
+not yet made, because they change the author's text.
+
+5. **Chapter 4's "you must" to "we ought".** The working manuscript shows the comment round
+   changing who speaks, from "you" to "we", and usually keeping the modal; at one point the
+   galleys restored "We must take the lead" after the pencil had softened it. No "you must"
+   becomes "we ought" anywhere in it. The pages are listed in
+   `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`.
+6. **Appendix A13's count of the 1939 stories.** A13 says twenty-nine; the 1939 contents page in
+   `BigBook_1939` lists thirty titles from "The Doctor's Nightmare" to "Ace Full Seven-Eleven".
+   Either the count or its definition needs stating. The working manuscript adds that ten of
+   those stories were not in the circulated draft.
 
 ### Closed on 17 August 2026
 

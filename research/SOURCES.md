@@ -389,6 +389,25 @@ unresolved and reported as unresolved. Member-initiated arrival is 43 per cent o
 stories against 77 per cent in 1939. **Neither census is a sample**: the stories are selected by
 the fellowship for publication and selection on outcome is total.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center
+City, Minn.: Hazelden, 2010. **Read in full on 12 September 2026**, every facsimile page, from
+photographs the Human Author took of their own copy, and held under
+`research/incorporated/WorkingManuscript_1939/` as a git-ignored reading copy with its OCR text, at
+the Human Author's direction. It is the one in-print copyrighted work in the corpus held rather than
+record only. The facsimile is of the multilith copy onto which the comments on the February 1939
+draft were collated, so read against `BigBook_1939` it shows both what was circulated and what
+changed before print. Step 3's "as we understood Him" is already typed; Step 11's is written in by
+hand; the "choose your own conception of God" episode in Bill's Story is a handwritten insert that
+the circulated draft did not contain. Second-person instruction is recast as first-person report,
+usually keeping the modal, so **Chapter 4's "you must" to "we ought" is not what the pages show**.
+Collective "group" language is taken out; the Foreword's anonymity, no-fees and single-requirement
+statements are already typed, beside a proposed trust with a permanent non-alcoholic majority; and
+ten of the printed stories are absent from the draft. The only numbers it supplies are early-1939
+meeting sizes as members reported them, a consistency check on the model's room capacity and not a
+validation. **Hazelden's essays are secondary and anonymous**, and what they report from AA's own
+histories is cited at a remove. The full account and suggested uses are in
+`edits_and_suggested_uses.md` in the source directory.
+
 *Jensen, Karen, and Matthew Abrahams, "Buddha Buzz Weekly: Refuge Recovery Splits," Tricycle: The
 Buddhist Review, 13 July 2019.* **Read in full at source on 17 August 2026**, held as record only
 under `research/incorporated/Tricycle_2019/`. The independent account of the 2019 schism that
@@ -730,7 +749,7 @@ text. It exists so `tools/check_book.py` can confirm that a cited subject appear
 work without the repository holding a redistributable copy. **This follows the precedent
 used for other in-copyright sources. Maxwell 1950 is also read in full, but unlike Kurtz its
 retyped reproduction and text are saved privately under research/incorporated/Maxwell_1950/.
-Each source that is not record-only keeps one text file beside its document, so the twenty
+Each source that is not record-only keeps one text file beside its document, so the twenty-one
 sources holding a document carry one transcription or OCR file apiece and the eleven record-only
 entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
 not drift. Their individual rights and reliability differ and are stated in their entries.
