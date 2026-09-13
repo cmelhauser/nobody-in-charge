@@ -9,10 +9,13 @@ cent of the fall in earnings after six months and 6 per cent after twelve (27), 
 same measures do fall after retirement, so the stability is not an artefact of insensitive measures
 (4).
 
-**Read in part on 13 September 2026.** Not cited anywhere in the project. With `Dinerstein_2022`
-it bears on the model's decay rate: over one to three years of disuse, the general skills measured
-here do not measurably depreciate. The comparison and its limit are in `research/SOURCES.md`, and
-Chapter 12's statement that this literature was not consulted is no longer true of this paper.
+**Read in full on 13 September 2026**, apart from the appendices. The null covers cognitive
+skills and the noncognitive skills that predict earnings; self-assessed conscientiousness, risk
+tolerance, trust, patience and reciprocity did fall, by 0.2 to 0.6 standard deviations (15), which
+is the one result here that looks more like a practice than a skill. Cited in Chapter 12's notes and
+the paper's limitations since 13 September 2026, with `Dinerstein_2022`, against the model's decay
+rate: over one to three years of disuse, the general skills measured here do not measurably
+depreciate. The comparison and its limit are in `research/SOURCES.md`.
 
 ## Note on the directory token
 
