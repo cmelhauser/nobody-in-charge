@@ -1,8 +1,22 @@
 # Summary
 
-An application of Iannaccone's sacrifice-and-stigma account of strict religious groups to AA: members' willingness to take on a stigmatized identity, give up alcohol and take part creates the club goods recovery depends on, and the same frame is offered as one explanation of AA's growth against less strict alternatives such as Moderation Management. The paper cites it for that application. Only the abstract has been read, to confirm the file is the work cited, so the citation stays at a remove. The first page carries no author line or date; the attribution comes from the posting and the paper's bibliography.
+An application of Iannaccone's sacrifice-and-stigma account of strict religious groups to AA (4 to
+5, 19 to 21). AA's entry cost is stigma rather than sacrifice, since the only requirement is a
+desire to stop drinking, which keeps the fellowship open to the most severe cases (6 to 7);
+sacrifice, of drinking, time and service, is asked after entry and grows with seniority (8 to 10);
+and sponsors act as gatekeepers against two kinds of free-rider, the member who drinks while
+claiming sobriety and the sober member who does not work the Steps, whose failure to sponsor
+shrinks the pool of possible sponsors (10 to 17). A comparison with Moderation Management, smaller
+and less strict, is offered as consistent with Iannaccone (17 to 18). The author calls the paper
+theoretical and in need of empirical support (21), and its two cases are clinical vignettes.
 
-**Held, not read.** Obtained free on 13 September 2026 at the Human Author's direction and held git-ignored with a SHA-256 and a verification index. It has not been read since it was obtained, so nothing in the book is upgraded by its presence.
+**Read in full on 13 September 2026.** The paper cites it for applying Iannaccone's frame to AA,
+which it does, and the paper's bibliography now marks it read in full.
+The copy carries no author line or date: the attribution comes from the posting and the paper's
+bibliography, and ASREC filed it among its October 2015 uploads. `research/SOURCES.md` records two
+points that bear on chapters: the stigma reading of AA's entry cost beside Chapter 2's contrast
+with the Sons of Temperance, and the pool of sponsors as the model's recipient resource in other
+words.
 
 ## Note on the directory token
 

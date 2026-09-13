@@ -68,26 +68,109 @@ the two journal articles on 10 August:
 | Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **sold as an audiobook; the Human Author's own transcription** | PDF and extracted text since 13 September 2026 | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
 | Recovery Dharma Global, *Recovery Dharma*, second edition (2023) | CC BY-NC-SA 4.0; the one licence here that would permit committing the document | PDF and extracted text | **read in full**, in two passes: Sections I and II 16 August 2026, the meditations and inquiry questions 13 September 2026; source for appendix A12 and four paragraphs of Chapter 24 |
 
-### Seven open-access papers held on 13 September 2026
+### Seven open-access papers, held and read on 13 September 2026
 
 At the Human Author's direction the corpus also holds seven papers posted free by their publisher
-or author, each git-ignored with a SHA-256 and a verification index. **None has been read since it
-was obtained.** Holding a copy changes no read status in this register and upgrades no claim.
+or author, each git-ignored with a SHA-256 and a verification index. All seven were read the day
+they were obtained, six in full and one in part, and quotations were checked against the page
+images. What they bear on was applied to the manuscript, the paper, the primer and the appendix
+the same day, at the Human Author's direction; the model is unchanged. Page numbers below are those printed on
+the copies held; five are working papers paginated differently from the published articles, so a
+page reference taken from one must be checked against the article before it is cited.
 
 | Directory | Work | Copy from | Read status |
 |---|---|---|---|
-| `Angrist_2014` | Angrist (2014), "The Perils of Peer Effects", as NBER Working Paper 19774 (December 2013) | nber.org | not read; cited in the paper only |
-| `CunhaHeckman_2007` | Cunha and Heckman (2007), "The Technology of Skill Formation", as NBER Working Paper 12840 (January 2007) | nber.org | not read since obtained; Chapter 13 says it was read at source, which this register has never documented |
-| `CunhaHeckmanSchennach_2010` | Cunha, Heckman and Schennach (2010), as NBER Working Paper 15664 (February 2010) | nber.org | not read since obtained; the paper's bibliography and Chapter 13 say read at source |
-| `HuSchennach_2008` | Hu and Schennach (2008), *Econometrica* 76(1): 195-216, a JSTOR download | the first author's university site | not read; cited at a remove in Chapter 13 |
-| `Lembke_nd` | Lembke (n.d.), "Sacrifice, stigma, and free-riding in Alcoholics Anonymous" | asrec.org | abstract read to confirm the identification; otherwise cited at a remove |
-| `Dinerstein_2022` | Dinerstein, Megalokonomou and Yannelis, "Human Capital Depreciation and Returns to Experience", NBER Working Paper 27925 (2020, revised 2022) | nber.org | not read; not cited |
-| `CohenJohnstonLindner_2023` | Cohen, Johnston and Lindner, "Skill Depreciation during Unemployment: Evidence from Panel Data", NBER Working Paper 31120 (2023) | nber.org | not read; not cited |
+| `Angrist_2014` | Angrist (2014), "The Perils of Peer Effects", as NBER Working Paper 19774 (December 2013, revised January 2014) | nber.org | **read in full**; cited in the paper only |
+| `CunhaHeckman_2007` | Cunha and Heckman (2007), "The Technology of Skill Formation", as NBER Working Paper 12840 (January 2007) | nber.org | **read in full**, with notes and tables |
+| `CunhaHeckmanSchennach_2010` | Cunha, Heckman and Schennach (2010), as NBER Working Paper 15664 (February 2010) | nber.org | **read in full**, with tables; the web appendix is not held |
+| `HuSchennach_2008` | Hu and Schennach (2008), *Econometrica* 76(1): 195-216, a JSTOR download | the first author's university site | read in part: abstract, introduction and the assumptions of section 2 (195 to 200); cited at a remove in Chapter 13 |
+| `Lembke_nd` | Lembke (n.d.), "Sacrifice, stigma, and free-riding in Alcoholics Anonymous" | asrec.org | **read in full**; cited in Chapters 2 and 15 since 13 September 2026 |
+| `Dinerstein_2022` | Dinerstein, Megalokonomou and Yannelis, "Human Capital Depreciation and Returns to Experience", NBER Working Paper 27925 (2020, revised 2022) | nber.org | **read in full**, apart from the online appendix; cited in Chapter 12 and the paper since 13 September 2026 |
+| `CohenJohnstonLindner_2023` | Cohen, Johnston and Lindner, "Skill Depreciation during Unemployment: Evidence from Panel Data", NBER Working Paper 31120 (2023) | nber.org | **read in full**, apart from the appendices; cited in Chapter 12 and the paper since 13 September 2026 |
 
-The last two begin the adult skill-depreciation literature that Chapter 12 and the primer say was
-not consulted, and it stays unconsulted until someone reads them. A working paper is not the
-published article, so a page reference taken from one must be checked against the other before it
-is cited.
+**What the reading found, and where it now stands.** Each finding was applied on 13 September 2026
+at the Human Author's direction; the last sentence of each item says where.
+
+1. **Every attribution Chapters 12 and 13 and the paper make to the two Cunha papers holds, with
+   three qualifications.** Self-productivity and dynamic complementarity are defined in Cunha and
+   Heckman (2007, 7 to 10), who sum up their joint effect as "skills beget skills and abilities
+   beget abilities" (8), which Chapter 13 paraphrases fairly; the CES technology, its elasticity
+   1/(1 - φ) and its Leontief limit as φ goes to minus infinity are at 11 to 12. The five-input
+   stage technology the paper adapts is Cunha, Heckman and Schennach's equation (2.3) (6). Their
+   measurement system in logs of the factors (23) matches Chapter 13's proxy equation, their
+   anchoring of latent skill in adult outcomes is section 3.5 (16 to 18), and they draw on
+   Schennach (2004a) and Hu and Schennach (2008) for identification (3, 11). The qualifications:
+   - *Notation.* They write the substitution parameter as φ and use ρ for the share of cognitive
+     skill in an adult outcome (6). The book's ρ is its own, and a reader moving between the two
+     should be told.
+   - *"Multiplicative."* Chapter 12 says the multiplicative production of a stage from several
+     inputs comes from these papers. Their technology is a CES, multiplicative only in its
+     Cobb-Douglas case (Cunha and Heckman 2007, 14). The book's multiplicative growth equation,
+     which the paper itself says is not a CES aggregator, is the book's own.
+   - *"And solve it."* Chapter 13 says Cunha, Heckman and Schennach face the endogeneity of
+     investment and solve it. They address it (18 to 21, 29 to 30): first with time-invariant
+     heterogeneity identified from adult outcomes, then with time-varying heterogeneity, using
+     family income as the excluded variable under parametric assumptions they state.
+
+   All three are now corrected in Chapters 12 and 13 and in the paper, and Chapter 14 no longer
+   credits Cunha, Heckman and Schennach with a depreciation structure their technology does not
+   have.
+2. **The sign of the substitution parameter is exactly what Cunha, Heckman and Schennach find
+   varying.** In their estimates allowing for heterogeneity (Tables 4 and 5), φ for cognitive skill
+   is positive in early childhood (0.31 and 0.59, elasticities 1.46 and 2.41) and strongly
+   negative later (-1.24 and -1.22, elasticity about 0.45); for noncognitive skill it is negative at
+   both stages (elasticities 0.62 to 0.68). Chapter 13 frames the sign of ρ as deciding whether the
+   Steps are a chain or a menu. The one literature where the analogous parameter has been estimated
+   finds the answer depends on the stage and the skill. That is an analogy, not evidence about the
+   Steps, and Chapter 13 and the paper now present it as one.
+3. **Angrist supports the paper's use of him.** Correlations between individuals and their
+   groups are largely mechanical and predict nothing about what manipulating the groups would do
+   (abstract; 1 to 12; summary, 21); designs that move peers independently of individual traits
+   are the strong evidence, and have found little (17 to 21). His account of Carrell, Sacerdote
+   and West's reassignment of Air Force Academy peer groups, which had no overall effect and
+   marginally significant negative effects for the students it was meant to help (17), is the
+   warning the paper cites. The paper's bibliography now marks it read in full.
+4. **Lembke supports the paper's citation, and offers two things the book could use.** It applies
+   Iannaccone's sacrifice-and-stigma account to AA directly (4 to 5, 19 to 21). It reads AA's entry
+   cost as stigma rather than sacrifice, since the only requirement is a desire to stop drinking,
+   which keeps the fellowship open to the most severe cases (6 to 7), while sponsors screen after
+   entry as gatekeepers against free-riders (10, 13 to 17). That sits beside Chapter 2's contrast
+   between AA and the Sons of Temperance, who screened at the door. And its sober member who does
+   not work the Steps is costly because such members do not sponsor, which shrinks the pool of
+   possible sponsors (11): the model's recipient resource in another vocabulary. The paper calls
+   itself theoretical and in need of empirical support (21), and its two cases are clinical
+   vignettes, so it supplies a frame and not evidence. Chapter 2 now carries the stigma reading and
+   Chapter 15 the pool of sponsors, and the paper's bibliography marks it read in full.
+5. **The two depreciation papers do not support six per cent a week for anything they measure.**
+   The model's dials lose about six per cent of their value a week when nothing holds them up
+   (Chapter 12; `delta0 = 0.06` in the canonical model), a half-life of about eleven and a half
+   weeks, which compounds to a loss of about 96 per cent a year. Dinerstein and colleagues, using
+   the quasi-random order in which Greek graduates wait for teaching posts, estimate the
+   depreciation of teaching skill at 4.3 per cent a year for early-career teachers (standard error
+   1.9) and 17.2 per cent for more experienced ones (standard error 22.5), rates they call large
+   and describe as lower bounds if age effects are positive (4, 37 to 38): half-lives of about
+   sixteen and about four years. Cohen and colleagues find "no decline in a wide range of cognitive
+   and noncognitive skills" over up to three years of unemployment (abstract; 27), though the same
+   measures fall after retirement (4). The comparison is imperfect in one direction: both papers
+   measure skill, and the model's dial is practice, which may lapse faster than the capability
+   behind it. So the literature does not calibrate the rate. It shows that read as skill, six per
+   cent a week is one to two orders of magnitude too fast, and that the evidence Chapter 12 wanted
+   is more likely in the literature on habit and relapse than in labour economics. Two further
+   points came from reading the main texts in full. Dinerstein and colleagues' district-level
+   estimates rest on a weak first stage (an F statistic of 4.6, reported with weak-instrument-robust
+   sets, 31), and they chose a setting they expected to produce high depreciation, since waiting
+   teachers had few ways to practise (9). Cohen and colleagues' null covers cognitive skills and the
+   noncognitive skills that predict earnings, while self-assessed conscientiousness, risk
+   tolerance, trust, patience and reciprocity fell by 0.2 to 0.6 standard deviations (15), the one
+   result in either paper that looks more like a practice than a skill. The model is unchanged,
+   because no source measures how fast a practice lapses. Chapter 12, the primer, the paper,
+   appendix A11 and `research/PARAMETERS.md` now say all of this, and Chapters 1 and 24 note that
+   large downward moves of the decay rate are among the few that reverse the ordering of referral
+   loss against attraction loss.
+6. **Hu and Schennach is correctly described at a remove.** It identifies nonlinear
+   errors-in-variables models with nonclassical error from an instrument, assuming some measure of
+   location of the error is zero (195 to 197), and Cunha, Heckman and Schennach use it that way (3).
+   Chapter 13's statement that it is known through their application remains accurate.
 
 ### The three copyrighted works read on 10 August 2026
 
@@ -1086,18 +1169,18 @@ bibliography often omitted read status. The current-project record supports the 
 
 | Source | Current status | Use and limitation |
 |---|---|---|
-| Angrist (2014) | Read status not documented; a copy is held since 13 September 2026 (`Angrist_2014`) and has not been read | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
+| Angrist (2014) | **Read in full 13 September 2026** in its working-paper version (`Angrist_2014`) | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
 | Banks et al. (2014, 2017) | Read status not documented | Background on dynamic behavior-change models only. |
 | Ben-Porath (1967) | Read status not documented | Background analogy for stock accumulation only. |
-| Cunha and Heckman (2007) | Read status not documented; a copy is held since 13 September 2026 (`CunhaHeckman_2007`) and has not been read | Background on dynamic complementarity. |
-| Cunha, Heckman and Schennach (2010) | Paper bibliography says read at source; a copy is held since 13 September 2026 (`CunhaHeckmanSchennach_2010`) and has not been re-read against that claim | Methodological analogy; current project has not recorded pages used. |
+| Cunha and Heckman (2007) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckman_2007`) | Background on dynamic complementarity. |
+| Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; current project has not recorded pages used. |
 | Galanter (1981) | Read status not documented | Background on large-group therapy. |
 | Gorman et al. (2006) | Read status not documented | Agent-based drinking-model background. |
-| Hu and Schennach (2008) | Read status not documented; a copy is held since 13 September 2026 (`HuSchennach_2008`) and has not been read | Identification literature; the project does not implement its estimator. |
+| Hu and Schennach (2008) | Read in part 13 September 2026, abstract, introduction and assumptions (195 to 200) (`HuSchennach_2008`) | Identification literature; the project does not implement its estimator. |
 | Humphreys, Kaskutas and Weisner (1998) | Read status not documented | Measurement background. |
 | Kaskutas, Bond and Humphreys (2002) | Read status not documented | Social-network mediation background. |
 | Kelly, Humphreys and Ferri (2020) | Read status not documented | Review background; no numerical claim in this project is upgraded from it. |
-| Lembke (undated) | Cited at a remove; a copy is held since 13 September 2026 (`Lembke_nd`), abstract read to confirm the identification | Economics-of-religion application to AA. |
+| Lembke (undated) | **Read in full 13 September 2026** (`Lembke_nd`); the paper's bibliography now says so | Economics-of-religion application to AA. |
 | Ostrom (1990) | Read status not documented | Institutional-design analogy only. |
 | Riessman (1965) | Not obtained | Helper-therapy principle; cited at a remove. |
 | Rynes and Tonigan (2012) | Read status not documented | Sponsorship/network background. |

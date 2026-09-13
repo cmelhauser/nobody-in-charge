@@ -47,6 +47,8 @@ Push it just above zero and the picture changes completely. At 0.3, a person wit
 
 That is a question with an answer. Nobody has to argue about it.
 
+It is also a question that has been answered once, somewhere else, and the answer was not a single sign. When Cunha, Heckman and Schennach estimated their version of the parameter for children, it came out positive in early childhood for cognitive skills, where investment can make up for a poor start, and strongly negative later on, where it cannot; for the social and emotional skills it was negative at both stages. Nothing about the steps follows from children's test scores. But the one place anyone has measured this found that the answer depends on the stage and on the kind of capability, and a study of the steps should be built to find that rather than to assume one sign for all twelve.
+
 ---
 
 There is a second thing the same apparatus tells you, and it is worth having because it survives whichever way the first question goes.
@@ -106,7 +108,7 @@ That is a smaller claim than the one I set out to make. It is also the one the e
 
 ### 1. What the model says
 
-Each step is written as a production stage combining four inputs: the person's own accumulated practice of that step, their practice of the preceding step, what the group supplies for that step, and their maintenance capacity. The functional form is the constant-elasticity-of-substitution aggregator used by Cunha, Heckman and Schennach for skill formation, with a single parameter rho governing how substitutable the inputs are.
+Each step is written as a production stage combining four inputs: the person's own accumulated practice of that step, their practice of the preceding step, what the group supplies for that step, and their maintenance capacity. The functional form is the constant-elasticity-of-substitution aggregator used by Cunha, Heckman and Schennach for skill formation, with a single parameter rho governing how substitutable the inputs are. They write that parameter as phi and use rho for something else, the weight of cognitive skill in an adult outcome; rho is this book's notation, kept because this chapter and the paper use it throughout.
 
 The main result is a reduction rather than a discovery. The informal rule that a step cannot be skipped is the limiting case of this family as rho goes to minus infinity, where the aggregator becomes the minimum of its arguments. That means the folk claim is not a separate hypothesis requiring its own apparatus; it is one point on a continuum, and the continuum is indexed by a number that can be estimated.
 
@@ -155,7 +157,7 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 **A correction, recorded rather than tidied away.** This table first reported one draw per cell and was then enlarged to twenty-five replications. The release gate found that even the larger version was being described as validation of a latent-variable estimator it did not implement. The current 400-replication version narrows the Monte Carlo error and the prose narrows the claim. Replication can describe the behaviour of this estimator under its assumptions; it cannot repair a mismatch between the exercise and the empirical identification problem.
 
-**The unsolved obstacle.** Group input is endogenous to member state. Groups direct attention toward members who are struggling, and members who are doing well attract sponsees. Estimating this technology without handling that will attribute to the technology what is really selection. Cunha, Heckman and Schennach face the identical problem with parental investment and solve it; adapting their approach is necessary before any of this touches real data, and I have not done it.
+**The unsolved obstacle.** Group input is endogenous to member state. Groups direct attention toward members who are struggling, and members who are doing well attract sponsees. Estimating this technology without handling that will attribute to the technology what is really selection. Cunha, Heckman and Schennach face the identical problem with parental investment and address it: they let family income move investment without moving skill directly, and identify the technology under parametric assumptions they state. Adapting that approach is necessary before any of this touches real data, and I have not done it, nor is it obvious what would play the part of family income for a group.
 
 ### 3. Notes on sources
 
@@ -167,7 +169,9 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 **I have not established that no experimental test of sequencing exists**, only that none appeared in a reasonable search and that the standard measurement instrument could not support one. Those are different claims and the chapter states the weaker one.
 
-**The formal apparatus is read at source.** Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010) for the technology and the identification strategy.
+**The formal apparatus is read at source.** Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010) for the technology and the identification strategy. Both were read in full on 13 September 2026 in their working-paper versions, whose pages `research/SOURCES.md` records.
+
+**The one estimate of the analogous parameter.** Cunha, Heckman and Schennach's estimates allowing for unobserved heterogeneity, their Tables 4 and 5, put the cognitive-skill parameter above zero in the first stage of childhood and well below it in the second, and the noncognitive parameter below zero at both. The sign therefore varies with stage and skill in the one literature where it has been estimated. Their inputs are a child's skills, investment and the parents' skills, and their stages are years of childhood, so this is an analogy for the design of a study and not evidence about the steps.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -185,7 +189,7 @@ Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous To
 
 Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
 
-Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error." *Econometrica* 72(1): 33-75; and Hu, Y. and S. M. Schennach (2008). *Econometrica* 76(1): 195-216. The identification results underlying the measurement strategy, known through their application in Cunha, Heckman and Schennach.
+Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error." *Econometrica* 72(1): 33-75; and Hu, Y. and S. M. Schennach (2008). *Econometrica* 76(1): 195-216. The identification results underlying the measurement strategy, known through their application in Cunha, Heckman and Schennach. Hu and Schennach's abstract, introduction and assumptions were read on 13 September 2026 and match that use; Schennach (2004) was not read.
 
 **Internal, and reproducible from this repository:**
 
@@ -193,6 +197,6 @@ The substitution table and cross-partial series are checked in `model/book-calcu
 
 **What was not read:**
 
-Any work estimating a substitution parameter for a sequential practice of this kind in any domain. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it, here or elsewhere, and the chapter should not be read as implying that anybody has.
+Any work estimating a substitution parameter for a sequential practice of this kind. The one estimate of an analogous parameter, for children's skills, is described in the notes above; it concerns stages of childhood, not a practice. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it for the steps, and the chapter should not be read as implying that anybody has.
 
 Carroll, S. (1993). On adherence to the twelve steps.
