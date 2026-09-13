@@ -189,7 +189,7 @@ the counts this repository states about itself, so a failure there means a docum
 the tree rather than with a cache.
 
 `tools/run_ci_locally.sh` runs all four continuous-integration jobs here, which is the quickest
-way to reach the same 136 checks along with the tests, the builds and the overfull gate. Verifying a
+way to reach the same 142 checks along with the tests, the builds and the overfull gate. Verifying a
 release means running `check_release.py` with the artifacts built, not `--skip-artifacts`: that
 flag omits the seven rendered-artifact checks and exists only for a fresh clone, where every file
 carries one checkout timestamp.
@@ -214,6 +214,7 @@ Expected major cache sizes:
 | `oat_full.json` | 944 perturbation points |
 | `morris.json` | 2,380 points, 20 trajectories |
 | `sobol.json` | 11,264 points, 1,024-row base |
+| `decay_ordering.json` | 4,800 |
 
 Every applicable cache must say `complete` and match both the model hash and its generating
 script hash. Parameter screens with three or five common seeds are screens, not confirmatory
@@ -348,7 +349,7 @@ Carlo suite interactively.
 **The two notebooks are no longer the same artifact, and a verifier should confirm that.** Until
 9 August 2026 the paper notebook was byte-identical to the book notebook apart from its title,
 which satisfied this section mechanically while verifying nothing specific to the paper. The book
-notebook now runs 8 cells and about 71 assertions; the paper notebook runs 10 and about 95. Its
+notebook now runs 8 cells and about 78 assertions; the paper notebook runs 10 and about 102. Its
 two extra cells:
 
 1. **Paper headline claims.** Re-derives the paper's principal tables from the caches: all eight
