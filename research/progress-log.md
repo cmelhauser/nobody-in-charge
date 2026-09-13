@@ -4391,3 +4391,26 @@ list. The sentence now points at the list instead of restating its size.
 the rights note says so, as `BigBook_2001`'s does. Book pages 22 and 23 are to follow.
 
 **What did not change.** No model value, cache, notebook, rendered PDF or release check.
+
+### 13 September 2026: the working-manuscript note, typeset and committed
+
+The Human Author asked for a formatted PDF of `edits_and_suggested_uses.md`, and for the note,
+that PDF and the reading copy to be saved in the repository with the reading copy git-ignored.
+
+**The reading copy** needed nothing. The copy in the Downloads folder is byte-identical to
+`WorkingManuscript_1939.pdf`, whose SHA-256 matches `metadata.json`, and the corpus rule in
+`.gitignore` already ignores it.
+
+**The note.** The Downloads copy had been edited that morning and differed from the committed
+one in a single clause: the opening paragraph no longer says who photographed the book or on
+which days. The committed copy now matches it. The provenance is unchanged in `metadata.json`.
+
+**The PDF** cannot sit beside the note. Every PDF under `research/incorporated/` is a source
+document by rule, `test_no_source_document_is_tracked_by_git` fails if one is tracked, and
+`build_corpus.py` would take a second PDF in that directory for the source. It is committed as
+`build/WorkingManuscript_1939-edits-and-suggested-uses.pdf` and built by a new
+`tools/build_note.py`, with the primer's typography, so that it is not the product of a pandoc
+command that lives nowhere. It is a reading copy and not a release artifact; the release gate
+does not check it.
+
+**What did not change.** No model value, cache, notebook, release artifact or release check.

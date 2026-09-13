@@ -62,4 +62,7 @@ corpus bears on the theorem, and nothing in the theorem bears on the historical 
 **The 1939 working manuscript** (`WorkingManuscript_1939`) is in copyright and in print, and is held
 anyway, at the Human Author's direction: a reading copy made from photographs of their own copy of Hazelden's
 2010 facsimile, with its OCR text, both git-ignored. The OCR is a search aid; quote from the page
-images. Its `edits_and_suggested_uses.md` is the working account of what the edits show.
+images. Its `edits_and_suggested_uses.md` is the working account of what the edits show. A typeset
+copy of that account is committed as `build/WorkingManuscript_1939-edits-and-suggested-uses.pdf`
+and rebuilt by `tools/build_note.py`; it lives outside this directory because every PDF here is
+git-ignored as a source document.
