@@ -1,0 +1,31 @@
+{
+ "id": "HuSchennach_2008",
+ "title": "Instrumental Variable Treatment of Nonclassical Measurement Error Models",
+ "authors": [
+  "Yingyao Hu",
+  "Susanne M. Schennach"
+ ],
+ "year": 2008,
+ "type": "journal_article_author_hosted",
+ "status": "acquired_not_read",
+ "held_version": "Econometrica 76(1): 195-216, as a JSTOR download with its cover page",
+ "source_url": "https://www.econ2.jhu.edu/people/hu/Website/HuSchennach2008.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "Author-hosted on the first author's university site: a JSTOR download of the Econometrica article with JSTOR's terms-of-use cover page. Held git-ignored since 13 September 2026; never committed or redistributed.",
+ "legacy_stem": null,
+ "documents": {
+  "HuSchennach_2008.pdf": {
+   "sha256": "9610b4e3ac8590ba8011d58206a8c7366ed32f843ce33a692ec1b221d36e4477",
+   "bytes": 2631290,
+   "tracked_in_git": false
+  },
+  "HuSchennach_2008.txt": {
+   "sha256": "309b8d7c74778d8100479afac02290da4f648ca38a591ed717b3c23fd89796ec",
+   "bytes": 57019,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

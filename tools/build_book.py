@@ -56,13 +56,13 @@ SUBSCRIPTS = {'₀': '0', '₁': '1', '₂': '2', '₃': '3',
               '₄': '4', '₅': '5', '₆': '6', '₇': '7',
               '₈': '8', '₉': '9'}
 
+# The book is published anonymously, as the primer is. The preface and the appendix say so in
+# their own words; a named author here would put a name back into every rebuilt PDF.
 HEADER = """---
 title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
-  - "Human Author: Christopher Melhauser"
-  - "AI Writing Collaborator: theonlymuffinbot"
-  - "Models: Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol/Terra"
+  - "Anonymous"
 date: "Draft of {date}"
 documentclass: report
 classoption: [11pt, oneside]

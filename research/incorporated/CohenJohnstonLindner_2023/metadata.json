@@ -1,0 +1,32 @@
+{
+ "id": "CohenJohnstonLindner_2023",
+ "title": "Skill Depreciation during Unemployment: Evidence from Panel Data",
+ "authors": [
+  "Jonathan P. Cohen",
+  "Andrew C. Johnston",
+  "Attila S. Lindner"
+ ],
+ "year": 2023,
+ "type": "working_paper",
+ "status": "acquired_not_read",
+ "held_version": "NBER Working Paper 31120, April 2023",
+ "source_url": "https://www.nber.org/system/files/working_papers/w31120/w31120.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "NBER Working Paper 31120, posted free by NBER; copyright the authors. Held git-ignored since 13 September 2026; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "CohenJohnstonLindner_2023.pdf": {
+   "sha256": "b3f45f6455bbe4a46be09234977c413006902489a57aa9350b1e1b77f918bbc1",
+   "bytes": 1096644,
+   "tracked_in_git": false
+  },
+  "CohenJohnstonLindner_2023.txt": {
+   "sha256": "ac8dd0cba1d95726e474a834a86342f0ff039c3ca8020cf03b39f7b68d057279",
+   "bytes": 122236,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

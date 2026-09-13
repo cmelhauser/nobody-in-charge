@@ -296,7 +296,7 @@ The pledge text dates from 1840 and is in the public domain.
 
 **Cited at a remove:**
 
-American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The membership and pledge claims; also, through their year-by-year language, Maxwell's index of declining interest. **Status partly upgraded.** Three of these volumes are now held at source and are listed above rather than here: the 1841 annual report, read for its Washingtonian passages, and the 1840 report and 1849 almanac, obtained but consulted only. The series is still cited at a remove for every other year, and Maxwell's index of declining interest still rests on his reading of the run as a whole rather than on mine.
+American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The membership and pledge claims; also, through their year-by-year language, Maxwell's index of declining interest. **Status partly upgraded.** Three of these volumes are now held at source and have been read in full: the 1841 annual report, listed above for its Washingtonian passages, and the 1840 report and the 1849 almanac, read on 13 September 2026, neither of which changes anything in this chapter; what they add is recorded in `research/SOURCES.md`. The series is still cited at a remove for every other year, and Maxwell's index of declining interest still rests on his reading of the run as a whole rather than on mine.
 
 
 

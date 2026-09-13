@@ -1,0 +1,32 @@
+{
+ "id": "CunhaHeckmanSchennach_2010",
+ "title": "Estimating the Technology of Cognitive and Noncognitive Skill Formation",
+ "authors": [
+  "Flavio Cunha",
+  "James J. Heckman",
+  "Susanne M. Schennach"
+ ],
+ "year": 2010,
+ "type": "working_paper",
+ "status": "acquired_not_read",
+ "held_version": "NBER Working Paper 15664, February 2010",
+ "source_url": "https://www.nber.org/system/files/working_papers/w15664/w15664.pdf",
+ "retrieved": "2026-09-13",
+ "record_only": false,
+ "note": "Held git-ignored since 13 September 2026 at the Human Author's direction, obtained free from the URL below. Not read since it was obtained: research/SOURCES.md keeps its read status, and holding it upgrades no claim.",
+ "rights_note": "NBER Working Paper 15664, posted free by NBER; copyright the authors. Held git-ignored since 13 September 2026; never committed.",
+ "legacy_stem": null,
+ "documents": {
+  "CunhaHeckmanSchennach_2010.pdf": {
+   "sha256": "280524f65f3f50dfb09f1a7df9993745003678357191982451fb25fa2ca826e2",
+   "bytes": 836655,
+   "tracked_in_git": false
+  },
+  "CunhaHeckmanSchennach_2010.txt": {
+   "sha256": "2ae4b892e7673af6f3c299c79b68b9b0c9ba415b7845333e9bba743890e41346",
+   "bytes": 126023,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
