@@ -253,7 +253,7 @@ He did not have the mathematics. The formal claim in Part Two, that three Tradit
 
 **The Marsh problem, now confirmed at source.** Maxwell states directly that the American Temperance Union's publications, edited by Marsh, were a major source for later historians, that Marsh's overriding interest was the temperance cause rather than the reformation of drunkards specifically, and that later historians overlooked how much of Marsh's criticism addressed minority behaviour. This is not my inference; it is Maxwell's, and I had it second-hand before I had it first-hand.
 
-**Still unread.** Krout (1925); Harrison (1860); Marsh's own *Temperance Recollections* (1866); Eddy (1887); the Sons of Temperance material beyond what Maxwell reports. The 1850 membership figures for the Sons come from Maxwell; encyclopaedia sources give slightly different numbers, and I have used his.
+**Once unread, now read.** Krout (1925), Harrison (1860), Marsh's own *Temperance Recollections* (1866) and Eddy (1887) were listed here as unread, and all four have since been read at source. The Sons of Temperance's own record has been reached once: the American Temperance Union's almanac for 1849 prints the order's figures for 1848, read on 13 September 2026 and recorded in `research/SOURCES.md`. The rest of what the Sons published is still unread. The 1850 membership figures for the Sons come from Maxwell; encyclopaedia sources give slightly different numbers, and I have used his.
 
 ### 4. References
 

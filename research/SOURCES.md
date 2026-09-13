@@ -66,7 +66,28 @@ the two journal articles on 10 August:
 | AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; published free per chapter by AAWS** | assembled PDF and extracted text since 13 September 2026 | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
 | Rohr, *Breathing Under Water* (2011) | **in copyright and in print; not archived** | record only | read in full 10 August 2026; cited only for its reading of anonymity and for containing no discussion of the Traditions; see the provenance note below |
 | Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **sold as an audiobook; the Human Author's own transcription** | PDF and extracted text since 13 September 2026 | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
-| Recovery Dharma Global, *Recovery Dharma*, second edition (2023) | CC BY-NC-SA 4.0; the one licence here that would permit committing the document | PDF and extracted text | Sections I and II read in full 16 August 2026, meditations and inquiry questions not; source for appendix A12 and four paragraphs of Chapter 24 |
+| Recovery Dharma Global, *Recovery Dharma*, second edition (2023) | CC BY-NC-SA 4.0; the one licence here that would permit committing the document | PDF and extracted text | **read in full**, in two passes: Sections I and II 16 August 2026, the meditations and inquiry questions 13 September 2026; source for appendix A12 and four paragraphs of Chapter 24 |
+
+### Seven open-access papers held on 13 September 2026
+
+At the Human Author's direction the corpus also holds seven papers posted free by their publisher
+or author, each git-ignored with a SHA-256 and a verification index. **None has been read since it
+was obtained.** Holding a copy changes no read status in this register and upgrades no claim.
+
+| Directory | Work | Copy from | Read status |
+|---|---|---|---|
+| `Angrist_2014` | Angrist (2014), "The Perils of Peer Effects", as NBER Working Paper 19774 (December 2013) | nber.org | not read; cited in the paper only |
+| `CunhaHeckman_2007` | Cunha and Heckman (2007), "The Technology of Skill Formation", as NBER Working Paper 12840 (January 2007) | nber.org | not read since obtained; Chapter 13 says it was read at source, which this register has never documented |
+| `CunhaHeckmanSchennach_2010` | Cunha, Heckman and Schennach (2010), as NBER Working Paper 15664 (February 2010) | nber.org | not read since obtained; the paper's bibliography and Chapter 13 say read at source |
+| `HuSchennach_2008` | Hu and Schennach (2008), *Econometrica* 76(1): 195-216, a JSTOR download | the first author's university site | not read; cited at a remove in Chapter 13 |
+| `Lembke_nd` | Lembke (n.d.), "Sacrifice, stigma, and free-riding in Alcoholics Anonymous" | asrec.org | abstract read to confirm the identification; otherwise cited at a remove |
+| `Dinerstein_2022` | Dinerstein, Megalokonomou and Yannelis, "Human Capital Depreciation and Returns to Experience", NBER Working Paper 27925 (2020, revised 2022) | nber.org | not read; not cited |
+| `CohenJohnstonLindner_2023` | Cohen, Johnston and Lindner, "Skill Depreciation during Unemployment: Evidence from Panel Data", NBER Working Paper 31120 (2023) | nber.org | not read; not cited |
+
+The last two begin the adult skill-depreciation literature that Chapter 12 and the primer say was
+not consulted, and it stays unconsulted until someone reads them. A working paper is not the
+published article, so a page reference taken from one must be checked against the other before it
+is cited.
 
 ### The three copyrighted works read on 10 August 2026
 
@@ -1065,18 +1086,18 @@ bibliography often omitted read status. The current-project record supports the 
 
 | Source | Current status | Use and limitation |
 |---|---|---|
-| Angrist (2014) | Read status not documented | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
+| Angrist (2014) | Read status not documented; a copy is held since 13 September 2026 (`Angrist_2014`) and has not been read | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
 | Banks et al. (2014, 2017) | Read status not documented | Background on dynamic behavior-change models only. |
 | Ben-Porath (1967) | Read status not documented | Background analogy for stock accumulation only. |
-| Cunha and Heckman (2007) | Read status not documented | Background on dynamic complementarity. |
-| Cunha, Heckman and Schennach (2010) | Paper bibliography says read at source; no local copy | Methodological analogy; current project has not recorded pages used. |
+| Cunha and Heckman (2007) | Read status not documented; a copy is held since 13 September 2026 (`CunhaHeckman_2007`) and has not been read | Background on dynamic complementarity. |
+| Cunha, Heckman and Schennach (2010) | Paper bibliography says read at source; a copy is held since 13 September 2026 (`CunhaHeckmanSchennach_2010`) and has not been re-read against that claim | Methodological analogy; current project has not recorded pages used. |
 | Galanter (1981) | Read status not documented | Background on large-group therapy. |
 | Gorman et al. (2006) | Read status not documented | Agent-based drinking-model background. |
-| Hu and Schennach (2008) | Read status not documented | Identification literature; the project does not implement its estimator. |
+| Hu and Schennach (2008) | Read status not documented; a copy is held since 13 September 2026 (`HuSchennach_2008`) and has not been read | Identification literature; the project does not implement its estimator. |
 | Humphreys, Kaskutas and Weisner (1998) | Read status not documented | Measurement background. |
 | Kaskutas, Bond and Humphreys (2002) | Read status not documented | Social-network mediation background. |
 | Kelly, Humphreys and Ferri (2020) | Read status not documented | Review background; no numerical claim in this project is upgraded from it. |
-| Lembke (undated) | Cited at a remove | Economics-of-religion application to AA. |
+| Lembke (undated) | Cited at a remove; a copy is held since 13 September 2026 (`Lembke_nd`), abstract read to confirm the identification | Economics-of-religion application to AA. |
 | Ostrom (1990) | Read status not documented | Institutional-design analogy only. |
 | Riessman (1965) | Not obtained | Helper-therapy principle; cited at a remove. |
 | Rynes and Tonigan (2012) | Read status not documented | Sponsorship/network background. |

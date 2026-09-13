@@ -1,11 +1,8 @@
 # Preface
 ## What This Book Knows, and How
 
-*Nobody in Charge* is by Human Author Christopher Melhauser
-(christopher.melhauser@gmail.com), with AI writing collaboration by theonlymuffinbot
-(theonlymuffinbot@outlook.com), using a mix of Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and
-Terra models. Released to the public domain under The Unlicense. See `ATTRIBUTION.md` and
-`LICENSE`.
+*Nobody in Charge* is by an anonymous author. Released to the public domain under The Unlicense.
+See `LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
 
