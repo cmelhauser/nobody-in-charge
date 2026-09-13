@@ -4,7 +4,7 @@
  "publisher": "American Temperance Union",
  "year": 1840,
  "type": "primary_historical",
- "status": "acquired",
+ "status": "read_in_full",
  "rights_note": "Pre-1929 public-domain scan as labeled by Internet Archive source item.",
  "source_url": "https://archive.org/details/reportexecutive00uniogoog",
  "files": {
@@ -26,5 +26,6 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "read_date": "2026-09-13"
 }

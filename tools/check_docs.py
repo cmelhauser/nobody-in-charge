@@ -52,7 +52,7 @@ WORDS = {
     "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13,
     "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
     "nineteen": 19, "twenty": 20, "twenty-one": 21, "twenty-five": 25, "thirty": 30,
-    "thirty-one": 31, "thirty-two": 32,
+    "thirty-one": 31, "thirty-two": 32, "thirty-three": 33,
 }
 CANONICAL_MODEL = "c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952"
 

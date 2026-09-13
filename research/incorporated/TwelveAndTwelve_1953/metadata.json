@@ -4,14 +4,14 @@
  "author": "Bill W. / Alcoholics Anonymous World Services",
  "year": 1953,
  "type": "primary_organizational_text",
- "status": "read_in_full_record_only",
- "rights_note": "Copyrighted AAWS literature, published free per chapter on aa.org. Never stored here; cite from aa.org.",
+ "status": "read_in_full",
+ "rights_note": "Copyrighted AAWS literature, published free per chapter on aa.org. Held git-ignored since 13 September 2026 at the Human Author's direction, assembled from those chapters; never committed.",
  "source_url": "https://www.aa.org/twelve-steps-twelve-traditions",
- "record_only": true,
+ "record_only": false,
  "files": {
   "pdf": null,
   "ocr": null,
-  "note": "Not mirrored. Copyrighted AAWS literature; this repository is public. Same treatment as pamphlet P-17.",
+  "note": "Held git-ignored since 13 September 2026; see holding_note.",
   "sha256_of_assembled_reading_copy": "5e85bfac052d682abca2251b3fb5d64052302e8cef4d56252cfefd01347cf368",
   "assembled_reading_copy": "The thirty per-chapter PDFs from aa.org, concatenated in printed order: copyright, introduction, contents, foreword, Steps One to Twelve, Traditions One to Twelve, long form of the Traditions. 187 pages. Held outside the repository."
  },
@@ -31,6 +31,54 @@
  },
  "cross_reference_test": "No Tradition chapter cites the Step of its own number; the twelve Step chapters contain no occurrence of the word Tradition. The only indexed cross-reference in the book is Tradition Eight citing the Twelfth Step. Computed 10 August 2026 from the per-chapter PDFs; reproducible from the recorded hashes.",
  "legacy_stem": null,
- "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents": {
+  "TwelveAndTwelve_1953.pdf": {
+   "sha256": "635342d1db892e9994e7e4c8b4d9963b1ae41a6b43f8702670c892440634fa39",
+   "bytes": 1782369,
+   "tracked_in_git": false
+  },
+  "TwelveAndTwelve_1953.txt": {
+   "sha256": "647f46b1534abaa3135c230d8a935a3b0d19c5afb6927371a7af63c5f1cac0ed",
+   "bytes": 297147,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "formerly_record_only": {
+  "until": "2026-09-13",
+  "reason_then": "Not mirrored. Copyrighted AAWS literature; this repository is public. Same treatment as pamphlet P-17."
+ },
+ "holding_note": "Held since 13 September 2026 at the Human Author's direction, as a git-ignored local copy that is never committed. The August reading copy was not retained, so this is a fresh assembly of the twenty-nine per-chapter PDFs aa.org posts, concatenated in printed order (187 pages, as before). Per-chapter SHA-256s are listed under parts so each can be re-checked against aa.org. The earlier metadata said thirty files; the page lists twenty-nine.",
+ "parts": {
+  "en_tt_copyright.pdf": "62bef80b3c99b548484acbae285169c89dcc59c8c8ae415cb0e0d8014eae2ffd",
+  "en_tt_contents.pdf": "a8b36a86ac72badb153f39b9116b41ec772d3c662c522ba2585f6517ad33e68a",
+  "en_tt_intro.pdf": "f29270b635a827f6b67e13ac8853c867bcd94b9ea33f1b3c50ba3eef639d218d",
+  "en_tt_foreword.pdf": "de08e9a4b336b077574265f302bc968d71bbbd1af90d023c9aed9ecf67c3c2bf",
+  "en_step1.pdf": "759b733215ee597b5abd69e4bb6e2142ee260f9f30b2a16dead661a182257526",
+  "en_step2.pdf": "2bb1b2660949c3cb7c4df448bd26c187c13003dbf854b51f8714e31a6f1190df",
+  "en_step3.pdf": "84e32d438fb88c013882344583a1ba6f408d1238cd65f3ecc3e314c3653d1f54",
+  "en_step4.pdf": "d64e026e841afa8712122487eb3e0b118c68bb87e4865c24f901cae150d2b0e3",
+  "en_step5.pdf": "40a9846eb48618d1a926d42e484878f002a3aae538532c5bbe8b6c0d7a341801",
+  "en_step6.pdf": "a75520f7ae06ec83efa47cb8063d7024efb22bcbd36c5b6c34c95dabe09d698b",
+  "en_step7.pdf": "f49f57a56b138594d76d59e268c165a7c99ebc258b14f6cfd127696643cee582",
+  "en_step8.pdf": "4af7d92015799056e8d7180d3259d5d9a6ca37900ad72ee974a69898f7aa0b02",
+  "en_step9.pdf": "0e244eefc0fee6a90d0c12f9bf504b6862b52fa76132859d30333317264b94b0",
+  "en_step10_0.pdf": "8fe604cbc0bc4f8eedb3f83bb688c449f23056294ac0a952eca56c84cb8416e9",
+  "en_step11.pdf": "d5474055d91507bb1991ccc939e0d889c7f0d8875d9d126db896bc173818f1fe",
+  "en_step12.pdf": "b73b89d765556f208fc072a2558ac31372a6eacf56e5a4f66a9135c46e5bc358",
+  "en_tradition1.pdf": "9247956ded532e5ae3e7b83ff601634e352d969574db566d8dd97ea722260145",
+  "en_tradition2.pdf": "ef78a54cfa1c492f2cd8f91b42dcac18cb77daa6f39517bd2922acaf8dcef1d5",
+  "en_tradition3.pdf": "8a359a3a62d9a57becee71c2940a4d2042be0b9404a0dd2fdb82008c5731771c",
+  "en_tradition4_0.pdf": "23c617f5ca77f8b8275eb8da0b979ee04c7844d8819166f6b19bf67e2833d3ee",
+  "en_tradition5_0.pdf": "221e926a0ea0f6054bf6ea57a0d756be6fec3e0daf18802de3c7cd1105dd8c6c",
+  "en_tradition6_0.pdf": "c8d777b061f64ff35085392ccb49988d4849de3fe42bd7c72f70989662d8ffd5",
+  "en_tradition7.pdf": "32aaa62b7974db9249cb14f8c2a4c3af18e57842dd137cf75c4d959e2fe9d94f",
+  "en_tradition8.pdf": "760a4db3c8f2ceb9e311f3894886f84dc746ab3b5d2e63c9c549f8e57d2b6b47",
+  "Tradition_9_EN.pdf": "81115ebcf154f139321e44a9680a1bc88ae9c34ec1373bf548a7a1e519da5fb3",
+  "en_tradition10.pdf": "1f7a199105fde2c1ea10a6841338b68bfc634e3d77feb4b40f7bda45f8711d1f",
+  "en_tradition11.pdf": "547b70ef5a7a0b33bf374712469e643ae4b56cd79d5f4eca50c3594800b7fc86",
+  "en_tradition12.pdf": "8bc547190e6297044a4c418382a4704fe625d04e411df9ce065c4dc2b73b02d6",
+  "en_tradition_longform.pdf": "59f1a5047a2ccbb0c83525bb7da70e88081a798f9edcf1d7fdee32aa70c4d68b"
+ },
+ "parts_source": "https://www.aa.org/twelve-steps-twelve-traditions"
 }

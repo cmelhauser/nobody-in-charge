@@ -18,11 +18,26 @@
  ],
  "what_it_supports": "Chapter 10 and the primer's Tradition 9 entry. It is the fellowship's most extended statement on service structure and the strongest place to look for a rule about the size of a rotating pool.",
  "the_finding": "It does not state one. Concept 4, the Right of Participation, asks for voting representation in reasonable proportion to the responsibility each element discharges. That is a proportionality principle, but it proportions voting weight to responsibility, not the size of a rotating pool to the size of the group. The model's rotation result therefore remains something A.A. does not say, now checked against the fellowship's fullest treatment rather than only against Tradition 9 and the 1953 commentary.",
- "record_only": true,
- "record_only_reason": "Copyrighted A.A.W.S. literature, published free on aa.org, which permits printing a single copy. Read at source and never stored.",
+ "record_only": false,
  "verification_index": "none: no text was retained to build one from.",
- "rights_note": "Copyrighted A.A.W.S. literature, published free on aa.org, which permits printing a single copy. Never stored here; cite from aa.org.",
+ "rights_note": "Copyrighted A.A.W.S. literature, published free on aa.org. Held git-ignored since 13 September 2026 at the Human Author's direction; never committed.",
  "legacy_stem": null,
- "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents": {
+  "TwelveConcepts_1962.pdf": {
+   "sha256": "e2a58785918f87e3c098cb029214d556ad27f9be1746a4eab8dd26f7557a92fb",
+   "bytes": 83980,
+   "tracked_in_git": false
+  },
+  "TwelveConcepts_1962.txt": {
+   "sha256": "c095778e26934f48d240d44d5abf1602c2768b3db1f6ea326e6bcb9b936f0cbf",
+   "bytes": 4531,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "formerly_record_only": {
+  "until": "2026-09-13",
+  "reason_then": "Copyrighted A.A.W.S. literature, published free on aa.org, which permits printing a single copy. Read at source and never stored."
+ },
+ "holding_note": "Held since 13 September 2026 at the Human Author's direction, as a git-ignored local copy that is never committed. The PDF held is byte-identical to the file read in August: its SHA-256 matches the digest recorded then."
 }
