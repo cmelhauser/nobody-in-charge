@@ -72,8 +72,9 @@ the two journal articles on 10 August:
 
 At the Human Author's direction the corpus also holds seven papers posted free by their publisher
 or author, each git-ignored with a SHA-256 and a verification index. All seven were read the day
-they were obtained, four in full and three in part, and quotations were checked against the page
-images. **Nothing in the manuscript or the paper changes.** Page numbers below are those printed on
+they were obtained, six in full and one in part, and quotations were checked against the page
+images. What they bear on was applied to the manuscript, the paper, the primer and the appendix
+the same day, at the Human Author's direction; the model is unchanged. Page numbers below are those printed on
 the copies held; five are working papers paginated differently from the published articles, so a
 page reference taken from one must be checked against the article before it is cited.
 
@@ -83,12 +84,12 @@ page reference taken from one must be checked against the article before it is c
 | `CunhaHeckman_2007` | Cunha and Heckman (2007), "The Technology of Skill Formation", as NBER Working Paper 12840 (January 2007) | nber.org | **read in full**, with notes and tables |
 | `CunhaHeckmanSchennach_2010` | Cunha, Heckman and Schennach (2010), as NBER Working Paper 15664 (February 2010) | nber.org | **read in full**, with tables; the web appendix is not held |
 | `HuSchennach_2008` | Hu and Schennach (2008), *Econometrica* 76(1): 195-216, a JSTOR download | the first author's university site | read in part: abstract, introduction and the assumptions of section 2 (195 to 200); cited at a remove in Chapter 13 |
-| `Lembke_nd` | Lembke (n.d.), "Sacrifice, stigma, and free-riding in Alcoholics Anonymous" | asrec.org | **read in full** |
-| `Dinerstein_2022` | Dinerstein, Megalokonomou and Yannelis, "Human Capital Depreciation and Returns to Experience", NBER Working Paper 27925 (2020, revised 2022) | nber.org | read in part: abstract, introduction (1 to 6), production model (14 to 16), decomposition and conclusion (37 to 38); not cited |
-| `CohenJohnstonLindner_2023` | Cohen, Johnston and Lindner, "Skill Depreciation during Unemployment: Evidence from Panel Data", NBER Working Paper 31120 (2023) | nber.org | read in part: abstract, introduction (1 to 6) and conclusion (27); not cited |
+| `Lembke_nd` | Lembke (n.d.), "Sacrifice, stigma, and free-riding in Alcoholics Anonymous" | asrec.org | **read in full**; cited in Chapters 2 and 15 since 13 September 2026 |
+| `Dinerstein_2022` | Dinerstein, Megalokonomou and Yannelis, "Human Capital Depreciation and Returns to Experience", NBER Working Paper 27925 (2020, revised 2022) | nber.org | **read in full**, apart from the online appendix; cited in Chapter 12 and the paper since 13 September 2026 |
+| `CohenJohnstonLindner_2023` | Cohen, Johnston and Lindner, "Skill Depreciation during Unemployment: Evidence from Panel Data", NBER Working Paper 31120 (2023) | nber.org | **read in full**, apart from the appendices; cited in Chapter 12 and the paper since 13 September 2026 |
 
-**What the reading found.** None of it is used yet. `HANDOFF.md` section 10 item 7 carries the
-decisions it puts to the Human Author.
+**What the reading found, and where it now stands.** Each finding was applied on 13 September 2026
+at the Human Author's direction; the last sentence of each item says where.
 
 1. **Every attribution Chapters 12 and 13 and the paper make to the two Cunha papers holds, with
    three qualifications.** Self-productivity and dynamic complementarity are defined in Cunha and
@@ -110,6 +111,10 @@ decisions it puts to the Human Author.
      investment and solve it. They address it (18 to 21, 29 to 30): first with time-invariant
      heterogeneity identified from adult outcomes, then with time-varying heterogeneity, using
      family income as the excluded variable under parametric assumptions they state.
+
+   All three are now corrected in Chapters 12 and 13 and in the paper, and Chapter 14 no longer
+   credits Cunha, Heckman and Schennach with a depreciation structure their technology does not
+   have.
 2. **The sign of the substitution parameter is exactly what Cunha, Heckman and Schennach find
    varying.** In their estimates allowing for heterogeneity (Tables 4 and 5), φ for cognitive skill
    is positive in early childhood (0.31 and 0.59, elasticities 1.46 and 2.41) and strongly
@@ -117,14 +122,14 @@ decisions it puts to the Human Author.
    both stages (elasticities 0.62 to 0.68). Chapter 13 frames the sign of ρ as deciding whether the
    Steps are a chain or a menu. The one literature where the analogous parameter has been estimated
    finds the answer depends on the stage and the skill. That is an analogy, not evidence about the
-   Steps.
+   Steps, and Chapter 13 and the paper now present it as one.
 3. **Angrist supports the paper's use of him.** Correlations between individuals and their
    groups are largely mechanical and predict nothing about what manipulating the groups would do
    (abstract; 1 to 12; summary, 21); designs that move peers independently of individual traits
    are the strong evidence, and have found little (17 to 21). His account of Carrell, Sacerdote
    and West's reassignment of Air Force Academy peer groups, which had no overall effect and
    marginally significant negative effects for the students it was meant to help (17), is the
-   warning the paper cites.
+   warning the paper cites. The paper's bibliography now marks it read in full.
 4. **Lembke supports the paper's citation, and offers two things the book could use.** It applies
    Iannaccone's sacrifice-and-stigma account to AA directly (4 to 5, 19 to 21). It reads AA's entry
    cost as stigma rather than sacrifice, since the only requirement is a desire to stop drinking,
@@ -134,8 +139,8 @@ decisions it puts to the Human Author.
    not work the Steps is costly because such members do not sponsor, which shrinks the pool of
    possible sponsors (11): the model's recipient resource in another vocabulary. The paper calls
    itself theoretical and in need of empirical support (21), and its two cases are clinical
-   vignettes, so it supplies a frame and not evidence. The paper's bibliography still marks it as
-   cited at a remove.
+   vignettes, so it supplies a frame and not evidence. Chapter 2 now carries the stigma reading and
+   Chapter 15 the pool of sponsors, and the paper's bibliography marks it read in full.
 5. **The two depreciation papers do not support six per cent a week for anything they measure.**
    The model's dials lose about six per cent of their value a week when nothing holds them up
    (Chapter 12; `delta0 = 0.06` in the canonical model), a half-life of about eleven and a half
@@ -150,9 +155,18 @@ decisions it puts to the Human Author.
    measure skill, and the model's dial is practice, which may lapse faster than the capability
    behind it. So the literature does not calibrate the rate. It shows that read as skill, six per
    cent a week is one to two orders of magnitude too fast, and that the evidence Chapter 12 wanted
-   is more likely in the literature on habit and relapse than in labour economics. Chapter 12's and
-   the primer's statement that this literature was not consulted is no longer true of these two
-   papers.
+   is more likely in the literature on habit and relapse than in labour economics. Two further
+   points came from reading the main texts in full. Dinerstein and colleagues' district-level
+   estimates rest on a weak first stage (an F statistic of 4.6, reported with weak-instrument-robust
+   sets, 31), and they chose a setting they expected to produce high depreciation, since waiting
+   teachers had few ways to practise (9). Cohen and colleagues' null covers cognitive skills and the
+   noncognitive skills that predict earnings, while self-assessed conscientiousness, risk
+   tolerance, trust, patience and reciprocity fell by 0.2 to 0.6 standard deviations (15), the one
+   result in either paper that looks more like a practice than a skill. The model is unchanged,
+   because no source measures how fast a practice lapses. Chapter 12, the primer, the paper,
+   appendix A11 and `research/PARAMETERS.md` now say all of this, and Chapters 1 and 24 note that
+   large downward moves of the decay rate are among the few that reverse the ordering of referral
+   loss against attraction loss.
 6. **Hu and Schennach is correctly described at a remove.** It identifies nonlinear
    errors-in-variables models with nonclassical error from an instrument, assuming some measure of
    location of the error is zero (195 to 197), and Cunha, Heckman and Schennach use it that way (3).
@@ -1166,7 +1180,7 @@ bibliography often omitted read status. The current-project record supports the 
 | Humphreys, Kaskutas and Weisner (1998) | Read status not documented | Measurement background. |
 | Kaskutas, Bond and Humphreys (2002) | Read status not documented | Social-network mediation background. |
 | Kelly, Humphreys and Ferri (2020) | Read status not documented | Review background; no numerical claim in this project is upgraded from it. |
-| Lembke (undated) | **Read in full 13 September 2026** (`Lembke_nd`); the paper's bibliography still says cited at a remove | Economics-of-religion application to AA. |
+| Lembke (undated) | **Read in full 13 September 2026** (`Lembke_nd`); the paper's bibliography now says so | Economics-of-religion application to AA. |
 | Ostrom (1990) | Read status not documented | Institutional-design analogy only. |
 | Riessman (1965) | Not obtained | Helper-therapy principle; cited at a remove. |
 | Rynes and Tonigan (2012) | Read status not documented | Sponsorship/network background. |

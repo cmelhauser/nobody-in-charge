@@ -94,7 +94,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 296 pages, paper 34, primer 23
+- three built PDFs: book 303 pages, paper 34, primer 23
 
 ---
 
@@ -347,8 +347,8 @@ inference from what is already here.
 3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
-   papers were read in part on 13 September 2026 (item 7). The literature on habit and relapse,
-   which item 7 suggests is where the decay rate's evidence more likely sits, is still unsearched.
+   papers were read in full on 13 September 2026. The literature on how fast habits and practices
+   lapse, which is where the decay rate's evidence would have to come from, is still unsearched.
 
 **Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
 not yet made, because they change the author's text.
@@ -369,35 +369,27 @@ each moves a record-only source onto the ordinary footing.
 6. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
-**One is a set of decisions that reading the seven new papers puts to the Human Author.** None
-changes a conclusion. Each changes the author's text, which is why none is made.
-`research/SOURCES.md` sets out the evidence for each.
+**One is a confirmatory run the new reading makes worth doing.**
 
-7. **What the seven papers read on 13 September 2026 bear on.**
-   - *Chapter 12's decay rate.* Six per cent a week, a half-life under three months, is one to two
-     orders of magnitude faster than the skill depreciation Dinerstein and colleagues estimate (4.3
-     and 17.2 per cent a year), and Cohen and colleagues find none over up to three years of
-     unemployment. Both measure skill and the model's dial is practice, so this does not calibrate
-     the rate. But Chapter 12's and the primer's statement that the literature was not consulted is
-     no longer true, and the chapter could say what the two papers show and where better evidence
-     probably is.
-   - *Three precision points in Chapters 12 and 13.* The book's ρ is Cunha, Heckman and
-     Schennach's φ, and they use ρ for something else; Chapter 12's "multiplicative production of a
-     stage" is a CES in the sources; Chapter 13's "and solve it" overstates what they claim for
-     endogenous investment.
-   - *A candidate addition to Chapter 13.* In Cunha, Heckman and Schennach's estimates the sign of
-     the substitution parameter changes between early and late childhood for cognitive skill,
-     which is the empirical shape of Chapter 13's chain-or-menu question.
-   - *Two candidate uses of Lembke.* Its reading of AA's entry cost as stigma sits beside Chapter
-     2's contrast with the Sons of Temperance, and its pool of sponsors is the model's recipient
-     resource in other words.
-   - *Read-status markers in the paper.* Its bibliography marks Lembke as cited at a remove and
-     gives Cunha and Heckman (2007) and Angrist no status; all three are now read in full.
+7. **The referral-versus-attraction ordering at slower decay.** The one-at-a-time screen reverses
+   the ordering of referral loss against pure attraction loss on final membership when the decay
+   rate is 25, 50 or 75 per cent lower, on three seeds, and at 25 per cent lower the
+   referral-starved group is viable in all three. The reading of 13 September 2026 makes a slower
+   lapse plausible, so a 400-seed paired run of the base, referral-loss and attraction-loss
+   conditions at those three rates would turn a screen into an estimate. It needs a new
+   hash-linked script and cache and changes no released number. The model itself is unchanged,
+   and should stay so until something measures how fast a practice lapses.
 
 ### Closed on 13 September 2026
 
-- **The seven papers held on 13 September 2026 are read**, four in full and three in part. Every
-  attribution the book makes to them holds, with the qualifications and findings carried as item 7.
+- **The seven papers held on 13 September 2026 are read**, six in full and one in part, and what
+  they bear on is applied. Chapter 12 sets the decay rate against the two skill-depreciation papers
+  and says how much rides on it; Chapters 12 and 13 correct the three precision points, and Chapter
+  14 stops crediting Cunha, Heckman and Schennach with the depreciation structure, which is
+  Ben-Porath's; Chapter 13 adds their sign-changing estimate as an analogy; Chapters 2 and 15 use
+  Lembke; Chapters 1 and 24 note that the decay rate is among the few values that reverse the
+  referral-versus-attraction ordering; the paper, primer, appendix A11 and `research/PARAMETERS.md`
+  follow. The model is unchanged, for the reason item 7 gives.
 - **The author block in rebuilt books.** `tools/build_book.py`, the preface and the appendix still
   named the Human Author, so every rebuild put the name back into the book that had been
   anonymized by hand. All three now say the book is by an anonymous author, and the book and

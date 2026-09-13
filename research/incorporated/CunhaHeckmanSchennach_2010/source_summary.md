@@ -16,7 +16,9 @@ references are the working paper's, not *Econometrica*'s. It documents the paper
 statement that the formal apparatus was read at source. `research/SOURCES.md` records three
 qualifications, on notation, on the word "multiplicative" and on "solve it", and one candidate
 finding: the sign of the estimated substitution parameter changes between stages for cognitive
-skill.
+skill. All four were applied on 13 September 2026: Chapters 12 and 13 and the paper carry the
+corrections, Chapter 13 and the paper the sign finding as an analogy, and Chapter 14 no longer
+credits this paper with a depreciation structure its technology does not have.
 
 ## Note on the directory token
 

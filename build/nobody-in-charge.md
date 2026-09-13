@@ -469,7 +469,7 @@ A one-engine group is therefore not merely smaller. It sits on the fragile branc
 
 **How far to trust these numbers.** They are Monte Carlo estimates inside a constructed model, not historical rates. The 95 per cent Wilson interval for endpoint viability is 0.968 to 0.993 in the baseline and 0.015 to 0.049 without referrals. The latter condition closes in 358 of 400 runs. These corrected results are much more severe than the earlier cache because the individual heterogeneity draw is now mean-centred; the old lognormal implementation silently raised average capability above one and cannot be compared to this release.
 
-The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
+The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
 
 The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. Worcester in June 1841 motivates the idea of a crowded room with few relevant recipients; it does not validate the proxy.
 
@@ -815,6 +815,8 @@ He did not have the mathematics. The formal claim in Part Two, that three Tradit
 
 **The Marsh problem, now confirmed at source.** Maxwell states directly that the American Temperance Union's publications, edited by Marsh, were a major source for later historians, that Marsh's overriding interest was the temperance cause rather than the reformation of drunkards specifically, and that later historians overlooked how much of Marsh's criticism addressed minority behaviour. This is not my inference; it is Maxwell's, and I had it second-hand before I had it first-hand.
 
+**A reading of Tradition 3 in Iannaccone's own terms.** Lembke applies Iannaccone to AA directly and puts the difference from the Sons somewhere other than this chapter does. On that reading AA does charge an entry cost, but in stigma rather than sacrifice: it asks for nothing but a desire to stop drinking, which lets in the drinkers least able to pay any other price, and the screening Iannaccone expects is done afterwards, by sponsors holding people already inside to the standard. If that is right, AA does not forbid the club-good mechanism so much as move it past the door, and the model, which has neither stigma nor sponsors, cannot represent either version. The paper is theoretical and illustrated with two clinical cases, so it offers a frame and not evidence.
+
 **Once unread, now read.** Krout (1925), Harrison (1860), Marsh's own *Temperance Recollections* (1866) and Eddy (1887) were listed here as unread, and all four have since been read at source. The Sons of Temperance's own record has been reached once: the American Temperance Union's almanac for 1849 prints the order's figures for 1848, read on 13 September 2026 and recorded in `research/SOURCES.md`. The rest of what the Sons published is still unread. The 1850 membership figures for the Sons come from Maxwell; encyclopaedia sources give slightly different numbers, and I have used his.
 
 ### 4. References
@@ -834,6 +836,8 @@ Crothers, T. D. (1911). *Inebriety: A Clinical Treatise on the Etiology, Symptom
 Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf. **Now read at source**, chapter IX, "The Washingtonian Revival," pp. 182-222; saved as `research/incorporated/Krout_1925/`. The first scholarly history of the American temperance movement, written twenty-five years before Maxwell and independent of him. Used here for the two fundamental weaknesses contemporaries identified, in particular the absence of any connection between societies and the consequence that chance largely determined the formulation of principles; and for the founding motive of the Sons of Temperance, which Krout gives as the need to devise an organisation that would hold members after the first enthusiasm had spent itself, at Teetotalers' Hall, 71 Division Street, on 29 September 1842.
 
 Marsh, J. (1866). *Temperance Recollections: Labors, Defeats, Triumphs. An Autobiography.* New York: Charles Scribner & Co. **Now read at source**, from the public-domain scan held by the New York Public Library and digitised by the Internet Archive; saved in the repository as `research/incorporated/Marsh_1866/`. Marsh was Corresponding Secretary of the American Temperance Union for thirty years and editor of the reports on which the whole decline chronology rests, so his memoir is a participant document rather than a historian's. Used here for the Beecher letter of 21 January 1845 in full; the statement that the movement finished its course and its fruits were gathered into new organisations; the Connecticut convention and the parenthesis about the change that had come over the Washingtonians on prohibition; and Marsh's own exclusion from the Sons of Temperance for not being a reformed man.
+
+Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA)." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. Used in the notes above for the reading of AA's entry cost as stigma rather than sacrifice.
 
 **Cited at a remove:**
 
@@ -2599,6 +2603,8 @@ Left alone, a dial falls. This is not a moral claim and it is not about willpowe
 
 In the model each dial loses about six per cent of its current value per week when nothing is holding it up. That gives a half-life of a bit under three months: a practice at 0.8, entirely unattended, is at 0.4 in twelve weeks. I want to be clear that six per cent is a number I chose. What I did not choose is the shape, which is proportional decay, because that is what depreciation looks like in every literature that has measured anything like it.
 
+The nearest measurements I have found do not rescue the number, and they are worth stating, because after the ordering exponent the decay rate is the most consequential value in the model. Both measure skills rather than practices. Greek teachers kept waiting years for a post lose teaching skill at something like four per cent a year, perhaps more once they have taught; German workers out of a job for up to three years lose no measurable cognitive skill at all. Six per cent a week is one to two orders of magnitude faster than either. I do not think that makes it wrong, because a practice is not a skill. A person can keep for years the ability to write an inventory while the habit of writing one lapses in a month, and the one thing in those studies that did fall, the unemployed workers' own sense of their conscientiousness and patience, looks more like a practice than a skill. But the number now rests on that distinction and nothing else, since I have found no measurement of how fast a practice lapses. If it lapses much more slowly than I assumed, groups in the model grow larger and healthier across the board, and some of the book's comparisons change with them, which the Machinery sets out.
+
 The immediate payoff is that the model can distinguish two people who would score identically on a checklist. Both have done all twelve steps. One is doing them; one did them. In a list the two are the same person. In twelve dials they are nowhere near each other, and the model will predict quite different futures for them, which is the minimum you would want from a description of a programme whose members insist on exactly this distinction.
 
 There is a second decay term, smaller and stranger. A dial falls faster when the dial *after* it is low. Practice on the ninth step erodes more quickly in someone whose tenth is empty. That is a modelling choice with a clear intuition behind it, which is that the later steps are partly what maintains the earlier ones, and it is worth flagging as a choice rather than a finding.
@@ -2752,13 +2758,15 @@ This model gives each step a single level. It therefore cannot represent the mem
 
 ### 3. Notes on sources
 
-**The functional forms are borrowed; the values are not.** Depreciating human capital with endogenous investment is Ben-Porath (1967), read at source. The multiplicative production of a stage from several inputs, and the idea that early stocks condition later growth, are from Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010), also read at source. The saturation form used for the participatory resources is Iannaccone's (1992), read at source.
+**The functional forms are borrowed; the values are not.** Depreciating human capital with endogenous investment is Ben-Porath (1967), read at source. The production of a stage from several inputs, and the idea that early stocks condition later growth, are from Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010), also read at source. They combine the inputs with a constant-elasticity-of-substitution aggregator. The product used here is my choice, not theirs: it resembles that family's Cobb-Douglas case, which Cunha and Heckman give, but its terms and exponents are this book's, and Chapter Thirteen returns to their aggregator when it asks about substitutability. The saturation form used for the participatory resources is Iannaccone's (1992), read at source.
 
 **Nothing here is calibrated to AA data**, because none exists at the required resolution. Inflow, dropout and churn were originally set to target a steady state near forty-five members with an experienced core near nine, roughly a healthy urban meeting. After correcting the lognormal capability draw to have mean one, 400 runs deliver 17.80 ± 0.88 members overall. Among the 394 viable endpoints, the established count above 0.1 is 14.13 ± 0.79 and the experienced count above 0.5 is 1.25 ± 0.20. The calibration therefore fails rather than merely undershooting. I report that failure instead of retuning after seeing the results; absolute levels should not be interpreted as estimates of AA groups.
 
 **The resource list is mine.** The eight group resources were arrived at by asking what each step requires from other people, and no source proposes this list. Someone who knows the programme better would produce a different eight, and the group-dependence coefficients would move with it. What I would expect to survive is the shape: the entry step and the service step depending most, the interior steps depending least.
 
-**Not read.** I have not consulted the literature on skill depreciation rates in adults, which would at least tell me whether six per cent a week is the right order of magnitude for anything comparable. It is the most easily improved number in the model and I have not tried.
+**The decay rate against the only estimates I have found.** Two papers on adult skill depreciation were read on 13 September 2026, and neither measures anything the model's dials represent. Dinerstein, Megalokonomou and Yannelis use the quasi-random order in which Greek graduates wait for teaching posts and estimate that teaching skill depreciates at about four per cent a year in early-career teachers, and at about seventeen per cent in more experienced ones with a standard error larger than the estimate; they describe both as lower bounds if age itself adds skill, and their district-level estimates rest on a weak first stage. Cohen, Johnston and Lindner follow newly unemployed German workers for up to three years and find no decline in cognitive skills or in the noncognitive skills that predict earnings, although self-assessed conscientiousness, risk tolerance, trust, patience and reciprocity fall by between a fifth and three fifths of a standard deviation. The model's six per cent a week compounds to a loss of about 96 per cent a year, a half-life of 11.6 weeks against roughly sixteen and four years for teaching skill. Read as skill, the rate is one to two orders of magnitude too fast. Read as practice, which is what the dial is, it is untested: these papers bound how fast a capability fades, not how fast the habit of using it lapses, and the one declining measure in them is closer to a habit than a skill. I have left the value unchanged, because replacing an authored number with another authored number chosen after reading two papers about something else would not be an improvement, and I report instead how much rides on it.
+
+**How much rides on it.** The decay rate is second only to the ordering exponent in the multi-level sweep, the Morris screen and the Sobol decomposition, where its membership total-order index is 0.373. Chapter Fourteen's 400-seed sweep takes it from 30 per cent below its value to 50 per cent above, and at 30 per cent below the full-adherence group ends with 57.71 members against 17.80, close to the room's capacity. In the one-at-a-time screen, run at three common seeds per endpoint, the referral-starved group, which closes at the default rate, is endpoint-viable at every seed once the rate is a quarter lower, and large downward moves of this rate are among the few that reverse the ordering between losing referrals and losing attraction on final membership (Chapter One; appendix A7.5). A rate anywhere near the skill literature's lies far outside every range tested. The comparisons the book reports are therefore conditional on practice lapsing at roughly the assumed rate, and a measurement of how fast a practice lapses would be worth nearly as much to it as a measurement of the ordering exponent.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -2776,6 +2784,10 @@ Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology 
 
 Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2): 271-291. The saturation form for goods produced by participation.
 
+Dinerstein, M., R. Megalokonomou and C. Yannelis (2022). "Human Capital Depreciation and Returns to Experience." NBER Working Paper 27925, revised September 2022. **Read in full** on 13 September 2026 apart from its online appendix, which is not held; stored in `research/incorporated/Dinerstein_2022/`. The depreciation of teaching skill during time without formal employment, its separation from forgone experience, and the caveats on precision, age effects and the weak district-level first stage.
+
+Cohen, J. P., A. C. Johnston and A. S. Lindner (2023). "Skill Depreciation during Unemployment: Evidence from Panel Data." NBER Working Paper 31120. **Read in full** on 13 September 2026 apart from its appendices; stored in `research/incorporated/CohenJohnstonLindner_2023/`. No measurable decline in cognitive or earnings-relevant noncognitive skills over up to three years of unemployment, the decline in several self-assessed traits, and the decline in the same measures after retirement.
+
 **Cited at a remove:**
 
 Nothing.
@@ -2786,7 +2798,7 @@ The derived group-dependence coefficients, the transmission ratio, the parameter
 
 **What was not read:**
 
-The empirical literature on depreciation rates of adult skills and habits, which bears directly on the decay rate and was not searched.
+The literature on how fast practices and habits lapse, as distinct from how fast skills fade, which is where the evidence for the decay rate would have to come from and which was not searched. The two skill papers above are the only part of the depreciation literature read.
 
 # Chapter Thirteen: Can You Skip a Step?
 
@@ -2835,6 +2847,8 @@ Push it just above zero and the picture changes completely. At 0.3, a person wit
 **So the entire question reduces to the sign of one number.** Negative or zero, and the steps are a chain, and everyone in the rooms has been right for ninety years. Positive, and they are more like a menu with a strong recommended order, and a well-supported person can get most of the way without a step they never did.
 
 That is a question with an answer. Nobody has to argue about it.
+
+It is also a question that has been answered once, somewhere else, and the answer was not a single sign. When Cunha, Heckman and Schennach estimated their version of the parameter for children, it came out positive in early childhood for cognitive skills, where investment can make up for a poor start, and strongly negative later on, where it cannot; for the social and emotional skills it was negative at both stages. Nothing about the steps follows from children's test scores. But the one place anyone has measured this found that the answer depends on the stage and on the kind of capability, and a study of the steps should be built to find that rather than to assume one sign for all twelve.
 
 ---
 
@@ -2895,7 +2909,7 @@ That is a smaller claim than the one I set out to make. It is also the one the e
 
 ### 1. What the model says
 
-Each step is written as a production stage combining four inputs: the person's own accumulated practice of that step, their practice of the preceding step, what the group supplies for that step, and their maintenance capacity. The functional form is the constant-elasticity-of-substitution aggregator used by Cunha, Heckman and Schennach for skill formation, with a single parameter rho governing how substitutable the inputs are.
+Each step is written as a production stage combining four inputs: the person's own accumulated practice of that step, their practice of the preceding step, what the group supplies for that step, and their maintenance capacity. The functional form is the constant-elasticity-of-substitution aggregator used by Cunha, Heckman and Schennach for skill formation, with a single parameter rho governing how substitutable the inputs are. They write that parameter as phi and use rho for something else, the weight of cognitive skill in an adult outcome; rho is this book's notation, kept because this chapter and the paper use it throughout.
 
 The main result is a reduction rather than a discovery. The informal rule that a step cannot be skipped is the limiting case of this family as rho goes to minus infinity, where the aggregator becomes the minimum of its arguments. That means the folk claim is not a separate hypothesis requiring its own apparatus; it is one point on a continuum, and the continuum is indexed by a number that can be estimated.
 
@@ -2944,7 +2958,7 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 **A correction, recorded rather than tidied away.** This table first reported one draw per cell and was then enlarged to twenty-five replications. The release gate found that even the larger version was being described as validation of a latent-variable estimator it did not implement. The current 400-replication version narrows the Monte Carlo error and the prose narrows the claim. Replication can describe the behaviour of this estimator under its assumptions; it cannot repair a mismatch between the exercise and the empirical identification problem.
 
-**The unsolved obstacle.** Group input is endogenous to member state. Groups direct attention toward members who are struggling, and members who are doing well attract sponsees. Estimating this technology without handling that will attribute to the technology what is really selection. Cunha, Heckman and Schennach face the identical problem with parental investment and solve it; adapting their approach is necessary before any of this touches real data, and I have not done it.
+**The unsolved obstacle.** Group input is endogenous to member state. Groups direct attention toward members who are struggling, and members who are doing well attract sponsees. Estimating this technology without handling that will attribute to the technology what is really selection. Cunha, Heckman and Schennach face the identical problem with parental investment and address it: they let family income move investment without moving skill directly, and identify the technology under parametric assumptions they state. Adapting that approach is necessary before any of this touches real data, and I have not done it, nor is it obvious what would play the part of family income for a group.
 
 ### 3. Notes on sources
 
@@ -2956,7 +2970,9 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 **I have not established that no experimental test of sequencing exists**, only that none appeared in a reasonable search and that the standard measurement instrument could not support one. Those are different claims and the chapter states the weaker one.
 
-**The formal apparatus is read at source.** Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010) for the technology and the identification strategy.
+**The formal apparatus is read at source.** Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010) for the technology and the identification strategy. Both were read in full on 13 September 2026 in their working-paper versions, whose pages `research/SOURCES.md` records.
+
+**The one estimate of the analogous parameter.** Cunha, Heckman and Schennach's estimates allowing for unobserved heterogeneity, their Tables 4 and 5, put the cognitive-skill parameter above zero in the first stage of childhood and well below it in the second, and the noncognitive parameter below zero at both. The sign therefore varies with stage and skill in the one literature where it has been estimated. Their inputs are a child's skills, investment and the parents' skills, and their stages are years of childhood, so this is an analogy for the design of a study and not evidence about the steps.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -2974,7 +2990,7 @@ Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous To
 
 Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
 
-Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error." *Econometrica* 72(1): 33-75; and Hu, Y. and S. M. Schennach (2008). *Econometrica* 76(1): 195-216. The identification results underlying the measurement strategy, known through their application in Cunha, Heckman and Schennach.
+Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error." *Econometrica* 72(1): 33-75; and Hu, Y. and S. M. Schennach (2008). *Econometrica* 76(1): 195-216. The identification results underlying the measurement strategy, known through their application in Cunha, Heckman and Schennach. Hu and Schennach's abstract, introduction and assumptions were read on 13 September 2026 and match that use; Schennach (2004) was not read.
 
 **Internal, and reproducible from this repository:**
 
@@ -2982,7 +2998,7 @@ The substitution table and cross-partial series are checked in `model/book-calcu
 
 **What was not read:**
 
-Any work estimating a substitution parameter for a sequential practice of this kind in any domain. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it, here or elsewhere, and the chapter should not be read as implying that anybody has.
+Any work estimating a substitution parameter for a sequential practice of this kind. The one estimate of an analogous parameter, for children's skills, is described in the notes above; it concerns stages of childhood, not a practice. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it for the steps, and the chapter should not be read as implying that anybody has.
 
 Carroll, S. (1993). On adherence to the twelve steps.
 
@@ -3226,7 +3242,7 @@ Fatimah, H. M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics o
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Used here only for the contrast drawn at the end of the chapter, between influence failure and aggregation blindness.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The depreciation structure and the stage technology into which maintenance enters.
+Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
 
 **Cited at a remove:**
 
@@ -3399,7 +3415,7 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 **Riessman (1965) is cited for the name and the idea, not read at source.** It is behind a subscription at *Social Work*. The principle as stated here, that the helper in a shared-condition relationship often benefits most, is not in dispute and is reported in many places, but I have not read the original article.
 
-**The recipient resource is my construction.** No source proposes measuring opportunity to help as low-practice members per high-practice potential helper. The ratio form follows from asking what a person needs in order to do twelfth-step work, and the saturation form is borrowed from Iannaccone's treatment of participatory goods, but the object itself is an invention of this model and should be read as such.
+**The recipient resource is my construction.** No source proposes measuring opportunity to help as low-practice members per high-practice potential helper. The ratio form follows from asking what a person needs in order to do twelfth-step work, and the saturation form is borrowed from Iannaccone's treatment of participatory goods, but the object itself is an invention of this model and should be read as such. The nearest thing in print is Lembke's application of Iannaccone to AA, which counts as a free-rider the sober member who never works the steps, because such members do not sponsor and so shrink the pool of people who can. That is the same resource described from the helper's side and without a measure, so it supports the idea rather than the ratio.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -3410,6 +3426,8 @@ Because conditions use common random streams, uncertainty is computed on paired 
 Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. The saturation form for goods produced by participation.
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
+
+Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA): A new perspective on behavior change in self-help organizations for addiction." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. The sober member who does not sponsor as a free-rider who shrinks the pool of possible sponsors. The paper is theoretical, and its two cases are clinical vignettes.
 
 **Cited at a remove:**
 
@@ -4832,7 +4850,7 @@ Threat two in the appendix says no output of this model has ever been set beside
 
 Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The horizon, the arrival rate and the churn floor are three of the hundred and eighteen chosen numbers, and a match would mostly show that three numbers can be chosen to produce a match.
 
-What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. That is the comparison in item four, and it uses the same measurement.
+What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. Chapter Twelve adds a reason to hold it loosely: the few reversals the one-at-a-time screen finds come mostly from large downward moves of three values, and one of them is the decay rate, which nothing measures for a practice. A study that could record how fast practice lapses in the groups it follows would test the ordering and its most fragile assumption together. That is the comparison in item four, and it uses the same measurement.
 
 ---
 
@@ -5687,6 +5705,12 @@ instead.
 7. Sensitivity screens cover stated ranges and architectures only. Low-replication parameter
    points rank robustness; they do not estimate real-world probabilities.
 8. The staged corpus is deliberately outside this release's evidence record.
+9. The decay rate `delta0` is authored and, after the ordering exponent, the most influential
+   registered value. The only estimates read for anything comparable, on 13 September 2026,
+   measure skills rather than practices and are one to two orders of magnitude slower. Large
+   downward moves of `delta0` are among the few that reverse the pure-attraction-loss minus
+   referral-loss ordering in A7.5. The released value is unchanged, because no source measures
+   how fast a practice lapses.
 
 The model's proper use is to make assumptions and comparisons explicit enough to test against
 real group data. It cannot evaluate or advise any individual person's recovery.
@@ -7668,9 +7692,10 @@ published, and I cannot say how strongly the literature gestures.
 No study of AA group culture, which is why the behavioural description behind
 Tradition 3's retention mechanism is illustration rather than evidence.
 
-The literature on skill depreciation rates in adults, which would say whether six per
-cent a week is the right order of magnitude for anything comparable. It is the most
-easily improved number in the model and it has not been tried.
+The literature on how fast practices and habits lapse. Two papers on adult skill
+depreciation were read on 13 September 2026 and put six per cent a week one to two
+orders of magnitude above anything they measure, but they measure skills rather than
+practices, so the rate is still a choice; Chapter Twelve gives the detail.
 
 Anything independent about the 2019 split. The account above rests entirely on the
 successor fellowship's own literature, written by people who left the predecessor. No
@@ -8351,11 +8376,12 @@ x_{i,t+1} \;=\; A_i \Big[\, \gamma_{i1} x_{i,t}^{\rho_i} + \gamma_{i2} x_{i-1,t}
  + \gamma_{i3} G_{i,t}^{\rho_i} + \gamma_{i4} M_t^{\rho_i} \,\Big]^{1/\rho_i},
 \end{equation}$$ with weights summing to one, elasticity of substitution
 $\sigma_i = 1/(1-\rho_i)$, $G_{i,t}$ the resource bundle from Section 4, and $M_t$
-maintenance capacity built from Steps 10 to 12. Self-productivity is $\gamma_{i1} > 0$;
-the cross-partial in prior-stage stock and group input is positive throughout (from
-$+1.73$ at $\rho = -4$ to $+0.08$ at $\rho = 0.5$), so group support is worth more to a
-member who has done the preceding work: dynamic complementarity in Cunha and Heckman's
-sense.
+maintenance capacity built from Steps 10 to 12. (Cunha, Heckman, and Schennach write the
+substitution parameter as $\phi$ and reserve $\rho$ for an outcome share; $\rho$ here is
+our notation.) Self-productivity is $\gamma_{i1} > 0$; the cross-partial in prior-stage
+stock and group input is positive throughout (from $+1.73$ at $\rho = -4$ to $+0.08$ at
+$\rho = 0.5$), so group support is worth more to a member who has done the preceding work:
+dynamic complementarity in Cunha and Heckman's sense.
 
 ::: proposition
 **Proposition 5** (The ordering rule as a limit). *As $\rho_i \to -\infty$ the aggregator
@@ -8368,7 +8394,11 @@ $\rho = 0.3$ with prior stage at zero).*
 The reduction converts a widely held but untested claim of practice into a sharp empirical
 question: within this CES reformulation, the sign of $\rho$ decides whether the Steps are
 a chain or a menu. Estimating that sign would require an empirical identification design;
-the calculation here does not estimate it.
+the calculation here does not estimate it. In the one setting where an analogous parameter
+has been estimated, children's skill formation, Cunha, Heckman, and Schennach (2010) find
+it positive in early childhood and strongly negative later for cognitive skill, and
+negative at both stages for noncognitive skill, so there is no reason to expect a single
+sign across all twelve Steps.
 
 ### Identification, anchoring, and design
 
@@ -8877,7 +8907,18 @@ this limitation is listed first.
     criterion does not establish that this is why they were written, or why AA has
     endured.
 
-14. **Sources not read.** Alexander (1988) on the class and domestic dimensions of the
+14. **The decay rate is uncalibrated and consequential.** $\delta_0$ is second only to $p$
+    in every sensitivity design. The two estimates read for anything comparable measure
+    skills, not practices: Dinerstein, Megalokonomou, and Yannelis (2022) put the
+    depreciation of teaching skill at 4.3 per cent a year for early-career teachers, and
+    Cohen, Johnston, and Lindner (2023) find no measurable decline in cognitive skills
+    over up to three years of unemployment. Read as skill, $\delta_0 = 0.06$ per week is
+    one to two orders of magnitude too fast; read as practice it is untested. In the
+    one-at-a-time screen, downward moves of $\delta_0$ of 25 per cent or more reverse the
+    ordering of referral loss against pure attraction loss on final membership, so that
+    ordering is conditional on practice lapsing at roughly the assumed rate.
+
+15. **Sources not read.** Alexander (1988) on the class and domestic dimensions of the
     Washingtonian movement; Blumberg (1980, 1991) on its political entanglement; the full
     text of Pagano et al. (2004), which is cited at a remove; White's *Slaying the
     Dragon*. Maxwell (1950) was read in full, but the copy available to us is a retyped
@@ -8996,7 +9037,8 @@ the Washingtonian Temperance Movement, 1840-1850." *Journal of American History*
 763-785. **Not read**; cited for the women's dimension of the movement, which this paper
 does not develop.
 
-Angrist, J. D. (2014). "The perils of peer effects." *Labour Economics* 30: 98-108.
+Angrist, J. D. (2014). "The perils of peer effects." *Labour Economics* 30: 98-108. **Read
+in full** in its working-paper version.
 
 Banks, H. T., K. L. Rehm, K. L. Sutton, C. Davis, L. Hail, A. Kuerbis, and J. Morgenstern
 (2014). "Dynamic modeling of behavior change." *Quarterly of Applied Mathematics* 72:
@@ -9026,18 +9068,26 @@ doi:10.3982/ECTA10168. **Read at source** from the lead author's university copy
 circulated as NBER Working Paper 16865 and, before that, as *Beware of Economists Bearing
 Reduced Forms?*. In copyright; full text not redistributed.
 
+Cohen, J. P., A. C. Johnston, and A. S. Lindner (2023). "Skill depreciation during
+unemployment: Evidence from panel data." NBER Working Paper 31120. **Read in full** apart
+from its appendices.
+
 Crothers, T. D. (1911). *Inebriety: A Clinical Treatise.* Cincinnati: Harvey Publishing.
 **Read at source**; public domain.
 
 Cunha, F., and J. J. Heckman (2007). "The technology of skill formation." *American
-Economic Review* 97(2): 31-47.
+Economic Review* 97(2): 31-47. **Read in full** in its working-paper version.
 
 Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the technology of
-cognitive and noncognitive skill formation." *Econometrica* 78(3): 883-931. **Read at
-source.**
+cognitive and noncognitive skill formation." *Econometrica* 78(3): 883-931. **Read in
+full** in its working-paper version.
 
 DeGroot, M. H. (1974). "Reaching a consensus." *Journal of the American Statistical
 Association* 69(345): 118-121. **Read at source**; the updating model.
+
+Dinerstein, M., R. Megalokonomou, and C. Yannelis (2022). "Human capital depreciation and
+returns to experience." NBER Working Paper 27925. **Read in full** apart from its online
+appendix.
 
 Eddy, R. (1887). *Alcohol in History.* New York: National Temperance Society. **Read at
 source**; public domain.
@@ -9082,7 +9132,8 @@ Jewett printing usually cited.
 Holmström, B. (1982). "Moral hazard in teams." *Bell Journal of Economics* 13(2): 324-340.
 
 Hu, Y., and S. M. Schennach (2008). "Instrumental variable treatment of nonclassical
-measurement error models." *Econometrica* 76(1): 195-216.
+measurement error models." *Econometrica* 76(1): 195-216. **Read in part**; used here at a
+remove, through Cunha, Heckman, and Schennach.
 
 Hufford, M. R., K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003). "Relapse
 as a nonlinear dynamic system." *Journal of Abnormal Psychology* 112(2): 219-227.
@@ -9109,7 +9160,7 @@ Traditions' drafting history. A vocabulary-only verification index is retained a
 `research/incorporated/Kurtz_1991/` in place of the text.
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous."
-Association for the Study of Religion, Economics and Culture. **Cited at a remove.**
+Association for the Study of Religion, Economics and Culture. **Read in full.**
 
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner. **Read at
 source**; public domain.
@@ -9197,7 +9248,8 @@ service pamphlets) have not been obtained.
 DeGroot updaters. Any literature on peer-group composition in voluntary mutual-aid
 settings specifically. Alexander (1988), Blumberg (1980, 1991), Pagano et al. (2004) in
 full, and White's *Slaying the Dragon*. Jellinek's per-capita consumption estimates, which
-are quoted through Maxwell and whose original has not been traced.
+are quoted through Maxwell and whose original has not been traced. The literature on how
+fast practices and habits lapse, as distinct from skills.
 
 ## The Whole Paper in Plain Language
 

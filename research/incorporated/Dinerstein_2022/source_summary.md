@@ -9,11 +9,14 @@ returns of 6.8 per cent, for early-career teachers, and 17.2 per cent a year (st
 for more experienced ones (4, 37 to 38). The authors call these rates large and note that the
 depreciation rate includes constant age effects, so it is a lower bound if those are positive (38).
 
-**Read in part on 13 September 2026.** Not cited anywhere in the project. It bears on the model's
-decay rate of six per cent a week, a half-life of about eleven and a half weeks, against half-lives
-here of about sixteen and about four years. The comparison and its limit, that this paper measures
-skill and the model's dial is practice, are in `research/SOURCES.md`. Chapter 12's statement that
-this literature was not consulted is no longer true of this paper.
+**Read in full on 13 September 2026**, apart from the online appendix, which is not held. The
+authors chose a setting they expected to produce high depreciation, since waiting teachers had few
+ways to practise (9), and their district-level estimates rest on a weak first stage, an F statistic
+of 4.6, reported with weak-instrument-robust sets (31). Cited in Chapter 12's notes and the paper's
+limitations since 13 September 2026, against the model's decay rate of six per cent a week: a
+half-life of 11.6 weeks against half-lives here of about sixteen and about four years. The
+comparison and its limit, that this paper measures skill and the model's dial is practice, are in
+`research/SOURCES.md`.
 
 ## Note on the directory token
 

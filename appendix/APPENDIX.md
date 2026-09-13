@@ -617,6 +617,12 @@ instead.
 7. Sensitivity screens cover stated ranges and architectures only. Low-replication parameter
    points rank robustness; they do not estimate real-world probabilities.
 8. The staged corpus is deliberately outside this release's evidence record.
+9. The decay rate `delta0` is authored and, after the ordering exponent, the most influential
+   registered value. The only estimates read for anything comparable, on 13 September 2026,
+   measure skills rather than practices and are one to two orders of magnitude slower. Large
+   downward moves of `delta0` are among the few that reverse the pure-attraction-loss minus
+   referral-loss ordering in A7.5. The released value is unchanged, because no source measures
+   how fast a practice lapses.
 
 The model's proper use is to make assumptions and comparisons explicit enough to test against
 real group data. It cannot evaluate or advise any individual person's recovery.

@@ -8,7 +8,7 @@
  ],
  "year": 2022,
  "type": "working_paper",
- "status": "read_in_part",
+ "status": "read_in_full",
  "held_version": "NBER Working Paper 27925, October 2020, revised September 2022",
  "source_url": "https://www.nber.org/system/files/working_papers/w27925/w27925.pdf",
  "retrieved": "2026-09-13",
@@ -30,5 +30,5 @@
  },
  "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
  "read_date": "2026-09-13",
- "read_scope": "abstract, introduction (1 to 6), production model (14 to 16), decomposition and conclusion (37 to 38)"
+ "read_scope": "main text in full; the online appendix is not held"
 }

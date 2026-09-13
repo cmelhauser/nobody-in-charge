@@ -26,11 +26,14 @@ someone who wants to know what changed between two tags does not have to read it
 - Appendix A12, the primer's Recovery Dharma entry and Chapters 1 and 2 now state the read scope
   `research/SOURCES.md` records, and the book and primer PDFs are rebuilt. Chapter 2's list of
   unread sources also named Krout, Harrison, Marsh and Eddy, all long since read at source.
-- The seven papers held on 13 September 2026 are read, four in full and three in part. Nothing in
-  the manuscript changes. `research/SOURCES.md` records that every attribution the book makes to
-  them holds, with three precision points in Chapters 12 and 13, and that the two skill-depreciation
-  papers put the model's decay rate of six per cent a week one to two orders of magnitude above the
-  rates they find for skill.
+- The seven papers held on 13 September 2026 are read, six in full and one in part, and what they
+  bear on is applied. Chapter 12 sets the decay rate of six per cent a week against the two
+  skill-depreciation papers, which find rates one to two orders of magnitude slower for skill, and
+  states how much of the book rides on it; Chapters 1 and 24 note that large downward moves of it
+  reverse the referral-versus-attraction ordering in the one-at-a-time screen. Chapter 13 adds
+  Cunha, Heckman and Schennach's sign-changing estimate as an analogy, and Chapters 2 and 15 use
+  Lembke. The paper, primer, appendix A11 and `research/PARAMETERS.md` follow, and the book, paper
+  and primer PDFs are rebuilt. The canonical model is unchanged.
 
 ### Added
 
@@ -62,6 +65,10 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- Three attributions to Cunha, Heckman and Schennach: the book's rho is their phi, Chapter 12's
+  "multiplicative production of a stage" is a CES in their papers, and Chapter 13's "and solve it"
+  overstated their claim. Chapter 14 also credited them with a depreciation structure their
+  technology does not have; it is Ben-Porath's.
 - `tools/build_book.py`, the preface and the appendix still named the Human Author, so a rebuild
   put the name back into a book that had been anonymized by hand. All three now say the book is by
   an anonymous author, and the committed PDFs are rebuilt from source.

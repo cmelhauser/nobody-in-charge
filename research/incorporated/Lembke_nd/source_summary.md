@@ -11,7 +11,7 @@ and less strict, is offered as consistent with Iannaccone (17 to 18). The author
 theoretical and in need of empirical support (21), and its two cases are clinical vignettes.
 
 **Read in full on 13 September 2026.** The paper cites it for applying Iannaccone's frame to AA,
-which it does; the paper's bibliography still marks it as cited at a remove, which now understates.
+which it does, and the paper's bibliography now marks it read in full.
 The copy carries no author line or date: the attribution comes from the posting and the paper's
 bibliography, and ASREC filed it among its October 2015 uploads. `research/SOURCES.md` records two
 points that bear on chapters: the stigma reading of AA's entry cost beside Chapter 2's contrast

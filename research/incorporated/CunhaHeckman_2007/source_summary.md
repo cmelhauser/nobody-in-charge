@@ -13,7 +13,7 @@ limit (11 to 12) and the Cobb-Douglas case at φ = 0 (14).
 the working paper's. It supports what Chapters 12 and 13 and the paper take from it, with one
 qualification recorded in `research/SOURCES.md`: its CES aggregates early and late investment and is
 multiplicative only in the Cobb-Douglas case, so Chapter 12's attribution of multiplicative stage
-production to it is loose. The four-input stage technology the paper adapts is Cunha, Heckman and
+production to it was loose, and Chapter 12 now says so. The four-input stage technology the paper adapts is Cunha, Heckman and
 Schennach's, not this paper's.
 
 ## Note on the directory token
