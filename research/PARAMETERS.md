@@ -47,8 +47,9 @@ Cohen, Johnston and Lindner (2023) on general skills during unemployment. Both m
 rather than practices, and both are one to two orders of magnitude slower. The value was not
 changed: no source measures how fast a practice lapses, and a new authored value chosen after
 reading papers about a different quantity would not be an improvement. Section 8.1 records that
-large downward moves of it reverse the attraction-versus-referral ordering on final membership;
-`research/SOURCES.md` has the reading.
+large downward moves of it reverse the attraction-versus-referral ordering on final membership,
+and that a 400-seed paired run confirms the reversal at 25 per cent lower while the ordering still
+holds there on endpoint viability and existence; `research/SOURCES.md` has the reading.
 
 Borrowing a functional form from a literature does not validate the numeric value in this
 application. The two matrices remain author elicitations. Their structural zeros are choices
@@ -71,6 +72,7 @@ Expanded robustness means more parameter-space coverage, not a 1,000-member grou
 | Sobol | 1,024 base rows; 11,264 points | 5 | conditional decomposition on eight leaders |
 | structural variants | 5 architectures x 5 scenarios x 400 = 10,000 | 400 | one-choice architecture audit |
 | numerical and horizon | 2,600 runs | 200 or 400 | tested integration step and finite horizon |
+| decay-ordering confirmation | 3 conditions x 4 `delta0` levels x 400 = 4,800 | 400 | paired check of the screen's `delta0` reversals |
 
 Parameter points using three or five common seeds are not independent replications of the
 stochastic model. They classify robustness over the registered design. They do not estimate a
@@ -168,6 +170,17 @@ three seeds at 893 of 944 points and exists in all three at 936. Nine of the ele
 reversals are large downward moves of `p_gate`, `delta0` and `churn`; the other two are `S:11,5`
 and `S:11,6`. Twenty-six of 118 values move referral-starved endpoint viability alone; 32 move
 full-adherence endpoint viability alone.
+
+The three `delta0` reversals were re-estimated at 400 seeds by `model/decay_ordering.py`
+(`research/decay_ordering.json`): both channels, pure attraction loss and referral loss at `delta0`
+unchanged and 25, 50 and 75 per cent lower, full adherence otherwise, 1,560 weeks, dt 0.5, seeds 0
+to 399 common to all twelve cells. At 25 per cent lower, attraction-loss minus referral-loss final
+membership is -14.97 [-17.21, -12.73], while endpoint viability is 0.2450 [0.2028, 0.2872] and
+existence 0.1600 [0.1240, 0.1960], all paired 95 per cent intervals. At 50 and 75 per cent lower
+every referral-loss run is endpoint-viable, the binary contrasts are exactly zero, and membership
+is -41.02 [-41.42, -40.62] and -39.12 [-39.55, -38.68]. The screen's membership reversals are
+confirmed at all three distances; the ordering on viability and existence is reversed at none of
+them. Appendix A7.5 has the cell means.
 
 Influence on maintenance, against a full-adherence baseline of 0.0431, as range over baseline:
 
