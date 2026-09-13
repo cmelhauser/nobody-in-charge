@@ -142,9 +142,9 @@ transcription. The same day added `ServiceManual_2024`, bringing the corpus to 3
 *A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and which settles
 the Concept 4 question that `HANDOFF.md` section 10 carried. Seven open-access papers followed,
 five the paper cites and two from the skill-depreciation literature Chapter 12 has not consulted,
-bringing the corpus to its present 40. None of the seven has been read since it was obtained, so
-holding them changes no read status. Five sources remain record only because no lawful copy is
-yet in hand.
+bringing the corpus to its present 40. All seven were read the same day, four in full and three
+in part, and nothing in the manuscript has changed. Five sources remain record only because no
+lawful copy is yet in hand.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book
