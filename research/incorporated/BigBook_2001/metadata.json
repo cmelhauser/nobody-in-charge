@@ -17,11 +17,60 @@
  "what_was_read": "The title page, copyright page, contents, and all three parts of the personal stories. The chapters of the recovery programme were not read for this purpose; they are unchanged from 1939 and are covered by BigBook_1939.",
  "the_finding": "Thirty of the forty-two stories state the initiating channel plainly. Thirteen describe a member seeking the subject out, six a subject contacting the fellowship, eleven a professional or institutional referral. The member-initiated share is 43 per cent against 77 per cent in 1939, and the middle category could not have existed in 1939 because the fellowship was not yet findable. Twelve are unresolved and are reported as unresolved.",
  "estimand_caution": "Neither census is a sample. The stories are selected by the fellowship for publication and selection on outcome is total: every subject recovered. The comparison is between two edited collections sixty-two years apart, not a time series, and estimates nothing about the population.",
- "record_only": true,
- "record_only_reason": "Copyrighted AAWS literature. Read from the author's own copies and the publisher's own per-section postings; never stored in this repository.",
- "verification_index": "none: no text was retained to build one from.",
- "rights_note": "Copyrighted AAWS literature. Read from the Human Author's own copies and the publisher's per-section postings; never stored here.",
+ "record_only": false,
+ "verification_index": "Built by tools/build_corpus.py from the text held here.",
+ "rights_note": "Copyrighted AAWS literature, posted free per section on aa.org; the Human Author also owns printed copies. Held git-ignored since 13 September 2026 at their direction; never committed.",
  "legacy_stem": null,
- "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents": {
+  "BigBook_2001.pdf": {
+   "sha256": "8f1605daf2832100ab6d9f42817c102a7c2ff6f118906423290cc181fd089a4c",
+   "bytes": 3482973,
+   "tracked_in_git": false
+  },
+  "BigBook_2001.txt": {
+   "sha256": "02950fe5aafdf0d665e02f230bf890e0d8d954acde8b692849436312709dac0d",
+   "bytes": 1261195,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "formerly_record_only": {
+  "until": "2026-09-13",
+  "reason_then": "Copyrighted AAWS literature. Read from the author's own copies and the publisher's own per-section postings; never stored in this repository."
+ },
+ "holding_note": "Held since 13 September 2026 at the Human Author's direction, as a git-ignored local copy that is never committed. Assembled from the thirty-one per-section PDFs aa.org posts, concatenated in printed order (598 pages). Per-section SHA-256s are listed under parts.",
+ "parts": {
+  "en_bigbook_titlepage.pdf": "982ebe74d323fa52abc286f22eb88c39ac0e3cf8d0495f4eaa0ec0d4a2de8f01",
+  "en_bigbook_copyright.pdf": "be9206a9685aff74ad69fbb874e1c35b8554ef185f2dd7fcf0ad9b77441ac81b",
+  "en_bigbook_contents.pdf": "3912f919d73791700cfed6648bf72eb2e2418984dbb6ed1d5d8c4db507bc9954",
+  "en_bigbook_preface.pdf": "1b83cbf154f753a623b033c3a39314692bd62a0715ad60538b65c21f617b63e3",
+  "en_bigbook_forewordfirstedition.pdf": "b3ae6b72c9a786a549de2093a49dd4fdc577b87b829aa0791de72ca24bff926d",
+  "en_bigbook_forewordsecondedition.pdf": "4ef824fbd83040b8afcf1fef66e01256a03fe6c919c26e434a30a7a5c6e29ac0",
+  "en_bigbook_forewordthirdedition.pdf": "0d6bae227c98e38f690dffbeb9d34c378c16d237f39a97816dcc98f3446c1383",
+  "en_bigbook_forewordfourthedition.pdf": "bcf3c8be92f569ac74554a780ab6968c55f205273f50b709fe487aad083e1c19",
+  "en_bigbook_foreworddoctorsopinion.pdf": "b4bae64b51034c02cd81f75bb25ce5b78f115f01c5e40fbc6ad5ab999ba18f01",
+  "en_bigbook_chapt1.pdf": "ef4d6f909f3d836da613868727c8a86c3ad8024d5ead1d32cdad992b1224055c",
+  "en_bigbook_chapt2.pdf": "351f15810fe8baf13e9519367cf50d58dd82a1de1675c942383bb22237e3ff3a",
+  "en_bigbook_chapt3.pdf": "6d3abc889c1085cfd7be15a074e7776de41510442bc1d615c71ad5a57627de10",
+  "en_bigbook_chapt4.pdf": "2434c961bd5cf46f9c71f6e8734403d6ff0fc42ac19098af624151645c96d811",
+  "en_bigbook_chapt5.pdf": "1cea3bff4c209601566d836937014839891b30ba0d229f5f25ab0edf6c5cca9a",
+  "en_bigbook_chapt6.pdf": "f6fd940220f7914b8f9f076459478b032f3c7ad7977b5b0e436fb6cfa79bd993",
+  "en_bigbook_chapt7.pdf": "7b3a28f1c75f4298b7783adfb9972f9dd0dc39e45ccf8cb81133559e1502c04b",
+  "en_bigbook_chapt8.pdf": "4a776f47dff59ac90012bcb8e213e6f909d2224af4610dd954a11a0827b088be",
+  "en_bigbook_chapt9.pdf": "d3d5f53e9106de5fc10933ac5d9bb5b1f05952ba75a20fb6390d6c91676c7a09",
+  "en_bigbook_chapt10.pdf": "c3dab987381e207a9c1bd71377d1ff361b09aa3fa7f0ad74c64ff077a62b7d50",
+  "en_bigbook_chapt11.pdf": "f1e6f4810f810b3e7a0fbeac9a393228de69c37fc2abe20b605b2d6e65ce16c0",
+  "en_bigbook_personalstories.pdf": "1c3ab25c8dcc068caf9f1092bbde9e0b6ae0bbb3f51a494812c4a9a272bb4dc5",
+  "en_bigbook_personalstories_partI.pdf": "8ef2b28d29c22afe0c22f9e1fbf9e30317869d4f12d811dd5929a3af517d41cc",
+  "en_bigbook_personalstories_partII.pdf": "f9872660fffa696e4cec7f9b012fff7f6f5ae5c2b8b575f0cd5c5aadf859d97d",
+  "en_bigbook_personalstories_partIII.pdf": "aff77dae0777373d6ab38a77f1d5f7653387dac9f47f1c33f7e48e46dead3189",
+  "en_bigbook_appendicei.pdf": "bd9a0adf1842baa7038d4b8cc4195fe1142c4fe29fdb6cc8b68845236c672bc5",
+  "en_bigbook_appendiceii.pdf": "5053b218a24349c53062be1a9cdc3c0b453bdfd4d8688f3c50731504251b4734",
+  "en_bigbook_appendiceiii.pdf": "e00dc1df3fbcc22a0f4f35819b5bedd7cfafff69045a3a08ac0ec568a6bc4c2e",
+  "en_bigbook_appendiceiv.pdf": "79a3b2e7483989e4e78954356e7201222bc4244ed72edba9d4fc6155e11632a4",
+  "en_bigbook_appendicev.pdf": "c2ff7fdd485d4ab8a63d9c35e4de4a507c912f80d610869af2c316cb76c62a22",
+  "en_bigbook_appendicevi.pdf": "e32ad37bbbaf81976dcc123fb40b4c35a7401385369ff1683dd02ff63ef1360f",
+  "en_bigbook_appendicevii_.pdf": "0a5159219e1c6e71a6197c9c914611a0d85ac24503f74cd61c4429ee030dd1f7"
+ },
+ "parts_source": "https://www.aa.org/the-big-book"
 }

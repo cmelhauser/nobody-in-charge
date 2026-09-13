@@ -54,18 +54,18 @@ the two journal articles on 10 August:
 
 | Item | Rights | Local files | Read status |
 |---|---|---|---|
-| ATU, *Report of the Executive Committee* (1840) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
-| ATU, *Annual Report* (1841) | public domain, pre-1929 | PDF and OCR | read for the Washingtonian passages; p. 39 verified against the page image |
-| ATU, *Almanac for 1849* (1848) | public domain, pre-1929 | PDF and OCR | consulted, not read in full |
-| AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; not mirrored** | citation and metadata only | read; two passages verified against page images; supplies the 1946 Twelve Points text for Chapter 5 |
+| ATU, *Report of the Executive Committee* (1840) | public domain, pre-1929 | PDF and OCR | **read in full 13 September 2026**; supports no claim in the manuscript; the 1839 treasurer's account (printed p. 6) verified against the page image |
+| ATU, *Annual Report* (1841) | public domain, pre-1929 | PDF and OCR | read for the Washingtonian passages in August, **read in full 13 September 2026**; p. 39 and the treasurer's account (printed p. 33) verified against the page images |
+| ATU, *Almanac for 1849* (1848) | public domain, pre-1929 | PDF and OCR | **read in full 13 September 2026**; supports no claim in the manuscript; the Sons of Temperance statistics for 1848 (printed p. 17) verified against the page image |
+| AAWS, *A.A. Tradition: How It Developed*, P-17 (2024) | **copyrighted; published free by AAWS** | PDF and extracted text since 13 September 2026, byte-identical to the file read in August | read; two passages verified against page images; supplies the 1946 Twelve Points text for Chapter 5 |
 | Pagano et al., "Helping Other Alcoholics" (2004) | NIH author manuscript, open access | PDF and extracted text | read in full; figures checked against the results section |
 | Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
 | Wilson, "Twelve Suggested Points for A. A. Tradition", *A.A. Grapevine* (April 1946) | **A.A. Grapevine copyright; not archived** | record only | read at source; Chapter 5's opening quotation verified, and the two-title problem explained |
 | DeGroot, "Reaching a Consensus" (1974) | **ASA / Taylor & Francis; not archived** | record only | read at source; the updating rule behind Part Two |
 | *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | **twenty-nine personal stories read in full 17 August 2026**; supports appendix A13, the census of arrival channels against the model's arrival term |
-| AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; not archived** | record only | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
+| AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; published free per chapter by AAWS** | assembled PDF and extracted text since 13 September 2026 | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
 | Rohr, *Breathing Under Water* (2011) | **in copyright and in print; not archived** | record only | read in full 10 August 2026; cited only for its reading of anonymity and for containing no discussion of the Traditions; see the provenance note below |
-| Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **rights position not established; not archived** | record only | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
+| Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **sold as an audiobook; the Human Author's own transcription** | PDF and extracted text since 13 September 2026 | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
 | Recovery Dharma Global, *Recovery Dharma*, second edition (2023) | CC BY-NC-SA 4.0; the one licence here that would permit committing the document | PDF and extracted text | Sections I and II read in full 16 August 2026, meditations and inquiry questions not; source for appendix A12 and four paragraphs of Chapter 24 |
 
 ### The three copyrighted works read on 10 August 2026
@@ -73,8 +73,9 @@ the two journal articles on 10 August:
 These three changed the project's own rule, and the change should be stated rather than absorbed
 quietly. The rule was previously written, in several chapters, as *this project does not acquire
 AA copyright material*. That conflated two different things. A rule against **holding** a
-copyrighted work is a copyright rule and the project keeps it strictly: nothing is stored, nothing
-is committed, nothing is quoted at length. A rule against **reading** one was never a copyright
+copyrighted work is a copyright rule and the project keeps it strictly: nothing is committed and
+nothing is quoted at length. (Until 13 September 2026 nothing was stored either; since then the
+corpus holds lawful copies git-ignored, at the Human Author's direction.) A rule against **reading** one was never a copyright
 rule at all, and it had been costing the argument evidence.
 
 What it cost is now measurable. *Twelve Steps and Twelve Traditions* contained the book's own
@@ -85,7 +86,9 @@ of those four are things the book had recorded as unavailable.
 `TwelveAndTwelve_1953` is held on exactly the P-17 footing: AAWS publishes the book free, one
 chapter per PDF, and a reading copy was assembled locally, read, and left outside the repository.
 The record keeps the citation, the assembly's SHA-256, the pages verified, and the reproducible
-cross-reference count.
+cross-reference count. That August assembly was not retained. Since 13 September 2026 a fresh
+assembly of the same twenty-nine chapter PDFs is held git-ignored in the directory, with each
+chapter's SHA-256 recorded so it can be re-checked against aa.org.
 
 `Rohr_2011` carries a provenance problem recorded in full at
 `research/incorporated/Rohr_2011/metadata.json`. The file consulted bore an OceanofPDF.com
@@ -104,11 +107,14 @@ made of it.
 
 `KurtzTalk_c1984` is dated only by inference and must always be cited as "about 1984". Wilson's
 letters are quoted within it from memory and without page citations, so anything attributed to
-Wilson through it is at a remove.
+Wilson through it is at a remove. Since 13 September 2026 the copy read in August, the Human
+Author's own transcription of the audiobook, is held git-ignored in its directory.
 
-The P-17 document itself is deliberately absent. It is copyrighted AAWS literature distributed
-as a free official PDF, and this repository is public, so mirroring the full PDF and a full OCR
-transcript here would be redistribution beyond the authorized source context. The record retains
+The P-17 document is never committed. It is copyrighted AAWS literature distributed as a free
+official PDF, and this repository is public, so committing the full PDF and a full OCR transcript
+would be redistribution beyond the authorized source context. Until 13 September 2026 it was not
+held at all; since then the official file is held git-ignored, byte-identical to the July 2024
+file read in August, which is what the recorded SHA-256 is for. The record retains
 the citation, the official URL, the SHA-256 of the July 2024 file, and the verified quotations. A
 verifier should download it from aa.org. Removing the mirror changes nothing about what the book
 may claim from it.
@@ -130,10 +136,11 @@ copy is the one hashed and indexed. The bibliographic record was taken from the 
 copyright pages rather than from an independent catalogue entry, which remains weaker than this
 project prefers and is the one open item on this source.
 
-**Read in part.** Section I, the meeting format, the glossary and the dedication of merit were read
-in full. The fourteen personal recovery stories and the selected meditations and inquiry questions
-were not. Appendix A12 draws only on what was read, and states the scope of its one absence claim.
-Because the document is now held locally, the remainder can be read without re-acquiring anything.
+**Read in full, in two passes.** Section I, the meeting format, the glossary, the dedication of merit
+and the fourteen personal recovery stories were read on 16 August 2026, and the selected meditations
+and inquiry questions on 13 September 2026. The second pass found practice material only and no
+governance text, so appendix A12's one absence claim, scoped to what had been read when it was made,
+now holds over the whole book. The appendix still states the narrower scope, which remains true.
 
 **On its `subjects_present`.** The index reports `chase`, `utica` and `washingtonian`. All three are
 artifacts of the shared OCR-tolerant matcher over-including short tokens, the same limitation the
@@ -353,7 +360,8 @@ pagination is not the journal's.
 
 *Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group
 Membership,"* Rev. 12/20. **Read in full at source on 17 August 2026** from the fellowship's own
-free posting, and held as record only under `research/incorporated/SMF132_2020/`. It is the
+free posting, and held under `research/incorporated/SMF132_2020/`, record only until 13 September 2026 and a
+git-ignored copy since. It is the
 group-and-member series by year that Chapter 21 proposes as the starting point for an
 out-of-sample test, and it now supplies one. Dividing reported members by reported groups gives
 18.4 members per group on average across 2001 to 2020, ranging from 16.5 to 22.1 and falling
@@ -367,8 +375,8 @@ and not acquired, and before that that the project does not acquire AAWS publica
 book's behalf. Neither is now the case.
 
 *W., Bill, The Twelve Concepts for World Service (Short Form), SMF-114, adopted 1962.* **Read in
-full at source on 17 August 2026**, held as record only under
-`research/incorporated/TwelveConcepts_1962/`. This was listed for months as the place where the
+full at source on 17 August 2026**, held under
+`research/incorporated/TwelveConcepts_1962/`, record only until 13 September 2026. This was listed for months as the place where the
 fellowship's own thinking about rotation is set out at greatest length, and unread. It is now
 read, and the finding is a narrowing rather than a confirmation. Concept 4, the Right of
 Participation, asks for voting representation in reasonable proportion to the responsibility each
@@ -376,10 +384,23 @@ element of the structure discharges, so AA does hold a proportionality principle
 It proportions voting weight to responsibility, not the rotating pool to the size of the group,
 and a structure could satisfy it exactly while rotating twelve people through a fellowship of
 eight hundred. Supports Chapter 10 and the primer's Tradition 9 entry. The long-form Concepts and
-their accompanying essays were not read.
+their essays were read on 13 September 2026 in `ServiceManual_2024`, below.
+
+*Alcoholics Anonymous World Services, The A.A. Service Manual Combined with Twelve Concepts for
+World Service by Bill W., 2024-2026 edition (BM-31).* **Read in part on 13 September 2026**: Concepts
+IV and V in full, Concept XI on rotation, and every passage in the manual mentioning rotation.
+Posted free by A.A.W.S. on its own file host and held git-ignored under
+`research/incorporated/ServiceManual_2024/`. It closes the Concept 4 item that `HANDOFF.md`
+section 10 carried as needing a purchase. **The Concept IV essay holds no rule about the size of a
+rotating pool**: it is about voting participation in proportion to responsibility among trustees,
+service directors and staff. Rotation doctrine sits in Concept XI, which ties term length to
+responsibility and warns against attempting more rotation than that, and Concept V defends the
+well-heard minority against a hasty majority. A 1962 prescription for the world service
+structure, not evidence about how home groups rotate. Supports Chapter 10.
 
 *Alcoholics Anonymous World Services, Alcoholics Anonymous, Fourth Edition (2001).* **Read in part
-at source on 17 August 2026**, held as record only under `research/incorporated/BigBook_2001/`.
+at source on 17 August 2026**, held under `research/incorporated/BigBook_2001/`, record only until 13 September 2026 and since
+then a git-ignored copy assembled from the per-section PDFs aa.org posts.
 Supplied by the Human Author, who owns several copies; AAWS also posts the book in per-section
 PDFs. Title page, copyright page, contents and all three parts of the personal stories were read;
 the programme chapters were not, being unchanged from 1939 and covered by `BigBook_1939`. Supports
@@ -393,7 +414,7 @@ the fellowship for publication and selection on outcome is total.
 City, Minn.: Hazelden, 2010. **Read in full on 12 September 2026**, every facsimile page, from
 photographs the Human Author took of their own copy, and held under
 `research/incorporated/WorkingManuscript_1939/` as a git-ignored reading copy with its OCR text, at
-the Human Author's direction. It is the one in-print copyrighted work in the corpus held rather than
+the Human Author's direction. It was the first in-print copyrighted work in the corpus held rather than
 record only. The facsimile is of the multilith copy onto which the comments on the February 1939
 draft were collated, so read against `BigBook_1939` it shows both what was circulated and what
 changed before print. Step 3's "as we understood Him" is already typed; Step 11's is written in by
@@ -749,8 +770,8 @@ text. It exists so `tools/check_book.py` can confirm that a cited subject appear
 work without the repository holding a redistributable copy. **This follows the precedent
 used for other in-copyright sources. Maxwell 1950 is also read in full, but unlike Kurtz its
 retyped reproduction and text are saved privately under research/incorporated/Maxwell_1950/.
-Each source that is not record-only keeps one text file beside its document, so the twenty-one
-sources holding a document carry one transcription or OCR file apiece and the eleven record-only
+Each source that is not record-only keeps one text file beside its document, so the twenty-eight
+sources holding a document carry one transcription or OCR file apiece and the five record-only
 entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
 not drift. Their individual rights and reliability differ and are stated in their entries.
 
@@ -786,7 +807,11 @@ above under Maxwell.
 
 ---
 
-## Obtained, partly read
+## Obtained, read in two passes
+
+The four sources in this section were entered as partly read and finished on 13 September 2026.
+They stay here rather than moving, so that what each first pass covered, and what it supported,
+remains visible beside what the second pass found.
 
 **Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to
 heal the suffering of addiction.* Second edition. Recovery Dharma Inc. 172 PDF pages.**
@@ -796,11 +821,14 @@ citation, metadata and verification index. CC BY-NC-SA 4.0. Read 16 August 2026 
 direction, to test whether the group model can speak to a fellowship organised on Buddhist rather
 than Twelve Step lines.
 
-Read: the contents and front matter through The Practice (ix to xvi); the whole of Section I (1 to
-54); the whole of Section II, the fourteen personal recovery stories (57 to 121); and from Section
-III the glossary (145 to 146), the meeting format (147 to 151) and the dedication of merit (152).
-**Not read:** only the selected meditations (122 to 135) and the inquiry questions (136 to 144),
-which are practice material rather than description.
+Read on 16 August 2026: the contents and front matter through The Practice (ix to xvi); the whole of
+Section I (1 to 54); the whole of Section II, the fourteen personal recovery stories (57 to 121); and
+from Section III the glossary (145 to 146), the meeting format (147 to 151) and the dedication of
+merit (152). **Read on 13 September 2026:** the selected meditations (122 to 135) and the inquiry
+questions (136 to 144), the only pages left. They are practice material rather than description:
+guided meditations, and inquiry prompts on the Four Noble Truths, the path factors, the precepts and
+amends. They contain no governance, decision-procedure or group-conscience text and do not mention
+Twelve Step programs. The whole book is now read.
 
 **A first pass got the central question wrong and the record keeps how.** That pass read Section I
 and the meeting format, skipped the stories, and concluded the fellowship had no Traditions
@@ -823,8 +851,11 @@ need the name and nothing here can adjudicate an allegation about a living perso
 effectiveness comparison with AA. It also cannot support a derivation claim in either direction: the
 Eightfold Path predates the Twelve Steps by roughly two and a half thousand years, and the book
 presents its program as an application of early Buddhist teaching. The absence claim that the
-fellowship has no Traditions-equivalent charter is scoped to the table of contents, Section I and the
-Section III appendix, where a charter would be a listed item.
+fellowship has no Traditions-equivalent charter was scoped, when made, to the table of contents,
+Section I and the Section III appendix, where a charter would be a listed item. Since the pages then
+unread were read on 13 September 2026, it holds over the whole book. Appendix A12 and the primer
+still state the narrower scope, which remains true; widening it waits for the next rebuild of the
+book and primer.
 
 **American Temperance Union (1841). *Annual Report of the American Temperance Union.***
 
@@ -846,18 +877,80 @@ contemporary descriptions of practice, corroborating Krout's bring-a-friend agre
 earlier and from a different organisation. They are not evidence that those practices caused the
 growth, and nothing in this source bears on Part Two.
 
-Not read in full. The remainder is national temperance-movement business: state society reports,
-crime and consumption statistics, and correspondence. An institutional self-presentation
-throughout, so its numbers carry the movement's own interest in them.
+**Read in full on 13 September 2026.** The remainder is national temperance-movement business: state
+society reports, crime and consumption statistics, and correspondence. It is an institutional
+self-presentation throughout, so its numbers carry the movement's own interest in them. None of what
+follows is used in the manuscript. Each item is candidate material, and a quotation should be checked
+against the page image before use, except the treasurer's account, which has been.
+
+- *The mechanism, as the movement stated it in 1841.* Of the 12,000 drunkards the American
+  Temperance Society reported reformed by 1835, the report says "there was no associated action
+  among themselves for countenance and support", and they "went back by scores to destruction".
+  Baltimore's thousand reformed men came "without any special agency excepting their action one
+  upon another" (printed pp. 14 to 16). Dr Reese's "Plea for the Intemperate" in Appendix C has
+  them "each helping the other to do what neither is able to do for himself", with their vigilance
+  over one another "a barrier against a relapse". Bears on Chapters 1 and 4.
+- *Meeting rules, first-hand.* John Hawkins at Faneuil Hall in May 1841 (Appendix C): meetings every
+  night; "We would have no sectarianism, no politics or arguments. Whoever ventured upon either was
+  made to take his seat; he must tell his own experience, and not another's"; rum-sellers may take
+  the pledge and join; the reformed "are all missionaries". The earliest statement the corpus holds
+  of a no-outside-issues rule enforced at the meeting itself. Bears on Chapters 1 and 11.
+- *One patron.* The treasurer's account for 1840 (printed p. 33, verified against the page image):
+  receipts of $10,666.52, of which $5,000.00 is the "Residue of Mr. Delavan's donation", 47 per
+  cent. The next largest gifts were $100. The report says the $10,000 gift "has now all been
+  expended" and that the Union "must now look to other friends for support". Bears on Tradition
+  Seven.
+- *An autonomy clause from 1833.* Appendix E reprints the American Temperance Society's plan: each
+  society "is independent of all others, except so far as each may choose for mutual benefit ... no
+  one society having power to dictate to another, or to control its operations" (printed p. 56). A
+  Tradition Four antecedent in the predecessor movement's own constitution, worth setting against
+  Chapter 11.
+- *Membership by payment.* The British and Foreign Temperance Society made "the pecuniary
+  subscription the only test" of membership and the pledge optional (Appendix O). The Bedloe's
+  Island army society sent each departing squadron out as a branch reporting to the parent society,
+  and recorded 22 expulsions (Appendix H).
 
 **American Temperance Union (1840). *Report of the Executive Committee.*** and
 **American Temperance Union (1848). *Almanac for the Year 1849.***
 
-Stored alongside the 1841 report, same rights and provenance. Consulted rather than read: the
-1840 report predates the Washingtonian founding and is held for institutional context, and the
-1849 almanac is popular-facing material held for messaging and dissemination. **Neither currently
-supports any claim in the manuscript.** They are recorded so that a later reader knows they were
-looked at and set aside, not overlooked.
+Stored alongside the 1841 report, same rights and provenance. Consulted in August and **read in full
+on 13 September 2026.** The 1840 report covers the year before the Washingtonian founding and is
+institutional context; the 1849 almanac is popular-facing material. **Neither supports any claim in
+the manuscript.** The 1840 volume's scan also binds a second copy of the 1841 report, read through
+`ATU_1841`. What the full reading found, as candidate material only:
+
+- *The benefit design is older than the Sons of Temperance.* The 1840 report (printed pp. 25 to 26)
+  describes Temperance Beneficial Societies arising in Philadelphia "in the commencement of 1836":
+  an entrance fee and monthly contributions forming a fund for sick members, monthly meetings with a
+  fine for absence, fourteen societies in the city and county. Its rationale is the one Chapter 2
+  gives the Sons: many "will join a temperance beneficial society, who never could be induced to
+  join a temperance society", and the recruits are less likely "to desert" because "a new and strong
+  motive of self interest is added", as "the small number of expulsions" shows. Chapter 2 is right
+  that the Sons built on benefits and should not be read as saying they invented them. OCR reading;
+  check the page image before quoting.
+- *One patron, a year earlier.* The treasurer's account for 1839 (printed p. 6, verified against the
+  page image): receipts of $6,710.96, of which $2,500.00 was a donation from E. C. Delavan, 37 per
+  cent; every other donor together gave $280.00. With the 1841 account, the national body ran on
+  one man's money for at least two years.
+- *The political drift, argued inside the movement.* Conventions divided over voting only for
+  prohibition candidates (in Massachusetts the business committee stood six to five); Pennsylvania's
+  convention wanted the cause "never ... brought into conflict with the politics of the State";
+  Connecticut's report blamed "a reliance upon" legislation "to the neglect of moral influence";
+  and the Union denied that urging temperance votes meant "forming a political party". Bears on
+  Chapter 2's political-entanglement question.
+- *The Sons of Temperance in their own figures.* The almanac's page 17, verified against the page
+  image, gives the Order's statistics for 1848: 28 Grand Divisions, 2,654 Subordinate Divisions and
+  149,372 members; 5,041 suspended, 8,043 expelled and 772 deaths in the year; 8,001 who "Violated
+  the pledge", 2,452 reinstated and 742 who "Violated the second time"; $475,987.57 received and
+  $140,058.39 paid in benefits. It is the only count of pledge-breaking in the corpus's temperance
+  sources, and it was kept because benefits made membership an account. The almanac dates the
+  Order's founding to 29 September 1841, which conflicts with the 1842 call Chapter 2 takes from
+  Eddy (1887); the almanac is the weaker witness and the date should not be taken from it. Bears on
+  Chapter 2, which gives Maxwell's 1850 figures and lists "the Sons of Temperance material beyond
+  what Maxwell reports" as unread.
+- The almanac also lists the United Brothers of Temperance, whose constitution forbids "oaths,
+  signs, catechisms, or other secret ways of recognition", the Rechabites' weekly dues, and two
+  state societies still under the Washingtonian name in 1848.
 
 **Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.*
 Springfield, Mass.: Bill, Nichols & Co. 552 pp.**
@@ -876,8 +969,36 @@ Chapter offsets in the saved file, for going straight to a passage:
 | XXVII | 694,056 | The Dead Letter controversy of 1857 |
 | XXVIII | 717,336 | The libel trial, *Gough vs Lees*, 21 June 1858 |
 
-Read: Chapters I to V, X, XIII, and the trial examination in XXVIII. Not yet read: the
-middle chapters, XXVII in full, and XXIX.
+Read first, for Chapter 3: Chapters I to V, X, XIII, and the trial examination in XXVIII. **Read in
+full on 13 September 2026:** the remaining chapters, VI to IX, XI, XII and XIV to XXXV. Nothing in
+them changes what Chapter 3 says. The text is the Internet Archive's stripped full text, so any
+quotation below should be checked against a page image before use. What the rest adds, as candidate
+material only:
+
+- *Gough on the Washingtonians, in his own words.* "I know I did not agree with the 'Washingtonians'
+  in all their declarations and proceedings" (XVI), set against "the steady, persistent opposition of
+  some of the temperance papers"; and his table of average receipts per lecture, from $2.77 in 1843
+  to $173.39 in 1867. Bears on Chapter 3.
+- *Signatures, never retention.* Three pledge books "containing nearly one hundred and fifty
+  thousand signatures", and of three hundred young men who signed at Cincinnati, "How many were
+  faithful to the promise they made, God knows" (XVIII); 215,179 names by 1853 (XXXV). Bears on
+  Chapter 11.
+- *A fee between signing and belonging.* A British society charged sixpence for the certificate
+  that made a pledge-signer a member. A destitute couple balked at it; a gentleman paid and told the
+  man "you are one of us" (XXVI). One anecdote from an interested narrator.
+- *The schism.* The "dead letter" of 1857 and its sequel (XXVII to XXIX): the moral-suasion League
+  that employed Gough against the prohibitionist United Kingdom Alliance, with rival newspapers, a
+  pamphlet campaign and the libel suit *Gough v. Lees*. Gough put the American decline "partly, as I
+  believe, owing to the neglect of the purely moral means", with "the pledge ... very much
+  discarded". On oath (XXVIII) he described the money: ten guineas a lecture, the surplus going to
+  the local society that hired him from the League, and literature bought "from head-quarters".
+- *A society that ruled itself.* Julia Wightman's Shrewsbury society (XXXIII) grew from 20 men to 230
+  in a year; after the first six, "They have come to me as perfect strangers, asking me to receive
+  them"; a full meeting adopted a rule on medical prescriptions of drink with "unanimous content",
+  enforced by expulsion. Gough thought British societies more permanent for "the very formality of
+  their proceedings" (XXIII).
+- Joel Stratton, who brought Gough to sign, was a Son of Temperance "rarely absent from the weekly
+  meeting of his division" (XXXIV).
 
 ---
 
