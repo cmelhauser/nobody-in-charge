@@ -6,12 +6,12 @@
  "year_inferred": "about 1984",
  "year_basis": "Kurtz refers to his published answer on pages 248-249 of a book written five years earlier; Not-God appeared in 1979. He also cites a Rutgers summer school talk three years earlier. No date is stated in the recording.",
  "type": "secondary_recorded_talk_transcript",
- "status": "read_in_full_record_only",
- "rights_note": "Transcript of a recorded talk; rights position not established. Never stored here.",
- "record_only": true,
+ "status": "read_in_full",
+ "rights_note": "A recorded talk sold as an audiobook; the copy held is the Human Author's own transcription. Held git-ignored since 13 September 2026 at their direction; never committed.",
+ "record_only": false,
  "files": {
   "pdf": null,
-  "note": "Not mirrored and not retained.",
+  "note": "Held git-ignored since 13 September 2026; see holding_note.",
   "sha256_of_copy_consulted": "f884663114326d52ab26d2d78af2382a42fc91f0df107e66077154a577a02665"
  },
  "topics": [
@@ -26,6 +26,22 @@
  "distinct_from": "Kurtz_1991 (Not-God), catalogued separately.",
  "what_it_cannot_support": "It is a talk, not a peer-reviewed work, and quotes Wilson's letters without page citations. Treat quotations from it as reported at a remove from the letters themselves.",
  "legacy_stem": null,
- "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents": {
+  "KurtzTalk_c1984.pdf": {
+   "sha256": "f884663114326d52ab26d2d78af2382a42fc91f0df107e66077154a577a02665",
+   "bytes": 273435,
+   "tracked_in_git": false
+  },
+  "KurtzTalk_c1984.txt": {
+   "sha256": "e7979c8e4bce54e4de2d7469839a0483fd528f474e6e9f0c5cb2bacc3d7b4aa9",
+   "bytes": 65330,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "formerly_record_only": {
+  "until": "2026-09-13",
+  "reason_then": "Not mirrored and not retained."
+ },
+ "holding_note": "Held since 13 September 2026 at the Human Author's direction, as a git-ignored local copy that is never committed. The file held is the Human Author's own transcription of the audiobook edition, and is the same file read in August: its SHA-256 matches the digest recorded then."
 }

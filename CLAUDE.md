@@ -109,10 +109,11 @@ moved to `research/incorporated/`: the three American Temperance Union documents
 record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were already there.
 
 Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
-sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three are record only.
+sources: `TwelveAndTwelve_1953`, `Rohr_2011` and `KurtzTalk_c1984`. All three were catalogued as
+record only; the first and the last have held copies since 13 September 2026.
 
-Four more were added on 17 August 2026, bringing the corpus to 31, and all four are
-record only: AAWS service material SMF-132, the Twelve Concepts for World Service in short form,
+Four more were added on 17 August 2026, bringing the corpus to 31, and all four were catalogued
+as record only: AAWS service material SMF-132, the Twelve Concepts for World Service in short form,
 *Tricycle*'s contemporaneous account of the 2019 Recovery Dharma schism, and the fourth edition
 of the Big Book. The first two are published free by AAWS and the third at the publisher's own
 site; each closed an item that had been carried as unobtainable without anyone checking. SMF-132
@@ -122,17 +123,29 @@ the Human Author, who owns several copies, and supports Appendix A13.7, which re
 arrival census on the forty-two stories of that edition. Its programme chapters were not read,
 being unchanged from 1939 and covered by `BigBook_1939`.
 
-`WorkingManuscript_1939` was added on 12 September 2026, bringing the corpus to its present 32.
+`WorkingManuscript_1939` was added on 12 September 2026, bringing the corpus to 32.
 It is Hazelden's 2010 colour facsimile, *The Book That Started It All*, of the single multilith copy
 onto which comments on the February 1939 draft of the Big Book were collated, read on every page
 from photographs the Human Author took of their own copy. It is in copyright and in print, and it
-is the one such work **held rather than record only**: at the Human Author's direction its reading
+was the first such work **held rather than record only**: at the Human Author's direction its reading
 copy and OCR text sit git-ignored in its directory with a hash and an index, and are never
 committed. What it supports, and one correction it implies for Chapter 4, are set out in
 `edits_and_suggested_uses.md` in that directory.
 
+On 13 September 2026 the Human Author directed that the corpus hold a lawful copy of every source
+it can, git-ignored like every other document and never committed. That moved six sources out of
+record only, each now holding a copy obtained free from its publisher or made by the Human Author:
+AAWS pamphlet P-17, SMF-132 and the short-form Concepts, all three byte-identical to the files
+read in August; the *Twelve Steps and Twelve Traditions* and the fourth-edition Big Book,
+assembled from the per-chapter PDFs aa.org posts; and the Kurtz talk, in the Human Author's own
+transcription. The same day added `ServiceManual_2024`, bringing the corpus to its present 33:
+the 2024-26 *A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and
+which settles the Concept 4 question that `HANDOFF.md` section 10 carried. Five sources remain
+record only because no lawful copy is yet in hand.
+
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
-read in full; only the meditations and inquiry questions were not. It supports appendix A12 and four
+read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book
+is now read. It supports appendix A12 and four
 paragraphs of Chapter 24. It is held on the ordinary footing, git-ignored with a hash and an index.
 Its CC BY-NC-SA 4.0 licence is the one licence in the corpus that would permit committing the
 document; it is git-ignored anyway, because the rule is uniform.
@@ -165,15 +178,15 @@ decided against the real text at build time. With no documents present, every ci
 pair still verifies. If a re-acquired file's hash differs from the record, the index is stale and
 must be rebuilt rather than trusted.
 
-**Eleven sources are held as record only, with no document at any time.** This is a distinct
+**Five sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
-source. They are the four named here, the three added on 10 August 2026 in the paragraph below,
-and the four added on 17 August 2026 described under the source boundary above; the authority is
-`"record_only": true` in each `metadata.json`. AAWS pamphlet P-17 and Kurtz (1991) are
-copyrighted works the project chose never to store. DeGroot (1974) and the April 1946 *A.A. Grapevine* article were consulted on 10 August 2026
-from scans whose posting authorization is unverified, and the project's own rights review directs
-that they be cited and quoted within limits rather than archived. Each record keeps the citation,
-the rights position, the hash of the scan consulted, and the passages verified from it.
+source; the authority is `"record_only": true` in each `metadata.json`. They are Kurtz (1991),
+in copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, consulted on 10 August
+2026 from scans whose posting authorization is unverified, which the project's own rights review
+directs be cited and quoted within limits rather than archived; Rohr (2011), described below; and
+*Tricycle* (2019), paywalled past its opening. Each record keeps the citation, the rights position,
+the hash of the copy consulted, and the passages verified from it. Six more were record only until
+13 September 2026 and now hold copies; each `metadata.json` says so under `formerly_record_only`.
 
 Three more were added on 10 August 2026 on the same footing: AAWS *Twelve Steps and Twelve
 Traditions* (1953), Rohr (2011), and the Kurtz talk of about 1984. Rohr carries a stronger
@@ -190,10 +203,13 @@ holding.** Several chapters formerly said "this project does not acquire AA copy
 and treated that as a reason not to read it. That was a category error and it cost the argument
 evidence: the 1953 commentary turned out to contain the book's own thesis in Wilson's words, the
 strongest objection to it, and the disproof of the index-pairing conjecture. The rule now reads:
-read what is lawfully readable, hold nothing, quote nothing at length, and record the provenance.
+read what is lawfully readable, hold only lawful copies and never commit them, quote nothing at
+length, and record the provenance.
 Do not restore the old wording anywhere.
 
-Do not restore a document to any of those four. Adding a source of any kind means running
+Add a document to a record-only source only when the Human Author supplies a lawful copy; the Rohr
+file consulted in August was an unauthorized posting and must never become the corpus copy.
+Adding a source of any kind means running
 `python3 tools/build_corpus.py`, and a directory's leading token must be at least three characters
 and distinctive, because `check_book.py` identifies a source in prose by that token. "AA" is not
 usable; "Grapevine", "BigBook" and "ATU" are.

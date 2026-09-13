@@ -19,9 +19,11 @@ uniform. Provenance is a two-step record. The copy first read was an ephemeral s
 removed from disk before it could be stored; the user's own copy was then located and confirmed the
 same document by page count, byte size and verbatim spot-checks, and that is the copy hashed here.
 
-**Read in part.** Section I, the meeting format, the glossary and the dedication of merit were read
-in full. The fourteen personal stories and the selected meditations and inquiry questions were not.
-Every claim below comes from the part that was read.
+**Read in full, in two passes.** Section I, the meeting format, the glossary, the dedication of
+merit and the fourteen personal stories were read on 16 August 2026, and the selected meditations
+and inquiry questions (122 to 144) on 13 September 2026. The claims below were drawn from the first
+pass. The second found only practice material, guided meditations and inquiry prompts, and nothing
+that changes them.
 
 ## What it supports
 
@@ -63,14 +65,18 @@ It is a statement of intent by a fellowship about itself.
 
 It cannot support the derivation claim in either direction. The Eightfold Path predates the Twelve
 Steps by roughly two and a half thousand years, and the book presents its program as an application
-of early Buddhist teaching rather than as a rewriting of anything. The book mentions Twelve Step
-programs twice in what was read, once to say the inquiries can be used the way inventories are used
-in Twelve Step programs and that some are not (50), and once to say the program is fully compatible
-with other spiritual paths and programs of recovery (xi).
+of early Buddhist teaching rather than as a rewriting of anything. Outside the stories, the book
+mentions Twelve Step programs once, to say the inquiries can be used the way inventories are used in
+Twelve Step programs and that some are not (50), and says once that the program is fully compatible
+with other spiritual paths and programs of recovery (xi). The fourteen stories mention Twelve Step
+programs often, as the road many of their writers took before arriving, which is biography rather
+than derivation. The meditations and inquiry questions do not mention them.
 
-There is no Traditions-equivalent charter. That absence claim rests on the full table of contents,
-the whole of Section I, and the whole of the Section III appendix except the meditations and
-inquiry questions. A governance charter would be a listed item in the contents and is not there.
+There is no Traditions-equivalent charter. That absence claim was first made on the full table of
+contents, the whole of Section I, and the whole of the Section III appendix except the meditations
+and inquiry questions. Those were read on 13 September 2026 and contain no governance text, so the
+claim now holds over the whole book. A governance charter would be a listed item in the contents and
+is not there.
 
 ## Note on the verification index
 

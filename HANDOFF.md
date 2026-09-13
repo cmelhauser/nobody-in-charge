@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 12 September 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 13 September 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -183,7 +183,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-32 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+33 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 The newest, `WorkingManuscript_1939` (12 September 2026), is the 1939 multilith with its pencilled
 revisions, held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md`
@@ -207,31 +207,31 @@ A directory's leading token must be at least three characters and distinctive, b
 directories may not share a leading token, which is why the corpus has `TwelveAndTwelve` and
 `KurtzTalk` rather than a second `AAWS` and a second `Kurtz`.
 
-### Eleven sources are record only
+### Five sources are record only
 
 These have **no document at any time**, which is a stronger condition than the git-ignored
 majority. A verifier should not report either category as a missing source. Each carries
 `"record_only": true` in its metadata so this is machine-checkable.
 
-| Source | Why |
-|---|---|
-| `AAWS_2024_P17` | copyrighted AAWS pamphlet; never stored |
-| `Kurtz_1991` | in copyright; never stored as full text |
-| `DeGroot_1974` | scan with unverified posting authorization |
-| `Grapevine_1946` | scan with unverified posting authorization |
-| `TwelveAndTwelve_1953` | copyrighted AAWS book; free per-chapter PDFs on aa.org |
-| `Rohr_2011` | in copyright and in print; see the provenance problem below |
-| `KurtzTalk_c1984` | restored transcript; rights position not established |
+| Source | Why | What would end it |
+|---|---|---|
+| `Kurtz_1991` | in copyright | the Human Author's own copy, photographed, or a bought ebook |
+| `DeGroot_1974` | scan with unverified posting authorization | a JSTOR or publisher PDF |
+| `Grapevine_1946` | scan with unverified posting authorization | a copy from the Grapevine archive |
+| `Rohr_2011` | the copy consulted was an unauthorized posting | photographs of the Human Author's copy |
+| `Tricycle_2019` | paywalled past its opening | a PDF saved from a subscribed browser |
 
-Three of the seven carry no verification index, because no text was retained to build one from:
-`AAWS_2024_P17`, `DeGroot_1974`, `Grapevine_1946`. Their metadata says so. This is expected, not
-drift.
+Three of the five carry no verification index, because no text was retained to build one from:
+`DeGroot_1974`, `Grapevine_1946`, `Tricycle_2019`. Their metadata says so. This is expected, not
+drift. Six more were record only until 13 September 2026, when the Human Author directed that
+the corpus hold a lawful copy of every source it can; each now says so under
+`formerly_record_only`.
 
 ### The rule about copyright, stated precisely
 
 **Reading a copyrighted work and holding one are different acts, and this project's rule is about
-holding.** Read what is lawfully readable, hold nothing, quote nothing at length, record the
-provenance.
+holding.** Read what is lawfully readable, hold only lawful copies and never commit them, quote
+nothing at length, record the provenance.
 
 Several chapters formerly said "this project does not acquire AA copyright material" and treated
 that as a reason not to read it. That was a category error, corrected on 10 August 2026, and it
@@ -342,27 +342,55 @@ inference from what is already here.
    single most valuable unread source, and the last time an AA text was left unread on copyright
    grounds it turned out to contain the strongest objection to this book's own argument. It is
    sold rather than posted; AA's own site offers it for purchase only.
-**Two are ordinary scholarly loose ends.**
+**One is an ordinary scholarly loose end.**
 
-3. **The Concept 4 essay** in the A.A. Service Manual. The short-form Concepts were read on 17
-   August 2026 and contain no rule about the size of a rotating pool; if one exists anywhere, the
-   essay accompanying Concept 4 is where it would be.
-4. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
+3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature.
 
 **Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
 not yet made, because they change the author's text.
 
-5. **Chapter 4's "you must" to "we ought".** The working manuscript shows the comment round
+4. **Chapter 4's "you must" to "we ought".** The working manuscript shows the comment round
    changing who speaks, from "you" to "we", and usually keeping the modal; at one point the
    galleys restored "We must take the lead" after the pencil had softened it. No "you must"
    becomes "we ought" anywhere in it. The pages are listed in
    `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`.
-6. **Appendix A13's count of the 1939 stories.** A13 says twenty-nine; the 1939 contents page in
+5. **Appendix A13's count of the 1939 stories.** A13 says twenty-nine; the 1939 contents page in
    `BigBook_1939` lists thirty titles from "The Doctor's Nightmare" to "Ace Full Seven-Eleven".
    Either the count or its definition needs stating. The working manuscript adds that ten of
    those stories were not in the circulated draft.
+
+**One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
+each moves a record-only source onto the ordinary footing.
+
+6. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
+   *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
+
+**One is a sync the source register is ahead of.** Nothing in it is false; it understates.
+
+7. **Read-scope statements in the book and primer.** Five held sources were read to the end on 13
+   September 2026. Appendix A12 and the primer's Recovery Dharma entry still scope the absence
+   claim to the pages read in August; Chapter 1's note on the American Temperance Union still calls
+   the 1840 report and 1849 almanac "obtained but consulted only"; and Chapter 2 still lists "the
+   Sons of Temperance material beyond what Maxwell reports" as unread, which the 1849 almanac now
+   supplies. Update them at the next rebuild of the book and primer, which should wait until
+   `tools/build_book.py` no longer writes the author block back into the artifacts. What the
+   reading found is in `research/SOURCES.md`.
+
+### Closed on 13 September 2026
+
+- **The partly read sources on disk.** The three American Temperance Union documents, Gough's
+  autobiography and Recovery Dharma's practice pages are read in full. None changes a conclusion.
+  The candidates for use are the Sons of Temperance's own 1848 count of members who broke the
+  pledge, and treasurer's accounts showing one donor giving 37 and then 47 per cent of the Union's
+  receipts.
+- **The Concept 4 essay.** AAWS posts the whole 2024-26 *A.A. Service Manual* with Bill W.'s
+  Twelve Concepts free on its own file host; it is now `ServiceManual_2024`. The Concept IV essay
+  is about voting participation in proportion to responsibility and holds no rule on the size of
+  a rotating pool, which confirms Chapter 10's narrower reading. Rotation doctrine sits in
+  Concept XI, which ties term length to responsibility and warns against attempting more rotation
+  than that. A fourth item carried as unobtainable turned out to be published free.
 
 ### Closed on 17 August 2026
 

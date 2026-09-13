@@ -89,11 +89,12 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
-Eleven of the 32 sources are **record only**: no document exists at any time, which is a stronger
-condition than git-ignored. Each carries `"record_only": true` in its metadata. Seven of those eleven
-have no verification index because no text was retained to build one from. Neither is drift
-and neither should be reported as a missing source. `WorkingManuscript_1939` is the one in-print
-copyrighted work held rather than record only, git-ignored at the Human Author's direction.
+Five of the 33 sources are **record only**: no document exists at any time, which is a stronger
+condition than git-ignored. Each carries `"record_only": true` in its metadata. Kurtz (1991) and
+Rohr (2011) have verification indexes built from copies read and not retained; the other three
+have none. Neither is drift and neither should be reported as a missing source. Since 13
+September 2026 the corpus holds a lawful copy of every other source at the Human Author's
+direction, in-print copyrighted works included; none is ever committed.
 
 A directory's leading token must be at least three characters, distinctive, and unique across the
 corpus, because `tools/check_book.py` identifies a source in prose by that token.
