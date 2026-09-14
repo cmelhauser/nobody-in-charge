@@ -3086,7 +3086,7 @@ The remaining claim is more conditional. If maintenance gates its own recovery s
 
 There is outside support for the shape, and it is a great deal better than it was when I drafted this chapter.
 
-The older strand is Hufford and colleagues, who in 2003 fitted a cusp catastrophe model to relapse data from patients with alcohol use disorders and reported that it predicted better than the linear models standard in the field. A cusp catastrophe is a canonical mathematical object for a system that responds smoothly to a pressure until it responds abruptly. Witkiewitz and Marlatt subsequently argued the broader case, that post-treatment drinking is a nonlinear dynamic process rather than a linear response to risk factors, and that treating it as linear is why so much of the prediction literature has done badly. The honest size of that warrant is two preliminary samples, fifty-one inpatients and forty-three outpatients, six months of follow-up.
+The older strand is Hufford and colleagues, who in 2003 fitted a cusp catastrophe model to relapse data from patients with alcohol use disorders and reported that it predicted better than the linear models standard in the field. A cusp catastrophe is a canonical mathematical object for a system that responds smoothly to a pressure until it responds abruptly. Witkiewitz and Marlatt subsequently argued the broader case, that post-treatment drinking is a nonlinear dynamic process rather than a linear response to risk factors, and that treating it as linear is why so much of the prediction literature has done badly. The honest size of Hufford's warrant is two preliminary samples, fifty-one inpatients and forty-three outpatients, six months of follow-up. Witkiewitz and Marlatt then refitted the same specification to Project MATCH, a far larger trial, and the cusp again fitted better than linear and logistic models, though only among patients still drinking at twelve months and by fit indices that carry no test of significance.
 
 The newer strand is much stronger and I want to set it out carefully, because it is the closest thing in the literature to what this chapter describes, and because it does not support everything the chapter says.
 
@@ -7846,28 +7846,32 @@ Appendix A restates the paper in plain language. Appendix B is a reproducibili
 
 ### Effectiveness and mechanisms of AA
 
-The Cochrane review of twelve-step facilitation (Kelly, Humphreys, and Ferri 2020) finds
-manualized TSF at least as effective as comparison treatments for continuous abstinence
-and, in several trials, superior. The mechanism literature converges on social network
-change: Kaskutas, Bond, and Humphreys (2002) find that AA's effect on drinking outcomes is
-mediated substantially by changes in the composition of a participant's social network;
-Rynes and Tonigan (2012) examine whether sponsorship effects reduce to network effects.
-Measurement instruments for affiliation and involvement are established (Humphreys,
-Kaskutas, and Weisner 1998; Tonigan, Connors, and Miller 1996; Greenfield and Tonigan
-2013). The helper-therapy principle (Riessman 1965) and its AA-specific test (Pagano et
-al. 2004) address whether helping others benefits the helper. Galanter (1981) supplies an
-earlier account of why large-group affiliation relieves distress, which is the closest
-antecedent to this paper's treatment of the group as a producer of resources members
-consume.
+The Cochrane review of Alcoholics Anonymous and twelve-step facilitation (Kelly,
+Humphreys, and Ferri 2020) finds, with high certainty, that manualized interventions raise
+continuous abstinence at twelve months over established alternatives such as cognitive
+behavioral therapy (two trials, 1,936 participants), and that they do about as well on
+most other drinking outcomes. Most of the mechanism literature credits changes in a
+participant's social network: Kaskutas, Bond, and Humphreys (2002) find that AA's effect
+on drinking outcomes is mediated substantially by changes in the network's composition.
+The clearest dissent is Rynes and Tonigan (2012), whose fully lagged prospective design
+finds that the benefit of having a sponsor is not carried by change in the abstinent
+social network. Measurement instruments for affiliation and involvement are established
+(Humphreys, Kaskutas, and Weisner 1998; Tonigan, Connors, and Miller 1996; Greenfield and
+Tonigan 2013). The helper-therapy principle (Riessman 1965) and its AA-specific test
+(Pagano et al. 2004) address whether helping others benefits the helper. Galanter (1981)
+supplies an earlier account of why large-group affiliation relieves distress, which is the
+closest antecedent to this paper's treatment of the group as a producer of resources
+members consume.
 
 ### Formal models of drinking and recovery
 
 Compartmental epidemic-style models treat drinking as transmissible (Sánchez et al. 2007;
-Sharma and Samanta 2015). Agent-based work has modeled drinking in relation to alcohol
-availability and outlet density (Gorman et al. 2006). Individual-level dynamical models
-fitted to clinical data are due to Banks and coauthors (2014, 2017). The relapse
-literature supplies the nonlinear, multiple-equilibrium structure this paper's individual
-model borrows (Hufford et al. 2003; Witkiewitz and Marlatt 2004, 2007).
+Sharma and Samanta 2015). Agent-based work has modeled drinking as social contagion among
+agents moving between locations, one of which is a bar that concentrates drinkers (Gorman
+et al. 2006). Individual-level dynamical models fitted to clinical data are due to Banks
+and coauthors (2014, 2017). The relapse literature supplies the nonlinear,
+multiple-equilibrium structure this paper's individual model borrows (Hufford et al. 2003;
+Witkiewitz and Marlatt 2004, 2007).
 
 ### Skill formation
 
