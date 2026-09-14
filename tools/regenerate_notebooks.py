@@ -942,8 +942,9 @@ def notebook(title: str, blurb: str, extra: tuple = ()) -> dict:
     }
 
 
-def main() -> None:
-    outputs = {
+def build() -> dict:
+    """Both notebooks as the generator writes them, keyed by path, for main() and the tests."""
+    return {
         ROOT / "model" / "book-calculations.ipynb": notebook(
             "Nobody in Charge: released calculations",
             "Verifies the model's identity and semantics, every registered cache's completeness "
@@ -960,7 +961,10 @@ def main() -> None:
             "notebook used to be a copy of the book's.",
             extra=(PAPER_CLAIMS, PAPER_TRACEABILITY)),
     }
-    for path, data in outputs.items():
+
+
+def main() -> None:
+    for path, data in build().items():
         path.write_text(json.dumps(data, indent=1) + "\n")
         print(path.relative_to(ROOT))
 

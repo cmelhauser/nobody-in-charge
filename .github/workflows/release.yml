@@ -8,7 +8,7 @@ name: Release
 # of sitting in the history looking authoritative.
 #
 # It is the `documents` job's work plus the full gate, with no --skip-artifacts, because the
-# seven artifact-freshness checks are the ones a release is actually about.
+# six artifact checks are the ones a release is actually about.
 
 on:
   push:
@@ -170,7 +170,7 @@ jobs:
       - name: The rendered PDFs are sound documents
         run: python tools/check_pdfs.py
 
-      # No --skip-artifacts. The seven artifact checks are what a release is about.
+      # No --skip-artifacts. The six artifact checks are what a release is about.
       - name: Full release gate and the slow integration tests
         env:
           NIC_SLOW_TESTS: "1"

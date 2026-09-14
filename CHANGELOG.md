@@ -41,9 +41,13 @@ someone who wants to know what changed between two tags does not have to read it
   ordering at the default decay rate and at 25, 50 and 75 per cent lower, 400 paired seeds per
   cell, 4,800 runs, model `c3823f72`. It confirms the one-at-a-time screen's membership reversals
   and finds the ordering still holds on endpoint viability and existence at 25 per cent lower.
-  Registered in the release gate, now 142 checks and 137 with `--skip-artifacts`, in both
+  Registered in the release gate, now 142 checks, 136 of them run under `--skip-artifacts`, in both
   notebooks and in `research/ROBUSTNESS-RESULTS.md`; Chapters 1, 4, 12 and 24, appendix A7 and
   A11, the paper, the primer and `research/PARAMETERS.md` report it. No released number changes.
+- Tests that compare generated files with what generates them: both notebooks are executed, their
+  code and `research/ROBUSTNESS-RESULTS.md` are compared with their generators, and three cells of
+  `research/decay_ordering.json` are recomputed from its script. Continuous integration had never
+  executed the notebooks.
 - Seven open-access papers held git-ignored: five the paper cites (Angrist 2014,
   Cunha and Heckman 2007, Cunha, Heckman and Schennach 2010, Hu and Schennach 2008, Lembke n.d.)
   and two from the skill-depreciation literature Chapter 12 has not consulted (Dinerstein,
@@ -72,6 +76,10 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- `tools/check_release.py --skip-artifacts` counted its own skip notice as a passed check, and
+  the gate's comment, `CLAUDE.md`, `AGENT_VERIFY.md` and both workflows said the flag omits seven
+  checks. It omits six, whether each of the three rendered PDFs exists and is newer than its
+  sources, and now reports them as skipped: 136 passed and 6 skipped, where it printed 137 passed.
 - Appendix A13 counted twenty-nine personal stories in the 1939 edition; its contents page lists
   thirty. A13, the primer and the source records now say thirty, and A13 says its census covers the
   twenty-six stories the automatic split recovered. No census figure changes.
