@@ -433,22 +433,19 @@ each moves a record-only source onto the ordinary footing.
    The author attribution in `README.md`, `ATTRIBUTION.md`, `CITATION.cff`, `LICENSE` and the paper is
    deliberate and is not part of this item.
 
-**One is a set of proposed corrections awaiting the Human Author.** None changes a number the book
-computes.
-
-10. **Four statements the reading of 14 September 2026 found out of step with their sources.**
-    - **The Cochrane review:** the paper's literature review says it finds manualized TSF "at least
-      as effective" and superior "in several trials". The review's headline is a high-certainty
-      pooled advantage in continuous abstinence at 12 months.
-    - **The mechanism literature:** the same section says it "converges on social network change"
-      and cites Rynes and Tonigan (2012) as part of that literature. Their fully lagged test finds
-      the sponsorship effect is not carried by network change.
-    - **Gorman et al. (2006):** the section describes it as modelling outlet density. The model has
-      a single bar, and density is left for future work.
-    - **Chapter 14:** it sizes the warrant for its older strand at two preliminary samples.
-      Witkiewitz and Marlatt (2007) add a refit on Project MATCH.
-
 ### Closed on 14 September 2026
+
+- **Four statements out of step with their sources**, corrected at the Human Author's direction.
+  None changes a number the book computes.
+  - **The Cochrane review:** the paper's literature review now reports its high-certainty
+    advantage in continuous abstinence at twelve months. It had said "at least as effective" and
+    superior "in several trials".
+  - **Rynes and Tonigan (2012):** the review now presents them as the clearest dissent from the
+    network-mediation account. It had counted them as part of that account.
+  - **Gorman et al. (2006):** the review now describes the contagion model with a single bar that it
+    is. It had said the model covered outlet density.
+  - **Chapter 14:** it now adds the Project MATCH refit of Witkiewitz and Marlatt (2007) to the
+    older strand's warrant, with its limits.
 
 - **The six background papers supplied on 14 September 2026.** What arrived were six short
   summaries written by another tool, not the articles, so none was filed. Every scripted route to
@@ -460,7 +457,8 @@ computes.
   - Witkiewitz and Marlatt (2007).
 
   `research/SOURCES.md`, Chapter 14's references and the paper's bibliography now record them as
-  read, and Banks et al. (2014) as cited at a remove. What the reading bears on is item 10.
+  read, and Banks et al. (2014) as cited at a remove. The four statements the reading found out of
+  step with their sources are corrected above.
 
 - **A withheld name in two verification indexes.** A pass for personal information found the
   surname of the founder this project never names in the committed vocabularies of

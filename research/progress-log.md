@@ -4791,3 +4791,22 @@ do:
 
 They are proposed to the Human Author as `HANDOFF.md` item 10 and not yet made. No number the book
 computes changes.
+
+### 14 September 2026: the four corrections made
+
+The Human Author approved the four corrections proposed above.
+- **The Cochrane review.** The paper's literature review now says that the review finds, with high
+  certainty, that manualized interventions raise continuous abstinence at twelve months over
+  established alternatives such as cognitive behavioral therapy, from two trials with 1,936
+  participants, and that they do about as well on most other drinking outcomes.
+- **The mechanism literature.** The review says most of that literature credits network change,
+  keeps Kaskutas, Bond and Humphreys (2002) as the example, and names Rynes and Tonigan (2012) as the
+  clearest dissent.
+- **Gorman et al. (2006).** It is described as the contagion model it is, with a single bar that
+  concentrates drinkers.
+- **Chapter 14.** The chapter keeps Hufford's two preliminary samples as Hufford's warrant. It adds
+  that Witkiewitz and Marlatt refitted the same specification to Project MATCH, and gives the
+  refit's limits: drinkers only, and fit indices without a significance test.
+
+No number the book computes changes. The paper prints no new decimal, so its traceability cell is
+unaffected. `HANDOFF.md` item 10 is closed.
