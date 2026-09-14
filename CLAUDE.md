@@ -335,7 +335,8 @@ verified without a network. `lint` runs ruff, actionlint and shellcheck and need
 `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
 it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12 and covers everything that does not
 require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
-137 of the 142 release-gate checks via `check_release.py --skip-artifacts`.
+136 of the 142 release-gate checks via `check_release.py --skip-artifacts`, which reports the
+other six as skipped.
 
 `documents` renders the three PDFs, asserts zero overfull boxes, and runs the full gate and the
 slow integration tests. It runs on `main` and on demand, not on pull requests, and it rebuilds
@@ -346,8 +347,8 @@ timestamp.
 three network fetches the document job needs: a hung apt mirror, a CTAN mirror timing out, a
 certificate that would not verify, and four cold-cache fetches inside tectonic. Before the split
 those failures meant the release checks did not run at all, because they sat behind the
-toolchain. `--skip-artifacts` omits exactly seven checks, the ones asserting a rendered artifact
-is newer than its sources, which a fresh clone can satisfy only by building the artifact and then
+toolchain. `--skip-artifacts` omits exactly six checks, the ones asserting that each rendered PDF
+exists and is newer than its sources, which a fresh clone can satisfy only by building the artifact and then
 declaring it fresh. Run the full gate before a release.
 
 Continuous integration pins **pandoc 3.10.2**, and the pin is load-bearing rather than tidy.
