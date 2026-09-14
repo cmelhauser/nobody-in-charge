@@ -1174,7 +1174,7 @@ bibliography often omitted read status. The current-project record supports the 
 |---|---|---|
 | Angrist (2014) | **Read in full 13 September 2026** in its working-paper version (`Angrist_2014`) | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
 | Banks et al. (2014, 2017) | Read status not documented | Background on dynamic behavior-change models only. |
-| Ben-Porath (1967) | Read status not documented | Background analogy for stock accumulation only. |
+| Ben-Porath (1967) | **Read at source**, confirmed by the Human Author 14 September 2026; no copy is held, and the paper's bibliography now says so | Background analogy for stock accumulation only. |
 | Cunha and Heckman (2007) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckman_2007`) | Background on dynamic complementarity. |
 | Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; current project has not recorded pages used. |
 | Galanter (1981) | Read status not documented | Background on large-group therapy. |
