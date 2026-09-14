@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 13 September 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 14 September 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -100,7 +100,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 13 September 2026, everything passes:
+As of 14 September 2026, everything passes:
 
 | Check | Result |
 |---|---|
@@ -111,6 +111,7 @@ As of 13 September 2026, everything passes:
 | `tools/check_portability.py` | clear |
 | `tools/check_docs.py` | 19 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
+| `tools/check_pdfs.py` | 21 checks, 0 failed |
 | `model/book-calculations.ipynb` | 8 cells, 78 assertions, clean |
 | `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 102 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
@@ -152,7 +153,7 @@ python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/check_docs.py
 python3 tools/build_book.py
-cd paper && latexmk -xelatex -interaction=nonstopmode anonymity-as-an-aggregation-condition.tex && cd ..
+cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
 python3 tools/build_primer.py
 sh research/elicitation/build.sh
 python3 tools/check_pdfs.py
@@ -185,10 +186,11 @@ search; it does not replace reading the surrounding claim.
 
 40 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
-The newest, `WorkingManuscript_1939` (12 September 2026), is the 1939 multilith with its pencilled
-revisions, held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md`
-sets out what it implies for the manuscript; the two corrections among those are listed in
-section 10.
+The newest are `ServiceManual_2024` and the seven open-access papers held on 13 September 2026.
+`WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
+held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md` sets out what it
+implies for the manuscript: its two corrections, to Chapter 4 and to Appendix A13, were made on 13
+September 2026, and its other suggested uses are section 10, item 8.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
 `.pdf`, `.txt`, `.djvu` and `.epub` under `research/incorporated/` and `research/staged/`. What is
@@ -247,14 +249,16 @@ library listings independently of it; and both claims the manuscript draws from 
 claims, checkable by anyone holding a lawful copy.
 
 **Action for a future session: confirm the Rohr citations against a lawfully obtained edition
-before release.**
+before release.** It is part of section 10, item 4.
 
 ---
 
 ## 8. What changed on 10 August 2026
 
-Three copyrighted works were read in full and catalogued as record only. This is the most recent
-substantive change and a cold reader should know what it did.
+Three copyrighted works were read in full and catalogued as record only; the first and the last
+have held copies since 13 September 2026. It remains the change to the evidence a cold reader most
+needs to know about. Later changes are in section 10's closed lists and in
+`research/progress-log.md`.
 
 **From `TwelveAndTwelve_1953`, four things the book had recorded as unavailable:**
 
@@ -366,15 +370,28 @@ each moves a record-only source onto the ordinary footing.
    the 1939 working manuscript lacks them. They go through the same cleanup into the reading copy,
    and `python3 tools/build_corpus.py` then rebuilds its index. The same session could retake MS
    p. 56, PDF page 88, where Dr. Howard's name is not legible at the resolution checked.
-6. **Copies, and a read status, for thirteen background citations.** The paper-only bibliography
-   in `research/SOURCES.md` records "read status not documented" for Banks et al. (2014 and 2017),
-   Galanter (1981), Gorman et al. (2006), Humphreys, Kaskutas and Weisner (1998), Kaskutas, Bond
-   and Humphreys (2002), Kelly, Humphreys and Ferri (2020), Ostrom (1990), Rynes and Tonigan
-   (2012), Sánchez et al. (2007), Schennach (2004), Sharma and Samanta (2015), Tonigan, Connors and
-   Miller (1996) and Witkiewitz and Marlatt (2004). Each is cited as background and the corpus
-   holds none; the five papers by Gorman et al., Rynes and Tonigan, Banks et al. and Kelly et al.
-   are free but refuse a scripted download. Ben-Porath (1967), read at source, Hufford et al.
-   (2003), read in abstract only, and Witkiewitz and Marlatt (2007) are also cited and unheld.
+6. **Copies, and a read status, for nine background citations.** The paper-only bibliography in
+   `research/SOURCES.md` records "read status not documented" for:
+   - Galanter (1981);
+   - Humphreys, Kaskutas and Weisner (1998);
+   - Kaskutas, Bond and Humphreys (2002);
+   - Ostrom (1990);
+   - Sánchez et al. (2007);
+   - Schennach (2004);
+   - Sharma and Samanta (2015);
+   - Tonigan, Connors and Miller (1996);
+   - Witkiewitz and Marlatt (2004).
+
+   Each is cited as background, and the corpus holds none of them. More works are cited and have a
+   read status but no copy:
+   - **Read at PubMed Central on 14 September 2026:** Banks et al. (2017), Gorman et al. (2006),
+     Kelly, Humphreys and Ferri (2020), Rynes and Tonigan (2012) and Witkiewitz and Marlatt (2007).
+     A PDF saved from each article page in a browser would give the corpus a copy, since every
+     scripted route refuses.
+   - **Cited at a remove:** Banks et al. (2014), through the 2017 paper. AMS refuses its PDF to
+     scripts, so it needs the same browser save.
+   - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
+     abstract only.
 
 **Two are optional and change no released number.**
 
@@ -416,7 +433,34 @@ each moves a record-only source onto the ordinary footing.
    The author attribution in `README.md`, `ATTRIBUTION.md`, `CITATION.cff`, `LICENSE` and the paper is
    deliberate and is not part of this item.
 
+**One is a set of proposed corrections awaiting the Human Author.** None changes a number the book
+computes.
+
+10. **Four statements the reading of 14 September 2026 found out of step with their sources.**
+    - **The Cochrane review:** the paper's literature review says it finds manualized TSF "at least
+      as effective" and superior "in several trials". The review's headline is a high-certainty
+      pooled advantage in continuous abstinence at 12 months.
+    - **The mechanism literature:** the same section says it "converges on social network change"
+      and cites Rynes and Tonigan (2012) as part of that literature. Their fully lagged test finds
+      the sponsorship effect is not carried by network change.
+    - **Gorman et al. (2006):** the section describes it as modelling outlet density. The model has
+      a single bar, and density is left for future work.
+    - **Chapter 14:** it sizes the warrant for its older strand at two preliminary samples.
+      Witkiewitz and Marlatt (2007) add a refit on Project MATCH.
+
 ### Closed on 14 September 2026
+
+- **The six background papers supplied on 14 September 2026.** What arrived were six short
+  summaries written by another tool, not the articles, so none was filed. Every scripted route to
+  the articles refused, so five were read in full in the in-app browser at PubMed Central:
+  - Banks et al. (2017);
+  - Gorman et al. (2006);
+  - Kelly, Humphreys and Ferri (2020);
+  - Rynes and Tonigan (2012);
+  - Witkiewitz and Marlatt (2007).
+
+  `research/SOURCES.md`, Chapter 14's references and the paper's bibliography now record them as
+  read, and Banks et al. (2014) as cited at a remove. What the reading bears on is item 10.
 
 - **A withheld name in two verification indexes.** A pass for personal information found the
   surname of the founder this project never names in the committed vocabularies of

@@ -1128,8 +1128,13 @@ would be improved by knowing how much better the cusp model actually fitted.
 
 **Witkiewitz, K., and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment
 Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738.**
-Cited in Chapter 14 for the general argument that post-treatment drinking is nonlinear,
-not for any specific result. Abstract only.
+**Read in full 14 September 2026** from the author manuscript at PubMed Central
+(PMC1995671); no copy is held. Cited in Chapter 14 for the general argument that
+post-treatment drinking is nonlinear, not for any specific result. It also refits Hufford's
+cusp specification to Project MATCH. Among those still drinking at twelve months, the cusp
+models fit better than linear and logistic ones on AIC, BIC and pseudo-R². Abstainers are
+excluded, and the fitting program offers no significance test. The feedback-loop passage
+Hunter-Reel and colleagues quote is not in this paper.
 
 **Hunter-Reel, D., B. McCrady, and E. Hildebrandt (2009). "Emphasizing Interpersonal
 Factors: An Extension of the Witkiewitz and Marlatt Relapse Model." *Addiction* 104(8):
@@ -1138,7 +1143,8 @@ Factors: An Extension of the Witkiewitz and Marlatt Relapse Model." *Addiction* 
 quotation describing relapse as a feedback loop running "until a steady state of drinking
 or not drinking is achieved". That is bistability in their own words, but it reaches the
 book at two removes and is therefore confined to Chapter 14's notes on sources rather than
-used in the main text.
+used in the main text. The passage is not in Witkiewitz and Marlatt (2007), read in full on 14
+September 2026, so it presumably comes from their 2004 paper, which is unread.
 
 **Greenfield, B. L., and J. S. Tonigan (2013).** *Psychology of Addictive Behaviors* 27(3):
 553-561. **Status upgraded: read in full on 10 August 2026** and moved out of this section's
@@ -1173,25 +1179,26 @@ bibliography often omitted read status. The current-project record supports the 
 | Source | Current status | Use and limitation |
 |---|---|---|
 | Angrist (2014) | **Read in full 13 September 2026** in its working-paper version (`Angrist_2014`) | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
-| Banks et al. (2014, 2017) | Read status not documented | Background on dynamic behavior-change models only. |
+| Banks et al. (2014) | **Cited at a remove**, through Banks et al. (2017), which describes its method; the AMS PDF refused scripted access on 14 September 2026 and no free copy is indexed elsewhere | Background on dynamic behavior-change models only. |
+| Banks et al. (2017) | **Read in full 14 September 2026** from the PMC author manuscript (PMC5551482); the model equations did not render there and were read through the authors' term-by-term description; no copy is held | Background on dynamic behavior-change models only. It fits one patient's daily data, so it shows a method rather than a population result. |
 | Ben-Porath (1967) | **Read at source**, confirmed by the Human Author 14 September 2026; no copy is held, and the paper's bibliography now says so | Background analogy for stock accumulation only. |
 | Cunha and Heckman (2007) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckman_2007`) | Background on dynamic complementarity. |
 | Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; current project has not recorded pages used. |
 | Galanter (1981) | Read status not documented | Background on large-group therapy. |
-| Gorman et al. (2006) | Read status not documented | Agent-based drinking-model background. |
+| Gorman et al. (2006) | **Read in full 14 September 2026** at PMC (PMC1751811); no copy is held | Agent-based drinking-model background. The model is social contagion among agents on a one-dimensional lattice, with a single bar that clusters drinkers; it models neither outlet density nor groups. |
 | Hu and Schennach (2008) | Read in part 13 September 2026, abstract, introduction and assumptions (195 to 200) (`HuSchennach_2008`) | Identification literature; the project does not implement its estimator. |
 | Humphreys, Kaskutas and Weisner (1998) | Read status not documented | Measurement background. |
 | Kaskutas, Bond and Humphreys (2002) | Read status not documented | Social-network mediation background. |
-| Kelly, Humphreys and Ferri (2020) | Read status not documented | Review background; no numerical claim in this project is upgraded from it. |
+| Kelly, Humphreys and Ferri (2020) | **Read in full 14 September 2026** at PMC (PMC7065341), apart from the per-study characteristics and risk-of-bias tables, the forest plots, the search strategies and the references; no copy is held | Review background; no numerical claim in this project is upgraded from it. Its headline is that manualized AA/TSF raises continuous abstinence at 12 months over other established treatments such as CBT (risk ratio 1.21, 95% CI 1.03 to 1.42; 2 trials, 1,936 participants; high certainty) and does about as well on most other outcomes. |
 | Lembke (undated) | **Read in full 13 September 2026** (`Lembke_nd`); the paper's bibliography now says so | Economics-of-religion application to AA. |
 | Ostrom (1990) | Read status not documented | Institutional-design analogy only. |
 | Riessman (1965) | Not obtained | Helper-therapy principle; cited at a remove. |
-| Rynes and Tonigan (2012) | Read status not documented | Sponsorship/network background. |
+| Rynes and Tonigan (2012) | **Read in full 14 September 2026** from the PMC author manuscript (PMC3248627); no copy is held | Sponsorship/network background. In a fully lagged design with 115 participants, the effect of having a sponsor on abstinent days is not carried by change in the abstinent social network, so it dissents from the mediation studies it is cited beside. |
 | Sánchez et al. (2007) | Read status not documented | Epidemic-model background. |
 | Schennach (2004) | Read status not documented | Nonlinear measurement-error identification; not implemented here. |
 | Sharma and Samanta (2015) | Read status not documented | Drinking-epidemic background. |
 | Tonigan, Connors and Miller (1996) | Read status not documented | Measurement background. |
-| Witkiewitz and Marlatt (2004) | Read status not documented | Relapse-prevention background. |
+| Witkiewitz and Marlatt (2004) | Read status not documented | Relapse-prevention background. Probably the source of the feedback-loop passage Chapter 14 holds at two removes. |
 
 “Read status not documented” is not shorthand for unread or read. It means the repository
 does not contain evidence sufficient to claim either. Until a source is logged with pages
