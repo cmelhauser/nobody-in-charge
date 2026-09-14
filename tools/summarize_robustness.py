@@ -20,10 +20,6 @@ def load(name):
     return json.loads((R / name).read_text())
 
 
-def fmt(x, digits=3):
-    return f"{x:.{digits}f}"
-
-
 def hw(values):
     a = np.asarray(values, float)
     return 1.96 * a.std(ddof=1) / math.sqrt(len(a))
@@ -34,13 +30,15 @@ def classify(rows, left, right):
     return int((d > 0).sum()), int((d == 0).sum()), int((d < 0).sum())
 
 
-def main():
+def render() -> str:
+    """The report's full text, so a test can compare it with the committed file."""
     lines = [
         "# Expanded Robustness Results",
         "",
         "Generated from the JSON caches by `tools/summarize_robustness.py`. Screening",
         "parameter points use three or five common seeds and are not confirmatory replications.",
-        "The principal condition contrasts remain the separate 400-seed analyses.",
+        "The principal condition contrasts remain the separate 400-seed analyses, and the",
+        "decay-ordering section below is one of them rather than a screen.",
         "",
     ]
 
@@ -237,7 +235,11 @@ def main():
         lines.append(f"| {factor} | " + " | ".join(cells) + " |")
     lines += ["", f"Noise-replicate total-order diagnostics: {sobol['result']['noise_floor_ST']}." , ""]
 
-    OUT.write_text("\n".join(lines))
+    return "\n".join(lines)
+
+
+def main():
+    OUT.write_text(render())
     print(OUT.relative_to(ROOT))
 
 

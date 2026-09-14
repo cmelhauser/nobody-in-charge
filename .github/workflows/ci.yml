@@ -174,7 +174,7 @@ jobs:
 
       # Everything the release gate can decide without a rendered PDF: cache existence and
       # completeness, model and script hash currency, the registered design counts, and the
-      # model invariants. The seven artifact-freshness checks are omitted here because a
+      # model invariants. The six artifact checks are omitted here because a
       # fresh clone gives every file one timestamp, so they can only be satisfied by
       # building an artifact and then asserting it is newer than its input. The `documents`
       # job runs the full gate.

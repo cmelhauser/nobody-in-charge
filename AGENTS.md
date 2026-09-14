@@ -117,7 +117,7 @@ CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that 
 model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12
 and 3.13 on `main`, and on 3.12 only on pull requests. `checkers` needs pip and nothing else and
 gates every push: corpus drift, portability, the book checks, and `check_release.py
---skip-artifacts`, which is 137 of the 142 release checks. `documents` renders the PDFs, checks
+--skip-artifacts`, which runs 136 of the 142 release checks and reports the other six as skipped. `documents` renders the PDFs, checks
 them with `check_pdfs.py`, and runs the full gate, on `main` only, because it needs pandoc,
 tectonic and a font, and every environmental failure this repository has had came from those
 three fetches. **Do not move a check into `documents` that does not need a rendered PDF.** The
