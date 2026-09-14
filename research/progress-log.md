@@ -4659,9 +4659,33 @@ reversal is confined to final membership.
 Chapters 1 and 24 and a paragraph in Chapter 4's notes; appendix A7.1, A7.5 and A11; the paper's
 decay limitation; the primer; `research/PARAMETERS.md` sections 2, 3 and 8.1; `research/SOURCES.md`;
 `research/ROBUSTNESS-RESULTS.md`. The cache is registered in `tools/check_release.py`, now 142
-checks and 137 with `--skip-artifacts`, and in both notebooks, which assert that the default-rate
+checks, 136 of them run under `--skip-artifacts`, and in both notebooks, which assert that the default-rate
 cells reproduce the released figures. `HANDOFF.md` section 10 item 5 is closed.
 
 **What did not change.** The canonical model and every released number. The run checks a
 sensitivity rather than recalibrating anything: `delta0` stays at 0.06 until something measures how
 fast a practice lapses.
+
+### 13 September 2026: a review pass over the three stacked pull requests
+
+**What it found.** `tools/check_release.py --skip-artifacts` counted its own skip notice as a passed
+check, so "137 checks passed" meant 136 had run, and the gate's comment, `CLAUDE.md`,
+`AGENT_VERIFY.md` and both workflows said the flag omits seven checks where it omits six. Appendix
+A7.5 and `research/PARAMETERS.md` section 8 still said "all three caches" after the decay-ordering
+cache joined them. `HANDOFF.md` section 10 lacked four open items recorded elsewhere: the
+facsimile's unphotographed pages 22 and 23, fourteen background citations with no documented read
+status, the point at which the decay ordering first reverses, and the working manuscript's seven
+other suggested uses. Chapter 12 says Ben-Porath (1967) was read at source while
+`research/SOURCES.md` records no read status for it; item 6 flags that for the Human Author rather
+than guessing which is right.
+
+**What changed.** The gate reports the six as skipped, and the five documents say six. The two
+intros count the fourth cache, and the robustness report says its decay section is confirmatory
+rather than a screen. `HANDOFF.md` section 10 gains items 5 to 8 and a closed entry, and the Part 5
+plan names the decay run as the case for naming an outcome. `tools/summarize_robustness.py` and
+`tools/regenerate_notebooks.py` expose what they generate, and seven new tests execute both
+notebooks, compare the notebooks and the robustness report with their generators, check the gate's
+skip count, recompute three cached decay-ordering cells from the script, and exercise the two
+generators' entry points.
+
+**What did not change.** No model value, cache, notebook or released number.

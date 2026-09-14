@@ -9,6 +9,10 @@ a release gate that starts passing because it stopped looking.
 Anything that renders a PDF or executes a release design is skipped unless the
 environment asks for it, because those take minutes and need a TeX toolchain. Set
 NIC_SLOW_TESTS=1 to include them.
+
+The group headed "generated outputs match what generates them" goes one step further and
+compares committed files with what their generators would write now, so a registered cache, a
+notebook or a derived report cannot go stale without a failure.
 """
 from __future__ import annotations
 
@@ -140,6 +144,130 @@ def test_the_canonical_model_is_tracked():
     tracked = subprocess.run(["git", "ls-files", "model/aa_group_model.py"],
                              cwd=ROOT, capture_output=True, text=True).stdout
     assert tracked.strip() == "model/aa_group_model.py"
+
+
+# --------------------------------------- generated outputs match what generates them
+
+def test_skip_artifacts_skips_exactly_the_artifact_checks():
+    """`--skip-artifacts` must omit the six rendered-PDF checks and nothing else.
+
+    It once counted its own notice as a passed check while the documents describing it said
+    seven were omitted. Totals are compared rather than verdicts, so this holds in a fresh
+    clone, where the full gate's freshness checks cannot pass.
+    """
+    import re
+
+    def counts(*args):
+        out = run("tools/check_release.py", *args).stdout
+        found = re.search(r"(\d+) checks passed; (\d+) failed(?:; (\d+) skipped)?", out)
+        assert found, out
+        return [int(g or 0) for g in found.groups()]
+
+    full, skipping = counts(), counts("--skip-artifacts")
+    assert full[2] == 0 and skipping[2] == 6
+    assert skipping[0] + skipping[1] + 6 == full[0] + full[1]
+
+
+def test_both_notebooks_execute_clean():
+    """Continuous integration otherwise never executes them; `check_book.py` reads their
+    committed outputs. `--no-write` leaves the committed notebooks untouched."""
+    for args in ((), ("--paper",)):
+        result = run("tools/run_notebook.py", "--no-write", *args)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert result.stdout.strip().splitlines()[-1] == "CLEAN", result.stdout
+
+
+def test_notebooks_match_their_generator():
+    """The committed notebooks' code must be what `tools/regenerate_notebooks.py` writes.
+
+    A cache registered in the generator but not regenerated into the notebooks would leave
+    them checking the old set, and nothing else would notice.
+    """
+    import json
+
+    import regenerate_notebooks
+
+    for path, generated in regenerate_notebooks.build().items():
+        committed = json.loads(path.read_text())
+        assert ([(c["cell_type"], "".join(c["source"])) for c in committed["cells"]]
+                == [(c["cell_type"], "".join(c["source"])) for c in generated["cells"]]), path.name
+
+
+def test_robustness_report_is_current():
+    """`research/ROBUSTNESS-RESULTS.md` must be what its generator writes from the caches.
+
+    The release gate checks only that the report is newer than every cache, which a fresh
+    clone satisfies whatever the report says.
+    """
+    import summarize_robustness
+
+    assert summarize_robustness.render() == summarize_robustness.OUT.read_text()
+
+
+def test_decay_ordering_reproduces_its_cache(monkeypatch):
+    """`research/decay_ordering.json` must be what `model/decay_ordering.py` computes.
+
+    Recomputes one cell of each condition from scratch against the cached row, and checks
+    that the job list the script would run is the one the cache recorded.
+    """
+    import hashlib
+    import json
+
+    import decay_ordering
+
+    monkeypatch.setitem(sys.modules, "m", None)  # _load registers the model as "m"
+    cache = json.loads((ROOT / "research" / "decay_ordering.json").read_text())
+    meta = cache["meta"]
+    assert meta["status"] == "complete"
+    assert meta["script_sha256"] == hashlib.sha256(
+        (ROOT / "model" / "decay_ordering.py").read_bytes()).hexdigest()
+    jobs = decay_ordering.jobs()
+    assert meta["jobs_completed"] == len(jobs) == 4800
+    assert all(cache[str(i)]["job"] == list(job) for i, job in enumerate(jobs))
+    for job in ((0, "referral", 0), (-25, "attraction", 1), (-50, "full", 2)):
+        got, want = decay_ordering._one(job), cache[str(jobs.index(job))]
+        for key in ("pc", "scen", "seed", "N", "exists", "viable", "closed"):
+            assert got[key] == want[key], (job, key)
+        for key in ("practice", "maint"):
+            assert got[key] == pytest.approx(want[key], rel=1e-9, abs=1e-12), (job, key)
+
+
+# The script is hash-pinned, so its `json.dump(out, open(tmp, "w"))` cannot be given a
+# `with` block without invalidating the cache it wrote. CPython closes the handle as soon as
+# the call returns, which is what the assertions below check; the ResourceWarning is ignored
+# here and nowhere else.
+@pytest.mark.filterwarnings("ignore::ResourceWarning",
+                            "ignore::pytest.PytestUnraisableExceptionWarning")
+def test_decay_ordering_saves_atomically(tmp_path, monkeypatch):
+    import json
+
+    import decay_ordering
+
+    out = tmp_path / "decay_ordering.json"
+    monkeypatch.setattr(decay_ordering, "OUT", str(out))
+    decay_ordering._save({"meta": {"status": "incomplete"}, "0": {"N": 3}})
+    assert json.loads(out.read_text()) == {"meta": {"status": "incomplete"}, "0": {"N": 3}}
+    assert not (tmp_path / "decay_ordering.json.tmp").exists()
+
+
+def test_generator_entry_points_write_what_they_render(tmp_path, monkeypatch, capsys):
+    import json
+
+    import regenerate_notebooks
+    import summarize_robustness
+
+    monkeypatch.setattr(summarize_robustness, "ROOT", tmp_path)
+    monkeypatch.setattr(summarize_robustness, "OUT", tmp_path / "report.md")
+    monkeypatch.setattr(summarize_robustness, "render", lambda: "text")
+    summarize_robustness.main()
+    assert (tmp_path / "report.md").read_text() == "text"
+
+    notebook = tmp_path / "notebook.ipynb"
+    monkeypatch.setattr(regenerate_notebooks, "ROOT", tmp_path)
+    monkeypatch.setattr(regenerate_notebooks, "build", lambda: {notebook: {"cells": []}})
+    regenerate_notebooks.main()
+    assert json.loads(notebook.read_text()) == {"cells": []}
+    assert capsys.readouterr().out.split() == ["report.md", "notebook.ipynb"]
 
 
 # ------------------------------------------------------------------ slow builders
