@@ -16,10 +16,16 @@ notebook or a derived report cannot go stale without a failure.
 """
 from __future__ import annotations
 
+import hashlib
+import importlib
+import importlib.util
+import json
 import os
+import re
 import shutil
 import subprocess
 import sys
+import types
 from pathlib import Path
 
 import pytest
@@ -286,3 +292,117 @@ def test_the_book_assembles():
     result = run("tools/build_book.py", "--no-pdf")
     assert result.returncode == 0, result.stdout + result.stderr
     assert (ROOT / "build" / "nobody-in-charge.md").exists()
+
+
+# ------------------------------------------------------------------ the withheld name
+#
+# These use an invented name, because a test that stored the real one would publish it. Each
+# swaps the digest set in tools/withheld.py for the invented name's, then checks that the
+# corpus builder leaves it out and the checkers find it.
+
+INVENTED = ("vexmoor", "quillon vexmoor")
+
+
+def load_tool(name: str, monkeypatch):
+    """Import a tool by path, with `tools/` importable and the withheld set swapped."""
+    monkeypatch.syspath_prepend(str(ROOT / "tools"))
+    withheld = importlib.import_module("withheld")
+    monkeypatch.setattr(withheld, "WITHHELD",
+                        {hashlib.sha256(term.encode()).hexdigest() for term in INVENTED})
+    if name == "withheld":
+        return withheld
+    spec = importlib.util.spec_from_file_location(f"nic_{name}", ROOT / "tools" / f"{name}.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_the_withheld_set_still_holds_both_digests():
+    """Emptying the set would pass every test below while enforcing nothing."""
+    spec = importlib.util.spec_from_file_location("nic_withheld_as_committed",
+                                                  ROOT / "tools" / "withheld.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert len(module.WITHHELD) == 2
+    assert all(re.fullmatch(r"[0-9a-f]{64}", digest) for digest in module.WITHHELD)
+
+
+def test_the_withheld_test_sees_through_possessives_and_compounds(monkeypatch):
+    withheld = load_tool("withheld", monkeypatch)
+    for form in ("Vexmoor", "vexmoor's", "vexmoor’s", "vexmoor-style",
+                 "Quillon Vexmoor", "quillon vexmoor's"):
+        assert withheld.is_withheld(form), form
+    for form in ("quillon", "moor", "quillon moor"):
+        assert not withheld.is_withheld(form), form
+    assert withheld.prints_withheld("taught by Quillon\nVexmoor until 2019")
+    assert not withheld.prints_withheld("taught by a founding teacher until 2019")
+
+
+def test_build_index_leaves_a_withheld_word_out(tmp_path, monkeypatch):
+    build_corpus = load_tool("build_corpus", monkeypatch)
+    doc = tmp_path / "doc.txt"
+    doc.write_text("Quillon Vexmoor's retreats, and the Vexmoor years, ended in 2019.\n")
+    vocab = build_corpus.build_index(doc, "a work", "0" * 64)["vocab"]
+    assert "retreats" in vocab and "quillon" in vocab
+    assert not [token for token in vocab if "vexmoor" in token]
+
+
+def test_corpus_check_flags_a_withheld_index_word_and_the_build_strips_it(
+        tmp_path, monkeypatch, capsys):
+    """Record-only indexes have no document to rebuild from, so the word is stripped in place."""
+    build_corpus = load_tool("build_corpus", monkeypatch)
+    monkeypatch.setattr(build_corpus, "RESEARCH", tmp_path)
+    monkeypatch.setattr(build_corpus, "INCORP", tmp_path / "incorporated")
+    (tmp_path / "SOURCES.md").write_text("")
+    source = tmp_path / "incorporated" / "Record_2000"
+    source.mkdir(parents=True)
+    index = source / "Record_2000_verification-index.json"
+    record = {"work": "w", "source_sha256": "0" * 64, "record_only": True,
+              "vocab": ["alpha", "vexmoor", "zeta"]}
+    index.write_text(json.dumps(record) + "\n")
+
+    monkeypatch.setattr(sys, "argv", ["build_corpus.py", "--check"])
+    assert build_corpus.main() == 1
+    assert "verification index lists a withheld name: Record_2000" in capsys.readouterr().out
+    assert json.loads(index.read_text()) == record
+
+    monkeypatch.setattr(sys, "argv", ["build_corpus.py"])
+    assert build_corpus.main() == 0
+    assert json.loads(index.read_text()) == {**record, "vocab": ["alpha", "zeta"]}
+
+
+def test_check_book_finds_a_withheld_name_in_an_index(tmp_path, monkeypatch):
+    check_book = load_tool("check_book", monkeypatch)
+    index = tmp_path / "Record_2000_verification-index.json"
+    index.write_text(json.dumps({"vocab": ["alpha", "vexmoor", "zeta"]}))
+    prose = tmp_path / "prose.md"
+    prose.write_text("Nothing here names anyone.\n")
+
+    check_book.check_withheld_names([str(index), str(prose), str(tmp_path / "missing.md")])
+    names = [msg for section, msg in check_book.FAILS if section == "names"]
+    assert len(names) == 1 and "Record_2000_verification-index.json" in names[0]
+
+    check_book.FAILS.clear()
+    check_book.check_withheld_names([str(prose)])
+    assert not check_book.FAILS
+    assert any(section == "names" for section, _ in check_book.NOTES)
+
+
+def test_the_name_scan_reads_every_tracked_text_file_and_no_source_document(monkeypatch):
+    """A fixed list of prose files is how the name sat in two indexes unread."""
+    check_book = load_tool("check_book", monkeypatch)
+    index = check_book.P("research", "incorporated", "RecoveryDharma_2023",
+                         "RecoveryDharma_2023_verification-index.json")
+    corpus = check_book.P("research", "incorporated")
+
+    def no_git(*args, **kwargs):
+        raise OSError("git is not installed")
+
+    for label in ("with git", "without git"):
+        if label == "without git":
+            monkeypatch.setattr(check_book, "subprocess", types.SimpleNamespace(
+                run=no_git, CalledProcessError=subprocess.CalledProcessError))
+        files = check_book.tracked_text_files()
+        assert index in files, label
+        assert check_book.P("research", "SOURCES.md") in files, label
+        assert not [f for f in files if f.endswith(".txt") and f.startswith(corpus)], label

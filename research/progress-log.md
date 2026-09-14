@@ -4703,3 +4703,37 @@ which is now thirteen.
 
 **What did not change.** No claim, number, model value or cache. The corpus holds no copy of the
 paper, so it stays among the works to obtain.
+
+### 14 September 2026: a withheld name found in two verification indexes
+
+**How it was found.** A pass looked for personal information in everything the public repository
+publishes: the current tree, its history, the rendered PDFs and the release assets. It found the
+surname of the founder this project never names in the committed vocabularies of
+`RecoveryDharma_2023` and `Rohr_2011`. `check_book.py` had enforced the rule since 17 August 2026,
+but only over a fixed list of prose files. No verification index was on that list, and an index's
+vocabulary publishes every word it holds.
+
+**What changed.**
+- The digests moved to `tools/withheld.py`. Its test also catches the name inside a possessive or
+  a hyphenated compound, which the old test missed.
+- `build_corpus.py` leaves a withheld word out of every vocabulary it builds. It strips one from
+  any existing index, including the record-only ones, and `--check` reports an index that holds
+  one.
+- `check_book.py` now scans every tracked text file, and `check_pdfs.py` scans the text of each
+  rendered PDF.
+- The two indexes each lost that one word and nothing else. No subject, citation or claim depended
+  on it.
+- Six new tests cover the change, using an invented name.
+
+**What else the pass found.**
+- **The current tree:** nothing else. It has no host paths, no personal disclosure and no machine
+  metadata, and neither do the caches, notebooks or PDFs.
+- **Author attribution:** the attribution to the Human Author in `README.md`, `ATTRIBUTION.md`,
+  `CITATION.cff`, `LICENSE` and the paper is deliberate.
+- **The published history:** it still holds four things:
+  - the name, in the states of 16 and 17 August 2026 and in the two indexes;
+  - host paths and four source documents from the initial import;
+  - a second personal email address in commit metadata.
+
+  Removing them means rewriting published history. That decision is recorded as `HANDOFF.md`
+  item 9, for the Human Author.

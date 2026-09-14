@@ -37,6 +37,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from withheld import is_withheld
+
 ROOT = Path(__file__).resolve().parents[1]
 RESEARCH = ROOT / "research"
 INCORP = RESEARCH / "incorporated"
@@ -204,7 +206,9 @@ def registered_subjects() -> list[str]:
 def build_index(doc: Path, work: str, digest: str) -> dict:
     raw = doc.read_text(errors="ignore").lower()
     flat = re.sub(r"\s+", " ", raw)
-    vocab = sorted({t for t in TOKEN.findall(raw) if len(t) > 1})
+    # A name the project has undertaken not to print is left out, since a committed
+    # vocabulary publishes every word in it. See tools/withheld.py.
+    vocab = sorted({t for t in TOKEN.findall(raw) if len(t) > 1 and not is_withheld(t)})
     # A vocabulary set has no word order, so a phrase like "sheer survival value" cannot be
     # confirmed from it. Phrase presence is therefore decided here, against the real text,
     # and recorded. It is a statement about this exact file, which is why the hash is stored
@@ -340,6 +344,21 @@ def main() -> int:
                     problems.append(f"verification index missing or stale: {d.name}")
                 else:
                     idx_file.write_text(json.dumps(build_index(text_doc, work, digest)) + "\n")
+                    written.append(d.name)
+
+        # A withheld name comes out of every existing vocabulary too, the record-only ones
+        # included, which have no document to rebuild from. Nothing else in the index changes,
+        # because the rest of it is a statement about the source file.
+        idx_file = d / f"{d.name}_verification-index.json"
+        if idx_file.exists():
+            idx = json.loads(idx_file.read_text())
+            kept = [t for t in idx.get("vocab", []) if not is_withheld(t)]
+            if len(kept) != len(idx.get("vocab", [])):
+                if check_only:
+                    problems.append(f"verification index lists a withheld name: {d.name}")
+                else:
+                    idx["vocab"] = kept
+                    idx_file.write_text(json.dumps(idx) + "\n")
                     written.append(d.name)
 
     if check_only:
