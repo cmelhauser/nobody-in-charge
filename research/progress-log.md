@@ -4689,3 +4689,17 @@ skip count, recompute three cached decay-ordering cells from the script, and exe
 generators' entry points.
 
 **What did not change.** No model value, cache, notebook or released number.
+
+### 14 September 2026: Ben-Porath (1967) read at source
+
+**The discrepancy.** The review pass of 13 September found that Chapter 12 says Ben-Porath (1967)
+was read at source and lists it as read in full, while `research/SOURCES.md` recorded "read status
+not documented" and Chapter 14 listed it as cited at a remove.
+
+**The resolution.** The Human Author confirmed that it was read at source. `research/SOURCES.md`
+now says so, with the date of the confirmation; Chapter 14 moves it to read in full; the paper's
+bibliography marks it read at source; and `HANDOFF.md` item 6 drops it from the undocumented list,
+which is now thirteen.
+
+**What did not change.** No claim, number, model value or cache. The corpus holds no copy of the
+paper, so it stays among the works to obtain.

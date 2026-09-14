@@ -366,17 +366,15 @@ each moves a record-only source onto the ordinary footing.
    the 1939 working manuscript lacks them. They go through the same cleanup into the reading copy,
    and `python3 tools/build_corpus.py` then rebuilds its index. The same session could retake MS
    p. 56, PDF page 88, where Dr. Howard's name is not legible at the resolution checked.
-6. **Copies, and a read status, for fourteen background citations.** The paper-only bibliography
+6. **Copies, and a read status, for thirteen background citations.** The paper-only bibliography
    in `research/SOURCES.md` records "read status not documented" for Banks et al. (2014 and 2017),
-   Ben-Porath (1967), Galanter (1981), Gorman et al. (2006), Humphreys, Kaskutas and Weisner (1998),
-   Kaskutas, Bond and Humphreys (2002), Kelly, Humphreys and Ferri (2020), Ostrom (1990), Rynes and
-   Tonigan (2012), Sánchez et al. (2007), Schennach (2004), Sharma and Samanta (2015), Tonigan,
-   Connors and Miller (1996) and Witkiewitz and Marlatt (2004). Each is cited as background and the
-   corpus holds none; the five papers by Gorman et al., Rynes and Tonigan, Banks et al. and Kelly et
-   al. are free but refuse a scripted download. Hufford et al. (2003), read in abstract only, and
-   Witkiewitz and Marlatt (2007) are also cited and unheld. One entry needs a decision rather than
-   a copy: Chapter 12 says Ben-Porath (1967) was read at source and lists it as read in full, and
-   the ledger does not. Only the Human Author knows which of the two is out of date.
+   Galanter (1981), Gorman et al. (2006), Humphreys, Kaskutas and Weisner (1998), Kaskutas, Bond
+   and Humphreys (2002), Kelly, Humphreys and Ferri (2020), Ostrom (1990), Rynes and Tonigan
+   (2012), Sánchez et al. (2007), Schennach (2004), Sharma and Samanta (2015), Tonigan, Connors and
+   Miller (1996) and Witkiewitz and Marlatt (2004). Each is cited as background and the corpus
+   holds none; the five papers by Gorman et al., Rynes and Tonigan, Banks et al. and Kelly et al.
+   are free but refuse a scripted download. Ben-Porath (1967), read at source, Hufford et al.
+   (2003), read in abstract only, and Witkiewitz and Marlatt (2007) are also cited and unheld.
 
 **Two are optional and change no released number.**
 
@@ -391,6 +389,13 @@ each moves a record-only source onto the ordinary footing.
    `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`. None is a
    correction; each would add first-hand 1939 evidence to an argument the chapter already makes,
    and whether to make them is the Human Author's decision.
+
+### Closed on 14 September 2026
+
+- **Ben-Porath (1967)'s read status.** Chapter 12 said it was read at source, `research/SOURCES.md`
+  recorded no read status, and Chapter 14 listed it as cited at a remove. The Human Author
+  confirmed Chapter 12, so the ledger now records it as read at source, Chapter 14 lists it under
+  read in full, and the paper's bibliography marks it. The corpus still holds no copy.
 
 ### Closed on 13 September 2026
 
