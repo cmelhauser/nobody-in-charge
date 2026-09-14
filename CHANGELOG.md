@@ -76,6 +76,14 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- The surname of the founder this project never names was in the committed vocabularies of two
+  verification indexes, `RecoveryDharma_2023` and `Rohr_2011`, because `tools/check_book.py`
+  enforced the rule over a fixed list of prose files. The changes:
+  - The digests moved to `tools/withheld.py`, whose test also catches possessives and compounds.
+  - `tools/build_corpus.py` leaves a withheld word out of every index, and `--check` reports one.
+  - `check_book.py` scans every tracked text file, and `tools/check_pdfs.py` scans the text of
+    each rendered PDF.
+  - Each index lost that one word and nothing else.
 - Ben-Porath (1967) was recorded in `research/SOURCES.md` with no read status and listed by
   Chapter 14 as cited at a remove, while Chapter 12 said it was read at source. The Human Author
   confirmed Chapter 12; the ledger, Chapter 14 and the paper's bibliography now agree.
