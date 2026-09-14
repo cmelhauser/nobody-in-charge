@@ -2,7 +2,8 @@
 
 Generated from the JSON caches by `tools/summarize_robustness.py`. Screening
 parameter points use three or five common seeds and are not confirmatory replications.
-The principal condition contrasts remain the separate 400-seed analyses.
+The principal condition contrasts remain the separate 400-seed analyses, and the
+decay-ordering section below is one of them rather than a screen.
 
 ## Provenance
 

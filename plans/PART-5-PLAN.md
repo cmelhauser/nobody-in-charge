@@ -187,7 +187,9 @@ mean-one capability model, referral loss is worse than pure attraction loss on e
 endpoint viability and mean final membership in the base architecture and all four tested
 variants. The expanded parameter screens still report strict orderings, ties and reversals
 separately for each outcome. A plain restatement must name its outcome and design rather than
-turning either finite audit into a universal claim.
+turning either finite audit into a universal claim. The 400-seed decay-ordering run
+(`research/decay_ordering.json`) is the concrete case: with the decay rate a quarter lower,
+referral loss leaves the larger group but is still worse on existence and endpoint viability.
 
 ---
 
