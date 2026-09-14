@@ -105,7 +105,7 @@ As of 13 September 2026, everything passes:
 | Check | Result |
 |---|---|
 | `python3 -m pytest` | all passed, three skipped (poppler-dependent) |
-| `tools/check_release.py --skip-artifacts` | 137 checks, 0 failed (the full gate, 142, passes with the artifacts built; it was 136 at the `v0.9.0` tag, see `RELEASING.md`) |
+| `tools/check_release.py --skip-artifacts` | 136 checks, 0 failed, 6 skipped (the full gate runs all 142 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
@@ -337,11 +337,13 @@ shorter one is out of date.
 
 **One item needs a copyrighted book bought or borrowed.** It cannot be closed by computation or by
 inference from what is already here.
+
 2. **Obtain *Alcoholics Anonymous Comes of Age*, pages 97 to 98.** Kurtz names it as the passage
    that settles the unity versus singleness-of-purpose question Chapter 17 depends on. It is the
    single most valuable unread source, and the last time an AA text was left unread on copyright
    grounds it turned out to contain the strongest objection to this book's own argument. It is
    sold rather than posted; AA's own site offers it for purchase only.
+
 **One is an ordinary scholarly loose end.**
 
 3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
@@ -349,6 +351,8 @@ inference from what is already here.
    Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
    papers were read in full on 13 September 2026. The literature on how fast habits and practices
    lapse, which is where the decay rate's evidence would have to come from, is still unsearched.
+   Lally et al. (2010), on how long a behaviour takes to become habitual, is the nearest study
+   named so far; the book does not cite it and the corpus does not hold it.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
@@ -356,8 +360,47 @@ each moves a record-only source onto the ordinary footing.
 4. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
+**Two more need the Human Author.** Neither changes a conclusion.
+
+5. **Photographs of book pages 22 and 23 of *The Book That Started It All*.** The reading copy of
+   the 1939 working manuscript lacks them. They go through the same cleanup into the reading copy,
+   and `python3 tools/build_corpus.py` then rebuilds its index. The same session could retake MS
+   p. 56, PDF page 88, where Dr. Howard's name is not legible at the resolution checked.
+6. **Copies, and a read status, for fourteen background citations.** The paper-only bibliography
+   in `research/SOURCES.md` records "read status not documented" for Banks et al. (2014 and 2017),
+   Ben-Porath (1967), Galanter (1981), Gorman et al. (2006), Humphreys, Kaskutas and Weisner (1998),
+   Kaskutas, Bond and Humphreys (2002), Kelly, Humphreys and Ferri (2020), Ostrom (1990), Rynes and
+   Tonigan (2012), Sánchez et al. (2007), Schennach (2004), Sharma and Samanta (2015), Tonigan,
+   Connors and Miller (1996) and Witkiewitz and Marlatt (2004). Each is cited as background and the
+   corpus holds none; the five papers by Gorman et al., Rynes and Tonigan, Banks et al. and Kelly et
+   al. are free but refuse a scripted download. Hufford et al. (2003), read in abstract only, and
+   Witkiewitz and Marlatt (2007) are also cited and unheld. One entry needs a decision rather than
+   a copy: Chapter 12 says Ben-Porath (1967) was read at source and lists it as read in full, and
+   the ledger does not. Only the Human Author knows which of the two is out of date.
+
+**Two are optional and change no released number.**
+
+7. **Where the referral-versus-attraction ordering first reverses on final membership.**
+   `research/decay_ordering.json` has it holding at the model's decay rate and reversed at 25 per
+   cent lower, and the one-at-a-time screen, on three seeds, still finds it strict at 10 per cent
+   lower. A 400-seed paired run at 10, 15 and 20 per cent lower, as a new hash-linked script on
+   the design of `model/decay_ordering.py`, would locate the reversal, so that Chapter 12 could say
+   how much more slowly a practice must lapse before the outcomes disagree.
+8. **The working manuscript's other suggested uses.** Seven additions, to Chapters 5, 7 and 9, 15,
+   18, 19, 22, and 24 and 21, are set out with page references in
+   `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`. None is a
+   correction; each would add first-hand 1939 evidence to an argument the chapter already makes,
+   and whether to make them is the Human Author's decision.
+
 ### Closed on 13 September 2026
 
+- **The release gate's skip count, and tests for the generated files.** `check_release.py
+  --skip-artifacts` counted its own notice as a passed check, and the gate's comment, `CLAUDE.md`,
+  `AGENT_VERIFY.md` and both workflows said the flag omits seven checks; it omits six and now
+  reports them as skipped. New tests execute both notebooks, compare them and
+  `research/ROBUSTNESS-RESULTS.md` with their generators, and recompute three cached cells of
+  `research/decay_ordering.json` from its script. Items 5 to 8 above were recorded elsewhere and
+  are now here.
 - **The referral-versus-attraction ordering at slower decay.** `model/decay_ordering.py` re-ran
   the one-at-a-time screen's three `delta0` reversals at 400 paired seeds, 4,800 runs cached in
   `research/decay_ordering.json`. The screen was right about direction, and only on final

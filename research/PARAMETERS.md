@@ -149,7 +149,8 @@ tiered design does, especially for final membership. This does not validate the 
 
 ## 8. Multi-level OAT, Morris, and Sobol screens
 
-All three caches are `complete` and match the model hash and their generating-script hashes. The
+All three screening caches, and the decay-ordering cache section 8.1 reports, are `complete`
+and match the model hash and their generating-script hashes. The
 generated tables are in `research/ROBUSTNESS-RESULTS.md`. The retired 30-draw, 236-point,
 10-trajectory, and 128-row Sobol results are correction history and are not authorized for public
 prose.
