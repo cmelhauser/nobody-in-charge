@@ -90,6 +90,12 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- The published Git history is rewritten to remove what the personal-information pass found in it:
+  the withheld name, host paths from the initial import, four source documents, and a second
+  personal email address in commit metadata.
+  - Every current file and every commit message is unchanged.
+  - Every commit hash has changed, so a clone made earlier must be re-cloned.
+  - `v0.9.0` now points at the rewritten commit, and its release assets are unchanged.
 - The surname of the founder this project never names was in the committed vocabularies of two
   verification indexes, `RecoveryDharma_2023` and `Rohr_2011`, because `tools/check_book.py`
   enforced the rule over a fixed list of prose files. The changes:

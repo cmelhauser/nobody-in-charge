@@ -4810,3 +4810,50 @@ The Human Author approved the four corrections proposed above.
 
 No number the book computes changes. The paper prints no new decimal, so its traceability cell is
 unaffected. `HANDOFF.md` item 10 is closed.
+
+### 14 September 2026: the published history rewritten
+
+**Decision.** The Human Author approved rewriting the published history (`HANDOFF.md` item 9). They
+chose three things:
+- map the second address, which appears nowhere in the tree, to the GitHub no-reply address;
+- leave the address the attribution files publish on purpose;
+- set this repository's commit email to the no-reply address so new commits do not bring the old
+  one back.
+
+**Method.** `git filter-branch`, because `git-filter-repo` was not installed and installing it would
+have meant a download. The one thing `git-filter-repo` does that `git filter-branch` does not is
+rewrite commit hashes quoted in commit messages, and no commit message here quotes another commit's
+hash. The run had four parts:
+- **An index filter.** It dropped every source document under `research/incorporated/` and
+  `research/staged/`, and the ten versions of the book PDF whose text printed the withheld name. It
+  rewrote the text blobs that held the name or a home-directory path. The appendix passage took the
+  wording of the 17 August fix, and the two indexes lost the one token.
+- **An environment filter.** It mapped the second address to the no-reply address.
+- **The tag.** `v0.9.0` was recreated with the no-reply tagger and its original date and message.
+- **Where it ran.** First as a trial on a scratch copy, then for real on a fresh copy of GitHub's
+  `main` after #22 merged. The helper script held the name as a search pattern, so it stayed outside
+  the repository.
+
+**Verification before the push.**
+- The rewritten `main` has the same tree as the published one, byte for byte.
+- It keeps all 107 commits with identical messages.
+- The tag's tree differs from the old tag's only by the one token in two indexes.
+- A scan of all 1,475 paths reachable from `main` and the tag found no source document, no
+  occurrence of the name in any text or PDF text, no home-directory path, and no trace of the old
+  address in commit or tag metadata.
+
+**The push.**
+- `main` and the tag were force-pushed with leases, so the push would have failed had either moved.
+- The four merged branches were deleted on GitHub.
+- The local clone was reset to the new `main` and its stale branches removed.
+- The release still hangs off the tag with its three assets.
+
+**What remains.** GitHub still serves old commits by hash, which was checked after the push, and
+through the pull-request references. The request to GitHub Support is written for the Human Author
+to send, and it is now `HANDOFF.md` item 9.
+
+**A slip on the way.** PR #20 was merged before GitHub's CI had run on it. Retargeting a pull
+request's base does not trigger this repository's pull-request workflow, and the merge guard read
+"no checks reported" as passing. The full local CI had passed on that exact branch, and the push
+run on `main` for the merge passed. #21 then had its CI dispatched by hand and passed before it was
+merged, and #22 targeted `main` from the start.
