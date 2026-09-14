@@ -294,8 +294,9 @@ Nothing here changes a model value, a cache or a release check.
 
 ## Suggested uses in the manuscript
 
-In rough order of value. None has been made. The first is a correction, and it and the A13 recount are
-listed in `HANDOFF.md` section 10.
+In rough order of value. The first, a correction, was made on 13 September 2026: Chapter 4 now says
+what the pages show. None of the others has been made, and the A13 recount is listed in `HANDOFF.md`
+section 10.
 
 1. **Chapter 4, a correction.** Replace "the softening of 'you must' to 'we ought'" with what the pages
    show: instruction to "you" rewritten as a report of what "we" did, the modal usually kept, and some

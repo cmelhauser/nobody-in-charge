@@ -4590,3 +4590,30 @@ of a study. Chapters 2 and 15 use Lembke. The paper's bibliography marks the pap
 practice; neither gives a value for how fast a practice lapses, and replacing one authored number
 with another chosen after reading them would not be an improvement. A 400-seed run of the
 attraction-versus-referral ordering at slower decay is carried as `HANDOFF.md` item 7 instead.
+
+### 13 September 2026: Chapter 4's "you must" to "we ought", corrected
+
+**The claim.** Chapter 4 said the 1939 comment round softened "you must" to "we ought" in various
+places. That came from secondary accounts, and the working manuscript, held since 12 September,
+shows no such edit.
+
+**What the chapter now says.** The paragraph on the comment round is first-hand for the manuscript
+layer: comments collected on one surviving copy, Dr. Howard named in the margins, the kneeling
+instruction and the ultimatum struck, and a change of speaker from "you" to "we" that mostly keeps
+the modal, with "You must take the lead" printed as "We must take the lead" after the pencil had
+softened it, and "You must find Him now!" the one clear softening. The "four hundred copies" is now
+the editors' "as many as four hundred", and the effect on who can walk into a room and stay is marked
+as the author's reading rather than something the pages show.
+
+**How it was checked.** Every quotation against the facsimile's page images, PDF pages 62, 63, 64,
+73 and 74 for MS pp. 30, 31, 32, 41 and 42, and the printed wording against the 1939 reprint at
+printed pages 71 and 95. Dr. Howard's name was confirmed on seven of the eight pages the note lists;
+the eighth, MS p. 56, is not legible enough at the resolution checked, so the chapter names seven.
+
+**Propagated to** the chapter's notes and references, where the 1939 first edition moves from unread
+to held, the claim register (the row is now P, with five new rows), `research/SOURCES.md`, the
+working-manuscript note and its PDF, `HANDOFF.md` section 10 (item 4 closed and the rest
+renumbered) and the changelog.
+
+**What did not change.** No model value, cache or notebook. The paper, the appendix and the primer
+never carried the claim.
