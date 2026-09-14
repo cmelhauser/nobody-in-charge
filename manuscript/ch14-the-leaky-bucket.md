@@ -223,7 +223,7 @@ The group sweep is a sensitivity curve, not evidence for individual bistability.
 
 **Hufford and colleagues (2003) reaches me through its published abstract and through a later paper's citation of it, not through the full text.** It is now corroborating rather than load-bearing, and the 2025 paper cites it as one of the calls for exactly this kind of model, which at least confirms the chain is real. What the abstract states is that two preliminary studies, fifty-one inpatients and forty-three outpatients followed for six months, indicate a cusp catastrophe model has more predictive utility than traditional linear models. **The comparison statistics themselves I have not seen.** An earlier draft of the chapter plan said the model outperformed "linear and logistic" specifications; the abstract says linear, and I have removed the stronger word rather than keep a claim I cannot support.
 
-**Witkiewitz and Marlatt (2007) is also read via abstract only.** It is cited here for the general argument that post-treatment drinking is nonlinear, not for any specific result. A passage of theirs quoted in Hunter-Reel and colleagues (2009) describes relapse as a feedback loop running until a steady state of drinking or not drinking is reached, which is bistability in their own words; I have that quotation at two removes and have not used it in the main text for that reason.
+**Witkiewitz and Marlatt (2007) is now read in full**, from the author manuscript at PubMed Central. It is still cited here for the general argument that post-treatment drinking is nonlinear, not for any specific result, and it also refits Hufford's cusp specification to Project MATCH, as the reference below describes. A passage of theirs quoted in Hunter-Reel and colleagues (2009) describes relapse as a feedback loop running until a steady state of drinking or not drinking is reached, which is bistability in their own words. The passage is not in the 2007 paper, so it presumably comes from their 2004 paper, which I have not read; the quotation stays at two removes and out of the main text for that reason.
 
 **The Hill function is borrowed, not fitted.** Its use for switch-like behaviour is standard, and n = 3 gives a moderately sharp switch. Neither n nor k was chosen from data. Sensitivity of the retired frozen-environment diagnostic does not establish bistability in the corrected baseline environment.
 
@@ -243,11 +243,11 @@ Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology 
 
 Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. The ancestry of the depreciation structure, described in Chapter Twelve rather than here.
 
+Witkiewitz, K. and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738. Read in full on 14 September 2026 from the author manuscript at PubMed Central; no copy is held. The general argument that relapse is a discontinuous process which linear models predict badly, and a refit of the cusp model to Project MATCH in which it fits better than linear and logistic models among those still drinking at twelve months. Abstainers are excluded from that fit, and the fitting program gives no test of significance.
+
 **Cited at a remove:**
 
 Hufford, M. R. K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003). "Relapse as a Nonlinear Dynamic System: Application to Patients with Alcohol Use Disorders." *Journal of Abnormal Psychology* 112(2): 219-227. Read via abstract; full text not obtained.
-
-Witkiewitz, K. and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738. Read via abstract; full text not obtained.
 
 Hunter-Reel, D. B. McCrady, and E. Hildebrandt (2009). "Emphasizing Interpersonal Factors: An Extension of the Witkiewitz and Marlatt Relapse Model." *Addiction* 104(8): 1281-1290. The source of the Witkiewitz and Marlatt quotation described in the notes above.
 
@@ -257,4 +257,4 @@ Hunter-Reel, D. B. McCrady, and E. Hildebrandt (2009). "Emphasizing Interpersona
 
 **What was not read:**
 
-Hufford et al. (2003), the earlier nonlinear-dynamics treatment of relapse, which remains unobtained and which would say how much better the double-well fit does than the alternatives. The chapter now rests on Fatimah, Hunter and Bornovalova (2025), read in full, so this is corroboration rather than foundation. Also unread: the wider clinical literature on relapse trajectories, which this chapter engages only through those two papers and which may well contain results that bear on the bistability claim in either direction.
+Hufford et al. (2003), the earlier nonlinear-dynamics treatment of relapse, which remains unobtained and which would say how much better the double-well fit does than the alternatives. The chapter now rests on Fatimah, Hunter and Bornovalova (2025), read in full, so this is corroboration rather than foundation. Witkiewitz and Marlatt (2004), the probable source of the quotation held at two removes, is unread too. Also unread: the wider clinical literature on relapse trajectories, which this chapter engages only through those two papers and which may well contain results that bear on the bistability claim in either direction.
