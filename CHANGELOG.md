@@ -21,8 +21,13 @@ someone who wants to know what changed between two tags does not have to read it
     read, and Banks et al. (2014) as cited at a remove.
   - Four citations gain a subtitle or an issue number, checked against Crossref.
   - The summaries supplied in place of the articles were not filed, and no copy is held.
-  - Four statements the reading found out of step with their sources are proposed in `HANDOFF.md`
-    item 10, not made.
+  - Four statements the reading found out of step with their sources are corrected, at the Human
+    Author's direction:
+    - the paper's summary of the Cochrane review;
+    - its account of the mechanism literature, which now reports Rynes and Tonigan (2012) as a
+      dissent;
+    - its description of Gorman et al. (2006);
+    - Chapter 14's account of the warrant for its older strand.
 - Continuous integration now splits `unit-tests` from `checkers`, so version-independent
   checkers run once on Python 3.12 instead of once per matrix cell. Pull requests test on
   3.12 only; `main` still runs 3.11, 3.12 and 3.13. The lint job uses `shellcheck-py` from
