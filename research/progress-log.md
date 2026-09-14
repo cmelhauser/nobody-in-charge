@@ -4737,3 +4737,57 @@ vocabulary publishes every word it holds.
 
   Removing them means rewriting published history. That decision is recorded as `HANDOFF.md`
   item 9, for the Human Author.
+
+### 14 September 2026: six background papers, read at PubMed Central
+
+**What arrived.** The Human Author supplied a zip described as the full extracted text of six papers
+the paper cites, with an updated list of sources to obtain. The six files were summaries of three
+to four kilobytes written by another tool. They had bullet-point findings and notes guessing at what
+this book says, and two were marked as truncated. A summary is not the source, and an index built
+from one would certify subjects against the wrong text, so none was filed.
+
+**What was done instead.** Every scripted route to the articles refused. PMC's PDF links return a
+bot check, Europe PMC holds no full text for them, and AMS returns 403 for Banks et al. (2014). At
+the Human Author's direction, the five PMC articles were read in the in-app browser. No copy is
+held; a PDF saved from each article page would give the corpus one.
+- **Gorman et al. (2006), read in full.** Social contagion among agents on a one-dimensional lattice.
+  Susceptibles always convert. The drinker and former-drinker shares settle at a level set by the
+  stop and resume biases. Conversion is fastest at an intermediate mixing speed, and a single bar
+  clusters drinkers, which buffers susceptibles while concentrating drinking. Outlet density is left
+  for future work.
+- **Rynes and Tonigan (2012), read in full.** 115 new AA affiliates were followed at 3, 6 and 9
+  months. A sponsor at 3 months predicts more abstinent days at 9 months. The abstinent share of the
+  social network stays near half throughout and does not mediate the effect. The authors attribute
+  the earlier positive mediation findings to cross-sectional or partly lagged designs.
+- **Banks et al. (2017), read in full.** An individual-level dynamical model fitted to one patient's
+  daily data on drinks, norm violation, confidence and commitment by iterative weighted least
+  squares. The preliminary model fails, and a revision driven by rates of change fits. The equations
+  did not render in the page text and were read through the authors' term-by-term description.
+- **Witkiewitz and Marlatt (2007), read in full.** The case for relapse as a discontinuous process,
+  a qualitative review of Gilmore's catastrophe flags, and a refit of Hufford's cusp on Project
+  MATCH. Among those still drinking at twelve months, the cusp models beat linear and logistic ones
+  on AIC, BIC and pseudo-R-squared. Abstainers are excluded, and the program offers no significance
+  test. The passage Chapter 14 holds at two removes through Hunter-Reel and colleagues is not in this
+  paper.
+- **Kelly, Humphreys and Ferri (2020), read in full apart from the per-study tables, forest plots,
+  search strategies and references.** 27 studies and 10,565 participants. Manualized AA/TSF raises
+  continuous abstinence at 12 months over other established treatments (risk ratio 1.21, 95% CI 1.03
+  to 1.42; 2 trials; high certainty). It does about as well on intensity, consequences and severity,
+  and it probably offsets healthcare costs.
+- **Banks et al. (2014), not read.** It is cited at a remove through the 2017 paper, which describes
+  its top-down method.
+
+**What was recorded.**
+- `research/SOURCES.md`'s paper-only table, Chapter 14's references and the paper's bibliography now
+  record these statuses.
+- Four citations gained a subtitle or an issue number, checked against Crossref.
+
+**What it bears on.** Four statements in the paper and Chapter 14 say more or less than their sources
+do:
+- the paper's summary of the Cochrane review;
+- its claim that the mechanism literature converges on network change;
+- its description of Gorman et al.;
+- Chapter 14's sizing of the older strand's warrant.
+
+They are proposed to the Human Author as `HANDOFF.md` item 10 and not yet made. No number the book
+computes changes.
