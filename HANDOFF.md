@@ -350,15 +350,10 @@ inference from what is already here.
    papers were read in full on 13 September 2026. The literature on how fast habits and practices
    lapse, which is where the decay rate's evidence would have to come from, is still unsearched.
 
-**Two are prose corrections the 1939 working manuscript implies**, added 12 September 2026 and
-not yet made, because they change the author's text.
+**One is a prose correction the 1939 working manuscript implies**, added 12 September 2026 and
+not yet made, because it changes the author's text.
 
-4. **Chapter 4's "you must" to "we ought".** The working manuscript shows the comment round
-   changing who speaks, from "you" to "we", and usually keeping the modal; at one point the
-   galleys restored "We must take the lead" after the pencil had softened it. No "you must"
-   becomes "we ought" anywhere in it. The pages are listed in
-   `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`.
-5. **Appendix A13's count of the 1939 stories.** A13 says twenty-nine; the 1939 contents page in
+4. **Appendix A13's count of the 1939 stories.** A13 says twenty-nine; the 1939 contents page in
    `BigBook_1939` lists thirty titles from "The Doctor's Nightmare" to "Ace Full Seven-Eleven".
    Either the count or its definition needs stating. The working manuscript adds that ten of
    those stories were not in the circulated draft.
@@ -366,12 +361,12 @@ not yet made, because they change the author's text.
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
 
-6. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
+5. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
 **One is a confirmatory run the new reading makes worth doing.**
 
-7. **The referral-versus-attraction ordering at slower decay.** The one-at-a-time screen reverses
+6. **The referral-versus-attraction ordering at slower decay.** The one-at-a-time screen reverses
    the ordering of referral loss against pure attraction loss on final membership when the decay
    rate is 25, 50 or 75 per cent lower, on three seeds, and at 25 per cent lower the
    referral-starved group is viable in all three. The reading of 13 September 2026 makes a slower
@@ -382,6 +377,11 @@ each moves a record-only source onto the ordinary footing.
 
 ### Closed on 13 September 2026
 
+- **Chapter 4's "you must" to "we ought".** The paragraph on the 1939 comment round now says what
+  the working manuscript shows: instruction to "you" rewritten as a report of what "we" did, the
+  modal usually kept, one command plainly softened, and force restored at galley stage. Each
+  quotation was checked against the page images, and the claim register, `research/SOURCES.md` and
+  the working-manuscript note record the correction.
 - **The seven papers held on 13 September 2026 are read**, six in full and one in part, and what
   they bear on is applied. Chapter 12 sets the decay rate against the two skill-depreciation papers
   and says how much rides on it; Chapters 12 and 13 correct the three precision points, and Chapter
@@ -389,7 +389,7 @@ each moves a record-only source onto the ordinary footing.
   Ben-Porath's; Chapter 13 adds their sign-changing estimate as an analogy; Chapters 2 and 15 use
   Lembke; Chapters 1 and 24 note that the decay rate is among the few values that reverse the
   referral-versus-attraction ordering; the paper, primer, appendix A11 and `research/PARAMETERS.md`
-  follow. The model is unchanged, for the reason item 7 gives.
+  follow. The model is unchanged, for the reason item 6 gives.
 - **The author block in rebuilt books.** `tools/build_book.py`, the preface and the appendix still
   named the Human Author, so every rebuild put the name back into the book that had been
   anonymized by hand. All three now say the book is by an anonymous author, and the book and

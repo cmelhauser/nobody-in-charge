@@ -51,7 +51,7 @@ The most distinctive financial rule in American mutual aid, the rule that AA dec
 
 With no money for missionaries, the communication problem had to be solved some other way, and the answer was a book.
 
-Wilson began writing in 1938. The chapter containing the actual programme was drafted in one sitting, on a yellow pad, in bed. When he finished he had written down twelve steps. Four hundred copies of the working manuscript went out for comment, and the fellowship argued fiercely over the religious language: one contentious result of that argument was the softening of "you must" to "we ought" in various places, which is a small change with an enormous long-run effect on who can walk into a room and stay.
+Wilson began writing in 1938. The chapter containing the actual programme was drafted in one sitting, on a yellow pad, in bed. When he finished he had written down twelve steps. Early in 1939 the draft was duplicated and, by its modern editors' account, as many as four hundred copies went out for comment, to doctors and clergy as well as members. The comments were collected onto a single copy, which survives, and the argument over the religious language is on its pages. A Dr. Howard, whom the editors identify as a psychiatrist, is named in the margins of several of them; "Get down upon your knees" was struck before the Third Step prayer, and so was a line telling an unconvinced reader to re-read the book "or else throw it away". But the change that runs through the whole programme is to who is speaking. Instruction to "you" becomes an account of what "we" did, and the force mostly survives the move: a typed "You must take the lead" became "we found we had to" in pencil, and was printed as "We must take the lead". Only once is a command plainly softened, when "You must find Him now!" becomes "May you find Him now!" I think the move from instruction to testimony did more than any softening could have to decide who can walk into a room and stay, since a newcomer can refuse an order but not somebody else's account of what happened to them. That is my reading; the pages record the edit, not its effect.
 
 *Alcoholics Anonymous* was published in April 1939. It sold badly. The venture was rescued at one point by a member who mortgaged his tailor shop to pay the printer. The first board minutes of the Alcoholic Foundation record a treasury of 2,150, which was what remained of Rockefeller's five thousand.
 
@@ -108,7 +108,7 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 **What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation and his fifty-thousand-dollar recommendation; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
 
-**What I am reporting at one or more removes.** Nearly all of it. The Amos report, the Scott question and Rockefeller's reasoning are quoted in AA's own *Alcoholics Anonymous Comes of Age* and *Dr. Bob and the Good Oldtimers*, and reach me through secondary sites that quote those books. Wilson's disappointment at being refused, and his later crediting of Rockefeller with the nonprofessional principle, come from secondary accounts of his own recollections.
+**What I am reporting at one or more removes.** Nearly all of it. The Amos report, the Scott question and Rockefeller's reasoning are quoted in AA's own *Alcoholics Anonymous Comes of Age* and *Dr. Bob and the Good Oldtimers*, and reach me through secondary sites that quote those books. Wilson's disappointment at being refused, and his later crediting of Rockefeller with the nonprofessional principle, come from secondary accounts of his own recollections. The paragraph on the working manuscript is the exception: it is taken from the manuscript itself, apart from the number of copies circulated and Dr. Howard's profession, which are its editors'.
 
 ~~**The acquisition that would fix this** is Ernest Kurtz, *Not-God*.~~ **Obtained and read, 2 August 2026**, in the expanded 1991 edition. The narrative spine of this chapter is now first-hand: the failed Akron proxy fight of early May 1935; Wilson pacing the Mayflower lobby on Saturday 11 May, the day before Mother's Day, with the bar filling at one end of his track and the hotel church directory standing at the other; the thought *God, I am going to get drunk* and the panic that followed it, which Kurtz calls the final founding moment; and Dr Bob Smith's last drink on 10 June 1935, followed the same day by his rounds of confession and restitution to creditors and others he had harmed.
 
@@ -118,7 +118,9 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 **What is still at a remove.** The Amos report itself and Rockefeller's reasoning still reach this chapter through AA's copyrighted histories, and Kurtz is drawing on those same histories alongside the correspondence for parts of this episode. The chapter is no longer a well-corroborated outline, but it is not yet uniformly first-hand either.
 
-**A note on the 1939 first edition.** Its US copyright appears not to have been renewed and facsimile reprints are commercially available, so the text itself is probably usable as a primary source. It contains the Steps. It does not contain the Traditions, which were written seven years later, so it does not help with Chapter Five.
+**The working manuscript corrects this chapter rather than confirming it.** Earlier drafts said the comment round softened "you must" to "we ought" in various places. That came from secondary accounts, and the manuscript itself, read on every page on 12 September 2026, does not show it. What it shows is a change of speaker: instruction to "you" rewritten as a report of what "we" did across the programme chapters, with the modal usually kept. On MS p. 41 "You must take the lead" went through "we found we had to" in pencil to "We must take the lead" in print, so the galleys put back force the pencil had taken out. The one "we ought" that grows from a "you ought" is on MS p. 42, "you ought to leave them alone", printed as "we think we ought not to urge them". "You must find Him now!" on MS p. 30 is the one clear softening. The struck kneeling instruction is on MS p. 32 and the ultimatum on MS p. 31, and Dr. Howard is named on MS pp. 10, 11, 18, 19, 23, 46 and 86. Every quotation was checked against the facsimile's page images, and every printed wording against the 1939 text at printed pages 71 and 95. The number of copies circulated and Dr. Howard's profession are the editors' claims, not the manuscript's.
+
+**A note on the 1939 first edition.** The corpus now holds it, as the 1999 Big Book Study Group reprint; its 1939 rights position is contested and the reprint asserts no copyright. Its personal stories were read in full for appendix A13, and the printed wording quoted above was checked against it on 13 September 2026. It contains the Steps. It does not contain the Traditions, which were written seven years later, so it does not help with Chapter Five.
 
 ### 4. References
 
@@ -130,6 +132,10 @@ Maxwell, M. A. (1950). For AA's early structure and his contemporaneous descript
 
 Various AA area and intergroup historical compilations, used only where two or more agreed and where the claim traced to a named AA publication.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the February 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the single collated copy, the change of speaker, the modals on MS pp. 30, 41 and 42, the struck kneeling instruction and ultimatum, and Dr. Howard's marginal notes.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. The personal stories were read in full for appendix A13; for this chapter, the printed wording of the passages quoted from the working manuscript, at printed pages 71 and 95.
+
 **Cited at a remove:**
 
 Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age.* One of Kurtz's sources for the 1937 Rockefeller board room and for Scott's questions. Not read.
@@ -138,8 +144,8 @@ Alcoholics Anonymous World Services (1980). *Dr. Bob and the Good Oldtimers*, pp
 
 Minutes of the first meeting of the Alcoholic Foundation board. Source of the 2,150 figure.
 
-**What was not read:**
+The facsimile editors' essays in *The Book That Started It All* (2010), for the number of copies circulated and Dr. Howard's profession. Where they quote AA's own histories they are a further remove.
 
-*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing.
+**What was not read:**
 
 Alexander, J. (1 March 1941). "Alcoholics Anonymous." *Saturday Evening Post.*

@@ -62,7 +62,7 @@ the two journal articles on 10 August:
 | Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
 | Wilson, "Twelve Suggested Points for A. A. Tradition", *A.A. Grapevine* (April 1946) | **A.A. Grapevine copyright; not archived** | record only | read at source; Chapter 5's opening quotation verified, and the two-title problem explained |
 | DeGroot, "Reaching a Consensus" (1974) | **ASA / Taylor & Francis; not archived** | record only | read at source; the updating rule behind Part Two |
-| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | **twenty-nine personal stories read in full 17 August 2026**; supports appendix A13, the census of arrival channels against the model's arrival term |
+| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | **twenty-nine personal stories read in full 17 August 2026**; supports appendix A13, the census of arrival channels against the model's arrival term; the printed wording quoted in Chapter 4 (printed pp. 71 and 95) checked 13 September 2026 |
 | AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; published free per chapter by AAWS** | assembled PDF and extracted text since 13 September 2026 | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
 | Rohr, *Breathing Under Water* (2011) | **in copyright and in print; not archived** | record only | read in full 10 August 2026; cited only for its reading of anonymity and for containing no discussion of the Traditions; see the provenance note below |
 | Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **sold as an audiobook; the Human Author's own transcription** | PDF and extracted text since 13 September 2026 | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
@@ -524,7 +524,8 @@ draft were collated, so read against `BigBook_1939` it shows both what was circu
 changed before print. Step 3's "as we understood Him" is already typed; Step 11's is written in by
 hand; the "choose your own conception of God" episode in Bill's Story is a handwritten insert that
 the circulated draft did not contain. Second-person instruction is recast as first-person report,
-usually keeping the modal, so **Chapter 4's "you must" to "we ought" is not what the pages show**.
+usually keeping the modal, so **Chapter 4's "you must" to "we ought" is not what the pages show**;
+Chapter 4 was corrected on 13 September 2026, with each quotation checked against the page images.
 Collective "group" language is taken out; the Foreword's anonymity, no-fees and single-requirement
 statements are already typed, beside a proposed trust with a permanent non-alcoholic majority; and
 ten of the printed stories are absent from the draft. The only numbers it supplies are early-1939
