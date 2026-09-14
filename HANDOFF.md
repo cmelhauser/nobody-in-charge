@@ -390,8 +390,45 @@ each moves a record-only source onto the ordinary footing.
    correction; each would add first-hand 1939 evidence to an argument the chapter already makes,
    and whether to make them is the Human Author's decision.
 
+**One is a decision about what the public history keeps.** It changes nothing in the book.
+
+9. **Whether to rewrite the published Git history.** The current tree is clean, but `main`, the
+   `v0.9.0` tag and GitHub's pull-request refs keep earlier states that are not:
+   - **The withheld name:**
+     - in the appendix, the generated book Markdown and ten rendered book PDFs of 16 and 17 August
+       2026, from 537633b to 3e9e22e;
+     - in two verification indexes until 14 September 2026.
+   - **Host-specific home-directory paths** from the initial import, 05096e9, in `AGENT_VERIFY.md`,
+     `HANDOFF.md`, `build/pandoc.log` and `research/audit-pre-correction-manifest.json`.
+   - **Four source documents with their OCR text**, from the same import. One is Golub and Jackson
+     (2010), whose record says it is not redistributed. The other three are the American
+     Temperance Union documents, which are public domain.
+   - **A second personal email address of the Human Author**, in commit metadata. It appears
+     nowhere in the tree.
+
+   None of it is in the v0.9.0 release assets, which match the tagged PDFs byte for byte and do not
+   print the name. Removing it would take four steps, and none of them can be undone:
+   - rewrite history with `git filter-repo`;
+   - force-push `main` and the tag;
+   - ask GitHub Support to drop the pull-request refs and cached views;
+   - accept that existing clones and forks keep what they have.
+
+   The author attribution in `README.md`, `ATTRIBUTION.md`, `CITATION.cff`, `LICENSE` and the paper is
+   deliberate and is not part of this item.
+
 ### Closed on 14 September 2026
 
+- **A withheld name in two verification indexes.** A pass for personal information found the
+  surname of the founder this project never names in the committed vocabularies of
+  `RecoveryDharma_2023` and `Rohr_2011`. `check_book.py` enforced the rule over a fixed list of
+  prose files, and no index was on it.
+  - **The fix:**
+    - The digests moved to `tools/withheld.py`.
+    - `build_corpus.py` leaves a withheld word out of every index, and its `--check` reports one.
+    - `check_book.py` scans every tracked text file.
+    - `check_pdfs.py` scans the text of each rendered PDF.
+  - **What changed in the indexes:** each lost that one word and nothing else.
+  - **What stays open:** the published history, item 9.
 - **Ben-Porath (1967)'s read status.** Chapter 12 said it was read at source, `research/SOURCES.md`
   recorded no read status, and Chapter 14 listed it as cited at a remove. The Human Author
   confirmed Chapter 12, so the ledger now records it as read at source, Chapter 14 lists it under

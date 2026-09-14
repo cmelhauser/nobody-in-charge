@@ -14,6 +14,8 @@ This asks whether the thing renders.
                     machine that lacks it
   text extractable  catches an encoding failure that looks right on screen and yields
                     nothing to a search, a screen reader, or the citation checker
+  no withheld name  the published text prints no name the project has undertaken to
+                    withhold; see tools/withheld.py
   ink inside page   measures the rendered result rather than the build log
 
 Everything except the last uses pypdf, which is a pip dependency and needs nothing from the
@@ -25,7 +27,7 @@ The ink measurement still needs poppler's `pdftotext -bbox`, because pypdf's tex
 transformation matrices are not reliable enough for the purpose: on a correct page they put
 a left edge at -0.3pt, which would fail a bound the typesetting has not actually breached.
 So that one check runs where poppler exists and reports itself skipped where it does not,
-rather than passing silently. It is the least load-bearing of the six, because the
+rather than passing silently. It is the least load-bearing of the seven, because the
 overfull-box gate already catches text leaving the type block from TeX's side.
 
 On the bound: it is the paper edge, not the type block. Microtype sets terminal punctuation a
@@ -41,6 +43,8 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+from withheld import prints_withheld
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -135,8 +139,14 @@ def check(rel: str, min_pages: int) -> None:
             f"{name}: all {len(seen)} fonts embedded"
             + (f"; not embedded: {', '.join(sorted(missing)[:3])}" if missing else ""))
 
-    words = sum(len((p.extract_text() or "").split()) for p in pages)
+    texts = [p.extract_text() or "" for p in pages]
+    words = sum(len(t.split()) for t in texts)
     require(words > 500, f"{name}: text extractable ({words:,} words)")
+
+    # The rendered text is what is published, and a withheld name reached a rendered PDF
+    # once before any checker looked for it. See tools/withheld.py.
+    require(not prints_withheld("\n".join(texts)),
+            f"{name}: prints no name the project has undertaken to withhold")
 
     check_ink(path, name)
 

@@ -157,7 +157,10 @@ document; it is git-ignored anyway, because the rule is uniform.
 
 Two rules attach to it. **The founder of the predecessor organization it split from is named in that
 source and is named nowhere in this project.** The structural claim does not need the name and
-nothing here can adjudicate an allegation about a living person. And a first pass on that source
+nothing here can adjudicate an allegation about a living person. Nowhere includes the verification
+indexes, whose vocabularies are published word by word: `tools/withheld.py` holds the name as a
+digest, `build_corpus.py` leaves it out of every index, and `check_book.py` looks for it in every
+tracked text file. And a first pass on that source
 concluded the fellowship had no group-conscience analogue, which was wrong: the sangha is one, and
 the error came from skipping Section II. Do not restore the earlier claim.
 
