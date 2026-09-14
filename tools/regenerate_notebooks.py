@@ -99,6 +99,7 @@ expected = {
     "morris.json": 2380,
     "oat_full.json": None,
     "sobol.json": 11264,
+    "decay_ordering.json": 4800,
 }
 for name, jobs in expected.items():
     data = load(name)
@@ -197,6 +198,19 @@ sobol = load("sobol.json")
 normalized_leaders = [r["id"].replace("scalar:", "") for r in leaders]
 check("Sobol factors follow Morris leaders", sobol["meta"]["factors"], normalized_leaders)
 print("  INFO structural cache complete", load("structural.json")["meta"]["jobs_completed"])
+
+_dec = [v for k, v in load("decay_ordering.json").items() if k != "meta"]
+def _dcell(pc, scen):
+    return [r for r in _dec if r["pc"] == pc and r["scen"] == scen]
+check("decay ordering: every cell holds seeds 0-399",
+      all(sorted(r["seed"] for r in _dcell(pc, sc)) == list(range(400))
+          for pc in (0, -25, -50, -75) for sc in ("full", "attraction", "referral")), True)
+check("decay ordering at the default rate reproduces released full-adherence mean N",
+      round(float(np.mean([r["N"] for r in _dcell(0, "full")])), 2), 17.8)
+check("decay ordering at the default rate reproduces released attraction-loss mean N",
+      round(float(np.mean([r["N"] for r in _dcell(0, "attraction")])), 2), 12.38)
+check("decay ordering at the default rate reproduces released referral-loss viability",
+      sum(r["viable"] for r in _dcell(0, "referral")), 11)
 '''
 
 
@@ -439,6 +453,51 @@ def emit():
         rr = g[pc]
         for fld in ('N', 'viable', 'exists', 'closed', 'maint'):
             show(f'ch14 pc={pc} {fld}', np.mean([r[fld] for r in rr]), pct=fld in ('viable', 'exists', 'closed'))
+
+    # ---- decay ordering at 400 paired seeds -------------------------------------------
+    # The one-at-a-time screen reverses the attraction-minus-referral ordering on final
+    # membership at large downward moves of delta0, on three seeds. This is the 400-seed
+    # re-estimate at those distances, paired by seed across all twelve cells.
+    d, rs = rows_of('decay_ordering.json')
+    cells = collections.defaultdict(dict)
+    for r in rs:
+        cells[(r['pc'], r['scen'])][r['seed']] = r
+    print('decay ordering at 400 paired seeds')
+
+    def _wilson(k, n, z=1.96):
+        p = k / n
+        den = 1 + z * z / n
+        c = (p + z * z / (2 * n)) / den
+        h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / den
+        return c - h, c + h
+
+    for pc in sorted({k[0] for k in cells}, reverse=True):
+        rate = m.DEFAULTS['delta0'] * (1 + pc / 100)
+        show(f'decay ordering pc={pc} delta0', rate)
+        show(f'decay ordering pc={pc} half-life weeks', math.log(2) / rate)
+        for scen in ('full', 'attraction', 'referral'):
+            rr = list(cells[(pc, scen)].values())
+            N = np.array([r['N'] for r in rr], float)
+            show(f'decay ordering pc={pc} {scen} N', N.mean())
+            show(f'decay ordering pc={pc} {scen} N half-width', 1.96 * N.std(ddof=1) / np.sqrt(len(N)))
+            for fld in ('viable', 'exists', 'closed'):
+                k = sum(r[fld] for r in rr)
+                lo, hi = _wilson(k, len(rr))
+                print(f'  decay ordering pc={pc} {scen} {fld}: {k} of {len(rr)}')
+                show(f'decay ordering pc={pc} {scen} {fld} fraction', k / len(rr), pct=True)
+                show(f'decay ordering pc={pc} {scen} {fld} Wilson lo', lo, pct=True)
+                show(f'decay ordering pc={pc} {scen} {fld} Wilson hi', hi, pct=True)
+        a, b = cells[(pc, 'attraction')], cells[(pc, 'referral')]
+        seeds = sorted(set(a) & set(b))
+        for fld in ('N', 'viable', 'exists'):
+            dd = np.array([a[s][fld] - b[s][fld] for s in seeds], float)
+            hw = 1.96 * dd.std(ddof=1) / np.sqrt(len(dd))
+            print(f'  decay ordering pc={pc} attraction minus referral {fld}: strict={int((dd > 0).sum())}, '
+                  f'ties={int((dd == 0).sum())}, reversals={int((dd < 0).sum())}')
+            for sign, name in ((1, 'attraction minus referral'), (-1, 'referral minus attraction')):
+                show(f'decay ordering pc={pc} {name} {fld}', sign * dd.mean())
+                show(f'decay ordering pc={pc} {name} {fld} lo', sign * dd.mean() - hw)
+                show(f'decay ordering pc={pc} {name} {fld} hi', sign * dd.mean() + hw)
 
     # ---- ch14 environment-matched individual test -------------------------------------
     # The cache stores these in scientific notation, which no decimal search can match,

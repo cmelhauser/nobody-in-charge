@@ -13,6 +13,7 @@ The principal condition contrasts remain the separate 400-seed analyses.
 - `sens3.json`: complete, script `model/sensitivity_uniform.py`
 - `tiered.json`: complete, script `model/sensitivity_tiered.py`
 - `oat_full.json`: complete, script `model/sensitivity_oat_full.py`
+- `decay_ordering.json`: complete, script `model/decay_ordering.py`
 - `morris.json`: complete, script `model/morris_screen.py`
 - `sobol.json`: complete, script `model/sobol_indices.py`
 
@@ -113,6 +114,45 @@ more viable than referral loss. Ties are reported separately.
 Across 944 points, the attraction-minus-referral final-N ordering is strict/tie/reversal 931/2/11. Endpoint-viability ordering is 934/10/0.
 Existence ordering is 933/11/0.
 Full adherence is viable in all three seeds at 893 of 944 points and exists in all three at 936 points.
+
+## Decay-ordering confirmation
+
+The multi-level screen's `delta0` membership reversals, re-estimated at 400 seeds shared by
+all twelve cells, so every contrast is paired by common random numbers. Full adherence
+otherwise, 1,560 weeks, dt 0.5. Attraction is the pure T11 attraction path with governance
+held at one; referral is `lam_exog = 0`.
+
+| delta0 change | Condition | Mean N [95% half-width] | Existence | Viability | Closure |
+|---:|---|---:|---:|---:|---:|
+| 0% | full | 17.800 [0.883] | 1.000 | 0.985 | 0.000 |
+| 0% | attraction | 12.380 [0.342] | 1.000 | 0.985 | 0.000 |
+| 0% | referral | 0.510 [0.229] | 0.105 | 0.028 | 0.895 |
+| -25% | full | 54.188 [0.835] | 1.000 | 1.000 | 0.000 |
+| -25% | attraction | 15.008 [0.371] | 1.000 | 1.000 | 0.000 |
+| -25% | referral | 29.977 [2.247] | 0.840 | 0.755 | 0.160 |
+| -50% | full | 59.460 [0.097] | 1.000 | 1.000 | 0.000 |
+| -50% | attraction | 18.192 [0.398] | 1.000 | 1.000 | 0.000 |
+| -50% | referral | 59.212 [0.124] | 1.000 | 1.000 | 0.000 |
+| -75% | full | 59.810 [0.054] | 1.000 | 1.000 | 0.000 |
+| -75% | attraction | 20.593 [0.429] | 1.000 | 1.000 | 0.000 |
+| -75% | referral | 59.708 [0.067] | 1.000 | 1.000 | 0.000 |
+
+Attraction-minus-referral paired differences:
+
+| delta0 change | Outcome | Mean [95% paired interval] | Strict | Tied | Reversed |
+|---:|---|---:|---:|---:|---:|
+| 0% | N | 11.870 [11.466, 12.274] | 394 | 1 | 5 |
+| 0% | viable | 0.958 [0.937, 0.978] | 384 | 15 | 1 |
+| 0% | exists | 0.895 [0.865, 0.925] | 358 | 42 | 0 |
+| -25% | N | -14.970 [-17.214, -12.726] | 143 | 3 | 254 |
+| -25% | viable | 0.245 [0.203, 0.287] | 98 | 302 | 0 |
+| -25% | exists | 0.160 [0.124, 0.196] | 64 | 336 | 0 |
+| -50% | N | -41.020 [-41.416, -40.624] | 0 | 0 | 400 |
+| -50% | viable | 0.000 [0.000, 0.000] | 0 | 400 | 0 |
+| -50% | exists | 0.000 [0.000, 0.000] | 0 | 400 | 0 |
+| -75% | N | -39.115 [-39.551, -38.679] | 0 | 0 | 400 |
+| -75% | viable | 0.000 [0.000, 0.000] | 0 | 400 | 0 |
+| -75% | exists | 0.000 [0.000, 0.000] | 0 | 400 | 0 |
 
 ## Morris screen
 

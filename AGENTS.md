@@ -7,8 +7,8 @@ two overlap; nothing here contradicts it.
 ## What this project is
 
 A finished book-length research project. A 25-chapter manuscript, an academic paper, a technical
-appendix, a Steps-and-Traditions primer, an executable agent-based model, nineteen analysis
-scripts, eighteen hash-linked result caches, two verification notebooks, and seven checkers:
+appendix, a Steps-and-Traditions primer, an executable agent-based model, twenty analysis
+scripts, nineteen hash-linked result caches, two verification notebooks, and seven checkers:
 `check_book.py`, `check_chapter.py`, `check_docs.py`, `check_pdfs.py`, `check_portability.py`,
 `check_release.py`, and `build_corpus.py --check`. Every count here is countable from the tree,
 the cache count is the gate's own required list in `tools/check_release.py`, and
@@ -33,7 +33,7 @@ a checker says otherwise. Your job is almost certainly not to re-derive anything
 2. **Do not edit an analysis script under `model/` whose cache exists.** Caches record the script
    hash too. Editing the script invalidates the cache and the gate fails. Regenerating the Sobol
    design alone costs about four hours.
-3. **Do not restart a completed analysis.** All eighteen caches are complete and hash-current.
+3. **Do not restart a completed analysis.** All nineteen caches are complete and hash-current.
 4. **Do not commit a source document.** No PDF or extracted text belongs in git. See below.
 5. **Do not weaken a checker to make it pass.** The checkers have caught real errors, including a
    misprinted number that had survived every human read. If one fails, the finding is usually
@@ -117,7 +117,7 @@ CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that 
 model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12
 and 3.13 on `main`, and on 3.12 only on pull requests. `checkers` needs pip and nothing else and
 gates every push: corpus drift, portability, the book checks, and `check_release.py
---skip-artifacts`, which is 131 of the 136 release checks. `documents` renders the PDFs, checks
+--skip-artifacts`, which is 137 of the 142 release checks. `documents` renders the PDFs, checks
 them with `check_pdfs.py`, and runs the full gate, on `main` only, because it needs pandoc,
 tectonic and a font, and every environmental failure this repository has had came from those
 three fetches. **Do not move a check into `documents` that does not need a rendered PDF.** The
