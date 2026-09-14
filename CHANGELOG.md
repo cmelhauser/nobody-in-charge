@@ -76,6 +76,9 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- Ben-Porath (1967) was recorded in `research/SOURCES.md` with no read status and listed by
+  Chapter 14 as cited at a remove, while Chapter 12 said it was read at source. The Human Author
+  confirmed Chapter 12; the ledger, Chapter 14 and the paper's bibliography now agree.
 - `tools/check_release.py --skip-artifacts` counted its own skip notice as a passed check, and
   the gate's comment, `CLAUDE.md`, `AGENT_VERIFY.md` and both workflows said the flag omits seven
   checks. It omits six, whether each of the three rendered PDFs exists and is newer than its
