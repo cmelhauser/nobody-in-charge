@@ -4,7 +4,7 @@ The 1939 first edition of *Alcoholics Anonymous*, held as a 1999 third-party rep
 this printing, about 113,000 words: the foreword, the Doctor's Opinion, the twelve chapters of
 Bill W.'s exposition including the Twelve Steps, and the original personal stories.
 
-**First used as claim support on 17 August 2026**, in appendix A13. The twenty-nine personal
+**First used as claim support on 17 August 2026**, in appendix A13. The thirty personal
 stories were read in full and coded against one modelling choice, the arrival term of A2.7, which
 gives member-carried arrival the dominant role. The stories support that architecture: personal
 contact by a recovered alcoholic, usually a visit and often several, is the recurring shape, and the

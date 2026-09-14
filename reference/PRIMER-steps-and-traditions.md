@@ -1140,7 +1140,7 @@ and the arithmetic, is appendix section A12, and it is written to stand alone.
 **A second reading, from the other end.** The model assumes that most people arrive
 because a member brought them, rather than finding the group on their own. That is one of
 the hundred and eighteen chosen numbers and it had never been checked against anything.
-In August 2026 the twenty-nine personal stories in the 1939 first edition of *Alcoholics
+In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
 that time: the recurring shape is a recovered drinker turning up in person, often several
 of them, and in one case about twenty men visiting a single man in hospital. Only one
