@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 13 September 2026"
+date: "Draft of 14 September 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -3252,6 +3252,8 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
 
+Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. The ancestry of the depreciation structure, described in Chapter Twelve rather than here.
+
 **Cited at a remove:**
 
 Hufford, M. R. K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003). "Relapse as a Nonlinear Dynamic System: Application to Patients with Alcohol Use Disorders." *Journal of Abnormal Psychology* 112(2): 219-227. Read via abstract; full text not obtained.
@@ -3259,8 +3261,6 @@ Hufford, M. R. K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003). 
 Witkiewitz, K. and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738. Read via abstract; full text not obtained.
 
 Hunter-Reel, D. B. McCrady, and E. Hildebrandt (2009). "Emphasizing Interpersonal Factors: An Extension of the Witkiewitz and Marlatt Relapse Model." *Addiction* 104(8): 1281-1290. The source of the Witkiewitz and Marlatt quotation described in the notes above.
-
-Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. The ancestry of the depreciation structure, described in Chapter Twelve rather than here.
 
 **Internal, and reproducible from this repository:**
 
@@ -9107,7 +9107,7 @@ Banks, H. T., K. Bekele-Maxwell, R. A. Everett, L. Stephenson, S. Shao, and J. M
 of Mathematical Biology* 79: 1254-1273.
 
 Ben-Porath, Y. (1967). "The production of human capital and the life cycle of earnings."
-*Journal of Political Economy* 75(4): 352-365.
+*Journal of Political Economy* 75(4): 352-365. **Read at source**.
 
 Blair, H. W. (1888). *The Temperance Movement: or, The Conflict Between Man and Alcohol.*
 Boston: William E. Smythe. **Read at source**; public domain.
