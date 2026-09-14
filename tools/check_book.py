@@ -17,7 +17,9 @@ checks the seven things that went wrong, so they fail loudly next time.
 
 Exit code 1 if any FAIL. Warnings do not fail.
 """
-import re, os, sys, json, glob, hashlib, itertools
+import re, os, sys, json, glob, itertools, subprocess
+
+from withheld import prints_withheld
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def P(*a): return os.path.join(ROOT, *a)
@@ -479,48 +481,52 @@ def check_sources():
                         f'{len(texts)} saved sources, all supported')
 
 
-# Names this project has undertaken not to print, stored as SHA-256 of the lowercased
-# form so that enforcing the rule does not require writing the name in the repository.
+# Names this project has undertaken not to print. Whose, why, and how they are stored
+# without being written down are in tools/withheld.py, which tools/build_corpus.py also
+# uses so that no verification index carries one.
 #
-# There is one entry. The founder of the organization Recovery Dharma split from in 2019
-# is named in `RecoveryDharma_2023` in connection with its collapse, and the project's
-# rule, in CLAUDE.md and in that source's own metadata, is that he is named nowhere here.
-# The structural claim, that the predecessor was organized around a founding teacher and
-# the successor abolished the office, does not need the name, and this project cannot
-# adjudicate an allegation about a living person. The appendix named him anyway between
-# 16 and 17 August 2026, and it shipped in a rendered PDF before this check existed.
-WITHHELD = {
-    '56d447a05a7c48cdd011b0485110052b6cf0ecdad090fe4e70d98aae3a8d71be',  # full name
-    '4d8d163722179946e84391aa25ab3a73b3a02b3202d0eebd0d0d882e51a1431c',  # surname alone
-}
+# The scan covers every tracked text file rather than a list of prose files. The list was
+# the gap: it named the manuscript, appendix, primer, plans, front matter and paper, and
+# until 14 September 2026 the surname sat in two verification indexes it never opened.
+TEXT_SUFFIXES = ('.bib', '.cff', '.cfg', '.csv', '.ipynb', '.json', '.md', '.py', '.rst',
+                 '.tex', '.toml', '.tsv', '.txt', '.yaml', '.yml')
 
 
-def check_withheld_names():
-    """Fail if a name the project has undertaken not to print appears in prose."""
-    targets = (glob.glob(P('manuscript', '*.md')) + glob.glob(P('reference', '*.md'))
-               + glob.glob(P('plans', '*.md'))
-               + [P('appendix', 'APPENDIX.md'), P('README.md'), P('HANDOFF.md'),
-                  P('CLAUDE.md'), P('AGENTS.md'), P('AGENT_VERIFY.md'),
-                  P('paper', 'anonymity-as-an-aggregation-condition.tex')])
+def tracked_text_files():
+    """Tracked files and new untracked ones from Git; without Git, every file on disk."""
+    try:
+        out = subprocess.run(['git', '-C', ROOT, 'ls-files', '-z', '--cached', '--others',
+                              '--exclude-standard'], capture_output=True, check=True).stdout
+        paths = [P(p) for p in out.decode().split('\0') if p]
+    except (OSError, subprocess.CalledProcessError):
+        paths = glob.glob(P('**', '*'), recursive=True)
+    # The source documents are git-ignored, some of them print the name, and they are
+    # evidence rather than project text. Only the fallback can reach them; this stops it.
+    corpus = (P('research', 'incorporated'), P('research', 'staged'))
+    return sorted(p for p in paths if p.endswith(TEXT_SUFFIXES) and os.path.isfile(p)
+                  and not (p.endswith('.txt') and p.startswith(corpus)))
+
+
+def check_withheld_names(paths=None):
+    """Fail if a name the project has undertaken not to print appears in any project text.
+
+    That includes the vocabulary of every verification index, which is a list of single
+    words and so needs the one-word test as much as prose needs the two-word one.
+    """
     hits = 0
-    for path in targets:
-        if not os.path.exists(path):
+    for path in tracked_text_files() if paths is None else paths:
+        try:
+            with open(path, encoding='utf-8', errors='ignore') as fh:
+                text = fh.read()
+        except OSError:
             continue
-        text = open(path, encoding='utf-8', errors='ignore').read()
-        words = re.findall(r"[A-Za-z][A-Za-z'-]+", text)
-        grams = [w.lower() for w in words]
-        # Deliberately ragged: the second iterable is one shorter, which is the point
-        # of a bigram. strict would raise on every call.
-        grams += [f'{a.lower()} {b.lower()}'
-                  for a, b in zip(words, words[1:], strict=False)]
-        for g in set(grams):
-            if hashlib.sha256(g.encode()).hexdigest() in WITHHELD:
-                hits += 1
-                fail('names', f'{os.path.basename(path)}: prints a name the project '
-                              f'has undertaken to withhold')
-                break
+        if prints_withheld(text):
+            hits += 1
+            fail('names', f'{os.path.relpath(path, ROOT)}: prints a name the project '
+                          f'has undertaken to withhold')
     if not hits:
-        note('names', 'no withheld name appears in the manuscript, appendix, primer or paper')
+        note('names', 'no withheld name appears in any tracked text file, '
+                      'verification indexes included')
 
 
 if __name__ == '__main__':
