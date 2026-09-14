@@ -4634,3 +4634,34 @@ made. `HANDOFF.md` section 10 item 4 is closed and the rest renumbered.
 **What did not change.** Every census figure, including twenty of twenty-six and its comparison
 with the 2001 edition, was computed over the recovered segments and stands. No model value, cache
 or notebook.
+
+### 13 September 2026: the referral-versus-attraction ordering at slower decay, at 400 seeds
+
+**Why it was run.** The one-at-a-time screen reverses the pure-attraction-loss minus referral-loss
+ordering on final membership when `delta0` is 25, 50 or 75 per cent lower, on three seeds per
+endpoint. The skill-depreciation reading earlier the same day made a slower lapse plausible, so the
+screen's three `delta0` points were re-run as a confirmatory design.
+
+**The design.** `model/decay_ordering.py`: both channels, pure attraction loss (the T11 attraction
+path removed, governance held at one) and referral loss (`lam_exog = 0`), at `delta0` unchanged and
+25, 50 and 75 per cent lower, full adherence otherwise, 1,560 weeks at dt 0.5, seeds 0 to 399
+shared by all twelve cells. 4,800 runs, cached hash-linked in `research/decay_ordering.json`.
+
+**What it found.** At the default rate the cells reproduce the released values and the ordering
+holds on every outcome. At 25 per cent lower it reverses on final membership, -14.97 [-17.21,
+-12.73], and holds on endpoint viability, 0.2450 [0.2028, 0.2872], and existence, 0.1600 [0.1240,
+0.1960], all paired intervals: the referral-starved group ends larger but is viable in 75.50 per
+cent of runs [71.06, 79.46] and closes in 64 of 400. At 50 and 75 per cent lower every
+referral-loss run is viable and ends near capacity. The screen was right about direction, and the
+reversal is confined to final membership.
+
+**Where it went.** Chapter 12's notes, with the full design and intervals; a sentence each in
+Chapters 1 and 24 and a paragraph in Chapter 4's notes; appendix A7.1, A7.5 and A11; the paper's
+decay limitation; the primer; `research/PARAMETERS.md` sections 2, 3 and 8.1; `research/SOURCES.md`;
+`research/ROBUSTNESS-RESULTS.md`. The cache is registered in `tools/check_release.py`, now 142
+checks and 137 with `--skip-artifacts`, and in both notebooks, which assert that the default-rate
+cells reproduce the released figures. `HANDOFF.md` section 10 item 5 is closed.
+
+**What did not change.** The canonical model and every released number. The run checks a
+sensitivity rather than recalibrating anything: `delta0` stays at 0.06 until something measures how
+fast a practice lapses.

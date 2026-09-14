@@ -88,6 +88,8 @@ Running the corrected model at a thirty-year horizon over four hundred paired ra
 
 The asymmetry is the point. A group with only referrals becomes small and stays alive. A group with only attraction stays large while its members are working and then has nothing underneath it.
 
+The asymmetry depends on how fast practice lapses, which nobody has measured (Chapter Twelve). A further run over the same four hundred paired seeds and horizon, with the decay rate a quarter lower (`research/decay_ordering.json`), reverses it on size and not on survival: the referral-starved group ends at 29.98 members ±2.25, larger than the attraction-starved group's 15.01 ±0.37, but it is viable in 75.50 per cent of runs [71.06, 79.46] against 100 per cent [99.05, 100], and it closes in 64 runs of 400 where the attraction-starved group never closes. With the rate halved, the referral-starved group is viable in every run and ends near the room's capacity. The figures above are at the model's own rate.
+
 I want to be careful about what this does and does not establish. It does not show that AA survived *because* of the *Saturday Evening Post*. It shows that a structural difference between AA after 1941 and the Washingtonians ever is exactly the difference that the model treats as decisive, and that this was not built into the model to produce the result: the two-channel inflow was added for an unrelated reason, to stop the simulation predicting that a struggling group receives no arrivals at all.
 
 ### 2. The technical version

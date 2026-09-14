@@ -87,32 +87,32 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 ## 3. What the project contains
 
 - 25 chapters plus preface and introduction, `manuscript/`
-- an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 34 pages
+- an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 35 pages
 - a technical appendix, `appendix/APPENDIX.md`
 - a Steps-and-Traditions primer, `reference/PRIMER-steps-and-traditions.md`
-- the frozen model and 19 analysis scripts, `model/`
+- the frozen model and 20 analysis scripts, `model/`
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 303 pages, paper 34, primer 23
+- three built PDFs: book 306 pages, paper 35, primer 23
 
 ---
 
 ## 4. Verification state
 
-As of 24 August 2026, everything passes:
+As of 13 September 2026, everything passes:
 
 | Check | Result |
 |---|---|
 | `python3 -m pytest` | all passed, three skipped (poppler-dependent) |
-| `tools/check_release.py --skip-artifacts` | 131 checks, 0 failed (full 136 confirmed at the `v0.9.0` tag; see `RELEASING.md`) |
+| `tools/check_release.py --skip-artifacts` | 137 checks, 0 failed (the full gate, 142, passes with the artifacts built; it was 136 at the `v0.9.0` tag, see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
 | `tools/check_docs.py` | 19 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
-| `model/book-calculations.ipynb` | 8 cells, 71 assertions, clean |
-| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 95 assertions, clean |
+| `model/book-calculations.ipynb` | 8 cells, 78 assertions, clean |
+| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 102 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
 The 39 `check_book` warnings are repetition and sentence-length notes. They are not failures and
@@ -356,19 +356,17 @@ each moves a record-only source onto the ordinary footing.
 4. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
    *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
 
-**One is a confirmatory run the new reading makes worth doing.**
-
-5. **The referral-versus-attraction ordering at slower decay.** The one-at-a-time screen reverses
-   the ordering of referral loss against pure attraction loss on final membership when the decay
-   rate is 25, 50 or 75 per cent lower, on three seeds, and at 25 per cent lower the
-   referral-starved group is viable in all three. The reading of 13 September 2026 makes a slower
-   lapse plausible, so a 400-seed paired run of the base, referral-loss and attraction-loss
-   conditions at those three rates would turn a screen into an estimate. It needs a new
-   hash-linked script and cache and changes no released number. The model itself is unchanged,
-   and should stay so until something measures how fast a practice lapses.
-
 ### Closed on 13 September 2026
 
+- **The referral-versus-attraction ordering at slower decay.** `model/decay_ordering.py` re-ran
+  the one-at-a-time screen's three `delta0` reversals at 400 paired seeds, 4,800 runs cached in
+  `research/decay_ordering.json`. The screen was right about direction, and only on final
+  membership: at 25 per cent lower the referral-starved group ends larger, while referral loss is
+  still worse on endpoint viability and existence; at 50 and 75 per cent lower every referral-loss
+  run is viable. Chapters 1, 4, 12 and 24, appendix A7 and A11, the paper, the primer and
+  `research/PARAMETERS.md` now say so, and the cache is registered in the release gate and both
+  notebooks. No released number changes, and the model stays as it is until something measures
+  how fast a practice lapses.
 - **Appendix A13's count of the 1939 stories.** A13 said twenty-nine; the 1939 contents page lists
   thirty, and the working manuscript accounts for all of them. A13, the primer and the source
   records now say thirty, and A13 states that its census covers the twenty-six stories the automatic
@@ -385,7 +383,7 @@ each moves a record-only source onto the ordinary footing.
   Ben-Porath's; Chapter 13 adds their sign-changing estimate as an analogy; Chapters 2 and 15 use
   Lembke; Chapters 1 and 24 note that the decay rate is among the few values that reverse the
   referral-versus-attraction ordering; the paper, primer, appendix A11 and `research/PARAMETERS.md`
-  follow. The model is unchanged, for the reason item 5 gives.
+  follow. The model is unchanged, because nothing measures how fast a practice lapses.
 - **The author block in rebuilt books.** `tools/build_book.py`, the preface and the appendix still
   named the Human Author, so every rebuild put the name back into the book that had been
   anonymized by hand. All three now say the book is by an anonymous author, and the book and

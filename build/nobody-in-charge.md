@@ -469,7 +469,7 @@ A one-engine group is therefore not merely smaller. It sits on the fragile branc
 
 **How far to trust these numbers.** They are Monte Carlo estimates inside a constructed model, not historical rates. The 95 per cent Wilson interval for endpoint viability is 0.968 to 0.993 in the baseline and 0.015 to 0.049 without referrals. The latter condition closes in 358 of 400 runs. These corrected results are much more severe than the earlier cache because the individual heterogeneity draw is now mean-centred; the old lognormal implementation silently raised average capability above one and cannot be compared to this release.
 
-The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
+The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch, and its 400-seed paired run confirms the decay rate's: with the rate a quarter lower, the viability ordering still holds and the mean-size ordering reverses, the referral-starved group ending the larger. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
 
 The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. Worcester in June 1841 motivates the idea of a crowded room with few relevant recipients; it does not validate the proxy.
 
@@ -1198,6 +1198,8 @@ Running the corrected model at a thirty-year horizon over four hundred paired ra
 - Both lost: none finish viable; one run in 400 still contains one member and 399 close.
 
 The asymmetry is the point. A group with only referrals becomes small and stays alive. A group with only attraction stays large while its members are working and then has nothing underneath it.
+
+The asymmetry depends on how fast practice lapses, which nobody has measured (Chapter Twelve). A further run over the same four hundred paired seeds and horizon, with the decay rate a quarter lower (`research/decay_ordering.json`), reverses it on size and not on survival: the referral-starved group ends at 29.98 members ±2.25, larger than the attraction-starved group's 15.01 ±0.37, but it is viable in 75.50 per cent of runs [71.06, 79.46] against 100 per cent [99.05, 100], and it closes in 64 runs of 400 where the attraction-starved group never closes. With the rate halved, the referral-starved group is viable in every run and ends near the room's capacity. The figures above are at the model's own rate.
 
 I want to be careful about what this does and does not establish. It does not show that AA survived *because* of the *Saturday Evening Post*. It shows that a structural difference between AA after 1941 and the Washingtonians ever is exactly the difference that the model treats as decisive, and that this was not built into the model to produce the result: the two-channel inflow was added for an unrelated reason, to stop the simulation predicting that a struggling group receives no arrivals at all.
 
@@ -2772,7 +2774,7 @@ This model gives each step a single level. It therefore cannot represent the mem
 
 **The decay rate against the only estimates I have found.** Two papers on adult skill depreciation were read on 13 September 2026, and neither measures anything the model's dials represent. Dinerstein, Megalokonomou and Yannelis use the quasi-random order in which Greek graduates wait for teaching posts and estimate that teaching skill depreciates at about four per cent a year in early-career teachers, and at about seventeen per cent in more experienced ones with a standard error larger than the estimate; they describe both as lower bounds if age itself adds skill, and their district-level estimates rest on a weak first stage. Cohen, Johnston and Lindner follow newly unemployed German workers for up to three years and find no decline in cognitive skills or in the noncognitive skills that predict earnings, although self-assessed conscientiousness, risk tolerance, trust, patience and reciprocity fall by between a fifth and three fifths of a standard deviation. The model's six per cent a week compounds to a loss of about 96 per cent a year, a half-life of 11.6 weeks against roughly sixteen and four years for teaching skill. Read as skill, the rate is one to two orders of magnitude too fast. Read as practice, which is what the dial is, it is untested: these papers bound how fast a capability fades, not how fast the habit of using it lapses, and the one declining measure in them is closer to a habit than a skill. I have left the value unchanged, because replacing an authored number with another authored number chosen after reading two papers about something else would not be an improvement, and I report instead how much rides on it.
 
-**How much rides on it.** The decay rate is second only to the ordering exponent in the multi-level sweep, the Morris screen and the Sobol decomposition, where its membership total-order index is 0.373. Chapter Fourteen's 400-seed sweep takes it from 30 per cent below its value to 50 per cent above, and at 30 per cent below the full-adherence group ends with 57.71 members against 17.80, close to the room's capacity. In the one-at-a-time screen, run at three common seeds per endpoint, the referral-starved group, which closes at the default rate, is endpoint-viable at every seed once the rate is a quarter lower, and large downward moves of this rate are among the few that reverse the ordering between losing referrals and losing attraction on final membership (Chapter One; appendix A7.5). A rate anywhere near the skill literature's lies far outside every range tested. The comparisons the book reports are therefore conditional on practice lapsing at roughly the assumed rate, and a measurement of how fast a practice lapses would be worth nearly as much to it as a measurement of the ordering exponent.
+**How much rides on it.** The decay rate is second only to the ordering exponent in the multi-level sweep, the Morris screen and the Sobol decomposition, where its membership total-order index is 0.373. Chapter Fourteen's 400-seed sweep takes it from 30 per cent below its value to 50 per cent above, and at 30 per cent below the full-adherence group ends with 57.71 members against 17.80, close to the room's capacity. The one-at-a-time screen, run at three common seeds per endpoint, found large downward moves of this rate among the few that reverse the ordering between losing referrals and losing attraction on final membership (Chapter One; appendix A7.5), and a confirmatory run now measures that directly (`research/decay_ordering.json`): three conditions, both channels, pure attraction loss and referral loss, at full adherence otherwise, with 400 seeds held in common across all of them, a thirty-year horizon and a half-week step, at the rate's value and at 25, 50 and 75 per cent below it. At the model's own rate the published ordering holds on every outcome: attraction loss minus referral loss is 11.87 members [11.47, 12.27] on final membership, 0.9575 [0.9365, 0.9785] on endpoint viability and 0.8950 [0.8649, 0.9251] on existence, all paired 95 per cent intervals. A quarter below, a half-life of 15.4 weeks, the outcomes part company. The referral-starved group now ends the larger, at 29.98 members ±2.25 against 15.01 ±0.37, a paired difference of 14.97 [12.73, 17.21] in its favour, yet it is still the less often viable, at 75.50 per cent [71.06, 79.46] against 100 per cent [99.05, 100], and it closes in 64 runs of 400 where the attraction-starved group never closes; the paired differences are 0.2450 [0.2028, 0.2872] on viability and 0.1600 [0.1240, 0.1960] on existence. Half and three quarters below, the referral-starved group is viable in all 400 runs and ends at 59.21 ±0.12 and 59.71 ±0.07 members, at the edge of the room's capacity of 60, while the attraction-starved group ends at 18.19 ±0.40 and 20.59 ±0.43. A rate anywhere near the skill literature's lies far beyond even the slowest of these. The comparisons the book reports are therefore conditional on practice lapsing at roughly the assumed rate: slow it by a quarter and which loss is worse depends on the outcome scored, and slow it by half and a group with no referrals fills its room. A measurement of how fast a practice lapses would be worth nearly as much to the book as a measurement of the ordering exponent.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -2800,7 +2802,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-The derived group-dependence coefficients, the transmission ratio, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`.
+The derived group-dependence coefficients, the transmission ratio, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`. The decay-ordering run is `model/decay_ordering.py`, cached in `research/decay_ordering.json`.
 
 **What was not read:**
 
@@ -4856,7 +4858,7 @@ Threat two in the appendix says no output of this model has ever been set beside
 
 Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The horizon, the arrival rate and the churn floor are three of the hundred and eighteen chosen numbers, and a match would mostly show that three numbers can be chosen to produce a match.
 
-What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. Chapter Twelve adds a reason to hold it loosely: the few reversals the one-at-a-time screen finds come mostly from large downward moves of three values, and one of them is the decay rate, which nothing measures for a practice. A study that could record how fast practice lapses in the groups it follows would test the ordering and its most fragile assumption together. That is the comparison in item four, and it uses the same measurement.
+What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. Chapter Twelve adds a reason to hold it loosely: the few reversals the one-at-a-time screen finds come mostly from large downward moves of three values, and one of them is the decay rate, which nothing measures for a practice. A 400-seed run has since confirmed the decay rate's reversal and shown its shape: with practice lapsing a quarter more slowly, a group starved of referrals ends larger than one starved of attraction while still closing more often, so the outcomes a study scores could point in opposite directions. A study that could record how fast practice lapses in the groups it follows would test the ordering and its most fragile assumption together. That is the comparison in item four, and it uses the same measurement.
 
 ---
 
@@ -5452,6 +5454,7 @@ to move, the release makes no steady-state or indefinite-persistence claim.
 | Morris | 20 trajectories, 2,380 points | 5 | factor screen; interaction or nonlinearity not separated |
 | Sobol | 1,024 base rows, 11,264 points | 5 | conditional decomposition on eight Morris leaders |
 | Structural variants | 10,000 simulations | 400 | five architectures by five scenarios |
+| Decay-ordering confirmation | 4,800 simulations | 400 | referral against attraction loss at four `delta0` levels |
 
 Multiplicative designs cannot move structural zeros. A full-adherence outcome cannot reveal the
 35 `GOV` magnitudes because they cancel. The randomized-matrix design holds sparsity fixed and
@@ -5519,6 +5522,38 @@ at 936. The eleven membership reversals are not scattered: nine are large downwa
 `p_gate`, `delta0` and `churn` at the 25, 50 and 75 per cent distances, and the remaining two are
 the `S:11,5` and `S:11,6` cells. Twenty-six of the 118 values move the referral-starved endpoint
 viability on their own, and 32 move the full-adherence endpoint viability.
+
+**Decay-ordering confirmation** (`research/decay_ordering.json`, `model/decay_ordering.py`). The
+three `delta0` membership reversals are the ones the reading recorded in A11 item 9 makes most
+plausible, so they were re-estimated at 400 seeds. Both channels intact, pure attraction loss with
+governance held at one, and referral loss (`lam_exog = 0`) were each run with `delta0` unchanged
+and 25, 50 and 75 per cent lower, giving unattended half-lives of 11.6, 15.4, 23.1 and 46.2 weeks,
+at full adherence otherwise, over 1,560 weeks at dt 0.5. Seeds 0 to 399 are shared by all twelve
+cells, so every contrast is paired by common random numbers. Means carry 95 per cent half-widths,
+the referral-loss viability a Wilson interval, and the contrasts paired 95 per cent intervals.
+
+| `delta0` change | Both channels, N | Attraction loss, N | Referral loss, N | Referral loss viable | Referral loss closed |
+|----------:|----------------:|----------------:|----------------:|---------------------------:|---------------:|
+| 0 | 17.80 ± 0.88 | 12.38 ± 0.34 | 0.51 ± 0.23 | 2.75% [1.54, 4.86] | 358 of 400 |
+| -25% | 54.19 ± 0.84 | 15.01 ± 0.37 | 29.98 ± 2.25 | 75.50% [71.06, 79.46] | 64 of 400 |
+| -50% | 59.46 ± 0.10 | 18.19 ± 0.40 | 59.21 ± 0.12 | 100% [99.05, 100] | 0 of 400 |
+| -75% | 59.81 ± 0.05 | 20.59 ± 0.43 | 59.71 ± 0.07 | 100% [99.05, 100] | 0 of 400 |
+
+| `delta0` change | Final membership | Endpoint viability | Existence |
+|---:|---:|---:|---:|
+| 0 | 11.87 [11.47, 12.27] | 0.9575 [0.9365, 0.9785] | 0.8950 [0.8649, 0.9251] |
+| -25% | -14.97 [-17.21, -12.73] | 0.2450 [0.2028, 0.2872] | 0.1600 [0.1240, 0.1960] |
+| -50% | -41.02 [-41.42, -40.62] | 0 | 0 |
+| -75% | -39.12 [-39.55, -38.68] | 0 | 0 |
+
+The second table is pure attraction loss minus referral loss, paired by seed. At the default rate
+the cells reproduce the released values. At 25 per cent lower the membership ordering reverses,
+with the attraction-loss group smaller in 254 paired runs, tied in 3 and larger in 143, while
+referral loss remains worse on endpoint viability and existence. At 50 and 75 per cent lower every
+referral-loss run is endpoint-viable, so the two binary contrasts are exactly zero. The run
+confirms the screen's direction at all three distances and shows that the reversal is confined to
+final membership. It does not locate the rate at which the membership ordering first reverses,
+which lies between the default and 25 per cent lower and was not searched for.
 
 Against a full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
 ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
@@ -5715,8 +5750,10 @@ instead.
    registered value. The only estimates read for anything comparable, on 13 September 2026,
    measure skills rather than practices and are one to two orders of magnitude slower. Large
    downward moves of `delta0` are among the few that reverse the pure-attraction-loss minus
-   referral-loss ordering in A7.5. The released value is unchanged, because no source measures
-   how fast a practice lapses.
+   referral-loss ordering in the A7.5 screen, and the 400-seed confirmation there finds the
+   reversal at 25 per cent lower on final membership while the ordering still holds on endpoint
+   viability and existence; at 50 per cent lower or more, referral loss leaves every run viable.
+   The released value is unchanged, because no source measures how fast a practice lapses.
 
 The model's proper use is to make assumptions and comparisons explicit enough to test against
 real group data. It cannot evaluate or advise any individual person's recovery.
@@ -7706,7 +7743,9 @@ Tradition 3's retention mechanism is illustration rather than evidence.
 The literature on how fast practices and habits lapse. Two papers on adult skill
 depreciation were read on 13 September 2026 and put six per cent a week one to two
 orders of magnitude above anything they measure, but they measure skills rather than
-practices, so the rate is still a choice; Chapter Twelve gives the detail.
+practices, so the rate is still a choice. It is a consequential one: with it a quarter lower,
+a 400-seed run finds that a group without referrals ends larger than a group without
+attraction but still closes more often. Chapter Twelve gives the detail.
 
 Anything independent about the 2019 split. The account above rests entirely on the
 successor fellowship's own literature, written by people who left the predecessor. No
@@ -8924,10 +8963,17 @@ this limitation is listed first.
     depreciation of teaching skill at 4.3 per cent a year for early-career teachers, and
     Cohen, Johnston, and Lindner (2023) find no measurable decline in cognitive skills
     over up to three years of unemployment. Read as skill, $\delta_0 = 0.06$ per week is
-    one to two orders of magnitude too fast; read as practice it is untested. In the
-    one-at-a-time screen, downward moves of $\delta_0$ of 25 per cent or more reverse the
-    ordering of referral loss against pure attraction loss on final membership, so that
-    ordering is conditional on practice lapsing at roughly the assumed rate.
+    one to two orders of magnitude too fast; read as practice it is untested. The
+    one-at-a-time screen found that lowering $\delta_0$ by 25 per cent or more reverses
+    the ordering of referral loss against pure attraction loss on final membership, and a
+    400-seed run paired by common random numbers, over 1,560 weeks at $dt = 0.5$ with full
+    adherence otherwise, confirms it and bounds it. At 25 per cent lower, referral loss
+    leaves the larger group, by 14.97 members \[12.73, 17.21\], but remains worse on
+    endpoint viability, by 0.2450 \[0.2028, 0.2872\], and on existence, by 0.1600
+    \[0.1240, 0.1960\]; at 50 and 75 per cent lower every referral-loss run is
+    endpoint-viable. The ordering is therefore conditional on practice lapsing at roughly
+    the assumed rate, and at slower rates which loss is worse depends on the outcome
+    scored.
 
 15. **Sources not read.** Alexander (1988) on the class and domestic dimensions of the
     Washingtonian movement; Blumberg (1980, 1991) on its political entanglement; the full
