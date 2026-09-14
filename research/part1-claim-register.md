@@ -164,7 +164,12 @@ is at two removes.
 | Wilson wanted millions for missionaries and hospitals; was disappointed | Secondary | R |
 | Wilson later credited Rockefeller with the nonprofessional principle | Secondary | R |
 | Big Book drafted on a yellow pad; twelve steps in one sitting | Secondary | R |
-| "You must" softened to "we ought" | Secondary | R |
+| The comment round rewrote instruction to "you" as report of what "we" did, usually keeping the modal; "You must find Him now!" is the one clear softening (MS pp. 30, 41, 42) | `WorkingManuscript_1939`, **read at source**; `BigBook_1939` for print | P |
+| Comments on the circulated draft were collected onto one copy, which survives | `WorkingManuscript_1939`, **read at source** | P |
+| As many as four hundred copies circulated, to doctors and clergy as well as members | Hazelden (2010), editors' essays | S |
+| Dr. Howard named in the margins (MS pp. 10, 11, 18, 19, 23, 46, 86); identified as a psychiatrist | `WorkingManuscript_1939` for the name; Hazelden (2010) for the profession | P / S |
+| "Get down upon your knees" and the "or else throw it away" line struck (MS pp. 32, 31) | `WorkingManuscript_1939`, **read at source** | P |
+| The change of speaker mattered more than any softening would have | Author's reading | I |
 | Published Apr 1939; tailor shop mortgaged; $2,150 first-meeting treasury | Secondary | R |
 | *Liberty* article autumn 1939, ~800 responses | AA.org and secondary | R |
 | Jack Alexander, *Saturday Evening Post*, 1 Mar 1941 | Independent | R |
@@ -172,8 +177,9 @@ is at two removes.
 | Scott's first exclamation, that this is first century Christianity, and his second question about money spoiling it, both at that meeting and before Amos went to Akron | Kurtz 1991, **read at source** | S |
 | The outcome is contested: Wilson remembered Amos recommending $50,000 and Rockefeller refusing; Seiberling remembered persuading Amos in Akron | Kurtz 1991, recording both | S |
 
-**Chapter Four status: no longer every claim.** Seven of eighteen are now read directly, all
-from Kurtz. What is still at a remove is the funding narrative after the December 1937 meeting:
+**Chapter Four status: no longer every claim.** Twelve of twenty-three are now read directly:
+seven from Kurtz, and five from the 1939 working manuscript and its editors, added 13 September
+2026. What is still at a remove is the funding narrative after the December 1937 meeting:
 the Amos report, Rockefeller's reasoning, and the 1940 dinner. The Rockefeller Archive Center
 is the route that would close it, and Kurtz has narrowed what it would settle to one question,
 which of two incompatible memories of the fifty thousand dollars is right.
