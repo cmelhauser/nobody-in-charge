@@ -81,6 +81,10 @@ Which is also why the mechanism is worth checking rather than assuming. Selectio
 
 ---
 
+"Recorded" needs one qualification, and the fellowship's own first draft supplies it. The Foreword typed into the draft of the Big Book that was circulated for comment in February 1939, six years before the mail became a problem, already asks members to keep their names out of print and the press to respect that. It says the fellowship is not an organisation in the conventional sense, takes no fees or dues, and sets one requirement for membership, "an honest desire to stop drinking". The correspondences are there to be seen. The requirement is the Third Tradition, down to the word the 1949 edit would drop; the request to the press is the Eleventh; the disclaimer of organisation is the Ninth's matter; and the sentence on dues sits nearest the Seventh. I do not claim the Traditions came from the Foreword. What it shows is that part of what 1945 and 1946 codified had been written down at the start, as intention, before most of the failures Maxwell catalogued had happened. And the same draft shows that the intentions did not all point one way. An unnumbered page near its end proposes a trust with three trustees from the fellowship and four from outside, the four and their successors to "always constitute a majority", whose approval every business engagement touching the work would need. The first draft wanted no organisation for the groups and a permanent board, controlled from outside, at the centre.
+
+---
+
 There is one Tradition where the historical record is unusually clear about the cost, and it is the one economists would flag first.
 
 Tradition 7 says an AA group declines outside contributions and supports itself from the basket. Combined with Tradition 4, which makes each group autonomous, and Tradition 9, which forbids organising into a hierarchy, this closes the system: there is no party outside a group that can put resources into it or direct it.
@@ -172,6 +176,8 @@ The 1946 long form is now the exception. AA's own pamphlet *A.A. Tradition: How 
 
 It also supplies a fact the chapter needed and did not have. The pamphlet states that in all but the Second Tradition the original language has been modified or shortened. That is AA's own account of the cutting described above, and it means the familiar short forms are not simply compressions of the 1946 text but revisions of it, with one exception. Tradition 2, the one that carries the group conscience and the phrase about leaders who do not govern, is the only one that reaches a reader today in the words Wilson first published.
 
+**The 1939 working manuscript is a precursor here, not a source for the Traditions.** Hazelden's facsimile of the copy onto which the comments on the February 1939 draft were collated was read on every page on 12 September 2026, and both passages above were checked against its page images: the typed Foreword, and the unnumbered Alcoholic Foundation page after MS p. 80. The Foreword is part of the typed draft, so its wording predates the comment round; the date and the circulation are the facsimile editors' account. The correspondences with Traditions Three, Seven, Nine and Eleven are my reading. Whether the printed 1939 appendix kept the Foundation page's terms cannot be checked here, because the reprint of the 1939 text this project holds omits that appendix.
+
 **The Holmström application is mine.** The 1982 result is real and I have read the argument; the application to Tradition 7 is my own reading and, as far as I know, novel. It should be treated as an interpretation rather than a finding.
 
 ### 4. References
@@ -186,7 +192,11 @@ Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studi
 
 Holmström, B. (1982). "Moral Hazard in Teams." *Bell Journal of Economics* 13(2): 324-340. The budget-breaker impossibility result applied to Tradition 7.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the February 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the typed Foreword's statements on anonymity, organisation, fees and the one requirement for membership, and for the Alcoholic Foundation page's trust with a permanent outside majority.
+
 **Cited at a remove:**
+
+The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the February 1939 draft.
 
 Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*, April 1946; cited by Kurtz as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," 2:10, 7-9. **Read at source.** A scan of the article was consulted on 10 August 2026 and is recorded in `research/incorporated/Grapevine_1946/`. Source for the three opening sentences quoted above, for the two titles the text carries, and for the twelve points in their original wording. **The document is not archived in this repository**: it is A.A. Grapevine copyright, the located scan is a third-party reproduction with unverified posting authorization, and the project's rights review directs that it be cited and quoted within limits rather than stored. The scan carries no issue or page markers and so cannot settle Kurtz's conflicting issue numbers.
 
