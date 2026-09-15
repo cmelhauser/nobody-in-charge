@@ -4849,8 +4849,10 @@ hash. The run had four parts:
 - The release still hangs off the tag with its three assets.
 
 **What remains.** GitHub still serves old commits by hash, which was checked after the push, and
-through the pull-request references. The request to GitHub Support is written for the Human Author
-to send, and it is now `HANDOFF.md` item 9.
+through the pull-request references. A request to GitHub Support was drafted to purge them, but on
+15 September 2026 the Human Author decided to leave things as they are. The old commits therefore
+stay reachable in those two ways, and `HANDOFF.md` no longer carries the item. New commits use the
+no-reply address.
 
 **A slip on the way.** PR #20 was merged before GitHub's CI had run on it. Retargeting a pull
 request's base does not trigger this repository's pull-request workflow, and the merge guard read
