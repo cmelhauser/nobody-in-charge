@@ -3,7 +3,7 @@
 
 An AA group has no boss.
 
-That is not a figure of speech or an aspiration. There is no president with a casting vote, no board that can overrule the meeting, no headquarters that can send instructions, and no appeal to anybody above. The Traditions say the group conscience is the final authority and that leaders are trusted servants who do not govern, and the fellowship means it literally enough that a group can decide almost anything about its own affairs and nobody, anywhere, can tell it otherwise.
+That is not a figure of speech or an aspiration. There is no president with a casting vote, no board that can overrule the meeting, no headquarters that can send instructions, and no appeal to anybody above. The Traditions say the group conscience is the final authority and that leaders are trusted servants who do not govern, and the fellowship means it literally enough that a group can decide almost anything about its own affairs and nobody, anywhere, can tell it otherwise. The fellowship did not begin that way: its first book was settled by a collator and an umpire rather than by a room, as Chapter Nine describes.
 
 Which raises a question that ought to be asked more often than it is. **How does a room like that ever decide anything?**
 
@@ -119,7 +119,7 @@ The split-room example uses a block-diagonal matrix with no cross-block attentio
 
 ### 3. Notes on sources
 
-**Nothing in this chapter is reported at a remove.** DeGroot's paper is read at source. The examples are constructed and the arithmetic computed rather than cited.
+**Nothing in this chapter is reported at a remove.** DeGroot's paper is read at source. The examples are constructed and the arithmetic computed rather than cited. The one sentence on how the fellowship's first book was settled points forward to Chapter Nine, where its sources are given.
 
 **The five-member example is invented**, not observed. It is chosen to make three points visible at once: fast convergence, the gap between weighted and plain averaging, and the inverse relation between open-mindedness and influence. A different matrix would give different numbers. What does not depend on the choice is the structure: convergence to a weighted average, with weights given by how others attend to you.
 
