@@ -65,6 +65,10 @@ He relapsed twice, in 1843 and 1845, and the first time nothing happened. Chapte
 
 ---
 
+The fellowship's own founding text was not settled by a room either, and it is worth seeing how without pretending the comparison proves anything. The draft of the Big Book went out for comment early in 1939, and the comments came back onto a single copy, which survives in facsimile. An outside psychiatrist, Dr. Howard, is named in its margins on seven pages. One of his changes, "Faith" for "God" in a sentence about working twenty-four hours a day, went into print; another, to the "Heavenly Father" who closes one of the Akron stories, did not. Wilson, in a talk the facsimile's editors reproduce, remembered his own part in the arguments as the umpire's. And two of the typed stories describe the Akron group as gathered round its doctor, one of them calling him its "human center". Those are prominent agents in this chapter's sense, in the fellowship's first months, described by the members without complaint. They are an analogy and not a test. One pass of editorial collation is not repeated averaging, the theorem is about beliefs rather than texts, and nothing here shows that the founding text was wrong. What the pages show is how the fellowship settled things before it wrote down the rule this book is about.
+
+---
+
 One more thing, and it is the reason the Traditions are addressed to groups rather than to individuals.
 
 In the model underneath this book, group resources are built from member states,
@@ -132,7 +136,9 @@ reciprocals are not implemented member-to-group weights.
 
 ### 3. Notes on sources
 
-**Nothing in this chapter is reported at a remove.** The theorem is Golub and Jackson, read at source. The trust matrices are constructed and the figures computed rather than cited. The Gough material is from his own 1869 autobiography, read at source, and is treated at length in Chapter Three.
+**Almost nothing in this chapter is reported at a remove.** The theorem is Golub and Jackson, read at source. The trust matrices are constructed and the figures computed rather than cited. The Gough material is from his own 1869 autobiography, read at source, and is treated at length in Chapter Three.
+
+**The 1939 passage rests on the working manuscript**, read on every page on 12 September 2026, and each point in it was checked against the facsimile's page images. Dr. Howard is named on MS pp. 10, 11, 18, 19, 23, 46 and 86; a possible eighth mention, on MS p. 56, is too faint at the resolution checked to count. The "Faith" change is on MS p. 11 and the "Heavenly Father" request on MS p. 86, and the printed wording of both was checked against the 1939 text. The Akron descriptions are on MS pp. 128 and 132. Two things are at a remove: the draft's date and circulation, which are the facsimile editors' account, and Wilson's description of himself as umpire, from a 1954 talk they reproduce. The comparison with prominent agents is an analogy, for the reasons the text gives.
 
 **The closed-core result is new to this project** in the sense that I had not computed it before writing this chapter. It is not new to the literature: it is a direct consequence of Golub and Jackson's imbalance condition, and the fact that a closed subgroup captures all influence in the limit is standard for absorbing states in Markov chains. What is worth reporting is the magnitude, which is much starker than the other two failure modes and which I would not have guessed.
 
@@ -149,9 +155,13 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.* Springfield, Mass.: Bill, Nichols & Co. The September 1845 episode; treated in Chapter Three.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the single collated copy, Dr. Howard's marginal notes, and the two Akron stories that describe the group as centred on its doctor.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed wording of the two passages Dr. Howard marked.
+
 **Cited at a remove:**
 
-Nothing.
+The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the 1939 draft, and Wilson's 1954 talk as they reproduce it, for his description of himself as the umpire.
 
 **Referenced but not reproduced:**
 

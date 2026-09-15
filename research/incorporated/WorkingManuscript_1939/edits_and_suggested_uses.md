@@ -37,8 +37,8 @@ by initial, as elsewhere in the project.
    deliberately to outsiders as well as members, but the comments were collated onto one copy, chiefly
    in one hand by Hazelden's account, under an author who called himself the umpire, and the last
    changes were made by four people correcting galleys. One outside reader, the psychiatrist Dr.
-   Howard, is named in the margins on at least eight pages; some of his changes went in and more did
-   not.
+   Howard, is named legibly in the margins on seven pages, and probably on an eighth; some of his
+   changes went in and more did not.
 6. **Ten of the printed book's thirty stories were not in the circulated draft.** A pencilled list
    inside the back cover names them in print order. The one story struck through with a withdrawal
    note was printed anyway, moved from the middle of the sequence to the end.
@@ -57,7 +57,8 @@ written onto one copy, this one, over about six weeks before the final edit.
 **Hands.** Lead, green and red pencil, a little ink. "HGP", Hank P.'s initials by Hazelden's reading,
 stands at the foot of nearly every text page; the Sotheby's catalogue that Hazelden quotes gives most
 annotations to him and some to Wilson. Readers are named in the margins: Dr. Howard on MS pp. 10, 11,
-18, 19, 23, 46, 56 and 86, a "Dr. Witherspoon" on p. 17 as far as the pencil can be read, and a reader
+18, 19, 23, 46 and 86, and probably on p. 56, where the name is too faint to be sure at the
+resolution checked; a "Dr. Witherspoon" on p. 17 as far as the pencil can be read, and a reader
 whose name begins "De B" on the Foundation page, who found it anticlimactic. A red note on p. 21 cites
 "our away gang", which Hazelden reads as the Akron members. Nothing here attributes a hand beyond what
 the page signs.
@@ -296,7 +297,30 @@ Nothing here changes a model value, a cache or a release check.
 
 In rough order of value. The first, a correction, was made on 13 September 2026: Chapter 4 now says
 what the pages show. The recount in item 9 was made the same day: Appendix A13 now counts thirty
-stories and records how the working manuscript accounts for them. None of the others has been made.
+stories and records how the working manuscript accounts for them.
+
+The other seven were drafted on 15 September 2026 at the Human Author's request, each as its own
+commit so that any one can be dropped on its own, and every quotation and page reference was checked
+against the page images:
+
+- item 2, Chapter 5;
+- item 3, Chapters 9 and 7, with Chapter 7 given one sentence of cross-reference;
+- item 4, Chapter 18;
+- item 5, Chapter 15;
+- item 6, Chapter 19;
+- item 7, Chapter 22;
+- item 8, Chapters 24 and 21.
+
+Three parts were left out:
+
+- **From item 3:** the title vote and the four people at the galleys. Both reach the book only
+  through Hazelden's reading of AA's histories, and the addition stands without them.
+- **From item 4:** household autonomy on serving liquor, too weak a match for group autonomy.
+- **From item 6:** the Bill's Story insert, since Step Eleven's handwritten qualifier makes the same
+  point.
+
+Dr. Howard is counted as named on seven pages, not eight. On MS p. 56 the name is too faint at the
+resolution checked.
 
 1. **Chapter 4, a correction.** Replace "the softening of 'you must' to 'we ought'" with what the pages
    show: instruction to "you" rewritten as a report of what "we" did, the modal usually kept, and some
@@ -310,7 +334,7 @@ stories and records how the working manuscript accounts for them. None of the ot
    board with an outside majority whose approval every business engagement needed.
 3. **Chapters 7 and 9, How a Room Decides and Confident and Wrong.** The founding text was not decided
    by a room. Wide solicitation fed a single collator, an author who called himself the umpire, and four
-   people at the galleys. One outside reader is named on at least eight pages. Akron's group is twice
+   people at the galleys. One outside reader is named on seven pages, and probably an eighth. Akron's group is twice
    described in its own stories as centred on its doctor, once in so many words as its "human center"
    (pp. 128, 132). And, at a remove, a title vote in the two groups was set aside, a member recalling
    that Doc and Bill let everyone fight and then announced the answer. These are Chapter 9's prominent

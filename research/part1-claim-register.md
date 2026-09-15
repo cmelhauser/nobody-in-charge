@@ -208,12 +208,19 @@ which of two incompatible memories of the fifty thousand dollars is right.
 | ~~Adopted at the first international convention, 1950~~ | **Dropped 2 Aug 2026.** Kurtz gives June 1950 and does not connect the adoption to the Cleveland convention | - |
 | Traditions were compiled from failure reports rather than designed | Kurtz 1991 and Wilson's own opening sentence; previously my reading | S |
 | Holmström's budget-breaker impossibility applies to Tradition 7 | Holmström 1982 | I |
+| The typed Foreword of the 1939 draft asks members to keep their names out of print and the press to respect it, disclaims organisation in the conventional sense, takes no fees or dues, and sets one requirement, "an honest desire to stop drinking" | *The Book That Started It All* (Hazelden 2010), the typed Foreword, **checked against the page image** | P |
+| The Foreword's wording predates the comment round | The same facsimile: the Foreword is part of the typed draft on which the comments were collated | P |
+| The draft was circulated for comment in February 1939 | The facsimile editors' essays | S |
+| The unnumbered Alcoholic Foundation page after MS p. 80 proposes three trustees from the fellowship and four from outside, the four and their successors to "always constitute a majority", with trustee approval for every business engagement touching the work | The same facsimile, **checked against the page image** | P |
+| Whether the printed 1939 appendix kept those terms cannot be checked from the corpus | `BigBook_1939`, a 1999 reprint, omits the appendix | P |
+| The Foreword's statements correspond to Traditions Three, Seven, Nine and Eleven | My reading; the Traditions are not claimed to derive from the Foreword | I |
 
 **Chapter Five status: rewritten against Kurtz on 2 August 2026 and no longer
 provisional.** Fourteen claims now rest on a historian who read AA's archives, and two
 were dropped rather than carried on a secondary account. What remains at a remove is the
-1946 and 1949 *Grapevine* texts themselves, the 1947 booklet, and *Comes of Age*, all of
-which are AA copyright and none of which this project acquires.
+1949 *Grapevine* short form, the 1947 booklet, and *Comes of Age*. The April 1946 long form has
+since been read, in a scan and in AAWS's 2024 reproduction (P-17). The working-manuscript rows
+were added on 15 September 2026, read from the facsimile's page images.
 
 ---
 

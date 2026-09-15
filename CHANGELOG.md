@@ -14,6 +14,19 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- The working manuscript's seven remaining suggested uses are drafted, one commit each so that any
+  can be dropped:
+  - Chapter 5, the 1939 Foreword and the Foundation page;
+  - Chapters 7 and 9, how the first book was settled;
+  - Chapter 18, the protective tier's precursors;
+  - Chapter 15, helping and its cost;
+  - Chapter 19, the membership rule;
+  - Chapter 22, the founders' answer to the composition question;
+  - Chapters 24 and 21, the 1939 meeting sizes, as a check on the room capacity and not on the
+    endpoint.
+
+  Each is an illustration rather than a test of the model, and every quotation was checked against
+  the page images. Chapters 21 and 24 now record that SMF-132 was read and is held.
 - Five background papers the paper cites are read in full at PubMed Central: Banks et al. (2017),
   Gorman et al. (2006), Kelly, Humphreys and Ferri (2020), Rynes and Tonigan (2012) and Witkiewitz
   and Marlatt (2007).

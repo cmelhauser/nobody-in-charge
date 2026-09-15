@@ -19,6 +19,10 @@ The answer is that it looks like a room. Not a door.
 
 ---
 
+The rule is older than its number. The 1939 draft of the Big Book already had it in its Foreword, where a member needed only "an honest desire to stop drinking", and the draft's own pages show the door being held open in the sense this chapter means. In Step Eleven the qualifier "as we understand Him" is written in by hand over a struck phrase, where Step Three's was already typed. One of the stories has a man who had been drinking again for months made welcome when he came back and treated as if nothing had happened; another has friends who offered help and never lectured him about the months he had lost. And the doctor at the centre of that early group is described asking a wife one thing before he would help, whether her husband really wanted to stop. These are illustrations of the membership rule and nothing more. They bear on neither of the two paths through which the model represents it, resource governance and dropout friction, and they describe what a group did, not what anyone in difficulty should do.
+
+---
+
 Everything a gatekeeping group does, it does to someone already inside.
 
 Nobody is turned away at the threshold because there is no threshold and no one standing at it. What happens instead is a hundred small things that are not decisions: the seat nobody moves along to make, the conversation that closes when the newcomer approaches, the shorthand that is not explained, the coffee rota that is already staffed, the phone list that is not offered. None of that is a policy. All of it is a message, and the message is received.
@@ -88,6 +92,8 @@ Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], gover
 
 **This chapter is model output and a reading of one sentence.** The sentence is the Third Tradition. The claim that it removes a power rather than granting one is mine, and it is the whole basis for modelling the open door as acting on retention rather than on arrival.
 
+**The 1939 passage is illustration, from the working manuscript**, read on every page on 12 September 2026, and each point was checked against the facsimile's page images: the requirement in the typed Foreword; Step Three's typed qualifier on MS p. 30 and Step Eleven's handwritten one on MS p. 31; the member made welcome on MS p. 122; the friends who never lectured on MS p. 128; and the doctor's one question on MS p. 131. The date and circulation of the draft are the facsimile editors' account. None of it is evidence for either of the model's two Tradition 3 paths.
+
 **The title is kept deliberately.** "You Cannot Close the Door" is the claim the chapter makes about membership, and the main text explains in its third paragraph why it is not a claim about meetings. Retitling would lose the point; leaving the ambiguity unaddressed would have been worse.
 
 **The term of art was corrected here.** An earlier draft used "closed" throughout for a group with an unwelcoming culture. In the fellowship's own usage a closed meeting is one restricted to people with a desire to stop drinking, as against an open meeting anyone may attend, and it is an entirely ordinary thing for a group to hold. The chapter now says unwelcoming, and the main text sets out why Tradition 3 still removes the power it is described as removing: it governs membership rather than attendance at a given gathering. This is the second correction in the book to have come from anticipating what a reader inside the fellowship would object to, and I would rather have the objection than the phrasing.
@@ -102,11 +108,13 @@ Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], gover
 
 **Read in full:**
 
-Nothing new to this chapter. The dropout and inflow structure is described in Part Three and specified in appendix A2, and the sources for its functional forms are given there.
+For the model, nothing new to this chapter. The dropout and inflow structure is described in Part Three and specified in appendix A2, and the sources for its functional forms are given there.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the Foreword's one requirement, the Step Eleven qualifier, and three stories about taking people back and asking only whether they wanted to stop.
 
 **Cited at a remove:**
 
-Nothing.
+The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the 1939 draft.
 
 **Internal, and reproducible from this repository:**
 

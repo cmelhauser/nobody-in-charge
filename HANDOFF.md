@@ -94,7 +94,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 306 pages, paper 35, primer 23
+- three built PDFs: book 313 pages, paper 35, primer 23
 
 ---
 
@@ -393,7 +393,7 @@ each moves a record-only source onto the ordinary footing.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
      abstract only.
 
-**Two are optional and change no released number.**
+**One is optional and changes no released number.**
 
 7. **Where the referral-versus-attraction ordering first reverses on final membership.**
    `research/decay_ordering.json` has it holding at the model's decay rate and reversed at 25 per
@@ -401,12 +401,28 @@ each moves a record-only source onto the ordinary footing.
    lower. A 400-seed paired run at 10, 15 and 20 per cent lower, as a new hash-linked script on
    the design of `model/decay_ordering.py`, would locate the reversal, so that Chapter 12 could say
    how much more slowly a practice must lapse before the outcomes disagree.
-8. **The working manuscript's other suggested uses.** Seven additions, to Chapters 5, 7 and 9, 15,
-   18, 19, 22, and 24 and 21, are set out with page references in
-   `research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md`. None is a
-   correction; each would add first-hand 1939 evidence to an argument the chapter already makes,
-   and whether to make them is the Human Author's decision.
 
+### Closed on 15 September 2026
+
+- **The working manuscript's other suggested uses.** All seven were drafted at the Human Author's
+  request, each as its own commit so that any one can be dropped on its own:
+  - Chapter 5, the 1939 Foreword and the Foundation page;
+  - Chapters 7 and 9, how the fellowship's first book was settled;
+  - Chapter 18, the protective tier's precursors;
+  - Chapter 15, the editors on helping and its cost;
+  - Chapter 19, the membership rule;
+  - Chapter 22, the founders' answer to the composition question;
+  - Chapters 24 and 21, the 1939 meeting sizes.
+
+  Every quotation and page reference was checked against the facsimile's page images, and each
+  addition says what it is not: a historical illustration or precursor, never a test of the model.
+  Three parts were left out:
+  - the title vote and the four people at the galleys, which reach the book only at a remove;
+  - household autonomy on serving liquor, too weak a match for group autonomy;
+  - the Bill's Story insert, whose point Step Eleven's handwritten qualifier already makes.
+
+  Chapters 21 and 24 also now record that SMF-132 was read on 17 August 2026 and is held. Whether
+  each addition stays is still the Human Author's decision.
 
 ### Closed on 14 September 2026
 

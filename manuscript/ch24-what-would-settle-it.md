@@ -67,6 +67,8 @@ So the empirical question is not "do AA groups have dominant members" but "does 
 
 That is measurable by sociometric survey, which is intrusive and is the wrong instrument for an anonymous fellowship, and I do not have a good suggestion for how to do it ethically. It is on the list because it is the single measurement that bears most directly on the book's central claim, and because saying so is more useful than leaving the claim looking testable when the test is not available.
 
+The fellowship's earliest record describes the configuration without measuring it. The draft of the Big Book circulated in 1939 puts the Akron meetings at sixty to eighty people, and in two of its stories the members there place their doctor at the middle of it, one naming him the group's human centre. One large room centred on one person is the arrangement this item asks about, in the fellowship's first months. The record cannot say how the doctor's weight changed as the room grew, and it is members' testimony rather than a survey, so it settles nothing about scaling. It shows only that the question is not hypothetical.
+
 ---
 
 **Six. Anything at all about the model's trajectories.**
@@ -132,7 +134,9 @@ For each item, the claim, the design, and the result that would falsify it.
 
 **This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding. The Recovery Dharma case added at the end is the one piece of reported material, and it is testimony rather than measurement: a single fellowship's account of its own founding, written by participants, in its own program literature. It corroborates and cannot confirm. It is placed in this chapter rather than in the argument chapters precisely because this is where the book says what it has not established.
 
-**One claim here still rests on material I have not read.** SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
+**Two sources once described from outside have since been read.** SMF-132 was described here from AA's catalogue entry until it was read at source on 17 August 2026, and a copy has been held since 13 September 2026; Chapter Twenty-One reports what it contains and what limits it. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
+
+**The 1939 figures under item five** are from the working manuscript, read on every page on 12 September 2026: the meeting sizes on MS pp. 11 and 78, and the stories that centre the group on its doctor on MS pp. 128 and 132, each checked against the facsimile's page images. They describe a configuration and say nothing about how dominance scales.
 
 **One item has no method.** Item five names the measurement that would bear most directly on the book's central claim and then says I do not know how to take it ethically in an anonymous fellowship. I would rather have a gap on the list than an item that pretends to be actionable.
 
@@ -144,11 +148,13 @@ For each item, the claim, the design, and the result that would falsify it.
 
 Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Stored in `research/incorporated/RecoveryDharma_2023/`. Source of the 2019 split described above, which is reported in the personal recovery stories of Section II by people who held office in the predecessor organization, and of the peer-led commitment in the meeting script at printed pages 147 and 151. The named individual at the centre of the predecessor's collapse is named in that source and is deliberately not named here; the structural point does not require it and this book has no way to adjudicate an allegation about a living person. Appendix A12 carries the full comparison, including the material that cuts against this chapter's use of it.
 
+Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Read at source on 17 August 2026; a copy has been held since 13 September 2026 under `research/incorporated/SMF132_2020/`. Used here as the instrument item four names; Chapter Twenty-One states its limits. See `research/SOURCES.md`.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the size of the first Akron meetings and the stories that centre the group on its doctor.
+
 **Cited at a remove:**
 
 Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
-
-Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Located, not acquired. See `research/SOURCES.md`.
 
 **Internal, and reproducible from this repository:**
 
