@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 14 September 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 15 September 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -407,34 +407,38 @@ each moves a record-only source onto the ordinary footing.
    correction; each would add first-hand 1939 evidence to an argument the chapter already makes,
    and whether to make them is the Human Author's decision.
 
-**One is a decision about what the public history keeps.** It changes nothing in the book.
-
-9. **Whether to rewrite the published Git history.** The current tree is clean, but `main`, the
-   `v0.9.0` tag and GitHub's pull-request refs keep earlier states that are not:
-   - **The withheld name:**
-     - in the appendix, the generated book Markdown and ten rendered book PDFs of 16 and 17 August
-       2026, from 537633b to 3e9e22e;
-     - in two verification indexes until 14 September 2026.
-   - **Host-specific home-directory paths** from the initial import, 05096e9, in `AGENT_VERIFY.md`,
-     `HANDOFF.md`, `build/pandoc.log` and `research/audit-pre-correction-manifest.json`.
-   - **Four source documents with their OCR text**, from the same import. One is Golub and Jackson
-     (2010), whose record says it is not redistributed. The other three are the American
-     Temperance Union documents, which are public domain.
-   - **A second personal email address of the Human Author**, in commit metadata. It appears
-     nowhere in the tree.
-
-   None of it is in the v0.9.0 release assets, which match the tagged PDFs byte for byte and do not
-   print the name. Removing it would take four steps, and none of them can be undone:
-   - rewrite history with `git filter-repo`;
-   - force-push `main` and the tag;
-   - ask GitHub Support to drop the pull-request refs and cached views;
-   - accept that existing clones and forks keep what they have.
-
-   The author attribution in `README.md`, `ATTRIBUTION.md`, `CITATION.cff`, `LICENSE` and the paper is
-   deliberate and is not part of this item.
 
 ### Closed on 14 September 2026
 
+- **The published history, rewritten at the Human Author's direction.**
+  - **What was removed** from every commit of `main` and from the `v0.9.0` tag:
+    - **The withheld name**, from four places:
+      - the appendix passage the 17 August fix reworded, which now carries that fix's wording
+        throughout;
+      - the generated book Markdown;
+      - ten rendered book PDFs of 16 and 17 August;
+      - two verification indexes.
+    - **Host paths:** home-directory paths from the initial import.
+    - **Source documents:** four of them, with their OCR text.
+    - **The second email address:** removed from commit and tag metadata and replaced with the
+      GitHub no-reply address. The address published on purpose in `README.md` and `CITATION.cff`
+      is unchanged.
+  - **What did not change:**
+    - every current file is byte-identical;
+    - every commit message is unchanged;
+    - the release assets are the same files.
+
+    Every commit hash changed, so a clone made before 14 September 2026 must be re-cloned rather
+    than pulled.
+  - **How:**
+    - `git filter-branch` ran on a fresh copy, and the result was verified before anything was
+      pushed.
+    - `main` and the tag were force-pushed with leases.
+    - The four merged branches were deleted.
+  - **To keep it out:** this repository's commit email is set to the no-reply address.
+  - **Left as it is:** GitHub still serves the old commits by hash and through the pull-request
+    references of #1 to #22. On 15 September 2026 the Human Author decided not to ask GitHub
+    Support to purge them. New commits use the no-reply address.
 - **Four statements out of step with their sources**, corrected at the Human Author's direction.
   None changes a number the book computes.
   - **The Cochrane review:** the paper's literature review now reports its high-certainty
@@ -470,7 +474,7 @@ each moves a record-only source onto the ordinary footing.
     - `check_book.py` scans every tracked text file.
     - `check_pdfs.py` scans the text of each rendered PDF.
   - **What changed in the indexes:** each lost that one word and nothing else.
-  - **What stays open:** the published history, item 9.
+  - **The published history:** rewritten on 14 September 2026, as recorded above.
 - **Ben-Porath (1967)'s read status.** Chapter 12 said it was read at source, `research/SOURCES.md`
   recorded no read status, and Chapter 14 listed it as cited at a remove. The Human Author
   confirmed Chapter 12, so the ledger now records it as read at source, Chapter 14 lists it under
