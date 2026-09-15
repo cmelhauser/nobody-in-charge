@@ -89,6 +89,10 @@ A movement that wrote down the guards and not the thing guarded. That is what th
 
 ---
 
+A nearer draft shows some of these guards being argued into place. AA's own working manuscript, the 1939 draft with its readers' comments written in, has been published in facsimile, and the clearest precursor on its pages is of having no opinion on outside issues. Claims that doctors and clergy would contest come out one at a time, beside margin notes predicting that doctors, and on the next page ministers, "will shoot", and a paragraph hoping the group would help reform institutions is struck whole. Even the word this chapter's title turns on was in play: a typed "rule" the members observed reached print as a "principle", a change the collated copy does not record and only comparison with the printed book shows. Against all of it the same draft proposes, as Chapter Five describes, a central board with a permanent outside majority whose approval every business engagement would need. A precursor is not a Tradition, and I have left out the resemblances too weak to carry weight. What the pages do show is that having no hierarchy was chosen against an alternative the founders had written into their own draft.
+
+---
+
 What the split is, then, in the plainest terms I can manage.
 
 Seven of the Traditions are about supply. They determine whether the room has the things a person needs in order to change, and if they fail, the room stops working for the people in it.
@@ -152,6 +156,8 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **The historical parallel became available only in August 2026** and is not something the matrices were built against. Part One's account of what the Washingtonians wrote down rests on Grosh's *Washingtonian Pocket Companion* of 1842, read at source, and the mapping of its clauses onto four of the five protective Traditions is set out in Chapter One with the quotations. The mapping onto the *tiers* is mine and is new here. Two cautions travel with it. First, Wilson wrote his reading of Washingtonian history into the *A.A. Grapevine* eight months before publishing the Traditions and was, on Kurtz's account, explicitly seeking support for the Traditions he was formulating, so the Traditions and the Washingtonian record are not independent. Second, one movement is one case.
 
+**The 1939 precursors come from the working manuscript**, read on every page on 12 September 2026, and each was checked against the facsimile's page images. The softened medical and clerical claims are on MS pp. 12, 23, 45 and 46, with "Doctors will shoot" on p. 45 and "Ministers will shoot" on p. 46; the struck paragraph on institutions is on MS p. 56; and "Another rule" is typed, unmarked, on MS p. 61. That the printed book says "principle" was checked against the 1939 text, so the change is inferred to have been made after the collated copy, not read off the page. The Foundation page is described, with its limits, in Chapter Five. The mapping onto the protective tier is mine, and resemblances I judged weak, such as the draft leaving liquor in the home to each family, are left out.
+
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
 **What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 53 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
@@ -163,6 +169,10 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica, N.Y.: B. S. Merrell. **Read at source**; saved in `research/`. Used here only for the four written analogues of protective Traditions and the three contradicted enabling ones. Full bibliographic detail and the quotations are in Chapter One.
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Used here for the dependence of Wilson's Washingtonian reading on the Traditions he was drafting. **In copyright; the full text is not stored in this repository.**
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the removal of claims doctors and clergy would contest, the struck paragraph on institutions, and the typed "rule" on MS p. 61.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed "principle" that replaced the typed "rule".
 
 **Cited at a remove:**
 

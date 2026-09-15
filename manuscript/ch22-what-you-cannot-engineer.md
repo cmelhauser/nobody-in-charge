@@ -69,6 +69,10 @@ The Air Force Academy result still says that engineering composition from measur
 
 ---
 
+The founders had an answer to this chapter's question, and it is worth recording precisely because nobody tested it. The draft of the Big Book they circulated in 1939 planned to refer inquiries from a new place to an active nucleus of members there, from which fellowships would grow as they had among the first members. Its closing chapter describes small clusters of two, three and five members already formed around the two larger centres. In a medical journal that July, Silkworth wrote, as the facsimile's editors quote him, that growth was inevitable once a community had three or four active members. That is a founding-composition policy: a small committed core, sent nowhere by anyone, left to recruit. It is a belief and not a result. It neither agrees nor disagrees with the model, whose composition contrasts are unresolved, and the founders had no comparison group either. What the pages show is only that the question this chapter asks was answered in 1939 by assumption.
+
+---
+
 There is a version of this that a fellowship might actually face, and it is worth separating from the version I have modelled.
 
 Nothing in AA assigns anybody to anything. There is no algorithm, no district officer with a spreadsheet, and no mechanism by which a person could be placed in a meeting against their inclination. People go to the meeting near their house, or the one at the right time, or the one where they know somebody. If the Air Force Academy's cadets could re-sort inside a squadron, an alcoholic can simply go somewhere else on Thursday.
@@ -119,15 +123,19 @@ Paired membership differences relative to even are concentrated 0.29 [-0.90, 1.4
 
 **The model's null is honestly weak and the chapter leads with that**, because a null from a design that could barely have produced anything else is the sort of result that looks like evidence and is not.
 
+**The 1939 plan is a belief, recorded as one.** The referral to an active nucleus is on the unnumbered Alcoholic Foundation page after MS p. 80 of the working manuscript, and the clusters of two, three and five are on MS p. 79; both were checked against the facsimile's page images. Silkworth's July 1939 remark reaches this book only through the facsimile editors' quotation of it and is cited at a remove. None of it is evidence about composition effects, and it is not offered as agreeing or disagreeing with the unresolved contrasts above.
+
 ### 4. References
 
 **Read in full:**
 
 Carrell, S. E. B. I. Sacerdote and J. E. West (2013). "From Natural Variation to Optimal Policy? The Importance of Endogenous Peer Group Formation." *Econometrica* 81(3): 855-882. doi:10.3982/ECTA10168. **Read at source** from the author's copy at the University of California, Davis. Earlier circulated as NBER Working Paper 16865, March 2011, under the title *From Natural Variation to Optimal Policy? The Lucas Critique Meets Peer Effects*, and before that as *Beware of Economists Bearing Reduced Forms?*. Used here for the design, the predicted and realised treatment effects, and the homophily mechanism. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the founders' plan to grow from an active nucleus in each place and the draft's small clusters around two centres.
+
 **Cited at a remove:**
 
-Nothing.
+Silkworth, W. D. (1939). An article in the *Journal-Lancet*, July 1939, as quoted in the facsimile editors' essays in *The Book That Started It All* (2010), for the remark that a community with three or four active members would grow. Not read.
 
 **Internal, and reproducible from this repository:**
 

@@ -23,6 +23,8 @@ The second is that the idea was not new even in 1965, when Frank Riessman gave i
 
 So this chapter is not reporting a discovery. The observation belongs to the rooms, the name belongs to Riessman, and the best evidence belongs to Pagano. What the model contributes is smaller and more specific: an account of the mechanism by which it could be true, and a prediction about when it would stop being true.
 
+The observation's first printed form is older than Riessman, and its drafting survives. In the copy of the Big Book onto which the comments of 1939 were collated, a reader adds "as well as an altruistic" to the doctor's line that the solution is worked out on the spiritual plane. The margin gives the reason: the addition spares the author the criticism of saying nobody gets well without working with others. "Helping others is the foundation stone of your recovery" is pencilled into the chapter on working with others, and printed. On the same page the cost is stated down: a typed remark that such troubles come constantly was changed to say they come occasionally. The draft's own stories already have the first members knowing they must help others to stay sober and finding that motive become secondary, and a doctor sending a newly sober man to a patient with no request but that he tell his story. The editors defended helping as necessary while softening what it costs. That sits near this chapter's distinction between helping as mechanism and helping as reward, and I do not claim they drew it. They were writing a book to persuade, not a model to test.
+
 ---
 
 Here is the mechanism, and it is almost embarrassingly simple.
@@ -152,6 +154,8 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 **Riessman (1965) is cited for the name and the idea, not read at source.** It is behind a subscription at *Social Work*. The principle as stated here, that the helper in a shared-condition relationship often benefits most, is not in dispute and is reported in many places, but I have not read the original article.
 
+**The 1939 passage is from the working manuscript**, read on every page on 12 September 2026, and each point was checked against the facsimile's page images: the added "altruistic" and the reader's reason on MS p. 2, the pencilled "foundation stone" and the burden stated down on MS p. 48, the typed "that motive became secondary" on MS p. 77, and the doctor who asked only that the man tell his story on MS p. 144. The printed wording of the first three was checked against the 1939 text. Nothing here says the 1939 editors held the distinction this chapter draws.
+
 **The recipient resource is my construction.** No source proposes measuring opportunity to help as low-practice members per high-practice potential helper. The ratio form follows from asking what a person needs in order to do twelfth-step work, and the saturation form is borrowed from Iannaccone's treatment of participatory goods, but the object itself is an invention of this model and should be read as such. The nearest thing in print is Lembke's application of Iannaccone to AA, which counts as a free-rider the sober member who never works the steps, because such members do not sponsor and so shrink the pool of people who can. That is the same resource described from the helper's side and without a measure, so it supports the idea rather than the ratio.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
@@ -165,6 +169,10 @@ Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA): A new perspective on behavior change in self-help organizations for addiction." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. The sober member who does not sponsor as a free-rider who shrinks the pool of possible sponsors. The paper is theoretical, and its two cases are clinical vignettes.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the edits that defended the necessity of helping and softened its cost.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed wording of the three edited passages.
 
 **Cited at a remove:**
 
