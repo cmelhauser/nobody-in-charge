@@ -4859,3 +4859,53 @@ request's base does not trigger this repository's pull-request workflow, and the
 "no checks reported" as passing. The full local CI had passed on that exact branch, and the push
 run on `main` for the merge passed. #21 then had its CI dispatched by hand and passed before it was
 merged, and #22 targeted `main` from the start.
+
+### 15 September 2026: the working manuscript's seven suggested uses
+
+**What was asked.** The Human Author asked for the seven remaining suggested uses in
+`edits_and_suggested_uses.md` to be drafted, so that each can be kept or dropped on its own. They
+went in as seven commits, one per addition, followed by one commit for the shared records.
+
+**How each was checked.**
+- Every quotation and page reference was found through the OCR text and then checked on the
+  facsimile's page image.
+- Printed wordings were checked against `BigBook_1939`.
+- Quotation from the facsimile was kept to a few words, and only where the wording is the evidence.
+- Hazelden's essays are cited at a remove wherever they are used: for the date and circulation of
+  the draft, for Wilson's description of himself as umpire in a talk they reproduce, and for
+  Silkworth's July 1939 remark.
+
+**What went where.**
+- **Chapter 5.** The typed Foreword already asks for anonymity before the press, disclaims
+  organisation in the conventional sense, takes no fees or dues, and sets one requirement. The
+  chapter names the corresponding Traditions without deriving them from the Foreword, and sets
+  beside it the Foundation page's permanent outside majority. Six claim-register rows were added.
+- **Chapters 9 and 7.** The founding text was settled by a collator and an umpire, an outside
+  psychiatrist is named on seven pages, and Akron's group was centred on its doctor. This is an
+  analogy to prominent agents, and the chapter says plainly that it is not a test.
+- **Chapter 18.** The removal of claims doctors and clergy would contest, the struck paragraph on
+  institutions, and "rule" printed as "principle", set against the Foundation page.
+- **Chapter 15.** The necessity of helping was defended in editing, and its cost was stated down.
+- **Chapter 19.** The one requirement, the handwritten Step Eleven qualifier, and members taken
+  back. This illustrates the membership rule, not either of the model's paths.
+- **Chapter 22.** The founders' plan to grow from a nucleus, and Silkworth's remark, recorded as a
+  belief. It neither agrees nor disagrees with the unresolved composition contrasts.
+- **Chapters 24 and 21.**
+  - Chapter 24 gets one large room centred on one person, which says nothing about scaling.
+  - Chapter 21 gets the meeting sizes as a check on the room capacity of sixty, not on the 17.80
+    endpoint.
+
+**What was left out.**
+- The title vote and the four people at the galleys.
+- Household autonomy on serving liquor.
+- The Bill's Story insert.
+
+**What was corrected.**
+- Dr. Howard is named legibly on seven pages, not eight, as Chapter 4 already said. MS p. 56 is too
+  faint to count.
+- Chapters 21 and 24 carried stale SMF-132 status and now record it as read and held.
+- The Part One register no longer says the project acquires none of AA's copyrighted texts.
+
+**What did not change.** No model value, cache, notebook or registered number. The room capacity
+stays at sixty. No other public document states the SMF-132 comparison, so none needed the 1939
+figures beside it.

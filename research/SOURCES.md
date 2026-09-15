@@ -534,7 +534,10 @@ ten of the printed stories are absent from the draft. The only numbers it suppli
 meeting sizes as members reported them, a consistency check on the model's room capacity and not a
 validation. **Hazelden's essays are secondary and anonymous**, and what they report from AA's own
 histories is cited at a remove. The full account and suggested uses are in
-`edits_and_suggested_uses.md` in the source directory.
+`edits_and_suggested_uses.md` in the source directory. On 15 September 2026 its seven remaining
+suggested uses were drafted at the Human Author's request, each checked against the page images, so
+it now also supports Chapters 5, 7 and 9, 15, 18, 19, 21, 22 and 24 beside Chapter 4 and Appendix
+A13. Dr. Howard is named legibly on seven pages; an eighth, MS p. 56, is too faint to count.
 
 *Jensen, Karen, and Matthew Abrahams, "Buddha Buzz Weekly: Refuge Recovery Splits," Tricycle: The
 Buddhist Review, 13 July 2019.* **Read in full at source on 17 August 2026**, held as record only

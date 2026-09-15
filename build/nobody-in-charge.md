@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 14 September 2026"
+date: "Draft of 15 September 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -1345,6 +1345,10 @@ Which is also why the mechanism is worth checking rather than assuming. Selectio
 
 ---
 
+"Recorded" needs one qualification, and the fellowship's own first draft supplies it. The Foreword typed into the draft of the Big Book that was circulated for comment in February 1939, six years before the mail became a problem, already asks members to keep their names out of print and the press to respect that. It says the fellowship is not an organisation in the conventional sense, takes no fees or dues, and sets one requirement for membership, "an honest desire to stop drinking". The correspondences are there to be seen. The requirement is the Third Tradition, down to the word the 1949 edit would drop; the request to the press is the Eleventh; the disclaimer of organisation is the Ninth's matter; and the sentence on dues sits nearest the Seventh. I do not claim the Traditions came from the Foreword. What it shows is that part of what 1945 and 1946 codified had been written down at the start, as intention, before most of the failures Maxwell catalogued had happened. And the same draft shows that the intentions did not all point one way. An unnumbered page near its end proposes a trust with three trustees from the fellowship and four from outside, the four and their successors to "always constitute a majority", whose approval every business engagement touching the work would need. The first draft wanted no organisation for the groups and a permanent board, controlled from outside, at the centre.
+
+---
+
 There is one Tradition where the historical record is unusually clear about the cost, and it is the one economists would flag first.
 
 Tradition 7 says an AA group declines outside contributions and supports itself from the basket. Combined with Tradition 4, which makes each group autonomous, and Tradition 9, which forbids organising into a hierarchy, this closes the system: there is no party outside a group that can put resources into it or direct it.
@@ -1436,6 +1440,8 @@ The 1946 long form is now the exception. AA's own pamphlet *A.A. Tradition: How 
 
 It also supplies a fact the chapter needed and did not have. The pamphlet states that in all but the Second Tradition the original language has been modified or shortened. That is AA's own account of the cutting described above, and it means the familiar short forms are not simply compressions of the 1946 text but revisions of it, with one exception. Tradition 2, the one that carries the group conscience and the phrase about leaders who do not govern, is the only one that reaches a reader today in the words Wilson first published.
 
+**The 1939 working manuscript is a precursor here, not a source for the Traditions.** Hazelden's facsimile of the copy onto which the comments on the February 1939 draft were collated was read on every page on 12 September 2026, and both passages above were checked against its page images: the typed Foreword, and the unnumbered Alcoholic Foundation page after MS p. 80. The Foreword is part of the typed draft, so its wording predates the comment round; the date and the circulation are the facsimile editors' account. The correspondences with Traditions Three, Seven, Nine and Eleven are my reading. Whether the printed 1939 appendix kept the Foundation page's terms cannot be checked here, because the reprint of the 1939 text this project holds omits that appendix.
+
 **The Holmström application is mine.** The 1982 result is real and I have read the argument; the application to Tradition 7 is my own reading and, as far as I know, novel. It should be treated as an interpretation rather than a finding.
 
 ### 4. References
@@ -1450,7 +1456,11 @@ Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studi
 
 Holmström, B. (1982). "Moral Hazard in Teams." *Bell Journal of Economics* 13(2): 324-340. The budget-breaker impossibility result applied to Tradition 7.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the February 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the typed Foreword's statements on anonymity, organisation, fees and the one requirement for membership, and for the Alcoholic Foundation page's trust with a permanent outside majority.
+
 **Cited at a remove:**
+
+The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the February 1939 draft.
 
 Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*, April 1946; cited by Kurtz as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," 2:10, 7-9. **Read at source.** A scan of the article was consulted on 10 August 2026 and is recorded in `research/incorporated/Grapevine_1946/`. Source for the three opening sentences quoted above, for the two titles the text carries, and for the twelve points in their original wording. **The document is not archived in this repository**: it is A.A. Grapevine copyright, the located scan is a third-party reproduction with unverified posting authorization, and the project's rights review directs that it be cited and quoted within limits rather than stored. The scan carries no issue or page markers and so cannot settle Kurtz's conflicting issue numbers.
 
@@ -1656,7 +1666,7 @@ Maxwell, M. A. (1949). *Social Factors in the Alcoholics Anonymous Program.* Doc
 
 An AA group has no boss.
 
-That is not a figure of speech or an aspiration. There is no president with a casting vote, no board that can overrule the meeting, no headquarters that can send instructions, and no appeal to anybody above. The Traditions say the group conscience is the final authority and that leaders are trusted servants who do not govern, and the fellowship means it literally enough that a group can decide almost anything about its own affairs and nobody, anywhere, can tell it otherwise.
+That is not a figure of speech or an aspiration. There is no president with a casting vote, no board that can overrule the meeting, no headquarters that can send instructions, and no appeal to anybody above. The Traditions say the group conscience is the final authority and that leaders are trusted servants who do not govern, and the fellowship means it literally enough that a group can decide almost anything about its own affairs and nobody, anywhere, can tell it otherwise. The fellowship did not begin that way: its first book was settled by a collator and an umpire rather than by a room, as Chapter Nine describes.
 
 Which raises a question that ought to be asked more often than it is. **How does a room like that ever decide anything?**
 
@@ -1772,7 +1782,7 @@ The split-room example uses a block-diagonal matrix with no cross-block attentio
 
 ### 3. Notes on sources
 
-**Nothing in this chapter is reported at a remove.** DeGroot's paper is read at source. The examples are constructed and the arithmetic computed rather than cited.
+**Nothing in this chapter is reported at a remove.** DeGroot's paper is read at source. The examples are constructed and the arithmetic computed rather than cited. The one sentence on how the fellowship's first book was settled points forward to Chapter Nine, where its sources are given.
 
 **The five-member example is invented**, not observed. It is chosen to make three points visible at once: fast convergence, the gap between weighted and plain averaging, and the inverse relation between open-mindedness and influence. A different matrix would give different numbers. What does not depend on the choice is the structure: convergence to a weighted average, with weights given by how others attend to you.
 
@@ -2165,6 +2175,10 @@ He relapsed twice, in 1843 and 1845, and the first time nothing happened. Chapte
 
 ---
 
+The fellowship's own founding text was not settled by a room either, and it is worth seeing how without pretending the comparison proves anything. The draft of the Big Book went out for comment early in 1939, and the comments came back onto a single copy, which survives in facsimile. An outside psychiatrist, Dr. Howard, is named in its margins on seven pages. One of his changes, "Faith" for "God" in a sentence about working twenty-four hours a day, went into print; another, to the "Heavenly Father" who closes one of the Akron stories, did not. Wilson, in a talk the facsimile's editors reproduce, remembered his own part in the arguments as the umpire's. And two of the typed stories describe the Akron group as gathered round its doctor, one of them calling him its "human center". Those are prominent agents in this chapter's sense, in the fellowship's first months, described by the members without complaint. They are an analogy and not a test. One pass of editorial collation is not repeated averaging, the theorem is about beliefs rather than texts, and nothing here shows that the founding text was wrong. What the pages show is how the fellowship settled things before it wrote down the rule this book is about.
+
+---
+
 One more thing, and it is the reason the Traditions are addressed to groups rather than to individuals.
 
 In the model underneath this book, group resources are built from member states,
@@ -2232,7 +2246,9 @@ reciprocals are not implemented member-to-group weights.
 
 ### 3. Notes on sources
 
-**Nothing in this chapter is reported at a remove.** The theorem is Golub and Jackson, read at source. The trust matrices are constructed and the figures computed rather than cited. The Gough material is from his own 1869 autobiography, read at source, and is treated at length in Chapter Three.
+**Almost nothing in this chapter is reported at a remove.** The theorem is Golub and Jackson, read at source. The trust matrices are constructed and the figures computed rather than cited. The Gough material is from his own 1869 autobiography, read at source, and is treated at length in Chapter Three.
+
+**The 1939 passage rests on the working manuscript**, read on every page on 12 September 2026, and each point in it was checked against the facsimile's page images. Dr. Howard is named on MS pp. 10, 11, 18, 19, 23, 46 and 86; a possible eighth mention, on MS p. 56, is too faint at the resolution checked to count. The "Faith" change is on MS p. 11 and the "Heavenly Father" request on MS p. 86, and the printed wording of both was checked against the 1939 text. The Akron descriptions are on MS pp. 128 and 132. Two things are at a remove: the draft's date and circulation, which are the facsimile editors' account, and Wilson's description of himself as umpire, from a 1954 talk they reproduce. The comparison with prominent agents is an analogy, for the reasons the text gives.
 
 **The closed-core result is new to this project** in the sense that I had not computed it before writing this chapter. It is not new to the literature: it is a direct consequence of Golub and Jackson's imbalance condition, and the fact that a closed subgroup captures all influence in the limit is standard for absorbing states in Markov chains. What is worth reporting is the magnitude, which is much starker than the other two failure modes and which I would not have guessed.
 
@@ -2249,9 +2265,13 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.* Springfield, Mass.: Bill, Nichols & Co. The September 1845 episode; treated in Chapter Three.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the single collated copy, Dr. Howard's marginal notes, and the two Akron stories that describe the group as centred on its doctor.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed wording of the two passages Dr. Howard marked.
+
 **Cited at a remove:**
 
-Nothing.
+The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the 1939 draft, and Wilson's 1954 talk as they reproduce it, for his description of himself as the umpire.
 
 **Referenced but not reproduced:**
 
@@ -3294,6 +3314,8 @@ The second is that the idea was not new even in 1965, when Frank Riessman gave i
 
 So this chapter is not reporting a discovery. The observation belongs to the rooms, the name belongs to Riessman, and the best evidence belongs to Pagano. What the model contributes is smaller and more specific: an account of the mechanism by which it could be true, and a prediction about when it would stop being true.
 
+The observation's first printed form is older than Riessman, and its drafting survives. In the copy of the Big Book onto which the comments of 1939 were collated, a reader adds "as well as an altruistic" to the doctor's line that the solution is worked out on the spiritual plane. The margin gives the reason: the addition spares the author the criticism of saying nobody gets well without working with others. "Helping others is the foundation stone of your recovery" is pencilled into the chapter on working with others, and printed. On the same page the cost is stated down: a typed remark that such troubles come constantly was changed to say they come occasionally. The draft's own stories already have the first members knowing they must help others to stay sober and finding that motive become secondary, and a doctor sending a newly sober man to a patient with no request but that he tell his story. The editors defended helping as necessary while softening what it costs. That sits near this chapter's distinction between helping as mechanism and helping as reward, and I do not claim they drew it. They were writing a book to persuade, not a model to test.
+
 ---
 
 Here is the mechanism, and it is almost embarrassingly simple.
@@ -3423,6 +3445,8 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 **Riessman (1965) is cited for the name and the idea, not read at source.** It is behind a subscription at *Social Work*. The principle as stated here, that the helper in a shared-condition relationship often benefits most, is not in dispute and is reported in many places, but I have not read the original article.
 
+**The 1939 passage is from the working manuscript**, read on every page on 12 September 2026, and each point was checked against the facsimile's page images: the added "altruistic" and the reader's reason on MS p. 2, the pencilled "foundation stone" and the burden stated down on MS p. 48, the typed "that motive became secondary" on MS p. 77, and the doctor who asked only that the man tell his story on MS p. 144. The printed wording of the first three was checked against the 1939 text. Nothing here says the 1939 editors held the distinction this chapter draws.
+
 **The recipient resource is my construction.** No source proposes measuring opportunity to help as low-practice members per high-practice potential helper. The ratio form follows from asking what a person needs in order to do twelfth-step work, and the saturation form is borrowed from Iannaccone's treatment of participatory goods, but the object itself is an invention of this model and should be read as such. The nearest thing in print is Lembke's application of Iannaccone to AA, which counts as a free-rider the sober member who never works the steps, because such members do not sponsor and so shrink the pool of people who can. That is the same resource described from the helper's side and without a measure, so it supports the idea rather than the ratio.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
@@ -3436,6 +3460,10 @@ Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA): A new perspective on behavior change in self-help organizations for addiction." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. The sober member who does not sponsor as a free-rider who shrinks the pool of possible sponsors. The paper is theoretical, and its two cases are clinical vignettes.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the edits that defended the necessity of helping and softened its cost.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed wording of the three edited passages.
 
 **Cited at a remove:**
 
@@ -3938,6 +3966,10 @@ A movement that wrote down the guards and not the thing guarded. That is what th
 
 ---
 
+A nearer draft shows some of these guards being argued into place. AA's own working manuscript, the 1939 draft with its readers' comments written in, has been published in facsimile, and the clearest precursor on its pages is of having no opinion on outside issues. Claims that doctors and clergy would contest come out one at a time, beside margin notes predicting that doctors, and on the next page ministers, "will shoot", and a paragraph hoping the group would help reform institutions is struck whole. Even the word this chapter's title turns on was in play: a typed "rule" the members observed reached print as a "principle", a change the collated copy does not record and only comparison with the printed book shows. Against all of it the same draft proposes, as Chapter Five describes, a central board with a permanent outside majority whose approval every business engagement would need. A precursor is not a Tradition, and I have left out the resemblances too weak to carry weight. What the pages do show is that having no hierarchy was chosen against an alternative the founders had written into their own draft.
+
+---
+
 What the split is, then, in the plainest terms I can manage.
 
 Seven of the Traditions are about supply. They determine whether the room has the things a person needs in order to change, and if they fail, the room stops working for the people in it.
@@ -4001,6 +4033,8 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **The historical parallel became available only in August 2026** and is not something the matrices were built against. Part One's account of what the Washingtonians wrote down rests on Grosh's *Washingtonian Pocket Companion* of 1842, read at source, and the mapping of its clauses onto four of the five protective Traditions is set out in Chapter One with the quotations. The mapping onto the *tiers* is mine and is new here. Two cautions travel with it. First, Wilson wrote his reading of Washingtonian history into the *A.A. Grapevine* eight months before publishing the Traditions and was, on Kurtz's account, explicitly seeking support for the Traditions he was formulating, so the Traditions and the Washingtonian record are not independent. Second, one movement is one case.
 
+**The 1939 precursors come from the working manuscript**, read on every page on 12 September 2026, and each was checked against the facsimile's page images. The softened medical and clerical claims are on MS pp. 12, 23, 45 and 46, with "Doctors will shoot" on p. 45 and "Ministers will shoot" on p. 46; the struck paragraph on institutions is on MS p. 56; and "Another rule" is typed, unmarked, on MS p. 61. That the printed book says "principle" was checked against the 1939 text, so the change is inferred to have been made after the collated copy, not read off the page. The Foundation page is described, with its limits, in Chapter Five. The mapping onto the protective tier is mine, and resemblances I judged weak, such as the draft leaving liquor in the home to each family, are left out.
+
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
 **What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 53 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
@@ -4012,6 +4046,10 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica, N.Y.: B. S. Merrell. **Read at source**; saved in `research/`. Used here only for the four written analogues of protective Traditions and the three contradicted enabling ones. Full bibliographic detail and the quotations are in Chapter One.
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Used here for the dependence of Wilson's Washingtonian reading on the Traditions he was drafting. **In copyright; the full text is not stored in this repository.**
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the removal of claims doctors and clergy would contest, the struck paragraph on institutions, and the typed "rule" on MS p. 61.
+
+*Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed "principle" that replaced the typed "rule".
 
 **Cited at a remove:**
 
@@ -4052,6 +4090,10 @@ For the rest of the chapter I will therefore say **unwelcoming** rather than clo
 That leaves the question the constraint raises. If a group cannot refuse a member, what does an unwelcoming group even look like?
 
 The answer is that it looks like a room. Not a door.
+
+---
+
+The rule is older than its number. The 1939 draft of the Big Book already had it in its Foreword, where a member needed only "an honest desire to stop drinking", and the draft's own pages show the door being held open in the sense this chapter means. In Step Eleven the qualifier "as we understand Him" is written in by hand over a struck phrase, where Step Three's was already typed. One of the stories has a man who had been drinking again for months made welcome when he came back and treated as if nothing had happened; another has friends who offered help and never lectured him about the months he had lost. And the doctor at the centre of that early group is described asking a wife one thing before he would help, whether her husband really wanted to stop. These are illustrations of the membership rule and nothing more. They bear on neither of the two paths through which the model represents it, resource governance and dropout friction, and they describe what a group did, not what anyone in difficulty should do.
 
 ---
 
@@ -4124,6 +4166,8 @@ Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], gover
 
 **This chapter is model output and a reading of one sentence.** The sentence is the Third Tradition. The claim that it removes a power rather than granting one is mine, and it is the whole basis for modelling the open door as acting on retention rather than on arrival.
 
+**The 1939 passage is illustration, from the working manuscript**, read on every page on 12 September 2026, and each point was checked against the facsimile's page images: the requirement in the typed Foreword; Step Three's typed qualifier on MS p. 30 and Step Eleven's handwritten one on MS p. 31; the member made welcome on MS p. 122; the friends who never lectured on MS p. 128; and the doctor's one question on MS p. 131. The date and circulation of the draft are the facsimile editors' account. None of it is evidence for either of the model's two Tradition 3 paths.
+
 **The title is kept deliberately.** "You Cannot Close the Door" is the claim the chapter makes about membership, and the main text explains in its third paragraph why it is not a claim about meetings. Retitling would lose the point; leaving the ambiguity unaddressed would have been worse.
 
 **The term of art was corrected here.** An earlier draft used "closed" throughout for a group with an unwelcoming culture. In the fellowship's own usage a closed meeting is one restricted to people with a desire to stop drinking, as against an open meeting anyone may attend, and it is an entirely ordinary thing for a group to hold. The chapter now says unwelcoming, and the main text sets out why Tradition 3 still removes the power it is described as removing: it governs membership rather than attendance at a given gathering. This is the second correction in the book to have come from anticipating what a reader inside the fellowship would object to, and I would rather have the objection than the phrasing.
@@ -4138,11 +4182,13 @@ Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], gover
 
 **Read in full:**
 
-Nothing new to this chapter. The dropout and inflow structure is described in Part Three and specified in appendix A2, and the sources for its functional forms are given there.
+For the model, nothing new to this chapter. The dropout and inflow structure is described in Part Three and specified in appendix A2, and the sources for its functional forms are given there.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the Foreword's one requirement, the Step Eleven qualifier, and three stories about taking people back and asking only whether they wanted to stop.
 
 **Cited at a remove:**
 
-Nothing.
+The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the 1939 draft.
 
 **Internal, and reproducible from this repository:**
 
@@ -4424,6 +4470,8 @@ For comparison, viable baseline groups average 29.40 members and 0.3016 establis
 
 **The series has now been obtained and read, and it supplies one number.** The document is service material SMF-132, *Estimated Worldwide A.A. Individual and Group Membership*, published free by the General Service Office as a table of groups and members by year, 1935 to 2020. It was located on 2 August 2026, left unread on a policy ground that was itself corrected on 10 August, and read at source on 17 August 2026. Dividing reported members by reported groups gives a mean of 18.4 members per group across 2001 to 2020, ranging from 16.5 to 22.1 and falling steadily as groups are added faster than members. The model's endpoint membership at full adherence is 17.80, with a 95 per cent interval of [16.92, 18.68] on 400 seeds at thirty years. That sits inside the observed range and close to its mean, and the model was not fitted to it: room capacity, arrival and dropout were all set before this table was read, which is what makes the comparison out of sample at all. **It is a consistency check and not a validation, and the source says why.** AA keeps no membership lists, and these are reports from groups registered with general service offices. A ratio of two estimated aggregates is not a sample of group sizes: it carries no interval, and it says nothing about a distribution that is certainly skewed. The model produces a distribution and the table produces a point. They agree at the point, which is worth a sentence and not a chapter. Two limitations named earlier survive unchanged. The series is worldwide rather than regional, so the natural experiment this chapter proposes, a region whose referral pipeline changed sharply, still needs finer data than SMF-132 carries. And a count of groups is not a count of group deaths, because the total moves with births as well.
 
+**A second consistency check, of a different number.** The 1939 working manuscript records how large the first meetings were, in members' own round figures: gatherings of forty to eighty in Akron, and sixty or eighty as a rule in the house where they met; thirty or forty in New York; more than seventy, some sixty and some seventy in three of the stories; and some thirty men, and some forty others at one meeting, in another. Each was checked against the facsimile's page images, on MS pp. 11, 78, 79, 95, 117, 132, 140 and 141. These bear on the model's room capacity of sixty, which they bracket, and not on the endpoint mean of 17.80 that SMF-132 is compared with, so they are not a second test of that number. Nor are they observations in any statistical sense. They are round numbers for overlapping places within a few weeks, written by members, and one of them counts families as well as members. The capacity stays at sixty, and nothing here was used to set it.
+
 **Almost nothing here is validated.** The trajectories are model output and have never been compared against a real group. The one comparison that now exists, mean group size against SMF-132, touches a single endpoint number and not a trajectory, and is a consistency check rather than a test. The expanded sensitivity suite measures dependence on authored choices; it does not validate the durations, the absolute group sizes or the historical application.
 
 ### 4. References
@@ -4434,7 +4482,9 @@ Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studi
 
 Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Saved in `research/`. Used here for the same purpose.
 
-Alcoholics Anonymous World Services. *Estimated Worldwide A.A. Individual and Group Membership*, SMF-132, Rev. 12/20. Read at source on 17 August 2026 and held as record only under `research/incorporated/SMF132_2020/`. Used here for the members-per-group ratio and for the method note that limits it.
+Alcoholics Anonymous World Services. *Estimated Worldwide A.A. Individual and Group Membership*, SMF-132, Rev. 12/20. Read at source on 17 August 2026; a copy has been held since 13 September 2026 under `research/incorporated/SMF132_2020/`. Used here for the members-per-group ratio and for the method note that limits it.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for members' own figures for the size of the first meetings.
 
 **Cited at a remove:**
 
@@ -4518,6 +4568,10 @@ The Air Force Academy result still says that engineering composition from measur
 
 ---
 
+The founders had an answer to this chapter's question, and it is worth recording precisely because nobody tested it. The draft of the Big Book they circulated in 1939 planned to refer inquiries from a new place to an active nucleus of members there, from which fellowships would grow as they had among the first members. Its closing chapter describes small clusters of two, three and five members already formed around the two larger centres. In a medical journal that July, Silkworth wrote, as the facsimile's editors quote him, that growth was inevitable once a community had three or four active members. That is a founding-composition policy: a small committed core, sent nowhere by anyone, left to recruit. It is a belief and not a result. It neither agrees nor disagrees with the model, whose composition contrasts are unresolved, and the founders had no comparison group either. What the pages show is only that the question this chapter asks was answered in 1939 by assumption.
+
+---
+
 There is a version of this that a fellowship might actually face, and it is worth separating from the version I have modelled.
 
 Nothing in AA assigns anybody to anything. There is no algorithm, no district officer with a spreadsheet, and no mechanism by which a person could be placed in a meeting against their inclination. People go to the meeting near their house, or the one at the right time, or the one where they know somebody. If the Air Force Academy's cadets could re-sort inside a squadron, an alcoholic can simply go somewhere else on Thursday.
@@ -4568,15 +4622,19 @@ Paired membership differences relative to even are concentrated 0.29 [-0.90, 1.4
 
 **The model's null is honestly weak and the chapter leads with that**, because a null from a design that could barely have produced anything else is the sort of result that looks like evidence and is not.
 
+**The 1939 plan is a belief, recorded as one.** The referral to an active nucleus is on the unnumbered Alcoholic Foundation page after MS p. 80 of the working manuscript, and the clusters of two, three and five are on MS p. 79; both were checked against the facsimile's page images. Silkworth's July 1939 remark reaches this book only through the facsimile editors' quotation of it and is cited at a remove. None of it is evidence about composition effects, and it is not offered as agreeing or disagreeing with the unresolved contrasts above.
+
 ### 4. References
 
 **Read in full:**
 
 Carrell, S. E. B. I. Sacerdote and J. E. West (2013). "From Natural Variation to Optimal Policy? The Importance of Endogenous Peer Group Formation." *Econometrica* 81(3): 855-882. doi:10.3982/ECTA10168. **Read at source** from the author's copy at the University of California, Davis. Earlier circulated as NBER Working Paper 16865, March 2011, under the title *From Natural Variation to Optimal Policy? The Lucas Critique Meets Peer Effects*, and before that as *Beware of Economists Bearing Reduced Forms?*. Used here for the design, the predicted and realised treatment effects, and the homophily mechanism. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
 
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the founders' plan to grow from an active nucleus in each place and the draft's small clusters around two centres.
+
 **Cited at a remove:**
 
-Nothing.
+Silkworth, W. D. (1939). An article in the *Journal-Lancet*, July 1939, as quoted in the facsimile editors' essays in *The Book That Started It All* (2010), for the remark that a community with three or four active members would grow. Not read.
 
 **Internal, and reproducible from this repository:**
 
@@ -4850,6 +4908,8 @@ So the empirical question is not "do AA groups have dominant members" but "does 
 
 That is measurable by sociometric survey, which is intrusive and is the wrong instrument for an anonymous fellowship, and I do not have a good suggestion for how to do it ethically. It is on the list because it is the single measurement that bears most directly on the book's central claim, and because saying so is more useful than leaving the claim looking testable when the test is not available.
 
+The fellowship's earliest record describes the configuration without measuring it. The draft of the Big Book circulated in 1939 puts the Akron meetings at sixty to eighty people, and in two of its stories the members there place their doctor at the middle of it, one naming him the group's human centre. One large room centred on one person is the arrangement this item asks about, in the fellowship's first months. The record cannot say how the doctor's weight changed as the room grew, and it is members' testimony rather than a survey, so it settles nothing about scaling. It shows only that the question is not hypothetical.
+
 ---
 
 **Six. Anything at all about the model's trajectories.**
@@ -4915,7 +4975,9 @@ For each item, the claim, the design, and the result that would falsify it.
 
 **This chapter proposes rather than reports and should be read as a research agenda.** Nothing in it is a finding. The Recovery Dharma case added at the end is the one piece of reported material, and it is testimony rather than measurement: a single fellowship's account of its own founding, written by participants, in its own program literature. It corroborates and cannot confirm. It is placed in this chapter rather than in the argument chapters precisely because this is where the book says what it has not established.
 
-**One claim here still rests on material I have not read.** SMF-132 is described from AA's own catalogue entry and has not been obtained; its structure is inferred from the title and description rather than from the document. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
+**Two sources once described from outside have since been read.** SMF-132 was described here from AA's catalogue entry until it was read at source on 17 August 2026, and a copy has been held since 13 September 2026; Chapter Twenty-One reports what it contains and what limits it. Greenfield and Tonigan (2013) was in the same position until 10 August 2026 and has since been read in full, which is what allows this chapter to say what could be added to the instrument rather than only that the instrument exists.
+
+**The 1939 figures under item five** are from the working manuscript, read on every page on 12 September 2026: the meeting sizes on MS pp. 11 and 78, and the stories that centre the group on its doctor on MS pp. 128 and 132, each checked against the facsimile's page images. They describe a configuration and say nothing about how dominance scales.
 
 **One item has no method.** Item five names the measurement that would bear most directly on the book's central claim and then says I do not know how to take it ethically in an anonymous fellowship. I would rather have a gap on the list than an item that pretends to be actionable.
 
@@ -4927,11 +4989,13 @@ For each item, the claim, the design, and the result that would falsify it.
 
 Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Stored in `research/incorporated/RecoveryDharma_2023/`. Source of the 2019 split described above, which is reported in the personal recovery stories of Section II by people who held office in the predecessor organization, and of the peer-led commitment in the meeting script at printed pages 147 and 151. The named individual at the centre of the predecessor's collapse is named in that source and is deliberately not named here; the structural point does not require it and this book has no way to adjudicate an allegation about a living person. Appendix A12 carries the full comparison, including the material that cuts against this chapter's use of it.
 
+Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Read at source on 17 August 2026; a copy has been held since 13 September 2026 under `research/incorporated/SMF132_2020/`. Used here as the instrument item four names; Chapter Twenty-One states its limits. See `research/SOURCES.md`.
+
+*The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the size of the first Akron meetings and the stories that centre the group on its doctor.
+
 **Cited at a remove:**
 
 Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
-
-Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Located, not acquired. See `research/SOURCES.md`.
 
 **Internal, and reproducible from this repository:**
 
