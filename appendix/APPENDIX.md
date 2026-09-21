@@ -440,6 +440,9 @@ the referral-loss viability a Wilson interval, and the contrasts paired 95 per c
 | `delta0` change | Both channels, N | Attraction loss, N | Referral loss, N | Referral loss viable | Referral loss closed |
 |----------:|----------------:|----------------:|----------------:|---------------------------:|---------------:|
 | 0 | 17.80 ± 0.88 | 12.38 ± 0.34 | 0.51 ± 0.23 | 2.75% [1.54, 4.86] | 358 of 400 |
+| -10% | 29.07 ± 1.53 | 13.43 ± 0.36 | 2.50 ± 0.66 | 13.50% [10.50, 17.20] | 291 of 400 |
+| -15% | 39.04 ± 1.59 | 13.93 ± 0.36 | 7.58 ± 1.31 | 32.50% [28.10, 37.24] | 225 of 400 |
+| -20% | 47.47 ± 1.37 | 14.46 ± 0.37 | 17.25 ± 1.99 | 54.50% [49.60, 59.31] | 123 of 400 |
 | -25% | 54.19 ± 0.84 | 15.01 ± 0.37 | 29.98 ± 2.25 | 75.50% [71.06, 79.46] | 64 of 400 |
 | -50% | 59.46 ± 0.10 | 18.19 ± 0.40 | 59.21 ± 0.12 | 100% [99.05, 100] | 0 of 400 |
 | -75% | 59.81 ± 0.05 | 20.59 ± 0.43 | 59.71 ± 0.07 | 100% [99.05, 100] | 0 of 400 |
@@ -447,6 +450,9 @@ the referral-loss viability a Wilson interval, and the contrasts paired 95 per c
 | `delta0` change | Final membership | Endpoint viability | Existence |
 |---:|---:|---:|---:|
 | 0 | 11.87 [11.47, 12.27] | 0.9575 [0.9365, 0.9785] | 0.8950 [0.8649, 0.9251] |
+| -10% | 10.92 [10.18, 11.66] | 0.8575 [0.8232, 0.8918] | 0.7275 [0.6838, 0.7712] |
+| -15% | 6.35 [5.03, 7.68] | 0.6700 [0.6239, 0.7161] | 0.5625 [0.5138, 0.6112] |
+| -20% | -2.79 [-4.77, -0.81] | 0.4550 [0.4061, 0.5039] | 0.3075 [0.2622, 0.3528] |
 | -25% | -14.97 [-17.21, -12.73] | 0.2450 [0.2028, 0.2872] | 0.1600 [0.1240, 0.1960] |
 | -50% | -41.02 [-41.42, -40.62] | 0 | 0 |
 | -75% | -39.12 [-39.55, -38.68] | 0 | 0 |
@@ -457,8 +463,20 @@ with the attraction-loss group smaller in 254 paired runs, tied in 3 and larger 
 referral loss remains worse on endpoint viability and existence. At 50 and 75 per cent lower every
 referral-loss run is endpoint-viable, so the two binary contrasts are exactly zero. The run
 confirms the screen's direction at all three distances and shows that the reversal is confined to
-final membership. It does not locate the rate at which the membership ordering first reverses,
-which lies between the default and 25 per cent lower and was not searched for.
+final membership.
+
+**Locating the membership reversal** (`research/decay_reversal.json`, `model/decay_reversal.py`).
+The run above left the rate at which the membership ordering first turns unlocated, somewhere
+between the default and 25 per cent lower. A second run fills that interval at 10, 15 and 20 per
+cent lower, giving half-lives of 12.8, 13.6 and 14.4 weeks, on the same design with the same seeds
+0 to 399; the script differs from `decay_ordering.py` only in its docstring and its level list, and
+a test asserts that, so the seven levels read as one series and the rows above are interleaved into
+both tables. The membership ordering holds at 10 per cent lower, at 10.92 members [10.18, 11.66],
+and at 15 per cent lower, at 6.35 [5.03, 7.68]. At 20 per cent lower it is reversed, at -2.79
+[-4.77, -0.81], with the attraction-loss group smaller in 157 paired runs, tied in 10 and larger in
+233. The turn is therefore between 15 and 20 per cent lower. Endpoint viability and existence are
+not reversed in a single paired run at any of the three, so the reversal remains confined to final
+membership throughout.
 
 Against a full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
 ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
@@ -655,8 +673,8 @@ instead.
    registered value. The only estimates read for anything comparable, on 13 September 2026,
    measure skills rather than practices and are one to two orders of magnitude slower. Large
    downward moves of `delta0` are among the few that reverse the pure-attraction-loss minus
-   referral-loss ordering in the A7.5 screen, and the 400-seed confirmation there finds the
-   reversal at 25 per cent lower on final membership while the ordering still holds on endpoint
+   referral-loss ordering in the A7.5 screen, and the 400-seed confirmations there place the
+   membership reversal between 15 and 20 per cent lower while the ordering still holds on endpoint
    viability and existence; at 50 per cent lower or more, referral loss leaves every run viable.
    The released value is unchanged, because no source measures how fast a practice lapses.
 

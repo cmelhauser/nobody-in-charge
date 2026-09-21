@@ -48,8 +48,8 @@ rather than practices, and both are one to two orders of magnitude slower. The v
 changed: no source measures how fast a practice lapses, and a new authored value chosen after
 reading papers about a different quantity would not be an improvement. Section 8.1 records that
 large downward moves of it reverse the attraction-versus-referral ordering on final membership,
-and that a 400-seed paired run confirms the reversal at 25 per cent lower while the ordering still
-holds there on endpoint viability and existence; `research/SOURCES.md` has the reading.
+and that 400-seed paired runs place that reversal between 15 and 20 per cent lower while the
+ordering still holds on endpoint viability and existence; `research/SOURCES.md` has the reading.
 
 Borrowing a functional form from a literature does not validate the numeric value in this
 application. The two matrices remain author elicitations. Their structural zeros are choices
@@ -181,7 +181,13 @@ existence 0.1600 [0.1240, 0.1960], all paired 95 per cent intervals. At 50 and 7
 every referral-loss run is endpoint-viable, the binary contrasts are exactly zero, and membership
 is -41.02 [-41.42, -40.62] and -39.12 [-39.55, -38.68]. The screen's membership reversals are
 confirmed at all three distances; the ordering on viability and existence is reversed at none of
-them. Appendix A7.5 has the cell means.
+them.
+
+`model/decay_reversal.py` (`research/decay_reversal.json`) locates the membership reversal on the
+same design, at 10, 15 and 20 per cent lower, 3,600 runs on the same seeds. The ordering holds at
+10 per cent lower, at 10.92 [10.18, 11.66], and at 15 per cent lower, at 6.35 [5.03, 7.68]; at 20
+per cent lower it is reversed, at -2.79 [-4.77, -0.81]. Viability and existence are not reversed in
+any paired run at any of the three. Appendix A7.5 has the cell means.
 
 Influence on maintenance, against a full-adherence baseline of 0.0431, as range over baseline:
 
