@@ -412,7 +412,7 @@ existence reversals. These are different robustness questions.
 
 ### A7.5 Multi-level OAT, Morris, and Sobol results
 
-All four caches, the three screens' and the decay-ordering confirmation's, are complete and match
+All five caches, the three screens' and the two decay runs', are complete and match
 both the model hash and their generating-script hashes.
 The generated tables live in `research/ROBUSTNESS-RESULTS.md`; this section states what they mean
 and what they do not license.
