@@ -215,6 +215,7 @@ Expected major cache sizes:
 | `morris.json` | 2,380 points, 20 trajectories |
 | `sobol.json` | 11,264 points, 1,024-row base |
 | `decay_ordering.json` | 4,800 |
+| `decay_reversal.json` | 3,600 |
 
 Every applicable cache must say `complete` and match both the model hash and its generating
 script hash. Parameter screens with three or five common seeds are screens, not confirmatory

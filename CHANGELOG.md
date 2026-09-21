@@ -64,6 +64,16 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Added
 
+- `model/decay_reversal.py` and `research/decay_reversal.json`: the same design at 10, 15 and 20
+  per cent lower decay, 400 paired seeds per cell, 3,600 runs, model `c3823f72`. It locates the
+  membership reversal `decay_ordering.json` left unlocated: the ordering holds at 10 and 15 per
+  cent lower, at 10.92 members [10.18, 11.66] and 6.35 [5.03, 7.68], and is reversed at 20 per
+  cent lower, at -2.79 [-4.77, -0.81], while endpoint viability and existence are reversed in no
+  paired run at any of the three. The two caches are read as one seven-level series, which a test
+  enforces by comparing the scripts with the docstring and the level list removed. Registered in
+  the release gate, now 148 checks, 142 of them under `--skip-artifacts`, in both notebooks and in
+  `research/ROBUSTNESS-RESULTS.md`; Chapters 1, 4, 12 and 24, appendix A7.5 and A11, the paper, the
+  primer and `research/PARAMETERS.md` report it. No released number changes.
 - `model/decay_ordering.py` and `research/decay_ordering.json`: the referral-versus-attraction
   ordering at the default decay rate and at 25, 50 and 75 per cent lower, 400 paired seeds per
   cell, 4,800 runs, model `c3823f72`. It confirms the one-at-a-time screen's membership reversals

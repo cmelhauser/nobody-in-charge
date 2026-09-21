@@ -4909,3 +4909,42 @@ went in as seven commits, one per addition, followed by one commit for the share
 **What did not change.** No model value, cache, notebook or registered number. The room capacity
 stays at sixty. No other public document states the SMF-132 comparison, so none needed the 1939
 figures beside it.
+
+### 21 September 2026: where the decay rate turns the ordering
+
+**What was asked.** The optional item 7 in the handoff: a 400-seed paired run at 10, 15 and 20 per
+cent lower decay, to locate the rate at which the referral-versus-attraction membership ordering
+first reverses. `research/decay_ordering.json` had it holding at the model's rate and reversed at
+25 per cent lower, and the one-at-a-time screen, on three seeds, still found it strict at 10 per
+cent lower, so the turn was known only to lie in a gap fifteen points wide.
+
+**The design.** `model/decay_reversal.py` is `model/decay_ordering.py` with a different level list
+and a different docstring, and nothing else: same three conditions, same interventions, same
+outcome definitions, same 1,560-week horizon at dt 0.5, same seeds 0 to 399. That is what lets the
+two caches be read as one seven-level series, and a test now asserts it by parsing both scripts,
+dropping the docstring, substituting the names and the level list, and comparing what is left.
+3,600 runs took five minutes and thirty-seven seconds on eight workers.
+
+**What it found.** Attraction loss minus referral loss on final membership is 10.92 members
+[10.18, 11.66] at 10 per cent lower and 6.35 [5.03, 7.68] at 15 per cent lower, so the published
+ordering holds at both. At 20 per cent lower it is -2.79 [-4.77, -0.81], with the attraction-loss
+group smaller in 157 paired runs, tied in 10 and larger in 233. The turn is therefore between 15
+and 20 per cent, a half-life between 13.6 and 14.4 weeks against the model's 11.6. The strict
+counts fall monotonically across the whole series, 394, 373, 317, 233, 143, 0, 0. Endpoint
+viability and existence are reversed in no paired run at any of the three new rates, so the
+reversal stays confined to final membership, which is what the earlier run concluded at its own
+distances.
+
+**Where it went.** Chapter 12 carries the three new levels in full and now says a fifth rather than
+a quarter where it states the condition on the book's comparisons; Chapters 1, 4 and 24, the primer
+and the paper carry the located threshold; appendix A7.5 interleaves the levels into both tables
+and adds a locating paragraph, and A11 item 9 and `research/PARAMETERS.md` replace "at 25 per cent
+lower" with the interval. The gate registers the cache and runs 148 checks, 142 under
+`--skip-artifacts`. `research/ROBUSTNESS-RESULTS.md` and both notebooks read the merged series.
+
+**What did not change.** No model value and no released number. The decay rate stays at six per
+cent a week, because nothing measured how fast a practice lapses; what changed is how precisely the
+book can say what rests on it.
+
+**One stale count corrected in passing.** The handoff's verification table said the notebooks run
+78 and 102 assertions. They ran 81 and 105 before this session and 84 and 108 after it.
