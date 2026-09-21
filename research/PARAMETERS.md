@@ -73,6 +73,7 @@ Expanded robustness means more parameter-space coverage, not a 1,000-member grou
 | structural variants | 5 architectures x 5 scenarios x 400 = 10,000 | 400 | one-choice architecture audit |
 | numerical and horizon | 2,600 runs | 200 or 400 | tested integration step and finite horizon |
 | decay-ordering confirmation | 3 conditions x 4 `delta0` levels x 400 = 4,800 | 400 | paired check of the screen's `delta0` reversals |
+| decay-reversal location | 3 conditions x 3 `delta0` levels x 400 = 3,600 | 400 | locates where the membership ordering turns |
 
 Parameter points using three or five common seeds are not independent replications of the
 stochastic model. They classify robustness over the registered design. They do not estimate a
@@ -149,7 +150,7 @@ tiered design does, especially for final membership. This does not validate the 
 
 ## 8. Multi-level OAT, Morris, and Sobol screens
 
-All three screening caches, and the decay-ordering cache section 8.1 reports, are `complete`
+All three screening caches, and the two decay caches section 8.1 reports, are `complete`
 and match the model hash and their generating-script hashes. The
 generated tables are in `research/ROBUSTNESS-RESULTS.md`. The retired 30-draw, 236-point,
 10-trajectory, and 128-row Sobol results are correction history and are not authorized for public
