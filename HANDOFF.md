@@ -354,9 +354,15 @@ inference from what is already here.
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
    papers were read in full on 13 September 2026. The literature on how fast habits and practices
-   lapse, which is where the decay rate's evidence would have to come from, is still unsearched.
-   Lally et al. (2010), on how long a behaviour takes to become habitual, is the nearest study
-   named so far; the book does not cite it and the corpus does not hold it.
+   lapse, which is where the decay rate's evidence would have to come from, was searched on 21
+   September 2026 and the result is `research/DECAY-RATE-LITERATURE-SCAN.md`. Nothing measures the
+   quantity `delta0` represents. What exists is deliberate habit degradation, stabilising in days;
+   a computational habit-decay parameter in units of behavioural opportunities; and the lapse of
+   voluntary practice regimes, whose median dropout times run to a few months, which is the order
+   of the model's 11.6-week half-life. No copy is held, nothing is read in full, nothing is cited,
+   and the model is unchanged. What is left is the Human Author's decision whether to hold and read
+   the two open-access papers so that Chapter 12 can say the rate is bracketed rather than merely
+   untested.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.

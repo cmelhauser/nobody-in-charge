@@ -4948,3 +4948,28 @@ book can say what rests on it.
 
 **One stale count corrected in passing.** The handoff's verification table said the notebooks run
 78 and 102 assertions. They ran 81 and 105 before this session and 84 and 108 after it.
+
+### 21 September 2026, later: the lapse literature searched
+
+**What was asked.** Whether anything measures how fast a practice lapses, which `HANDOFF.md` item 3
+had carried as unsearched and which is the evidence the decay rate would need.
+
+**What was found.** Three literatures, none of them measuring that quantity, recorded with their
+numbers in `research/DECAY-RATE-LITERATURE-SCAN.md`. Deliberate habit degradation is measured daily
+and well: Edgren, Baretta and Inauen (2025) fit person-specific curves to 11,805 daily automaticity
+ratings from 194 people and find decay stabilising in a median of 9 to 10 days, range 1 to 65. That
+is an actively removed unwanted habit, which is the opposite case from a wanted practice fading for
+want of renewal, and it is an order of magnitude faster than six per cent a week. A computational
+habit model carries a decay parameter of the same family at 0.15 to 0.2, but per behavioural
+opportunity rather than per week. The nearest thing in substance is participation falling away:
+Kaskutas, Bond and Avalos (2009) find a descending AA-attendance class going from about 150
+meetings in year one to about six by year five, mindfulness home practice running at about 40 per
+cent of what is recommended, and a mobile exercise cohort with a median dropout time of 14 weeks.
+
+**What it changes.** The model is unchanged and no number moved. What changed is the shape of the
+ignorance: Chapter 12 currently sets the rate against skill depreciation alone, which is one to two
+orders of magnitude slower, and the scan shows the rate sits between two measured literatures rather
+than outside one. Saying so in the book requires holding and reading the two open-access papers
+first, which is the Human Author's decision, so nothing was written into a chapter and no source was
+catalogued. The *Psychology & Health* companion paper sits behind a publisher bot check, which this
+agent does not attempt.
