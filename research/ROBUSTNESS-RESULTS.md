@@ -15,6 +15,7 @@ decay-ordering section below is one of them rather than a screen.
 - `tiered.json`: complete, script `model/sensitivity_tiered.py`
 - `oat_full.json`: complete, script `model/sensitivity_oat_full.py`
 - `decay_ordering.json`: complete, script `model/decay_ordering.py`
+- `decay_reversal.json`: complete, script `model/decay_reversal.py`
 - `morris.json`: complete, script `model/morris_screen.py`
 - `sobol.json`: complete, script `model/sobol_indices.py`
 
@@ -119,15 +120,26 @@ Full adherence is viable in all three seeds at 893 of 944 points and exists in a
 ## Decay-ordering confirmation
 
 The multi-level screen's `delta0` membership reversals, re-estimated at 400 seeds shared by
-all twelve cells, so every contrast is paired by common random numbers. Full adherence
+all twenty-one cells, so every contrast is paired by common random numbers. Full adherence
 otherwise, 1,560 weeks, dt 0.5. Attraction is the pure T11 attraction path with governance
-held at one; referral is `lam_exog = 0`.
+held at one; referral is `lam_exog = 0`. The default rate and 25, 50 and 75 per cent lower
+come from `decay_ordering.json`; 10, 15 and 20 per cent lower, which locate the membership
+reversal, from `decay_reversal.json`, whose design differs only in its level list.
 
 | delta0 change | Condition | Mean N [95% half-width] | Existence | Viability | Closure |
 |---:|---|---:|---:|---:|---:|
 | 0% | full | 17.800 [0.883] | 1.000 | 0.985 | 0.000 |
 | 0% | attraction | 12.380 [0.342] | 1.000 | 0.985 | 0.000 |
 | 0% | referral | 0.510 [0.229] | 0.105 | 0.028 | 0.895 |
+| -10% | full | 29.067 [1.531] | 1.000 | 0.993 | 0.000 |
+| -10% | attraction | 13.425 [0.356] | 1.000 | 0.993 | 0.000 |
+| -10% | referral | 2.502 [0.655] | 0.273 | 0.135 | 0.728 |
+| -15% | full | 39.042 [1.593] | 1.000 | 1.000 | 0.000 |
+| -15% | attraction | 13.930 [0.358] | 1.000 | 0.995 | 0.000 |
+| -15% | referral | 7.577 [1.307] | 0.438 | 0.325 | 0.562 |
+| -20% | full | 47.470 [1.367] | 1.000 | 1.000 | 0.000 |
+| -20% | attraction | 14.457 [0.367] | 1.000 | 1.000 | 0.000 |
+| -20% | referral | 17.247 [1.992] | 0.693 | 0.545 | 0.307 |
 | -25% | full | 54.188 [0.835] | 1.000 | 1.000 | 0.000 |
 | -25% | attraction | 15.008 [0.371] | 1.000 | 1.000 | 0.000 |
 | -25% | referral | 29.977 [2.247] | 0.840 | 0.755 | 0.160 |
@@ -145,6 +157,15 @@ Attraction-minus-referral paired differences:
 | 0% | N | 11.870 [11.466, 12.274] | 394 | 1 | 5 |
 | 0% | viable | 0.958 [0.937, 0.978] | 384 | 15 | 1 |
 | 0% | exists | 0.895 [0.865, 0.925] | 358 | 42 | 0 |
+| -10% | N | 10.922 [10.181, 11.664] | 373 | 0 | 27 |
+| -10% | viable | 0.858 [0.823, 0.892] | 343 | 57 | 0 |
+| -10% | exists | 0.728 [0.684, 0.771] | 291 | 109 | 0 |
+| -15% | N | 6.353 [5.029, 7.676] | 317 | 3 | 80 |
+| -15% | viable | 0.670 [0.624, 0.716] | 268 | 132 | 0 |
+| -15% | exists | 0.562 [0.514, 0.611] | 225 | 175 | 0 |
+| -20% | N | -2.790 [-4.768, -0.812] | 233 | 10 | 157 |
+| -20% | viable | 0.455 [0.406, 0.504] | 182 | 218 | 0 |
+| -20% | exists | 0.307 [0.262, 0.353] | 123 | 277 | 0 |
 | -25% | N | -14.970 [-17.214, -12.726] | 143 | 3 | 254 |
 | -25% | viable | 0.245 [0.203, 0.287] | 98 | 302 | 0 |
 | -25% | exists | 0.160 [0.124, 0.196] | 64 | 336 | 0 |

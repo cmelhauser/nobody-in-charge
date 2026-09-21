@@ -75,7 +75,8 @@ The release designs are:
 - a 1,024-row Sobol base design on eight post-Morris leaders;
 - 10,000 structural simulations;
 - 400-seed principal T3, T11, recipient, service, trajectory, and composition contrasts;
-- a 400-seed paired check of the referral-versus-attraction ordering at four decay rates;
+- a 400-seed paired check of the referral-versus-attraction ordering at four decay rates,
+  and a second at three more that locates where its membership ordering reverses;
 - 200-seed integration-step and horizon checks.
 
 The 118-value decomposition is 22 scalar defaults, 12 step speeds, 49 nonzero `S` cells, and
@@ -338,7 +339,7 @@ verified without a network. `lint` runs ruff, actionlint and shellcheck and need
 `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
 it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12 and covers everything that does not
 require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
-136 of the 142 release-gate checks via `check_release.py --skip-artifacts`, which reports the
+142 of the 148 release-gate checks via `check_release.py --skip-artifacts`, which reports the
 other six as skipped.
 
 `documents` renders the three PDFs, asserts zero overfull boxes, and runs the full gate and the

@@ -189,7 +189,7 @@ the counts this repository states about itself, so a failure there means a docum
 the tree rather than with a cache.
 
 `tools/run_ci_locally.sh` runs all four continuous-integration jobs here, which is the quickest
-way to reach the same 142 checks along with the tests, the builds and the overfull gate. Verifying a
+way to reach the same 148 checks along with the tests, the builds and the overfull gate. Verifying a
 release means running `check_release.py` with the artifacts built, not `--skip-artifacts`: that
 flag omits the six rendered-artifact checks and exists only for a fresh clone, where every file
 carries one checkout timestamp.

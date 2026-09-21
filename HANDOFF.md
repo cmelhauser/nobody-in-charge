@@ -90,7 +90,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 35 pages
 - a technical appendix, `appendix/APPENDIX.md`
 - a Steps-and-Traditions primer, `reference/PRIMER-steps-and-traditions.md`
-- the frozen model and 20 analysis scripts, `model/`
+- the frozen model and 21 analysis scripts, `model/`
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
@@ -105,7 +105,7 @@ As of 14 September 2026, everything passes:
 | Check | Result |
 |---|---|
 | `python3 -m pytest` | all passed, three skipped (poppler-dependent) |
-| `tools/check_release.py --skip-artifacts` | 136 checks, 0 failed, 6 skipped (the full gate runs all 142 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
+| `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
