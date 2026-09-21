@@ -238,6 +238,52 @@ def test_decay_ordering_reproduces_its_cache(monkeypatch):
             assert got[key] == pytest.approx(want[key], rel=1e-9, abs=1e-12), (job, key)
 
 
+def test_decay_reversal_reproduces_its_cache(monkeypatch):
+    """`research/decay_reversal.json` must be what `model/decay_reversal.py` computes."""
+    import hashlib
+    import json
+
+    import decay_reversal
+
+    monkeypatch.setitem(sys.modules, "m", None)  # _load registers the model as "m"
+    cache = json.loads((ROOT / "research" / "decay_reversal.json").read_text())
+    meta = cache["meta"]
+    assert meta["status"] == "complete"
+    assert meta["script_sha256"] == hashlib.sha256(
+        (ROOT / "model" / "decay_reversal.py").read_bytes()).hexdigest()
+    jobs = decay_reversal.jobs()
+    assert meta["jobs_completed"] == len(jobs) == 3600
+    assert all(cache[str(i)]["job"] == list(job) for i, job in enumerate(jobs))
+    for job in ((-10, "referral", 0), (-15, "attraction", 1), (-20, "full", 2)):
+        got, want = decay_reversal._one(job), cache[str(jobs.index(job))]
+        for key in ("pc", "scen", "seed", "N", "exists", "viable", "closed"):
+            assert got[key] == want[key], (job, key)
+        for key in ("practice", "maint"):
+            assert got[key] == pytest.approx(want[key], rel=1e-9, abs=1e-12), (job, key)
+
+
+def test_decay_reversal_is_the_ordering_design_at_other_levels():
+    """The two decay caches are read as one series, which requires one design.
+
+    Everything but the docstring, the level list and the two names must match, so that
+    `decay_reversal.json` cannot drift into a different horizon, intervention or outcome
+    definition from `decay_ordering.json` while the prose still reports them together.
+    """
+    import ast
+
+    def body(path: Path) -> str:
+        tree = ast.parse(path.read_text())
+        if ast.get_docstring(tree) is not None:
+            tree.body = tree.body[1:]
+        return ast.unparse(tree)
+
+    theirs = body(ROOT / "model" / "decay_ordering.py")
+    ours = (body(ROOT / "model" / "decay_reversal.py")
+            .replace("decay_reversal", "decay_ordering")
+            .replace("LEV = [-10, -15, -20]", "LEV = [0, -25, -50, -75]"))
+    assert ours == theirs
+
+
 # The script is hash-pinned, so its `json.dump(out, open(tmp, "w"))` cannot be given a
 # `with` block without invalidating the cache it wrote. CPython closes the handle as soon as
 # the call returns, which is what the assertions below check; the ResourceWarning is ignored

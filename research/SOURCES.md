@@ -168,7 +168,9 @@ at the Human Author's direction; the last sentence of each item says where.
    large downward moves of the decay rate are among the few that reverse the ordering of referral
    loss against attraction loss. A 400-seed paired run the same day confirmed the reversal on final
    membership at 25 per cent lower, with the ordering still holding on endpoint viability and
-   existence (`research/decay_ordering.json`; Chapter 12 and appendix A7.5).
+   existence (`research/decay_ordering.json`), and a second run on 21 September 2026 placed the
+   turn between 15 and 20 per cent lower (`research/decay_reversal.json`; Chapter 12 and appendix
+   A7.5).
 6. **Hu and Schennach is correctly described at a remove.** It identifies nonlinear
    errors-in-variables models with nonclassical error from an instrument, assuming some measure of
    location of the error is zero (195 to 197), and Cunha, Heckman and Schennach use it that way (3).

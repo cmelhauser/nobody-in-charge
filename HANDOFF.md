@@ -90,7 +90,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 35 pages
 - a technical appendix, `appendix/APPENDIX.md`
 - a Steps-and-Traditions primer, `reference/PRIMER-steps-and-traditions.md`
-- the frozen model and 20 analysis scripts, `model/`
+- the frozen model and 21 analysis scripts, `model/`
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
@@ -100,20 +100,20 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 14 September 2026, everything passes:
+As of 21 September 2026, everything passes:
 
 | Check | Result |
 |---|---|
 | `python3 -m pytest` | all passed, three skipped (poppler-dependent) |
-| `tools/check_release.py --skip-artifacts` | 136 checks, 0 failed, 6 skipped (the full gate runs all 142 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
+| `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
 | `tools/check_docs.py` | 19 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed |
-| `model/book-calculations.ipynb` | 8 cells, 78 assertions, clean |
-| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 102 assertions, clean |
+| `model/book-calculations.ipynb` | 8 cells, 84 assertions, clean |
+| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 108 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
 The 39 `check_book` warnings are repetition and sentence-length notes. They are not failures and
@@ -354,9 +354,15 @@ inference from what is already here.
    Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
    Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
    papers were read in full on 13 September 2026. The literature on how fast habits and practices
-   lapse, which is where the decay rate's evidence would have to come from, is still unsearched.
-   Lally et al. (2010), on how long a behaviour takes to become habitual, is the nearest study
-   named so far; the book does not cite it and the corpus does not hold it.
+   lapse, which is where the decay rate's evidence would have to come from, was searched on 21
+   September 2026 and the result is `research/DECAY-RATE-LITERATURE-SCAN.md`. Nothing measures the
+   quantity `delta0` represents. What exists is deliberate habit degradation, stabilising in days;
+   a computational habit-decay parameter in units of behavioural opportunities; and the lapse of
+   voluntary practice regimes, whose median dropout times run to a few months, which is the order
+   of the model's 11.6-week half-life. No copy is held, nothing is read in full, nothing is cited,
+   and the model is unchanged. What is left is the Human Author's decision whether to hold and read
+   the two open-access papers so that Chapter 12 can say the rate is bracketed rather than merely
+   untested.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
@@ -393,14 +399,18 @@ each moves a record-only source onto the ordinary footing.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
      abstract only.
 
-**One is optional and changes no released number.**
+### Closed on 21 September 2026
 
-7. **Where the referral-versus-attraction ordering first reverses on final membership.**
-   `research/decay_ordering.json` has it holding at the model's decay rate and reversed at 25 per
-   cent lower, and the one-at-a-time screen, on three seeds, still finds it strict at 10 per cent
-   lower. A 400-seed paired run at 10, 15 and 20 per cent lower, as a new hash-linked script on
-   the design of `model/decay_ordering.py`, would locate the reversal, so that Chapter 12 could say
-   how much more slowly a practice must lapse before the outcomes disagree.
+- **Where the referral-versus-attraction ordering first reverses on final membership**, which was
+  item 7 and was optional. `model/decay_reversal.py` ran the `decay_ordering.py` design at 10, 15
+  and 20 per cent lower decay, 3,600 runs on seeds 0 to 399, cached in
+  `research/decay_reversal.json`. The membership ordering holds at 10 and 15 per cent lower, at
+  10.92 members [10.18, 11.66] and 6.35 [5.03, 7.68], and is reversed at 20 per cent lower, at
+  -2.79 [-4.77, -0.81]; endpoint viability and existence are reversed in no paired run at any of
+  the three. The two caches read as one seven-level series, which a test enforces by comparing the
+  scripts with the docstring and the level list removed. Chapters 1, 4, 12 and 24, the primer, the
+  paper, appendix A7.5 and A11 and `research/PARAMETERS.md` say where the turn is; the gate now
+  runs 148 checks, 142 under `--skip-artifacts`. No released number changes.
 
 ### Closed on 15 September 2026
 

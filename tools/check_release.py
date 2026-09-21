@@ -39,6 +39,7 @@ CACHES = {
     "part2_influence.json": ("meta", "model/part2_influence.py"),
     "resource_list.json": ("meta", "model/resource_list_test.py"),
     "decay_ordering.json": ("meta", "model/decay_ordering.py"),
+    "decay_reversal.json": ("meta", "model/decay_reversal.py"),
 }
 
 

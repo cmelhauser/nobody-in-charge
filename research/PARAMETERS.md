@@ -48,8 +48,8 @@ rather than practices, and both are one to two orders of magnitude slower. The v
 changed: no source measures how fast a practice lapses, and a new authored value chosen after
 reading papers about a different quantity would not be an improvement. Section 8.1 records that
 large downward moves of it reverse the attraction-versus-referral ordering on final membership,
-and that a 400-seed paired run confirms the reversal at 25 per cent lower while the ordering still
-holds there on endpoint viability and existence; `research/SOURCES.md` has the reading.
+and that 400-seed paired runs place that reversal between 15 and 20 per cent lower while the
+ordering still holds on endpoint viability and existence; `research/SOURCES.md` has the reading.
 
 Borrowing a functional form from a literature does not validate the numeric value in this
 application. The two matrices remain author elicitations. Their structural zeros are choices
@@ -73,6 +73,7 @@ Expanded robustness means more parameter-space coverage, not a 1,000-member grou
 | structural variants | 5 architectures x 5 scenarios x 400 = 10,000 | 400 | one-choice architecture audit |
 | numerical and horizon | 2,600 runs | 200 or 400 | tested integration step and finite horizon |
 | decay-ordering confirmation | 3 conditions x 4 `delta0` levels x 400 = 4,800 | 400 | paired check of the screen's `delta0` reversals |
+| decay-reversal location | 3 conditions x 3 `delta0` levels x 400 = 3,600 | 400 | locates where the membership ordering turns |
 
 Parameter points using three or five common seeds are not independent replications of the
 stochastic model. They classify robustness over the registered design. They do not estimate a
@@ -149,7 +150,7 @@ tiered design does, especially for final membership. This does not validate the 
 
 ## 8. Multi-level OAT, Morris, and Sobol screens
 
-All three screening caches, and the decay-ordering cache section 8.1 reports, are `complete`
+All three screening caches, and the two decay caches section 8.1 reports, are `complete`
 and match the model hash and their generating-script hashes. The
 generated tables are in `research/ROBUSTNESS-RESULTS.md`. The retired 30-draw, 236-point,
 10-trajectory, and 128-row Sobol results are correction history and are not authorized for public
@@ -181,7 +182,13 @@ existence 0.1600 [0.1240, 0.1960], all paired 95 per cent intervals. At 50 and 7
 every referral-loss run is endpoint-viable, the binary contrasts are exactly zero, and membership
 is -41.02 [-41.42, -40.62] and -39.12 [-39.55, -38.68]. The screen's membership reversals are
 confirmed at all three distances; the ordering on viability and existence is reversed at none of
-them. Appendix A7.5 has the cell means.
+them.
+
+`model/decay_reversal.py` (`research/decay_reversal.json`) locates the membership reversal on the
+same design, at 10, 15 and 20 per cent lower, 3,600 runs on the same seeds. The ordering holds at
+10 per cent lower, at 10.92 [10.18, 11.66], and at 15 per cent lower, at 6.35 [5.03, 7.68]; at 20
+per cent lower it is reversed, at -2.79 [-4.77, -0.81]. Viability and existence are not reversed in
+any paired run at any of the three. Appendix A7.5 has the cell means.
 
 Influence on maintenance, against a full-adherence baseline of 0.0431, as range over baseline:
 
