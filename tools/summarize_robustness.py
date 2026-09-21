@@ -45,7 +45,8 @@ def render() -> str:
     model_hash = hashlib.sha256((ROOT / "model" / "aa_group_model.py").read_bytes()).hexdigest()
     lines += ["## Provenance", "", f"- Model SHA-256: `{model_hash}`"]
     for name in ("mc_error.json", "tradition_paired.json", "structural.json", "sens3.json",
-                 "tiered.json", "oat_full.json", "decay_ordering.json", "morris.json", "sobol.json"):
+                 "tiered.json", "oat_full.json", "decay_ordering.json", "decay_reversal.json",
+                 "morris.json", "sobol.json"):
         data = load(name)
         meta = data.get("meta", data.get("_meta", {}))
         assert meta.get("status") == "complete", f"{name} incomplete"
@@ -166,18 +167,20 @@ def render() -> str:
     ]
 
     morris = load("morris.json")
-    dec = load("decay_ordering.json")
     cells = collections.defaultdict(dict)
-    for key, row in dec.items():
-        if key != "meta":
-            cells[(row["pc"], row["scen"])][row["seed"]] = row
+    for name in ("decay_ordering.json", "decay_reversal.json"):
+        for key, row in load(name).items():
+            if key != "meta":
+                cells[(row["pc"], row["scen"])][row["seed"]] = row
     levels = sorted({k[0] for k in cells}, reverse=True)
     lines += [
         "", "## Decay-ordering confirmation", "",
         "The multi-level screen's `delta0` membership reversals, re-estimated at 400 seeds shared by",
-        "all twelve cells, so every contrast is paired by common random numbers. Full adherence",
+        "all twenty-one cells, so every contrast is paired by common random numbers. Full adherence",
         "otherwise, 1,560 weeks, dt 0.5. Attraction is the pure T11 attraction path with governance",
-        "held at one; referral is `lam_exog = 0`.", "",
+        "held at one; referral is `lam_exog = 0`. The default rate and 25, 50 and 75 per cent lower",
+        "come from `decay_ordering.json`; 10, 15 and 20 per cent lower, which locate the membership",
+        "reversal, from `decay_reversal.json`, whose design differs only in its level list.", "",
         "| delta0 change | Condition | Mean N [95% half-width] | Existence | Viability | Closure |",
         "|---:|---|---:|---:|---:|---:|",
     ]

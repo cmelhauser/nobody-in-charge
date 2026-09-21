@@ -100,6 +100,7 @@ expected = {
     "oat_full.json": None,
     "sobol.json": 11264,
     "decay_ordering.json": 4800,
+    "decay_reversal.json": 3600,
 }
 for name, jobs in expected.items():
     data = load(name)
@@ -199,18 +200,31 @@ normalized_leaders = [r["id"].replace("scalar:", "") for r in leaders]
 check("Sobol factors follow Morris leaders", sobol["meta"]["factors"], normalized_leaders)
 print("  INFO structural cache complete", load("structural.json")["meta"]["jobs_completed"])
 
-_dec = [v for k, v in load("decay_ordering.json").items() if k != "meta"]
+_dec = [v for n in ("decay_ordering.json", "decay_reversal.json")
+        for k, v in load(n).items() if k != "meta"]
 def _dcell(pc, scen):
     return [r for r in _dec if r["pc"] == pc and r["scen"] == scen]
 check("decay ordering: every cell holds seeds 0-399",
       all(sorted(r["seed"] for r in _dcell(pc, sc)) == list(range(400))
-          for pc in (0, -25, -50, -75) for sc in ("full", "attraction", "referral")), True)
+          for pc in (0, -10, -15, -20, -25, -50, -75)
+          for sc in ("full", "attraction", "referral")), True)
 check("decay ordering at the default rate reproduces released full-adherence mean N",
       round(float(np.mean([r["N"] for r in _dcell(0, "full")])), 2), 17.8)
 check("decay ordering at the default rate reproduces released attraction-loss mean N",
       round(float(np.mean([r["N"] for r in _dcell(0, "attraction")])), 2), 12.38)
 check("decay ordering at the default rate reproduces released referral-loss viability",
       sum(r["viable"] for r in _dcell(0, "referral")), 11)
+def _paired_mean(pc, fld):
+    a = {r["seed"]: r for r in _dcell(pc, "attraction")}
+    b = {r["seed"]: r for r in _dcell(pc, "referral")}
+    return float(np.mean([a[s][fld] - b[s][fld] for s in sorted(a)]))
+check("decay reversal: membership ordering still holds 15 per cent lower",
+      round(_paired_mean(-15, "N"), 2), 6.35)
+check("decay reversal: membership ordering is reversed 20 per cent lower",
+      round(_paired_mean(-20, "N"), 2), -2.79)
+check("decay reversal: viability ordering holds at every new level",
+      [round(_paired_mean(pc, "viable"), 4) for pc in (-10, -15, -20)],
+      [0.8575, 0.67, 0.455])
 '''
 
 
@@ -456,12 +470,14 @@ def emit():
 
     # ---- decay ordering at 400 paired seeds -------------------------------------------
     # The one-at-a-time screen reverses the attraction-minus-referral ordering on final
-    # membership at large downward moves of delta0, on three seeds. This is the 400-seed
-    # re-estimate at those distances, paired by seed across all twelve cells.
-    d, rs = rows_of('decay_ordering.json')
+    # membership at large downward moves of delta0, on three seeds. These are the 400-seed
+    # re-estimates at seven distances, paired by seed across all twenty-one cells: the
+    # default rate and 25, 50 and 75 per cent lower from decay_ordering.json, and 10, 15
+    # and 20 per cent lower, which locate the membership reversal, from decay_reversal.json.
     cells = collections.defaultdict(dict)
-    for r in rs:
-        cells[(r['pc'], r['scen'])][r['seed']] = r
+    for _name in ('decay_ordering.json', 'decay_reversal.json'):
+        for r in rows_of(_name)[1]:
+            cells[(r['pc'], r['scen'])][r['seed']] = r
     print('decay ordering at 400 paired seeds')
 
     def _wilson(k, n, z=1.96):
