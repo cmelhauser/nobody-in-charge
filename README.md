@@ -16,7 +16,7 @@ results, source ledgers, and reproducible PDF builds.
 ## Current status
 
 The release-gate correction round opened on 6 August 2026 and closed on 9 August 2026. Every
-checker passes: `check_release` with 142 checks, `check_book` with none failing, the primer
+checker passes: `check_release` with 148 checks, `check_book` with none failing, the primer
 chapter check clear, and portability clear. Both verification notebooks execute clean, and the
 book, paper and primer PDFs are built and visually inspected with no blank pages and no margin
 overflow.
@@ -117,6 +117,7 @@ point for much broader parameter-space coverage and must not be called confirmat
 | Sobol | 1,024-row base, 11,264 points | Conditional variance decomposition on eight Morris leaders |
 | Structural variants | 10,000 simulations | Five architectures by five scenarios by 400 seeds |
 | Decay-ordering confirmation | 4,800 simulations | Referral against attraction loss at four decay rates by 400 paired seeds |
+| Decay-reversal location | 3,600 simulations | The same design at three more decay rates, locating the membership reversal |
 
 The registered set is 22 scalar defaults, 12 step speeds, 49 nonzero consumption cells, and
 35 nonzero governance cells. These 118 values are not all model choices. The separate inventory
@@ -180,7 +181,7 @@ GitHub Actions runs four jobs, split by what can be checked without a network an
 on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
 model takes no lint waiver. `unit-tests` runs pytest and the model hash: on pull requests it uses
 Python 3.12 only; on `main` it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12: corpus
-drift, portability, the book-level checks, `check_docs.py`, and 136 of the 142 release-gate
+drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate
 checks, reporting the other six as skipped. `documents` runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds
 all three PDFs, requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`,
 and runs the full fail-closed gate. See `.github/workflows/ci.yml`.
