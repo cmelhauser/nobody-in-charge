@@ -1251,9 +1251,10 @@ Tradition 3's retention mechanism is illustration rather than evidence.
 The literature on how fast practices and habits lapse. Two papers on adult skill
 depreciation were read on 13 September 2026 and put six per cent a week one to two
 orders of magnitude above anything they measure, but they measure skills rather than
-practices, so the rate is still a choice. It is a consequential one: with it a quarter lower,
+practices, so the rate is still a choice. It is a consequential one: with it a fifth lower,
 a 400-seed run finds that a group without referrals ends larger than a group without
-attraction but still closes more often. Chapter Twelve gives the detail.
+attraction but still closes more often, and fifteen per cent lower is not enough to turn
+it. Chapter Twelve gives the detail.
 
 Anything independent about the 2019 split. The account above rests entirely on the
 successor fellowship's own literature, written by people who left the predecessor. No
