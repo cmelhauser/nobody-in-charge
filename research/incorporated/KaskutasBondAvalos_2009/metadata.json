@@ -1,0 +1,29 @@
+{
+ "id": "KaskutasBondAvalos_2009",
+ "title": "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment",
+ "authors": [
+  "Lee Ann Kaskutas",
+  "Jason Bond",
+  "Lyndsay Ammon Avalos"
+ ],
+ "year": 2009,
+ "type": "journal_article",
+ "status": "read_in_full",
+ "held_version": "NIH author manuscript NIHMS135367 as deposited in PMC, JATS full text rendered to plain text; PMCID PMC2739250",
+ "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=2739250&retmode=xml",
+ "retrieved": "2026-09-22",
+ "record_only": false,
+ "note": "Held git-ignored since 22 September 2026 at the Human Author's direction and read in full the same day. The held copy is the author manuscript's JATS XML from the NCBI E-utilities service, rendered to plain text; no PDF is held, because the PMC download route is behind a bot check this project does not attempt. This is the accepted manuscript rather than the journal's typeset article, so its pagination is not the journal's and the three figures, which carry the plotted attendance curves, are not in it. Every attendance figure quoted from this source therefore comes from the abstract and text, not from the figures.",
+ "rights_note": "NIH author manuscript in PubMed Central under the NIH public access policy; copyright Elsevier. Held git-ignored since 22 September 2026; never committed or redistributed.",
+ "read_date": "2026-09-22",
+ "read_scope": "abstract, introduction, methods, results, discussion and both tables in full; the three figures are images and are not in the deposited text",
+ "legacy_stem": null,
+ "documents": {
+  "KaskutasBondAvalos_2009.txt": {
+   "sha256": "d69490febf49cfc4a35fa3c1f184126ffc618408fdb0a1ccd97f1f7530775504",
+   "bytes": 36781,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

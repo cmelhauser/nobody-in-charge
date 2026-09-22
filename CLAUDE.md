@@ -144,10 +144,18 @@ transcription. The same day added `ServiceManual_2024`, bringing the corpus to 3
 *A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and which settles
 the Concept 4 question that `HANDOFF.md` section 10 carried. Seven open-access papers followed,
 five the paper cites and two from the skill-depreciation literature Chapter 12 has not consulted,
-bringing the corpus to its present 40. All seven were read the same day, six in full and one in
+bringing the corpus to 40. All seven were read the same day, six in full and one in
 part, and what they bear on was applied to the manuscript, the paper, the primer and the appendix.
 The model is unchanged: the two skill-depreciation papers measure skill, not the practice the
 decay rate represents. Five sources remain record only because no lawful copy is yet in hand.
+
+Two more were added on 22 September 2026 at the Human Author's direction, bringing the corpus to
+its present 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under
+CC BY 4.0, and Kaskutas, Bond and Avalos (2009) on seven-year trajectories of AA attendance, as
+the NIH author manuscript. Both were read in full the day they were held. Neither is held as a
+PDF, because the publisher and PubMed Central download routes are behind bot checks this project
+does not attempt; the held copy of each is the deposited full text rendered to plain text. They
+bracket the decay rate rather than measuring it, and the model is unchanged.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book

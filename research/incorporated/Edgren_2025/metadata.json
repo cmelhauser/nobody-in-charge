@@ -1,0 +1,29 @@
+{
+ "id": "Edgren_2025",
+ "title": "The temporal trajectories of habit decay in daily life: An intensive longitudinal study on four health-risk behaviors",
+ "authors": [
+  "Robert Edgren",
+  "Dario Baretta",
+  "Jennifer Inauen"
+ ],
+ "year": 2025,
+ "type": "journal_article",
+ "status": "read_in_full",
+ "held_version": "Publisher JATS full text from Europe PMC, rendered to plain text; PMCID PMC11635905",
+ "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11635905/fullTextXML",
+ "retrieved": "2026-09-22",
+ "record_only": false,
+ "note": "Held git-ignored since 22 September 2026 at the Human Author's direction and read in full the same day. The held copy is the article's own JATS XML from the Europe PMC REST service, rendered to plain text with headings, paragraphs and tables; no PDF is held, because the publisher and PMC download routes are behind a bot check this project does not attempt. Supporting information S1, the figures and the reference list were not read: the figures are images and the supplement is a separate file.",
+ "rights_note": "Open access under Creative Commons Attribution 4.0 International; copyright 2024 the authors. Held git-ignored since 22 September 2026; never committed, because the rule is uniform even where the licence would permit it.",
+ "read_date": "2026-09-22",
+ "read_scope": "abstract, introduction, methods, results, discussion and the two in-text tables in full; Supporting Information S1, the figures and the reference list not read",
+ "legacy_stem": null,
+ "documents": {
+  "Edgren_2025.txt": {
+   "sha256": "ecc911ab0c8a379075601ed2ab601938337411828b4303411fee3ce9b9380241",
+   "bytes": 46644,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}
