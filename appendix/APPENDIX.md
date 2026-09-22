@@ -670,8 +670,12 @@ instead.
    points rank robustness; they do not estimate real-world probabilities.
 8. The staged corpus is deliberately outside this release's evidence record.
 9. The decay rate `delta0` is authored and, after the ordering exponent, the most influential
-   registered value. The only estimates read for anything comparable, on 13 September 2026,
-   measure skills rather than practices and are one to two orders of magnitude slower. Large
+   registered value. Nothing measures the quantity it represents. Four papers read for
+   comparable quantities bracket it: two on skill depreciation, read on 13 September 2026,
+   are one to two orders of magnitude slower; one on habit decay in daily life, read on 22
+   September, is an order of magnitude faster and measures an unwanted habit being
+   deliberately weakened; and one on seven-year AA attendance trajectories, read the same day,
+   finds participation falling away over years while abstinence does not follow it down. Large
    downward moves of `delta0` are among the few that reverse the pure-attraction-loss minus
    referral-loss ordering in the A7.5 screen, and the 400-seed confirmations there place the
    membership reversal between 15 and 20 per cent lower while the ordering still holds on endpoint

@@ -282,7 +282,7 @@ source for a subject is citing a work that contains it, using the indexes; with 
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
 with `python3 tools/build_corpus.py`, or audit it with `--check`.
 
-Five of the 40 sources are held as record only, with no document at any time: Kurtz (1991), in
+Five of the 42 sources are held as record only, with no document at any time: Kurtz (1991), in
 copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have
 unverified posting authorization and which the project's rights review directs be cited within
 limits rather than archived; Rohr (2011), whose consulted copy was an unauthorized posting; and

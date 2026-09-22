@@ -64,6 +64,20 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Added
 
+- Two sources that bracket the decay rate, held git-ignored and read in full on 22 September 2026,
+  bringing the corpus to 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open
+  access under CC BY 4.0, and Kaskutas, Bond and Avalos (2009) on seven-year trajectories of AA
+  attendance, as the NIH author manuscript. Neither is held as a PDF, because the publisher and
+  PubMed Central download routes are behind bot checks this project does not attempt; the held copy
+  of each is the deposited full text rendered to plain text.
+  - Chapter 12 now says the rate is bracketed rather than merely untested: deliberate habit
+    degradation settles in a median of 9 to 10 days, an order of magnitude faster, while measuring
+    the opposite case; skill depreciation is one to two orders of magnitude slower; and
+    participation in AA itself falls away over years without abstinence following it down.
+  - The paper's limitation item, appendix A11 item 9, the primer's "what was not read" entry and
+    `research/PARAMETERS.md` follow it. No model value or released number changes.
+- `research/DECAY-RATE-LITERATURE-SCAN.md`, the search behind that reading, which `HANDOFF.md` had
+  carried as unsearched since the skill papers were read.
 - `model/decay_reversal.py` and `research/decay_reversal.json`: the same design at 10, 15 and 20
   per cent lower decay, 400 paired seeds per cell, 3,600 runs, model `c3823f72`. It locates the
   membership reversal `decay_ordering.json` left unlocated: the ordering holds at 10 and 15 per
@@ -88,7 +102,7 @@ someone who wants to know what changed between two tags does not have to read it
 - Seven open-access papers held git-ignored: five the paper cites (Angrist 2014,
   Cunha and Heckman 2007, Cunha, Heckman and Schennach 2010, Hu and Schennach 2008, Lembke n.d.)
   and two from the skill-depreciation literature Chapter 12 has not consulted (Dinerstein,
-  Megalokonomou and Yannelis; Cohen, Johnston and Lindner). The corpus holds 40 sources.
+  Megalokonomou and Yannelis; Cohen, Johnston and Lindner), bringing the corpus to 40 sources.
 
 - Copies of six sources that were record only, held git-ignored at the Human Author's direction:
   P-17, SMF-132 and the short-form Concepts, byte-identical to the files read in August; the
