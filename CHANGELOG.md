@@ -81,6 +81,13 @@ someone who wants to know what changed between two tags does not have to read it
     number changes.
 - `research/DECAY-RATE-LITERATURE-SCAN.md`, the search behind that reading, which `HANDOFF.md` had
   carried as unsearched since the skill papers were read.
+- `research/elicitation/5-invitation-email.md`, the message to send a prospective respondent: three
+  subject lines, the email, a short version for a message, the longer version for someone who asks
+  what they are contributing to, answers to the questions respondents actually ask, a nudge and a
+  thank-you. It describes neither the argument nor which rows the book leaves empty, and it adds
+  the one instruction the packet lacked, that respondents should not compare notes until every form
+  is back. `0-start-here` lists it, and `build.sh` now falls back to tectonic where xelatex is
+  absent.
 - `model/decay_reversal.py` and `research/decay_reversal.json`: the same design at 10, 15 and 20
   per cent lower decay, 400 paired seeds per cell, 3,600 runs, model `c3823f72`. It locates the
   membership reversal `decay_ordering.json` left unlocated: the ordering holds at 10 and 15 per
