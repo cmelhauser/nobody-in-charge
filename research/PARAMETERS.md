@@ -44,9 +44,13 @@ The decay rate `delta0 = 0.06` per week is the Tier 2 value with the most riding
 only to `p_gate` in every screen. On 13 September 2026 it was set against the only estimates read
 for anything comparable, Dinerstein, Megalokonomou and Yannelis (2022) on teaching skill and
 Cohen, Johnston and Lindner (2023) on general skills during unemployment. Both measure skills
-rather than practices, and both are one to two orders of magnitude slower. The value was not
-changed: no source measures how fast a practice lapses, and a new authored value chosen after
-reading papers about a different quantity would not be an improvement. Section 8.1 records that
+rather than practices, and both are one to two orders of magnitude slower. Two more were read on
+22 September 2026, after a search of the literature on how fast practices lapse: Edgren, Baretta
+and Inauen (2025), where deliberate habit degradation settles in a median of 9 to 10 days, an
+order of magnitude faster, and Kaskutas, Bond and Avalos (2009), where AA attendance falls away
+over years without abstinence following it down. The value is therefore bracketed rather than
+measured. It was not changed: no source measures how fast a practice lapses, and a new authored
+value chosen after reading papers about a different quantity would not be an improvement. Section 8.1 records that
 large downward moves of it reverse the attraction-versus-referral ordering on final membership,
 and that 400-seed paired runs place that reversal between 15 and 20 per cent lower while the
 ordering still holds on endpoint viability and existence; `research/SOURCES.md` has the reading.

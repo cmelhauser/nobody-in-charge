@@ -1248,13 +1248,17 @@ published, and I cannot say how strongly the literature gestures.
 No study of AA group culture, which is why the behavioural description behind
 Tradition 3's retention mechanism is illustration rather than evidence.
 
-The literature on how fast practices and habits lapse. Two papers on adult skill
-depreciation were read on 13 September 2026 and put six per cent a week one to two
-orders of magnitude above anything they measure, but they measure skills rather than
-practices, so the rate is still a choice. It is a consequential one: with it a fifth lower,
-a 400-seed run finds that a group without referrals ends larger than a group without
-attraction but still closes more often, and fifteen per cent lower is not enough to turn
-it. Chapter Twelve gives the detail.
+Any measurement of how fast a practice lapses when nothing renews it. That
+literature was searched on 21 September 2026, and four papers from it have now been read.
+Two on adult skill depreciation, read on 13 September, put six per cent a week one to two
+orders of magnitude above anything they measure. One on the daily course of habit decay,
+read on 22 September, is an order of magnitude faster, but it measures an unwanted habit
+being deliberately weakened. One on seven-year trajectories of AA attendance, read the
+same day, finds attendance falling away over years while abstinence does not follow it
+down. The rate is therefore bracketed rather than measured, and it is still a choice. It is a consequential
+one: with it a fifth lower, a 400-seed run finds that a group without referrals ends
+larger than a group without attraction but still closes more often, and fifteen per cent
+lower is not enough to turn it. Chapter Twelve gives the detail.
 
 Anything independent about the 2019 split. The account above rests entirely on the
 successor fellowship's own literature, written by people who left the predecessor. No

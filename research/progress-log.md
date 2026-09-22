@@ -4973,3 +4973,46 @@ than outside one. Saying so in the book requires holding and reading the two ope
 first, which is the Human Author's decision, so nothing was written into a chapter and no source was
 catalogued. The *Psychology & Health* companion paper sits behind a publisher bot check, which this
 agent does not attempt.
+
+### 22 September 2026: the two papers that bracket the decay rate
+
+**What was asked.** The Human Author directed that the two papers the 21 September scan turned up
+be held and read, so that Chapter 12 can say the decay rate is bracketed rather than merely
+untested.
+
+**How they were obtained.** Neither as a PDF. Wiley's own PDF, the Europe PMC render and the PMC
+download route all refuse a scripted request, the last with a proof-of-work interstitial, which is
+a bot check and not something this project attempts. What both publishers do serve is the deposited
+full text: Edgren from the Europe PMC REST service, and the Kaskutas author manuscript from NCBI
+E-utilities. Each was rendered to plain text with headings, paragraphs and tables preserved, and
+held git-ignored with a SHA-256 and a verification index like every other source. The figures are
+images and are in neither deposit, so no figure is quoted from either paper anywhere in the book.
+
+**What the reading found.** Edgren, Baretta and Inauen followed 194 people for 91 days, one
+self-selected habit each, 11,805 daily automaticity ratings, six curves fitted per person. Decay
+settled at 95 per cent of the lower asymptote in a median of 9 to 10 days, range 1 to 65, in the 42
+people whose fits were valid and whose trajectory crossed the scale midpoint, with 76 per cent of
+variance between persons. That is an order of magnitude faster than six per cent a week, and it is
+the opposite case: an unwanted habit actively removed with an implementation intention, not a
+wanted practice left unrenewed. The authors' own cautions are recorded with it. Kaskutas, Bond and
+Avalos followed 586 alcohol-dependent people for seven years and found four attendance classes,
+63, 16, 11 and 10 per cent of the sample, with participation falling away over years in all but the
+medium class. Their emphasis is that the falls in attendance were not matched by falls in
+abstinence, which is a caution against reading the model's practice variable as a meeting count.
+
+**One correction.** The scan record had the descending class falling to about six meetings by year
+five. That number came from a search summary, and the paper's text does not say it; the per-year
+counts are in a figure the author manuscript does not carry. The scan file now says so.
+
+**One naming decision.** The directory is `KaskutasBondAvalos_2009`, not `Kaskutas_2009`, for the
+reason the Cohen directory already records: the paper's bibliography cites Kaskutas, Bond and
+Humphreys (2002) as well, and a bare surname token would let `check_book.py` check a citation of
+one against the text of the other.
+
+**Where it went.** Chapter 12 gains a paragraph and two references, the paper's limitation item and
+bibliography, appendix A11 item 9, the primer's "what was not read" entry,
+`research/PARAMETERS.md`, `research/SOURCES.md` and the scan file. The corpus is 42 sources.
+
+**What did not change.** No model value, cache, notebook or released number. The decay rate stays
+at six per cent a week. What the book can now say is that the value sits between two measured
+literatures rather than outside one, which is plausibility and not evidence.
