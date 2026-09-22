@@ -76,10 +76,10 @@ It does not change the model. Nothing measured here is the quantity `delta0` rep
 replacing an authored number with one borrowed from a different construct would repeat the mistake
 Chapter 12 already declines to make with the skill-depreciation papers.
 
-What it does change is the shape of the ignorance. Chapter 12 currently sets the rate against one
-literature only, adult skill depreciation, which is one to two orders of magnitude slower, and says
-the rate is untested as practice. The scan finds the rate is bracketed rather than merely
-unsupported: deliberate habit degradation, measured in days, is far faster; skill depreciation,
+What it does change is the shape of the ignorance. Before the scan, Chapter 12 set the rate
+against one literature only, adult skill depreciation, which is one to two orders of magnitude
+slower, and called it untested as practice. The scan found the rate bracketed rather than merely
+unsupported, and Chapter 12 has said so since 22 September 2026: deliberate habit degradation, measured in days, is far faster; skill depreciation,
 measured in years, is far slower; and the observed lapse of voluntary practice regimes, where
 median dropout times run to a few months, is the same order as the model's 11.6-week half-life.
 That is not evidence for the value. It is a statement that the value sits where a reader would
