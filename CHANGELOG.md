@@ -75,7 +75,10 @@ someone who wants to know what changed between two tags does not have to read it
     the opposite case; skill depreciation is one to two orders of magnitude slower; and
     participation in AA itself falls away over years without abstinence following it down.
   - The paper's limitation item, appendix A11 item 9, the primer's "what was not read" entry and
-    `research/PARAMETERS.md` follow it. No model value or released number changes.
+    `research/PARAMETERS.md` follow it. Chapter 24 adds the design consequence: a study testing the
+    ordering must record practice rather than attendance, because attendance fell away in three of
+    the four AA trajectories while abstinence did not follow it down. No model value or released
+    number changes.
 - `research/DECAY-RATE-LITERATURE-SCAN.md`, the search behind that reading, which `HANDOFF.md` had
   carried as unsearched since the skill papers were read.
 - `model/decay_reversal.py` and `research/decay_reversal.json`: the same design at 10, 15 and 20

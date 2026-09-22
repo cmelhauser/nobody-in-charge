@@ -5016,3 +5016,21 @@ bibliography, appendix A11 item 9, the primer's "what was not read" entry,
 **What did not change.** No model value, cache, notebook or released number. The decay rate stays
 at six per cent a week. What the book can now say is that the value sits between two measured
 literatures rather than outside one, which is plausibility and not evidence.
+
+### 22 September 2026, later: a review pass over the two merges
+
+**What was checked.** Everything the decay-reversal run and the two new sources touched, read
+rather than grepped, for statements that were true when written and are not now.
+
+**Three were.**
+- `research/DECAY-RATE-LITERATURE-SCAN.md` still said Chapter 12 "currently" sets the rate against
+  one literature only. That was true for about a day. It now says what changed and when.
+- `research/SOURCES.md` listed Kaskutas, Bond and Humphreys (2002) with no note that a different
+  Kaskutas paper is now held, which is the confusion the directory token was chosen to avoid. The
+  row says so.
+- Chapter 24 asked for a study that records how fast practice lapses without saying what would
+  not do. The new source answers that: attendance fell away after year one in three of the four
+  trajectories while abstinence did not follow it down in the two that had attended most, so a
+  study must record practice rather than attendance. The chapter says it and carries the reference.
+
+**What did not change.** No model value, cache, notebook or released number, and no count.
