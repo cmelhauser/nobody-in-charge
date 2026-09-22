@@ -301,7 +301,8 @@ robustness check varies the *values* in that matrix and holds its pattern of emp
 no further computation can test the pattern. A second reader filling the same grid independently is
 the only available test.
 
-The packet is `research/elicitation/`: five LaTeX documents plus a style file and `build.sh`.
+The packet is `research/elicitation/`: five LaTeX documents, a ready-to-send invitation in
+Markdown, a style file and `build.sh`.
 
 | Document | Who sees it |
 |---|---|
@@ -310,6 +311,7 @@ The packet is `research/elicitation/`: five LaTeX documents plus a style file an
 | `2-recruiting-note.pdf` | you, to copy into an email |
 | `3-response-template.pdf` | the respondent, optional return sheet |
 | `4-collator-notes.pdf` | **you only** |
+| `5-invitation-email.md` | you, to paste into an email |
 
 **Never send `4-collator-notes.pdf` to a respondent.** It states that the book leaves five rows
 empty and names them. That is the answer the exercise exists to elicit independently, and sending
@@ -337,7 +339,9 @@ shorter one is out of date.
    and no computation can test its pattern of empty cells because every check holds that pattern
    fixed. It needs two or three human respondents. The packet is `research/elicitation/`; send
    `1-respondent-form.pdf` and **never** `4-collator-notes.pdf`, which names the answer the
-   exercise exists to elicit.
+   exercise exists to elicit. The message to send them is drafted in `5-invitation-email.md`,
+   with the subject lines, the attachment check, the answers to the questions respondents ask, a
+   nudge and a thank-you. Nothing in it describes the argument.
 
 **One item needs a copyrighted book bought or borrowed.** It cannot be closed by computation or by
 inference from what is already here.
