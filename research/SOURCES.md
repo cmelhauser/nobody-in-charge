@@ -176,6 +176,61 @@ at the Human Author's direction; the last sentence of each item says where.
    location of the error is zero (195 to 197), and Cunha, Heckman and Schennach use it that way (3).
    Chapter 13's statement that it is known through their application remains accurate.
 
+### Two papers on how fast practices lapse, held and read on 22 September 2026
+
+Item 5 above ends by saying that the evidence Chapter 12 wanted is more likely in the literature on
+habit and relapse than in labour economics. That literature was searched on 21 September 2026,
+recorded in `research/DECAY-RATE-LITERATURE-SCAN.md`, and at the Human Author's direction the two
+papers it turned up that are both obtainable and relevant are now held git-ignored and read in
+full. Neither is held as a PDF: the publisher and PubMed Central download routes are behind bot
+checks this project does not attempt, so the held copy of each is the deposited full text rendered
+to plain text, with a SHA-256 and a verification index like every other source.
+
+| Directory | Work | Copy from | Read status |
+|---|---|---|---|
+| `Edgren_2025` | Edgren, Baretta and Inauen (2025), "The temporal trajectories of habit decay in daily life", *Applied Psychology: Health and Well-Being* 17(1): e12612, CC BY 4.0 | the Europe PMC REST service, PMCID PMC11635905 | **read in full** apart from the supplement, the figures and the references; cited in Chapter 12 and the paper since 22 September 2026 |
+| `KaskutasBondAvalos_2009` | Kaskutas, Bond and Avalos (2009), "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment", *Addictive Behaviors* 34(12): 1029-1035 | NCBI E-utilities, the NIH author manuscript NIHMS135367, PMCID PMC2739250 | **read in full** apart from the three figures, which are images and are not in the deposited text; cited in Chapter 12 and the paper since 22 September 2026 |
+
+**What the reading found.**
+
+1. **Nothing measures the quantity the decay rate represents, and the closest measurement is of
+   the opposite case.** Edgren and colleagues ran the first intensive longitudinal study of habit
+   decay in daily life: 194 adults in Switzerland, one self-selected health-risk behaviour each,
+   daily Self-Report Behavioural Automaticity Index from day 7 to day 91, 11,805 observations, six
+   models fitted per person and chosen by BIC. Asymptotic and logistic models fitted best for 54
+   per cent between them. Where the fitted values were valid and the trajectory crossed the scale
+   midpoint, decay stabilised at 95 per cent of the lower asymptote in a median of 9 to 10 days,
+   range 1 to 65 days, in 42 people, 22 per cent of the sample, and always within the observed
+   window rather than by extrapolation. The multilevel model put 76 per cent of the variance
+   between persons. But every participant was actively degrading an unwanted habit with an
+   implementation intention, by substitution, inhibition or cue discontinuation, and the model's
+   dial is a wanted practice fading because nothing renews it. The authors themselves warn that
+   stabilisation does not mean the habit is broken and that the one-day estimates are not
+   consistent with habit theory. The one part of the paper closest to the model is exploratory:
+   habit strength is distinct from cue-behaviour performance, and for some participants
+   automaticity fell gradually while the behaviour was consistently not performed at the cue.
+2. **The nearest thing in substance measures attendance, not practice, and it moves on a scale of
+   years.** Kaskutas and colleagues fitted latent classes to AA meeting counts for 586
+   alcohol-dependent people interviewed at 1, 3, 5 and 7 years: low, 63 per cent, fewer than five
+   meetings at most follow-ups; medium, 16 per cent, about 50 meetings a year throughout;
+   descending, 11 per cent, about 150 meetings in year one then a steep fall that stabilises; and
+   high, 10 per cent, about 200 meetings at year one falling steadily to year seven. Attendance
+   rose from baseline to year one in every class and fell after it in all but the medium class.
+   The finding the authors press is that the falls in attendance were not matched by falls in
+   abstinence: about three quarters of both the descending and the high classes reported 30-day
+   abstinence at year seven, and at that point 74 per cent of the high class and 44 per cent of the
+   descending class had helped a newcomer in the past year. Read against the model, this is a
+   caution as much as a comparison: the model's practice variable is not a meeting count, and a
+   group whose members attend less has not thereby been shown to practise less.
+3. **The rate is bracketed rather than merely untested, and the model is unchanged.** The two
+   skill-depreciation papers put measured skill loss one to two orders of magnitude slower than six
+   per cent a week; Edgren and colleagues put deliberate habit degradation an order of magnitude
+   faster; and observed participation in the book's own fellowship falls away over years. The
+   authored value sits between the measured literatures rather than outside them, which is a
+   statement about plausibility and not evidence for the number. Chapter 12, the paper's
+   limitations, appendix A11 item 9, the primer and `research/PARAMETERS.md` say so as of 22
+   September 2026. No model value, cache or released number changes.
+
 ### The three copyrighted works read on 10 August 2026
 
 These three changed the project's own rule, and the change should be stated rather than absorbed

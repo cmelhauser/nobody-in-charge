@@ -94,13 +94,13 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 313 pages, paper 35, primer 23
+- three built PDFs: book 314 pages, paper 35, primer 23
 
 ---
 
 ## 4. Verification state
 
-As of 21 September 2026, everything passes:
+As of 22 September 2026, everything passes:
 
 | Check | Result |
 |---|---|
@@ -184,7 +184,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-40 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+42 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 The newest are `ServiceManual_2024` and the seven open-access papers held on 13 September 2026.
 `WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
@@ -356,13 +356,12 @@ inference from what is already here.
    papers were read in full on 13 September 2026. The literature on how fast habits and practices
    lapse, which is where the decay rate's evidence would have to come from, was searched on 21
    September 2026 and the result is `research/DECAY-RATE-LITERATURE-SCAN.md`. Nothing measures the
-   quantity `delta0` represents. What exists is deliberate habit degradation, stabilising in days;
-   a computational habit-decay parameter in units of behavioural opportunities; and the lapse of
-   voluntary practice regimes, whose median dropout times run to a few months, which is the order
-   of the model's 11.6-week half-life. No copy is held, nothing is read in full, nothing is cited,
-   and the model is unchanged. What is left is the Human Author's decision whether to hold and read
-   the two open-access papers so that Chapter 12 can say the rate is bracketed rather than merely
-   untested.
+   quantity `delta0` represents. The two obtainable papers that bracket it, Edgren, Baretta and
+   Inauen (2025) on habit decay in daily life and Kaskutas, Bond and Avalos (2009) on seven-year
+   AA attendance trajectories, were held and read in full on 22 September 2026 and are cited in
+   Chapter 12, the paper, appendix A11, the primer and `research/PARAMETERS.md`. The model is
+   unchanged. What is left in this literature is the *Psychology & Health* companion paper, which
+   needs a browser save past a publisher bot check.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.

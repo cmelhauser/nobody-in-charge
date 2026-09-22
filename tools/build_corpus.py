@@ -147,6 +147,17 @@ RIGHTS = {
     "CohenJohnstonLindner_2023": ("NBER Working Paper 31120, posted free by NBER; copyright "
                                   "the authors. Held git-ignored since 13 September 2026; "
                                   "never committed."),
+    # Added 22 September 2026 at the Human Author's direction: the two papers that bracket the
+    # decay rate. Named here because DEFAULT_RIGHTS asserts a pre-1929 public-domain position
+    # that is false for both. Neither is held as a PDF; the held copy of each is the publisher's
+    # or the NIH's own deposited full text, rendered to plain text.
+    "Edgren_2025": ("Open access under Creative Commons Attribution 4.0 International; "
+                    "copyright 2024 the authors. Held git-ignored since 22 September 2026; "
+                    "never committed, because the rule is uniform even where the licence "
+                    "would permit it."),
+    "KaskutasBondAvalos_2009": ("NIH author manuscript in PubMed Central under the NIH public access "
+                      "policy; copyright Elsevier. Held git-ignored since 22 September 2026; "
+                      "never committed or redistributed."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 
