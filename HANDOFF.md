@@ -184,7 +184,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-42 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+44 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 The newest are `ServiceManual_2024` and the seven open-access papers held on 13 September 2026.
 `WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
@@ -391,8 +391,13 @@ each moves a record-only source onto the ordinary footing.
    read status but no copy:
    - **Read at PubMed Central on 14 September 2026:** Banks et al. (2017), Gorman et al. (2006),
      Kelly, Humphreys and Ferri (2020), Rynes and Tonigan (2012) and Witkiewitz and Marlatt (2007).
-     A PDF saved from each article page in a browser would give the corpus a copy, since every
-     scripted route refuses.
+     Two of the five are now held: the deposited full text of Banks et al. (2017) and Rynes and
+     Tonigan (2012) came back from the NCBI E-utilities API on 24 September 2026, which is an
+     ordinary interface and bypasses nothing. The other three return metadata only from both that
+     service and Europe PMC, so Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and
+     Witkiewitz and Marlatt (2007) still need a PDF saved from the article page in a browser. The
+     PDF routes themselves refuse scripted access, and PMC's serves a proof-of-work interstitial,
+     which is a bot check this project does not attempt.
    - **Cited at a remove:** Banks et al. (2014), through the 2017 paper. AMS refuses its PDF to
      scripts, so it needs the same browser save.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
