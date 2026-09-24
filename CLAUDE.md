@@ -150,12 +150,19 @@ The model is unchanged: the two skill-depreciation papers measure skill, not the
 decay rate represents. Five sources remain record only because no lawful copy is yet in hand.
 
 Two more were added on 22 September 2026 at the Human Author's direction, bringing the corpus to
-its present 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under
+44: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under
 CC BY 4.0, and Kaskutas, Bond and Avalos (2009) on seven-year trajectories of AA attendance, as
 the NIH author manuscript. Both were read in full the day they were held. Neither is held as a
 PDF, because the publisher and PubMed Central download routes are behind bot checks this project
 does not attempt; the held copy of each is the deposited full text rendered to plain text. They
 bracket the decay rate rather than measuring it, and the model is unchanged.
+
+Two more followed on 24 September 2026, bringing the corpus to its present 44: Banks et al. (2017)
+and Rynes and Tonigan (2012), both NIH author manuscripts the paper cites and both read in full at
+PubMed Central on 14 September 2026, when they were recorded as held by nobody because the PDF
+routes refuse scripted access. The deposited full text is served by the NCBI E-utilities API, which
+is an ordinary interface rather than a bot check, so both are now held git-ignored like every other
+document. Neither read status changes and no claim moves.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book
