@@ -1189,7 +1189,9 @@ would be improved by knowing how much better the cusp model actually fitted.
 **Witkiewitz, K., and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment
 Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738.**
 **Read in full 14 September 2026** from the author manuscript at PubMed Central
-(PMC1995671); no copy is held. Cited in Chapter 14 for the general argument that
+(PMC1995671); no copy is held, and the deposit returns metadata only through the E-utilities and
+Europe PMC services that supplied Banks et al. (2017) and Rynes and Tonigan (2012) on 24 September
+2026, so this one still needs a copy saved by hand. Cited in Chapter 14 for the general argument that
 post-treatment drinking is nonlinear, not for any specific result. It also refits Hufford's
 cusp specification to Project MATCH. Among those still drinking at twelve months, the cusp
 models fit better than linear and logistic ones on AIC, BIC and pseudo-R². Abstainers are
@@ -1232,6 +1234,17 @@ library, a purchase, or an Internet Archive borrowing account.
 
 ## Paper-only bibliography: current read status
 
+**On obtaining these.** Five of the works below were read at PubMed Central on 14 September 2026
+and recorded then as impossible to hold, because the PDF routes refuse scripted access. That was
+half right. The PDF routes do refuse, and PMC's serves a proof-of-work interstitial, which is a bot
+check this project does not attempt. But the **deposited full text** is served by ordinary
+interfaces, the NCBI E-utilities API and the Europe PMC REST service, and on 24 September 2026 two
+of the five came back that way and are now held: Banks et al. (2017) and Rynes and Tonigan (2012),
+both NIH author manuscripts. The other three are not in either service's full-text set: Gorman et
+al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007) return metadata
+only, so they still need a copy saved by hand. Read statuses below are unchanged by any of this.
+
+
 The paper cites additional methodological and empirical works that the manuscript does
 not otherwise use. Earlier versions of this register omitted them, and the paper's
 bibliography often omitted read status. The current-project record supports the following:
@@ -1240,7 +1253,7 @@ bibliography often omitted read status. The current-project record supports the 
 |---|---|---|
 | Angrist (2014) | **Read in full 13 September 2026** in its working-paper version (`Angrist_2014`) | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
 | Banks et al. (2014) | **Cited at a remove**, through Banks et al. (2017), which describes its method; the AMS PDF refused scripted access on 14 September 2026 and no free copy is indexed elsewhere | Background on dynamic behavior-change models only. |
-| Banks et al. (2017) | **Read in full 14 September 2026** from the PMC author manuscript (PMC5551482); the model equations did not render there and were read through the authors' term-by-term description; no copy is held | Background on dynamic behavior-change models only. It fits one patient's daily data, so it shows a method rather than a population result. |
+| Banks et al. (2017) | **Read in full 14 September 2026** from the PMC author manuscript (PMC5551482); the model equations did not render there and were read through the authors' term-by-term description. **Held since 24 September 2026** as `BanksBekeleMaxwell_2017`, the deposited full text from the NCBI E-utilities API; the equations are MathML and are not in the held text | Background on dynamic behavior-change models only. It fits one patient's daily data, so it shows a method rather than a population result. |
 | Ben-Porath (1967) | **Read at source**, confirmed by the Human Author 14 September 2026; no copy is held, and the paper's bibliography now says so | Background analogy for stock accumulation only. |
 | Cunha and Heckman (2007) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckman_2007`) | Background on dynamic complementarity. |
 | Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; current project has not recorded pages used. |
@@ -1253,7 +1266,7 @@ bibliography often omitted read status. The current-project record supports the 
 | Lembke (undated) | **Read in full 13 September 2026** (`Lembke_nd`); the paper's bibliography now says so | Economics-of-religion application to AA. |
 | Ostrom (1990) | Read status not documented | Institutional-design analogy only. |
 | Riessman (1965) | Not obtained | Helper-therapy principle; cited at a remove. |
-| Rynes and Tonigan (2012) | **Read in full 14 September 2026** from the PMC author manuscript (PMC3248627); no copy is held | Sponsorship/network background. In a fully lagged design with 115 participants, the effect of having a sponsor on abstinent days is not carried by change in the abstinent social network, so it dissents from the mediation studies it is cited beside. |
+| Rynes and Tonigan (2012) | **Read in full 14 September 2026** from the PMC author manuscript (PMC3248627). **Held since 24 September 2026** as `Rynes_2012`, the deposited full text from the NCBI E-utilities API | Sponsorship/network background. In a fully lagged design with 115 participants, the effect of having a sponsor on abstinent days is not carried by change in the abstinent social network, so it dissents from the mediation studies it is cited beside. |
 | Sánchez et al. (2007) | Read status not documented | Epidemic-model background. |
 | Schennach (2004) | Read status not documented | Nonlinear measurement-error identification; not implemented here. |
 | Sharma and Samanta (2015) | Read status not documented | Drinking-epidemic background. |
