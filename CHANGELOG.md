@@ -130,6 +130,18 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- The book and the primer dated themselves from the clock. Both builders took the printed date
+  from `date.today()`, and continuous integration rebuilds both on every push to `main`, so the
+  date recorded when a machine last ran pandoc rather than when the text last changed; a rebuild
+  that changed nothing still moved it. Both are now declared, `DRAFT_DATE` in
+  `tools/build_book.py` and `REVISED_DATE` in `tools/build_primer.py`, and `tools/check_docs.py`
+  enforces each in both directions: the rendered artifact must carry the declared date, and the
+  declared date must not be older than the newest commit touching the sources the document is made
+  from. The builders themselves are not among those sources, because tidying an assembler is not
+  changing the text. The primer's clock-derived date had been a deliberate fix for a hard-coded
+  date that went stale unnoticed; what was missing then was a checker, which now exists.
+  `check_docs.py` runs 23 checks.
+
 - The published Git history is rewritten to remove what the personal-information pass found in it:
   the withheld name, host paths from the initial import, four source documents, and a second
   personal email address in commit metadata.
