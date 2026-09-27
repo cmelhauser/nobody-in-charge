@@ -140,7 +140,11 @@ someone who wants to know what changed between two tags does not have to read it
   from. The builders themselves are not among those sources, because tidying an assembler is not
   changing the text. The primer's clock-derived date had been a deliberate fix for a hard-coded
   date that went stale unnoticed; what was missing then was a checker, which now exists.
-  `check_docs.py` runs 23 checks.
+  `check_docs.py` runs 23 checks. The comparison against Git is skipped, and says so, in a shallow
+  clone, which is what continuous integration checks out: there the only commit is a merge GitHub
+  synthesises on the day the job runs, so every source appears to have changed that day. It runs
+  wherever the history is whole, including `tools/run_ci_locally.sh`, and ignores merge commits,
+  which record when branches met rather than when the text changed.
 
 - The published Git history is rewritten to remove what the personal-information pass found in it:
   the withheld name, host paths from the initial import, four source documents, and a second
