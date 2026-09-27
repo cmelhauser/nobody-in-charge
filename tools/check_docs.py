@@ -415,9 +415,24 @@ def check_document_dates() -> None:
                  f"{found.group(1)!r}")
             return None
 
+    # Continuous integration checks out one commit, and on a pull request that commit is a
+    # merge GitHub synthesises on the day the job runs. In a clone that shallow every path
+    # appears to have changed today, which is not a fact about the text, so the comparison is
+    # skipped there and reported as skipped. It runs wherever the history is whole, which
+    # includes tools/run_ci_locally.sh before every merge. Merge commits are excluded for the
+    # same reason: they record when branches met, not when the text changed.
+    shallow = subprocess.run(
+        ["git", "-C", str(ROOT), "rev-parse", "--is-shallow-repository"],
+        capture_output=True, text=True).stdout.strip() == "true"
+
     def not_older(label: str, value: str, when, sources: list[str]) -> None:
+        if shallow:
+            skip(f"{label} against its sources (shallow clone: the history that would date "
+                 f"the last change is not here)")
+            return
         proc = subprocess.run(
-            ["git", "-C", str(ROOT), "log", "-1", "--format=%cs", "--", *sources],
+            ["git", "-C", str(ROOT), "log", "-1", "--no-merges", "--format=%cs", "--",
+             *sources],
             capture_output=True, text=True)
         stamp = proc.stdout.strip()
         if proc.returncode or not stamp:

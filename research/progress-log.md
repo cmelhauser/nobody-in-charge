@@ -5070,3 +5070,15 @@ about the paper rather than a defect in a builder, so it is left for the Human A
 **What did not change.** No model value, cache, notebook, released number or count, and no text in
 any of the three documents. The book's Markdown is byte-identical after the change; the primer PDF
 was rebuilt and prints the same date it printed before.
+
+**Addendum, the same day: the check failed on its first run in continuous integration, and it was
+the check that was wrong.** Pull request 30 failed `unit-tests` and `checkers` with both documents
+reported as older than sources that "changed on 2026-09-27". Nothing had. GitHub's checkout is one
+commit deep, and on a pull request that commit is a merge it synthesises on the day the job runs,
+so `git log -1 -- <sources>` could see nothing older and dated every path to that morning. The
+check had treated missing history as a change. It now asks Git whether the clone is shallow and,
+if it is, reports the two comparisons as skipped rather than passed or failed, and it ignores merge
+commits everywhere, since they record when branches met rather than when the text changed. The
+two halves that read the rendered artifacts still run in continuous integration. Reproduced before
+fixing, in a depth-one clone of the branch: 21 passed, 2 skipped, 0 failed there, and all 23 passing
+against the full history.
