@@ -383,6 +383,94 @@ def check_page_counts() -> None:
     assert_claims("primer page count", pages["primer"], re.compile(r"primer\s+(\d+)\s*$"))
 
 
+def check_document_dates() -> None:
+    """A document's printed date must come from its text, not from the clock.
+
+    `tools/build_book.py` and `tools/build_primer.py` both took their date from
+    `date.today()`, so every rebuild redated the artifact. Continuous integration rebuilds both
+    on every push to `main`, which meant the printed date recorded when a machine last ran
+    pandoc rather than when the text last changed, and a run that changed nothing still moved
+    it. The primer had arrived there honestly: it once carried a hard-coded date through a
+    substantial revision, because nothing checked it. Both dates are now declared, and this is
+    what checks them, in both directions. The rendered artifact must carry the declared date,
+    and the declared date must not be older than the newest commit touching the sources the
+    document is made from.
+
+    The builders themselves are deliberately not among those sources. Changing an assembler is
+    not changing the text, and a date that moved when a builder was tidied would be the old
+    fault wearing a different hat.
+    """
+    from datetime import datetime
+
+    def declared(tool: str, name: str) -> tuple[str, object] | None:
+        text = (ROOT / "tools" / tool).read_text(encoding="utf-8")
+        found = re.search(rf"^{name} = '([^']+)'", text, re.MULTILINE)
+        if not found:
+            fail(f"tools/{tool} declares no {name}")
+            return None
+        try:
+            return found.group(1), datetime.strptime(found.group(1), "%d %B %Y").date()
+        except ValueError:
+            fail(f"{name} in tools/{tool} is not a date this checker can read: "
+                 f"{found.group(1)!r}")
+            return None
+
+    def not_older(label: str, value: str, when, sources: list[str]) -> None:
+        proc = subprocess.run(
+            ["git", "-C", str(ROOT), "log", "-1", "--format=%cs", "--", *sources],
+            capture_output=True, text=True)
+        stamp = proc.stdout.strip()
+        if proc.returncode or not stamp:
+            skip(f"{label} against its sources (no Git history for them here)")
+            return
+        changed_on = datetime.strptime(stamp, "%Y-%m-%d").date()
+        if when >= changed_on:
+            ok(f"{label} {value} is not older than the last change to its sources ({stamp})")
+        else:
+            fail(f"the sources for {label} changed on {stamp} and it still says {value}; "
+                 f"update the declaration and rebuild")
+
+    book = declared("build_book.py", "DRAFT_DATE")
+    if book:
+        value, when = book
+        assembled = ROOT / "build" / "nobody-in-charge.md"
+        if not assembled.exists():
+            skip("draft date in the assembled book (build/nobody-in-charge.md is not built)")
+        else:
+            header = re.search(r'^date: "Draft of ([^"]+)"',
+                               assembled.read_text(encoding="utf-8"), re.MULTILINE)
+            if header and header.group(1) == value:
+                ok(f"the assembled book carries the declared draft date, {value}")
+            else:
+                fail(f"build/nobody-in-charge.md is dated "
+                     f"{header.group(1) if header else 'nothing'} and tools/build_book.py "
+                     f"declares {value}; rebuild the book")
+        not_older("the book's draft date", value, when,
+                  ["manuscript", "appendix/APPENDIX.md",
+                   "reference/PRIMER-steps-and-traditions.md",
+                   "paper/anonymity-as-an-aggregation-condition.tex"])
+
+    primer = declared("build_primer.py", "REVISED_DATE")
+    if primer:
+        value, when = primer
+        rendered = ROOT / "reference" / "PRIMER-steps-and-traditions.pdf"
+        if not rendered.exists():
+            skip("revision date in the primer (the PDF is not built)")
+        else:
+            try:
+                from pypdf import PdfReader
+            except ImportError:
+                skip("revision date in the primer (pypdf not installed)")
+            else:
+                first = PdfReader(str(rendered)).pages[0].extract_text() or ""
+                if f"Revised {value}" in re.sub(r"\s+", " ", first):
+                    ok(f"the rendered primer carries the declared revision date, {value}")
+                else:
+                    fail(f"the primer PDF does not print 'Revised {value}'; rebuild it")
+        not_older("the primer's revision date", value, when,
+                  ["reference/PRIMER-steps-and-traditions.md"])
+
+
 def main() -> int:
     check_ci_jobs()
     check_checker_inventory()
@@ -393,6 +481,7 @@ def main() -> int:
     check_model_hash()
     check_links()
     check_page_counts()
+    check_document_dates()
 
     for line in passes:
         print(line)
