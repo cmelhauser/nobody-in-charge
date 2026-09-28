@@ -361,18 +361,19 @@ inference from what is already here.
 
 **One is an ordinary scholarly loose end.**
 
-3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde/White/Mair (1999),
-   Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the Gough scrapbook at AAS, the
-   Rockefeller Archive holdings, and the adult skill-depreciation literature, of which two working
-   papers were read in full on 13 September 2026. The literature on how fast habits and practices
-   lapse, which is where the decay rate's evidence would have to come from, was searched on 21
-   September 2026 and the result is `research/DECAY-RATE-LITERATURE-SCAN.md`. Nothing measures the
-   quantity `delta0` represents. The two obtainable papers that bracket it, Edgren, Baretta and
-   Inauen (2025) on habit decay in daily life and Kaskutas, Bond and Avalos (2009) on seven-year
-   AA attendance trajectories, were held and read in full on 22 September 2026 and are cited in
-   Chapter 12, the paper, appendix A11, the primer and `research/PARAMETERS.md`. The model is
-   unchanged. What is left in this literature is the *Psychology & Health* companion paper, which
-   needs a browser save past a publisher bot check.
+3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde and White-Mair (1999),
+   White's *Slaying the Dragon*, Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the
+   Gough scrapbook at AAS, the Rockefeller Archive holdings, and the adult skill-depreciation
+   literature, of which two working papers were read in full on 13 September 2026. The literature on
+   how fast habits and practices lapse, which is where the decay rate's evidence would have to come
+   from, was searched on 21 September 2026 and the result is
+   `research/DECAY-RATE-LITERATURE-SCAN.md`. Nothing measures the quantity `delta0` represents. The
+   two obtainable papers that bracket it, Edgren, Baretta and Inauen (2025) on habit decay in daily
+   life and Kaskutas, Bond and Avalos (2009) on seven-year AA attendance trajectories, were held and
+   read in full on 22 September 2026 and are cited in Chapter 12, with Kaskutas also in Chapter 24,
+   the paper, appendix A11, the primer and `research/PARAMETERS.md`. The model is unchanged. What is
+   left in this literature is the *Psychology & Health* companion paper, which needs a browser save
+   past a publisher bot check.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
