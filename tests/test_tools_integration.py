@@ -82,6 +82,29 @@ def test_check_docs_catches_a_miscount(tmp_path):
     assert f"job count is {jobs}" in result.stdout, result.stdout
 
 
+def test_document_dates_are_declared_not_computed():
+    """A rebuild must not redate the book or the primer.
+
+    Both builders took their date from `date.today()` until 27 September 2026, so continuous
+    integration moved the printed date on every push. The dates are declared now, and
+    `check_docs.py` enforces them against Git; this asserts the declarations exist and that the
+    committed artifacts carry them, which is the part a checker cannot see if nobody rebuilds.
+    """
+    book = (ROOT / "tools" / "build_book.py").read_text()
+    primer = (ROOT / "tools" / "build_primer.py").read_text()
+
+    # Both files name the retired call in a comment, on purpose, so look at the code only.
+    def code(text: str) -> str:
+        return "\n".join(l for l in text.splitlines() if not l.lstrip().startswith("#"))
+
+    assert "date.today()" not in code(book) and "date.today()" not in code(primer)
+    draft = re.search(r"^DRAFT_DATE = '([^']+)'", book, re.MULTILINE)
+    revised = re.search(r"^REVISED_DATE = '([^']+)'", primer, re.MULTILINE)
+    assert draft and revised
+    assembled = (ROOT / "build" / "nobody-in-charge.md").read_text()
+    assert f'date: "Draft of {draft.group(1)}"' in assembled
+
+
 def test_check_chapter_accepts_the_primer():
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr

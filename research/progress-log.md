@@ -5114,3 +5114,51 @@ describes: the total right and the list short. `HANDOFF.md` section 7 still name
 Manual and the 13 September papers as the newest sources, and pointed the working manuscript's
 remaining suggested uses at "section 10, item 8", an item that closed on 15 September and a number
 that no longer exists. All four are corrected.
+
+### 27 September 2026: the documents stop dating themselves from the clock
+
+**What prompted it.** Restoring `build/nobody-in-charge.md` after a local CI run on 24 September
+showed a one-line diff: the draft date had moved from 22 to 24 September because the builder read
+`date.today()`. Nothing in the book had changed. The Human Author asked for the date to be made
+explicit instead.
+
+**Both builders had the fault, for opposite reasons.** `build_book.py` had always taken the date
+from the clock. `build_primer.py` was moved to the clock deliberately, because the primer had
+carried a hard-coded "6 August 2026" through a substantial revision on the 17th, and the comment
+recording that decision says exactly why: "nothing checks it and nobody looks at it". That was true
+of a hard-coded date in 2026 and it is the right objection. What it needed was not a clock but a
+checker.
+
+**What was done.** `DRAFT_DATE` in `tools/build_book.py` and `REVISED_DATE` in
+`tools/build_primer.py`, both declared and both currently 22 September 2026, which is when the
+book's sources and the primer last changed. `tools/check_docs.py` gains four checks, two per
+document: the rendered artifact must carry the declared date, and the declared date must not be
+older than the newest commit touching the sources that document is made from. Each of the four was
+made to fail on purpose before being trusted, by moving a declaration back to 3 September and
+watching all four report it. The checker now runs 23 checks.
+
+**One deliberate exclusion.** Neither builder counts as a source of its own document's date.
+Changing an assembler is not changing the text, and a date that moved when a builder was tidied
+would be the old fault in new clothes. The release gate still treats `build_book.py` as a source of
+the rendered PDF, which is a different question and correctly answered the other way: a change to
+the assembler can change the output, so the artifact must be rebuilt.
+
+**Not touched.** The paper's title page carries `\date{August 2026}` in its LaTeX source. That is
+already explicit rather than computed, and whether it should now read September is a judgement
+about the paper rather than a defect in a builder, so it is left for the Human Author.
+
+**What did not change.** No model value, cache, notebook, released number or count, and no text in
+any of the three documents. The book's Markdown is byte-identical after the change; the primer PDF
+was rebuilt and prints the same date it printed before.
+
+**Addendum, the same day: the check failed on its first run in continuous integration, and it was
+the check that was wrong.** Pull request 30 failed `unit-tests` and `checkers` with both documents
+reported as older than sources that "changed on 2026-09-27". Nothing had. GitHub's checkout is one
+commit deep, and on a pull request that commit is a merge it synthesises on the day the job runs,
+so `git log -1 -- <sources>` could see nothing older and dated every path to that morning. The
+check had treated missing history as a change. It now asks Git whether the clone is shallow and,
+if it is, reports the two comparisons as skipped rather than passed or failed, and it ignores merge
+commits everywhere, since they record when branches met rather than when the text changed. The
+two halves that read the rendered artifacts still run in continuous integration. Reproduced before
+fixing, in a depth-one clone of the branch: 21 passed, 2 skipped, 0 failed there, and all 23 passing
+against the full history.

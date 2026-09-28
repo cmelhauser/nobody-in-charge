@@ -30,12 +30,15 @@ import re
 import shutil
 import subprocess
 import sys
-from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "reference" / "PRIMER-steps-and-traditions.md"
 OUT = ROOT / "reference" / "PRIMER-steps-and-traditions.pdf"
+
+# The revision date printed on the primer, declared rather than read off the clock.
+# See the note in build() for why it is neither computed nor hard-coded and unchecked.
+REVISED_DATE = '22 September 2026'
 
 # Passed as pandoc -V variables rather than written into the source, so that the Markdown
 # contains no LaTeX. Keep in step with the HEADER in tools/build_book.py.
@@ -85,12 +88,16 @@ def main() -> int:
     header.parent.mkdir(parents=True, exist_ok=True)
     header.write_text(HEADER_INCLUDES.strip() + "\n")
 
-    # Dated at build time, as the book is. The primer carried a hard-coded "6 August
-    # 2026" through a substantial revision on the 17th, which is exactly how a date in a
-    # source file goes wrong: nothing checks it and nobody looks at it. Computing it here
-    # means the printed date is the date the artifact was actually made.
+    # Declared, not computed. This was `date.today()` until 27 September 2026, for a good
+    # reason: the primer had carried a hard-coded "6 August 2026" through a substantial
+    # revision on the 17th, which is how a date in a source file goes wrong, since nothing
+    # checked it and nobody looked at it. Computing it fixed that and introduced the opposite
+    # fault, because continuous integration rebuilds on every push and the printed date then
+    # recorded when a machine last ran pandoc. Something checks it now:
+    # tools/check_docs.py fails if REVISED_DATE is older than the last commit touching the
+    # primer, or if the rendered PDF does not carry it. Change it when the primer changes.
     cmd = ["pandoc", str(SRC), "-o", str(OUT), "--pdf-engine=" + engine,
-           "-M", "date=Revised " + date.today().strftime("%-d %B %Y"),
+           "-M", "date=Revised " + REVISED_DATE,
            "--include-in-header", str(header)]
     for key, value in VARIABLES:
         cmd += ["-V", "%s=%s" % (key, value)]
