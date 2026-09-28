@@ -584,10 +584,12 @@ draws. The magnitude claim therefore needs substantive defense and independent e
 Maxwell copy remains a retyped reproduction with visible transcription errors, not a journal
 scan; moving it did not upgrade its source status.
 
-`research/staged/` is a supplied next-round corpus. Its remaining items have intentionally not
-been incorporated into the manuscript or paper. File presence is not evidence that a source was
-read or used. A verifier may mark a finding `deferred corpus may resolve`, but must not silently
-use staged material to repair this release or recommend it as an accidentally overlooked source.
+`research/staged/` held a supplied corpus, and it has been worked through: its four acquired
+items moved to `research/incorporated/` on 9 August 2026, and the two journal articles it could not
+retrieve were obtained by hand and read in full on 10 August. What remains there is the acquisition
+report and its metadata, which are provenance rather than evidence. The rule it was kept under
+still applies to anything acquired in future: file presence is not evidence that a source was read
+or used.
 
 ---
 

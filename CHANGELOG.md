@@ -14,6 +14,17 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- The paper's title page is dated September 2026, since its text last changed on 28 September.
+  Making that change turned up five stale statements the 28 September sweep missed, because they
+  were worded as "has not read" or "remains" rather than "not obtained". The paper's abstract and
+  Chapter 1 said the project had not read the service document that estimates AA's membership;
+  SMF-132 was read on 17 August 2026, so both now give the real reason no present count is stated:
+  AA keeps no membership lists and the table read stops at 2020. Chapter 4's notes opened by saying
+  the chapter rests on a work not yet obtained, which Kurtz ceased to be on 2 August. The paper and
+  appendix A9 still described `research/staged/` as holding unread articles or a next-round corpus;
+  both articles were read on 10 August and what remains there is provenance. The release gate's
+  label for its check of that directory is reworded to match, with the condition unchanged.
+
 - The working manuscript's seven remaining suggested uses are drafted, one commit each so that any
   can be dropped:
   - Chapter 5, the 1939 Foreword and the Foundation page;

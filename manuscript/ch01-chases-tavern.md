@@ -165,9 +165,9 @@ Ninety-five years after Chase's Tavern, in a house in Akron, a failed stockbroke
 
 The Washingtonians had that insight first, executed it beautifully, and reached six hundred thousand people with it.
 
-Alcoholics Anonymous has been running for more than ninety years. This project has not read
-the current service document needed to support a present membership count, so it does not
-state one.
+Alcoholics Anonymous has been running for more than ninety years. It keeps no membership
+lists, and the edition of its own membership table read here stops at 2020, so I state no
+present count.
 
 The difference between those two outcomes is not the insight, because the insight was the same. It is not the founders' talent; Mitchell and Hawkins were formidable and Bill Wilson said so. It is not the era, or the medicine, or the money.
 
