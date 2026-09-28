@@ -287,6 +287,7 @@ Mean membership continues to move from 29.34 at 10 years to 21.14 at 20, 17.80 a
 6. Keep semantic overlap, normalized linear coupling, state-dependent resources, and trajectory
    effects separate.
 7. Do not describe finite-horizon endpoint viability as permanent survival.
-8. Do not use the intentionally staged next-round corpus as current evidence.
+8. Do not use anything placed under `research/staged/` as evidence until it has been read and
+   recorded; what is there now is the acquisition record, which is provenance.
 
 The release gate enforcing these rules is `tools/check_release.py`.

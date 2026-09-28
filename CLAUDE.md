@@ -143,7 +143,7 @@ assembled from the per-chapter PDFs aa.org posts; and the Kurtz talk, in the Hum
 transcription. The same day added `ServiceManual_2024`, bringing the corpus to 34: the 2024-26
 *A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and which settles
 the Concept 4 question that `HANDOFF.md` section 10 carried. Seven open-access papers followed,
-five the paper cites and two from the skill-depreciation literature Chapter 12 has not consulted,
+five the paper cites and two from the skill-depreciation literature Chapter 12 had not consulted,
 bringing the corpus to 40. All seven were read the same day, six in full and one in
 part, and what they bear on was applied to the manuscript, the paper, the primer and the appendix.
 The model is unchanged: the two skill-depreciation papers measure skill, not the practice the
