@@ -8,7 +8,7 @@ now a script.
 
 What it assembles, in order:
 
-  front matter        the YAML header, with the date taken from --date or today
+  front matter        the YAML header, with the date taken from --date or DRAFT_DATE
   preface             manuscript/ch00-preface.md
   introduction        manuscript/ch00b-introduction.md
   Parts One to Six    a title page, then the chapters of that part
@@ -41,10 +41,17 @@ import re
 import shutil
 import subprocess
 import sys
-from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
+# The draft date printed on the title page, declared rather than read off the clock.
+# A rebuild that changes nothing must not redate the book: this date says when the text last
+# changed, not when somebody last ran the builder, and continuous integration rebuilds the
+# book on every push to main. Change it in the same commit as a change to the book's sources.
+# tools/check_docs.py fails if it is older than the newest commit touching them, and
+# `--date` overrides it for a one-off build.
+DRAFT_DATE = '22 September 2026'
+
 BUILD = os.path.join(ROOT, 'build')
 OUT_MD = os.path.join(BUILD, 'nobody-in-charge.md')
 OUT_PDF = os.path.join(BUILD, 'nobody-in-charge.pdf')
@@ -410,7 +417,7 @@ def assemble(build_date):
 
 
 def main():
-    build_date = date.today().strftime('%-d %B %Y')
+    build_date = DRAFT_DATE
     for i, arg in enumerate(sys.argv):
         if arg == '--date' and len(sys.argv) > i + 1:
             build_date = sys.argv[i + 1]
