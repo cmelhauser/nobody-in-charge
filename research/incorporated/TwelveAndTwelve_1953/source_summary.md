@@ -5,11 +5,13 @@ and published in 1953. It is the fellowship's authoritative interpretation of th
 this book is about, and until 10 August 2026 the project had argued about Traditions 2, 9 and 12
 without reading what AA itself says they mean.
 
-**Record only. No document is stored at any time**, on the same footing as pamphlet P-17. The
-work is AAWS copyright, and this repository is public. AAWS publishes the book free, one chapter
-per PDF, at aa.org; a reading copy was assembled locally from those files, read in full on
-10 August 2026, and left outside the repository. `metadata.json` records the SHA-256 of that
-assembly and of the printed pages verified.
+**Held since 13 September 2026; record only before that**, on the same footing as pamphlet
+P-17. The work is AAWS copyright, and this repository is public. AAWS publishes the book free, one
+chapter per PDF, at aa.org; a reading copy was assembled from those files and read in full on 10
+August 2026, then left outside the repository. At the Human Author's direction the same assembly
+has been held git-ignored in this directory since 13 September and is never committed.
+`metadata.json` records its SHA-256, the printed pages verified, and the change under
+`formerly_record_only`.
 
 ## What it supports
 

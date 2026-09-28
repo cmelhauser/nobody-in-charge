@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 15 September 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 28 September 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -321,7 +321,11 @@ empty and names them. That is the answer the exercise exists to elicit independe
 it destroys the round.
 
 The analysis is preregistered: `model/elicitation_compare.py` was written before any form came
-back and **must not be edited once forms start arriving**. If it turns out to need a change, make
+back and **must not be edited once forms start arriving**. It has not changed since the initial
+import on 6 August 2026, and its SHA-256 at the start of the round, recorded on 28 September 2026,
+is `c9d25c3a4887cf5911f48510d8151dbc7fe4563c709d0574c381b736919e69b4`; check it with
+`shasum -a 256 model/elicitation_compare.py` before running the comparison. Its self-test passed
+the same day, and it reads the book's matrix from the canonical model rather than from a copy. If it turns out to need a change, make
 it, record it in `research/progress-log.md`, and report both the original and revised analysis.
 
 The result is two-sided and the script says so in plain words. If respondents leave different rows
@@ -607,10 +611,12 @@ publisher gives them away.
 - Plain-language equations in manuscript Markdown; the paper stays LaTeX.
 - **No subheadings or tables inside a chapter's narrative.** Use horizontal rules between narrative
   sections. Tables belong in The Machinery.
-- Every chapter ends with The Machinery and its reference-status headings, in this fixed order,
-  using only those that apply: Read in full; Cited at a remove; Referenced but not reproduced;
-  Internal, and reproducible from this repository; What was not read. Omit a heading with nothing
-  under it rather than filling it with a placeholder. Most chapters carry four of the five.
+- Every chapter ends with The Machinery and its reference-status headings, in this fixed order:
+  Read in full; Cited at a remove; Referenced but not reproduced; Internal, and reproducible from
+  this repository; What was not read. `tools/check_chapter.py` requires the first, the second and
+  the last in every chapter; a required heading with nothing to list says "Nothing.", and the
+  other two appear only when they have entries. A source read after it was first listed moves to
+  Read in full rather than being marked read where it stands.
 - A number from a stochastic run carries its uncertainty and design. Deterministic algebra is
   labeled deterministic.
 - **Nothing in the project may be written as advice about an individual's recovery.**

@@ -1405,6 +1405,11 @@ the Foreword, the Doctor's Opinion and the eleven chapters of the basic text wer
 Stored as `research/incorporated/BigBook_1939/`, git-ignored with a SHA-256 and a verification
 index.
 
+*Alcoholics Anonymous*, fourth edition, 2001. The title page, copyright page, contents and all
+forty-two personal stories, read for A13.7 on 17 August 2026; the programme chapters were not
+read, being unchanged from 1939 and covered by the first-edition reading. Held as
+`research/incorporated/BigBook_2001/`, git-ignored with a SHA-256 and a verification index.
+
 **Internal, and reproducible from this repository:**
 
 `model/aa_group_model.py` at the canonical hash for the arrival term of A2.7 and the identification
@@ -1413,11 +1418,11 @@ cache is read or written by this section.
 
 **What was not read:**
 
-AA's actual fourth edition of 2001, which was the document requested and which the project does not
-hold. Its stories are a different selection made sixty-two years later, and a census of them would
-be a genuinely separate finding: it would show how the fellowship's recruitment channel had changed
-across the period in which telephone, treatment referral and eventually the internet became
-available. That comparison is the obvious next piece of work and this section does not attempt it.
+The second and third editions, of 1955 and 1976. The census covers the first edition and the
+fourth, whose forty-two stories A13.7 reads, so it shows the two ends of the period in which
+telephone, treatment referral and eventually the internet became available, and nothing about when
+in between the recruitment channel moved. This entry said until 28 September 2026 that the fourth
+edition was not held and its census not attempted; A13.7 has done both since 17 August.
 
 Any systematic literature on referral pathways into mutual-aid groups, which was not searched. The
 census here is of one book's self-selected accounts and is not a study.

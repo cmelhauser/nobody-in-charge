@@ -6,10 +6,11 @@ Status: **implementation complete; this plan supersedes conflicting quantitative
 language in the older part plans.**
 
 As of 9 August 2026 every analysis in section 2 is complete and hash-current, including the 944
-multi-level OAT points, the 20-trajectory Morris screen, and the 1,024-row Sobol design. Every
-checker passes: `check_release` with 148 checks, `check_book` with zero failures, the primer
-chapter check clear, and portability clear. Both notebooks execute clean. All three PDFs are
-rebuilt and visually inspected with no blank pages and no margin overflow.
+multi-level OAT points, the 20-trajectory Morris screen, and the 1,024-row Sobol design. That
+remains true, and as of 28 September 2026 every checker passes: `check_release` with 148 checks,
+`check_book` with zero failures, the primer chapter check clear, and portability clear. Both
+notebooks execute clean. All three PDFs are rebuilt and visually inspected with no blank pages
+and no margin overflow.
 
 The release criteria in section 4 are met. What remains is the unresolved scientific limitations
 recorded in `../HANDOFF.md` section 9, which the criteria explicitly permit and which must not be

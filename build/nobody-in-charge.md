@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 22 September 2026"
+date: "Draft of 28 September 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -839,15 +839,15 @@ Marsh, J. (1866). *Temperance Recollections: Labors, Defeats, Triumphs. An Autob
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA)." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. Used in the notes above for the reading of AA's entry cost as stigma rather than sacrifice.
 
-**Cited at a remove:**
-
-Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (1950). The judgment about ideological distinctiveness quoted in the text.
-
 Blair, H. W. (1888). *The Temperance Movement; or, The Conflict Between Man and Alcohol.* Boston: William E. Smythe. **Now read at source**; saved as `research/incorporated/Blair_1888/`. Used for the passage quoted above in full: the hundred and fifty thousand saved, the four hundred and fifty thousand who fell, the charge that the Washingtonians' opposition to legal restraint demoralised public sentiment, and the maudlin insanity line in its actual context. Blair was a United States senator and the author of a proposed prohibition amendment, so he is a hostile witness with a legislative motive, which is exactly why the passage is useful.
 
 Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati: Jennings and Graham. **Now read at source**; saved as `research/incorporated/Fehlandt_1904/`. His dating is blunter than Maxwell's and worth recording as the received view Maxwell was correcting: *By 1843, however, interest began to wane, and soon Washingtonianism had spent its force.* Maxwell's regional evidence shows this is too early and too uniform, and the disagreement is the point.
 
-American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union.
+**Cited at a remove:**
+
+Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (1950). The judgment about ideological distinctiveness quoted in the text.
+
+American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The reports this chapter quotes, 1842 to 1847, are reached through Maxwell's year-by-year reading. Three other volumes of the series are held and were read in full on 13 September 2026, the 1840 and 1841 reports and the 1849 *Almanac* (`research/incorporated/ATU_1840/`, `ATU_1841/`, `ATU_1849/`), and none of them is among the years quoted.
 
 Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age*, p. 125. AA's own account, which this chapter declines to follow.
 
@@ -1458,11 +1458,11 @@ Holmström, B. (1982). "Moral Hazard in Teams." *Bell Journal of Economics* 13(2
 
 *The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the February 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the typed Foreword's statements on anonymity, organisation, fees and the one requirement for membership, and for the Alcoholic Foundation page's trust with a permanent outside majority.
 
+Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*, April 1946; cited by Kurtz as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," 2:10, 7-9. **Read at source.** A scan of the article was consulted on 10 August 2026 and is recorded in `research/incorporated/Grapevine_1946/`. Source for the three opening sentences quoted above, for the two titles the text carries, and for the twelve points in their original wording. **The document is not archived in this repository**: it is A.A. Grapevine copyright, the located scan is a third-party reproduction with unverified posting authorization, and the project's rights review directs that it be cited and quoted within limits rather than stored. The scan carries no issue or page markers and so cannot settle Kurtz's conflicting issue numbers.
+
 **Cited at a remove:**
 
 The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the February 1939 draft.
-
-Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*, April 1946; cited by Kurtz as "Alcoholics Anonymous Tradition: Twelve Points to Assure Our Future," 2:10, 7-9. **Read at source.** A scan of the article was consulted on 10 August 2026 and is recorded in `research/incorporated/Grapevine_1946/`. Source for the three opening sentences quoted above, for the two titles the text carries, and for the twelve points in their original wording. **The document is not archived in this repository**: it is A.A. Grapevine copyright, the located scan is a third-party reproduction with unverified posting authorization, and the project's rights review directs that it be cited and quoted within limits rather than stored. The scan carries no issue or page markers and so cannot settle Kurtz's conflicting issue numbers.
 
 Wilson, W. The long form of the Twelve Traditions, *AA Grapevine* 2:11, April 1946, 2-3, and the short form, *AA Grapevine* 6:6, November 1949, 16-17. Both as cited by Kurtz. Not read. The two April 1946 citations conflict and the conflict is recorded above.
 
@@ -2832,7 +2832,7 @@ The derived group-dependence coefficients, the transmission ratio, the parameter
 
 **What was not read:**
 
-The literature on how fast practices and habits lapse, as distinct from how fast skills fade, which is where the evidence for the decay rate would have to come from and which was not searched. The two skill papers above are the only part of the depreciation literature read.
+Any measurement of how fast a practice lapses when nothing renews it, which is the quantity the decay rate stands for. The literature on how habits and practices lapse was searched on 21 September 2026, and the two papers from it listed above were read in full; neither measures that quantity, and nothing the search found does. Also unread from that search: the *Psychology & Health* companion to Edgren and colleagues' study, which is behind a publisher's bot check, and the wider literature on adherence to voluntary practice regimes, reached only through abstracts. Of the skill-depreciation literature, only the two papers above were read.
 
 # Chapter Thirteen: Can You Skip a Step?
 
@@ -3018,9 +3018,9 @@ Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *Americ
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The CES stage technology, the measurement system, anchoring, and the treatment of endogenous investment.
 
-**Cited at a remove:**
-
 Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Source for the two-factor structure, the predictors and time paths of each factor, spiritual step-work predicting percent days abstinent where behavioural step-work did not, the instrument discrepancy on nine of twelve steps, and the sample of 130 affiliates over nine months. **Note the copy**: the author manuscript's pagination is not the journal's.
+
+**Cited at a remove:**
 
 Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
 
@@ -3471,9 +3471,9 @@ Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (
 
 *Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed wording of the three edited passages.
 
-**Cited at a remove:**
-
 Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH." *Journal of Studies on Alcohol* 65(6): 766-773. **Read in full**; the NIH author manuscript, PMCID PMC3008319, obtained 10 August 2026 and stored with its citation and metadata in `research/incorporated/Pagano_2004/`. Source for the forty and twenty-two per cent figures, which earlier drafts took from a 2011 news release and which the paper's own results section confirms, for the independence from meeting attendance, and for the eight per cent helping rate the authors give as their first limitation. **Note the copy**: this is the author manuscript, so its pagination is not the journal's and a page-specific citation would need the published version.
+
+**Cited at a remove:**
 
 Riessman, F. (1965). "The 'Helper' Therapy Principle." *Social Work* 10(2): 27-32. Cited for the naming of the principle; not read at source.
 
@@ -3698,7 +3698,7 @@ There is still no literature on the coupling between AA's Steps and its Traditio
 
 **The previous version of this paragraph said something I have had to withdraw.** It said the AA literature gestures at the parallel, and that I could not judge how strongly because the literature was copyright and unacquired. Having read the one book that treats both lists, the honest statement is that it does not gesture at all, and I should not have characterised the contents of a source I had not opened. The conjecture appears to be entirely a reader's inference from the two lists having the same length, which makes it a weaker target than the old wording implied and a cleaner one.
 
-What remains genuinely unread is the rest of the AA canon: the Twelve Concepts, the service manual, and seventy years of *Grapevine*. Any of those could contain an assertion of the pairing, and the claim here is about the 1953 book rather than about everything AA has ever printed.
+What remains genuinely unread is most of the rest of the AA canon, above all seventy years of *Grapevine*. The Twelve Concepts were read in full in their short form on 17 August 2026, and the 2024-26 *A.A. Service Manual*, which carries Bill W.'s essays on them, in part on 13 September. A search of both held texts on 28 September 2026 found no sentence pairing a Step with the Tradition of the same number; the one sentence naming a Step and a Tradition together ties the Seventh Tradition to Twelfth Step work. The unread remainder could still contain an assertion of the pairing, and the claim here is about the 1953 book and those two documents rather than about everything AA has ever printed.
 
 # Chapter Seventeen: What a Tradition Carries
 
@@ -5001,9 +5001,11 @@ Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individu
 
 Kaskutas, L. A., J. Bond and L. A. Avalos (2009). "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment." *Addictive Behaviors* 34(12): 1029-1035. **Read in full** on 22 September 2026, apart from the three figures; the NIH author manuscript, held git-ignored in `research/incorporated/KaskutasBondAvalos_2009/`. Source for the warning above that a study must record practice rather than attendance. Chapter Twelve uses the same paper as the slow end of the bracket around the decay rate.
 
+Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
+
 **Cited at a remove:**
 
-Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
+Nothing.
 
 **Internal, and reproducible from this repository:**
 
@@ -5155,7 +5157,7 @@ Wilson's letters, throughout the Kurtz talk. Kurtz quotes them from memory and w
 
 The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is stored, nothing is committed, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
 
-What genuinely remains unread is most of the canon: the Twelve Concepts of World Service, the service manual, the daily reflections, and seventy years of *Grapevine*. Each is available and none has been opened.
+What genuinely remains unread is most of the canon: the daily reflections, most of the service manual, and seventy years of *Grapevine*, of which a single article from April 1946 has been read. The Twelve Concepts have since been opened, read in full in their short form on 17 August 2026 and in Bill W.'s essays in the 2024-26 service manual on 13 September, where they bear on Chapter Ten rather than on this one.
 
 
 \clearpage
@@ -6573,6 +6575,11 @@ the Foreword, the Doctor's Opinion and the eleven chapters of the basic text wer
 Stored as `research/incorporated/BigBook_1939/`, git-ignored with a SHA-256 and a verification
 index.
 
+*Alcoholics Anonymous*, fourth edition, 2001. The title page, copyright page, contents and all
+forty-two personal stories, read for A13.7 on 17 August 2026; the programme chapters were not
+read, being unchanged from 1939 and covered by the first-edition reading. Held as
+`research/incorporated/BigBook_2001/`, git-ignored with a SHA-256 and a verification index.
+
 **Internal, and reproducible from this repository:**
 
 `model/aa_group_model.py` at the canonical hash for the arrival term of A2.7 and the identification
@@ -6581,11 +6588,11 @@ cache is read or written by this section.
 
 **What was not read:**
 
-AA's actual fourth edition of 2001, which was the document requested and which the project does not
-hold. Its stories are a different selection made sixty-two years later, and a census of them would
-be a genuinely separate finding: it would show how the fellowship's recruitment channel had changed
-across the period in which telephone, treatment referral and eventually the internet became
-available. That comparison is the obvious next piece of work and this section does not attempt it.
+The second and third editions, of 1955 and 1976. The census covers the first edition and the
+fourth, whose forty-two stories A13.7 reads, so it shows the two ends of the period in which
+telephone, treatment referral and eventually the internet became available, and nothing about when
+in between the recruitment channel moved. This entry said until 28 September 2026 that the fourth
+edition was not held and its census not attempted; A13.7 has done both since 17 August.
 
 Any systematic literature on referral pathways into mutual-aid groups, which was not searched. The
 census here is of one book's self-selected accounts and is not a study.
@@ -9093,14 +9100,14 @@ this limitation is listed first.
     depends on the outcome scored.
 
 15. **Sources not read.** Alexander (1988) on the class and domestic dimensions of the
-    Washingtonian movement; Blumberg (1980, 1991) on its political entanglement; the full
-    text of Pagano et al. (2004), which is cited at a remove; White's *Slaying the
-    Dragon*. Maxwell (1950) was read in full, but the copy available to us is a retyped
-    web reproduction with visible transcription errors, not a scan of the journal, so
-    every Maxwell citation here has been checked against a transcription rather than
-    against the journal. *Twelve Steps and Twelve Traditions* (1953) was read in full on
-    10 August 2026 and is held as a record with no document; the rest of AA's own
-    literature has not been obtained.
+    Washingtonian movement; Blumberg (1980, 1991) on its political entanglement; White's
+    *Slaying the Dragon*. Maxwell (1950) was read in full, but the copy available to us is
+    a retyped web reproduction with visible transcription errors, not a scan of the
+    journal, so every Maxwell citation here has been checked against a transcription
+    rather than against the journal. *Twelve Steps and Twelve Traditions* (1953) was read
+    in full on 10 August 2026. Of the rest of AA's own literature, *Alcoholics Anonymous
+    Comes of Age*, *Pass It On* and all but one 1946 article of the *Grapevine* have not
+    been obtained.
 
 ## Falsifiable Predictions
 
@@ -9427,17 +9434,18 @@ drinking: It's a rocky road to relapse." *Clinical Psychology Review* 27(6): 724
 **Referenced but not reproduced.** The Twelve Steps and Twelve Traditions of Alcoholics
 Anonymous, paraphrased throughout. The text is copyright Alcoholics Anonymous World
 Services, Inc. and is not reproduced here. *Twelve Steps and Twelve Traditions* (1953) was
-read in full on 10 August 2026 from the files AAWS publishes free at aa.org; no copy is
-held, and it is paraphrased rather than quoted at length. AA's other publications
-(*Alcoholics Anonymous Comes of Age*, *Pass It On*, the *Grapevine* essays of 1946, and
-service pamphlets) have not been obtained.
+read in full on 10 August 2026 from the files AAWS publishes free at aa.org, and it is
+paraphrased rather than quoted at length. *Alcoholics Anonymous Comes of Age*, *Pass It
+On* and the *Grapevine* essays of 1946 have not been obtained.
 
 **What was not read.** Any work testing whether real deliberating groups behave like
 DeGroot updaters. Any literature on peer-group composition in voluntary mutual-aid
-settings specifically. Alexander (1988), Blumberg (1980, 1991), Pagano et al. (2004) in
-full, and White's *Slaying the Dragon*. Jellinek's per-capita consumption estimates, which
-are quoted through Maxwell and whose original has not been traced. The literature on how
-fast practices and habits lapse, as distinct from skills.
+settings specifically. Alexander (1988), Blumberg (1980, 1991), and White's *Slaying the
+Dragon*. Jellinek's per-capita consumption estimates, which are quoted through Maxwell and
+whose original has not been traced. Any measurement of how fast a practice lapses when
+nothing renews it: the literature on habit and practice lapse was searched in September
+2026 and the two papers that bracket the decay rate were read in full, but neither
+measures it.
 
 ## The Whole Paper in Plain Language
 
