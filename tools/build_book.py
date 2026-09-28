@@ -50,7 +50,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..'))
 # book on every push to main. Change it in the same commit as a change to the book's sources.
 # tools/check_docs.py fails if it is older than the newest commit touching them, and
 # `--date` overrides it for a one-off build.
-DRAFT_DATE = '22 September 2026'
+DRAFT_DATE = '28 September 2026'
 
 BUILD = os.path.join(ROOT, 'build')
 OUT_MD = os.path.join(BUILD, 'nobody-in-charge.md')

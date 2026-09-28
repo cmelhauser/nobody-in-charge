@@ -183,9 +183,9 @@ Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *Americ
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The CES stage technology, the measurement system, anchoring, and the treatment of endogenous investment.
 
-**Cited at a remove:**
-
 Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Source for the two-factor structure, the predictors and time paths of each factor, spiritual step-work predicting percent days abstinent where behavioural step-work did not, the instrument discrepancy on nine of twelve steps, and the sample of 130 affiliates over nine months. **Note the copy**: the author manuscript's pagination is not the journal's.
+
+**Cited at a remove:**
 
 Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
 

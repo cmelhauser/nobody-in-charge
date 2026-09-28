@@ -141,4 +141,4 @@ Wilson's letters, throughout the Kurtz talk. Kurtz quotes them from memory and w
 
 The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is stored, nothing is committed, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
 
-What genuinely remains unread is most of the canon: the Twelve Concepts of World Service, the service manual, the daily reflections, and seventy years of *Grapevine*. Each is available and none has been opened.
+What genuinely remains unread is most of the canon: the daily reflections, most of the service manual, and seventy years of *Grapevine*, of which a single article from April 1946 has been read. The Twelve Concepts have since been opened, read in full in their short form on 17 August 2026 and in Bill W.'s essays in the 2024-26 service manual on 13 September, where they bear on Chapter Ten rather than on this one.
