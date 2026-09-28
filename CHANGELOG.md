@@ -64,6 +64,13 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Added
 
+- Copies of two papers the paper cites and had read but could not hold, bringing the corpus to 44:
+  Banks et al. (2017) and Rynes and Tonigan (2012), both NIH author manuscripts read at PubMed
+  Central on 14 September 2026. The record then said every scripted route refuses, which was half
+  right: the PDF routes do refuse, and PMC's serves a proof-of-work interstitial this project does
+  not attempt, but the deposited full text is served by the NCBI E-utilities API. Three of the five
+  papers in that position return metadata only and still need a copy saved by hand. No read status
+  or claim changes.
 - Two sources that bracket the decay rate, held git-ignored and read in full on 22 September 2026,
   bringing the corpus to 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open
   access under CC BY 4.0, and Kaskutas, Bond and Avalos (2009) on seven-year trajectories of AA
@@ -81,6 +88,13 @@ someone who wants to know what changed between two tags does not have to read it
     number changes.
 - `research/DECAY-RATE-LITERATURE-SCAN.md`, the search behind that reading, which `HANDOFF.md` had
   carried as unsearched since the skill papers were read.
+- `research/elicitation/5-invitation-email.md`, the message to send a prospective respondent: three
+  subject lines, the email, a short version for a message, the longer version for someone who asks
+  what they are contributing to, answers to the questions respondents actually ask, a nudge and a
+  thank-you. It describes neither the argument nor which rows the book leaves empty, and it adds
+  the one instruction the packet lacked, that respondents should not compare notes until every form
+  is back. `0-start-here` lists it, and `build.sh` now falls back to tectonic where xelatex is
+  absent.
 - `model/decay_reversal.py` and `research/decay_reversal.json`: the same design at 10, 15 and 20
   per cent lower decay, 400 paired seeds per cell, 3,600 runs, model `c3823f72`. It locates the
   membership reversal `decay_ordering.json` left unlocated: the ordering holds at 10 and 15 per
