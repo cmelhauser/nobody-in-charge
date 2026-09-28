@@ -5201,3 +5201,10 @@ status. One of the two chapters is wrong, and only the Human Author knows which.
 
 **What did not change.** No model value, cache, notebook or released number. The book's draft date
 moves to 28 September 2026 because its text changed, which is what `DRAFT_DATE` is for.
+
+**Addendum, the same day.** Rendering the paper's reference page to inspect it showed entries out of
+alphabetical order. A check of the whole list found six: Edgren before Eddy, which was this week's
+own insertion; Fatimah after Fehlandt; the 1953 AAWS entry and the Kurtz talk filed among the M's;
+Riessman after Rohr; and Greenfield after Tonigan. The list is now sorted by first author and then
+year. The file's lines are the same multiset before and after, so no entry's text changed, and the
+paper still sets in 35 pages with no overfull box.

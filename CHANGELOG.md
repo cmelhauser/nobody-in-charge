@@ -170,6 +170,10 @@ someone who wants to know what changed between two tags does not have to read it
     manuscript corrections as outstanding, and the release-gate plan dated a 148-check gate to 9
     August.
 
+  - The paper's reference list had six entries out of alphabetical order, one of them Edgren,
+    placed before Eddy on 22 September. It is now sorted by first author and then year, with no
+    entry's text changed.
+
   The book's draft date moves to 28 September 2026 because its text changed. The comparison
   script's SHA-256 is recorded in `HANDOFF.md` section 9 at the start of the round.
 
