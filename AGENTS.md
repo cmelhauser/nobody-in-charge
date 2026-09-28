@@ -165,11 +165,12 @@ Before claiming a release, run the full sequence in `README.md` and close with `
 One item could change a conclusion: the elicitation round. Part Four rests on a twelve-by-eight
 matrix one person wrote down, and no computation can test its pattern of empty cells because every
 check holds that pattern fixed. The packet to send is `research/elicitation/`. Send
-`1-respondent-form.pdf`. **Never send `4-collator-notes.pdf`**, which names the answer the exercise
-exists to elicit.
+`1-respondent-form.pdf`, with the message drafted in `5-invitation-email.md`. **Never send
+`4-collator-notes.pdf`**, which names the answer the exercise exists to elicit.
 
 The rest qualify or correct rather than change a conclusion: a copyrighted book to buy or borrow,
-scholarly loose ends, and prose corrections the 1939 working manuscript implies. `HANDOFF.md` section 10 is the complete list and the only
+lawful copies for the five record-only sources, two photographs for the 1939 facsimile, and copies
+or read statuses for background citations. `HANDOFF.md` section 10 is the complete list and the only
 place they are recorded; do not treat any shorter list, including this paragraph, as the full
 account. Three items were closed on 17 August 2026 by checking whether the publisher gives them
 away, which it did.

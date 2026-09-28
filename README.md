@@ -132,7 +132,7 @@ model/                  Canonical model and all analysis scripts
 research/               Caches, parameters, source ledger, claim register, and results
 research/incorporated/  One directory per source: records committed, documents git-ignored
 research/staged/        Acquisition report and metadata: provenance, not evidence
-research/elicitation/   The elicitation packet: LaTeX sources, style, and build script
+research/elicitation/   The elicitation packet: LaTeX sources, invitation email, style, build
 reference/              Steps-and-Traditions primer and standalone PDF
 appendix/               Technical appendix source
 paper/                  LaTeX paper, companion notebook, and PDF
@@ -321,7 +321,8 @@ author interpretation and is the book's least verified step. The governance and 
 matrices are one person's judgment and need independent elicitation; the form and its
 preregistered analysis exist at `research/GOVERNANCE-MATRIX-ELICITATION.md` and
 `model/elicitation_compare.py`, and are waiting on respondents. The packet to send is
-`research/elicitation/`, five typeset documents built by `sh research/elicitation/build.sh`.
+`research/elicitation/`, five typeset documents built by `sh research/elicitation/build.sh` and a
+ready-to-send invitation, `5-invitation-email.md`, to paste into an email.
 Send `1-respondent-form.pdf`; **never send `4-collator-notes.pdf`**, which states how many rows
 the book leaves empty and which they are, and so destroys the round for anyone who reads it. Part Four's conclusions degrade
 smoothly with disagreement about magnitudes and are largely gone under structural randomization,

@@ -154,9 +154,11 @@ Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individu
 
 Kaskutas, L. A., J. Bond and L. A. Avalos (2009). "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment." *Addictive Behaviors* 34(12): 1029-1035. **Read in full** on 22 September 2026, apart from the three figures; the NIH author manuscript, held git-ignored in `research/incorporated/KaskutasBondAvalos_2009/`. Source for the warning above that a study must record practice rather than attendance. Chapter Twelve uses the same paper as the slow end of the bracket around the decay rate.
 
+Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
+
 **Cited at a remove:**
 
-Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Used here for the existence and structure of the instrument and for what a further analysis of it could yield.
+Nothing.
 
 **Internal, and reproducible from this repository:**
 

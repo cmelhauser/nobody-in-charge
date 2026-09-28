@@ -220,4 +220,4 @@ The derived group-dependence coefficients, the transmission ratio, the parameter
 
 **What was not read:**
 
-The literature on how fast practices and habits lapse, as distinct from how fast skills fade, which is where the evidence for the decay rate would have to come from and which was not searched. The two skill papers above are the only part of the depreciation literature read.
+Any measurement of how fast a practice lapses when nothing renews it, which is the quantity the decay rate stands for. The literature on how habits and practices lapse was searched on 21 September 2026, and the two papers from it listed above were read in full; neither measures that quantity, and nothing the search found does. Also unread from that search: the *Psychology & Health* companion to Edgren and colleagues' study, which is behind a publisher's bot check, and the wider literature on adherence to voluntary practice regimes, reached only through abstracts. Of the skill-depreciation literature, only the two papers above were read.

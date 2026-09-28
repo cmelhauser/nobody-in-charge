@@ -144,6 +144,39 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- A sweep before the elicitation round found twenty-odd statements the tree had outgrown, none
+  caught by a checker because each was a reference status or a sentence rather than a count.
+  - Five chapter references read in full were still filed under "Cited at a remove": Blair and
+    Fehlandt in Chapter 2, the April 1946 *Grapevine* article in Chapter 5, Greenfield and Tonigan
+    in Chapters 13 and 24, and Pagano et al. in Chapter 15. Each now sits under "Read in full".
+  - Chapter 12 still said the lapse literature was never searched, and Chapters 16 and 25 that the
+    Twelve Concepts and the service manual had never been opened. Chapter 16 now reports a search
+    of both held texts, which finds no sentence pairing a Step with the same-numbered Tradition.
+  - The paper listed Pagano et al. (2004) as unread and at a remove, called the *Twelve Steps and
+    Twelve Traditions* a record with no document, said the service pamphlets were unobtained, and
+    listed the lapse literature as unread.
+  - Appendix A13's reference list said the 2001 Big Book was not held and its census not
+    attempted, which A13.7 has done since 17 August.
+  - The summaries for the Kurtz talk and the *Twelve Steps and Twelve Traditions* still said
+    "Record only. No document is stored at any time", and `research/SOURCES.md` still said no copy
+    of the latter was held and counted twenty-eight sources holding a document where there are
+    thirty-nine.
+  - `CLAUDE.md` and `HANDOFF.md` described a heading rule the chapter checker contradicts: three
+    reference headings are required in every chapter, and nine carry "Nothing.". Both now state
+    the rule the checker enforces.
+  - `AGENT_VERIFY.md` quoted the no-documents citation check at 18 indexed sources; rerun with all
+    64 documents set aside, it is 55 pairs across 38. `HANDOFF.md` was dated 15 September, which by
+    its own rule marked it stale against the progress log. `AGENTS.md` still listed working
+    manuscript corrections as outstanding, and the release-gate plan dated a 148-check gate to 9
+    August.
+
+  - The paper's reference list had six entries out of alphabetical order, one of them Edgren,
+    placed before Eddy on 22 September. It is now sorted by first author and then year, with no
+    entry's text changed.
+
+  The book's draft date moves to 28 September 2026 because its text changed. The comparison
+  script's SHA-256 is recorded in `HANDOFF.md` section 9 at the start of the round.
+
 - The book and the primer dated themselves from the clock. Both builders took the printed date
   from `date.today()`, and continuous integration rebuilds both on every push to `main`, so the
   date recorded when a machine last ran pandoc rather than when the text last changed; a rebuild

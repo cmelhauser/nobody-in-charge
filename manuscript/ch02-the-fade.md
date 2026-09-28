@@ -277,15 +277,15 @@ Marsh, J. (1866). *Temperance Recollections: Labors, Defeats, Triumphs. An Autob
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA)." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. Used in the notes above for the reading of AA's entry cost as stigma rather than sacrifice.
 
-**Cited at a remove:**
-
-Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (1950). The judgment about ideological distinctiveness quoted in the text.
-
 Blair, H. W. (1888). *The Temperance Movement; or, The Conflict Between Man and Alcohol.* Boston: William E. Smythe. **Now read at source**; saved as `research/incorporated/Blair_1888/`. Used for the passage quoted above in full: the hundred and fifty thousand saved, the four hundred and fifty thousand who fell, the charge that the Washingtonians' opposition to legal restraint demoralised public sentiment, and the maudlin insanity line in its actual context. Blair was a United States senator and the author of a proposed prohibition amendment, so he is a hostile witness with a legislative motive, which is exactly why the passage is useful.
 
 Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati: Jennings and Graham. **Now read at source**; saved as `research/incorporated/Fehlandt_1904/`. His dating is blunter than Maxwell's and worth recording as the received view Maxwell was correcting: *By 1843, however, interest began to wane, and soon Washingtonianism had spent its force.* Maxwell's regional evidence shows this is too early and too uniform, and the disagreement is the point.
 
-American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union.
+**Cited at a remove:**
+
+Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (1950). The judgment about ideological distinctiveness quoted in the text.
+
+American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The reports this chapter quotes, 1842 to 1847, are reached through Maxwell's year-by-year reading. Three other volumes of the series are held and were read in full on 13 September 2026, the 1840 and 1841 reports and the 1849 *Almanac* (`research/incorporated/ATU_1840/`, `ATU_1841/`, `ATU_1849/`), and none of them is among the years quoted.
 
 Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age*, p. 125. AA's own account, which this chapter declines to follow.
 

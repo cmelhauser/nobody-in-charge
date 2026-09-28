@@ -108,8 +108,10 @@ claims. Confirm any Rohr citation against a lawfully obtained edition before rel
 the source's vocabulary and, because a vocabulary set has no word order, which registered subjects
 the document contains, decided against the real text at build time and stamped with that file's
 SHA-256. Confirm this rather than assume it: move the documents aside and rerun
-`tools/check_book.py`. It reported 55 citation-subject pairs across 18 indexed sources, all supported,
-with zero documents present. If a re-acquired file's hash differs from its index, the index is stale;
+`tools/check_book.py`. When last run that way, on 28 September 2026 with all 64 held documents set
+aside, it reported 55 citation-subject pairs across 38 indexed sources, all supported. The 38 is
+fewer than the 44 sources because three record-only sources have no index and the three ATU
+reports and the two Big Book editions each share a leading token. If a re-acquired file's hash differs from its index, the index is stale;
 rebuild with `python3 tools/build_corpus.py` rather than trusting it, and `--check` reports drift.
 
 Two limitations are declared rather than hidden: the subject matcher is deliberately tolerant of
