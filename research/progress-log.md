@@ -5208,3 +5208,33 @@ own insertion; Fatimah after Fehlandt; the 1953 AAWS entry and the Kurtz talk fi
 Riessman after Rohr; and Greenfield after Tonigan. The list is now sorted by first author and then
 year. The file's lines are the same multiset before and after, so no entry's text changed, and the
 paper still sets in 35 pages with no overfull box.
+
+### 28 September 2026, later: the paper's date, and five statements the sweep missed
+
+**What was asked.** The Human Author asked for the paper's title page to read September 2026. It
+said August, and the paper's text had changed on 28 September.
+
+**What reading the title page turned up.** The abstract beneath it said the project had not read
+the AA service document needed to verify a present group count. SMF-132 was read on 17 August
+2026. The sweep earlier the same day had missed it, and the reason is worth recording: it searched
+for "not obtained", "not searched", "cited at a remove" and "record only", and this sentence said
+"has not read". A second pass over every phrasing of unread, unobtained, unverified and "remains"
+found four more:
+- Chapter 1 had the same sentence as the abstract, in the narrative.
+- Chapter 4's notes opened by saying the chapter rests on a scholarly work not yet obtained, three
+  paragraphs above the note recording that Kurtz was obtained and read on 2 August.
+- The paper's corpus note said two journal articles remain under `research/staged/`, unread and not
+  evidence for the paper. Both were read on 10 August and both are cited.
+- Appendix A9 called `research/staged/` a next-round corpus with items deliberately not
+  incorporated, and told a verifier how to label findings it might resolve.
+
+**What they say now.** The abstract and Chapter 1 give the true reason for stating no present
+count: AA keeps no membership lists, and the edition of its membership table read here stops at
+2020. Chapter 4 says it was first drafted on a work since read. The paper and A9 say what the
+staged directory holds now, which is provenance. The release gate's check that the directory
+exists kept its condition and lost its stale label, "deferred next-round corpus". The staged
+package's own README had the Valverde and White-Mair citation garbled the same way the handoff did,
+and a present-tense "What is included" heading over items that have since moved.
+
+**What did not change.** No model value, cache, notebook or released number. The book's text
+changed, and its draft date was already 28 September 2026.

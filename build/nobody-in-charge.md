@@ -414,9 +414,9 @@ Ninety-five years after Chase's Tavern, in a house in Akron, a failed stockbroke
 
 The Washingtonians had that insight first, executed it beautifully, and reached six hundred thousand people with it.
 
-Alcoholics Anonymous has been running for more than ninety years. This project has not read
-the current service document needed to support a present membership count, so it does not
-state one.
+Alcoholics Anonymous has been running for more than ninety years. It keeps no membership
+lists, and the edition of its own membership table read here stops at 2020, so I state no
+present count.
 
 The difference between those two outcomes is not the insight, because the insight was the same. It is not the founders' talent; Mitchell and Hawkins were formidable and Bill Wilson said so. It is not the era, or the medicine, or the money.
 
@@ -1217,7 +1217,7 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 ### 3. Notes on sources
 
-**This chapter is the least well sourced in Part One, and I want that on the record.** Chapters One to Three rest on documents I read in full: Maxwell's 1950 study and Gough's 1869 autobiography. This chapter rests on a scholarly work I have not yet obtained, plus a set of secondary accounts that mostly derive from AA's own copyrighted histories.
+**This chapter is the least well sourced in Part One, and I want that on the record.** Chapters One to Three rest on documents I read in full: Maxwell's 1950 study and Gough's 1869 autobiography. This chapter was first drafted on a scholarly work I had not yet obtained, plus a set of secondary accounts that mostly derive from AA's own copyrighted histories. That work, Kurtz's *Not-God*, has since been read, and the notes below record what it changed and what is still at a remove.
 
 **What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation and his fifty-thousand-dollar recommendation; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
 
@@ -5754,10 +5754,12 @@ draws. The magnitude claim therefore needs substantive defense and independent e
 Maxwell copy remains a retyped reproduction with visible transcription errors, not a journal
 scan; moving it did not upgrade its source status.
 
-`research/staged/` is a supplied next-round corpus. Its remaining items have intentionally not
-been incorporated into the manuscript or paper. File presence is not evidence that a source was
-read or used. A verifier may mark a finding `deferred corpus may resolve`, but must not silently
-use staged material to repair this release or recommend it as an accidentally overlooked source.
+`research/staged/` held a supplied corpus, and it has been worked through: its four acquired
+items moved to `research/incorporated/` on 9 August 2026, and the two journal articles it could not
+retrieve were obtained by hand and read in full on 10 August. What remains there is the acquisition
+report and its metadata, which are provenance rather than evidence. The rule it was kept under
+still applies to anything acquired in future: file presence is not evidence that a source was read
+or used.
 
 ---
 
@@ -9206,11 +9208,12 @@ cited at a remove, or not read has that current-project status. For entries with
 explicit status, the repository does not document whether the full work was read; they are
 background citations and do not upgrade a load-bearing claim. The complete current status
 register is `research/SOURCES.md`. The separately supplied corpus was worked through on 9
-August 2026; what remains under `research/staged/` is two journal articles that are
-recorded as verified online, are unread because retrieval returned an access challenge,
-and are not evidence for this paper. No source document is committed to the repository:
-each source is published as a citation, a rights position, a provenance URL, a SHA-256 and
-a vocabulary-only verification index.
+August 2026. The two journal articles it could not retrieve, Pagano et al. (2004) and
+Greenfield and Tonigan (2013), were obtained by hand and read in full on 10 August 2026,
+and what remains under `research/staged/` is the acquisition report and its metadata,
+which are provenance rather than evidence. No source document is committed to the
+repository: each source is published as a citation, a rights position, a provenance URL, a
+SHA-256 and a vocabulary-only verification index.
 
 ::: list
 Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions.* New

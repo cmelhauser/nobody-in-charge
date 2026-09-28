@@ -106,7 +106,7 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 ### 3. Notes on sources
 
-**This chapter is the least well sourced in Part One, and I want that on the record.** Chapters One to Three rest on documents I read in full: Maxwell's 1950 study and Gough's 1869 autobiography. This chapter rests on a scholarly work I have not yet obtained, plus a set of secondary accounts that mostly derive from AA's own copyrighted histories.
+**This chapter is the least well sourced in Part One, and I want that on the record.** Chapters One to Three rest on documents I read in full: Maxwell's 1950 study and Gough's 1869 autobiography. This chapter was first drafted on a scholarly work I had not yet obtained, plus a set of secondary accounts that mostly derive from AA's own copyrighted histories. That work, Kurtz's *Not-God*, has since been read, and the notes below record what it changed and what is still at a remove.
 
 **What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation and his fifty-thousand-dollar recommendation; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
 
