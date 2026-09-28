@@ -1244,7 +1244,6 @@ both NIH author manuscripts. The other three are not in either service's full-te
 al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007) return metadata
 only, so they still need a copy saved by hand. Read statuses below are unchanged by any of this.
 
-
 The paper cites additional methodological and empirical works that the manuscript does
 not otherwise use. Earlier versions of this register omitted them, and the paper's
 bibliography often omitted read status. The current-project record supports the following:

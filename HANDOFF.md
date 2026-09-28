@@ -186,11 +186,14 @@ search; it does not replace reading the surrounding claim.
 
 44 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
-The newest are `ServiceManual_2024` and the seven open-access papers held on 13 September 2026.
+The newest are the two NIH author manuscripts held on 24 September 2026, `BanksBekeleMaxwell_2017`
+and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
+`KaskutasBondAvalos_2009`.
 `WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
 held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md` sets out what it
 implies for the manuscript: its two corrections, to Chapter 4 and to Appendix A13, were made on 13
-September 2026, and its other suggested uses are section 10, item 8.
+September 2026, and its other seven suggested uses were drafted on 15 September 2026, as the
+closed list in section 10 records.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
 `.pdf`, `.txt`, `.djvu` and `.epub` under `research/incorporated/` and `research/staged/`. What is

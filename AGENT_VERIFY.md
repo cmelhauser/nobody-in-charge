@@ -53,7 +53,11 @@ Three statuses must remain distinct.
    Concepts for World Service in short form, *Tricycle* on the 2019 Recovery Dharma schism, and
    the fourth edition of the Big Book, which supports Appendix A13.7; and, added on 12 September
    2026, Hazelden's facsimile of the annotated 1939 working manuscript; and, added on 13 September
-   2026, the 2024-26 *A.A. Service Manual* with Bill W.'s full Twelve Concepts. A directory's leading token
+   2026, the 2024-26 *A.A. Service Manual* with Bill W.'s full Twelve Concepts and the seven
+   open-access papers held the same day; and, added on 22 September 2026, the two papers that
+   bracket the decay rate, Edgren, Baretta and Inauen (2025) and Kaskutas, Bond and Avalos (2009);
+   and, added on 24 September 2026, two NIH author manuscripts the paper cites, Banks et al. (2017)
+   and Rynes and Tonigan (2012). A directory's leading token
    must be at least three characters and distinctive, because `check_book.py` identifies a
    source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
