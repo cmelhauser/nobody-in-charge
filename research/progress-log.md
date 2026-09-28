@@ -5068,3 +5068,15 @@ unambiguous and therefore gets real citation checking.
 
 **What did not change.** No model value, cache, notebook or released number, and nothing in the
 book.
+
+**Addendum, 28 September 2026: four stale statements found in review before merging.** One was
+introduced by this change: rewriting the 22 September waypoint in `CLAUDE.md` turned "bringing the
+corpus to its present 42" into "to 44", when those two additions brought it to 42 and the 24
+September pair brought it to 44. `check_docs.py` exempts waypoint phrasing on purpose, so only
+reading caught it. Three were older. `AGENT_VERIFY.md` enumerates the corpus beside its total and
+the enumeration stopped at the Service Manual, short by the seven open-access papers of 13
+September and by all four papers added since, which is the failure the checker's own docstring
+describes: the total right and the list short. `HANDOFF.md` section 7 still named the Service
+Manual and the 13 September papers as the newest sources, and pointed the working manuscript's
+remaining suggested uses at "section 10, item 8", an item that closed on 15 September and a number
+that no longer exists. All four are corrected.

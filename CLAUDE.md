@@ -150,7 +150,7 @@ The model is unchanged: the two skill-depreciation papers measure skill, not the
 decay rate represents. Five sources remain record only because no lawful copy is yet in hand.
 
 Two more were added on 22 September 2026 at the Human Author's direction, bringing the corpus to
-44: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under
+42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under
 CC BY 4.0, and Kaskutas, Bond and Avalos (2009) on seven-year trajectories of AA attendance, as
 the NIH author manuscript. Both were read in full the day they were held. Neither is held as a
 PDF, because the publisher and PubMed Central download routes are behind bot checks this project
