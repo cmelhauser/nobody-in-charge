@@ -9213,6 +9213,17 @@ each source is published as a citation, a rights position, a provenance URL, a S
 a vocabulary-only verification index.
 
 ::: list
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions.* New
+York: AAWS. **Read in full** 10 August 2026, from the per-chapter files AAWS publishes
+free at aa.org. Source for the elder-statesman structure of
+Section [3.6](#sec:elders){reference-type="ref" reference="sec:elders"} (Tradition 2,
+printed pp. 132-138), the statement that rotating leadership is best and the warning
+against entrenched power (Tradition 9, pp. 174-178), the two functions of anonymity
+(Tradition 12, pp. 187-191), and the unity/singleness-of-purpose distinction (Traditions 1
+and 5, pp. 129-131 and 151-155). Also the cross-reference count reported in
+Section [4.1](#sec:conjecture){reference-type="ref" reference="sec:conjecture"}. **In
+copyright; no copy is held in the project repository.**
+
 Alexander, R. M. (1988). "'We Are Engaged as a Band of Sisters': Class and Domesticity in
 the Washingtonian Temperance Movement, 1840-1850." *Journal of American History* 75(3):
 763-785. **Not read**; cited for the women's dimension of the movement, which this paper
@@ -9271,22 +9282,22 @@ Dinerstein, M., R. Megalokonomou, and C. Yannelis (2022). "Human capital depreci
 returns to experience." NBER Working Paper 27925. **Read in full** apart from its online
 appendix.
 
+Eddy, R. (1887). *Alcohol in History.* New York: National Temperance Society. **Read at
+source**; public domain.
+
 Edgren, R., D. Baretta, and J. Inauen (2025). "The temporal trajectories of habit decay in
 daily life: An intensive longitudinal study on four health-risk behaviors." *Applied
 Psychology: Health and Well-Being* 17(1): e12612. **Read in full** apart from its
 supplement, figures, and references; open access under CC BY 4.0.
-
-Eddy, R. (1887). *Alcohol in History.* New York: National Temperance Society. **Read at
-source**; public domain.
-
-Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati:
-Jennings and Graham. **Read at source**; public domain.
 
 Fatimah, H., M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of
 Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and
 Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. **Read in full** from the author
 manuscript; the strongest empirical warrant used here for a two-well relapse landscape,
 with the limitations stated in Section 5.
+
+Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati:
+Jennings and Graham. **Read at source**; public domain.
 
 Galanter, M. (1981). "The 'relief effect': A sociobiological model for neurotic distress
 and large-group therapy." *American Journal of Psychiatry* 138(5): 588-591.
@@ -9303,6 +9314,12 @@ drinking behavior: A preliminary model and potential applications to theory and 
 Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough.*
 Springfield, Mass.: Bill, Nichols & Co. **Read at source**; public domain. The September
 1845 episode in his own words.
+
+Greenfield, B. L., and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of
+Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive
+Behaviors* 27(3): 553-561. **Read in full**; NIH author manuscript, PMCID PMC3707937,
+obtained 10 August 2026. Source for the two-factor structure of step-work and the
+disagreement between instruments on nine of twelve steps.
 
 Grosh, A. B., comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica, N.Y.:
 B. S. Merrell. **Read at source**; Harvard copy digitized by Google, via HathiTrust,
@@ -9347,6 +9364,13 @@ Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf. **
 source**; public domain. Independent corroboration of the founding, the officers, the fee
 and the dues.
 
+Kurtz, E. (c. 1984). "A Talk About the History of Alcoholics Anonymous From the Letters of
+Bill Wilson." Undated recorded talk; transcript restored by historyofrecovery.com. **Read
+in full** 10 August 2026. The year is inferred from internal evidence and is given as
+approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted
+within it from memory and without page citations, so anything attributed to Wilson through
+this source is at a remove. **No copy is held.**
+
 Kurtz, E. (1991). *Not-God: A History of Alcoholics Anonymous.* Expanded edition. Center
 City, Minn.: Hazelden. **Consulted at source**; in copyright, full text not stored. The
 Traditions' drafting history. A vocabulary-only verification index is retained at
@@ -9357,24 +9381,6 @@ Association for the Study of Religion, Economics and Culture. **Read in full.**
 
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner. **Read at
 source**; public domain.
-
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions.* New
-York: AAWS. **Read in full** 10 August 2026, from the per-chapter files AAWS publishes
-free at aa.org. Source for the elder-statesman structure of
-Section [3.6](#sec:elders){reference-type="ref" reference="sec:elders"} (Tradition 2,
-printed pp. 132-138), the statement that rotating leadership is best and the warning
-against entrenched power (Tradition 9, pp. 174-178), the two functions of anonymity
-(Tradition 12, pp. 187-191), and the unity/singleness-of-purpose distinction (Traditions 1
-and 5, pp. 129-131 and 151-155). Also the cross-reference count reported in
-Section [4.1](#sec:conjecture){reference-type="ref" reference="sec:conjecture"}. **In
-copyright; no copy is held in the project repository.**
-
-Kurtz, E. (c. 1984). "A Talk About the History of Alcoholics Anonymous From the Letters of
-Bill Wilson." Undated recorded talk; transcript restored by historyofrecovery.com. **Read
-in full** 10 August 2026. The year is inferred from internal evidence and is given as
-approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted
-within it from memory and without page citations, so anything attributed to Wilson through
-this source is at a remove. **No copy is held.**
 
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on
 Alcohol* 11: 410-452. **Read in full**, with a caution: the available copy is a retyped
@@ -9391,14 +9397,14 @@ alcoholics in Alcoholics Anonymous and drinking outcomes." *Journal of Studies o
 August 2026. Source for the 40 against 22 per cent abstinence contrast, its independence
 from meeting attendance, and the authors' 8 per cent helping-rate limitation.
 
+Riessman, F. (1965). "The 'helper' therapy principle." *Social Work* 10(2): 27-32.
+
 Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps.* Cincinnati:
 Franciscan Media. **Read in full** 10 August 2026. Cited only for its reading of anonymity
 as confidentiality and for containing no discussion of the Traditions. The copy consulted
 was an unauthorised posting; the bibliographic record was confirmed independently of it,
 no copy is held, and nothing is quoted at length. See `research/incorporated/Rohr_2011/`
 for the rights position in full.
-
-Riessman, F. (1965). "The 'helper' therapy principle." *Social Work* 10(2): 27-32.
 
 Rynes, K. N., and J. S. Tonigan (2012). "Do social networks explain 12-step sponsorship
 effects? A prospective lagged mediation analysis." *Psychology of Addictive Behaviors*
@@ -9416,12 +9422,6 @@ Sharma, S., and G. P. Samanta (2015). "Analysis of a drinking epidemic model."
 
 Tonigan, J. S., G. J. Connors, and W. R. Miller (1996). "The Alcoholics Anonymous
 Involvement (AAI) scale." *Psychology of Addictive Behaviors* 10: 75-80.
-
-Greenfield, B. L., and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of
-Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive
-Behaviors* 27(3): 553-561. **Read in full**; NIH author manuscript, PMCID PMC3707937,
-obtained 10 August 2026. Source for the two-factor structure of step-work and the
-disagreement between instruments on nine of twelve steps.
 
 Witkiewitz, K., and G. A. Marlatt (2004). "Relapse prevention for alcohol and drug
 problems." *American Psychologist* 59(4): 224-235.
