@@ -5068,3 +5068,49 @@ different driver.
 
 **What did not change.** No model value, cache, notebook, released number or count, and nothing in
 the book.
+
+### 24 September 2026: two copies that were said to be unobtainable
+
+**What prompted it.** Holding Edgren and Kaskutas on 22 September used a route the project had not
+tried: the deposited full text, served by the Europe PMC REST service and by NCBI E-utilities. The
+handoff had five papers recorded as read at PubMed Central and impossible to hold, on the ground
+that "every scripted route refuses". That claim was worth retesting against the route that had just
+worked.
+
+**What came back.** Two of the five. Banks et al. (2017), PMC5551482, and Rynes and Tonigan (2012),
+PMC3248627, are NIH author manuscripts whose full text the E-utilities API serves in JATS. Both are
+now held git-ignored with a SHA-256 and a verification index, on the standing direction of 13
+September that the corpus hold a lawful copy of every source it can. The other three, Gorman et al.
+(2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007), return metadata only
+from both services and still need a copy saved by hand.
+
+**What was not done.** No bot check was bypassed. The PDF routes still refuse, and PMC's serves a
+proof-of-work interstitial, which is a bot check and is left alone. The distinction is the point:
+an API that serves a deposit to anyone who asks is not a door that was locked.
+
+**Read statuses are unchanged.** Both papers were read in full on 14 September 2026 and what the
+reading found is already in `research/SOURCES.md`. What changed is provenance: the claims they
+support can now be checked against a held copy and a vocabulary index rather than against a memory
+of a web page. The Banks deposit carries its display equations as MathML, which does not survive
+rendering to text, and that is recorded in its metadata and summary, because it is how the paper
+was read in the first place.
+
+**One naming decision.** `BanksBekeleMaxwell_2017` rather than `Banks_2017`, since the paper also
+cites Banks et al. (2014) at a remove and a bare surname token would let `check_book.py` check a
+citation of one against the text of the other. `Rynes_2012` keeps the bare surname, which is
+unambiguous and therefore gets real citation checking.
+
+**What did not change.** No model value, cache, notebook or released number, and nothing in the
+book.
+
+**Addendum, 28 September 2026: four stale statements found in review before merging.** One was
+introduced by this change: rewriting the 22 September waypoint in `CLAUDE.md` turned "bringing the
+corpus to its present 42" into "to 44", when those two additions brought it to 42 and the 24
+September pair brought it to 44. `check_docs.py` exempts waypoint phrasing on purpose, so only
+reading caught it. Three were older. `AGENT_VERIFY.md` enumerates the corpus beside its total and
+the enumeration stopped at the Service Manual, short by the seven open-access papers of 13
+September and by all four papers added since, which is the failure the checker's own docstring
+describes: the total right and the list short. `HANDOFF.md` section 7 still named the Service
+Manual and the 13 September papers as the newest sources, and pointed the working manuscript's
+remaining suggested uses at "section 10, item 8", an item that closed on 15 September and a number
+that no longer exists. All four are corrected.

@@ -155,9 +155,19 @@ RIGHTS = {
                     "copyright 2024 the authors. Held git-ignored since 22 September 2026; "
                     "never committed, because the rule is uniform even where the licence "
                     "would permit it."),
-    "KaskutasBondAvalos_2009": ("NIH author manuscript in PubMed Central under the NIH public access "
-                      "policy; copyright Elsevier. Held git-ignored since 22 September 2026; "
-                      "never committed or redistributed."),
+    "KaskutasBondAvalos_2009": ("NIH author manuscript in PubMed Central under the NIH public "
+                                "access policy; copyright Elsevier. Held git-ignored since 22 "
+                                "September 2026; never committed or redistributed."),
+    # Added 24 September 2026. Both were read at PubMed Central on 14 September and recorded
+    # then as held by nobody, because the PDF routes refuse scripted access. The deposited full
+    # text is served by the NCBI E-utilities API, which bypasses no bot check, so both are now
+    # held on the same footing as every other git-ignored document.
+    "BanksBekeleMaxwell_2017": ("NIH author manuscript in PubMed Central under the NIH public "
+                                "access policy; copyright Springer. Held git-ignored since 24 "
+                                "September 2026; never committed or redistributed."),
+    "Rynes_2012": ("NIH author manuscript in PubMed Central under the NIH public access policy; "
+                   "copyright the American Psychological Association. Held git-ignored since 24 "
+                   "September 2026; never committed or redistributed."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 
