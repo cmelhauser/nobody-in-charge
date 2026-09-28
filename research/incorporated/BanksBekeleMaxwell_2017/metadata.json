@@ -1,0 +1,32 @@
+{
+ "id": "BanksBekeleMaxwell_2017",
+ "title": "Dynamic modeling of problem drinkers undergoing behavioral treatment",
+ "authors": [
+  "H. T. Banks",
+  "Kidist Bekele-Maxwell",
+  "R. A. Everett",
+  "Lyric Stephenson",
+  "Sijing Shao",
+  "Jon Morgenstern"
+ ],
+ "year": 2017,
+ "type": "journal_article",
+ "status": "read_in_full",
+ "held_version": "NIH author manuscript as deposited in PMC, JATS full text rendered to plain text; PMCID PMC5551482",
+ "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=5551482&retmode=xml",
+ "retrieved": "2026-09-24",
+ "record_only": false,
+ "note": "Read in full at PubMed Central on 14 September 2026, when no copy was held because the PDF route refused scripted access. The deposited full text is served by the NCBI E-utilities API, which is not a bot check and needs none bypassed, so a copy is held from 24 September 2026. The display equations are MathML in the deposit and do not survive rendering to plain text, which matches how the paper was read: through the authors' term-by-term description rather than from the rendered equations.",
+ "rights_note": "NIH author manuscript in PubMed Central under the NIH public access policy; copyright Springer. Held git-ignored since 24 September 2026; never committed or redistributed.",
+ "read_date": "2026-09-14",
+ "read_scope": "full text; the display equations were read through the authors' description of their terms, not from the rendered mathematics",
+ "legacy_stem": null,
+ "documents": {
+  "BanksBekeleMaxwell_2017.txt": {
+   "sha256": "5123934a5fe96b45d0208b1b24aac68949a021e552e25ab06a44db5e9037306b",
+   "bytes": 35849,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

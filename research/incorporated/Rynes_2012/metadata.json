@@ -1,0 +1,28 @@
+{
+ "id": "Rynes_2012",
+ "title": "Do social networks explain 12-step sponsorship effects? A prospective lagged mediation analysis",
+ "authors": [
+  "Kristina N. Rynes",
+  "J. Scott Tonigan"
+ ],
+ "year": 2012,
+ "type": "journal_article",
+ "status": "read_in_full",
+ "held_version": "NIH author manuscript as deposited in PMC, JATS full text rendered to plain text; PMCID PMC3248627",
+ "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=3248627&retmode=xml",
+ "retrieved": "2026-09-24",
+ "record_only": false,
+ "note": "Read in full at PubMed Central on 14 September 2026, when no copy was held because the PDF route refused scripted access. The deposited full text is served by the NCBI E-utilities API, so a copy is held from 24 September 2026. This is the accepted manuscript rather than the journal's typeset article, so its pagination is not the journal's, and the two tables are in the deposit while the figures are not.",
+ "rights_note": "NIH author manuscript in PubMed Central under the NIH public access policy; copyright the American Psychological Association. Held git-ignored since 24 September 2026; never committed or redistributed.",
+ "read_date": "2026-09-14",
+ "read_scope": "full text and both tables; the figures are not in the deposit",
+ "legacy_stem": null,
+ "documents": {
+  "Rynes_2012.txt": {
+   "sha256": "67691d465e3577260d2f05315d4e21bdb57a9e94f3ea3a439920f693438f799f",
+   "bytes": 33156,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+}

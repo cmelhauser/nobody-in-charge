@@ -64,6 +64,13 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Added
 
+- Copies of two papers the paper cites and had read but could not hold, bringing the corpus to 44:
+  Banks et al. (2017) and Rynes and Tonigan (2012), both NIH author manuscripts read at PubMed
+  Central on 14 September 2026. The record then said every scripted route refuses, which was half
+  right: the PDF routes do refuse, and PMC's serves a proof-of-work interstitial this project does
+  not attempt, but the deposited full text is served by the NCBI E-utilities API. Three of the five
+  papers in that position return metadata only and still need a copy saved by hand. No read status
+  or claim changes.
 - Two sources that bracket the decay rate, held git-ignored and read in full on 22 September 2026,
   bringing the corpus to 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open
   access under CC BY 4.0, and Kaskutas, Bond and Avalos (2009) on seven-year trajectories of AA
