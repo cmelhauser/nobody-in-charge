@@ -174,9 +174,9 @@ Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (
 
 *Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. For this chapter, the printed wording of the three edited passages.
 
-**Cited at a remove:**
-
 Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). "Helping Other Alcoholics in Alcoholics Anonymous and Drinking Outcomes: Findings from Project MATCH." *Journal of Studies on Alcohol* 65(6): 766-773. **Read in full**; the NIH author manuscript, PMCID PMC3008319, obtained 10 August 2026 and stored with its citation and metadata in `research/incorporated/Pagano_2004/`. Source for the forty and twenty-two per cent figures, which earlier drafts took from a 2011 news release and which the paper's own results section confirms, for the independence from meeting attendance, and for the eight per cent helping rate the authors give as their first limitation. **Note the copy**: this is the author manuscript, so its pagination is not the journal's and a page-specific citation would need the published version.
+
+**Cited at a remove:**
 
 Riessman, F. (1965). "The 'Helper' Therapy Principle." *Social Work* 10(2): 27-32. Cited for the naming of the principle; not read at source.
 

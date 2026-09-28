@@ -3,8 +3,11 @@
 A recorded talk by Ernest Kurtz, the historian of Alcoholics Anonymous, drawing on Bill Wilson's
 letters. Transcript restored by historyofrecovery.com. Read in full on 10 August 2026.
 
-**Record only. No document is stored at any time.** The rights position of the restored transcript
-was not established by the project, which is itself a reason not to hold it.
+**Held since 13 September 2026; record only before that.** The talk is sold as an audiobook, and
+the rights position of the transcript restored online was never established by the project, which
+was the reason it was not held. The copy now held is a different thing: the Human Author's own
+transcription, git-ignored at their direction and never committed. `metadata.json` records the
+change under `formerly_record_only`.
 
 **The year is inferred and must always be given as "about 1984".** See `citation.md` for the
 internal evidence. This is a different item from Kurtz (1991), catalogued at `Kurtz_1991`.

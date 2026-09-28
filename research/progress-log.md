@@ -5162,3 +5162,42 @@ commits everywhere, since they record when branches met rather than when the tex
 two halves that read the rendered artifacts still run in continuous integration. Reproduced before
 fixing, in a depth-one clone of the branch: 21 passed, 2 skipped, 0 failed there, and all 23 passing
 against the full history.
+
+### 28 September 2026: a sweep before the elicitation round
+
+**What was asked.** The Human Author is about to start the elicitation round and acquire the
+remaining documents, and asked for the repository to be checked for anything stale first.
+
+**How it was checked.** Every checker already passed, so the sweep went where they do not look.
+Each source's recorded status was tabulated from its `metadata.json`, and every chapter's
+reference-status sections, the paper's limitation and reference notes, the appendix, the primer,
+the per-source summaries and the top-level documents were read against that table. Where a claim
+could be tested, it was: the no-documents citation check that `AGENT_VERIFY.md` tells a verifier
+to reproduce was rerun with all 64 held documents set aside and then restored, and the corpus hashes
+still matched afterwards.
+
+**What it found.** Statuses, not numbers. Five references read in full were still filed under
+"Cited at a remove", upgraded in place when they were read in August instead of being moved. Three
+chapters and the paper still described the lapse literature, the Twelve Concepts, the service
+manual and the *Twelve Steps and Twelve Traditions* as unsearched, unopened or unheld. Appendix
+A13's reference list contradicted its own A13.7. Two source summaries still opened "Record only".
+The ledger counted twenty-eight sources holding a document where there are thirty-nine. The written
+heading rule said empty headings are dropped, while the checker requires three in every chapter and
+nine carry "Nothing.". The handoff was dated 15 September, which by its own rule made it stale.
+
+**Two things were done rather than asserted.** Chapter 16 had said the Twelve Concepts and the
+service manual "could contain an assertion of the pairing". Both are held, so both were searched:
+no sentence names a Step alongside the Tradition of the same number, and the one sentence naming a
+Step and a Tradition together ties the Seventh Tradition to Twelfth Step work. The chapter now says
+exactly that and no more. And the elicitation packet was checked against the model: the collator
+notes name the same five empty rows as `GOV`, nothing sent to a respondent states the count or the
+rows, and `model/elicitation_compare.py` has not changed since the initial import. Its SHA-256 is
+now recorded in `HANDOFF.md` section 9, so that "must not be edited once forms start arriving" can
+be checked rather than trusted.
+
+**One question left for the Human Author.** Iannaccone (1992) is "read at source" in Chapter 12's
+references and "Cited at a remove" in Chapter 2's, and `research/SOURCES.md` records no read
+status. One of the two chapters is wrong, and only the Human Author knows which.
+
+**What did not change.** No model value, cache, notebook or released number. The book's draft date
+moves to 28 September 2026 because its text changed, which is what `DRAFT_DATE` is for.

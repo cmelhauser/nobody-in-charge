@@ -256,11 +256,13 @@ reproduced, and not obtained.
   written in the same plain language as the third part. Do not add an entry with only two
   parts, and do not let the middle part drift out of step with `model/aa_group_model.py`,
   which is where every value it quotes is defined.
-- Every chapter ends with The Machinery and its reference-status headings, in this order, using
-  the ones that apply: Read in full; Cited at a remove; Referenced but not reproduced; Internal,
-  and reproducible from this repository; What was not read. A heading with nothing under it is
-  omitted rather than filled with a placeholder, which is why most chapters carry four of the
-  five. The order is fixed; the set is not.
+- Every chapter ends with The Machinery and its reference-status headings, in this order: Read
+  in full; Cited at a remove; Referenced but not reproduced; Internal, and reproducible from this
+  repository; What was not read. `tools/check_chapter.py` requires the first, the second and the
+  last in every chapter, and a required heading with nothing to list says "Nothing." rather than
+  being dropped; the other two appear only when they have entries. An entry sits under the
+  heading that matches its status: a source read after it was first listed moves to Read in
+  full rather than being marked read where it stands. The order is fixed; the set is not.
 - A number from a stochastic run carries its uncertainty and design. Deterministic algebra is
   labeled deterministic.
 - Nothing in the project may be written as advice about an individual's recovery.

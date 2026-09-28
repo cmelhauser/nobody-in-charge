@@ -937,9 +937,9 @@ text. It exists so `tools/check_book.py` can confirm that a cited subject appear
 work without the repository holding a redistributable copy. **This follows the precedent
 used for other in-copyright sources. Maxwell 1950 is also read in full, but unlike Kurtz its
 retyped reproduction and text are saved privately under research/incorporated/Maxwell_1950/.
-Each source that is not record-only keeps one text file beside its document, so the twenty-eight
-sources holding a document carry one transcription or OCR file apiece and the five record-only
-entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
+Each source that is not record-only keeps a text file, so all thirty-nine sources holding a
+document carry a transcription, an OCR file or the deposited full text: twenty-five beside a PDF,
+and fourteen whose text file is the document itself. The five record-only entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
 not drift. Their individual rights and reliability differ and are stated in their entries.
 
 **The single most valuable thing it contains, for this book:** the folk account of the
@@ -1284,14 +1284,16 @@ sources. That is no longer true of one of them, and the correction matters more 
 did.**
 
 *Twelve Steps and Twelve Traditions* (1953) was read in full on 10 August 2026 and **is** used as
-a primary source, in Chapters 8, 10, 16 and 17 and in the paper. It is AAWS copyright and no copy
-is held: the book is paraphrased, quoted only in fragments short enough to identify a claim, and
-the reader is pointed at aa.org, which gives it away. See the entry in "Incorporated source
+a primary source, in Chapters 8, 10, 16 and 17 and in the paper. It is AAWS copyright. Since 13
+September 2026 a copy assembled from the per-chapter files aa.org posts has been held
+git-ignored and never committed; the book is paraphrased, quoted only in fragments short enough
+to identify a claim, and the reader is pointed at aa.org, which gives it away. See the entry in "Incorporated source
 storage" above for why the distinction between reading and holding was worth drawing.
 
 *Alcoholics Anonymous Comes of Age* (1957), *Pass It On* (1984), *Dr. Bob and the Good Oldtimers*
-(1980), and the *Grapevine* essays remain AAWS copyright and **have not been obtained**. Where the
-book reports their content it does so at one or more removes and says so. *Comes of Age* is the
+(1980), and the *Grapevine* essays remain AAWS copyright and **have not been obtained**, apart
+from the April 1946 article, read at source from a scan and held as a record only. Where the book
+reports their content it does so at one or more removes and says so. *Comes of Age* is the
 most conspicuous gap: Kurtz names pages 97 to 98 as the passage that settles a question Chapter 17
 depends on, and it is the one source the project most needs and has not read.
 
