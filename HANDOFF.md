@@ -184,13 +184,16 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-42 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+44 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
-The newest are `ServiceManual_2024` and the seven open-access papers held on 13 September 2026.
+The newest are the two NIH author manuscripts held on 24 September 2026, `BanksBekeleMaxwell_2017`
+and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
+`KaskutasBondAvalos_2009`.
 `WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
 held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md` sets out what it
 implies for the manuscript: its two corrections, to Chapter 4 and to Appendix A13, were made on 13
-September 2026, and its other suggested uses are section 10, item 8.
+September 2026, and its other seven suggested uses were drafted on 15 September 2026, as the
+closed list in section 10 records.
 
 **No source document is committed and this repository is public.** `.gitignore` excludes every
 `.pdf`, `.txt`, `.djvu` and `.epub` under `research/incorporated/` and `research/staged/`. What is
@@ -301,7 +304,8 @@ robustness check varies the *values* in that matrix and holds its pattern of emp
 no further computation can test the pattern. A second reader filling the same grid independently is
 the only available test.
 
-The packet is `research/elicitation/`: five LaTeX documents plus a style file and `build.sh`.
+The packet is `research/elicitation/`: five LaTeX documents, a ready-to-send invitation in
+Markdown, a style file and `build.sh`.
 
 | Document | Who sees it |
 |---|---|
@@ -310,6 +314,7 @@ The packet is `research/elicitation/`: five LaTeX documents plus a style file an
 | `2-recruiting-note.pdf` | you, to copy into an email |
 | `3-response-template.pdf` | the respondent, optional return sheet |
 | `4-collator-notes.pdf` | **you only** |
+| `5-invitation-email.md` | you, to paste into an email |
 
 **Never send `4-collator-notes.pdf` to a respondent.** It states that the book leaves five rows
 empty and names them. That is the answer the exercise exists to elicit independently, and sending
@@ -337,7 +342,9 @@ shorter one is out of date.
    and no computation can test its pattern of empty cells because every check holds that pattern
    fixed. It needs two or three human respondents. The packet is `research/elicitation/`; send
    `1-respondent-form.pdf` and **never** `4-collator-notes.pdf`, which names the answer the
-   exercise exists to elicit.
+   exercise exists to elicit. The message to send them is drafted in `5-invitation-email.md`,
+   with the subject lines, the attachment check, the answers to the questions respondents ask, a
+   nudge and a thank-you. Nothing in it describes the argument.
 
 **One item needs a copyrighted book bought or borrowed.** It cannot be closed by computation or by
 inference from what is already here.
@@ -391,8 +398,13 @@ each moves a record-only source onto the ordinary footing.
    read status but no copy:
    - **Read at PubMed Central on 14 September 2026:** Banks et al. (2017), Gorman et al. (2006),
      Kelly, Humphreys and Ferri (2020), Rynes and Tonigan (2012) and Witkiewitz and Marlatt (2007).
-     A PDF saved from each article page in a browser would give the corpus a copy, since every
-     scripted route refuses.
+     Two of the five are now held: the deposited full text of Banks et al. (2017) and Rynes and
+     Tonigan (2012) came back from the NCBI E-utilities API on 24 September 2026, which is an
+     ordinary interface and bypasses nothing. The other three return metadata only from both that
+     service and Europe PMC, so Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and
+     Witkiewitz and Marlatt (2007) still need a PDF saved from the article page in a browser. The
+     PDF routes themselves refuse scripted access, and PMC's serves a proof-of-work interstitial,
+     which is a bot check this project does not attempt.
    - **Cited at a remove:** Banks et al. (2014), through the 2017 paper. AMS refuses its PDF to
      scripts, so it needs the same browser save.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
