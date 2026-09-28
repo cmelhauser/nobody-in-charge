@@ -5034,3 +5034,37 @@ rather than grepped, for statements that were true when written and are not now.
   study must record practice rather than attendance. The chapter says it and carries the reference.
 
 **What did not change.** No model value, cache, notebook or released number, and no count.
+
+### 22 September 2026, later still: the invitation drafted
+
+**What was asked.** A ready-to-send invitation for the elicitation round, which is the one open
+item that could change a conclusion and the one nobody had written the actual email for.
+
+**What existed.** `2-recruiting-note.pdf` holds two blurbs and a note on what not to say. What it
+does not hold is a message: no subject line, no attachment check, no deadline, no answers to the
+questions a respondent asks back, no nudge, no thank-you.
+
+**What was written.** `research/elicitation/5-invitation-email.md`, in Markdown because it exists
+to be pasted into an email client rather than typeset. It carries three subject lines, the email
+itself, a short version for a message, the longer version for someone who asks what they are
+contributing to, seven answers to predictable questions, a nudge for a week later and a thank-you
+for when the form comes back.
+
+**Two things it adds to the packet rather than restating.** First, an instruction nobody had
+written down: respondents should not compare notes with each other until every form is back, since
+three forms that have been discussed are one form. Second, a warning to the sender that the
+likeliest way to spoil the round is a helpful answer to a follow-up question, which is the same
+rule as never sending the collator notes, applied to conversation.
+
+**What it does not say.** Nothing about the argument, and nothing about how many rows the book
+leaves empty or which they are. It also does not ask a respondent to disclose anything about their
+own membership or recovery, and says so, because the form does not ask and the project has no
+business knowing.
+
+**What else changed.** `0-start-here` lists six documents rather than five and points at the new
+one; `build.sh` falls back to tectonic where xelatex is absent, which is what this machine has. The
+other four packet PDFs were left exactly as they were built in August rather than rebuilt under a
+different driver.
+
+**What did not change.** No model value, cache, notebook, released number or count, and nothing in
+the book.
