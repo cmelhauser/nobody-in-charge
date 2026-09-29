@@ -5,7 +5,10 @@
 %  substantive claims; every figure below is traceable to
 %  model/book-calculations.ipynb and appendix/APPENDIX.md.
 %
-%  Build:  pdflatex anonymity-as-an-aggregation-condition.tex   (x2)
+%  Build, from this directory, with the timestamp its date declares:
+%    SOURCE_DATE_EPOCH="$(python3 ../tools/source_date.py paper)" \
+%      tectonic anonymity-as-an-aggregation-condition.tex
+%  The preamble also compiles under two pdflatex passes; the committed PDF is Tectonic's.
 % =====================================================================
 \documentclass[11pt,a4paper]{article}
 
