@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 28 September 2026"
+date: "Draft of 29 September 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -843,6 +843,8 @@ Blair, H. W. (1888). *The Temperance Movement; or, The Conflict Between Man and 
 
 Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati: Jennings and Graham. **Now read at source**; saved as `research/incorporated/Fehlandt_1904/`. His dating is blunter than Maxwell's and worth recording as the received view Maxwell was correcting: *By 1843, however, interest began to wane, and soon Washingtonianism had spent its force.* Maxwell's regional evidence shows this is too early and too uniform, and the disagreement is the point.
 
+Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. **Read at source**, and reread on 29 September 2026 to confirm it: this entry had sat under "Cited at a remove" while Chapter Twelve called the paper read. The formal theory of costly screening: costs that "screen out people whose participation would otherwise be low" (272), the account under which the Sons of Temperance should have beaten the Washingtonians, and did. That application is this chapter's; the paper never mentions temperance. **The copy is not held**: the only full text found online is a JSTOR download reposted without verified authorization, so the source is a record only, in `research/incorporated/Iannaccone_1992/`.
+
 **Cited at a remove:**
 
 Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (1950). The judgment about ideological distinctiveness quoted in the text.
@@ -850,8 +852,6 @@ Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (19
 American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The reports this chapter quotes, 1842 to 1847, are reached through Maxwell's year-by-year reading. Three other volumes of the series are held and were read in full on 13 September 2026, the 1840 and 1841 reports and the 1849 *Almanac* (`research/incorporated/ATU_1840/`, `ATU_1841/`, `ATU_1849/`), and none of them is among the years quoted.
 
 Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age*, p. 125. AA's own account, which this chapter declines to follow.
-
-Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. The formal theory of costly screening; the account under which the Sons of Temperance should have beaten the Washingtonians, and did.
 
 Encyclopaedia entries on the Sons of Temperance (Case Western *Encyclopedia of Cleveland History*; *Encyclopedia.com*), consulted for corroboration; superseded by Maxwell where they differ.
 
@@ -2786,7 +2786,7 @@ This model gives each step a single level. It therefore cannot represent the mem
 
 ### 3. Notes on sources
 
-**The functional forms are borrowed; the values are not.** Depreciating human capital with endogenous investment is Ben-Porath (1967), read at source. The production of a stage from several inputs, and the idea that early stocks condition later growth, are from Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010), also read at source. They combine the inputs with a constant-elasticity-of-substitution aggregator. The product used here is my choice, not theirs: it resembles that family's Cobb-Douglas case, which Cunha and Heckman give, but its terms and exponents are this book's, and Chapter Thirteen returns to their aggregator when it asks about substitutability. The saturation form used for the participatory resources is Iannaccone's (1992), read at source.
+**The functional forms are borrowed; the values are not.** Depreciating human capital with endogenous investment is Ben-Porath (1967), read at source. The production of a stage from several inputs, and the idea that early stocks condition later growth, are from Cunha and Heckman (2007) and Cunha, Heckman and Schennach (2010), also read at source. They combine the inputs with a constant-elasticity-of-substitution aggregator. The product used here is my choice, not theirs: it resembles that family's Cobb-Douglas case, which Cunha and Heckman give, but its terms and exponents are this book's, and Chapter Thirteen returns to their aggregator when it asks about substitutability. The premise behind the participatory resources, that a group's shared goods rise with its members' participation and its size at a diminishing rate, is Iannaccone's (1992), read at source and reread on 29 September 2026; he takes group quality to be strictly concave in both. The saturating curve used here, which also caps each resource, is my choice rather than his, and his own worked example is linear in participation.
 
 **Nothing here is calibrated to AA data**, because none exists at the required resolution. Inflow, dropout and churn were originally set to target a steady state near forty-five members with an experienced core near nine, roughly a healthy urban meeting. After correcting the lognormal capability draw to have mean one, 400 runs deliver 17.80 ± 0.88 members overall. Among the 394 viable endpoints, the established count above 0.1 is 14.13 ± 0.79 and the experienced count above 0.5 is 1.25 ± 0.20. The calibration therefore fails rather than merely undershooting. I report that failure instead of retuning after seeing the results; absolute levels should not be interpreted as estimates of AA groups.
 
@@ -2812,7 +2812,7 @@ Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *Americ
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology whose substitution parameter is Chapter Thirteen's subject.
 
-Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2): 271-291. The saturation form for goods produced by participation.
+Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. Group quality as a strictly concave function of the other members' average participation and of group size (277): the diminishing returns behind this chapter's participatory resources, though not the saturating form they take, which is this book's. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 
 Dinerstein, M., R. Megalokonomou and C. Yannelis (2022). "Human Capital Depreciation and Returns to Experience." NBER Working Paper 27925, revised September 2022. **Read in full** on 13 September 2026 apart from its online appendix, which is not held; stored in `research/incorporated/Dinerstein_2022/`. The depreciation of teaching skill during time without formal employment, its separation from forgone experience, and the caveats on precision, age effects and the weak district-level first stage.
 
@@ -3461,7 +3461,7 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 **Read in full:**
 
-Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. The saturation form for goods produced by participation.
+Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. The premise that goods produced by participation rise with it at a diminishing rate (277); the saturating form this book gives them, including the recipient resource, is its own. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
 
@@ -9350,7 +9350,8 @@ Humphreys, K., L. A. Kaskutas, and C. Weisner (1998). "The Alcoholics Anonymous
 Affiliation Scale." *Alcoholism: Clinical and Experimental Research* 22(5): 974-978.
 
 Iannaccone, L. R. (1992). "Sacrifice and stigma: Reducing free-riding in cults, communes,
-and other collectives." *Journal of Political Economy* 100(2): 271-291.
+and other collectives." *Journal of Political Economy* 100(2): 271-291. **Read at
+source**, confirmed on 29 September 2026; the copy consulted is not held.
 
 Kaskutas, L. A., J. Bond, and K. Humphreys (2002). "Social networks as mediators of the
 effect of Alcoholics Anonymous." *Addiction* 97(7): 891-900.
