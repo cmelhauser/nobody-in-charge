@@ -89,9 +89,9 @@ and a vocabulary-only verification index.
 Citation checking does not need the documents. Add or repair a source with
 `python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
 
-Five of the 44 sources are **record only**: no document exists at any time, which is a stronger
+Six of the 45 sources are **record only**: no document exists at any time, which is a stronger
 condition than git-ignored. Each carries `"record_only": true` in its metadata. Kurtz (1991) and
-Rohr (2011) have verification indexes built from copies read and not retained; the other three
+Rohr (2011) have verification indexes built from copies read and not retained; the other four
 have none. Neither is drift and neither should be reported as a missing source. Since 13
 September 2026 the corpus holds a lawful copy of every other source at the Human Author's
 direction, in-print copyrighted works included; none is ever committed.
@@ -169,7 +169,7 @@ check holds that pattern fixed. The packet to send is `research/elicitation/`. S
 `4-collator-notes.pdf`**, which names the answer the exercise exists to elicit.
 
 The rest qualify or correct rather than change a conclusion: a copyrighted book to buy or borrow,
-lawful copies for the five record-only sources, two photographs for the 1939 facsimile, and copies
+lawful copies for the six record-only sources, two photographs for the 1939 facsimile, and copies
 or read statuses for background citations. `HANDOFF.md` section 10 is the complete list and the only
 place they are recorded; do not treat any shorter list, including this paragraph, as the full
 account. Three items were closed on 17 August 2026 by checking whether the publisher gives them

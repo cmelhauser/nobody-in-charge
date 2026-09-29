@@ -5238,3 +5238,37 @@ and a present-tense "What is included" heading over items that have since moved.
 
 **What did not change.** No model value, cache, notebook or released number. The book's text
 changed, and its draft date was already 28 September 2026.
+
+### 29 September 2026: Iannaccone (1992), reread
+
+**What was asked.** The record disagreed about Iannaccone (1992). Chapter 12 called it read at
+source, Chapter 2 listed it as cited at a remove, and `research/SOURCES.md` recorded no status. The
+Human Author believed it had been read and asked for the reading to be confirmed, finding a copy
+online if the corpus had none. It had none.
+
+**Finding a copy.** No author manuscript and no publisher-free copy exists; the journal and JSTOR
+both charge. The only full text online is a JSTOR download, stamped 20 August 2015, reposted on a
+third party's personal research archive. Its posting authorization is unverified, which is exactly
+the DeGroot (1974) case, so it was read, verified against and not archived. The web fetch that read
+it left a copy in the harness's own cache outside the repository; its SHA-256 is in the record, and
+nothing was placed in the corpus or in Git.
+
+**What the reread confirmed.** Chapter 2's use holds. The paper argues that seemingly unproductive
+costs "screen out people whose participation would otherwise be low" (272), checked against the
+page image, and its section C explains one-time entry costs as screening in a heterogeneous
+population (281). Applying that to the Sons of Temperance is the chapter's reading; the paper never
+mentions temperance.
+
+**What it corrected.** Chapters 12 and 15 credited the paper with "the saturation form" of the
+participatory resources. It has none. It takes group quality to be Q = F(R̄, N), strictly concave in
+the other members' average participation and in group size (277), and its worked example sets Q
+equal to average participation, linearly (280). The model's form, c / (c + k) in the number of
+engaged members, which also caps each resource, is the book's own. The paper supplies the premise
+of diminishing returns and nothing more specific, and both chapters now say that.
+
+**Where it went.** A record-only corpus entry, `research/incorporated/Iannaccone_1992/`, on the
+DeGroot pattern; the ledger entry with its read status and findings; Chapter 2's reference moved to
+"Read in full"; Chapters 12 and 15 corrected; the paper's reference given its status; and every
+count and list of record-only sources, now six of 45.
+
+**What did not change.** No model value, cache, notebook or released number.

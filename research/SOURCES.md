@@ -624,7 +624,19 @@ The budget-breaker impossibility applied to Tradition 7 in Chapter 5.
 **Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2):
 271-291.**
 The club-good theory of costly screening, used in Chapter 2 to explain why the Sons of
-Temperance should have beaten the Washingtonians, and did.
+Temperance should have beaten the Washingtonians, and did. **Read at source; reread on 29
+September 2026** at the Human Author's request, because the record disagreed with itself: Chapter
+12 called it read at source, Chapter 2 listed it as cited at a remove, and this entry recorded no
+status. The Human Author believed it read, and the reread confirmed the chapters' use of it with
+one correction. The screening argument is the paper's own: costs "screen out people whose
+participation would otherwise be low" (272), and section C explains one-time entry costs the same
+way (281). But Chapters 12 and 15 credited it with the saturation form of the participatory
+resources, and it does not supply one. It takes group quality to be strictly concave in the other
+members' average participation and in group size (277), and its worked example is linear in
+participation (280); the capped c / (c + k) form is this book's. Both chapters now say so. **Held
+as a record only** (`research/incorporated/Iannaccone_1992/`): the only full text found online is
+a JSTOR download reposted on a third party's archive without verified authorization, treated as
+the DeGroot (1974) scan is, read and cited within limits but not archived.
 
 **Marsh, J. (1866). *Temperance Recollections: Labors, Defeats, Triumphs. An Autobiography.*
 New York: Charles Scribner & Co.**
@@ -939,7 +951,7 @@ used for other in-copyright sources. Maxwell 1950 is also read in full, but unli
 retyped reproduction and text are saved privately under research/incorporated/Maxwell_1950/.
 Each source that is not record-only keeps a text file, so all thirty-nine sources holding a
 document carry a transcription, an OCR file or the deposited full text: twenty-five beside a PDF,
-and fourteen whose text file is the document itself. The five record-only entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
+and fourteen whose text file is the document itself. The six record-only entries carry none. All of them are git-ignored, so a fresh clone has none of them and that is
 not drift. Their individual rights and reliability differ and are stated in their entries.
 
 **The single most valuable thing it contains, for this book:** the folk account of the

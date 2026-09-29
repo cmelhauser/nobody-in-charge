@@ -44,7 +44,7 @@ Three statuses must remain distinct.
 
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
-2. **Incorporated local copies.** `research/incorporated/` holds 44 sources: those the project
+2. **Incorporated local copies.** `research/incorporated/` holds 45 sources: those the project
    used before the acquired corpus arrived, the six promoted out of the staged corpus, six
    added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
@@ -80,13 +80,15 @@ vocabulary-only verification index.
 **Do not report a missing document as a missing source, and do not restore one.** To check a
 source, re-acquire it from the URL in its `metadata.json` and compare the recorded SHA-256.
 
-**Five sources are held as record only, with no document at any time.** This is a distinct
+**Six sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source. They are Kurtz (1991), in copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine*
 article, consulted on 10 August 2026 from scans whose posting authorization is unverified, which
 the project's own rights review directs be cited and quoted within limits rather than archived;
-Rohr (2011), whose consulted copy was an unauthorized posting; and *Tricycle* on the 2019 Recovery
-Dharma schism, paywalled past its opening. That is the full five, and `"record_only": true` in
+Iannaccone (1992), reread on 29 September 2026 from a JSTOR download reposted without verified
+authorization and treated the same way; Rohr (2011), whose consulted copy was an unauthorized
+posting; and *Tricycle* on the 2019 Recovery Dharma schism, paywalled past its opening. That is
+the full six, and `"record_only": true` in
 each `metadata.json` is the authority. Six others were record only until 13 September 2026, when
 the Human Author directed that the corpus hold a lawful copy of every source it can: AAWS pamphlet
 P-17, *Twelve Steps and Twelve Traditions*, the Kurtz talk, SMF-132, the short-form Twelve
@@ -110,7 +112,7 @@ the document contains, decided against the real text at build time and stamped w
 SHA-256. Confirm this rather than assume it: move the documents aside and rerun
 `tools/check_book.py`. When last run that way, on 28 September 2026 with all 64 held documents set
 aside, it reported 55 citation-subject pairs across 38 indexed sources, all supported. The 38 is
-fewer than the 44 sources because three record-only sources have no index and the three ATU
+fewer than the 45 sources because four record-only sources have no index and the three ATU
 reports and the two Big Book editions each share a leading token. If a re-acquired file's hash differs from its index, the index is stale;
 rebuild with `python3 tools/build_corpus.py` rather than trusting it, and `--check` reports drift.
 

@@ -14,6 +14,20 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Iannaccone (1992), "Sacrifice and Stigma", is confirmed as read at source, reread on 29 September
+  2026 at the Human Author's request. The record had disagreed with itself: Chapter 12 called it
+  read, Chapter 2 listed it as cited at a remove, and `research/SOURCES.md` recorded no status.
+  - Chapter 2's use of it holds: the screening argument is the paper's own, and the chapter's entry
+    moves to "Read in full" with one short quotation checked against the page image.
+  - Chapters 12 and 15 credited the paper with the saturation form of the participatory resources.
+    It supplies the premise, group quality strictly concave in members' average participation and
+    group size, and its worked example is linear; the capped c / (c + k) form is this book's. Both
+    chapters now say so, and the paper's reference gains its read status.
+  - The only full text found online is a JSTOR download reposted on a third party's archive without
+    verified authorization, so the source is catalogued as record only, like DeGroot (1974), with
+    the hash of the copy consulted. The corpus holds 45 sources, six of them record only.
+  - The book's draft date moves to 29 September 2026 because its text changed.
+
 - The paper's title page is dated September 2026, since its text last changed on 28 September.
   Making that change turned up five stale statements the 28 September sweep missed, because they
   were worded as "has not read" or "remains" rather than "not obtained". The paper's abstract and
