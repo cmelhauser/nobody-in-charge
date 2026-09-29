@@ -157,12 +157,20 @@ PDF, because the publisher and PubMed Central download routes are behind bot che
 does not attempt; the held copy of each is the deposited full text rendered to plain text. They
 bracket the decay rate rather than measuring it, and the model is unchanged.
 
-Two more followed on 24 September 2026, bringing the corpus to its present 44: Banks et al. (2017)
+Two more followed on 24 September 2026, bringing the corpus to 44: Banks et al. (2017)
 and Rynes and Tonigan (2012), both NIH author manuscripts the paper cites and both read in full at
 PubMed Central on 14 September 2026, when they were recorded as held by nobody because the PDF
 routes refuse scripted access. The deposited full text is served by the NCBI E-utilities API, which
 is an ordinary interface rather than a bot check, so both are now held git-ignored like every other
 document. Neither read status changes and no claim moves.
+
+`Iannaccone_1992` followed on 29 September 2026, bringing the corpus to its present 45. The record
+disagreed about whether Iannaccone (1992) had been read, so at the Human Author's request it was
+reread, from the only full text found online: a JSTOR download reposted on a third party's archive
+without verified authorization. It is therefore record only, like DeGroot (1974). The reread
+confirmed Chapter 2's use of it and corrected Chapters 12 and 15, which had credited it with the
+saturating form of the participatory resources; it supplies the diminishing returns, and the
+saturating form is the book's.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book
@@ -202,13 +210,14 @@ decided against the real text at build time. With no documents present, every ci
 pair still verifies. If a re-acquired file's hash differs from the record, the index is stale and
 must be rebuilt rather than trusted.
 
-**Five sources are held as record only, with no document at any time.** This is a distinct
+**Six sources are held as record only, with no document at any time.** This is a distinct
 category from the git-ignored documents, and a verifier should not report either as a missing
 source; the authority is `"record_only": true` in each `metadata.json`. They are Kurtz (1991),
 in copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, consulted on 10 August
 2026 from scans whose posting authorization is unverified, which the project's own rights review
-directs be cited and quoted within limits rather than archived; Rohr (2011), described below; and
-*Tricycle* (2019), paywalled past its opening. Each record keeps the citation, the rights position,
+directs be cited and quoted within limits rather than archived; Iannaccone (1992), read on the same
+footing on 29 September 2026; Rohr (2011), described below; and *Tricycle* (2019), paywalled past
+its opening. Each record keeps the citation, the rights position,
 the hash of the copy consulted, and the passages verified from it. Six more were record only until
 13 September 2026 and now hold copies; each `metadata.json` says so under `formerly_record_only`.
 
@@ -280,7 +289,9 @@ python3 tools/check_portability.py
 python3 tools/check_docs.py
 python3 tools/build_book.py
 python3 tools/build_primer.py
+export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
+unset SOURCE_DATE_EPOCH
 python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
@@ -288,6 +299,12 @@ python3 tools/check_release.py
 `tools/run_ci_locally.sh` runs all four continuous-integration jobs in this order on the local
 machine, and takes an optional `lint`, `unit-tests`, `checkers`, `checks` or `documents` argument
 to run one of them.
+
+All three builds set `SOURCE_DATE_EPOCH` from the date each document declares, through
+`tools/source_date.py`: the book and primer builders do it themselves, and the paper needs the
+`export` above. TeX otherwise stamps the clock into every PDF, so a rebuild of unchanged sources
+used to leave all three committed PDFs modified; with it, the rebuild is byte-identical and the
+tree stays clean.
 
 `check_release.py` runs last, and the order is not a matter of taste. The gate requires every
 rendered artifact to be at least as new as the sources feeding it, so running it before the three

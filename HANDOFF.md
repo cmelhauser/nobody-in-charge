@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 28 September 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 29 September 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -100,7 +100,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 28 September 2026, everything passes:
+As of 29 September 2026, everything passes:
 
 | Check | Result |
 |---|---|
@@ -109,7 +109,7 @@ As of 28 September 2026, everything passes:
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 23 checks, 0 failed |
+| `tools/check_docs.py` | 25 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed |
 | `model/book-calculations.ipynb` | 8 cells, 84 assertions, clean |
@@ -153,7 +153,9 @@ python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/check_docs.py
 python3 tools/build_book.py
+export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
+unset SOURCE_DATE_EPOCH
 python3 tools/build_primer.py
 sh research/elicitation/build.sh
 python3 tools/check_pdfs.py
@@ -184,7 +186,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-44 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+45 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 The newest are the two NIH author manuscripts held on 24 September 2026, `BanksBekeleMaxwell_2017`
 and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
@@ -212,7 +214,7 @@ A directory's leading token must be at least three characters and distinctive, b
 directories may not share a leading token, which is why the corpus has `TwelveAndTwelve` and
 `KurtzTalk` rather than a second `AAWS` and a second `Kurtz`.
 
-### Five sources are record only
+### Six sources are record only
 
 These have **no document at any time**, which is a stronger condition than the git-ignored
 majority. A verifier should not report either category as a missing source. Each carries
@@ -223,11 +225,12 @@ majority. A verifier should not report either category as a missing source. Each
 | `Kurtz_1991` | in copyright | the Human Author's own copy, photographed, or a bought ebook |
 | `DeGroot_1974` | scan with unverified posting authorization | a JSTOR or publisher PDF |
 | `Grapevine_1946` | scan with unverified posting authorization | a copy from the Grapevine archive |
+| `Iannaccone_1992` | JSTOR download reposted without verified authorization | a JSTOR or publisher PDF |
 | `Rohr_2011` | the copy consulted was an unauthorized posting | photographs of the Human Author's copy |
 | `Tricycle_2019` | paywalled past its opening | a PDF saved from a subscribed browser |
 
-Three of the five carry no verification index, because no text was retained to build one from:
-`DeGroot_1974`, `Grapevine_1946`, `Tricycle_2019`. Their metadata says so. This is expected, not
+Four of the six carry no verification index, because no text was retained to build one from:
+`DeGroot_1974`, `Grapevine_1946`, `Iannaccone_1992`, `Tricycle_2019`. Their metadata says so. This is expected, not
 drift. Six more were record only until 13 September 2026, when the Human Author directed that
 the corpus hold a lawful copy of every source it can; each now says so under
 `formerly_record_only`.
@@ -378,8 +381,9 @@ inference from what is already here.
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
 
-4. **Copies for the five record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
-   *Grapevine* article, Rohr (2011) and *Tricycle* (2019). What each needs is in section 7.
+4. **Copies for the six record-only sources**: Kurtz (1991), DeGroot (1974), the April 1946
+   *Grapevine* article, Iannaccone (1992), Rohr (2011) and *Tricycle* (2019). What each needs is in
+   section 7.
 
 **Two more need the Human Author.** Neither changes a conclusion.
 

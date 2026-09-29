@@ -164,7 +164,7 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 **Read in full:**
 
-Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. The saturation form for goods produced by participation.
+Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. The premise that goods produced by participation rise with it at a diminishing rate (277); the saturating form this book gives them, including the recipient resource, is its own. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
 

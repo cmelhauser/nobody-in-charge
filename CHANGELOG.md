@@ -14,6 +14,20 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Iannaccone (1992), "Sacrifice and Stigma", is confirmed as read at source, reread on 29 September
+  2026 at the Human Author's request. The record had disagreed with itself: Chapter 12 called it
+  read, Chapter 2 listed it as cited at a remove, and `research/SOURCES.md` recorded no status.
+  - Chapter 2's use of it holds: the screening argument is the paper's own, and the chapter's entry
+    moves to "Read in full" with one short quotation checked against the page image.
+  - Chapters 12 and 15 credited the paper with the saturation form of the participatory resources.
+    It supplies the premise, group quality strictly concave in members' average participation and
+    group size, and its worked example is linear; the capped c / (c + k) form is this book's. Both
+    chapters now say so, and the paper's reference gains its read status.
+  - The only full text found online is a JSTOR download reposted on a third party's archive without
+    verified authorization, so the source is catalogued as record only, like DeGroot (1974), with
+    the hash of the copy consulted. The corpus holds 45 sources, six of them record only.
+  - The book's draft date moves to 29 September 2026 because its text changed.
+
 - The paper's title page is dated September 2026, since its text last changed on 28 September.
   Making that change turned up five stale statements the 28 September sweep missed, because they
   were worded as "has not read" or "remains" rather than "not obtained". The paper's abstract and
@@ -154,6 +168,37 @@ someone who wants to know what changed between two tags does not have to read it
   documentation was a count a tool could have checked and nothing did.
 
 ### Fixed
+
+- `--help` now prints each tool's usage and exits. Only the argparse tool answered it before; the
+  other sixteen ran, and several wrote files. `tools/run_ci_locally.sh` also answers `--help` and
+  refuses an unknown job, which used to run nothing and still print "local CI clear". The
+  docstrings `--help` shows were checked against the code, and six were wrong or incomplete. A
+  test runs every tool with `--help` and fails if the tree changes.
+- The README built the paper with `latexmk -pdf` from the repository root, which writes the PDF to
+  the root and leaves `paper/`'s untouched; it now builds as `CLAUDE.md`, the handoff and CI do.
+  The P-17 README still said the pamphlet was not held, the corpus README described every source
+  as a PDF with text, the staged package's agent instructions pointed at a directory that no
+  longer exists, and `AGENT_VERIFY.md` and one CI comment described `check_docs.py` as checking
+  counts only. All are corrected. Test coverage of the canonical model remains 100 per cent.
+
+- The drift found by hand between 24 and 29 September 2026 is now caught by tools, each check made
+  to fail on the actual defect before being trusted:
+  - `check_chapter.py` fails on an entry marked read in full or at source that sits under any
+    other reference heading; on the pre-sweep chapters it flags all six misfiled entries.
+  - `build_corpus.py --check` fails when a record-only source holds a document, or a summary opens
+    "Record only" for a source that is not; it flags the Kurtz talk's summary as it stood.
+  - `check_docs.py` fails when the paper's `\date` month is older than its last change, and when
+    `HANDOFF.md` is dated before the newest progress-log entry, which is the handoff's own rule.
+    It runs 25 checks.
+  - A test keeps the paper's reference list in first-author and year order.
+- Rebuilding no longer dirties the tree. TeX stamps the clock into every PDF and the model-choice
+  inventory stamped it into `created_utc`, so each local CI run left four committed files modified
+  with nothing in them changed. `tools/source_date.py` gives each build a fixed timestamp from the
+  date its document declares, and all three PDFs now rebuild byte-identically; the inventory keeps
+  its stamp while its content is unchanged.
+- `check_book.py` pooled nothing across directories that share a token, such as the three ATU
+  reports and the two Big Book editions: each overwrote the one before, so a citation was checked
+  against whichever sorted last. They are now pooled. No current citation was affected.
 
 - A sweep before the elicitation round found twenty-odd statements the tree had outgrown, none
   caught by a checker because each was a reference status or a sentence rather than a count.

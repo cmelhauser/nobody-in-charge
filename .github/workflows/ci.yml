@@ -132,7 +132,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # Full history, so check_docs.py can date each document's sources. A one-commit
+      # checkout has only the merge GitHub synthesises on the day, and the date checks
+      # would skip; the repository is small enough that the whole history costs seconds.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -155,9 +160,12 @@ jobs:
         run: python tools/check_book.py
 
       # Counts stated in prose, re-derived from the tree: CI jobs, checkers, corpus size and
-      # record-only status, analysis scripts, chapters, and every relative link. The three PDFs
-      # are committed, so the page-count checks run here too, against the committed artifacts.
-      # `documents` runs the same file after rebuilding them, which is the stronger test.
+      # record-only status, analysis scripts, chapters, and every relative link. Also the
+      # declared dates of the book, the primer and the paper against the history of their
+      # sources, which is why this job fetches full history, and the handoff's date against the
+      # progress log. The three PDFs are committed, so the page-count checks run here too,
+      # against the committed artifacts. `documents` runs the same file after rebuilding them,
+      # which is the stronger test.
       - name: Documentation matches the tree
         run: python tools/check_docs.py
 
@@ -282,6 +290,8 @@ jobs:
         run: |
           python tools/build_primer.py || python tools/build_primer.py
           python tools/build_book.py   || python tools/build_book.py
+          SOURCE_DATE_EPOCH="$(python tools/source_date.py paper)"
+          export SOURCE_DATE_EPOCH
           cd paper
           tectonic anonymity-as-an-aggregation-condition.tex \
             || tectonic anonymity-as-an-aggregation-condition.tex

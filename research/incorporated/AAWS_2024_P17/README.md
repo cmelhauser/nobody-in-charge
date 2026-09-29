@@ -1,11 +1,13 @@
 # Verified source record: AA Tradition pamphlet P-17
 
-**The document itself is deliberately not mirrored in this repository.** It is copyrighted
-Alcoholics Anonymous World Services literature, distributed by AAWS as a free official PDF. This
-repository is public, so hosting the full PDF and a full OCR transcript here would be
-redistribution beyond the authorized source context. The file and its OCR were removed on
-2026-08-09. Nothing about the citation, the reading, or the verification below depends on the
-mirror: the pamphlet is freely available from AAWS at the URL given, and a verifier should
+**The document is never committed to this repository.** It is copyrighted Alcoholics Anonymous
+World Services literature, distributed by AAWS as a free official PDF, and this repository is
+public, so committing the PDF or its OCR would be redistribution beyond the authorized source
+context. The file and its OCR were removed from the repository on 2026-08-09, and the source was
+held as a record only until 13 September 2026. Since then, at the Human Author's direction, a
+copy byte-identical to the one read in August has been held git-ignored in this directory, like
+every other document. Nothing about the citation, the reading, or the verification below depends
+on that copy: the pamphlet is freely available from AAWS at the URL given, and a verifier should
 download it there.
 
 ## Citation
@@ -65,8 +67,10 @@ model fills.
 
 This 2024 pamphlet is not the April 1946 *AA Grapevine* article "Twelve Points to Assure Our
 Future." It is AAWS reproducing that text in a later edition. A claim that turns on the exact
-1946 typography or on wording disputed between editions needs a separately located copy of the
-Grapevine issue. The project does not currently make such a claim.
+1946 wording rests on the article itself, which was read at source from a scan on 10 August 2026
+and is recorded, as a record only, in `../Grapevine_1946/`; Chapter 5's opening quotation is
+taken from it. The scan carries no issue or page markers, so it cannot settle wording disputed
+between editions of the magazine, and the project makes no claim that needs it to.
 
 Nothing here is evidence for the mathematical result. It is evidence about what the Traditions
 say, which is layer (b) and layer (c) of the four layers named in

@@ -281,6 +281,8 @@ Blair, H. W. (1888). *The Temperance Movement; or, The Conflict Between Man and 
 
 Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati: Jennings and Graham. **Now read at source**; saved as `research/incorporated/Fehlandt_1904/`. His dating is blunter than Maxwell's and worth recording as the received view Maxwell was correcting: *By 1843, however, interest began to wane, and soon Washingtonianism had spent its force.* Maxwell's regional evidence shows this is too early and too uniform, and the disagreement is the point.
 
+Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. **Read at source**, and reread on 29 September 2026 to confirm it: this entry had sat under "Cited at a remove" while Chapter Twelve called the paper read. The formal theory of costly screening: costs that "screen out people whose participation would otherwise be low" (272), the account under which the Sons of Temperance should have beaten the Washingtonians, and did. That application is this chapter's; the paper never mentions temperance. **The copy is not held**: the only full text found online is a JSTOR download reposted without verified authorization, so the source is a record only, in `research/incorporated/Iannaccone_1992/`.
+
 **Cited at a remove:**
 
 Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (1950). The judgment about ideological distinctiveness quoted in the text.
@@ -288,8 +290,6 @@ Jellinek, E. M. (n.d.). Personal communication to Maxwell, quoted in Maxwell (19
 American Temperance Union (1840-1849). *Annual Reports of the Executive Committee.* New York: American Temperance Union. The reports this chapter quotes, 1842 to 1847, are reached through Maxwell's year-by-year reading. Three other volumes of the series are held and were read in full on 13 September 2026, the 1840 and 1841 reports and the 1849 *Almanac* (`research/incorporated/ATU_1840/`, `ATU_1841/`, `ATU_1849/`), and none of them is among the years quoted.
 
 Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age*, p. 125. AA's own account, which this chapter declines to follow.
-
-Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. The formal theory of costly screening; the account under which the Sons of Temperance should have beaten the Washingtonians, and did.
 
 Encyclopaedia entries on the Sons of Temperance (Case Western *Encyclopedia of Cleveland History*; *Encyclopedia.com*), consulted for corroboration; superseded by Maxwell where they differ.
 

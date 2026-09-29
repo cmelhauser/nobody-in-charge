@@ -33,14 +33,21 @@ of the book. The paper's own PDF remains the authoritative rendering of the pape
 copy exists so the book is self-contained.
 
 Run:
-    python3 tools/build_book.py            assemble and render
-    python3 tools/build_book.py --no-pdf   assemble only
+    python3 tools/build_book.py                      assemble and render
+    python3 tools/build_book.py --no-pdf             assemble only
+    python3 tools/build_book.py --date "1 May 2027"  a one-off build with another date
+
+The printed date is DRAFT_DATE, declared below and checked by tools/check_docs.py; the PDF's
+internal timestamp comes from the same date through tools/source_date.py, so a rebuild of
+unchanged text is byte-identical.
 """
 import os
 import re
 import shutil
 import subprocess
 import sys
+
+from source_date import epoch as source_date_epoch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
@@ -50,7 +57,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..'))
 # book on every push to main. Change it in the same commit as a change to the book's sources.
 # tools/check_docs.py fails if it is older than the newest commit touching them, and
 # `--date` overrides it for a one-off build.
-DRAFT_DATE = '28 September 2026'
+DRAFT_DATE = '29 September 2026'
 
 BUILD = os.path.join(ROOT, 'build')
 OUT_MD = os.path.join(BUILD, 'nobody-in-charge.md')
@@ -435,7 +442,11 @@ def main():
         raise SystemExit('no PDF engine found; install xelatex or tectonic')
     cmd = ['pandoc', OUT_MD, '-o', OUT_PDF, '--pdf-engine=' + engine,
            '--top-level-division=chapter']
-    res = subprocess.run(cmd, capture_output=True, text=True)
+    # A fixed timestamp from DRAFT_DATE makes a rebuild of unchanged text byte-identical;
+    # tools/source_date.py says why. A caller's own SOURCE_DATE_EPOCH wins.
+    env = dict(os.environ)
+    env.setdefault('SOURCE_DATE_EPOCH', str(source_date_epoch('book')))
+    res = subprocess.run(cmd, capture_output=True, text=True, env=env)
     log = os.path.join(BUILD, 'pandoc.log')
     with open(log, 'w', encoding='utf-8') as fh:
         fh.write(res.stdout + res.stderr)
@@ -453,4 +464,6 @@ def main():
 
 
 if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()

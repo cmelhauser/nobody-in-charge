@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Render the corrected release-gate cache as a human-auditable report."""
+"""Render the corrected release-gate cache as a human-auditable report.
+
+Writes research/RELEASE-GATE-RESULTS.md from research/release_gate_results.json.
+
+Run from anywhere:  python3 tools/summarize_release_gate.py"""
 from __future__ import annotations
 
 import importlib.util
@@ -199,4 +203,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()

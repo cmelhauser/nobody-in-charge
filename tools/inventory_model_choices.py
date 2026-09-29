@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""AST-assisted inventory of numeric choices in the executable group model."""
+"""AST-assisted inventory of numeric choices in the executable group model.
+
+Writes research/model-choice-inventory.json and research/MODEL-CHOICE-INVENTORY.md from
+model/aa_group_model.py. The JSON's created_utc is kept while the content is unchanged, so
+regenerating an unchanged inventory leaves the tree clean.
+
+Run from anywhere:  python3 tools/inventory_model_choices.py"""
 from __future__ import annotations
 
 import ast
@@ -174,8 +180,28 @@ def markdown(data):
     return "\n".join(lines)
 
 
+def unchanged_apart_from_timestamp(data):
+    """The committed inventory's timestamp, if nothing else in it has changed.
+
+    Every regeneration used to stamp a new `created_utc`, so a run of the local CI left this
+    file modified with nothing in it changed, and the churn had to be reverted by hand each
+    time. Keeping the old stamp when the content is identical makes the timestamp mean what
+    its name says, when the inventory last changed, and leaves an unchanged tree clean.
+    """
+    if not JSON_OUT.exists():
+        return None
+    try:
+        old = json.loads(JSON_OUT.read_text())
+    except ValueError:
+        return None
+    def body(d):
+        return json.dumps({k: v for k, v in d.items() if k != "created_utc"}, sort_keys=True)
+    return old.get("created_utc") if body(old) == body(data) else None
+
+
 def main():
     data = build()
+    data["created_utc"] = unchanged_apart_from_timestamp(data) or data["created_utc"]
     JSON_OUT.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
     MD_OUT.write_text(markdown(data))
     print(f"wrote {JSON_OUT}")
@@ -183,4 +209,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()

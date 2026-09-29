@@ -16,6 +16,13 @@ record. It does not mean every claim made from it is correct, or that it has bee
 <Dir>/<Dir>_verification-index.json vocabulary and subject presence, committed
 ```
 
+Not every directory holds both documents. Where the lawful copy is a publisher's or the NIH's
+deposited full text rather than a PDF, the text file is the document. And six sources are held as
+record only, with no document at any time: Kurtz (1991), DeGroot (1974), the April 1946
+*Grapevine* article, Iannaccone (1992), Rohr (2011) and *Tricycle* (2019). Each says so with
+`"record_only": true` in its `metadata.json`, and `python3 tools/build_corpus.py --check` fails if
+a record-only source lists a document or a summary contradicts its record.
+
 ## Why the documents are not committed
 
 Several sources are in copyright, and this repository is public. The public-domain ones are

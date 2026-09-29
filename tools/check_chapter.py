@@ -2,8 +2,9 @@
 """
 House-style check. Run against any chapter file before calling it done.
 
-    python3 check_chapter.py ch09-confident-and-wrong.md
-    python3 check_chapter.py            # checks every ch*.md
+    python3 tools/check_chapter.py manuscript/ch09-confident-and-wrong.md
+    python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
+    python3 tools/check_chapter.py      # checks every manuscript/ch*.md
 
 Enforces the conventions established across Part One and Chapter 8.
 Every rule below exists because a chapter broke it once.
@@ -108,6 +109,19 @@ def check(path):
             for req in ('Read in full', 'Cited at a remove', 'What was not read'):
                 if req not in heads:
                     fails.append(f"references missing the '{req}' heading")
+            # An entry marked as read must sit under Read in full. On 28 September 2026 five
+            # were found under "Cited at a remove", each marked **Read in full** or **Now read
+            # at source** in place when it was read in August instead of being moved, so the
+            # heading and the entry contradicted each other in plain sight.
+            marker = re.compile(r'\*\*(?:now )?(?:read in full|read at source)\b[^*]*\*\*', re.I)
+            sections = re.split(r'^\*\*(' + '|'.join(re.escape(c) for c in CANON) +
+                                r')[:.]?\*\*\s*$', refs, flags=re.M)
+            for head, body in zip(sections[1::2], sections[2::2], strict=True):
+                if head == 'Read in full':
+                    continue
+                for entry in (e for e in body.split('\n\n') if marker.search(e)):
+                    fails.append(f"an entry marked as read sits under '{head}': "
+                                 f"{entry.strip()[:60]}...")
             # An inline lead like "**What was not read.** Some prose" is not a heading and was
             # how sixteen chapters ended up with the statement buried inside another section.
             for m in re.finditer(r'^\*\*(' + '|'.join(re.escape(c) for c in CANON) +
@@ -138,6 +152,8 @@ def check(path):
     return not fails
 
 if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
     if sys.argv[1:]:
         targets = sys.argv[1:]
     else:
