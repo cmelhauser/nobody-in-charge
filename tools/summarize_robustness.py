@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate research/ROBUSTNESS-RESULTS.md from the expanded release caches."""
+"""Generate research/ROBUSTNESS-RESULTS.md from the expanded release caches.
+
+Refuses to write if any cache it reads is incomplete or keyed to another model hash. The
+release gate requires the report to be at least as new as every registered cache.
+
+Run from anywhere:  python3 tools/summarize_robustness.py"""
 from __future__ import annotations
 
 import collections
@@ -247,4 +252,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()
