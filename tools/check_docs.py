@@ -415,12 +415,12 @@ def check_document_dates() -> None:
                  f"{found.group(1)!r}")
             return None
 
-    # Continuous integration checks out one commit, and on a pull request that commit is a
-    # merge GitHub synthesises on the day the job runs. In a clone that shallow every path
-    # appears to have changed today, which is not a fact about the text, so the comparison is
-    # skipped there and reported as skipped. It runs wherever the history is whole, which
-    # includes tools/run_ci_locally.sh before every merge. Merge commits are excluded for the
-    # same reason: they record when branches met, not when the text changed.
+    # A one-commit checkout, the GitHub default, holds only a merge GitHub synthesises on the
+    # day the job runs, so every path appears to have changed today, which is not a fact about
+    # the text. In a clone that shallow the comparison is skipped and reported as skipped. The
+    # checkers job fetches full history so that it runs on every pull request, and it runs in
+    # tools/run_ci_locally.sh. Merge commits are excluded everywhere for the same reason: they
+    # record when branches met, not when the text changed.
     shallow = subprocess.run(
         ["git", "-C", str(ROOT), "rev-parse", "--is-shallow-repository"],
         capture_output=True, text=True).stdout.strip() == "true"

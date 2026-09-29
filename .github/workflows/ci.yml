@@ -132,7 +132,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # Full history, so check_docs.py can date each document's sources. A one-commit
+      # checkout has only the merge GitHub synthesises on the day, and the date checks
+      # would skip; the repository is small enough that the whole history costs seconds.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
