@@ -82,9 +82,9 @@ reports() {
 build_docs() {
   { "$PY" tools/build_primer.py || "$PY" tools/build_primer.py; } \
     && { "$PY" tools/build_book.py || "$PY" tools/build_book.py; } \
-    && ( cd paper \
-         && SOURCE_DATE_EPOCH="$("$PY" ../tools/source_date.py paper)" \
+    && ( SOURCE_DATE_EPOCH="$("$PY" tools/source_date.py paper)" \
          && export SOURCE_DATE_EPOCH \
+         && cd paper \
          && { tectonic anonymity-as-an-aggregation-condition.tex \
               || tectonic anonymity-as-an-aggregation-condition.tex; } )
 }

@@ -5304,3 +5304,11 @@ three ATU reports and the two Big Book editions were each represented by whichev
 current citation reaches either token, so nothing was wrong yet; the texts are now pooled.
 
 **What did not change.** No model value, cache, notebook, released number, or line of the book.
+
+**Addendum, the same day.** The first full local CI run after these changes failed three steps, and
+the cause was in this work: `tools/run_ci_locally.sh` called `"$PY" ../tools/source_date.py` after
+`cd paper`, where `$PY` is the relative path `.venv/bin/python`, so the call failed, the paper was
+not rebuilt, and the gate then found the paper's PDF older than its source. The timestamp is now
+computed before the directory changes, as both workflows and the documented steps already did. The
+rerun passed all eighteen steps and left the tree exactly as committed, which no full local run had
+done before.
