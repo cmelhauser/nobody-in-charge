@@ -169,6 +169,25 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- The drift found by hand between 24 and 29 September 2026 is now caught by tools, each check made
+  to fail on the actual defect before being trusted:
+  - `check_chapter.py` fails on an entry marked read in full or at source that sits under any
+    other reference heading; on the pre-sweep chapters it flags all six misfiled entries.
+  - `build_corpus.py --check` fails when a record-only source holds a document, or a summary opens
+    "Record only" for a source that is not; it flags the Kurtz talk's summary as it stood.
+  - `check_docs.py` fails when the paper's `\date` month is older than its last change, and when
+    `HANDOFF.md` is dated before the newest progress-log entry, which is the handoff's own rule.
+    It runs 25 checks.
+  - A test keeps the paper's reference list in first-author and year order.
+- Rebuilding no longer dirties the tree. TeX stamps the clock into every PDF and the model-choice
+  inventory stamped it into `created_utc`, so each local CI run left four committed files modified
+  with nothing in them changed. `tools/source_date.py` gives each build a fixed timestamp from the
+  date its document declares, and all three PDFs now rebuild byte-identically; the inventory keeps
+  its stamp while its content is unchanged.
+- `check_book.py` pooled nothing across directories that share a token, such as the three ATU
+  reports and the two Big Book editions: each overwrote the one before, so a citation was checked
+  against whichever sorted last. They are now pooled. No current citation was affected.
+
 - A sweep before the elicitation round found twenty-odd statements the tree had outgrown, none
   caught by a checker because each was a reference status or a sentence rather than a count.
   - Five chapter references read in full were still filed under "Cited at a remove": Blair and

@@ -485,6 +485,46 @@ def check_document_dates() -> None:
         not_older("the primer's revision date", value, when,
                   ["reference/PRIMER-steps-and-traditions.md"])
 
+    # The paper declares a month rather than a day, so its date holds for the whole of that
+    # month. It sat at August 2026 through a September revision until the Human Author asked
+    # for it to be changed on 28 September; nothing had compared it with the text.
+    import calendar
+    paper_tex = ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex"
+    month = re.search(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})", paper_tex.read_text())
+    if not month:
+        fail("the paper's \\date no longer names a month this checker can read")
+    else:
+        start = datetime.strptime(month.group(1), "%B %Y").date()
+        end = start.replace(day=calendar.monthrange(start.year, start.month)[1])
+        not_older("the paper's date", month.group(1), end,
+                  ["paper/anonymity-as-an-aggregation-condition.tex"])
+
+
+def check_handoff_date() -> None:
+    """`HANDOFF.md` must not be dated earlier than the newest progress-log entry.
+
+    The handoff states its own rule: if the date at the bottom of the progress log is later
+    than its "Last updated" line, it is stale and the log wins. On 28 September 2026 it read
+    15 September beneath thirteen days of entries, so by its own rule every reader should have
+    distrusted it. This enforces the rule instead of leaving it to be noticed.
+    """
+    from datetime import datetime
+
+    handoff = (ROOT / "HANDOFF.md").read_text(encoding="utf-8")
+    stated = re.search(r"Last updated (\d{1,2} [A-Z][a-z]+ \d{4})", handoff)
+    log = (ROOT / "research" / "progress-log.md").read_text(encoding="utf-8")
+    entries = re.findall(r"^#{2,3} (\d{1,2} [A-Z][a-z]+ \d{4})", log, re.MULTILINE)
+    if not stated or not entries:
+        fail("HANDOFF.md has no 'Last updated' date, or the progress log has no dated entry")
+        return
+    handoff_on = datetime.strptime(stated.group(1), "%d %B %Y").date()
+    newest = max(datetime.strptime(e, "%d %B %Y").date() for e in entries)
+    if handoff_on >= newest:
+        ok(f"HANDOFF.md is dated {stated.group(1)}, not before the newest progress-log entry")
+    else:
+        fail(f"HANDOFF.md says 'Last updated {stated.group(1)}' but the progress log has an "
+             f"entry dated {newest:%d %B %Y}; by its own rule the handoff is stale")
+
 
 def main() -> int:
     check_ci_jobs()
@@ -497,6 +537,7 @@ def main() -> int:
     check_links()
     check_page_counts()
     check_document_dates()
+    check_handoff_date()
 
     for line in passes:
         print(line)
