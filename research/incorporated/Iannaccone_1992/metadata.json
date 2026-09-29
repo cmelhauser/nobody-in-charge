@@ -1,0 +1,27 @@
+{
+ "id": "Iannaccone_1992",
+ "title": "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives",
+ "author": "Iannaccone, L. R.",
+ "year": 1992,
+ "journal": "Journal of Political Economy",
+ "volume_issue_pages": "100(2): 271-291",
+ "type": "theory",
+ "status": "read_at_source",
+ "rights_note": "University of Chicago Press. The only full text located online is a JSTOR download, stamped as downloaded on 20 August 2015, reposted on a third party's personal research archive; its posting authorization is unverified. Per the project's 7 August 2026 rights review, as for DeGroot (1974), it is NOT archived here. Permissible routes to holding a copy: licensed access through JSTOR or the publisher, or an author manuscript with attribution.",
+ "documents": {},
+ "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "source_consulted_url": "https://pdf.stafforini.com/iannaccone-1992-sacrifice-stigma-reducing.pdf",
+ "sha256_of_copy_consulted": "2ffefb93af1b029234953f42a0f0090d8714b379a6ddbade1a40ff2f61f972a2",
+ "consulted": "2026-09-29",
+ "note_on_copy": "Twenty-one pages, the journal's typeset pages 271 to 291 with a text layer, each page carrying JSTOR's download stamp. No author manuscript or publisher-free copy was found.",
+ "topics": [
+  "club goods",
+  "participatory crowding",
+  "costly screening",
+  "free-riding"
+ ],
+ "legacy_stem": null,
+ "record_only": true,
+ "record_only_reason": "Read from a copy whose posting authorization is unverified; cited within limits rather than archived.",
+ "verification_index": "none: no text is held to build one from. Citations naming this source are checked against prose context only. Rebuild by obtaining a licensed copy and running tools/build_corpus.py with its text present."
+}

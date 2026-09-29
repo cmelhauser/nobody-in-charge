@@ -986,4 +986,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()

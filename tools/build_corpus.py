@@ -382,6 +382,19 @@ def main() -> int:
                     idx_file.write_text(json.dumps(idx) + "\n")
                     written.append(d.name)
 
+        # The record's three statements of footing must agree: the record-only flag, the
+        # documents listed, and what the summary says in its opening lines. On 28 September
+        # 2026 two summaries still opened "Record only. No document is stored at any time"
+        # two weeks after their sources were held, and nothing compared them.
+        record_only = bool(meta.get("record_only"))
+        summary_file = d / "source_summary.md"
+        opening = summary_file.read_text(encoding="utf-8")[:1500] if summary_file.exists() else ""
+        says_record_only = re.search(r"^\*\*Record only\b", opening, re.MULTILINE) is not None
+        if record_only and meta["documents"]:
+            problems.append(f"record-only source holds a document: {d.name}")
+        if says_record_only and not record_only:
+            problems.append(f"summary opens as record only but metadata does not: {d.name}")
+
     if check_only:
         for p in problems:
             print("FAIL: " + p)
@@ -396,4 +409,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     raise SystemExit(main())

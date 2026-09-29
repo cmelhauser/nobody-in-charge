@@ -1,12 +1,14 @@
-"""Execute model/book-calculations.ipynb end to end, in one process, and write the real
-outputs back into the file.
+"""Execute a verification notebook end to end, in one process, and write the real outputs
+back into the file: model/book-calculations.ipynb by default, the paper's notebook with
+--paper, or any notebook given by path.
 
 This exists because for a long time the notebook was maintained cell by cell and never run
 as a whole, and a cell that referenced an undefined name sat broken and unnoticed. Running it
-is now a one-liner and takes about twenty seconds.
+is now a one-liner that takes a few seconds.
 
 Exit status is non-zero if any cell raises or any assertion fails, so this can be used as a
-gate. Run it before calling any chapter done, alongside the two checkers.
+gate. Run it before calling any chapter done, alongside tools/check_chapter.py and
+tools/check_book.py. --no-write executes without touching the file.
 
 Run:  python3 tools/run_notebook.py [--no-write] [--paper | path/to/notebook.ipynb]
 """
@@ -66,6 +68,8 @@ def main(notebook=BOOK_NB, write=True):
 
 
 if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
     args = sys.argv[1:]
     write = '--no-write' not in args
     args = [arg for arg in args if arg != '--no-write']

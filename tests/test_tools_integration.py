@@ -105,6 +105,96 @@ def test_document_dates_are_declared_not_computed():
     assert f'date: "Draft of {draft.group(1)}"' in assembled
 
 
+def test_build_timestamps_follow_the_declared_dates():
+    """Each PDF is stamped with its document's declared date, never the clock.
+
+    `tools/source_date.py` supplies SOURCE_DATE_EPOCH to all three builds, which is what makes
+    a rebuild of unchanged sources byte-identical. If it read the wrong date, the PDFs would
+    still build and look right, so the mapping is pinned here.
+    """
+    from datetime import datetime, timezone
+
+    import source_date
+
+    def midnight(text, fmt):
+        return int(datetime.strptime(text, fmt).replace(tzinfo=timezone.utc).timestamp())
+
+    book = re.search(r"^DRAFT_DATE = '([^']+)'",
+                     (ROOT / "tools" / "build_book.py").read_text(), re.MULTILINE).group(1)
+    primer = re.search(r"^REVISED_DATE = '([^']+)'",
+                       (ROOT / "tools" / "build_primer.py").read_text(), re.MULTILINE).group(1)
+    paper = re.search(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})",
+                      (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
+                      ).group(1)
+    assert source_date.epoch("book") == midnight(book, "%d %B %Y")
+    assert source_date.epoch("primer") == midnight(primer, "%d %B %Y")
+    assert source_date.epoch("paper") == midnight(paper, "%B %Y")
+
+
+def test_the_papers_references_are_in_order():
+    """First author, then year, as the list's own convention and every reader expects.
+
+    Six entries were found out of order on 28 September 2026, one of them placed that week.
+    Nothing had looked, because a misplaced entry renders perfectly well.
+    """
+    import unicodedata
+
+    tex = (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
+    start = tex.index("\\section*{References}")
+    block = tex[start:tex.index("\\end{list}", start)]
+    items = [line[len("\\item "):] for line in block.splitlines() if line.startswith("\\item ")]
+    assert len(items) > 40, "the reference list was not found"
+
+    def key(item):
+        text = re.sub(r"\\['`^\"~]\{?(\w)\}?", r"\1", item)
+        text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
+        year = re.search(r"\((?:c\.\\? ?)?(\d{4}|n\.d\.)", text)
+        head = text[:year.start()] if year else text
+        first = re.split(r",\s*(?:[a-z]\.\s*)+|,\s*and\b|\s+and\s+|\s*\(", head)[0].strip()
+        return (first, year.group(1) if year and year.group(1) != "n.d." else "9999")
+
+    out_of_order = [(a[:40], b[:40])
+                    for a, b in zip(items[:-1], items[1:], strict=True) if key(b) < key(a)]
+    assert out_of_order == []
+
+
+_TOOLS = sorted(p.name for p in (ROOT / "tools").glob("*.py")
+                if p.name not in {"withheld.py", "tool_help.py"})
+
+
+def _tree_state() -> str:
+    return subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+                          capture_output=True, text=True).stdout
+
+
+@pytest.mark.parametrize("tool", _TOOLS)
+def test_every_tool_answers_help_without_running(tool):
+    """`--help` prints the tool's usage and exits; it must never run the tool.
+
+    Until 29 September 2026 sixteen tools ignored `--help` and ran, several of them writing
+    files: the book builder, the notebook generator, the corpus normalizer. The tree must be
+    exactly as it was afterwards.
+    """
+    import ast
+
+    before = _tree_state()
+    result = run(f"tools/{tool}", "--help")
+    assert result.returncode == 0, result.stdout + result.stderr
+    doc = ast.get_docstring(ast.parse((ROOT / "tools" / tool).read_text())) or ""
+    first = doc.strip().splitlines()[0] if doc.strip() else ""
+    assert first and first in result.stdout, f"{tool} --help did not print its docstring"
+    assert _tree_state() == before, f"{tool} --help changed the working tree"
+
+
+def test_the_local_ci_script_has_usage_and_refuses_unknown_jobs():
+    """An unknown job used to run nothing and print "local CI clear"."""
+    script = str(ROOT / "tools" / "run_ci_locally.sh")
+    shown = subprocess.run(["bash", script, "--help"], capture_output=True, text=True)
+    assert shown.returncode == 0 and "Usage:" in shown.stdout
+    typo = subprocess.run(["bash", script, "chekers"], capture_output=True, text=True)
+    assert typo.returncode == 2 and "local CI clear" not in typo.stdout
+
+
 def test_check_chapter_accepts_the_primer():
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr

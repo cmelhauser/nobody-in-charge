@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Fail when tracked project text contains machine-specific absolute paths."""
+"""Fail when tracked project text contains machine-specific absolute paths.
+
+Every tracked path must be repository-relative or derived at runtime, because the repository
+is public and a home directory or workspace root in it would publish the author's machine.
+
+Run from anywhere:  python3 tools/check_portability.py"""
 from __future__ import annotations
 
 import re
@@ -73,4 +78,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     raise SystemExit(main())

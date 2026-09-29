@@ -26,11 +26,14 @@ Run from anywhere:
 """
 from __future__ import annotations
 
+import os
 import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+from source_date import epoch as source_date_epoch
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "reference" / "PRIMER-steps-and-traditions.md"
@@ -102,7 +105,11 @@ def main() -> int:
     for key, value in VARIABLES:
         cmd += ["-V", "%s=%s" % (key, value)]
 
-    res = subprocess.run(cmd, capture_output=True, text=True)
+    # A fixed timestamp from REVISED_DATE makes a rebuild of unchanged text byte-identical;
+    # tools/source_date.py says why. A caller's own SOURCE_DATE_EPOCH wins.
+    env = dict(os.environ)
+    env.setdefault("SOURCE_DATE_EPOCH", str(source_date_epoch("primer")))
+    res = subprocess.run(cmd, capture_output=True, text=True, env=env)
     log = ROOT / "build" / "primer-pandoc.log"
     log.write_text(res.stdout + res.stderr)
     if res.returncode != 0:
@@ -126,4 +133,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     sys.exit(main())

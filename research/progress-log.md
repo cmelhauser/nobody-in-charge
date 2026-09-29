@@ -5238,3 +5238,117 @@ and a present-tense "What is included" heading over items that have since moved.
 
 **What did not change.** No model value, cache, notebook or released number. The book's text
 changed, and its draft date was already 28 September 2026.
+
+### 29 September 2026: Iannaccone (1992), reread
+
+**What was asked.** The record disagreed about Iannaccone (1992). Chapter 12 called it read at
+source, Chapter 2 listed it as cited at a remove, and `research/SOURCES.md` recorded no status. The
+Human Author believed it had been read and asked for the reading to be confirmed, finding a copy
+online if the corpus had none. It had none.
+
+**Finding a copy.** No author manuscript and no publisher-free copy exists; the journal and JSTOR
+both charge. The only full text online is a JSTOR download, stamped 20 August 2015, reposted on a
+third party's personal research archive. Its posting authorization is unverified, which is exactly
+the DeGroot (1974) case, so it was read, verified against and not archived. The web fetch that read
+it left a copy in the harness's own cache outside the repository; its SHA-256 is in the record, and
+nothing was placed in the corpus or in Git.
+
+**What the reread confirmed.** Chapter 2's use holds. The paper argues that seemingly unproductive
+costs "screen out people whose participation would otherwise be low" (272), checked against the
+page image, and its section C explains one-time entry costs as screening in a heterogeneous
+population (281). Applying that to the Sons of Temperance is the chapter's reading; the paper never
+mentions temperance.
+
+**What it corrected.** Chapters 12 and 15 credited the paper with "the saturation form" of the
+participatory resources. It has none. It takes group quality to be Q = F(R̄, N), strictly concave in
+the other members' average participation and in group size (277), and its worked example sets Q
+equal to average participation, linearly (280). The model's form, c / (c + k) in the number of
+engaged members, which also caps each resource, is the book's own. The paper supplies the premise
+of diminishing returns and nothing more specific, and both chapters now say that.
+
+**Where it went.** A record-only corpus entry, `research/incorporated/Iannaccone_1992/`, on the
+DeGroot pattern; the ledger entry with its read status and findings; Chapter 2's reference moved to
+"Read in full"; Chapters 12 and 15 corrected; the paper's reference given its status; and every
+count and list of record-only sources, now six of 45.
+
+**What did not change.** No model value, cache, notebook or released number.
+
+### 29 September 2026, later: turning this week's hand sweeps into checks
+
+**What was asked.** Whether anything in the repository could be improved or fixed.
+
+**The answer came from the week's own record.** Between 24 and 29 September almost every defect
+found was found by reading, after every checker had passed. Each class that a tool could have
+caught now is, and each new check was made to fail on the real defect before being trusted:
+- `check_chapter.py` fails on an entry marked read that sits under another reference heading. Run
+  on the chapters as they stood before the 28 September sweep, it flags all six misfiled entries;
+  the first version missed Chapter 2's two because their marker was lower-case, which is why the
+  match is now case-insensitive.
+- `build_corpus.py --check` compares each record's three statements of footing: the record-only
+  flag, the documents listed, and the summary's opening. It flags the Kurtz talk's summary as it
+  read before the sweep.
+- `check_docs.py` holds the paper's `\date` month to the paper's last change, which would have
+  caught the August date, and holds `HANDOFF.md`'s "Last updated" line to the newest progress-log
+  entry, the handoff's own stated rule, which would have caught 15 September.
+- A test keeps the paper's reference list sorted; it fails on the list as it was before sorting.
+
+**The churn that every local CI run left behind is gone.** TeX stamps the clock into each PDF and
+the inventory stamped it into `created_utc`, so every run modified four committed files with no
+content change, and they were reverted by hand from 17 August on. `tools/source_date.py` derives
+`SOURCE_DATE_EPOCH` from each document's declared date: the book's `DRAFT_DATE`, the primer's
+`REVISED_DATE` and the paper's `\date` month. Built twice, each PDF came out byte-identical, and the
+inventory now keeps its stamp until its content changes.
+
+**One latent bug.** `check_book.py` let directories sharing a token overwrite each other, so the
+three ATU reports and the two Big Book editions were each represented by whichever sorted last. No
+current citation reaches either token, so nothing was wrong yet; the texts are now pooled.
+
+**What did not change.** No model value, cache, notebook, released number, or line of the book.
+
+**Addendum, the same day.** The first full local CI run after these changes failed three steps, and
+the cause was in this work: `tools/run_ci_locally.sh` called `"$PY" ../tools/source_date.py` after
+`cd paper`, where `$PY` is the relative path `.venv/bin/python`, so the call failed, the paper was
+not rebuilt, and the gate then found the paper's PDF older than its source. The timestamp is now
+computed before the directory changes, as both workflows and the documented steps already did. The
+rerun passed all eighteen steps and left the tree exactly as committed, which no full local run had
+done before.
+
+### 29 September 2026, later still: help, READMEs, agent files, coverage and comments
+
+**What was asked.** That the READMEs, the agent files and skills, every tool's `--help`, test
+coverage and code comments be checked for anything stale.
+
+**`--help` was not stale so much as absent.** Only `freeze_release_manifest.py`, which uses
+argparse, answered it, and its help described neither argument. The other sixteen tools ignored an
+unknown argument and ran, so `build_book.py --help` rebuilt the book, `regenerate_notebooks.py
+--help` rewrote both notebooks and `build_corpus.py --help` normalized the corpus.
+`tools/tool_help.py` now prints the tool's docstring and exits, first thing in every entry block.
+The docstrings it shows were read against the code: `check_release.py` never mentioned
+`--skip-artifacts`, `check_chapter.py` gave usage that fails from the repository root,
+`run_notebook.py` described one notebook, twenty seconds and "the two checkers", `build_book.py`
+left out `--date`, four tools gave no usage at all, and `check_docs.py` described itself as
+checking counts alone. `run_ci_locally.sh` had a worse fault of the same kind: an unknown job ran
+nothing and printed "local CI clear", so a typo reported success. It now refuses one.
+
+**The READMEs.** The main README built the paper with `latexmk -pdf` from the repository root,
+which writes the PDF to the root, so following it would have left `paper/`'s PDF untouched and
+failed the release gate; it now matches `CLAUDE.md`, the handoff and CI. The paper's own header
+said to build it with pdflatex; it now gives the build the project actually uses. The P-17 README
+still said the pamphlet was not held, and pointed a question about the 1946 wording at a
+*Grapevine* issue the project had in fact read. The corpus README described every source as a PDF
+with its text, when fourteen hold text only and six hold nothing.
+
+**The agent files.** There are no agent skills in the repository. `AGENTS.md` and
+`AGENT_VERIFY.md` were brought into line with today's tooling. The staged package's
+`SOURCE_INCORPORATION_AGENT.md` pointed at `sources/acquired/`, which no longer exists, through a
+relative path that resolved one directory too shallow.
+
+**Coverage.** The gate is 100 per cent of `model/aa_group_model.py`, 148 statements and none
+missed, and it holds. The tools are outside that gate by the design `.coveragerc` records; every
+one of them is now at least exercised by the `--help` test.
+
+**Comments.** Every file path named in a comment or docstring under `tools/`, `tests/`,
+`.github/` and `model/` was checked for existence, and the one miss is a usage placeholder. No
+comment carries a stale count. One CI comment listed what `check_docs.py` checks without its date
+checks. The analysis scripts under `model/` were read but not edited, because they are
+hash-pinned and a comment change would invalidate their caches.
