@@ -420,9 +420,12 @@ def check_sources():
         if name is None:
             warn('sources', f'corpus directory name is too short to identify citations: {f}')
             continue
-        texts[name] = ' ' + ' '.join(d['vocab']) + ' '
+        # Directories may share a token on purpose, as the three ATU reports and the two Big
+        # Book editions do. Each used to overwrite the one before, so a citation was checked
+        # against whichever sorted last; the texts and subjects are now pooled instead.
+        texts[name] = texts.get(name, ' ') + ' '.join(d['vocab']) + ' '
         if 'subjects_present' in d:
-            subjects_present[name] = set(d['subjects_present'])
+            subjects_present.setdefault(name, set()).update(d['subjects_present'])
     for f in glob.glob(P('research', '*-verification-index.json')):
         d = json.load(open(f))
         name = re.match(r'([A-Z][a-z]+)', d['work']).group(1)
@@ -436,7 +439,9 @@ def check_sources():
         name = token if len(token) >= 3 else None
         doc = os.path.join(d, os.path.basename(d) + '.txt')
         if name and os.path.exists(doc):
-            texts[name] = re.sub(r'\s+', ' ', open(doc, errors='ignore').read()).lower()
+            with open(doc, errors='ignore') as fh:
+                body = re.sub(r'\s+', ' ', fh.read()).lower()
+            texts[name] = (texts[name] + ' ' + body) if name in full_text else body
             full_text.add(name)
     for stem, name in SAVED.items():
         hits = (glob.glob(P('research', stem + '*.txt')) +

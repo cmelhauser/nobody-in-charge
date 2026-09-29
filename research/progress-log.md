@@ -5272,3 +5272,35 @@ DeGroot pattern; the ledger entry with its read status and findings; Chapter 2's
 count and list of record-only sources, now six of 45.
 
 **What did not change.** No model value, cache, notebook or released number.
+
+### 29 September 2026, later: turning this week's hand sweeps into checks
+
+**What was asked.** Whether anything in the repository could be improved or fixed.
+
+**The answer came from the week's own record.** Between 24 and 29 September almost every defect
+found was found by reading, after every checker had passed. Each class that a tool could have
+caught now is, and each new check was made to fail on the real defect before being trusted:
+- `check_chapter.py` fails on an entry marked read that sits under another reference heading. Run
+  on the chapters as they stood before the 28 September sweep, it flags all six misfiled entries;
+  the first version missed Chapter 2's two because their marker was lower-case, which is why the
+  match is now case-insensitive.
+- `build_corpus.py --check` compares each record's three statements of footing: the record-only
+  flag, the documents listed, and the summary's opening. It flags the Kurtz talk's summary as it
+  read before the sweep.
+- `check_docs.py` holds the paper's `\date` month to the paper's last change, which would have
+  caught the August date, and holds `HANDOFF.md`'s "Last updated" line to the newest progress-log
+  entry, the handoff's own stated rule, which would have caught 15 September.
+- A test keeps the paper's reference list sorted; it fails on the list as it was before sorting.
+
+**The churn that every local CI run left behind is gone.** TeX stamps the clock into each PDF and
+the inventory stamped it into `created_utc`, so every run modified four committed files with no
+content change, and they were reverted by hand from 17 August on. `tools/source_date.py` derives
+`SOURCE_DATE_EPOCH` from each document's declared date: the book's `DRAFT_DATE`, the primer's
+`REVISED_DATE` and the paper's `\date` month. Built twice, each PDF came out byte-identical, and the
+inventory now keeps its stamp until its content changes.
+
+**One latent bug.** `check_book.py` let directories sharing a token overwrite each other, so the
+three ATU reports and the two Big Book editions were each represented by whichever sorted last. No
+current citation reaches either token, so nothing was wrong yet; the texts are now pooled.
+
+**What did not change.** No model value, cache, notebook, released number, or line of the book.

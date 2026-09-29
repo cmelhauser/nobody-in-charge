@@ -131,6 +131,33 @@ def test_build_timestamps_follow_the_declared_dates():
     assert source_date.epoch("paper") == midnight(paper, "%B %Y")
 
 
+def test_the_papers_references_are_in_order():
+    """First author, then year, as the list's own convention and every reader expects.
+
+    Six entries were found out of order on 28 September 2026, one of them placed that week.
+    Nothing had looked, because a misplaced entry renders perfectly well.
+    """
+    import unicodedata
+
+    tex = (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
+    start = tex.index("\\section*{References}")
+    block = tex[start:tex.index("\\end{list}", start)]
+    items = [line[len("\\item "):] for line in block.splitlines() if line.startswith("\\item ")]
+    assert len(items) > 40, "the reference list was not found"
+
+    def key(item):
+        text = re.sub(r"\\['`^\"~]\{?(\w)\}?", r"\1", item)
+        text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
+        year = re.search(r"\((?:c\.\\? ?)?(\d{4}|n\.d\.)", text)
+        head = text[:year.start()] if year else text
+        first = re.split(r",\s*(?:[a-z]\.\s*)+|,\s*and\b|\s+and\s+|\s*\(", head)[0].strip()
+        return (first, year.group(1) if year and year.group(1) != "n.d." else "9999")
+
+    out_of_order = [(a[:40], b[:40])
+                    for a, b in zip(items[:-1], items[1:], strict=True) if key(b) < key(a)]
+    assert out_of_order == []
+
+
 def test_check_chapter_accepts_the_primer():
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr

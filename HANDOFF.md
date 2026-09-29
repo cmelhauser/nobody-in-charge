@@ -109,7 +109,7 @@ As of 28 September 2026, everything passes:
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 23 checks, 0 failed |
+| `tools/check_docs.py` | 25 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed |
 | `model/book-calculations.ipynb` | 8 cells, 84 assertions, clean |

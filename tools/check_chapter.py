@@ -108,6 +108,19 @@ def check(path):
             for req in ('Read in full', 'Cited at a remove', 'What was not read'):
                 if req not in heads:
                     fails.append(f"references missing the '{req}' heading")
+            # An entry marked as read must sit under Read in full. On 28 September 2026 five
+            # were found under "Cited at a remove", each marked **Read in full** or **Now read
+            # at source** in place when it was read in August instead of being moved, so the
+            # heading and the entry contradicted each other in plain sight.
+            marker = re.compile(r'\*\*(?:now )?(?:read in full|read at source)\b[^*]*\*\*', re.I)
+            sections = re.split(r'^\*\*(' + '|'.join(re.escape(c) for c in CANON) +
+                                r')[:.]?\*\*\s*$', refs, flags=re.M)
+            for head, body in zip(sections[1::2], sections[2::2], strict=True):
+                if head == 'Read in full':
+                    continue
+                for entry in (e for e in body.split('\n\n') if marker.search(e)):
+                    fails.append(f"an entry marked as read sits under '{head}': "
+                                 f"{entry.strip()[:60]}...")
             # An inline lead like "**What was not read.** Some prose" is not a heading and was
             # how sixteen chapters ended up with the statement buried inside another section.
             for m in re.finditer(r'^\*\*(' + '|'.join(re.escape(c) for c in CANON) +
