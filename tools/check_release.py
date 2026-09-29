@@ -136,7 +136,7 @@ def main() -> int:
             "protective index-step count is 17, not 35")
 
     require((ROOT / "research" / "staged").is_dir(),
-            "deferred next-round corpus remains under research/staged")
+            "the acquisition record remains under research/staged")
     require((ROOT / "research" / "incorporated" / "Maxwell_1950").is_dir(),
             "Maxwell active source is under research/incorporated")
     require((ROOT / "research" / "incorporated" / "Golub_Jackson_2010").is_dir(),

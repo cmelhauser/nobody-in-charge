@@ -15,7 +15,7 @@ passages verified from it, and no archived document. That is the same treatment 
 receives and it is what the review's "cite/quote only within applicable limits" permits.
 
 The review also corrects one identification: `Heelas_1999` was the wrong citation and the intended
-work is Valverde, White and Mair (1999). Neither is cited by the manuscript.
+work is Valverde and White-Mair (1999). Neither is cited by the manuscript.
 
 **Most of this corpus has now been incorporated.** On 9 August 2026 the four acquired items were
 reviewed and moved to `../incorporated/`: the three American Temperance Union documents and the
@@ -44,7 +44,7 @@ files were placed under `../incorporated/` because both works were already read 
 The duplicate staged Maxwell package was removed rather than merged. Neither source is part
 of the staged corpus now.
 
-## What is included
+## What the package included when it arrived
 
 - Three public-domain American Temperance Union documents downloaded from Internet Archive, with searchable text.
 - The 2024 AA pamphlet *A.A. Tradition: How It Developed*, retained as staged and subject to the project's source-policy and licensing review.
