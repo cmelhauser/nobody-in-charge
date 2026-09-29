@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail when documentation states a count the repository contradicts.
+"""Fail when documentation states a count or a date the repository contradicts.
 
 Every other checker here verifies a number that came out of a cache. This one verifies the
 sentences, because the sweep of 24 August 2026 found that all the drift had collected in
@@ -14,7 +14,10 @@ and the enumerations were short, which is the failure mode that reads as correct
 
 So the rule this file enforces is narrow: **a sentence asserting how many of something this
 repository has must agree with how many it has.** Each check derives the true value first, then
-scans tracked Markdown for claims about it.
+scans tracked Markdown for claims about it. Since 27 September 2026 it also holds declared
+dates to the history they describe: the book's and the primer's printed dates and the paper's
+month against the last change to each one's sources, and `HANDOFF.md`'s "Last updated" line
+against the newest progress-log entry.
 
 What is deliberately not checked:
 
@@ -551,4 +554,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     sys.exit(main())

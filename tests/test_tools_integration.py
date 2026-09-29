@@ -158,6 +158,43 @@ def test_the_papers_references_are_in_order():
     assert out_of_order == []
 
 
+_TOOLS = sorted(p.name for p in (ROOT / "tools").glob("*.py")
+                if p.name not in {"withheld.py", "tool_help.py"})
+
+
+def _tree_state() -> str:
+    return subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+                          capture_output=True, text=True).stdout
+
+
+@pytest.mark.parametrize("tool", _TOOLS)
+def test_every_tool_answers_help_without_running(tool):
+    """`--help` prints the tool's usage and exits; it must never run the tool.
+
+    Until 29 September 2026 sixteen tools ignored `--help` and ran, several of them writing
+    files: the book builder, the notebook generator, the corpus normalizer. The tree must be
+    exactly as it was afterwards.
+    """
+    import ast
+
+    before = _tree_state()
+    result = run(f"tools/{tool}", "--help")
+    assert result.returncode == 0, result.stdout + result.stderr
+    doc = ast.get_docstring(ast.parse((ROOT / "tools" / tool).read_text())) or ""
+    first = doc.strip().splitlines()[0] if doc.strip() else ""
+    assert first and first in result.stdout, f"{tool} --help did not print its docstring"
+    assert _tree_state() == before, f"{tool} --help changed the working tree"
+
+
+def test_the_local_ci_script_has_usage_and_refuses_unknown_jobs():
+    """An unknown job used to run nothing and print "local CI clear"."""
+    script = str(ROOT / "tools" / "run_ci_locally.sh")
+    shown = subprocess.run(["bash", script, "--help"], capture_output=True, text=True)
+    assert shown.returncode == 0 and "Usage:" in shown.stdout
+    typo = subprocess.run(["bash", script, "chekers"], capture_output=True, text=True)
+    assert typo.returncode == 2 and "local CI clear" not in typo.stdout
+
+
 def test_check_chapter_accepts_the_primer():
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr

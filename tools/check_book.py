@@ -535,6 +535,8 @@ def check_withheld_names(paths=None):
 
 
 if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
     for fn in (check_figures, check_intervals, check_repetition, check_forward,
                check_status, check_history, check_sources,
                check_withheld_names):

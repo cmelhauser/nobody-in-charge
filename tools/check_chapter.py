@@ -2,8 +2,9 @@
 """
 House-style check. Run against any chapter file before calling it done.
 
-    python3 check_chapter.py ch09-confident-and-wrong.md
-    python3 check_chapter.py            # checks every ch*.md
+    python3 tools/check_chapter.py manuscript/ch09-confident-and-wrong.md
+    python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
+    python3 tools/check_chapter.py      # checks every manuscript/ch*.md
 
 Enforces the conventions established across Part One and Chapter 8.
 Every rule below exists because a chapter broke it once.
@@ -151,6 +152,8 @@ def check(path):
     return not fails
 
 if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
     if sys.argv[1:]:
         targets = sys.argv[1:]
     else:

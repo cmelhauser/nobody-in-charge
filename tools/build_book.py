@@ -33,8 +33,13 @@ of the book. The paper's own PDF remains the authoritative rendering of the pape
 copy exists so the book is self-contained.
 
 Run:
-    python3 tools/build_book.py            assemble and render
-    python3 tools/build_book.py --no-pdf   assemble only
+    python3 tools/build_book.py                      assemble and render
+    python3 tools/build_book.py --no-pdf             assemble only
+    python3 tools/build_book.py --date "1 May 2027"  a one-off build with another date
+
+The printed date is DRAFT_DATE, declared below and checked by tools/check_docs.py; the PDF's
+internal timestamp comes from the same date through tools/source_date.py, so a rebuild of
+unchanged text is byte-identical.
 """
 import os
 import re
@@ -459,4 +464,6 @@ def main():
 
 
 if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()

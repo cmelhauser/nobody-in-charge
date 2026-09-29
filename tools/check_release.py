@@ -4,6 +4,16 @@
 This checker deliberately overlaps the notebook and book checkers. A release gate should
 fail closed when an analysis is incomplete, hash-stale, semantically inconsistent, or when
 a rendered artifact predates its source.
+
+Run from the repository root, last, after the three PDFs are built:
+
+    python3 tools/check_release.py                   the full gate
+    python3 tools/check_release.py --skip-artifacts  for a fresh clone
+
+`--skip-artifacts` omits the six checks that each rendered PDF exists and is newer than its
+sources, which a fresh clone can satisfy only by building them first, and reports those six
+as skipped rather than passed. Continuous integration's checkers job uses it; a release does
+not.
 """
 from __future__ import annotations
 
@@ -229,4 +239,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     raise SystemExit(main())

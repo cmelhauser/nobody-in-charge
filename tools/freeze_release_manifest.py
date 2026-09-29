@@ -90,9 +90,11 @@ def build(label: str) -> dict:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("label", choices=("pre-correction", "post-correction"))
-    ap.add_argument("--output")
+    ap = argparse.ArgumentParser(description=(__doc__ or "").strip().splitlines()[0])
+    ap.add_argument("label", choices=("pre-correction", "post-correction"),
+                    help="which side of the correction round this snapshot records")
+    ap.add_argument("--output", help="where to write the manifest; default "
+                    "research/audit-<label>-manifest.json")
     args = ap.parse_args()
     default = ROOT / "research" / f"audit-{args.label}-manifest.json"
     out = Path(args.output).resolve() if args.output else default

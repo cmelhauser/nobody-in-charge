@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""AST-assisted inventory of numeric choices in the executable group model."""
+"""AST-assisted inventory of numeric choices in the executable group model.
+
+Writes research/model-choice-inventory.json and research/MODEL-CHOICE-INVENTORY.md from
+model/aa_group_model.py. The JSON's created_utc is kept while the content is unchanged, so
+regenerating an unchanged inventory leaves the tree clean.
+
+Run from anywhere:  python3 tools/inventory_model_choices.py"""
 from __future__ import annotations
 
 import ast
@@ -203,4 +209,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from tool_help import help_requested
+    help_requested(__doc__)
     main()

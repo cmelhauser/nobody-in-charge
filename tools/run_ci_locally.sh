@@ -21,11 +21,24 @@
 # This is a convenience, not an authority. The workflow file is the authority, and if the
 # two drift apart the workflow is right. Keep them in step by hand; nothing enforces it.
 #
+# CI's lint job also runs actionlint over the workflows, through a GitHub Action this script
+# cannot call; locally, workflow syntax is checked only when the pull request runs.
+#
 # One deliberate difference. CI installs its own toolchain and this does not, because a
 # local machine already has one and reinstalling it would be slower and less faithful than
 # using what the author actually builds with. That is also the one thing this cannot check:
 # whether a fresh runner can obtain pandoc, tectonic and the font.
 set -uo pipefail
+
+# The header above is the usage. An unrecognised job used to run nothing at all and still
+# print "local CI clear", so a typo such as "chekers" reported success; it is refused now.
+usage() { sed -n '2,/^set -uo pipefail/p' "$0" | sed '$d' | sed 's/^# \{0,1\}//'; }
+case "${1:-all}" in
+  -h|--help) usage; exit 0 ;;
+  all|lint|unit-tests|checkers|checks|documents) ;;
+  *) printf 'unknown job: %s\n\n' "$1" >&2; usage >&2; exit 2 ;;
+esac
+
 # Everything below assumes the repository root. If this fails, running the checks
 # against whatever directory we happen to be in would be worse than not running them.
 cd "$(dirname "$0")/.." || { echo "cannot reach the repository root" >&2; exit 1; }
