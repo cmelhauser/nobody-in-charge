@@ -153,7 +153,9 @@ python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/check_docs.py
 python3 tools/build_book.py
+export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
+unset SOURCE_DATE_EPOCH
 python3 tools/build_primer.py
 sh research/elicitation/build.sh
 python3 tools/check_pdfs.py

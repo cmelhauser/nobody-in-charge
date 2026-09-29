@@ -289,7 +289,9 @@ python3 tools/check_portability.py
 python3 tools/check_docs.py
 python3 tools/build_book.py
 python3 tools/build_primer.py
+export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
+unset SOURCE_DATE_EPOCH
 python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
@@ -297,6 +299,12 @@ python3 tools/check_release.py
 `tools/run_ci_locally.sh` runs all four continuous-integration jobs in this order on the local
 machine, and takes an optional `lint`, `unit-tests`, `checkers`, `checks` or `documents` argument
 to run one of them.
+
+All three builds set `SOURCE_DATE_EPOCH` from the date each document declares, through
+`tools/source_date.py`: the book and primer builders do it themselves, and the paper needs the
+`export` above. TeX otherwise stamps the clock into every PDF, so a rebuild of unchanged sources
+used to leave all three committed PDFs modified; with it, the rebuild is byte-identical and the
+tree stays clean.
 
 `check_release.py` runs last, and the order is not a matter of taste. The gate requires every
 rendered artifact to be at least as new as the sources feeding it, so running it before the three

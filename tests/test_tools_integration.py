@@ -105,6 +105,32 @@ def test_document_dates_are_declared_not_computed():
     assert f'date: "Draft of {draft.group(1)}"' in assembled
 
 
+def test_build_timestamps_follow_the_declared_dates():
+    """Each PDF is stamped with its document's declared date, never the clock.
+
+    `tools/source_date.py` supplies SOURCE_DATE_EPOCH to all three builds, which is what makes
+    a rebuild of unchanged sources byte-identical. If it read the wrong date, the PDFs would
+    still build and look right, so the mapping is pinned here.
+    """
+    from datetime import datetime, timezone
+
+    import source_date
+
+    def midnight(text, fmt):
+        return int(datetime.strptime(text, fmt).replace(tzinfo=timezone.utc).timestamp())
+
+    book = re.search(r"^DRAFT_DATE = '([^']+)'",
+                     (ROOT / "tools" / "build_book.py").read_text(), re.MULTILINE).group(1)
+    primer = re.search(r"^REVISED_DATE = '([^']+)'",
+                       (ROOT / "tools" / "build_primer.py").read_text(), re.MULTILINE).group(1)
+    paper = re.search(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})",
+                      (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
+                      ).group(1)
+    assert source_date.epoch("book") == midnight(book, "%d %B %Y")
+    assert source_date.epoch("primer") == midnight(primer, "%d %B %Y")
+    assert source_date.epoch("paper") == midnight(paper, "%B %Y")
+
+
 def test_check_chapter_accepts_the_primer():
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr
