@@ -5312,3 +5312,43 @@ not rebuilt, and the gate then found the paper's PDF older than its source. The 
 computed before the directory changes, as both workflows and the documented steps already did. The
 rerun passed all eighteen steps and left the tree exactly as committed, which no full local run had
 done before.
+
+### 29 September 2026, later still: help, READMEs, agent files, coverage and comments
+
+**What was asked.** That the READMEs, the agent files and skills, every tool's `--help`, test
+coverage and code comments be checked for anything stale.
+
+**`--help` was not stale so much as absent.** Only `freeze_release_manifest.py`, which uses
+argparse, answered it, and its help described neither argument. The other sixteen tools ignored an
+unknown argument and ran, so `build_book.py --help` rebuilt the book, `regenerate_notebooks.py
+--help` rewrote both notebooks and `build_corpus.py --help` normalized the corpus.
+`tools/tool_help.py` now prints the tool's docstring and exits, first thing in every entry block.
+The docstrings it shows were read against the code: `check_release.py` never mentioned
+`--skip-artifacts`, `check_chapter.py` gave usage that fails from the repository root,
+`run_notebook.py` described one notebook, twenty seconds and "the two checkers", `build_book.py`
+left out `--date`, four tools gave no usage at all, and `check_docs.py` described itself as
+checking counts alone. `run_ci_locally.sh` had a worse fault of the same kind: an unknown job ran
+nothing and printed "local CI clear", so a typo reported success. It now refuses one.
+
+**The READMEs.** The main README built the paper with `latexmk -pdf` from the repository root,
+which writes the PDF to the root, so following it would have left `paper/`'s PDF untouched and
+failed the release gate; it now matches `CLAUDE.md`, the handoff and CI. The paper's own header
+said to build it with pdflatex; it now gives the build the project actually uses. The P-17 README
+still said the pamphlet was not held, and pointed a question about the 1946 wording at a
+*Grapevine* issue the project had in fact read. The corpus README described every source as a PDF
+with its text, when fourteen hold text only and six hold nothing.
+
+**The agent files.** There are no agent skills in the repository. `AGENTS.md` and
+`AGENT_VERIFY.md` were brought into line with today's tooling. The staged package's
+`SOURCE_INCORPORATION_AGENT.md` pointed at `sources/acquired/`, which no longer exists, through a
+relative path that resolved one directory too shallow.
+
+**Coverage.** The gate is 100 per cent of `model/aa_group_model.py`, 148 statements and none
+missed, and it holds. The tools are outside that gate by the design `.coveragerc` records; every
+one of them is now at least exercised by the `--help` test.
+
+**Comments.** Every file path named in a comment or docstring under `tools/`, `tests/`,
+`.github/` and `model/` was checked for existence, and the one miss is a usage placeholder. No
+comment carries a stale count. One CI comment listed what `check_docs.py` checks without its date
+checks. The analysis scripts under `model/` were read but not edited, because they are
+hash-pinned and a comment change would invalidate their caches.

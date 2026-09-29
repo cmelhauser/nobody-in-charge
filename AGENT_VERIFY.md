@@ -193,8 +193,10 @@ then rerun it. Do not waive any cache-status, model-hash, analysis-hash, expecte
 notebook, source-boundary, or stale-language failure.
 
 `tools/check_docs.py` is a separate question from the gate and worth running early: it re-derives
-the counts this repository states about itself, so a failure there means a document disagrees with
-the tree rather than with a cache.
+the counts this repository states about itself, and holds the declared dates of the book, the
+primer, the paper and `HANDOFF.md` to the history they describe, so a failure there means a
+document disagrees with the tree rather than with a cache. The date comparisons need full Git
+history and report themselves as skipped in a shallow clone.
 
 `tools/run_ci_locally.sh` runs all four continuous-integration jobs here, which is the quickest
 way to reach the same 148 checks along with the tests, the builds and the overfull gate. Verifying a

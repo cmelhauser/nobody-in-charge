@@ -205,7 +205,9 @@ python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
 python3 tools/check_docs.py
 python3 tools/build_book.py
-latexmk -pdf -interaction=nonstopmode paper/anonymity-as-an-aggregation-condition.tex
+export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
+(cd paper && tectonic anonymity-as-an-aggregation-condition.tex)
+unset SOURCE_DATE_EPOCH
 python3 tools/build_primer.py
 python3 tools/check_pdfs.py
 python3 tools/check_release.py
@@ -247,10 +249,13 @@ any verification index whose stored SHA-256 no longer matches its file.
 `tools/freeze_release_manifest.py` is separate: it snapshots hashes and JSON shapes for an audit
 trail and is not part of the build.
 
-`tools/build_book.py` prefers XeLaTeX and falls back to Tectonic. The paper's own header
-documents two `pdflatex` passes, which is what `latexmk` performs; Tectonic also works if it is
-the available engine. The paper emits auxiliary files that `.gitignore` excludes, so a build does
-not dirty the working tree.
+`tools/build_book.py` prefers XeLaTeX and falls back to Tectonic. The paper is built with
+Tectonic from inside `paper/`, as continuous integration builds it; its preamble also compiles
+under two `pdflatex` passes, but that is not how the committed PDF is made. Every build takes a
+fixed timestamp from the date its document declares, through `tools/source_date.py`: the book and
+primer builders set it themselves, and the paper needs the `export` above. So a rebuild of
+unchanged sources is byte-identical, and together with the auxiliary files `.gitignore` excludes,
+a build does not dirty the working tree. Every tool prints its usage with `--help`.
 
 The paper is built from `paper/anonymity-as-an-aggregation-condition.tex`. The standalone
 primer is built from `reference/PRIMER-steps-and-traditions.md`. A release also requires

@@ -156,7 +156,9 @@ python3 tools/check_portability.py
 ```
 
 `tools/run_ci_locally.sh` runs all four CI jobs here, which is the cheapest way to find out whether a
-push will go red.
+push will go red. A full run leaves the tree as it found it: the three PDFs rebuild byte-identically
+from their declared dates, and the inventory keeps its timestamp while unchanged. Every tool prints
+its usage with `--help` and does nothing else.
 
 Before claiming a release, run the full sequence in `README.md` and close with `AGENT_VERIFY.md`.
 

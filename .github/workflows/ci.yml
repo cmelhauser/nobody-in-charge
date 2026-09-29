@@ -160,9 +160,12 @@ jobs:
         run: python tools/check_book.py
 
       # Counts stated in prose, re-derived from the tree: CI jobs, checkers, corpus size and
-      # record-only status, analysis scripts, chapters, and every relative link. The three PDFs
-      # are committed, so the page-count checks run here too, against the committed artifacts.
-      # `documents` runs the same file after rebuilding them, which is the stronger test.
+      # record-only status, analysis scripts, chapters, and every relative link. Also the
+      # declared dates of the book, the primer and the paper against the history of their
+      # sources, which is why this job fetches full history, and the handoff's date against the
+      # progress log. The three PDFs are committed, so the page-count checks run here too,
+      # against the committed artifacts. `documents` runs the same file after rebuilding them,
+      # which is the stronger test.
       - name: Documentation matches the tree
         run: python tools/check_docs.py
 

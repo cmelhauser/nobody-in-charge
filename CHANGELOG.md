@@ -169,6 +169,18 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- `--help` now prints each tool's usage and exits. Only the argparse tool answered it before; the
+  other sixteen ran, and several wrote files. `tools/run_ci_locally.sh` also answers `--help` and
+  refuses an unknown job, which used to run nothing and still print "local CI clear". The
+  docstrings `--help` shows were checked against the code, and six were wrong or incomplete. A
+  test runs every tool with `--help` and fails if the tree changes.
+- The README built the paper with `latexmk -pdf` from the repository root, which writes the PDF to
+  the root and leaves `paper/`'s untouched; it now builds as `CLAUDE.md`, the handoff and CI do.
+  The P-17 README still said the pamphlet was not held, the corpus README described every source
+  as a PDF with text, the staged package's agent instructions pointed at a directory that no
+  longer exists, and `AGENT_VERIFY.md` and one CI comment described `check_docs.py` as checking
+  counts only. All are corrected. Test coverage of the canonical model remains 100 per cent.
+
 - The drift found by hand between 24 and 29 September 2026 is now caught by tools, each check made
   to fail on the actual defect before being trusted:
   - `check_chapter.py` fails on an entry marked read in full or at source that sits under any
