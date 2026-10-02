@@ -181,7 +181,10 @@ someone who wants to know what changed between two tags does not have to read it
   comparing what they printed with what they stored, and `check_book.py` reads what they store.
   `tools/run_notebook.py --check` now fails on a stale stored output, holding text and whole
   numbers exactly and decimals to the precision printed, and the test runs both notebooks that
-  way. The notebook is re-run.
+  way. The notebook is re-run. Running it on Linux found four ranks in the notebooks' Part Four
+  overlap table that were positions among tied values and so differed by machine; they are now
+  competition ranks, which a tie shares, and a tie for a step's principal names the
+  lower-numbered tradition.
   `HANDOFF.md` also gave the test suite's three skips as poppler-dependent; they are the slow
   tests, and no test depends on poppler.
 - `--help` now prints each tool's usage and exits. Only the argparse tool answered it before; the

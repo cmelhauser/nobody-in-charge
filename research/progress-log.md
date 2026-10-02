@@ -5438,3 +5438,20 @@ precision rather than in the last digit, so `--check` now holds text and whole n
 decimals to one unit in their last printed place and full-length floats to a relative 1e-9, and
 it reports every differing line rather than the first in each cell. A test holds both sides of
 that rule, with the Linux case among them.
+
+**Second addendum, the same day.** The rerun failed again, on four ranks in the Part Four overlap
+table: steps 6 and 7 ranked 9 and 10 on macOS and 10 and 9 on Linux, and steps 9 and 10
+likewise. Each of those steps' own Tradition weighs zero, tied with four or five others, and the
+rank was a position in numpy's default sort, which orders ties differently on different machines.
+Step 4's principal had the same fault in another form: T1 and T2 are both 0.35, the product puts
+T2 one bit higher, and the line printed "principal T2" with a margin of 0.0000. The generator now
+rounds each row to 12 places, sorts stably and gives the competition rank `CLAUDE.md` prescribes,
+which a tie shares, so steps 6, 7, 9 and 10 rank 7, 7, 8 and 8 and step 4 names T1 first. No prose
+quotes those ranks or names a principal for Step 4. Both notebooks were then checked in Linux
+containers before anything was pushed. On ARM both were clean. On x86, emulated, four lines of
+the paper's sparsity table differed: Design 6 takes `argmax` over `S @ G.T`, whose exact ties the
+processor breaks in the last bit, and the 16-cell row's first column read 53.2 per cent where
+the paper prints 53.0. The real machines all agree with the paper, so nothing here changes it,
+but exact arithmetic on integer-scaled matrices would move three entries of that row by a tenth
+of a point, and whether to do that is a decision about a published table. It is item 7 in the
+handoff's section 10.
