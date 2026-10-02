@@ -259,7 +259,11 @@ jobs:
           # skips this fetch too. Before this it ran every time and was the last tectonic
           # network call left after the bundle was cached. Note the side effect: a hit also
           # pins the tectonic version until the cache key changes, which is what a document
-          # build wants, but it is implicit. Bump the key to take a newer one.
+          # build wants, but it is implicit. Bump the key to take a newer one. The binary is
+          # linked against the runner image's libstdc++ and libgraphite2, so a cached copy
+          # survives a change of image only while the new one ships both. Ubuntu 24.04 and
+          # 26.04 do: on 1 October 2026 this job and the release workflow ran clean on 26.04
+          # from this cache, ahead of ubuntu-latest moving there.
           TECTONIC_BIN="$TECTONIC_CACHE_DIR/bin"
           mkdir -p "$TECTONIC_BIN"
           if [ ! -x "$TECTONIC_BIN/tectonic" ]; then

@@ -5352,3 +5352,73 @@ one of them is now at least exercised by the `--help` test.
 comment carries a stale count. One CI comment listed what `check_docs.py` checks without its date
 checks. The analysis scripts under `model/` were read but not edited, because they are
 hash-pinned and a comment change would invalidate their caches.
+
+### 1 October 2026: the next runner image, a stale gate count, and the browser saves rechecked
+
+**What was asked.** To continue.
+
+**The next runner image needs nothing from this repository.** Every CI run now carries a notice
+that `ubuntu-latest` moves to Ubuntu 26.04 between 19 October and 19 November 2026. Nothing here
+names an image, and every environmental failure this repository has had came from the document
+job, so the move was tested before it happens rather than after. On a scratch branch,
+`ci/ubuntu-26-04`, every job was set to `ubuntu-26.04` and both workflows were dispatched. The unit
+tests on 3.11, 3.12 and 3.13, the checkers, the document job and the release workflow all passed
+on the new image: 314 and 23 pages, zero overfull boxes, all 148 gate checks and the 76 slow
+integration tests, with the same three ink-measurement skips as on 24.04. Lint failed for one
+reason, that actionlint does not yet know the `ubuntu-26.04` label, which matters only to a
+workflow that names it. So `ubuntu-latest` stays, and the move will change nothing here. One fact
+from the run is now written beside the tectonic step in `ci.yml`: the cached binary is dynamically
+linked against the image's libstdc++ and libgraphite2, so it survives a change of image only while
+the new one ships both. The scratch branch holds only the test commit.
+
+**A count the 13 September correction missed.** `RELEASING.md`, listing what a release requires,
+said the full gate's "seven artifact checks are the point of a release". The gate skips six under
+`--skip-artifacts`, two for each rendered PDF. The same miscount was corrected on 13 September in
+the gate's comment, `CLAUDE.md`, `AGENT_VERIFY.md` and both workflows; this sentence was missed, and
+it wraps between "artifact" and "checks", which is how a search for the phrase passes over it. It
+now says six. `check_docs.py` now checks the gate's totals wherever they are stated: it runs
+`check_release.py --skip-artifacts`, reads 142 run and 6 skipped from its summary line, and compares
+17 claims across seven Markdown files, both workflows and the gate's own source. Run on the tree
+before the fix, it failed on that sentence and on nothing else. A claim after "said" on its line is
+reported speech and is not read, which is how the 13 September closed item records the old figure.
+A test feeds the helper the stale sentence, a correct one, a wrong total and that reported speech.
+
+**The browser saves, rechecked.** Each paper the checklist says needs a browser save was looked up
+again for an open copy, in Crossref, OpenAlex and Europe PMC.
+
+- Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007) still
+  return metadata only from the E-utilities and Europe PMC full-text services, whose responses say
+  the publisher does not allow the full text in XML, and no other open copy is indexed. Nothing
+  changes.
+- Banks et al. (2014): AMS still answers a script with 403, and no free copy of the published
+  version is indexed. NC State's Center for Research in Scientific Computation posts a precursor by
+  the same authors, technical report CRSC-TR11-08, "Dynamic Modeling of Behavior Change in Problem
+  Drinkers" (August 2011), with CRSC-TR10-19 before it. Neither is the published version and
+  neither was read; the handoff names the first as a fallback if a browser is refused too.
+- The *Psychology & Health* companion to Edgren and colleagues' study is CC BY 4.0, according to
+  its Crossref licence record for the version of record, so any copy of it may be held. The
+  publisher's page is the bot check the record named, but the University of Bern's repository,
+  BORIS, lists a download that needs none. BORIS accepted a connection and then answered neither
+  TLS nor plain HTTP, from this machine or through the fetch tool, so the paper is still neither
+  held nor read. The handoff and the scan now say where it can be had.
+
+**A notebook output ten decimals behind.** Re-deriving the handoff's verification table meant
+running both notebooks, and the paper's wrote back one changed line: it stored "decimals printed in
+the paper: 451" where a fresh run prints 461. The notebook was last executed and committed at
+12:15 on 21 September, when the two agreed; the paper went to 460 three minutes later and to 461
+the next day, and nothing compared the notebook's stored outputs with a fresh run. The notebook test executed both with `--no-write` and asked only
+that they come out clean, and the generator test compares cell sources. `check_book.py` reads the
+stored outputs, so the stale line was the one it trusted. The notebook is re-run and committed.
+`tools/run_notebook.py --check` executes without writing and fails when a stored output differs from
+a fresh one, text exactly and numbers to a relative 1e-9, because the stored outputs come from one
+machine and the test runs on others. Run on the notebook as committed, it named that line and
+nothing else, and the notebook test now runs both notebooks that way.
+
+**One row of the handoff's table was wrong when it was written.** It gave the test suite's three
+skips as poppler-dependent. They are the three slow tests, which run only with `NIC_SLOW_TESTS=1`,
+and no test has ever depended on poppler; the three poppler skips are `check_pdfs.py`'s ink
+measurements on a machine without `pdftotext`. The row now says so, and the `check_pdfs.py` row
+says what happens without poppler.
+
+**What did not change.** No model value, cache, notebook cell, chapter, rendered document or
+released number. The paper notebook's one stored line is the only generated output that moved.
