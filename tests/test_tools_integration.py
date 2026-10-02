@@ -93,10 +93,14 @@ def test_check_docs_holds_the_release_gate_totals():
     """
     import check_docs
 
+    # A fresh clone fails the gate's freshness check until the derived reports are rebuilt, and
+    # this job does not rebuild them, so the totals are compared and the verdict is not.
     totals = check_docs.release_gate_totals()
-    assert totals is not None, "check_release.py --skip-artifacts must pass for this test"
+    assert totals is not None, "the gate could not read a cache, so it ran short"
     gate = run("tools/check_release.py", "--skip-artifacts").stdout
-    assert f"{totals['run']} checks passed; 0 failed; {totals['skipped']} skipped" in gate
+    passed, failed, skipped = (int(n) for n in re.search(
+        r"(\d+) checks passed; (\d+) failed; (\d+) skipped", gate).groups())
+    assert (totals["run"], totals["skipped"]) == (passed + failed, skipped)
     assert totals["full"] == totals["run"] + totals["skipped"]
 
     word = {value: name for name, value in check_docs.WORDS.items()}
@@ -328,6 +332,30 @@ def test_both_notebooks_execute_clean():
         result = run("tools/run_notebook.py", "--check", *args)
         assert result.returncode == 0, result.stdout + result.stderr
         assert result.stdout.strip().splitlines()[-1] == "CLEAN", result.stdout
+
+
+def test_notebook_outputs_compare_to_the_precision_printed():
+    """A stale output must fail `--check`, and another machine's last digit must not.
+
+    The first run of `--check` on Linux failed the book notebook on the DeGroot example's third
+    round, which averages to 5.74275 and printed 5.7428 where it was stored and 5.7427 there: a
+    last-bit difference in a matrix product, at a rounding half. That is the difference
+    `AGENT_VERIFY.md` says to expect between machines, so it passes, while the count that went
+    stale, a decimal two units off, and a full-length float off in its eighth decimal do not.
+    """
+    from run_notebook import same_output
+
+    assert same_output("  round 3: 5.7428 5.7390", "  round 3: 5.7427 5.7390")
+    assert same_output("  OK  mean-one capability draw: 1.001049606769611",
+                       "  OK  mean-one capability draw: 1.0010496067696112")
+    assert not same_output("  INFO decimals printed in the paper: 451",
+                           "  INFO decimals printed in the paper: 461")
+    assert not same_output("  INFO decimals printed in the paper: 451",
+                           "  INFO decimals printed in the paper: 452")
+    assert not same_output("  round 3: 5.7428", "  round 3: 5.7426")
+    assert not same_output("  draw: 1.001049606769611", "  draw: 1.001049616769611")
+    assert not same_output("  OK  history includes time zero", "  FAIL history includes time zero")
+    assert not same_output("one\ntwo", "one")
 
 
 def test_notebooks_match_their_generator():

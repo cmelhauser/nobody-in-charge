@@ -5422,3 +5422,19 @@ says what happens without poppler.
 
 **What did not change.** No model value, cache, notebook cell, chapter, rendered document or
 released number. The paper notebook's one stored line is the only generated output that moved.
+
+**Addendum, 2 October 2026.** The pull request's first CI run failed two tests, and both faults
+were in this work. The gate-count helper returned nothing whenever the gate failed. In a fresh
+clone the gate fails its freshness check until the derived reports are regenerated, because the
+checkout writes `ROBUSTNESS-RESULTS.md` before the caches it summarises; the unit-test job never
+regenerates them, and the checkers job runs `check_docs.py` before it does, so the new check had
+reported itself skipped there and would have run only in `documents`. A failed check still counts,
+so the helper now takes the totals whether or not the gate passes, and returns nothing only after a
+failure that makes the gate skip checks: a cache it cannot find or read, or a file a comparison
+needs. The notebook comparison failed on Linux on the DeGroot example's third round, which
+averages to 5.74275 and printed 5.7428 here and 5.7427 there: a last-bit difference in a matrix
+product, at a rounding half. `AGENT_VERIFY.md` already says to expect agreement to reported
+precision rather than in the last digit, so `--check` now holds text and whole numbers exactly,
+decimals to one unit in their last printed place and full-length floats to a relative 1e-9, and
+it reports every differing line rather than the first in each cell. A test holds both sides of
+that rule, with the Linux case among them.
