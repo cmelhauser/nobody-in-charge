@@ -382,13 +382,23 @@ GATE_CLAIMS = [
 ]
 
 
+# Failures after which the gate runs fewer checks: it skips the rest of a cache it cannot
+# read, and the comparison that needs a file it cannot find.
+SHORTENING = ("FAIL: cache exists:", "is not valid JSON", "FAIL: analysis source exists:",
+              "FAIL: expanded robustness report exists")
+
+
 def release_gate_totals() -> dict[str, int] | None:
     """The gate's own totals, from running it with `--skip-artifacts`.
 
     Run rather than read, because the gate generates its checks in loops over the registered
     caches and the rendered artifacts, and counting them from its source would be a second
-    implementation of the gate free to disagree with the first. A gate that fails may have
-    stopped short on a missing cache, so its totals are not the tree's and None is returned.
+    implementation of the gate free to disagree with the first. A failed check still counts,
+    so the totals hold whether or not the gate passes. That matters in a fresh clone, which
+    writes `ROBUSTNESS-RESULTS.md` before the caches it summarises and so fails the gate's
+    freshness check until the reports are regenerated, as every CI job but `documents` sees it
+    when this runs. Only a failure that makes the gate skip checks changes the totals, and then
+    None is returned.
     """
     proc = subprocess.run(
         [sys.executable, str(ROOT / "tools" / "check_release.py"), "--skip-artifacts"],
@@ -396,7 +406,7 @@ def release_gate_totals() -> dict[str, int] | None:
     )
     found = re.search(r"^(\d+) checks passed; (\d+) failed; (\d+) skipped",
                       proc.stdout, re.MULTILINE)
-    if proc.returncode != 0 or not found:
+    if not found or any(marker in proc.stdout for marker in SHORTENING):
         return None
     passed, failed, skipped = (int(group) for group in found.groups())
     return {"run": passed + failed, "skipped": skipped, "full": passed + failed + skipped}
@@ -435,8 +445,8 @@ def check_release_gate_counts() -> None:
     """
     totals = release_gate_totals()
     if totals is None:
-        skip("the release gate's totals (check_release.py --skip-artifacts fails here, so its "
-             "counts are not the tree's; fix that first)")
+        skip("the release gate's totals (check_release.py --skip-artifacts cannot read a cache "
+             "or a file it counts from here, so its totals are not the tree's; fix that first)")
         return
     paths = [*tracked_markdown(), *sorted((ROOT / ".github" / "workflows").glob("*.yml")),
              ROOT / "tools" / "check_release.py"]

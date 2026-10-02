@@ -179,8 +179,9 @@ someone who wants to know what changed between two tags does not have to read it
 - The paper notebook stored "decimals printed in the paper: 451" for ten days after the paper's
   count moved to 460 and then 461, because the notebook test executed both notebooks without
   comparing what they printed with what they stored, and `check_book.py` reads what they store.
-  `tools/run_notebook.py --check` now fails on a stale stored output, matching text exactly and
-  numbers to a relative 1e-9, and the test runs both notebooks that way. The notebook is re-run.
+  `tools/run_notebook.py --check` now fails on a stale stored output, holding text and whole
+  numbers exactly and decimals to the precision printed, and the test runs both notebooks that
+  way. The notebook is re-run.
   `HANDOFF.md` also gave the test suite's three skips as poppler-dependent; they are the slow
   tests, and no test depends on poppler.
 - `--help` now prints each tool's usage and exits. Only the argparse tool answered it before; the

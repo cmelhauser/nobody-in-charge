@@ -354,8 +354,9 @@ traceback or failed assertion, check model/cache identities, and finish with:
 
 `CLEAN CACHE-BACKED VERIFICATION NOTEBOOK`
 
-The stored outputs must also be the ones a fresh run prints. `python3 tools/run_notebook.py
---check`, with `--paper` for the paper's, confirms that without writing to either notebook.
+The stored outputs must also agree with a fresh run to the precision printed. `python3
+tools/run_notebook.py --check`, with `--paper` for the paper's, confirms that without writing to
+either notebook.
 
 The notebooks verify committed caches; they do not pretend to rerun the entire expensive Monte
 Carlo suite interactively.
