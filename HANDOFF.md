@@ -424,6 +424,24 @@ each moves a record-only source onto the ordinary footing.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
      abstract only.
 
+**One needs a decision about how a published table is computed.** It changes no conclusion.
+
+7. **Whether the paper's sparsity table should be computed in exact arithmetic.** Design 6's table
+   (`tab:sparsity`) is recomputed in both notebooks from 2,000 seeded draws per row, and its
+   columns take `argmax` over `S @ G.T`. That product has exact ties, which floating point breaks
+   by one unit in the last place, in an order that depends on the processor. macOS and Linux on
+   ARM and GitHub's x86 runners all reproduce the table as printed. Linux on x86 emulated on this
+   project's Mac, which reports AVX2 and FMA but not AVX-512, decides a few draws the other way,
+   and the 16-cell row's first column then reads 53.2 per cent rather than 53.0. Every weight in
+   `S` and `GOV` is a multiple of 0.01, so passing the matrices scaled to integers makes the
+   product exact and the table the same on every machine. That moves three entries of the
+   16-cell row: 53.0 to 52.9, 50.8 to 50.9, and 53.0 to 52.9. The caption's claim, which turns on
+   four cells and sixteen, holds either way. `model/elicitation_compare.py` is hash-pinned, so
+   the change would go in `tools/regenerate_notebooks.py`, and the paper and both notebooks
+   would follow. Until it is decided, `tools/run_notebook.py --check` reports those lines on a
+   machine that resolves the ties differently, which is the check telling the truth about the
+   table.
+
 ### Closed on 21 September 2026
 
 - **Where the referral-versus-attraction ordering first reverses on final membership**, which was
