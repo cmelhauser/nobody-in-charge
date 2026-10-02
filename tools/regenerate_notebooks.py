@@ -603,9 +603,16 @@ def emit():
     B = m.S @ m.GOV.T
     print('Part Four semantic overlap B = S @ GOV.T (exact, no sampling error)')
     for i in range(12):
-        row = B[i]
-        o = np.argsort(-row)
-        rank = int(np.where(o == i)[0][0]) + 1
+        # Ties are real in this matrix, and the product can split one by a bit: step 4's T1
+        # and T2 are both 0.35 and come out 5.6e-17 apart, and steps 6, 7, 9 and 10 tie at
+        # zero with four or five others. numpy's default sort orders ties differently on
+        # different machines, so the principal and the rank printed here depended on the
+        # machine. Values rounded to 12 places and a stable sort name the lower-numbered
+        # tradition in a tie, and the rank is the competition rank CLAUDE.md prescribes,
+        # which a tie shares: one more than the number of traditions strictly above.
+        row = np.round(B[i], 12)
+        o = np.argsort(-row, kind='stable')
+        rank = 1 + int((row > row[i]).sum())
         print(f'  step {i+1}: principal T{o[0]+1}={row[o[0]]:.4f} runner-up T{o[1]+1}={row[o[1]]:.4f} '
               f'own T{i+1}={row[i]:.4f} rank={rank} margin={row[o[0]]-row[o[1]]:.4f}')
         show(f'B step {i+1} principal', row[o[0]])
