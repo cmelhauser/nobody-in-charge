@@ -82,6 +82,38 @@ def test_check_docs_catches_a_miscount(tmp_path):
     assert f"job count is {jobs}" in result.stdout, result.stdout
 
 
+def test_check_docs_holds_the_release_gate_totals():
+    """The gate's totals, wherever prose states them, must be the gate's own.
+
+    `RELEASING.md` said a release depends on seven artifact checks for eighteen days after the
+    gate's comment and every other file had been corrected to six, because nothing read that
+    sentence. The helper is fed that sentence as it was, wrapped at the line end, beside a
+    correct claim, a wrong total, and the reported speech a closed item uses to record a retired
+    claim, which must not count.
+    """
+    import check_docs
+
+    totals = check_docs.release_gate_totals()
+    assert totals is not None, "check_release.py --skip-artifacts must pass for this test"
+    gate = run("tools/check_release.py", "--skip-artifacts").stdout
+    assert f"{totals['run']} checks passed; 0 failed; {totals['skipped']} skipped" in gate
+    assert totals["full"] == totals["run"] + totals["skipped"]
+
+    word = {value: name for name, value in check_docs.WORDS.items()}
+    lines = [
+        ("RELEASING.md:63", "with **no** `--skip-artifacts`. The "
+                            f"{word[totals['skipped'] + 1]} artifact"),
+        ("CLAUDE.md:388", f"`--skip-artifacts` omits exactly {word[totals['skipped']]} checks"),
+        ("AGENTS.md:120", f"which runs {totals['run']} of the {totals['full']} release checks"),
+        ("README.md:19", f"`check_release` with {totals['full'] - 1} checks"),
+        ("HANDOFF.md:533", "and both workflows said the flag omits "
+                           f"{word[totals['skipped'] + 1]} checks; it omits six"),
+    ]
+    wrong, seen = check_docs.gate_claims_contradicting(totals, lines)
+    assert seen == 4
+    assert [item.split(":")[0] for item in wrong] == ["RELEASING.md", "README.md"], wrong
+
+
 def test_document_dates_are_declared_not_computed():
     """A rebuild must not redate the book or the primer.
 
@@ -288,10 +320,12 @@ def test_skip_artifacts_skips_exactly_the_artifact_checks():
 
 
 def test_both_notebooks_execute_clean():
-    """Continuous integration otherwise never executes them; `check_book.py` reads their
-    committed outputs. `--no-write` leaves the committed notebooks untouched."""
+    """Continuous integration otherwise never executes them, and `check_book.py` reads their
+    committed outputs, so those must be what a fresh run prints. `--check` leaves the committed
+    notebooks untouched and fails on a stale output: the paper notebook's said the paper
+    prints 451 decimals for ten days after the paper's count moved to 460 and then 461."""
     for args in ((), ("--paper",)):
-        result = run("tools/run_notebook.py", "--no-write", *args)
+        result = run("tools/run_notebook.py", "--check", *args)
         assert result.returncode == 0, result.stdout + result.stderr
         assert result.stdout.strip().splitlines()[-1] == "CLEAN", result.stdout
 
