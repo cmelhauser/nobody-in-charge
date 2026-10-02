@@ -14,10 +14,12 @@ and the enumerations were short, which is the failure mode that reads as correct
 
 So the rule this file enforces is narrow: **a sentence asserting how many of something this
 repository has must agree with how many it has.** Each check derives the true value first, then
-scans tracked Markdown for claims about it. Since 27 September 2026 it also holds declared
-dates to the history they describe: the book's and the primer's printed dates and the paper's
-month against the last change to each one's sources, and `HANDOFF.md`'s "Last updated" line
-against the newest progress-log entry.
+scans tracked Markdown for claims about it. Since 27 September 2026 it also holds declared dates
+to the history they describe: the book's and the primer's printed dates and the paper's month
+against the last change to each one's sources, and `HANDOFF.md`'s "Last updated" line against
+the newest progress-log entry. Since 1 October 2026 it holds the release gate's own totals,
+which it gets by running the gate, and reads those claims in both workflows and in the gate's
+source as well as in the Markdown.
 
 What is deliberately not checked:
 
@@ -363,6 +365,92 @@ def check_links() -> None:
         ok("every relative Markdown link resolves")
 
 
+# How the repository states the release gate's totals. Each pattern names what its groups
+# claim: the checks `--skip-artifacts` runs, the checks it skips, or the full gate. The
+# two artifact patterns end at a line break as well as at "checks", because both sentences
+# that went stale wrapped there.
+GATE_CLAIMS = [
+    (("run", "full"), re.compile(r"\b(\d+) of the (\d+) release\b")),
+    (("full",), re.compile(r"`check_release(?:\.py)?` with (\d+) checks\b")),
+    (("run", "skipped"), re.compile(
+        r"check_release\.py --skip-artifacts` \| (\d+) checks, 0 failed, (\d+) skipped")),
+    (("full",), re.compile(r"\bfull gate runs all (\d+)\b")),
+    (("full",), re.compile(r"\bthe same (\d+) checks\b")),
+    (("skipped",), re.compile(r"\bomits (?:exactly |the )?([a-z]+|\d+) checks\b", re.I)),
+    (("skipped",), re.compile(r"\b([a-z]+|\d+) (?:rendered[- ])?artifact(?: checks\b|$)", re.I)),
+    (("skipped",), re.compile(r"\breports the other ([a-z]+|\d+) as skipped\b", re.I)),
+]
+
+
+def release_gate_totals() -> dict[str, int] | None:
+    """The gate's own totals, from running it with `--skip-artifacts`.
+
+    Run rather than read, because the gate generates its checks in loops over the registered
+    caches and the rendered artifacts, and counting them from its source would be a second
+    implementation of the gate free to disagree with the first. A gate that fails may have
+    stopped short on a missing cache, so its totals are not the tree's and None is returned.
+    """
+    proc = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "check_release.py"), "--skip-artifacts"],
+        cwd=ROOT, capture_output=True, text=True,
+    )
+    found = re.search(r"^(\d+) checks passed; (\d+) failed; (\d+) skipped",
+                      proc.stdout, re.MULTILINE)
+    if proc.returncode != 0 or not found:
+        return None
+    passed, failed, skipped = (int(group) for group in found.groups())
+    return {"run": passed + failed, "skipped": skipped, "full": passed + failed + skipped}
+
+
+def gate_claims_contradicting(totals: dict[str, int],
+                              lines: list[tuple[str, str]]) -> tuple[list[str], int]:
+    """(contradicted claims, claims read) among `lines`, each a (location, text) pair.
+
+    A claim after "said" on its line is reported speech, which is how a closed item records
+    what a document used to say, so it is history and is not read.
+    """
+    wrong, seen = [], 0
+    for where, line in lines:
+        text = line.rstrip()
+        for kinds, pattern in GATE_CLAIMS:
+            for match in pattern.finditer(text):
+                values = [value_of(group) for group in match.groups()]
+                if None in values or re.search(r"\bsaid\b", text[: match.start()]):
+                    continue
+                seen += 1
+                for kind, value in zip(kinds, values, strict=True):
+                    if value != totals[kind]:
+                        wrong.append(f"{where}: {match.group(0)!r} gives {value} checks "
+                                     f"{kind}, the gate has {totals[kind]}")
+    return wrong, seen
+
+
+def check_release_gate_counts() -> None:
+    """The release gate's totals, wherever the repository states them.
+
+    They change whenever a cache is registered, and until 1 October 2026 they were kept by hand,
+    in seven Markdown files, both workflows and the gate's own source. That day `RELEASING.md`
+    still said a release depends on seven artifact checks, eighteen days after the gate's own
+    comment, `CLAUDE.md`, `AGENT_VERIFY.md` and both workflows were corrected to six.
+    """
+    totals = release_gate_totals()
+    if totals is None:
+        skip("the release gate's totals (check_release.py --skip-artifacts fails here, so its "
+             "counts are not the tree's; fix that first)")
+        return
+    paths = [*tracked_markdown(), *sorted((ROOT / ".github" / "workflows").glob("*.yml")),
+             ROOT / "tools" / "check_release.py"]
+    lines = [(f"{path.relative_to(ROOT)}:{number}", line)
+             for path in paths for number, line in prose_lines(path)]
+    wrong, seen = gate_claims_contradicting(totals, lines)
+    if wrong:
+        for item in wrong:
+            fail(f"release-gate count ({item})")
+    else:
+        ok(f"the release gate runs {totals['run']} checks under --skip-artifacts and skips "
+           f"{totals['skipped']}, {totals['full']} in all, and {seen} claim(s) agree")
+
+
 def check_page_counts() -> None:
     """Page-count claims, against the rendered PDFs when they exist."""
     documents = {
@@ -538,6 +626,7 @@ def main() -> int:
     check_local_runner()
     check_model_hash()
     check_links()
+    check_release_gate_counts()
     check_page_counts()
     check_document_dates()
     check_handoff_date()
