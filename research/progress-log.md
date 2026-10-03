@@ -5455,3 +5455,40 @@ the paper prints 53.0. The real machines all agree with the paper, so nothing he
 but exact arithmetic on integer-scaled matrices would move three entries of that row by a tenth
 of a point, and whether to do that is a decision about a published table. It is item 7 in the
 handoff's section 10.
+
+### 3 October 2026: the sparsity table, computed exactly and strictly
+
+**What was asked.** The Human Author accepted the recommendation on the open question recorded on
+2 October: compute the paper's sparsity table exactly, count a tie as no support, and give the
+table the Wilson intervals its sibling table for the jitter designs has always carried.
+
+**What was wrong with it.** Design 6 flips cells of `GOV` within the enabling rows to exactly 0 or
+0.5 and asks how often four claims survive, each decided by the strongest Tradition in a row of
+`S @ G.T`. The flips make exact ties common, and floating point broke them in the last bit in an
+order that depends on the processor, so the table's own digits did. Two further defects sat under
+that one. Even in exact arithmetic `argmax` gives a tie to the lower-numbered Tradition, which let
+a Step whose own Tradition tied for the top count as index-pairing failing. And with 2,000 draws
+every percentage is a multiple of 0.05, so half the entries are exact halves at one decimal; the
+old table had rounded them through floating point, mostly down, where the book's rule is half away
+from zero.
+
+**What changed.** The generator now takes the products on the weights times 100, after checking
+that every weight in `S` and `GOV` is a multiple of 0.01, so they are exact. It counts a claim only
+where it holds strictly, and it prints a Wilson interval beside every entry. The draws are the
+same seeded draws. `model/elicitation_compare.py` is untouched because its hash is pinned for the
+elicitation, whose deciding test, which rows a respondent leaves empty, is an exact sum.
+
+Twelve of the twenty entries moved. Ten moved by a tenth of a point. The 8-cell row's index-pairing
+entry fell from 75.0 to 74.8, and the 16-cell row's from 53.0 to 51.7 [49.5, 53.9], about
+twenty-five draws in 2,000 having rested on a tie. Every old value lies inside its new interval,
+and the caption's claim, that Section 4 tolerates a reader differing on about four of fifty-six
+cells and not one differing on sixteen, stands. Every entry was checked against the notebook's
+output, rounded half away from zero with `Decimal`, and all twenty agree.
+
+**What followed from it.** Chapter 18 said index-pairing survives 53 per cent of the time when
+sixteen cells differ, and now says 52. It also pointed to appendix A8 for these figures, which A8
+did not contain; A8 now gives the four-cell and sixteen-cell figures with their intervals. The
+primer's "86 per cent" and "a coin flip" still hold. The paper is dated October 2026 and the book 3
+October 2026, as `check_docs.py` requires once their sources change. The paper now prints 489
+decimals, all of them traced. Its three underfull-box warnings were there before the change, and
+the table sets within the text block.
