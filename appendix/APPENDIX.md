@@ -575,6 +575,14 @@ tests are required where multiplicative perturbation is blind. Under wholesale r
 nonzero coupling magnitudes, the all-twelve index-pairing rejection holds in 40.6 per cent of
 draws. The magnitude claim therefore needs substantive defense and independent elicitation.
 
+Sparsity has to be priced separately, because no magnitude design can move a zero. Flipping cells
+of `GOV` at random within the seven enabling rows, so the protective rows stay empty, with 2,000
+draws for each count, the all-twelve rejection holds in 86.3 per cent [84.7, 87.7] of draws when
+four of the 56 enabling cells differ and in 51.7 per cent [49.5, 53.9] when sixteen do. A flipped
+cell takes the value 0.5, so ties are common, and a tie never counts as the rejection holding. The
+products are computed exactly, so the figures are the same on every machine. The paper's sparsity
+table gives the series and the other three claims.
+
 ---
 
 ## A9. Source and corpus boundary
