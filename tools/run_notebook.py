@@ -10,16 +10,77 @@ Exit status is non-zero if any cell raises or any assertion fails, so this can b
 gate. Run it before calling any chapter done, alongside tools/check_chapter.py and
 tools/check_book.py. --no-write executes without touching the file.
 
-Run:  python3 tools/run_notebook.py [--no-write] [--paper | path/to/notebook.ipynb]
+--check executes without touching the file and also fails if the outputs stored in it are not
+the ones a fresh run prints. `tools/check_book.py` reads the stored outputs, and on 1 October
+2026 the paper notebook's still said the paper prints 451 decimals, ten days after the paper's
+count moved to 460 and then 461, because nothing compared them.
+
+The comparison asks for agreement to the precision printed, which is the standard
+`AGENT_VERIFY.md` sets for reproduction on another machine. Text must match exactly, and so must
+a whole number, since those are counts. A decimal may differ by one unit in its last printed
+place, and a float printed at full length by a relative 1e-9. The stored outputs come from one
+machine and the tests run on others, and that is not hypothetical: the DeGroot example's third
+round averages to 5.74275, which a last-bit difference in a matrix product prints as 5.7428 on
+one machine and 5.7427 on another.
+
+Run:  python3 tools/run_notebook.py [--no-write | --check] [--paper | path/to/notebook.ipynb]
 """
-import json, os, sys, io, contextlib, traceback, time
+import json, os, sys, io, contextlib, traceback, time, re, math
+from itertools import zip_longest
+
+NUMBER = re.compile(r'-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?')
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BOOK_NB = os.path.join(ROOT, 'model', 'book-calculations.ipynb')
 PAPER_NB = os.path.join(ROOT, 'paper', 'anonymity-as-an-aggregation-condition.ipynb')
 
 
-def main(notebook=BOOK_NB, write=True):
+def same_number(x, y):
+    """Whole numbers exactly; a decimal to one unit in its last printed place, or 1e-9."""
+    if x == y:
+        return True
+    if not any(mark in x + y for mark in '.eE'):
+        return False
+    places = max(len(s.split('.')[1]) if '.' in s and not set('eE') & set(s) else 0
+                 for s in (x, y))
+    a, b = float(x), float(y)
+    if places and abs(a - b) <= 10.0 ** -places * 1.000001:
+        return True
+    return math.isclose(a, b, rel_tol=1e-9, abs_tol=1e-12)
+
+
+def same_output(stored, fresh):
+    """Equal text, with every number equal to the precision printed; see same_number."""
+    if stored == fresh:
+        return True
+    old, new = stored.splitlines(), fresh.splitlines()
+    if len(old) != len(new):
+        return False
+    for a, b in zip(old, new, strict=True):
+        # NUL cannot occur in printed output, so equal masks mean equally many numbers.
+        if NUMBER.sub('\0', a) != NUMBER.sub('\0', b):
+            return False
+        for x, y in zip(NUMBER.findall(a), NUMBER.findall(b), strict=True):
+            if not same_number(x, y):
+                return False
+    return True
+
+
+def stale_lines(nb, outs):
+    """(cell, stored line, fresh line) for every line a fresh run prints differently."""
+    stale = []
+    for i, c in enumerate(nb['cells']):
+        if c['cell_type'] != 'code':
+            continue
+        stored = ''.join(''.join(o.get('text', '')) for o in c.get('outputs', []))
+        fresh = outs.get(i, '')
+        if not same_output(stored, fresh):
+            pairs = zip_longest(stored.splitlines(), fresh.splitlines(), fillvalue='')
+            stale += [(i, a, b) for a, b in pairs if not same_output(a, b)]
+    return stale
+
+
+def main(notebook=BOOK_NB, write=True, check=False):
     notebook = os.path.abspath(notebook)
     nb = json.load(open(notebook))
     cwd = os.getcwd()
@@ -53,7 +114,13 @@ def main(notebook=BOOK_NB, write=True):
     blank = [i for i, o in outs.items() if not o.strip()]
     if blank:
         print(f'\ncells producing NO output: {blank}')
-    if write and not errs:
+    stale = stale_lines(nb, outs) if check else []
+    for i, was, now in stale:
+        print(f'\nCELL {i} STORES STALE OUTPUT:\n    stored: {was}\n    fresh:  {now}')
+    if stale:
+        print(f'\n{len(stale)} stale line(s); run it without --check to write the fresh outputs '
+              'back, and commit them')
+    if write and not check and not errs:
         for i, c in enumerate(nb['cells']):
             if c['cell_type'] != 'code':
                 continue
@@ -62,7 +129,7 @@ def main(notebook=BOOK_NB, write=True):
             c['execution_count'] = None
         json.dump(nb, open(notebook, 'w'), indent=1)
         print('outputs written back')
-    ok = not errs and not fails and not blank
+    ok = not errs and not fails and not blank and not stale
     print('CLEAN' if ok else 'NOT CLEAN')
     return 0 if ok else 1
 
@@ -72,7 +139,8 @@ if __name__ == '__main__':
     help_requested(__doc__)
     args = sys.argv[1:]
     write = '--no-write' not in args
-    args = [arg for arg in args if arg != '--no-write']
+    check = '--check' in args
+    args = [arg for arg in args if arg not in ('--no-write', '--check')]
     if '--paper' in args:
         notebook = PAPER_NB
         args.remove('--paper')
@@ -80,4 +148,4 @@ if __name__ == '__main__':
         notebook = args[0] if os.path.isabs(args[0]) else os.path.join(ROOT, args[0])
     else:
         notebook = BOOK_NB
-    sys.exit(main(notebook=notebook, write=write))
+    sys.exit(main(notebook=notebook, write=write, check=check))

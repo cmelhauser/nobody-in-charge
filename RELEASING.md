@@ -60,7 +60,7 @@ A tag asserts that the repository was in a releasable state at that commit. It i
 it has to be earned. All of these, in this order:
 
 1. `tools/run_ci_locally.sh` clean, all four jobs.
-2. `python3 tools/check_release.py` with **no** `--skip-artifacts`. The seven artifact
+2. `python3 tools/check_release.py` with **no** `--skip-artifacts`. The six artifact
    checks are the point of a release; skipping them is for a fresh clone, never for a tag.
 3. `python3 tools/check_pdfs.py` clean, with poppler present so the ink measurement runs
    rather than skips.

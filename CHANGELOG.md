@@ -169,6 +169,24 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Fixed
 
+- `RELEASING.md` said a release depends on seven artifact checks. The gate skips six under
+  `--skip-artifacts`, two for each rendered PDF, and the 13 September correction from seven to six
+  reached the gate's comment, `CLAUDE.md`, `AGENT_VERIFY.md` and both workflows but not this file.
+  `check_docs.py` now holds the gate's totals wherever the repository states them: it runs the gate
+  with `--skip-artifacts`, takes the checks run, skipped and in all from its summary line, and
+  compares every claim in tracked Markdown, both workflows and the gate's own source. It failed on
+  the stale sentence before the sentence was fixed, and a test feeds it that sentence.
+- The paper notebook stored "decimals printed in the paper: 451" for ten days after the paper's
+  count moved to 460 and then 461, because the notebook test executed both notebooks without
+  comparing what they printed with what they stored, and `check_book.py` reads what they store.
+  `tools/run_notebook.py --check` now fails on a stale stored output, holding text and whole
+  numbers exactly and decimals to the precision printed, and the test runs both notebooks that
+  way. The notebook is re-run. Running it on Linux found four ranks in the notebooks' Part Four
+  overlap table that were positions among tied values and so differed by machine; they are now
+  competition ranks, which a tie shares, and a tie for a step's principal names the
+  lower-numbered tradition.
+  `HANDOFF.md` also gave the test suite's three skips as poppler-dependent; they are the slow
+  tests, and no test depends on poppler.
 - `--help` now prints each tool's usage and exits. Only the argparse tool answered it before; the
   other sixteen ran, and several wrote files. `tools/run_ci_locally.sh` also answers `--help` and
   refuses an unknown job, which used to run nothing and still print "local CI clear". The
@@ -189,7 +207,6 @@ someone who wants to know what changed between two tags does not have to read it
     "Record only" for a source that is not; it flags the Kurtz talk's summary as it stood.
   - `check_docs.py` fails when the paper's `\date` month is older than its last change, and when
     `HANDOFF.md` is dated before the newest progress-log entry, which is the handoff's own rule.
-    It runs 25 checks.
   - A test keeps the paper's reference list in first-author and year order.
 - Rebuilding no longer dirties the tree. TeX stamps the clock into every PDF and the model-choice
   inventory stamped it into `created_utc`, so each local CI run left four committed files modified
