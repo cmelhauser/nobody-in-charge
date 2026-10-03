@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 29 September 2026"
+date: "Draft of 3 October 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -4043,7 +4043,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
-**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 53 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
+**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
 
 ### 4. References
 
@@ -5744,6 +5744,14 @@ values, but five of the twelve rejections are forced by structural zeros. Thresh
 tests are required where multiplicative perturbation is blind. Under wholesale randomization of
 nonzero coupling magnitudes, the all-twelve index-pairing rejection holds in 40.6 per cent of
 draws. The magnitude claim therefore needs substantive defense and independent elicitation.
+
+Sparsity has to be priced separately, because no magnitude design can move a zero. Flipping cells
+of `GOV` at random within the seven enabling rows, so the protective rows stay empty, with 2,000
+draws for each count, the all-twelve rejection holds in 86.3 per cent [84.7, 87.7] of draws when
+four of the 56 enabling cells differ and in 51.7 per cent [49.5, 53.9] when sixteen do. A flipped
+cell takes the value 0.5, so ties are common, and a tie never counts as the rejection holding. The
+products are computed exactly, so the figures are the same on every machine. The paper's sparsity
+table gives the series and the other three claims.
 
 ---
 
@@ -8477,18 +8485,24 @@ the assignment without being the passage Kurtz cited.
 
 Every design above varies magnitudes and holds the sparsity pattern fixed; a second reader
 would disagree about the pattern. Flipping cells at random within the seven enabling rows
-(56 cells, so the two-tier split is held fixed), 2,000 draws per row:
+(56 cells, so the two-tier split is held fixed), 2,000 draws per row. A flipped cell takes
+the value 0.5, so a Step's strongest Traditions often tie exactly. A claim counts as
+holding in a draw only where it holds strictly, since a tie is not support, and the
+products are computed exactly, every weight being a multiple of 0.01, so the table does
+not depend on how a machine rounds:
 
 | Cells flipped | Index-pairing wrong, all | T1 leads | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
-|--------------:|-------------------------:|---------:|-----------------:|-----------------:|
-|             1 |                    96.3% |   100.0% |            98.7% |            94.8% |
-|             2 |                    92.7% |    99.7% |            96.3% |            90.5% |
-|             4 |                    86.2% |    96.5% |            93.3% |            80.3% |
-|             8 |                    75.0% |    83.7% |            85.4% |            72.0% |
-|            16 |                    53.0% |    50.8% |            70.8% |            53.0% |
+|---:|---:|---:|---:|---:|
+| 1 | 96.4 95.4 to 97.1 | 100.0 99.8 to 100.0 | 98.7 98.1 to 99.1 | 94.9 93.8 to 95.7 |
+| 2 | 92.7 91.4 to 93.7 | 99.6 99.1 to 99.8 | 96.4 95.4 to 97.1 | 90.5 89.1 to 91.7 |
+| 4 | 86.3 84.7 to 87.7 | 96.4 95.4 to 97.1 | 93.4 92.2 to 94.4 | 80.4 78.6 to 82.0 |
+| 8 | 74.8 72.8 to 76.6 | 83.6 81.9 to 85.1 | 85.4 83.8 to 86.9 | 72.0 70.0 to 73.9 |
+| 16 | 51.7 49.5 to 53.9 | 50.8 48.6 to 52.9 | 70.8 68.8 to 72.8 | 52.9 50.7 to 55.0 |
 
-: Sparsity perturbation. Section 4 tolerates a reader differing on about four of fifty-six
-enabling cells and does not tolerate one differing on sixteen. {#tab:sparsity}
+: Sparsity perturbation. Percentage of draws in which each claim holds strictly, with
+Wilson intervals at 95 per cent on $n = 2{,}000$; the 100.0 entry is 2,000 of 2,000.
+Section 4 tolerates a reader differing on about four of fifty-six enabling cells and does
+not tolerate one differing on sixteen. {#tab:sparsity}
 
 **This is a bound, not a measurement, and the distinction is the caveat.** A random flip
 is not a plausible reader. Somebody who thinks self-support governs continuity changes
