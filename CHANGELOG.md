@@ -14,6 +14,18 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- The paper's sparsity table (Design 6) is computed exactly and strictly, and carries Wilson
+  intervals. Its claims are decided by the strongest Tradition in a row of `S @ G.T`, where flipped
+  cells make exact ties common. Floating point had broken those ties in the last bit, in an order
+  that depends on the processor. `argmax` gave a tie to the lower-numbered Tradition, and
+  floating-point rounding pushed exact halves mostly down where the book rounds half away from zero.
+  The products are now exact, a tie never counts as support, and every entry has a 95 per cent
+  interval. Twelve of the twenty entries move: ten by a tenth of a point, one by two tenths, and
+  the 16-cell row's index-pairing entry from 53.0 to 51.7 [49.5, 53.9]. Every old value lies inside
+  its new interval and the caption's claim stands. Chapter 18's 53 per cent becomes 52. Appendix A8
+  now carries the figures Chapter 18 cites it for. The paper is dated October 2026 and the book 3
+  October 2026.
+
 - Iannaccone (1992), "Sacrifice and Stigma", is confirmed as read at source, reread on 29 September
   2026 at the Human Author's request. The record had disagreed with itself: Chapter 12 called it
   read, Chapter 2 listed it as cited at a remove, and `research/SOURCES.md` recorded no status.
