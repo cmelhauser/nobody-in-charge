@@ -82,6 +82,42 @@ def test_check_docs_catches_a_miscount(tmp_path):
     assert f"job count is {jobs}" in result.stdout, result.stdout
 
 
+def test_check_docs_holds_the_release_gate_totals():
+    """The gate's totals, wherever prose states them, must be the gate's own.
+
+    `RELEASING.md` said a release depends on seven artifact checks for eighteen days after the
+    gate's comment and every other file had been corrected to six, because nothing read that
+    sentence. The helper is fed that sentence as it was, wrapped at the line end, beside a
+    correct claim, a wrong total, and the reported speech a closed item uses to record a retired
+    claim, which must not count.
+    """
+    import check_docs
+
+    # A fresh clone fails the gate's freshness check until the derived reports are rebuilt, and
+    # this job does not rebuild them, so the totals are compared and the verdict is not.
+    totals = check_docs.release_gate_totals()
+    assert totals is not None, "the gate could not read a cache, so it ran short"
+    gate = run("tools/check_release.py", "--skip-artifacts").stdout
+    passed, failed, skipped = (int(n) for n in re.search(
+        r"(\d+) checks passed; (\d+) failed; (\d+) skipped", gate).groups())
+    assert (totals["run"], totals["skipped"]) == (passed + failed, skipped)
+    assert totals["full"] == totals["run"] + totals["skipped"]
+
+    word = {value: name for name, value in check_docs.WORDS.items()}
+    lines = [
+        ("RELEASING.md:63", "with **no** `--skip-artifacts`. The "
+                            f"{word[totals['skipped'] + 1]} artifact"),
+        ("CLAUDE.md:388", f"`--skip-artifacts` omits exactly {word[totals['skipped']]} checks"),
+        ("AGENTS.md:120", f"which runs {totals['run']} of the {totals['full']} release checks"),
+        ("README.md:19", f"`check_release` with {totals['full'] - 1} checks"),
+        ("HANDOFF.md:533", "and both workflows said the flag omits "
+                           f"{word[totals['skipped'] + 1]} checks; it omits six"),
+    ]
+    wrong, seen = check_docs.gate_claims_contradicting(totals, lines)
+    assert seen == 4
+    assert [item.split(":")[0] for item in wrong] == ["RELEASING.md", "README.md"], wrong
+
+
 def test_document_dates_are_declared_not_computed():
     """A rebuild must not redate the book or the primer.
 
@@ -288,12 +324,39 @@ def test_skip_artifacts_skips_exactly_the_artifact_checks():
 
 
 def test_both_notebooks_execute_clean():
-    """Continuous integration otherwise never executes them; `check_book.py` reads their
-    committed outputs. `--no-write` leaves the committed notebooks untouched."""
-    for args in ((), ("--paper",)):
-        result = run("tools/run_notebook.py", "--no-write", *args)
-        assert result.returncode == 0, result.stdout + result.stderr
-        assert result.stdout.strip().splitlines()[-1] == "CLEAN", result.stdout
+    """Continuous integration otherwise never executes them, and `check_book.py` reads their
+    committed outputs, so those must be what a fresh run prints. `--check` leaves the committed
+    notebooks untouched and fails on a stale output: the paper notebook's said the paper
+    prints 451 decimals for ten days after the paper's count moved to 460 and then 461."""
+    # Both are run before anything is asserted, so a failure reports both notebooks at once.
+    results = [run("tools/run_notebook.py", "--check", *args) for args in ((), ("--paper",))]
+    report = "\n".join(r.stdout + r.stderr for r in results)
+    assert all(r.returncode == 0 for r in results), report
+    assert all(r.stdout.strip().splitlines()[-1] == "CLEAN" for r in results), report
+
+
+def test_notebook_outputs_compare_to_the_precision_printed():
+    """A stale output must fail `--check`, and another machine's last digit must not.
+
+    The first run of `--check` on Linux failed the book notebook on the DeGroot example's third
+    round, which averages to 5.74275 and printed 5.7428 where it was stored and 5.7427 there: a
+    last-bit difference in a matrix product, at a rounding half. That is the difference
+    `AGENT_VERIFY.md` says to expect between machines, so it passes, while the count that went
+    stale, a decimal two units off, and a full-length float off in its eighth decimal do not.
+    """
+    from run_notebook import same_output
+
+    assert same_output("  round 3: 5.7428 5.7390", "  round 3: 5.7427 5.7390")
+    assert same_output("  OK  mean-one capability draw: 1.001049606769611",
+                       "  OK  mean-one capability draw: 1.0010496067696112")
+    assert not same_output("  INFO decimals printed in the paper: 451",
+                           "  INFO decimals printed in the paper: 461")
+    assert not same_output("  INFO decimals printed in the paper: 451",
+                           "  INFO decimals printed in the paper: 452")
+    assert not same_output("  round 3: 5.7428", "  round 3: 5.7426")
+    assert not same_output("  draw: 1.001049606769611", "  draw: 1.001049616769611")
+    assert not same_output("  OK  history includes time zero", "  FAIL history includes time zero")
+    assert not same_output("one\ntwo", "one")
 
 
 def test_notebooks_match_their_generator():

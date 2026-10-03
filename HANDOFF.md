@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 29 September 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 1 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -100,18 +100,18 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 29 September 2026, everything passes:
+As of 1 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `python3 -m pytest` | all passed, three skipped (poppler-dependent) |
+| `python3 -m pytest` | all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1` |
 | `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 25 checks, 0 failed |
+| `tools/check_docs.py` | 26 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
-| `tools/check_pdfs.py` | 21 checks, 0 failed |
+| `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
 | `model/book-calculations.ipynb` | 8 cells, 84 assertions, clean |
 | `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 108 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
@@ -131,7 +131,8 @@ paper prints to be reachable from the model, a cache, or a shown derivation. Unt
 the paper had no equivalent of the chapters' guarantee.
 
 Run both. `tools/run_notebook.py` runs the book notebook; `tools/run_notebook.py --paper` runs the
-paper's.
+paper's. Each writes its outputs back into the notebook. With `--check` it writes nothing and fails
+if the outputs stored are not the ones a fresh run prints, which is how the test suite runs them.
 
 ---
 
@@ -375,8 +376,10 @@ inference from what is already here.
    life and Kaskutas, Bond and Avalos (2009) on seven-year AA attendance trajectories, were held and
    read in full on 22 September 2026 and are cited in Chapter 12, with Kaskutas also in Chapter 24,
    the paper, appendix A11, the primer and `research/PARAMETERS.md`. The model is unchanged. What is
-   left in this literature is the *Psychology & Health* companion paper, which needs a browser save
-   past a publisher bot check.
+   left in this literature is the *Psychology & Health* companion paper. It is CC BY 4.0, so any
+   copy of the published version may be held. The publisher's page is behind a bot check, but the
+   University of Bern's repository, BORIS, lists a download that needs none; BORIS did not answer on
+   1 October 2026, so the paper is still neither held nor read.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
@@ -415,9 +418,29 @@ each moves a record-only source onto the ordinary footing.
      PDF routes themselves refuse scripted access, and PMC's serves a proof-of-work interstitial,
      which is a bot check this project does not attempt.
    - **Cited at a remove:** Banks et al. (2014), through the 2017 paper. AMS refuses its PDF to
-     scripts, so it needs the same browser save.
+     scripts, so it needs the same browser save. Should a browser be refused too, NC State's Center
+     for Research in Scientific Computation posts a precursor by the same authors, technical report
+     CRSC-TR11-08 (August 2011); it is not the published version and has not been read.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
      abstract only.
+
+**One needs a decision about how a published table is computed.** It changes no conclusion.
+
+7. **Whether the paper's sparsity table should be computed in exact arithmetic.** Design 6's table
+   (`tab:sparsity`) is recomputed in both notebooks from 2,000 seeded draws per row, and its
+   columns take `argmax` over `S @ G.T`. That product has exact ties, which floating point breaks
+   by one unit in the last place, in an order that depends on the processor. macOS and Linux on
+   ARM and GitHub's x86 runners all reproduce the table as printed. Linux on x86 emulated on this
+   project's Mac, which reports AVX2 and FMA but not AVX-512, decides a few draws the other way,
+   and the 16-cell row's first column then reads 53.2 per cent rather than 53.0. Every weight in
+   `S` and `GOV` is a multiple of 0.01, so passing the matrices scaled to integers makes the
+   product exact and the table the same on every machine. That moves three entries of the
+   16-cell row: 53.0 to 52.9, 50.8 to 50.9, and 53.0 to 52.9. The caption's claim, which turns on
+   four cells and sixteen, holds either way. `model/elicitation_compare.py` is hash-pinned, so
+   the change would go in `tools/regenerate_notebooks.py`, and the paper and both notebooks
+   would follow. Until it is decided, `tools/run_notebook.py --check` reports those lines on a
+   machine that resolves the ties differently, which is the check telling the truth about the
+   table.
 
 ### Closed on 21 September 2026
 
