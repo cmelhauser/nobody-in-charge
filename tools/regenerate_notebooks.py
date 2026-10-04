@@ -803,8 +803,28 @@ def emit_paper_extras():
     ec = importlib.util.module_from_spec(spec)
     sys.modules["ec"] = ec
     spec.loader.exec_module(ec)
+    #
+    # Since 3 October 2026 it is computed exactly and strictly. A flipped cell takes exactly
+    # 0.5, so a Step's strongest Traditions often tie exactly, and floating point broke those
+    # ties in the last bit in an order that depends on the processor: an emulated x86 printed
+    # 53.2 per cent where every real machine printed 53.0. Every weight in S and GOV is a
+    # multiple of 0.01, so the products below, taken on the weights times 100, are exact.
+    # And a claim holds in a draw only where it holds strictly, because a tie is not
+    # support: a Step whose own Tradition ties for the top does not count as index-pairing
+    # failing. The draws are the same as before. `ec.consequences` is left as it is, because
+    # its hash is pinned for the elicitation; these are its four claims with ties made
+    # explicit.
     live = [(j, r) for j in range(12) for r in range(8) if j not in ec.PROTECTIVE]
     check("enabling cells available to flip", float(len(live)), 56.0, tol=0.01)
+    S100 = np.round(m.S * 100)
+    check("every S weight is in hundredths", bool(np.allclose(m.S * 100, S100, atol=1e-9)))
+    check("every GOV weight is in hundredths",
+          bool(np.allclose(m.GOV * 100, np.round(m.GOV * 100), atol=1e-9)))
+
+    def unique_top(v):
+        top = np.flatnonzero(v == v.max())
+        return int(top[0]) if len(top) == 1 else None
+
     rng = np.random.default_rng(20260802)
     ND = 2000
     for k in (1, 2, 3, 4, 6, 8, 12, 16):
@@ -814,11 +834,16 @@ def emit_paper_extras():
             for i in rng.choice(len(live), k, replace=False):
                 j, r = live[i]
                 G[j, r] = 0.0 if G[j, r] > 0 else 0.5
-            q = ec.consequences(m.S, G)
-            c["all12"] += q["all12"]; c["t1"] += q["t1_top"]
-            c["s5"] += q["s5_to_t12"]; c["s12"] += q["s12_to_t5"]
+            B = S100 @ np.round(G * 100).T
+            c["all12"] += all(B[i].max() > B[i, i] for i in range(12))
+            c["t1"] += unique_top(B.sum(0)) == 0
+            c["s5"] += unique_top(B[4]) == 11
+            c["s12"] += unique_top(B[11]) == 4
         for lab, v in c.items():
             show(f"sparsity {k} flips {lab}", v / ND, pct=True)
+            lo, hi = _wilson(v, ND)
+            show(f"sparsity {k} flips {lab} Wilson lo", lo, pct=True)
+            show(f"sparsity {k} flips {lab} Wilson hi", hi, pct=True)
 
 
 emit()

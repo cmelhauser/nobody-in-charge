@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 1 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 3 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -100,7 +100,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 1 October 2026, everything passes:
+As of 3 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
@@ -112,8 +112,8 @@ As of 1 October 2026, everything passes:
 | `tools/check_docs.py` | 26 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
-| `model/book-calculations.ipynb` | 8 cells, 84 assertions, clean |
-| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 108 assertions, clean |
+| `model/book-calculations.ipynb` | 8 cells, 86 assertions, clean |
+| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 110 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
 The 39 `check_book` warnings are repetition and sentence-length notes. They are not failures and
@@ -424,23 +424,27 @@ each moves a record-only source onto the ordinary footing.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
      abstract only.
 
-**One needs a decision about how a published table is computed.** It changes no conclusion.
+### Closed on 3 October 2026
 
-7. **Whether the paper's sparsity table should be computed in exact arithmetic.** Design 6's table
-   (`tab:sparsity`) is recomputed in both notebooks from 2,000 seeded draws per row, and its
-   columns take `argmax` over `S @ G.T`. That product has exact ties, which floating point breaks
-   by one unit in the last place, in an order that depends on the processor. macOS and Linux on
-   ARM and GitHub's x86 runners all reproduce the table as printed. Linux on x86 emulated on this
-   project's Mac, which reports AVX2 and FMA but not AVX-512, decides a few draws the other way,
-   and the 16-cell row's first column then reads 53.2 per cent rather than 53.0. Every weight in
-   `S` and `GOV` is a multiple of 0.01, so passing the matrices scaled to integers makes the
-   product exact and the table the same on every machine. That moves three entries of the
-   16-cell row: 53.0 to 52.9, 50.8 to 50.9, and 53.0 to 52.9. The caption's claim, which turns on
-   four cells and sixteen, holds either way. `model/elicitation_compare.py` is hash-pinned, so
-   the change would go in `tools/regenerate_notebooks.py`, and the paper and both notebooks
-   would follow. Until it is decided, `tools/run_notebook.py --check` reports those lines on a
-   machine that resolves the ties differently, which is the check telling the truth about the
-   table.
+- **The paper's sparsity table, which was item 7, is computed exactly and strictly.** Its claims
+  take the strongest Tradition for each Step from `S @ G.T`, and a flipped cell's value of 0.5
+  makes exact ties common. Floating point had been breaking them in the last bit, in an order that
+  depends on the processor, and an emulated x86 printed 53.2 per cent where the paper printed 53.0.
+  At the Human Author's direction:
+  - the products are now taken exactly, on the weights times 100;
+  - a claim holds in a draw only where it holds strictly, because a tie is not support;
+  - each entry carries a 95 per cent Wilson interval, as the jitter table's always did;
+  - entries round half away from zero, the book's rule, on the exact value. With 2,000 draws every
+    percentage is a multiple of 0.05, so half the entries sit on a rounding half, and the old
+    table had rounded those through floating point, mostly down.
+
+  Twelve of the twenty entries move: ten by a tenth of a point, the 8-cell row's index-pairing
+  entry by two tenths, and the 16-cell row's from 53.0 to 51.7. Every old value lies inside its new
+  interval, and the caption's claim stands. The draws are the same seeded draws as before.
+  `model/elicitation_compare.py` is untouched, since its hash is pinned for the elicitation, and its
+  deciding test, which rows a respondent leaves empty, is an exact sum that no tie reaches.
+  Chapter 18's 53 per cent becomes 52, appendix A8 now gives the figures Chapter 18 cites it for,
+  and the paper is dated October 2026 and the book 3 October 2026.
 
 ### Closed on 21 September 2026
 
