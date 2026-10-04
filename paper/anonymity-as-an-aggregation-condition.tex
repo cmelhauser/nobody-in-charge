@@ -45,7 +45,7 @@ in Twelve-Step Mutual-Aid Organizations}
 \author{\normalsize Human Author: Christopher Melhauser\\
 \normalsize AI Writing Collaborator: theonlymuffinbot\\
 \small Anthropic Claude Opus 5; OpenAI GPT-5.6 Sol and Terra}
-\date{\normalsize September 2026\\[0.25em]
+\date{\normalsize October 2026\\[0.25em]
 \small Released to the public domain under The Unlicense.}
 
 \begin{document}
@@ -813,23 +813,29 @@ the assignment without being the passage Kurtz cited.
 \paragraph{Design 6, sparsity perturbation.} Every design above varies magnitudes
 and holds the sparsity pattern fixed; a second reader would disagree about the
 pattern. Flipping cells at random within the seven enabling rows (56 cells, so the
-two-tier split is held fixed), 2,000 draws per row:
+two-tier split is held fixed), 2,000 draws per row. A flipped cell takes the value
+0.5, so a Step's strongest Traditions often tie exactly. A claim counts as holding
+in a draw only where it holds strictly, since a tie is not support, and the products
+are computed exactly, every weight being a multiple of 0.01, so the table does not
+depend on how a machine rounds:
 
 \begin{table}[htbp]\centering\small
-\setlength{\tabcolsep}{5pt}
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}rrrrr@{}}
 \toprule
 Cells flipped & Index-pairing wrong, all & T1 leads & Step 5 $\to$ T12 & Step 12 $\to$ T5 \\
 \midrule
-1  & 96.3\% & 100.0\% & 98.7\% & 94.8\% \\
-2  & 92.7\% & 99.7\%  & 96.3\% & 90.5\% \\
-4  & 86.2\% & 96.5\%  & 93.3\% & 80.3\% \\
-8  & 75.0\% & 83.7\%  & 85.4\% & 72.0\% \\
-16 & 53.0\% & 50.8\%  & 70.8\% & 53.0\% \\
+1  & 96.4 [95.4, 97.1] & 100.0 [99.8, 100.0] & 98.7 [98.1, 99.1] & 94.9 [93.8, 95.7] \\
+2  & 92.7 [91.4, 93.7] & 99.6 [99.1, 99.8]   & 96.4 [95.4, 97.1] & 90.5 [89.1, 91.7] \\
+4  & 86.3 [84.7, 87.7] & 96.4 [95.4, 97.1]   & 93.4 [92.2, 94.4] & 80.4 [78.6, 82.0] \\
+8  & 74.8 [72.8, 76.6] & 83.6 [81.9, 85.1]   & 85.4 [83.8, 86.9] & 72.0 [70.0, 73.9] \\
+16 & 51.7 [49.5, 53.9] & 50.8 [48.6, 52.9]   & 70.8 [68.8, 72.8] & 52.9 [50.7, 55.0] \\
 \bottomrule
 \end{tabular}
-\caption{Sparsity perturbation. Section~4 tolerates a reader differing on about
-four of fifty-six enabling cells and does not tolerate one differing on sixteen.}
+\caption{Sparsity perturbation. Percentage of draws in which each claim holds
+strictly, with Wilson intervals at 95 per cent on $n = 2{,}000$; the 100.0 entry is
+2,000 of 2,000. Section~4 tolerates a reader differing on about four of fifty-six
+enabling cells and does not tolerate one differing on sixteen.}
 \label{tab:sparsity}
 \end{table}
 
