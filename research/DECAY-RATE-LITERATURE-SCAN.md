@@ -33,8 +33,9 @@ cent of the lower asymptote, had a median of 9 to 10 days and a range of 1 to 65
 cent of variance between persons. A companion paper on the same cohort, "Determinants and
 strategies of self-reported habit degradation", *Psychology & Health* (2026), PMID 41664447, finds
 non-performance and reward driving degradation and habitual cues counteracting it. It is published
-under CC BY 4.0; the publisher's page is behind a bot check, but the University of Bern's
-repository, BORIS, lists a download of it that needs none. A 2026 randomised trial on snacking
+under CC BY 4.0; the publisher's page is behind a bot check, and the University of Bern's
+repository, BORIS, which lists a download of it, served one too on 11 October 2026. A 2026
+randomised trial on snacking
 strategies, PMID 41781506, is the third paper of that group.
 
 This is the closest measured object in form and the furthest in meaning. It measures how fast an
@@ -101,6 +102,6 @@ outside them.
    limitation item, appendix A11 item 9, the primer's "what was not read" entry and
    `research/PARAMETERS.md` follow it. The model is unchanged.
 
-Still not held: the *Psychology & Health* companion paper, whose BORIS download did not answer
-on 1 October 2026, and every other work named above, which is read in abstract or in a search
+Still not held: the *Psychology & Health* companion paper, which needs a browser save from the
+publisher or from BORIS, both now behind bot checks, and every other work named above, which is read in abstract or in a search
 result only. This file remains a search record, and nothing in the project may cite it as evidence.
