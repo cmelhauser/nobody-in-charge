@@ -14,6 +14,10 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Continuous integration tests Python 3.14 on `main`, beside 3.11, 3.12 and 3.13. It is the
+  current release and the version this project is developed on, and the matrix had stopped a
+  version short of it.
+
 - The paper's sparsity table (Design 6) is computed exactly and strictly, and carries Wilson
   intervals. Its claims are decided by the strongest Tradition in a row of `S @ G.T`, where flipped
   cells make exact ties common. Floating point had broken those ties in the last bit, in an order
