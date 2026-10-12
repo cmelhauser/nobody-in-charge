@@ -5492,3 +5492,13 @@ primer's "86 per cent" and "a coin flip" still hold. The paper is dated October 
 October 2026, as `check_docs.py` requires once their sources change. The paper now prints 489
 decimals, all of them traced. Its three underfull-box warnings were there before the change, and
 the table sets within the text block.
+
+### 11 October 2026: the companion paper's open route has closed
+
+The University of Bern's repository, BORIS, which did not answer on 1 October 2026, answered on 11
+October, and the download it lists for the *Psychology & Health* companion paper returned an Anubis
+proof-of-work page ("Making sure you're not a bot!") instead of the file, through the web route and
+through the DSpace REST API alike. That is a bot check, which this project does not attempt. The
+handoff and the decay-rate scan had described the BORIS route as needing none, and now say it is
+behind one. The paper is CC BY 4.0, so a copy saved in a browser from either the publisher or
+BORIS may be held; until then it is neither held nor read. Nothing else changes.

@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 3 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 11 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -377,9 +377,11 @@ inference from what is already here.
    read in full on 22 September 2026 and are cited in Chapter 12, with Kaskutas also in Chapter 24,
    the paper, appendix A11, the primer and `research/PARAMETERS.md`. The model is unchanged. What is
    left in this literature is the *Psychology & Health* companion paper. It is CC BY 4.0, so any
-   copy of the published version may be held. The publisher's page is behind a bot check, but the
-   University of Bern's repository, BORIS, lists a download that needs none; BORIS did not answer on
-   1 October 2026, so the paper is still neither held nor read.
+   copy of the published version may be held, including one saved in a browser. The publisher's page
+   is behind a bot check, and so, since it came back after not answering on 1 October 2026, is the
+   University of Bern's repository, BORIS, which lists a download: on 11 October it served a
+   proof-of-work challenge, which this project does not attempt. The paper is still neither held nor
+   read, and it needs a browser save from either.
 
 **One is a set of lawful copies only the Human Author can obtain.** None changes a conclusion;
 each moves a record-only source onto the ordinary footing.
