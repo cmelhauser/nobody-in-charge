@@ -4,7 +4,7 @@ name: CI
 # Python version.
 #
 # `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only;
-# on `main` and on demand it runs 3.11, 3.12 and 3.13. The version-independent checkers
+# on `main` and on demand it runs 3.11, 3.12, 3.13 and 3.14. The version-independent checkers
 # live in `checkers`, which runs once on 3.12, so the release gate and the book-level
 # checks are not repeated across the matrix.
 #
@@ -99,7 +99,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ${{ github.event_name == 'pull_request' && fromJSON('["3.12"]') || fromJSON('["3.11", "3.12", "3.13"]') }}
+        python-version: ${{ github.event_name == 'pull_request' && fromJSON('["3.12"]') || fromJSON('["3.11", "3.12", "3.13", "3.14"]') }}
     steps:
       - uses: actions/checkout@v5
 
