@@ -19,7 +19,9 @@ to the history they describe: the book's and the primer's printed dates and the 
 against the last change to each one's sources, and `HANDOFF.md`'s "Last updated" line against
 the newest progress-log entry. Since 1 October 2026 it holds the release gate's own totals,
 which it gets by running the gate, and reads those claims in both workflows and in the gate's
-source as well as in the Markdown.
+source as well as in the Markdown. Since 13 October 2026 it holds the Python versions the
+documents say CI tests to the workflow's matrix, and the handoff's count of its own checks to the
+number it runs.
 
 What is deliberately not checked:
 
@@ -461,6 +463,73 @@ def check_release_gate_counts() -> None:
            f"{totals['skipped']}, {totals['full']} in all, and {seen} claim(s) agree")
 
 
+def ci_python_versions(workflow: str) -> tuple[list[str], list[str]] | None:
+    """(versions on pull requests, versions on main) from the unit-test matrix, or None.
+
+    The matrix line holds two JSON lists, `fromJSON('["3.12"]')` for a pull request and a longer
+    one for `main`, so the answer is read from the workflow the documents describe.
+    """
+    for line in workflow.splitlines():
+        if line.strip().startswith("python-version:") and "fromJSON" in line:
+            lists = [json.loads(found) for found in re.findall(r"fromJSON\('(\[[^']*\])'\)", line)]
+            if len(lists) == 2:
+                return lists[0], lists[1]
+    return None
+
+
+VERSION_LIST = re.compile(r"\b(3\.\d+(?:,\s+3\.\d+)*),?\s+and\s+(3\.\d+)\b")
+VERSION_ONLY = re.compile(r"\b(3\.\d+)\s+only\b")
+
+
+def python_version_claims(text: str) -> list[tuple[str, list[str]]]:
+    """Python versions a paragraph says CI runs: ("list", [..]) for "3.11, 3.12 and 3.13" and
+    ("only", [..]) for "3.12 only". Whitespace is collapsed first, because prose wraps lines."""
+    text = " ".join(text.split())
+    found = [("list", [*re.split(r",\s*", match.group(1)), match.group(2)])
+             for match in VERSION_LIST.finditer(text)]
+    return found + [("only", [match.group(1)]) for match in VERSION_ONLY.finditer(text)]
+
+
+def check_python_versions() -> None:
+    """The Python versions the documents say CI tests, against the workflow's matrix.
+
+    Python 3.14 was added to the matrix on 12 October 2026 by hand, in the workflow's header, the
+    four Markdown files that list versions and the changelog. This holds the Markdown to the
+    matrix so the next addition cannot leave one list a version short. `CHANGELOG.md` is the
+    dated record of what each version of the matrix was, so it is not read.
+    """
+    versions = ci_python_versions((ROOT / ".github" / "workflows" / "ci.yml").read_text(
+        encoding="utf-8"))
+    if versions is None:
+        fail("the unit-test matrix in .github/workflows/ci.yml has no two-list python-version line")
+        return
+    on_pull_request, on_main = versions
+    wrong, seen = [], 0
+    for path in tracked_markdown():
+        rel = path.relative_to(ROOT)
+        if rel.name == "CHANGELOG.md":
+            continue
+        start, block = 0, []
+        for number, line in [*prose_lines(path), (0, "")]:
+            if line.strip():
+                start = start or number
+                block.append(line)
+                continue
+            for kind, claimed in python_version_claims("\n".join(block)):
+                seen += 1
+                expected = on_main if kind == "list" else on_pull_request
+                if claimed != expected:
+                    wrong.append(f"{rel}:{start}: says {', '.join(claimed)}, the matrix runs "
+                                 f"{', '.join(expected)}")
+            start, block = 0, []
+    if wrong:
+        for item in wrong:
+            fail(f"Python versions ({item})")
+    else:
+        ok(f"CI tests Python {', '.join(on_main)} on main and {', '.join(on_pull_request)} on "
+           f"pull requests, and {seen} claim(s) in tracked prose agree")
+
+
 def check_page_counts() -> None:
     """Page-count claims, against the rendered PDFs when they exist."""
     documents = {
@@ -627,6 +696,33 @@ def check_handoff_date() -> None:
              f"entry dated {newest:%d %B %Y}; by its own rule the handoff is stale")
 
 
+def check_own_total() -> None:
+    """The count of checks this file runs, where the handoff's verification table states it.
+
+    It has to be last, because it counts the others, and it counts itself. It reads the table
+    only when nothing was skipped: a check that skips reports fewer lines than the same check
+    running does (the page-count check reports one line for each claim it reads), so the total in
+    a tree without pypdf is not the tree's total, and comparing it would fail a correct table.
+    """
+    if skips:
+        skip("how many checks check_docs.py runs (a skipped check changes the count, so only a "
+             "full run can be compared with HANDOFF.md)")
+        return
+    total = len(passes) + len(failures) + 1
+    claimed = [
+        (number, int(found.group(1)))
+        for number, line in prose_lines(ROOT / "HANDOFF.md")
+        for found in [re.search(r"`tools/check_docs\.py` \| (\d+) checks", line)] if found
+    ]
+    if not claimed:
+        fail("HANDOFF.md's verification table does not state how many checks check_docs.py runs")
+    for number, value in claimed:
+        if value == total:
+            ok(f"check_docs.py has {total} checks, as HANDOFF.md:{number} says")
+        else:
+            fail(f"HANDOFF.md:{number} says check_docs.py has {value} checks, it has {total}")
+
+
 def main() -> int:
     check_ci_jobs()
     check_checker_inventory()
@@ -637,9 +733,11 @@ def main() -> int:
     check_model_hash()
     check_links()
     check_release_gate_counts()
+    check_python_versions()
     check_page_counts()
     check_document_dates()
     check_handoff_date()
+    check_own_total()
 
     for line in passes:
         print(line)

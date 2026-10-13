@@ -14,6 +14,9 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- `tools/check_docs.py` holds the Python versions the documents say CI tests to the workflow's
+  matrix, and counts its own checks against the handoff's verification table. It runs 28 checks.
+
 - The tracked `paper/anonymity-as-an-aggregation-condition.xdv`, a stale 10 August build
   intermediate, is removed and ignored, as the other LaTeX intermediates already were.
 
