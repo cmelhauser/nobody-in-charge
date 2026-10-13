@@ -110,8 +110,9 @@ The coverage gate is 100 per cent of `model/aa_group_model.py` and is enforced b
 purpose and run the synchronization rule before touching anything.
 
 `tools/` and the analysis scripts sit outside the coverage gate on purpose; they are batch jobs,
-covered instead by `tests/test_tools_integration.py`, which runs each for real. Slow work behind
-`NIC_SLOW_TESTS=1`.
+covered instead by `tests/test_tools_integration.py`, which runs each for real, and by
+`tests/test_tools_direct.py`, which calls five of them directly with outputs in a temporary
+directory. Slow work behind `NIC_SLOW_TESTS=1`.
 
 CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
 model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12,

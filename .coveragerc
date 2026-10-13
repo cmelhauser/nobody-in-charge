@@ -12,7 +12,8 @@
 # minutes to hours. Unit-testing them to 100 per cent would mean either running the
 # release designs on every commit or mocking so much that the tests stopped meaning
 # anything. They are covered instead by `tests/test_tools_integration.py`, which runs
-# each one for real and asserts it succeeds, and by the release gate itself.
+# each one for real and asserts it succeeds, by `tests/test_tools_direct.py`, which calls
+# the functions of five of them with their outputs redirected, and by the release gate itself.
 #
 # `model/aa_group_model.py` cannot carry `# pragma: no cover` comments, because editing
 # the file at all changes its SHA-256 and invalidates the release. The single
