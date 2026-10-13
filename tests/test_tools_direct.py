@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import build_note  # noqa: E402
+import check_docs  # noqa: E402
 import check_pdfs  # noqa: E402
 import freeze_release_manifest as freeze  # noqa: E402
 import inventory_model_choices as inventory  # noqa: E402
@@ -486,3 +487,87 @@ def test_subprocess_import_does_not_run_anything():
     result = subprocess.run([sys.executable, "-c", code], cwd=ROOT, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     assert result.stdout == ""
+
+
+# ------------------------------------------------------------------------------ check_docs
+
+MATRIX = ("        python-version: ${{ github.event_name == 'pull_request' && "
+          "fromJSON('[\"3.12\"]') || fromJSON('[\"3.11\", \"3.12\", \"3.13\"]') }}\n")
+
+
+@pytest.fixture
+def docs_tree(tmp_path, monkeypatch):
+    """A scratch repository root for check_docs, with fresh result lists."""
+    for name in ("passes", "failures", "skips"):
+        monkeypatch.setattr(check_docs, name, [])
+    (tmp_path / ".github" / "workflows").mkdir(parents=True)
+    (tmp_path / ".github" / "workflows" / "ci.yml").write_text("jobs:\n  unit:\n" + MATRIX)
+    monkeypatch.setattr(check_docs, "ROOT", tmp_path)
+    monkeypatch.setattr(check_docs, "tracked_markdown",
+                        lambda: sorted(tmp_path.glob("*.md")))
+    return tmp_path
+
+
+def test_ci_python_versions_reads_both_lists():
+    assert check_docs.ci_python_versions(MATRIX) == (["3.12"], ["3.11", "3.12", "3.13"])
+    assert check_docs.ci_python_versions("python-version: ${{ matrix.x }}\n") is None
+    one = "python-version: ${{ fromJSON('[\"3.12\"]') }}\n"
+    assert check_docs.ci_python_versions(one) is None
+    assert check_docs.ci_python_versions("") is None
+
+
+def test_the_real_workflow_has_the_two_lists():
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    on_pull_request, on_main = check_docs.ci_python_versions(workflow)
+    assert on_pull_request == ["3.12"] and set(on_pull_request) <= set(on_main)
+
+
+def test_python_version_claims_read_lists_across_wrapped_lines():
+    text = "unit tests run across Python 3.11, 3.12,\n3.13 and 3.14; on pull requests Python 3.12\nonly."
+    assert check_docs.python_version_claims(text) == [
+        ("list", ["3.11", "3.12", "3.13", "3.14"]), ("only", ["3.12"])]
+    assert check_docs.python_version_claims("3.12 and 3.13") == [("list", ["3.12", "3.13"])]
+    assert check_docs.python_version_claims("Python 3 is used; version 3.14.1") == []
+
+
+def test_check_python_versions_passes_and_catches_a_short_list(docs_tree):
+    (docs_tree / "A.md").write_text("It runs 3.11, 3.12 and 3.13 on main and 3.12 only on pulls.\n")
+    (docs_tree / "CHANGELOG.md").write_text("History: 3.11 and 3.12 once ran.\n")
+    (docs_tree / "B.md").write_text("> Retired: 3.10 and 3.11.\n")
+    check_docs.check_python_versions()
+    assert check_docs.failures == [] and "2 claim(s)" in check_docs.passes[0]
+
+    (docs_tree / "C.md").write_text("Unit tests\nrun on 3.11 and 3.12.\n\nOn pulls, 3.13 only.\n")
+    check_docs.passes.clear()
+    check_docs.check_python_versions()
+    wrong = " ".join(check_docs.failures)
+    assert "C.md:1: says 3.11, 3.12, the matrix runs 3.11, 3.12, 3.13" in wrong
+    assert "C.md:4: says 3.13, the matrix runs 3.12" in wrong
+
+
+def test_check_python_versions_fails_without_a_matrix(docs_tree):
+    (docs_tree / ".github" / "workflows" / "ci.yml").write_text("jobs: {}\n")
+    check_docs.check_python_versions()
+    assert check_docs.failures and "no two-list python-version line" in check_docs.failures[0]
+
+
+def test_check_own_total_reads_the_handoff_table(docs_tree):
+    check_docs.passes.extend(["OK: a", "OK: b"])                  # two ran, and this is a third
+    (docs_tree / "HANDOFF.md").write_text("| `tools/check_docs.py` | 3 checks, 0 failed |\n")
+    check_docs.check_own_total()
+    assert check_docs.failures == [] and "has 3 checks" in check_docs.passes.pop()
+
+    (docs_tree / "HANDOFF.md").write_text("| `tools/check_docs.py` | 9 checks, 0 failed |\n")
+    check_docs.check_own_total()
+    assert "says check_docs.py has 9 checks, it has 3" in check_docs.failures[0]
+
+    check_docs.failures.clear()
+    (docs_tree / "HANDOFF.md").write_text("nothing about it\n")
+    check_docs.check_own_total()
+    assert "does not state how many checks" in check_docs.failures[0]
+
+
+def test_check_own_total_waits_for_a_full_run(docs_tree):
+    check_docs.skips.append("SKIP: no pypdf")
+    check_docs.check_own_total()
+    assert check_docs.failures == [] and len(check_docs.skips) == 2
