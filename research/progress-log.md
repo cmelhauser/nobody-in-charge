@@ -5577,3 +5577,19 @@ reports fewer lines than the same check running, so a degraded run's total is no
 size and record-only counts quoted in prose are checked by `check_corpus`, and no document keeps
 a hand-written count of tests or of the model's statements: the handoff says "all passed, three
 skipped" and the statement total lives in `.coveragerc`'s gate, which fails on its own.
+
+**An audit of the CI gates, and what was trimmed.** The repository is public, so GitHub Actions
+minutes on standard runners cost nothing; the audit was of time. A push to `main` ran seven jobs
+for about 390 seconds of runner time and 100 seconds of wall clock, and a pull request three jobs
+for about 120 and 70. Every gate was found to be needed, since each catches something the others
+cannot, but three pieces of work were done twice. The `documents` job ended by running the whole
+integration test file, which ran the full gate a second time, rebuilt the primer a third and
+repeated every non-slow test the unit-test job had run: removed, the three slow tests still run in
+`tools/run_ci_locally.sh` and in the release workflow. Each of the four Python legs on `main` ran
+the integration tests that spawn the version-independent checkers, about 35 seconds a leg: the
+legs other than 3.12 now run the model tests, the release invariants and the direct tool tests,
+which import every tool, and still hold the 100 per cent gate on the canonical model. And every
+job upgraded pip and the lint job installed numpy, pytest and pypdf to run two linters. Left
+alone at the Human Author's direction: lint, unit tests and checkers on `main` after the pull
+request ran them, which test the merged result for about fifty seconds, the full four-version
+matrix, and the duplicated toolchain install in `release.yml`, which runs a few times a year.
