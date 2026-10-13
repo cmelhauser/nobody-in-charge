@@ -14,6 +14,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Thirty-five direct tests cover the five tools the integration tests reached only through
+  the release gate (`check_pdfs`, `build_note`, `freeze_release_manifest`,
+  `inventory_model_choices`, `summarize_release_gate`), in `tests/test_tools_direct.py`. No tool or
+  model change.
+
 - Continuous integration tests Python 3.14 on `main`, beside 3.11, 3.12 and 3.13. It is the
   current release and the version this project is developed on, and the matrix had stopped a
   version short of it.

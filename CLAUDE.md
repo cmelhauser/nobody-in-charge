@@ -360,7 +360,9 @@ The coverage gate is **100 per cent of `model/aa_group_model.py`** and is enforc
 is pure computation, so it is worth testing exhaustively. The scripts under `tools/` and the
 analysis scripts under `model/` are deliberately outside the gate: they are batch jobs and
 entry points that write hash-linked caches and render PDFs. They are covered by
-`tests/test_tools_integration.py`, which runs each one for real, and by the release gate.
+`tests/test_tools_integration.py`, which runs each one for real, by `tests/test_tools_direct.py`,
+which calls the functions of the five tools that file reaches only through the gate with every
+output redirected to a temporary directory, and by the release gate.
 
 **`model/aa_group_model.py` must never be edited to make a test pass.** Its SHA-256 is the
 release identity. `tests/test_release_invariants.py` pins the digest, room capacity 60, the
