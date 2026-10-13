@@ -5519,3 +5519,19 @@ history. Nothing in section 10 of the handoff can be done without the Human Auth
 **One change.** The unit tests ran on Python 3.11, 3.12 and 3.13, while this project is developed
 on 3.14, the current release, which CI never exercised. `main` now runs 3.14 as well, and
 `CLAUDE.md`, `AGENTS.md`, `README.md` and the workflow's own header say so.
+
+**The ubuntu-latest move, tested again.** GitHub moves `ubuntu-latest` to Ubuntu 26.04 between 19
+October and 19 November 2026. On 12 October every job in the workflow was run once on a scratch
+branch with the runner label changed to `ubuntu-26.04`, on the current `main`: lint apart, all of
+them passed, including unit tests on 3.11, 3.12, 3.13 and 3.14, the checkers, and the rendered
+documents with the full release gate. The lint job failed on that branch for one reason only:
+actionlint does not yet know the `ubuntu-26.04` label and reported it four times, once per
+`runs-on`. That is a gap in the linter, not a fault in the workflow, and it is why the real
+workflow keeps `ubuntu-latest`. The scratch branch was deleted and nothing from it was merged.
+
+**How much of `tools/` the tests reach.** Measured once, outside the repository, by running the
+integration tests with the slow ones included and coverage following the subprocesses: 72 per cent
+of the 1,943 statements in `tools/`. Most files sit between 72 and 99 per cent. Five are low:
+`check_pdfs.py` 24 per cent, `build_note.py` 25, `inventory_model_choices.py` 27,
+`summarize_release_gate.py` 28 and `freeze_release_manifest.py` 37. The gate stays on the canonical
+model, as `.coveragerc` explains, and this is a measurement, not a target.
