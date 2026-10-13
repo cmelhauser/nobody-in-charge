@@ -263,7 +263,9 @@ jobs:
           # linked against the runner image's libstdc++ and libgraphite2, so a cached copy
           # survives a change of image only while the new one ships both. Ubuntu 24.04 and
           # 26.04 do: on 1 October 2026 this job and the release workflow ran clean on 26.04
-          # from this cache, ahead of ubuntu-latest moving there.
+          # from this cache, ahead of ubuntu-latest moving there, and on 12 October every
+          # job passed there again with 3.14 in the matrix, except that actionlint rejects
+          # the ubuntu-26.04 label as unknown, which is why the label is not used here.
           TECTONIC_BIN="$TECTONIC_CACHE_DIR/bin"
           mkdir -p "$TECTONIC_BIN"
           if [ ! -x "$TECTONIC_BIN/tectonic" ]; then
