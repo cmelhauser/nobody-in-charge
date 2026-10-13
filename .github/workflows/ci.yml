@@ -4,9 +4,10 @@ name: CI
 # Python version.
 #
 # `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only;
-# on `main` and on demand it runs 3.11, 3.12, 3.13 and 3.14. The version-independent checkers
-# live in `checkers`, which runs once on 3.12, so the release gate and the book-level
-# checks are not repeated across the matrix.
+# on `main` and on demand it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
+# others with the model tests and the tool imports. The version-independent checkers live in
+# `checkers`, which runs once on 3.12, so the release gate and the book-level checks are not
+# repeated across the matrix.
 #
 # `documents` renders the three PDFs. Every environmental failure in this repository's
 # history came from the fetches this job needs: a hung apt mirror, a CTAN mirror timing
@@ -70,10 +71,10 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-dev.txt
 
+      # Only the two lint tools, taken from requirements-dev.txt so the floors stay in one
+      # place. The rest of that file (numpy, pytest, pypdf) is not needed to lint.
       - name: Install ruff and shellcheck
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements-dev.txt
+        run: grep -E '^(ruff|shellcheck-py)>=' requirements-dev.txt | xargs python -m pip install
 
       - name: Python lint
         run: ruff check --output-format=github .
@@ -111,11 +112,22 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
+      # 3.12 is the version the checkers run on, so it runs everything: the model tests and
+      # the integration tests that spawn each tool. The other versions run what can differ
+      # between versions, the model's arithmetic and every tool's import, and not the
+      # subprocess runs of the checkers, which are version-independent and cost about 35 s
+      # a leg. Each still holds the 100 per cent coverage gate on the canonical model.
       - name: Unit tests, with the 100 per cent coverage gate on the canonical model
+        if: matrix.python-version == '3.12'
         run: python -m pytest --cov --cov-report=term-missing
+
+      - name: Model tests and tool imports, with the same coverage gate
+        if: matrix.python-version != '3.12'
+        run: >
+          python -m pytest tests/test_model.py tests/test_release_invariants.py
+          tests/test_tools_direct.py --cov --cov-report=term-missing
 
       - name: Confirm the canonical model hash
         run: |
@@ -147,7 +159,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
       - name: Corpus has no drift
@@ -205,7 +216,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
       # Tectonic fetches TeX support files on demand and has failed four times on a cold
@@ -332,9 +342,9 @@ jobs:
       - name: Documentation matches the tree, including page counts
         run: python tools/check_docs.py
 
-      - name: Full release gate and the slow integration tests
-        env:
-          NIC_SLOW_TESTS: "1"
-        run: |
-          python tools/check_release.py
-          python -m pytest tests/test_tools_integration.py
+      # The full gate, once. This job used to follow it with the integration test file, which
+      # ran the gate a second time, rebuilt the primer a third and repeated every test the
+      # unit-test job had already run. The slow tests still run in tools/run_ci_locally.sh
+      # and in the release workflow.
+      - name: Full release gate
+        run: python tools/check_release.py

@@ -14,6 +14,13 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Continuous integration does less work for the same assurance. On `main` the Python versions
+  other than 3.12 run the model tests, the release invariants and the direct tool tests under the
+  100 per cent coverage gate, not the subprocess runs of the checkers that 3.12 already covers.
+  `documents` runs the full gate once, no longer followed by an integration test file that ran it
+  again and rebuilt the primer. Lint installs only ruff and shellcheck, and no job upgrades pip.
+  Runner time per push to `main` falls by about two minutes of about six and a half.
+
 - `tools/check_docs.py` holds the Python versions the documents say CI tests to the workflow's
   matrix, and counts its own checks against the handoff's verification table. It runs 28 checks.
 
