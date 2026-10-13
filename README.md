@@ -180,7 +180,7 @@ whether a fresh runner can obtain pandoc, tectonic and the font.
 GitHub Actions runs four jobs, split by what can be checked without a network and by what depends
 on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
 model takes no lint waiver. `unit-tests` runs pytest and the model hash: on pull requests it uses
-Python 3.12 only; on `main` it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12: corpus
+Python 3.12 only; on `main` it runs 3.11, 3.12, 3.13 and 3.14. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate
 checks, reporting the other six as skipped. `documents` runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds
 all three PDFs, requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`,

@@ -114,8 +114,8 @@ covered instead by `tests/test_tools_integration.py`, which runs each for real. 
 `NIC_SLOW_TESTS=1`.
 
 CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
-model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12
-and 3.13 on `main`, and on 3.12 only on pull requests. `checkers` needs pip and nothing else and
+model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12,
+3.13 and 3.14 on `main`, and on 3.12 only on pull requests. `checkers` needs pip and nothing else and
 gates every push: corpus drift, portability, the book checks, and `check_release.py
 --skip-artifacts`, which runs 142 of the 148 release checks and reports the other six as skipped. `documents` renders the PDFs, checks
 them with `check_pdfs.py`, and runs the full gate, on `main` only, because it needs pandoc,

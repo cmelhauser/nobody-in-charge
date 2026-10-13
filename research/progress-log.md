@@ -5502,3 +5502,20 @@ through the DSpace REST API alike. That is a bot check, which this project does 
 handoff and the decay-rate scan had described the BORIS route as needing none, and now say it is
 behind one. The paper is CC BY 4.0, so a copy saved in a browser from either the publisher or
 BORIS may be held; until then it is neither held nor read. Nothing else changes.
+
+### 12 October 2026: a clean-up pass, and Python 3.14 in the test matrix
+
+**What was asked.** That outstanding work be finished, everything committed, pushed and merged with
+nothing stale left behind, test coverage and the suite confirmed, and the documentation checked.
+
+**The state.** One worktree, `main` the only branch locally and on GitHub, no stashes and no open
+pull requests. A full local CI run passed all eighteen steps: coverage of `model/aa_group_model.py`
+is 100 per cent, 148 of 148 statements, the gate passes 148 of 148 checks, and the suite passes
+140 tests with the three slow ones skipped and all 143 with `NIC_SLOW_TESTS=1`. The coverage gate
+is the canonical model by design, as `.coveragerc` records; the tools are covered by running them
+for real. A search for every value retired this month found each only where it is quoted as
+history. Nothing in section 10 of the handoff can be done without the Human Author.
+
+**One change.** The unit tests ran on Python 3.11, 3.12 and 3.13, while this project is developed
+on 3.14, the current release, which CI never exercised. `main` now runs 3.14 as well, and
+`CLAUDE.md`, `AGENTS.md`, `README.md` and the workflow's own header say so.
