@@ -371,7 +371,7 @@ GitHub Actions runs four jobs, defined in `.github/workflows/ci.yml`, split by w
 verified without a network. `lint` runs ruff, actionlint and shellcheck and needs nothing else.
 
 `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
-it runs 3.11, 3.12 and 3.13. `checkers` runs once on 3.12 and covers everything that does not
+it runs 3.11, 3.12, 3.13 and 3.14. `checkers` runs once on 3.12 and covers everything that does not
 require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
 142 of the 148 release-gate checks via `check_release.py --skip-artifacts`, which reports the
 other six as skipped.
