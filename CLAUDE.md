@@ -373,13 +373,15 @@ GitHub Actions runs four jobs, defined in `.github/workflows/ci.yml`, split by w
 verified without a network. `lint` runs ruff, actionlint and shellcheck and needs nothing else.
 
 `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
-it runs 3.11, 3.12, 3.13 and 3.14. `checkers` runs once on 3.12 and covers everything that does not
+it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the others with the model tests, the
+release invariants and the direct tool tests, each under the same coverage gate. `checkers` runs once on 3.12 and covers everything that does not
 require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
 142 of the 148 release-gate checks via `check_release.py --skip-artifacts`, which reports the
 other six as skipped.
 
-`documents` renders the three PDFs, asserts zero overfull boxes, and runs the full gate and the
-slow integration tests. It runs on `main` and on demand, not on pull requests, and it rebuilds
+`documents` renders the three PDFs, asserts zero overfull boxes, checks the PDFs and runs the full
+gate. The slow integration tests run in `tools/run_ci_locally.sh` and in the release workflow, not
+here, because here they would only repeat the gate and the builds. It runs on `main` and on demand, not on pull requests, and it rebuilds
 rather than trusting the committed PDFs because a fresh clone gives every file one checkout
 timestamp.
 
