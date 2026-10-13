@@ -5555,5 +5555,5 @@ first pass. A fresh clone, which has none, builds the same file as the cleaned t
 committed PDF was the odd one out: it could be reproduced only beside leftovers no clone has. It is
 replaced by the clean build, and the earlier statement that a rebuild leaves the tree unchanged held
 only on a machine carrying them. The tracked `paper/anonymity-as-an-aggregation-condition.xdv` is
-the same kind of leftover, dated 10 August, and is a question for the Human Author rather than
-something removed here.
+the same kind of leftover, dated 10 August. At the Human Author's direction it is removed from the
+repository on 13 October and `paper/*.xdv` joins the other LaTeX intermediates in `.gitignore`.
