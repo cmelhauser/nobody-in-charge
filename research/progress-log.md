@@ -5557,3 +5557,23 @@ replaced by the clean build, and the earlier statement that a rebuild leaves the
 only on a machine carrying them. The tracked `paper/anonymity-as-an-aggregation-condition.xdv` is
 the same kind of leftover, dated 10 August. At the Human Author's direction it is removed from the
 repository on 13 October and `paper/*.xdv` joins the other LaTeX intermediates in `.gitignore`.
+
+### 13 October 2026: the documents are held to the CI matrix, and `check_docs.py` counts itself
+
+**The Python version lists.** Four Markdown files list the Python versions CI tests, and until
+now each was edited by hand when 3.14 joined the matrix on 12 October. `tools/check_docs.py` now
+reads the matrix from `.github/workflows/ci.yml`, both lists, and fails any sentence in tracked
+prose that gives a different list for `main` ("3.11, 3.12, 3.13 and 3.14") or a different single
+version for pull requests ("3.12 only"). Wrapped lines are read as one sentence. `CHANGELOG.md` is
+the dated record of earlier matrices and is not read. Six claims agree.
+
+**The checker's own count.** The handoff's verification table says how many checks
+`check_docs.py` runs, and the number had to be changed by hand with every added check. The checker
+now counts its own checks, itself included, and fails a table that disagrees, 28 today. It reads
+the table only on a full run: a check that skips (no pypdf, or a gate that cannot count from here)
+reports fewer lines than the same check running, so a degraded run's total is not the tree's.
+
+**What was not added.** Two further checkers were asked for and found already done. The corpus
+size and record-only counts quoted in prose are checked by `check_corpus`, and no document keeps
+a hand-written count of tests or of the model's statements: the handoff says "all passed, three
+skipped" and the statement total lives in `.coveragerc`'s gate, which fails on its own.

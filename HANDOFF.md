@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 12 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 13 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -109,7 +109,7 @@ As of 3 October 2026, everything passes:
 | `tools/check_book.py` | 0 failures, 39 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 26 checks, 0 failed |
+| `tools/check_docs.py` | 28 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
 | `model/book-calculations.ipynb` | 8 cells, 86 assertions, clean |
