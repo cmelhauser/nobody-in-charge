@@ -158,7 +158,8 @@ exhaustively; `tests/test_release_invariants.py` also pins its SHA-256, the room
 60, the viability threshold of 5, and the 22 + 12 + 49 + 35 = 118 decomposition. The scripts
 under `tools/` are batch jobs and entry points rather than libraries, so they sit outside the
 coverage gate and are covered by `tests/test_tools_integration.py`, which runs each one for
-real.
+real, and, for the five that nothing else exercised, by `tests/test_tools_direct.py`, which calls
+their functions with every output redirected to a temporary directory.
 
 Work happens on a branch and merges through a pull request; `main` takes no direct commits.
 `RELEASING.md` covers branch naming, the version scheme and what a tag has to have earned;

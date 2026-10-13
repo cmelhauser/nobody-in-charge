@@ -5535,3 +5535,25 @@ of the 1,943 statements in `tools/`. Most files sit between 72 and 99 per cent. 
 `check_pdfs.py` 24 per cent, `build_note.py` 25, `inventory_model_choices.py` 27,
 `summarize_release_gate.py` 28 and `freeze_release_manifest.py` 37. The gate stays on the canonical
 model, as `.coveragerc` explains, and this is a measurement, not a target.
+
+**Direct tests for the five least-reached tools.** `tests/test_tools_direct.py` imports
+`check_pdfs`, `build_note`, `freeze_release_manifest`, `inventory_model_choices` and
+`summarize_release_gate` and calls their functions with every output redirected to a temporary
+directory: the corrupt-PDF, wrong-size, missing-file, ink-breach and missing-poppler branches of the
+PDF checker; the note builder's shape checks, table handling and pandoc failure report; the
+manifest's inclusion rules and relative paths; the inventory's literal classification and its
+timestamp rule; and the gate report's incomplete-cache refusal and both recipient verdicts. It adds
+35 tests, and takes the same measurement as above from 72 to 87 per cent of `tools/`: the five
+files now sit at 97 to 100 per cent. Nothing in the repository is written, and the gate stays on
+the canonical model.
+
+**The paper PDF was not reproducible from a clean tree, and now is.** Deleting the August LaTeX
+intermediates from `paper/` (git-ignored `.aux`, `.out`, `.toc` and others, left by an old
+`latexmk` run) changed the bytes of the rebuilt paper by seven, in one content stream, with the same
+text on all 35 pages. Tectonic had been reading the stale `.aux` from the working directory on its
+first pass. A fresh clone, which has none, builds the same file as the cleaned tree, so the
+committed PDF was the odd one out: it could be reproduced only beside leftovers no clone has. It is
+replaced by the clean build, and the earlier statement that a rebuild leaves the tree unchanged held
+only on a machine carrying them. The tracked `paper/anonymity-as-an-aggregation-condition.xdv` is
+the same kind of leftover, dated 10 August, and is a question for the Human Author rather than
+something removed here.
