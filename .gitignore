@@ -44,6 +44,7 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.toc
+paper/*.xdv
 paper/*.tmp
 
 # Local pre-rewrite backup bundle. Not part of the project.
