@@ -143,6 +143,9 @@ build/                  Generated whole-book Markdown and PDF
 
 ## Tests and CI
 
+Python 3.11 or newer is required (the CI floor); the stock `python3` on some machines is older and
+the tools fail on it, so check `python3 --version` first.
+
 ```bash
 python3 -m pip install -r requirements-dev.txt
 python3 -m pytest

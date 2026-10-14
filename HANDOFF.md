@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 13 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 14 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -189,8 +189,8 @@ search; it does not replace reading the surrounding claim.
 
 45 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
-The newest are the two NIH author manuscripts held on 24 September 2026, `BanksBekeleMaxwell_2017`
-and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
+The newest is `Iannaccone_1992` (29 September 2026, record only), after the two NIH author manuscripts
+held on 24 September 2026, `BanksBekeleMaxwell_2017` and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
 `KaskutasBondAvalos_2009`.
 `WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
 held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md` sets out what it
@@ -255,8 +255,9 @@ authorized. The file was not retained; the bibliographic record was confirmed ag
 library listings independently of it; and both claims the manuscript draws from it are **absence**
 claims, checkable by anyone holding a lawful copy.
 
-**Action for a future session: confirm the Rohr citations against a lawfully obtained edition
-before release.** It is part of section 10, item 4.
+**Resolved 17 August 2026.** The Human Author holds a lawful copy and no Rohr claim carries a page
+citation, so there is nothing to confirm against an edition. What remains is the record-only copy
+itself, section 10, item 4.
 
 ---
 
