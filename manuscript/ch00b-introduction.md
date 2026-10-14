@@ -77,7 +77,7 @@ Three warnings about how to read what follows.
 
 The shape of the book is straightforward.
 
-Part One is the history: the Washingtonians, their fade, the man whose relapse cost them their credibility, and the founding of the second fellowship. Part Two is the theorem and the argument that three Traditions implement it. Part Three is the individual: what a member is, in the model, and what the group supplies them. Part Four is where the two halves meet, and where the book is most speculative. Part Five is how groups die, and contains the one result I did not expect and cannot get out of my head: that the most dangerous failure has no symptoms at all, because a group starved of newcomers from outside looks entirely healthy right up until it is gone.
+Part One is the history: the Washingtonians, their fade, the man whose relapse cost them their credibility, and the founding of the second fellowship. Part Two is the theorem and the argument that three Traditions implement it. Part Three is the individual: what a member is, in the model, and what the group supplies them. Part Four is where the two halves meet, and where the book is most speculative. Part Five is how groups die, and contains the one result I did not expect and cannot get out of my head: that the most dangerous failure leaves the practice of the people who remain looking healthy, because a group starved of newcomers from outside keeps its remaining members practising near their healthy level while the room empties.
 
 Part Six is what I do not know, which is a good deal.
 

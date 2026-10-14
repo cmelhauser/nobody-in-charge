@@ -375,7 +375,7 @@ two extra cells:
    release-gate conditions, the paired T3 and T11 contrasts, the recipient contrast's interval
    crossing zero, the Sobol first-order admissibility split between membership and practice, and
    the structural ordering in all five architectures.
-2. **Paper traceability.** Every decimal the paper prints, currently 492 of them after excluding
+2. **Paper traceability.** Every decimal the paper prints, currently 491 of them after excluding
    DOIs and the five figures quoted from cited literature, must be reachable from the model
    source, a hash-linked cache, or a derivation shown in the notebook. This is the paper's
    equivalent of the figure check `tools/check_book.py` performs for the chapters, which the paper

@@ -174,7 +174,7 @@ do not identify influence weight as the cause.
 
 ### 2. The technical version
 
-Let A be the row-stochastic matrix of trust weights among N members and s the influence vector, normalised so that the entries sum to one. The simulation in Chapter Eight compares four governance regimes as N grows; two are shown here:
+Let A be the row-stochastic matrix of trust weights among N members and s the influence vector, normalised so that the entries sum to one. The simulation in Chapters Eight and Nine compares four governance regimes as N grows; two are shown here:
 
 | Regime | max influence, N=10 | N=500 |
 |---|---|---|
