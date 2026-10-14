@@ -237,9 +237,10 @@ against the pairing idea anywhere in the matrix.
 
 ## Step Four, the inventory
 
-*Technical.* beta = 0.33. Principal supplier Tradition 2 at 0.35, with Tradition 1 tied
-exactly at 0.35: the two are equal in exact arithmetic, so Step Four has no single
-principal supplier, and this is the one exact tie at the top of any row. Its largest consumption is gentle pressure at 0.4 and
+*Technical.* beta = 0.33. Principal suppliers, tied: Traditions 1 and 2, both
+exactly 0.35 in the raw overlap B (the normalised map C separates them in favour of Tradition
+1). The two are equal in exact arithmetic, so Step Four has no single principal supplier in B,
+and this is the one exact tie at the top of any row. Its largest consumption is gentle pressure at 0.4 and
 counsel at 0.3. The index-mate, Tradition 4, has an entry of exactly zero, because
 Tradition 4 governs no resource any Step consumes. That zero is arithmetic and not
 evidence: no multiplicative perturbation can move it. The threshold test that can reach
@@ -432,8 +433,8 @@ primer where a striking number comes from one judgement appearing twice.
 *In plain terms.* Daily inventory is a habit, and habits need the two things a group
 supplies steadily rather than dramatically: the meeting happening again next week, and
 other people mildly expecting you at it. That is the whole of what the model means by
-unity here, and it is a duller thing than the word suggests. Step Ten also has the worst
-showing of any Step for the pairing idea. Its own numbered Tradition ties for the worst rank in
+unity here, and it is a duller thing than the word suggests. Step Ten also has a joint-worst
+showing for the pairing idea. Its own numbered Tradition ties for the worst rank in
 the table.
 
 ## Step Eleven, the conscious contact
@@ -1223,7 +1224,8 @@ P., A. C. Johnston and A. S. Lindner (2023), NBER Working Paper 31120; Edgren, R
 Baretta and J. Inauen (2025), *Applied Psychology: Health and Well-Being* 17(1): e12612; and
 Kaskutas, L. A., J. Bond and L. A. Avalos (2009), *Addictive Behaviors* 34(12): 1029-1035.
 The four papers that bracket the decay rate, read between 13 and 22 September 2026 (the
-first two apart from appendices, the Kaskutas paper apart from its figures). Held
+first two apart from appendices, Edgren apart from its supplement, figures and references, and
+the Kaskutas paper apart from its figures). Held
 git-ignored. Chapter Twelve gives what each measures and what it does not.
 
 Jensen, K., and M. Abrahams (2019). "Buddha Buzz Weekly: Refuge Recovery Splits."

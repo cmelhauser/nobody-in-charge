@@ -146,7 +146,7 @@ The corrections, with what found each one and where the corrected version lives.
 | Eight grades of drinker | the same | Ch 1 |
 | The Traditions described as rules | Kurtz, quoting Wilson | Ch 5 |
 | Adoption at a 1950 convention | Kurtz | Ch 5 |
-| A group closing its doors | a reader who had been in the rooms | Ch 19, A7.3 |
+| A group closing its doors | a reader who had been in the rooms | Ch 19, A7.3 (T3-on-admission variant) |
 | Threshold range containment | a notebook assertion | Ch 18 |
 | A rank stated as fourth | a notebook assertion | Ch 17 |
 | A constant transcribed as 0.2769 | a notebook assertion | Ch 22 |

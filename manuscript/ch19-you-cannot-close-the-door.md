@@ -90,7 +90,7 @@ Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], gover
 
 ### 3. Notes on sources
 
-**This chapter is model output and a reading of one sentence.** The sentence is the Third Tradition. The claim that it removes a power rather than granting one is mine, and it is the whole basis for modelling the open door as acting on retention rather than on arrival.
+**This chapter is model output and a reading of one sentence.** The sentence is the Third Tradition. The claim that it removes a power rather than granting one is mine, and it is the whole basis for modelling the open door as having no direct arrival term, acting on retention and on the resource environment.
 
 **The 1939 passage is illustration, from the working manuscript**, read on every page on 12 September 2026, and each point was checked against the facsimile's page images: the requirement in the typed Foreword; Step Three's typed qualifier on MS p. 30 and Step Eleven's handwritten one on MS p. 31; the member made welcome on MS p. 122; the friends who never lectured on MS p. 128; and the doctor's one question on MS p. 131. The date and circulation of the draft are the facsimile editors' account. None of it is evidence for either of the model's two Tradition 3 paths.
 

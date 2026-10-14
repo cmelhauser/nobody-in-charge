@@ -59,7 +59,7 @@ Then there are the two that make the point vivid, and they are inversions rather
 
 Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality more heavily than any other Step consumes any other resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
 
-Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of low-practice members for each experienced one who can help them.
+Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of low-practice members for each high-practice member who could help them.
 
 The two most quotable pairings in the programme, the ones anyone would guess at, are not merely wrong. They are swapped.
 

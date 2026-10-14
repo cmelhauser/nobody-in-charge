@@ -185,4 +185,4 @@ The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the
 
 Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
 
-Nothing further on the Concepts. They were read on 17 August 2026 and are now discussed above rather than listed here as a gap.
+The long-form essays on the Concepts other than IV, V and XI were not read. The short form was read on 17 August 2026, and the three essays named above on 13 September 2026.

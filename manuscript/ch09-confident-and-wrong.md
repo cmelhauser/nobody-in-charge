@@ -37,7 +37,7 @@ Picture five members who are widely respected. Everybody in the room listens to 
 
 There is nothing malicious in it. It is what happens naturally when a group develops a core.
 
-Attention now flows in one direction. Five people receive a great deal of it and return almost none. And the mathematics of that arrangement is brutal in a way I did not anticipate: in the extreme case where the five return no attention at all, they hold **all** of the group's influence. Not most. All. Everyone else holds approximately nothing. If they return even a little, their share settles at a fixed fraction instead, set by how much attention they receive relative to how much they give, and that fraction does not shrink as the group grows.
+Attention now flows in one direction. Five people receive a great deal of it and return almost none. And the mathematics of that arrangement is brutal in a way I did not anticipate: in the extreme case where the five return no attention at all, they hold **all** of the group's influence. Not most. All. Everyone else holds approximately nothing. If they return a fixed small share of their attention to outsiders, their share settles at a fixed fraction instead, set by how much attention they receive relative to how much they give, and that fraction does not shrink as the group grows.
 
 Which means that in that extreme case a meeting of two hundred and fifty people, structured this way, decides exactly as well as a meeting of five. Its error is 0.357, which is precisely what you get from averaging five independent views. The other two hundred and forty-five members are, from the point of view of the decision, not in the room.
 
