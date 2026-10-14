@@ -356,9 +356,9 @@ By 1848 it was essentially over.
 
 Not disgraced. Not banned. Not broken up by opponents. Simply, gone. The societies thinned and folded. The great processions stopped. The speakers moved on to other platforms and other causes. By the time Bill Wilson and Dr Bob Smith met in Akron in 1935, the Washingtonian movement was so thoroughly extinct that it had to be *rediscovered*, dug out of libraries, as a curiosity: a thing that had once happened, at scale, and left almost nothing behind.
 
-Six hundred thousand people. Eight years. Gone.
+A claimed six hundred thousand people. Eight years. Gone.
 
-That is the fact this book exists to understand, and I want to be careful about it immediately, because the tidy version of the story is very tempting and it is not obviously true.
+That is the story this book exists to understand, and I want to be careful about it immediately, because the tidy version of the story is very tempting and it is not obviously true.
 
 The tidy version, the one told in a thousand meeting rooms, and I will be examining it closely in the next chapter, is that the Washingtonians destroyed themselves by getting distracted. They took up prohibition. They took up abolition. They took up sectarian religion and party politics and any other cause that came through the door. They quarrelled. They leaned on famous speakers, and when one of the famous speakers was found drunk in 1845 the movement's credibility went down with him. They lost sight of the one thing they had been for.
 
@@ -412,7 +412,7 @@ The limits are worth stating too. This is one compiler's manual, in one edition,
 
 Ninety-five years after Chase's Tavern, in a house in Akron, a failed stockbroker and a proctologist who could not stop drinking founded a fellowship on almost exactly the same insight: that one alcoholic talking to another does something no outsider can do.
 
-The Washingtonians had that insight first, executed it beautifully, and reached six hundred thousand people with it.
+The Washingtonians had that insight first, executed it beautifully, and claimed to have reached six hundred thousand people with it.
 
 Alcoholics Anonymous has been running for more than ninety years. It keeps no membership
 lists, and the edition of its own membership table read here stops at 2020, so I state no
@@ -444,7 +444,7 @@ Modern AA runs on both. In 1840 the second channel did not exist. There were no 
 
 That is a group operating on one engine. And a one-engine group has a property the model makes very stark: its growth is proportional to how much its members are *currently* out carrying the message, so it can grow explosively, which the Washingtonians did, faster than almost any voluntary organisation in American history, and it has no floor underneath it. Nothing arrives on its own. If the carrying slows for any reason at all, inflow does not slow proportionately. It stops.
 
-I did not go looking for this. It fell out of noticing what the model needed and what 1840 could supply, and it reframes the growth in this chapter: the six hundred thousand is not only evidence of how well the thing worked. It is evidence of how completely everything depended on one mechanism.
+I did not go looking for this. It fell out of noticing what the model needed and what 1840 could supply, and it reframes the growth in this chapter: the six hundred thousand, which is a claim and not a count, is not only a sign of how well the thing worked. However many it was, it shows how completely everything depended on one mechanism.
 
 The other model connection here is the Worcester number, and I will only gesture at it. In the model, one of the resources a group produces is an *opportunity to help*. Its proxy is the number of low-practice members per high-practice potential helper. That is not a count of newcomers: the model contains no tenure or sponsorship state and cannot know who arrived when. A society of five hundred containing fifty alcoholics can therefore illustrate the intuition, but the historical example is not something the simulation measures.
 
@@ -729,7 +729,7 @@ That is the puzzle this book is about, and I can now state it properly.
 
 It is not "why did the Washingtonians fail and AA succeed." That framing invites the tidy moral, and the tidy moral is mostly wrong. The Washingtonians did not fail in any simple sense; they worked, spectacularly, for about six years, and then a better-organised successor absorbed their function and their members.
 
-The real question is this. When AA faced the same problem eighty years later, how do you hold a fellowship of alcoholics together, it had two solutions available. One was the Sons of Temperance solution: screen at the door, charge for entry, build ranks and ritual and benefits, make membership respectable and costly and therefore valuable. That solution had a track record, a plausible theory behind it, and the endorsement of the Washingtonians' own most thoughtful members.
+The real question is this. When AA faced the same problem about a century later, how do you hold a fellowship of alcoholics together, it had two solutions available. One was the Sons of Temperance solution: screen at the door, charge for entry, build ranks and ritual and benefits, make membership respectable and costly and therefore valuable. That solution had a track record, a plausible theory behind it, and the endorsement of the Washingtonians' own most thoughtful members.
 
 AA rejected all of it, and adopted in every case the *opposite* rule.
 
@@ -751,7 +751,7 @@ This chapter turns on a distinction that the model makes precisely, and it is wo
 
 **A collapse is a claim about causes. A fade is a claim about rates.** Any group sustained by arrivals declines whenever departures exceed them, and this can happen with nothing visibly going wrong on any particular evening. These are not the same story at different volumes; they are different kinds of explanation, and they call for different evidence.
 
-The model predicts the fade in some detail, and predicts something unpleasant about it: **the group looks fine from inside while it happens.** In every declining scenario I ran, the members still present were practising at full strength right up to the end. Quality per member holds; only the count falls. Nobody in the room experiences a decline, because at any given meeting there is no decline to experience, there are simply fewer people than last year, which is not a thing you notice week to week.
+The model predicts the fade in some detail, and predicts something unpleasant about it: **the members who remain look fine while it happens.** In the declining scenarios I ran, among the groups still viable the established members were practising near their healthy level throughout. Quality per surviving member holds; the count falls. That is selection, not health, and it does not say that nobody would notice an emptier room, only that the practice of those who remain is a poor sign of a failing group. At any given meeting there is no decline to experience, there are simply fewer people than last year, which is not a thing you notice week to week.
 
 Set that beside Maxwell's account of what actually happened to the Washingtonians. No collapse. No scandal that finished them. Practices that came to seem outmoded; interest that waned; societies that stopped being places anyone needed to go.
 
@@ -791,11 +791,11 @@ The relevant simulation results use a thirty-year horizon and four hundred paire
 
 The cache uses common random streams across conditions, so effects are estimated with paired contrasts. The corrected, mean-one heterogeneity distribution changes the level of every row materially; values from the earlier non-centred lognormal cache are not release evidence.
 
-The row that matters for this chapter is the third, and specifically its last column. Groups dying of inflow starvation do not show degraded practice on the way down. The prediction is that decline is invisible to its participants, detectable only by counting arrivals and returns, never by asking how the meetings feel.
+The row that matters for this chapter is the third. Its last column is a mean over every run with closed runs counted as zero, so it does not measure the practice of those who remain; that is read among viable survivors, in Chapter Twenty-One. There, groups dying of inflow starvation do not show degraded practice on the way down. The prediction is that asking how the remaining members are doing says little about whether the group is failing, and that counting arrivals, returns and groups shows what the meetings do not.
 
 One caution about that last column is unavoidable. In the referral-starved condition only eleven runs finish viable and forty-two contain any member at all. The all-run practice mean therefore falls almost to zero. Any claim about how the rare surviving room feels must display how heavily it conditions on those selected runs; the correct unconditional result is mass closure, not hidden health.
 
-The gatekeeping row is the model's nearest analogue to what the Sons of Temperance did, and it is a poor one. In the model, exclusionary culture operates on *retention*: an AA group cannot refuse membership to an alcoholic who wants it, whatever it does about attendance at a given meeting, so unwelcoming behaviour raises early dropout rather than blocking entry. Formally, the Tradition 3 term multiplies the early-tenure dropout hazard, weighted by how new a member is, so veterans are insulated from door-culture and arrivals are not. The result is a group about a third smaller that survives comfortably.
+The gatekeeping row is the model's nearest analogue to what the Sons of Temperance did, and it is a poor one. In the model, exclusionary culture operates on *retention*: an AA group cannot refuse membership to an alcoholic who wants it, whatever it does about attendance at a given meeting, so unwelcoming behaviour raises early dropout rather than blocking entry. Formally, the Tradition 3 term multiplies the early-tenure dropout hazard, weighted by how new a member is, so veterans are insulated from door-culture and arrivals are not. The result is a group that ends at 6.76 members against 17.80 for a healthy one, closes in a quarter of runs, and is viable at the end in 55 per cent of them.
 
 The Sons did something the model genuinely cannot represent: they screened *at the door*, before entry, by nomination and investigation. That is Iannaccone's club-good mechanism, costly entry requirements that exclude free-riders and thereby strengthen the community, and it is precisely the mechanism AA forbids in Tradition 3. A model built to describe AA has no way to express it.
 
@@ -1267,7 +1267,7 @@ Alexander, J. (1 March 1941). "Alcoholics Anonymous." *Saturday Evening Post.*
 
 By 1945 the mail was the problem.
 
-Jack Alexander's article had done what the founders spent 1937 failing to buy: it had made Alcoholics Anonymous national, and it had done so without missionaries, without hospitals, and without a dollar of Rockefeller money. The two thousand members who had watched that article appear in 1941 were more than fifteen thousand by 1945. Groups were forming in cities where nobody from New York had ever set foot. There was no organisation to speak of, no charter, no permission required. Two or three alcoholics could call themselves an AA group and did.
+Jack Alexander's article had done what the founders spent 1937 failing to buy: it had made Alcoholics Anonymous national, and it had done so without missionaries, without hospitals, and without Rockefeller's millions. The two thousand members who had watched that article appear in 1941 were more than fifteen thousand by 1945. Groups were forming in cities where nobody from New York had ever set foot. There was no organisation to speak of, no charter, no permission required. Two or three alcoholics could call themselves an AA group and did.
 
 And they wrote to New York. Most of the letters wanted literature, or the address of another drunk in the next county. But a good many asked questions of procedure and practice, and a few asked questions of theory, and Wilson answered them himself, for hours, one at a time. Ernest Kurtz, who read the files, reconstructs the house style of those replies:
 
@@ -1700,7 +1700,7 @@ That is why a group with no authority does not deadlock. Authority is one way to
 
 The condition is that the room is not actually two rooms.
 
-Take the same five people and split them: two who listen only to each other, three who listen only to each other, no attention crossing between them. Run the same process and it does not converge at all. Each faction settles internally, one camp at nine and the other at one, and there they sit forever. More discussion does not help, because no information passes between the halves. Each side is talking, adjusting, reaching agreement, and doing all of it inside a sealed compartment.
+Take the same five people and split them: two who listen only to each other, three who listen only to each other, no attention crossing between them. Run the same process and it does not converge at all. Each faction settles internally on a value of its own, the two values differ and neither is the room's average, and there they sit forever. More discussion does not help, because no information passes between the halves. Each side is talking, adjusting, reaching agreement, and doing all of it inside a sealed compartment.
 
 That is a schism in slow motion, and it is worth noticing that the mathematics sees it coming before anybody in the room does. Both factions are having what feels like a productive conversation. Both are converging. What has failed is not any individual's willingness to listen; it is the connectivity of the whole.
 
@@ -1776,7 +1776,7 @@ Starting beliefs 9, 2, 6, 4, 7. Successive rounds give 6.00, 5.25, 5.85, 5.60, 5
 
 Influence weights: Ann 0.204, Ben 0.178, Cara 0.333, Dan 0.147, Eve 0.138. The weighted average of the starting beliefs under these weights is 5.74, matching the simulated settling point exactly, which is the check that the eigenvector calculation and the iteration agree.
 
-The split-room example uses a block-diagonal matrix with no cross-block attention. It has two dominant eigenvalues rather than one, the chain is not strongly connected, and the iteration converges to two distinct values, 9 and 1, rather than to a consensus.
+The split-room example uses a block-diagonal matrix with no cross-block attention. It has two dominant eigenvalues rather than one, the chain is not strongly connected, and the iteration converges to two distinct values, one for each block, rather than to a consensus.
 
 ### 3. Notes on sources
 
@@ -2145,9 +2145,9 @@ Picture five members who are widely respected. Everybody in the room listens to 
 
 There is nothing malicious in it. It is what happens naturally when a group develops a core.
 
-Attention now flows in one direction. Five people receive a great deal of it and return almost none. And the mathematics of that arrangement is brutal in a way I did not anticipate: in the limit, those five hold **all** of the group's influence. Not most. All. Everyone else holds approximately nothing.
+Attention now flows in one direction. Five people receive a great deal of it and return almost none. And the mathematics of that arrangement is brutal in a way I did not anticipate: in the extreme case where the five return no attention at all, they hold **all** of the group's influence. Not most. All. Everyone else holds approximately nothing. If they return even a little, their share settles at a fixed fraction instead, set by how much attention they receive relative to how much they give, and that fraction does not shrink as the group grows.
 
-Which means a meeting of two hundred and fifty people, structured this way, decides exactly as well as a meeting of five. Its error is 0.357, which is precisely what you get from averaging five independent views. The other two hundred and forty-five members are, from the point of view of the decision, not in the room.
+Which means that in that extreme case a meeting of two hundred and fifty people, structured this way, decides exactly as well as a meeting of five. Its error is 0.357, which is precisely what you get from averaging five independent views. The other two hundred and forty-five members are, from the point of view of the decision, not in the room.
 
 They are talking. They are being heard, in the ordinary social sense. Their views are simply not entering the answer, because the people whose views do enter the answer are not updating on them.
 
@@ -2203,7 +2203,7 @@ Three failure modes, three arrangements of the trust matrix.
 
 The **dominant member** is Golub and Jackson's prominent agent: one member receives a fixed share of everyone's attention. The **caucus** is their insufficient dispersion: a small subgroup receives a fixed share collectively while no individual is dominant. The **closed core** is their imbalance: a subgroup receives far more attention than it gives.
 
-Imbalance is qualitatively worse than the other two and I did not expect that before computing it. The first two put a floor under the group's error. The third effectively deletes the rest of the group from the calculation: in the limit, all influence accrues to the closed subgroup, and the group's accuracy is exactly that of the subgroup alone, regardless of how many other people are present.
+Imbalance is qualitatively worse than the other two and I did not expect that before computing it. The first two put a floor under the group's error. The third effectively deletes the rest of the group from the calculation: if the subgroup returns no attention at all, all influence accrues to it, and the group's accuracy is exactly that of the subgroup alone, regardless of how many other people are present. With any attention returned, the subgroup's share settles at a fixed fraction that does not shrink as the group grows, which is still a failure of the condition and no longer a deletion of everyone else.
 
 The practical reading is that the dangerous question about a group's core is not whether it is respected. It is whether it listens.
 
@@ -2483,7 +2483,7 @@ Start with the one everybody blames, since it is real.
 
 The movement concentrated its public credibility in a small number of named men. John Hawkins, the hatter, was on the platform within months of signing and eventually gave upward of five thousand speeches. John Gough became the most famous reformed drunkard in America. When Gough disappeared for a week in September 1845 and was found in a house on Walker Street, the aggregate moved with him, and a thousand quiet recoveries in a thousand other towns could not average it out.
 
-That is the prominent agent from Chapter Nine, and it does real damage. But notice what it does not explain. Gough relapsed in 1843 as well, and nothing happened, because in 1843 he was nobody. The prominent-agent problem is a consequence of how the movement had grown, not a cause of anything. Something had made a handful of men load-bearing. The question is what.
+That is the prominent agent from Chapter Nine, and it does real damage. But notice what it does not explain. Gough relapsed in 1843 as well, and nothing happened, because in 1843 he was a rising speaker and not yet the movement's public asset. The prominent-agent problem is a consequence of how the movement had grown, not a cause of anything. Something had made a handful of men load-bearing. The question is what.
 
 ---
 
@@ -2495,7 +2495,7 @@ Now consider how the movement *grew*. It grew by sending speakers out. Pollard a
 
 A lecture is not a meeting. Attention runs one way. Five thousand people listen to Hawkins; Hawkins listens to nobody. He cannot; that is what a platform is.
 
-And Chapter Nine showed what happens to a group in which a small set of people receive a great deal of attention and return almost none. It is not merely that they hold a large share. In the limit they hold **all** of it. A movement of a hundred thousand people, whose attention structure is dominated by a few dozen touring speakers, decides and believes approximately what those few dozen speakers decide and believe. The other ninety-nine thousand-odd are talking, and are genuinely being heard by each other in their own rooms, and are not entering the aggregate.
+And Chapter Nine showed what happens to a group in which a small set of people receive a great deal of attention and return almost none. It is not merely that they hold a large share. If they return no attention at all they hold **all** of it, and if they return a little their share settles at a fixed fraction that does not shrink however large the movement grows. A movement of a hundred thousand people, whose attention structure is dominated by a few dozen touring speakers, decides and believes approximately what those few dozen speakers decide and believe. The other ninety-nine thousand-odd are talking, and are genuinely being heard by each other in their own rooms, and are not entering the aggregate.
 
 So the Washingtonians did not have one failure mode with a famous man attached. They had the worst of the three, and they had it structurally, built into the only mechanism they possessed for growing.
 
@@ -2525,7 +2525,7 @@ Now the limits, and there are four that matter.
 
 **The exchangeability in Chapter Eight is exact only in the limit.** Real trust is never perfectly uniform, even under flawless adherence. The Traditions push maximum influence toward one over N; they do not deliver it.
 
-**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. It ranks the two, and the ranking favours the critic.
+**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. It ranks referral loss above attraction loss, which favours the critic's emphasis on inflow, but nothing in the model ranks inflow against the structure of influence.
 
 I think both matter and I think the honest position is that the model cannot rank them. What the model can say is that the two do different work. Inflow determines whether a group survives. Influence structure determines whether the decisions it makes on the way are any good. A group can have plenty of the first and still spend twenty years deciding things badly, and nothing in its experience will tell it so.
 
@@ -2551,7 +2551,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 **The Washingtonian meeting was structurally flat.** Everyone testified, attention ran in every direction, and on the model's terms a room like that satisfies the condition well.
 
-**The Washingtonian growth mechanism was structurally imbalanced**, which Chapter Nine showed to be the most damaging of the three. A touring speaker receives attention from thousands and returns none, and a movement whose attention structure is dominated by such figures concentrates effectively all of its influence in them. The computation behind that claim is in Chapter Nine: a group of two hundred and fifty with a closed core of five has error 0.357, exactly the error of a five-member group, because the influence of everyone outside the core is identically zero.
+**The Washingtonian growth mechanism was structurally imbalanced**, which Chapter Nine showed to be the most damaging of the three. A touring speaker receives attention from thousands and returns none, and a movement whose attention structure is dominated by such figures concentrates in them a share of its influence that does not shrink as the movement grows, and all of it in the extreme case where they return no attention. The computation behind that claim is in Chapter Nine, in its extreme case: a group of two hundred and fifty with a closed core of five that returns no attention has error 0.357, exactly the error of a five-member group, because the influence of everyone outside the core is identically zero.
 
 **The prominent-agent problem was downstream of this, not independent of it.** Gough's 1843 relapse produced nothing and his 1845 relapse produced a national controversy. The variable that changed was the weight the growth mechanism had placed on him.
 
@@ -2715,7 +2715,7 @@ One last observation, which is the strangest thing the sensitivity work turned u
 
 Thirty-five of those hundred and eighteen numbers record which Traditions govern the supply of which group resource. All of Part Four is built on them. And they have no effect at all on a group that follows the Traditions completely.
 
-This is arithmetic and not a result. Each column of that matrix is scaled to sum to one before it is used, so at full adherence the scaling undoes the entries exactly and every resource comes out at quality one, no matter what I put in the cells. Those thirty-five numbers begin to bite only when adherence is partial, and even then a quarter's change in any one of them shifts nothing you could measure.
+This is arithmetic and not a result. Each column of that matrix is scaled to sum to one before it is used, so at full adherence the scaling undoes the entries exactly and every resource comes out at quality one, no matter what I put in the cells. Those thirty-five numbers begin to bite only when adherence is partial, and even then a quarter's change in any one of them is small in the Morris screen, which is a screen and not a test of each cell.
 
 This cancellation is scenario-specific, not reassurance that the governance
 matrix is unimportant. At partial adherence its magnitudes matter, and Part Four's
@@ -2866,7 +2866,7 @@ Then they did a factor analysis, and found that step work does not behave as one
 
 That is not what a strict chain looks like.
 
-If the twelve steps were a single sequence in which each link enables the next, you would expect them to move together and to have a common relationship with outcomes. Two separable factors, pulling in opposite directions over time, with only one of them predicting whether people drink, is evidence for something more like two intertwined processes than one ladder.
+If the twelve steps were a single sequence in which each link enables the next, you would expect them to move together and to have a common relationship with outcomes. Two separable factors, one holding steady and one declining over time, with only one of them predicting whether people drink, is evidence for something more like two intertwined processes than one ladder.
 
 I want to be careful about how much weight that carries. It is one study, of a hundred and thirty people, using an exploratory method on self-reported data. It does not show that the steps can be done in any order. But it is the closest thing we have to evidence on the question, it arrived before I built anything, and it points away from the simplest version of what everyone says.
 
@@ -2882,7 +2882,7 @@ Now apply that to a step whose predecessor has not been done at all, and watch w
 
 At the extreme negative end, output is zero. There is no partial credit. That is exactly the folk claim, stated formally: you cannot make amends you have no inventory for, and no amount of meetings or sponsorship or willingness compensates. Bring the parameter up to minus four and it is still zero. Minus one, still zero. Even at exactly zero, the boundary case, it is still zero.
 
-Push it just above zero and the picture changes completely. At 0.3, a person with no prior step at all is running at about 22 per cent of what they would otherwise manage. At 0.6, about 39 per cent. At 0.9, about 48 per cent. The group is carrying them past the gap.
+Push it just above zero and the picture changes completely. At 0.3, a person with no prior step at all produces an output of 0.22, on a scale where full inputs at every step give one. At 0.6 the output is 0.39. At 0.9 it is 0.48. The group is carrying them past the gap.
 
 **So the entire question reduces to the sign of one number.** Negative or zero, and the steps are a chain, and everyone in the rooms has been right for ninety years. Positive, and they are more like a menu with a strong recommended order, and a well-supported person can get most of the way without a step they never did.
 
@@ -3527,7 +3527,7 @@ The test is worth something only because of when the two matrices were built.
 
 Part Three has already described the first of them. Each Step consumes things a group produces: a way in, someone to identify with, the demonstration that recovery happens, confidentiality, counsel, somebody to help, continuity, and the pressure of other people's expectations. Eight resources. Twelve Steps. That gives a table of what each Step needs and how much, and Part Three spent a chapter on it without once mentioning the Traditions.
 
-The second matrix asks a different question: which Traditions govern the supply of each of those same eight things. Open membership governs whether there is a way in. Anonymity governs confidentiality. Group conscience governs counsel. Singleness of purpose governs whether there is somebody to help, because a room whose newcomers are not alcoholics supplies that resource to nobody. Unity governs continuity, because a group that splits stops being the same room next week.
+The second matrix asks a different question: which Traditions govern the supply of each of those same eight things. Open membership governs whether there is a way in. Anonymity governs confidentiality. Group conscience governs counsel. Singleness of purpose governs whether there is somebody to help, because a room that has stopped being about alcoholism supplies that resource to nobody. Unity governs continuity, because a group that splits stops being the same room next week.
 
 Neither table has a column for Steps and Traditions together. Nothing in either one asks what serves what. The coupling is what you get when you multiply them, and the multiplication is the whole method: for each Step, add up what it consumes weighted by which Tradition governs the supply, and the largest number in that Step's row names its principal supplier.
 
@@ -3563,7 +3563,7 @@ Then there are the two that make the point vivid, and they are inversions rather
 
 Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality more heavily than any other Step consumes any other resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
 
-Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of newcomers who are actually alcoholics.
+Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of low-practice members for each experienced one who can help them.
 
 The two most quotable pairings in the programme, the ones anyone would guess at, are not merely wrong. They are swapped.
 
@@ -3583,7 +3583,7 @@ The unevenness inside those figures matters as much as the levels. The Step Five
 
 There is a second fragility, separate from the first, and it cuts in a direction that helps rather than hurts.
 
-The identity of a Step's principal supplier is often decided by a hair. Step Four's top two, group conscience and unity, are separated by less than a hundredth. Step Six's by one hundredth. Step Three's and Step Seven's by four. Change my numbers slightly and the winner changes for four of the twelve Steps.
+The identity of a Step's principal supplier is often decided by a hair. Step Four's top two, group conscience and unity, are tied exactly. Step Six's are separated by one hundredth. Step Three's and Step Seven's by four. Change my numbers slightly and the winner changes for four of the twelve Steps.
 
 But the *loser* does not change, because the index-mate is not in contention. For those four Steps, the index-mate's entry is 0.00, 0.00, 0.01 and 0.00. The argmax is a poor instrument for telling you which Tradition serves a Step, and a good one for telling you that it is not the one with the matching number, because the gap between first place and the index-mate is enormous in exactly the cases where the gap between first and second is not.
 
@@ -3613,7 +3613,7 @@ What I cannot offer is an independent check. There is no second person who built
 
 ### 1. What the model says
 
-The coupling is not a separate construction. It is the product of the two matrices the simulation already runs on, and it is used nowhere in the simulation itself.
+The coupling is not a separate construction. B is the product of the two authored matrices from which the simulation's own normalised versions are built, and it is used nowhere in the simulation itself. It measures overlap in how I coded the Steps and the Traditions, which is semantic overlap, not executable coupling and not a trajectory effect.
 
 The consumption matrix S is twelve Steps by eight resources, and Part Three derives it. The governance matrix G is twelve Traditions by the same eight resources, and it is the object every Tradition-related result in the book depends on. The coupling is
 
@@ -3629,18 +3629,18 @@ Two things follow that are worth separating. The first is that B is a *derived* 
 
 Principal supplier of each Step, with its own index-mate for comparison. All values are exact.
 
-| Step | Principal | Value | Runner-up | Value | Index-mate | Value | Its rank |
+| Step | Principal | Value | Runner-up | Value | Index-mate | Value | Its rank (ties share) |
 |---|---|---|---|---|---|---|---|
 | 1 admit | T3 | 1.22 | T1 | 0.99 | T1 | 0.99 | 2 |
 | 2 believe | T11 | 0.82 | T5 | 0.72 | T2 | 0.13 | 7 |
 | 3 decide | T2 | 0.31 | T1 | 0.27 | T3 | 0.01 | 7 |
-| 4 inventory | T2 | 0.35 | T1 | 0.35 | T4 | 0.00 | 8 |
+| 4 inventory | T1 and T2, tied | 0.35 | T2 and T1, tied | 0.35 | T4 | 0.00 | 8 |
 | 5 tell someone | T12 | 1.08 | T1 | 0.65 | T5 | 0.12 | 5 |
-| 6 willing | T1 | 0.25 | T2 | 0.24 | T6 | 0.00 | 9 |
-| 7 ask | T1 | 0.17 | T2 | 0.13 | T7 | 0.00 | 10 |
+| 6 willing | T1 | 0.25 | T2 | 0.24 | T6 | 0.00 | 7 |
+| 7 ask | T1 | 0.17 | T2 | 0.13 | T7 | 0.00 | 7 |
 | 8 list harms | T2 | 0.43 | T1 | 0.29 | T8 | 0.07 | 4 |
-| 9 amends | T2 | 0.90 | T1 | 0.48 | T9 | 0.00 | 11 |
-| 10 daily | T1 | 0.94 | T2 | 0.43 | T10 | 0.00 | 12 |
+| 9 amends | T2 | 0.90 | T1 | 0.48 | T9 | 0.00 | 8 |
+| 10 daily | T1 | 0.94 | T2 | 0.43 | T10 | 0.00 | 8 |
 | 11 connect | T1 | 0.47 | T2 | 0.21 | T11 | 0.11 | 4 |
 | 12 carry it | T5 | 1.25 | T3 | 1.10 | T12 | 0.12 | 6 |
 
@@ -3710,7 +3710,7 @@ What remains genuinely unread is most of the rest of the AA canon, above all sev
 
 Chapter Sixteen read the coupling one row at a time and asked, of each Step, which Tradition supplies it. Read the same table one column at a time and a different question appears: how much is each Tradition carrying?
 
-Add a Tradition's column and you get the total demand placed on everything it governs, summed across all twelve Steps. It is a crude measure and I want to say so before using it. It treats a unit of demand for confidentiality as interchangeable with a unit of demand for somebody to help, which is not obviously right. What it does capture is exposure: how much of the programme stops working if this Tradition stops working.
+Add a Tradition's column and you get the total demand placed on everything it governs, summed across all twelve Steps. It is a crude measure and I want to say so before using it. It treats a unit of demand for confidentiality as interchangeable with a unit of demand for somebody to help, which is not obviously right. What it does capture is overlap in my coding: how much of the programme's demand falls on resources this Tradition governs. It does not say what happens to a group when the Tradition fails, and the simulated degradations of Chapter Six order the Traditions differently.
 
 The answer is lopsided, and the shape of the lopsidedness is the chapter.
 
@@ -3744,7 +3744,7 @@ Which is a much more specific claim than "unity is important", and it is the one
 
 ---
 
-A critic has, in a sense, already attacked it, and the attack is a hundred years old and comes from inside the fellowship's own historiography.
+A critic has, in a sense, already attacked it, and the attack is decades old and comes from inside the fellowship's own historiography.
 
 Ernest Kurtz, in a note to his fifth chapter, records that in some later AA literature the concept properly conveyed by the term *single-purposed* was obfuscated by substituting the term *unity* as its supposed exact equivalent, and that after Wilson's death AA itself at times fell into this. He is not speculating. The sentence he is glossing is Wilson's own, from the *Grapevine* of August 1945, where Wilson writes that AA must make everlastingly certain that it will always be strong enough and single-purposed enough from within to relate itself rightly to the world without. That is the sentence Wilson wrote eight months before publishing the Traditions, and the thing it calls single-purposed is close to what the First Tradition would later be called on to mean.
 
@@ -3788,7 +3788,7 @@ A second design agrees, and it agrees on the interesting part. Appendix A7.6 reb
 
 What this means for the rest of the book is a handover rather than a conclusion.
 
-A Tradition that supplies something to nearly every resource is a Tradition whose failure has no signature. It does not break the room in a way anyone can point at in the month it happens. It lowers the ceiling on everything, and the group carries on looking like itself, and the decline is legible only in the aggregate and only later.
+A Tradition that supplies something to nearly every resource is a Tradition whose failure, if my coding is right, has no signature. This is a reading of the derived matrix, not a simulated result. It does not break the room in a way anyone can point at in the month it happens. It lowers the ceiling on everything, and the group carries on looking like itself, and the decline is legible only in the aggregate and only later.
 
 That is precisely the failure this book opened with. The Washingtonians did not lose a specific capability on a specific date. They were absorbed, gradually, into something adjacent, and the record of the absorption is a set of small changes none of which looked fatal at the time. Part Five is about what that looks like from inside a group and what, if anything, would show up in the numbers first.
 
@@ -4087,7 +4087,7 @@ Any discussion by AA of why these five Traditions are phrased as they are. *Alco
 
 # Chapter Nineteen: You Cannot Close the Door
 
-Eleven of the Twelve Traditions tell a group what to do. One tells it what it may not decide.
+Most of the Twelve Traditions tell a group what to do. The Third, read closely, tells it what it may not decide.
 
 The third says the only requirement for membership is a desire to stop drinking. Read it as an instruction and it sounds welcoming. Read it as a constraint and it is something stronger: a group has no procedure for refusing membership, because it has been denied one. It cannot interview. It cannot decide that this particular person is not ready, or not really an alcoholic, or not the sort of person the meeting is for. Whoever wants to be a member is one.
 
@@ -4113,7 +4113,7 @@ Everything a gatekeeping group does, it does to someone already inside.
 
 Nobody is turned away at the threshold because there is no threshold and no one standing at it. What happens instead is a hundred small things that are not decisions: the seat nobody moves along to make, the conversation that closes when the newcomer approaches, the shorthand that is not explained, the coffee rota that is already staffed, the phone list that is not offered. None of that is a policy. All of it is a message, and the message is received.
 
-So the open door does not govern who arrives in the default model. It has two other paths.
+So the open door has no direct arrival term in the default model. It has two other paths.
 
 One path changes the governance quality of four resources, including admission and recipient opportunity. The other adds dropout friction weighted by low practice. The model records practice but not tenure, so that second path cannot tell a person of two weeks from a long-tenured person whose practice is low. Earlier drafts called it newcomer weighting and described the whole intervention as retention. Both descriptions were too strong. The corrected analysis separates resource governance from dropout friction before combining them.
 
@@ -4135,7 +4135,7 @@ So the old sentence that an unwelcoming group looks better was an artefact of tr
 
 What the factorial says, in one sentence, is that the Third Tradition is neither cheap nor one mechanism. One path can create a misleading improvement among those left; the other changes the resource environment; together they produce closure in one run out of four within the modeled horizon.
 
-Compare that with the failure Part One documents. The Washingtonians were not unwelcoming. They defined themselves so broadly that the movement stopped being about drunkards at all, which is the opposite failure and, on this model's accounting, a far more dangerous one. Whether it is more dangerous is the subject of the next chapter, which sets this failure beside the two other ways a group can starve and asks which of the three anyone would see coming.
+Compare that with the failure Part One documents. The Washingtonians were not unwelcoming. They defined themselves so broadly that the movement stopped being about drunkards at all, which is the opposite failure. Whether it is the more dangerous one is the subject of the next chapter, which sets this failure beside the two other ways a group can starve and asks which of the three anyone would see coming.
 
 ---
 
@@ -4145,7 +4145,7 @@ Compare that with the failure Part One documents. The Washingtonians were not un
 
 Tradition 3 enters the model through two separately controllable paths.
 
-Arrivals are Poisson, with rate equal to an exogenous referral floor plus attraction generated by members' twelfth-step practice and scaled by Tradition 11. **Tradition 3 does not appear in that expression.** A group's welcome does not affect who turns up, because the Tradition denies the group any admission procedure. Whether the model should represent it that way is a substantive question and the answer here is that it should, because the alternative is a group exercising a discretion the Tradition removes.
+Arrivals are Poisson, with rate equal to an exogenous referral floor plus attraction generated by members' twelfth-step practice and scaled by Tradition 11. **Tradition 3 does not appear in that expression.** A group's welcome has no direct effect on who turns up, because the Tradition denies the group any admission procedure; it reaches arrivals only indirectly, because twelfth-step practice, which drives attraction, depends on the admission and recipient resources that Tradition 3 governs. Whether the model should represent it that way is a substantive question and the answer here is that it should, because the alternative is a group exercising a discretion the Tradition removes.
 
 Its first path is resource governance: its row contributes to four resource columns. Its second path is the dropout hazard. Each member's per-period hazard is a baseline that falls exponentially with early-step practice, plus a churn floor, with an additional friction term
 
@@ -4730,7 +4730,7 @@ The third kind is an **institutional error**, and I did not catch it at all.
 
 I built a scenario in which an AA group closes its doors to newcomers. A reader with experience of the fellowship pointed out that Tradition Three makes this impossible: there is no membership decision to close off, because the Tradition removes it. Whatever an unwelcoming group does, it does after the person is already a member. A second correction to the same chapter came later and from anticipating the same reader: I had been using "closed" for that culture, and a closed meeting is a formal and entirely ordinary category in the fellowship, meaning one restricted to people with a desire to stop drinking.
 
-That correction produced Chapter Nineteen, which is now a chapter about retention rather than admission, and it produced a structural test in the appendix showing that the alternative reading makes zero adherence equivalent to a group that admits nobody and dies in every run. The corrected version is better than the original in a way I could not have reached by myself, because the thing I was missing was not in any document.
+That correction produced Chapter Nineteen, which is now a chapter about retention rather than admission, and it produced a structural test, recorded in the progress log and run on the model as it then stood, showing that the alternative reading makes zero adherence equivalent to a group that admits nobody and dies in every run. That result belongs to a retired model's cache and is not in the appendix. The corrected version is better than the original in a way I could not have reached by myself, because the thing I was missing was not in any document.
 
 ---
 
@@ -4762,7 +4762,7 @@ The single most robust comparison in the simulation is between a group starved o
 
 I never said what worse meant.
 
-The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and unsaturated resource counts. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
+The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and a piecewise-linear clipped capacity response, which still saturates. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
 
 That correction is the argument for this whole chapter. A result can change because the model changed, because the estimand changed, or because the earlier audit sampled too narrowly. Keeping the old structural conclusion after changing the capability distribution would have been as misleading as never testing the architecture at all.
 
@@ -4912,7 +4912,7 @@ What would tell against the model: no differential change in closure or membersh
 
 ---
 
-**Five. Whether the three obstructions look like the three failure modes.**
+**Five. Whether dominance scales with the room.**
 
 Appendix A8 established something I had not computed before: whether a concentration of attention obstructs group learning depends on how it scales with the group rather than on how severe it looks. A clique of three giving a tenth of its attention outward holds three per cent of the influence in a group of a thousand and is not an obstruction. The same clique tightening as the group grows is one.
 
@@ -4940,7 +4940,7 @@ Every item above is a measurement somebody would have to go and take. While this
 
 Recovery Dharma is a Buddhist recovery fellowship whose program book was published in 2023 and read for the comparison in appendix A12. It exists because of a split. Its predecessor was organized around a single named founding teacher, and it fractured in 2019. The account in the book is given by people who held office in the predecessor, including its executive director and a member who ran its retreats and conferences for five years. Her description of the collapse is that the community was heavily influenced, in her words, by "inequities among leaders", and that people were harmed and a sangha was fractured.
 
-What the survivors then built is the part that bears on this book. The executive director's account of the founding says they meant to be deliberate about the framework and that it had to be peer-led. The commitment appears first in the meeting script every group reads aloud: the fellowship is peer-led and follows no one leader or teacher, and the person running the meeting says plainly that they hold no particular authority. A fellowship that had just watched authority concentrate in one figure responded by abolishing the office that concentrated it.
+What the survivors then built is the part that bears on this book. The executive director's account of the founding says they meant to be deliberate about the framework and that it had to be peer-led. The commitment appears first in the meeting script every group reads aloud: the fellowship is peer-led and follows no one leader or teacher, and the person running the meeting says plainly that they hold no particular authority. A fellowship that had just watched authority concentrate in one figure responded by abolishing the office that concentrated it. An independent account corrects where the contrast falls: *Tricycle*'s report of the split in July 2019 says both organisations describe their meetings as peer-led and democratically run, and the predecessor's own book did so before the split, so what separates them is the layer above the meeting, not whether the meeting is peer-led.
 
 That is Tradition Two and Tradition Nine arrived at independently, eighty-four years after AA, by people who had never heard of this argument and had no reason to care about it. It is the closest thing to a live test the book has, and it is worth being exact about how little it settles. It is a single case. It is testimony rather than measurement, written by participants in their own founding literature, which is the genre most likely to make a decision look more principled in hindsight than it was. It does not touch the mathematics, and it says nothing at all about item five's real question, which is whether dominance *scales* with the size of the room. What it does is remove one specific comfort: the objection that no group has ever actually restructured itself around this problem, and that the reading of Traditions Two and Nine is therefore a pattern I imposed on a text. At least one fellowship did restructure itself around this problem, at considerable cost, and reached for the same two answers.
 
@@ -5001,6 +5001,8 @@ For each item, the claim, the design, and the result that would falsify it.
 
 Recovery Dharma Global (2023). *Recovery Dharma: How to use Buddhist practices and principles to heal the suffering of addiction.* Second edition. Recovery Dharma Inc. CC BY-NC-SA 4.0. Stored in `research/incorporated/RecoveryDharma_2023/`. Source of the 2019 split described above, which is reported in the personal recovery stories of Section II by people who held office in the predecessor organization, and of the peer-led commitment in the meeting script at printed pages 147 and 151. The named individual at the centre of the predecessor's collapse is named in that source and is deliberately not named here; the structural point does not require it and this book has no way to adjudicate an allegation about a living person. Appendix A12 carries the full comparison, including the material that cuts against this chapter's use of it.
 
+Jensen, K., and M. Abrahams (2019). "Buddha Buzz Weekly: Refuge Recovery Splits." *Tricycle: The Buddhist Review*, 13 July 2019. Read in full at source on 17 August 2026; held as record only. The independent account of the split, which confirms the structure from outside and corrects the contrast to the layer above the meeting. It names the predecessor's founder; this book does not.
+
 Alcoholics Anonymous World Services, SMF-132, "Estimated Worldwide A.A. Individual and Group Membership." Read at source on 17 August 2026; a copy has been held since 13 September 2026 under `research/incorporated/SMF132_2020/`. Used here as the instrument item four names; Chapter Twenty-One states its limits. See `research/SOURCES.md`.
 
 *The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the size of the first Akron meetings and the stories that centre the group on its doctor.
@@ -5037,11 +5039,11 @@ The quantity the model calls practice is not a measure of a person's condition. 
 
 Nothing here can tell you whether a particular meeting is a good meeting.
 
-The model has three failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three fingerprints will be doing something the model does not license.
+The model has three failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three failure modes will be doing something the model does not license.
 
 Nothing here can tell anyone what to do.
 
-The strongest practical-sounding claim in the book is that a fellowship cannot see the failure that kills it by looking at the health of its groups, and would have to count groups instead. That is a claim about what a measurement would show. It is not advice, it is not addressed to anybody in particular, and it comes with no estimate of what acting on it would cost.
+The strongest practical-sounding claim in the book is that the practice of the members who remain in a group is a poor guide to whether the group is failing, because those who remain are selected, and that counting groups would show closures that looking at survivors does not. That is a claim about what a measurement would show. It is not advice, it is not addressed to anybody in particular, and it comes with no estimate of what acting on it would cost.
 
 ---
 
@@ -5079,7 +5081,7 @@ The fellowship also has a rule about this. Its members do not speak for it, and 
 
 So what is left.
 
-A set of ideas has been shown to be consistent. A fellowship's rules turn out to have a shape that can be described formally, and the description is not vacuous: it implies things that could have been false and are not, and it implied several things that were false and had to be removed. A movement that lacked those rules died, and the model gives an account of how a movement can die without anybody inside it noticing, which is a candidate explanation for a silence in the historical record and is not more than that.
+A set of ideas has been shown to be consistent. A fellowship's rules turn out to have a shape that can be described formally, and the description is not vacuous: it implies things that could have been false and are not, and it implied several things that were false and had to be removed. A movement that lacked those rules died, and the model gives an account of how a movement can shrink and close while the members who remain look well, which is a candidate explanation for a silence in the historical record and is not more than that. It does not show that the surviving societies would have missed their own falling attendance.
 
 Against that: a hundred and eighteen registered sensitivity values, and more choices besides, two matrices built by one person, a central mapping that no computation touches, and no contact with any real group at any point.
 
@@ -5129,7 +5131,7 @@ There is none, and the absence is itself the content of the chapter.
 
 For completeness, the three quantities the book reports and what each is not:
 
-**Membership**, the count of living rows at a horizon. Not a count of people helped, since it does not track anyone who left, and Chapter Twenty-One shows that a group can hold its membership while its population turns over completely.
+**Membership**, the count of living rows at a horizon. Not a count of people helped, since it does not track anyone who left.
 
 **Survival**, the fraction of runs ending above five members. Not a measure of a fellowship's health, since a fellowship of small stable groups and a fellowship of large fragile ones can score identically.
 
@@ -6475,7 +6477,7 @@ was based on the absence of a personal visit.
 
 ### A13.5 What this supports, and what it bounds
 
-**It supports the architecture of the arrival term for the fellowship the model was built from.**
+**It supports the architecture of the arrival term for the 1939 fellowship the model was built from, and A13.7 bounds it for the later one.**
 The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
 in the twenty-six accounts the census covers, and the one case of arrival without a member is presented by
 the fellowship as an untested experiment about which it recorded doubt.
@@ -6539,9 +6541,12 @@ attendance as a condition of readmission, counsellors producing meeting lists, a
 through treatment centres. In 1939 that term had almost nothing to point at. It now has more than a
 third of the classifiable stories.
 
-**What this bounds.** The member-initiated share falls from twenty of twenty-six in 1939, seventy-
-seven per cent, to thirteen of thirty here, forty-three per cent. The model holds `lam_exog` fixed
-at 0.12 per week for every run, so it cannot represent that shift at all. A fellowship large enough
+**What this bounds.** The member-initiated share falls from at least twenty of twenty-six in 1939, a phrase-matcher
+lower bound of seventy-seven per cent, to thirteen of thirty here, forty-three per cent. The two
+codings differ slightly (the 2001 rule separates out subjects who contacted the fellowship
+themselves), so this is a direction and not a measured change. The released baseline holds
+`lam_exog` fixed at 0.12 per week in every run, and no design in A7 lets it grow with the
+fellowship's size, so the model cannot represent that shift. A fellowship large enough
 to be found in a telephone book, and embedded in courts and treatment systems that refer to it, has
 an exogenous arrival rate that grew with its own institutional presence. That is a mechanism the
 model does not contain, and the two censuses together are the clearest evidence in this appendix
@@ -6560,7 +6565,8 @@ story segments recovered from the thirty stories carrying explicit personal-cont
 counter-case is one the fellowship itself flagged as an untested experiment about which it recorded
 doubt. Read beside A12.5, where a modern fellowship arrives almost entirely without members, the
 pair localizes the arrival weighting as a property of a fellowship and a period rather than of
-mutual-aid groups in general.
+mutual-aid groups in general. The fourth-edition census of A13.7 puts the member-initiated share at
+thirteen of thirty, forty-three per cent, so it is a property of the period as well.
 
 **2. The technical version.** The estimand is the arrival intensity of A2.7. The coding rule is in
 A13.2 and treats a family broker as member-carried. Segmentation was automatic from running heads
@@ -6849,8 +6855,8 @@ against the pairing idea anywhere in the matrix.
 ## Step Four, the inventory
 
 *Technical.* beta = 0.33. Principal supplier Tradition 2 at 0.35, with Tradition 1 tied
-at 0.35 to the second decimal and behind by four parts in a thousand, the narrowest
-top-two margin in the matrix. Its largest consumption is gentle pressure at 0.4 and
+exactly at 0.35: the two are equal in exact arithmetic, so Step Four has no single
+principal supplier, and this is the one exact tie at the top of any row. Its largest consumption is gentle pressure at 0.4 and
 counsel at 0.3. The index-mate, Tradition 4, has an entry of exactly zero, because
 Tradition 4 governs no resource any Step consumes. That zero is arithmetic and not
 evidence: no multiplicative perturbation can move it. The threshold test that can reach
@@ -6915,7 +6921,7 @@ is exactly the size of the judgement.
 
 *Technical.* beta = 0.25. Principal supplier Tradition 1 at 0.25, with Tradition 2
 second at 0.24, a margin of 0.01 and the narrowest of any row except Step Four's, which
-is a tie. Row sum 0.60. Index-mate Tradition 6 is a structural zero and ranks ninth. Its
+is a tie. Row sum 0.60. Index-mate Tradition 6 is a structural zero and ranks seventh, tied with the other zeros in its row. Its
 threshold is 0.417, the lowest of all twelve. *Algebra.*
 
 *What was assumed.* Three non-zero entries: gentle pressure at 0.3, counsel at 0.2 and
@@ -6939,7 +6945,7 @@ matrix.
 
 *Technical.* beta = 0.17, the minimum. Row sum 0.40, the smallest in S. Principal
 supplier Tradition 1 at 0.17. The ratio of the most group-dependent Step to this one is
-6.0. Index-mate Tradition 7 is a structural zero and ranks tenth. Setting a uniform
+6.0. Index-mate Tradition 7 is a structural zero and ranks seventh, tied with the other zeros in its row. Setting a uniform
 governance strength at the mean live entry of 0.374 for all twelve Steps at once, Step
 Seven's index-mate loses by the narrowest margin of the twelve, 0.02. *Algebra.*
 
@@ -6965,7 +6971,8 @@ people can supply, and the answer the model gives is: almost none of it.
 
 *Technical.* beta = 0.33. Principal supplier Tradition 2 at 0.43, with Tradition 1
 second at 0.29. Its largest consumption is counsel at 0.4. The index-mate, Tradition 8,
-ranks fourth at 0.07, the best rank achieved by any index-mate other than Step One's.
+ranks fourth at 0.07, level with Step Eleven's, the best rank achieved by any index-mate other than
+Step One's.
 *Algebra.*
 
 *What was assumed.* Three non-zero entries: counsel at 0.4, gentle pressure at 0.3 and
@@ -6994,7 +7001,7 @@ Disabling the twelfth Step lowers mean Step Nine practice by 0.0055 in the 400-s
 paired experiment, but the 95 per cent interval is -0.0015 to 0.0125 and includes zero.
 The same intervention does produce resolved decreases in membership, established
 practice and maintenance capacity. Index-mate Tradition 9 is a structural zero and
-ranks eleventh. *Algebra and simulation.*
+ranks eighth, tied with the other zeros in its row. *Algebra and simulation.*
 
 *What was assumed.* Four non-zero entries: counsel at 0.9, confidentiality at 0.3,
 gentle pressure at 0.2 and continuity at 0.1. The 0.9 is the largest entry in the table
@@ -7024,7 +7031,8 @@ spillover into Step Nine itself.
 second at 0.43, a margin of 0.51, the widest in the matrix. Its largest consumptions are
 gentle pressure at 0.7 and week-to-week continuity at 0.5, which between them are the
 two resources Tradition 1 supplies most heavily. Index-mate Tradition 10 is a structural
-zero and ranks twelfth, the worst rank in the table. *Algebra.*
+zero and ranks eighth, tied with the other zeros in its row, which is the worst rank in the
+table, shared with Steps Four and Nine. *Algebra.*
 
 *What was assumed.* Four non-zero entries: gentle pressure at 0.7, continuity at 0.5,
 counsel at 0.2 and confidentiality at 0.1. Top speed 0.25 per week, gate exposure
@@ -7042,8 +7050,8 @@ primer where a striking number comes from one judgement appearing twice.
 supplies steadily rather than dramatically: the meeting happening again next week, and
 other people mildly expecting you at it. That is the whole of what the model means by
 unity here, and it is a duller thing than the word suggests. Step Ten also has the worst
-showing of any Step for the pairing idea. Its own numbered Tradition comes dead last of
-twelve.
+showing of any Step for the pairing idea. Its own numbered Tradition ties for the worst rank in
+the table.
 
 ## Step Eleven, the conscious contact
 
@@ -9211,12 +9219,13 @@ Those facts are reported here because a derivation whose robustness is asserted 
 than measured is worth less than one whose limits are known.
 
 The membership model's principal prediction, that referral-starved groups decline
-demographically while looking healthy from inside, is specific, mechanistically grounded,
-distinguishable from rival accounts, and testable with records AA's service structure
-already keeps. In the corrected five-architecture comparison, referral loss is worse than
-pure attraction loss on existence, endpoint viability and mean final membership. The
-expanded parameter screens bound that result over their stated ranges; they are not a
-proof outside them.
+demographically while the practice of their remaining members stays high, so that the
+decline shows in the size of the room and not in the quality of those who remain, is
+specific, mechanistically grounded, distinguishable from rival accounts, and testable with
+records AA's service structure already keeps. In the corrected five-architecture
+comparison, referral loss is worse than pure attraction loss on existence, endpoint
+viability and mean final membership. The expanded parameter screens bound that result over
+their stated ranges; they are not a proof outside them.
 
 Where this line of work should go next is not further modeling. It is measurement: of the
 mapping, by elicitation from readers who do not know the hypothesis; of the governance
@@ -9637,38 +9646,45 @@ So if a group cannot revoke anyone's membership, what can actually go wrong? Thr
 different things, and they leave three different marks:
 
 1.  **The group becomes invisible.** Nobody finds it anymore: it is not listed, it meets
-    at a bad time, word of mouth dried up. The model says this group shrinks to a small
-    huddle kept alive by court cards and treatment-center referrals. It does not die. It
-    just gets small, and the people in it are somewhat worse off than they would be in a
-    healthy group.
+    at a bad time, word of mouth dried up. The model says this group settles at a smaller
+    size kept alive by court cards and treatment-center referrals, about seven tenths of a
+    healthy group's size at year thirty (12.4 members against 17.8). It does not die, and
+    at the resolution of four hundred runs the people in it are doing no worse than people
+    in a healthy group.
 
 2.  **The referrals dry up.** The treatment center closed; the court program ended. The
-    group coasts on word of mouth for about ten years, and then, in roughly two runs out
-    of three, it quietly dissolves.
+    group coasts on word of mouth and shrinks. At year ten about one group in three has
+    already dropped to five members or fewer, and by year thirty nine in ten have closed
+    altogether (89.5 per cent), leaving a handful of survivors.
 
 3.  **The group gets unwelcoming.** Nobody loses their membership, but there is an
-    in-crowd, and newcomers can feel it. They come once and do not come back. This group
-    shrinks by about a third and mostly survives. It is smaller than it should be.
+    in-crowd, and newcomers can feel it. They come once and do not come back. Averaged
+    over every run, this group is under two fifths the size of a healthy one at year
+    thirty (6.8 members against 17.8). One group in four closes outright and a little over
+    half are still viable at the end.
 
-**How much you can trust that number depends entirely on how many times the simulation was
-run.** From ten runs, that middle case looks like four groups in five dissolving. From
-four hundred, it is closer to two in three, and a healthy group settles at about 42
-members rather than 45. Ten runs is far too few. A number produced by a random simulation
-and quoted to three digits from ten runs is not a result at all, and it is very easy to
-print one without noticing.
+**How much you can trust any of these numbers depends on how many times the simulation was
+run.** Every figure here comes from four hundred runs paired by common random numbers, and
+each carries an interval. The project's own history is the warning. An earlier version of
+the model put a healthy group at about 42 members; after a correction to how member
+capability is drawn, and with four hundred runs, it is 17.8. A number produced by a random
+simulation and quoted to three digits from a handful of runs is not a result at all, and
+it is very easy to print one without noticing.
 
 And here is the strangest thing the model says. In the case that actually kills groups,
-the people still in it are doing fine. Their recovery holds up right to the end, and if
-anything looks slightly *better* than average, because the ones who were struggling have
-already gone. From the inside, that dying group looks like a healthy group. Nobody in the
-room feels anything going wrong. If that is true in the real world, and it is checkable,
-it means a group cannot rely on how the meetings feel to know whether it is in trouble. It
-has to look at the numbers: how many newcomers came this year, and how many came back.
+the people still in the room are doing fine. Their practice holds up right to the end, and
+if anything looks slightly *better* than average, because the ones who were struggling
+have already gone. Judged by how the remaining members are doing, that dying group looks
+like a healthy one. If that is true in the real world, and it is checkable, it means the
+quality of the remaining members is a poor guide to whether the group is in trouble. The
+size of the room is a better one: how many newcomers came this year, and how many came
+back.
 
-**One qualification, because the loose version of this is wrong.** Quality does not hold
-up in all three cases. In the invisible case it drops noticeably. The sharp version of the
-claim is narrower and more useful: *the failure that kills groups is the one with no
-warning signal inside the room*.
+**One qualification, because the loose version of this is wrong.** This is selection, not
+health, and the room does give a warning. Among the groups still viable, membership falls
+from about 22 at year five to about 11 at year twenty. The claim that nothing inside a
+dying group warns of its decline is not supported, and it is withdrawn: what stays high is
+the practice of the people who remain, not the size of the group they remain in.
 
 ### Does it matter who starts a group?
 

@@ -15,11 +15,11 @@ The quantity the model calls practice is not a measure of a person's condition. 
 
 Nothing here can tell you whether a particular meeting is a good meeting.
 
-The model has three failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three fingerprints will be doing something the model does not license.
+The model has three failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three failure modes will be doing something the model does not license.
 
 Nothing here can tell anyone what to do.
 
-The strongest practical-sounding claim in the book is that a fellowship cannot see the failure that kills it by looking at the health of its groups, and would have to count groups instead. That is a claim about what a measurement would show. It is not advice, it is not addressed to anybody in particular, and it comes with no estimate of what acting on it would cost.
+The strongest practical-sounding claim in the book is that the practice of the members who remain in a group is a poor guide to whether the group is failing, because those who remain are selected, and that counting groups would show closures that looking at survivors does not. That is a claim about what a measurement would show. It is not advice, it is not addressed to anybody in particular, and it comes with no estimate of what acting on it would cost.
 
 ---
 
@@ -57,7 +57,7 @@ The fellowship also has a rule about this. Its members do not speak for it, and 
 
 So what is left.
 
-A set of ideas has been shown to be consistent. A fellowship's rules turn out to have a shape that can be described formally, and the description is not vacuous: it implies things that could have been false and are not, and it implied several things that were false and had to be removed. A movement that lacked those rules died, and the model gives an account of how a movement can die without anybody inside it noticing, which is a candidate explanation for a silence in the historical record and is not more than that.
+A set of ideas has been shown to be consistent. A fellowship's rules turn out to have a shape that can be described formally, and the description is not vacuous: it implies things that could have been false and are not, and it implied several things that were false and had to be removed. A movement that lacked those rules died, and the model gives an account of how a movement can shrink and close while the members who remain look well, which is a candidate explanation for a silence in the historical record and is not more than that. It does not show that the surviving societies would have missed their own falling attendance.
 
 Against that: a hundred and eighteen registered sensitivity values, and more choices besides, two matrices built by one person, a central mapping that no computation touches, and no contact with any real group at any point.
 
@@ -107,7 +107,7 @@ There is none, and the absence is itself the content of the chapter.
 
 For completeness, the three quantities the book reports and what each is not:
 
-**Membership**, the count of living rows at a horizon. Not a count of people helped, since it does not track anyone who left, and Chapter Twenty-One shows that a group can hold its membership while its population turns over completely.
+**Membership**, the count of living rows at a horizon. Not a count of people helped, since it does not track anyone who left.
 
 **Survival**, the fraction of runs ending above five members. Not a measure of a fellowship's health, since a fellowship of small stable groups and a fellowship of large fragile ones can score identically.
 

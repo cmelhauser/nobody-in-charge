@@ -23,7 +23,7 @@ The test is worth something only because of when the two matrices were built.
 
 Part Three has already described the first of them. Each Step consumes things a group produces: a way in, someone to identify with, the demonstration that recovery happens, confidentiality, counsel, somebody to help, continuity, and the pressure of other people's expectations. Eight resources. Twelve Steps. That gives a table of what each Step needs and how much, and Part Three spent a chapter on it without once mentioning the Traditions.
 
-The second matrix asks a different question: which Traditions govern the supply of each of those same eight things. Open membership governs whether there is a way in. Anonymity governs confidentiality. Group conscience governs counsel. Singleness of purpose governs whether there is somebody to help, because a room whose newcomers are not alcoholics supplies that resource to nobody. Unity governs continuity, because a group that splits stops being the same room next week.
+The second matrix asks a different question: which Traditions govern the supply of each of those same eight things. Open membership governs whether there is a way in. Anonymity governs confidentiality. Group conscience governs counsel. Singleness of purpose governs whether there is somebody to help, because a room that has stopped being about alcoholism supplies that resource to nobody. Unity governs continuity, because a group that splits stops being the same room next week.
 
 Neither table has a column for Steps and Traditions together. Nothing in either one asks what serves what. The coupling is what you get when you multiply them, and the multiplication is the whole method: for each Step, add up what it consumes weighted by which Tradition governs the supply, and the largest number in that Step's row names its principal supplier.
 
@@ -59,7 +59,7 @@ Then there are the two that make the point vivid, and they are inversions rather
 
 Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality more heavily than any other Step consumes any other resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
 
-Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of newcomers who are actually alcoholics.
+Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of low-practice members for each experienced one who can help them.
 
 The two most quotable pairings in the programme, the ones anyone would guess at, are not merely wrong. They are swapped.
 
@@ -79,7 +79,7 @@ The unevenness inside those figures matters as much as the levels. The Step Five
 
 There is a second fragility, separate from the first, and it cuts in a direction that helps rather than hurts.
 
-The identity of a Step's principal supplier is often decided by a hair. Step Four's top two, group conscience and unity, are separated by less than a hundredth. Step Six's by one hundredth. Step Three's and Step Seven's by four. Change my numbers slightly and the winner changes for four of the twelve Steps.
+The identity of a Step's principal supplier is often decided by a hair. Step Four's top two, group conscience and unity, are tied exactly. Step Six's are separated by one hundredth. Step Three's and Step Seven's by four. Change my numbers slightly and the winner changes for four of the twelve Steps.
 
 But the *loser* does not change, because the index-mate is not in contention. For those four Steps, the index-mate's entry is 0.00, 0.00, 0.01 and 0.00. The argmax is a poor instrument for telling you which Tradition serves a Step, and a good one for telling you that it is not the one with the matching number, because the gap between first place and the index-mate is enormous in exactly the cases where the gap between first and second is not.
 
@@ -109,7 +109,7 @@ What I cannot offer is an independent check. There is no second person who built
 
 ### 1. What the model says
 
-The coupling is not a separate construction. It is the product of the two matrices the simulation already runs on, and it is used nowhere in the simulation itself.
+The coupling is not a separate construction. B is the product of the two authored matrices from which the simulation's own normalised versions are built, and it is used nowhere in the simulation itself. It measures overlap in how I coded the Steps and the Traditions, which is semantic overlap, not executable coupling and not a trajectory effect.
 
 The consumption matrix S is twelve Steps by eight resources, and Part Three derives it. The governance matrix G is twelve Traditions by the same eight resources, and it is the object every Tradition-related result in the book depends on. The coupling is
 
@@ -125,18 +125,18 @@ Two things follow that are worth separating. The first is that B is a *derived* 
 
 Principal supplier of each Step, with its own index-mate for comparison. All values are exact.
 
-| Step | Principal | Value | Runner-up | Value | Index-mate | Value | Its rank |
+| Step | Principal | Value | Runner-up | Value | Index-mate | Value | Its rank (ties share) |
 |---|---|---|---|---|---|---|---|
 | 1 admit | T3 | 1.22 | T1 | 0.99 | T1 | 0.99 | 2 |
 | 2 believe | T11 | 0.82 | T5 | 0.72 | T2 | 0.13 | 7 |
 | 3 decide | T2 | 0.31 | T1 | 0.27 | T3 | 0.01 | 7 |
-| 4 inventory | T2 | 0.35 | T1 | 0.35 | T4 | 0.00 | 8 |
+| 4 inventory | T1 and T2, tied | 0.35 | T2 and T1, tied | 0.35 | T4 | 0.00 | 8 |
 | 5 tell someone | T12 | 1.08 | T1 | 0.65 | T5 | 0.12 | 5 |
-| 6 willing | T1 | 0.25 | T2 | 0.24 | T6 | 0.00 | 9 |
-| 7 ask | T1 | 0.17 | T2 | 0.13 | T7 | 0.00 | 10 |
+| 6 willing | T1 | 0.25 | T2 | 0.24 | T6 | 0.00 | 7 |
+| 7 ask | T1 | 0.17 | T2 | 0.13 | T7 | 0.00 | 7 |
 | 8 list harms | T2 | 0.43 | T1 | 0.29 | T8 | 0.07 | 4 |
-| 9 amends | T2 | 0.90 | T1 | 0.48 | T9 | 0.00 | 11 |
-| 10 daily | T1 | 0.94 | T2 | 0.43 | T10 | 0.00 | 12 |
+| 9 amends | T2 | 0.90 | T1 | 0.48 | T9 | 0.00 | 8 |
+| 10 daily | T1 | 0.94 | T2 | 0.43 | T10 | 0.00 | 8 |
 | 11 connect | T1 | 0.47 | T2 | 0.21 | T11 | 0.11 | 4 |
 | 12 carry it | T5 | 1.25 | T3 | 1.10 | T12 | 0.12 | 6 |
 

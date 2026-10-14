@@ -1299,7 +1299,7 @@ was based on the absence of a personal visit.
 
 ### A13.5 What this supports, and what it bounds
 
-**It supports the architecture of the arrival term for the fellowship the model was built from.**
+**It supports the architecture of the arrival term for the 1939 fellowship the model was built from, and A13.7 bounds it for the later one.**
 The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
 in the twenty-six accounts the census covers, and the one case of arrival without a member is presented by
 the fellowship as an untested experiment about which it recorded doubt.
@@ -1363,9 +1363,12 @@ attendance as a condition of readmission, counsellors producing meeting lists, a
 through treatment centres. In 1939 that term had almost nothing to point at. It now has more than a
 third of the classifiable stories.
 
-**What this bounds.** The member-initiated share falls from twenty of twenty-six in 1939, seventy-
-seven per cent, to thirteen of thirty here, forty-three per cent. The model holds `lam_exog` fixed
-at 0.12 per week for every run, so it cannot represent that shift at all. A fellowship large enough
+**What this bounds.** The member-initiated share falls from at least twenty of twenty-six in 1939, a phrase-matcher
+lower bound of seventy-seven per cent, to thirteen of thirty here, forty-three per cent. The two
+codings differ slightly (the 2001 rule separates out subjects who contacted the fellowship
+themselves), so this is a direction and not a measured change. The released baseline holds
+`lam_exog` fixed at 0.12 per week in every run, and no design in A7 lets it grow with the
+fellowship's size, so the model cannot represent that shift. A fellowship large enough
 to be found in a telephone book, and embedded in courts and treatment systems that refer to it, has
 an exogenous arrival rate that grew with its own institutional presence. That is a mechanism the
 model does not contain, and the two censuses together are the clearest evidence in this appendix
@@ -1384,7 +1387,8 @@ story segments recovered from the thirty stories carrying explicit personal-cont
 counter-case is one the fellowship itself flagged as an untested experiment about which it recorded
 doubt. Read beside A12.5, where a modern fellowship arrives almost entirely without members, the
 pair localizes the arrival weighting as a property of a fellowship and a period rather than of
-mutual-aid groups in general.
+mutual-aid groups in general. The fourth-edition census of A13.7 puts the member-initiated share at
+thirteen of thirty, forty-three per cent, so it is a property of the period as well.
 
 **2. The technical version.** The estimand is the arrival intensity of A2.7. The coding rule is in
 A13.2 and treats a family broker as member-carried. Segmentation was automatic from running heads

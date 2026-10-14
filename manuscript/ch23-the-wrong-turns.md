@@ -63,7 +63,7 @@ The third kind is an **institutional error**, and I did not catch it at all.
 
 I built a scenario in which an AA group closes its doors to newcomers. A reader with experience of the fellowship pointed out that Tradition Three makes this impossible: there is no membership decision to close off, because the Tradition removes it. Whatever an unwelcoming group does, it does after the person is already a member. A second correction to the same chapter came later and from anticipating the same reader: I had been using "closed" for that culture, and a closed meeting is a formal and entirely ordinary category in the fellowship, meaning one restricted to people with a desire to stop drinking.
 
-That correction produced Chapter Nineteen, which is now a chapter about retention rather than admission, and it produced a structural test in the appendix showing that the alternative reading makes zero adherence equivalent to a group that admits nobody and dies in every run. The corrected version is better than the original in a way I could not have reached by myself, because the thing I was missing was not in any document.
+That correction produced Chapter Nineteen, which is now a chapter about retention rather than admission, and it produced a structural test, recorded in the progress log and run on the model as it then stood, showing that the alternative reading makes zero adherence equivalent to a group that admits nobody and dies in every run. That result belongs to a retired model's cache and is not in the appendix. The corrected version is better than the original in a way I could not have reached by myself, because the thing I was missing was not in any document.
 
 ---
 
@@ -95,7 +95,7 @@ The single most robust comparison in the simulation is between a group starved o
 
 I never said what worse meant.
 
-The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and unsaturated resource counts. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
+The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and a piecewise-linear clipped capacity response, which still saturates. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
 
 That correction is the argument for this whole chapter. A result can change because the model changed, because the estimand changed, or because the earlier audit sampled too narrowly. Keeping the old structural conclusion after changing the capability distribution would have been as misleading as never testing the architecture at all.
 

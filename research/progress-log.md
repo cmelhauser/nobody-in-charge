@@ -5641,3 +5641,48 @@ same pandoc version, so a difference other than pandoc remains, most likely the 
 tectonic's bundle. The statement that a rebuild leaves the tree unchanged is therefore true for one
 machine and one toolchain, and for the paper across machines; it is not claimed for the book or the
 primer across machines.
+
+**The third kind: claims, drafted for the Human Author's review.** These change what a sentence
+says, so they are on their own branch and each is listed here so any can be rejected.
+
+- *The paper's plain-language appendix* quoted retired figures: a healthy group "at about 42
+  members", a referral-loss group "dissolving in two runs out of three", an unwelcoming group
+  "a third smaller" that "mostly survives". It now gives the 400-run results (referral loss: one
+  group in three below six members at year ten, 89.5 per cent closed by year thirty; unwelcoming:
+  6.8 members against 17.8, one in four closed, a little over half viable), says the 42 was an
+  earlier version's figure, and withdraws "no warning signal inside the room", as Section 6.3 of the
+  same paper already had. The Conclusion's "looking healthy from inside" is rewritten the same way.
+  Chapter 25 and Chapter 2 are brought to the same position: practice among survivors stays high
+  because the strugglers have gone, and the room is visibly smaller.
+- *Chapter 2* no longer says the unwelcoming group "survives comfortably" (6.76 members against
+  17.80, closing in a quarter of runs, viable in 55 per cent).
+- *Chapters 9 and 11* said a closed core holds "all" influence in the limit. That is the case in
+  which the core returns no attention at all; with any return the share settles at a fixed fraction.
+  Both now say so.
+- *Chapter 1* stated the six hundred thousand as fact, against its own later pages; it is now a claim.
+- *Chapter 16 and the primer* gave the index-mates of Steps Six, Seven, Nine and Ten the ranks
+  9 to 12, an arbitrary order among exact zeros; the competition rank the project mandates is 7,
+  7, 8 and 8, so Step Ten's is no longer "dead last". Step Four's top two are an exact tie, not a
+  margin of four parts in a thousand. The recipient resource is no longer described as a supply of
+  newcomers, and B is called semantic overlap throughout rather than coupling or exposure.
+- *Chapter 19* said the open door does not govern who arrives; it has no direct arrival term but
+  reaches arrivals through Step Twelve practice. Its opening no longer says eleven Traditions are
+  instructions.
+- *Smaller*: Chapter 7's split-room example no longer names values (9 and 1) it cannot produce;
+  Chapter 11's "nobody in 1843" and its contradictory ranking sentence; Chapter 13's "per cent of
+  what they would otherwise manage" is an output on a scale of one; Chapter 12's "shifts nothing you
+  could measure"; Chapter 23's "unsaturated" fifth architecture and a structural test it located in
+  the appendix; Chapter 24's mislabelled item five and the missing *Tricycle* correction; Chapter 25's
+  turnover clause and retired invisibility sentences; Appendix A13's 77 per cent as a lower bound
+  with a different coding and its "fixed for every run".
+
+*Not changed, and left to the Human Author:* Chapter 6's "three years earlier" and "nine years
+after he wrote it"; Chapter 1's Worcester examples and its "inflow does not slow proportionately,
+it stops" against "strictly proportional"; Chapter 4's source-status lists; the screening counts in
+Chapters 1 and 6 and the preface, which omit "three common seeds, a screen"; the primer's
+reference apparatus, which lists sources under headings that do not match their status; the
+primer's sparsity wording and its two "nearest pairing" claims; Appendix A8, which the renumbering
+table credits with the threshold and reassignment tests but does not contain them; the paper's
+Appendix B sentence on 400 seeds beside its 200-seed and 3-seed designs; the Fatimah reference the
+paper never cites; and two items in `CLAUDE.md` itself (Tricycle's read status, and the claim that
+a rebuild is byte-identical, which holds on one machine for the book and the primer).
