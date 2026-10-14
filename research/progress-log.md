@@ -5702,3 +5702,12 @@ and the Fatimah et al. reference is cited in Section 2.2 with the section pointe
 paper's printed decimals are unchanged at 492. Not touched, because they depend on sources not in
 the repository: Chapter 6's "three years earlier" and "nine years after he wrote it", Chapter 1's
 Worcester examples, and Chapter 4's status lists.
+
+### 14 October 2026, later: two statements in the instruction files brought in line
+
+`CLAUDE.md` called *Tricycle* "paywalled past its opening" in the list of record-only sources,
+which reads as unread; it was read at source on 17 August 2026 and is kept as record only. And it
+said a rebuild is byte-identical; that holds on one machine and toolchain, and for the paper across
+machines, but the runner's book and primer differ from the committed files even with the pinned
+pandoc. It now says so, and tells the reader to build the committed PDFs with pandoc 3.10.2. The same
+sentence is corrected in `README.md` and `AGENTS.md`.
