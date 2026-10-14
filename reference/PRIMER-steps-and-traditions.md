@@ -238,8 +238,8 @@ against the pairing idea anywhere in the matrix.
 ## Step Four, the inventory
 
 *Technical.* beta = 0.33. Principal supplier Tradition 2 at 0.35, with Tradition 1 tied
-at 0.35 to the second decimal and behind by four parts in a thousand, the narrowest
-top-two margin in the matrix. Its largest consumption is gentle pressure at 0.4 and
+exactly at 0.35: the two are equal in exact arithmetic, so Step Four has no single
+principal supplier, and this is the one exact tie at the top of any row. Its largest consumption is gentle pressure at 0.4 and
 counsel at 0.3. The index-mate, Tradition 4, has an entry of exactly zero, because
 Tradition 4 governs no resource any Step consumes. That zero is arithmetic and not
 evidence: no multiplicative perturbation can move it. The threshold test that can reach
@@ -304,7 +304,7 @@ is exactly the size of the judgement.
 
 *Technical.* beta = 0.25. Principal supplier Tradition 1 at 0.25, with Tradition 2
 second at 0.24, a margin of 0.01 and the narrowest of any row except Step Four's, which
-is a tie. Row sum 0.60. Index-mate Tradition 6 is a structural zero and ranks ninth. Its
+is a tie. Row sum 0.60. Index-mate Tradition 6 is a structural zero and ranks seventh, tied with the other zeros in its row. Its
 threshold is 0.417, the lowest of all twelve. *Algebra.*
 
 *What was assumed.* Three non-zero entries: gentle pressure at 0.3, counsel at 0.2 and
@@ -328,7 +328,7 @@ matrix.
 
 *Technical.* beta = 0.17, the minimum. Row sum 0.40, the smallest in S. Principal
 supplier Tradition 1 at 0.17. The ratio of the most group-dependent Step to this one is
-6.0. Index-mate Tradition 7 is a structural zero and ranks tenth. Setting a uniform
+6.0. Index-mate Tradition 7 is a structural zero and ranks seventh, tied with the other zeros in its row. Setting a uniform
 governance strength at the mean live entry of 0.374 for all twelve Steps at once, Step
 Seven's index-mate loses by the narrowest margin of the twelve, 0.02. *Algebra.*
 
@@ -354,7 +354,8 @@ people can supply, and the answer the model gives is: almost none of it.
 
 *Technical.* beta = 0.33. Principal supplier Tradition 2 at 0.43, with Tradition 1
 second at 0.29. Its largest consumption is counsel at 0.4. The index-mate, Tradition 8,
-ranks fourth at 0.07, the best rank achieved by any index-mate other than Step One's.
+ranks fourth at 0.07, level with Step Eleven's, the best rank achieved by any index-mate other than
+Step One's.
 *Algebra.*
 
 *What was assumed.* Three non-zero entries: counsel at 0.4, gentle pressure at 0.3 and
@@ -383,7 +384,7 @@ Disabling the twelfth Step lowers mean Step Nine practice by 0.0055 in the 400-s
 paired experiment, but the 95 per cent interval is -0.0015 to 0.0125 and includes zero.
 The same intervention does produce resolved decreases in membership, established
 practice and maintenance capacity. Index-mate Tradition 9 is a structural zero and
-ranks eleventh. *Algebra and simulation.*
+ranks eighth, tied with the other zeros in its row. *Algebra and simulation.*
 
 *What was assumed.* Four non-zero entries: counsel at 0.9, confidentiality at 0.3,
 gentle pressure at 0.2 and continuity at 0.1. The 0.9 is the largest entry in the table
@@ -413,7 +414,8 @@ spillover into Step Nine itself.
 second at 0.43, a margin of 0.51, the widest in the matrix. Its largest consumptions are
 gentle pressure at 0.7 and week-to-week continuity at 0.5, which between them are the
 two resources Tradition 1 supplies most heavily. Index-mate Tradition 10 is a structural
-zero and ranks twelfth, the worst rank in the table. *Algebra.*
+zero and ranks eighth, tied with the other zeros in its row, which is the worst rank in the
+table, shared with Steps Four and Nine. *Algebra.*
 
 *What was assumed.* Four non-zero entries: gentle pressure at 0.7, continuity at 0.5,
 counsel at 0.2 and confidentiality at 0.1. Top speed 0.25 per week, gate exposure
@@ -431,8 +433,8 @@ primer where a striking number comes from one judgement appearing twice.
 supplies steadily rather than dramatically: the meeting happening again next week, and
 other people mildly expecting you at it. That is the whole of what the model means by
 unity here, and it is a duller thing than the word suggests. Step Ten also has the worst
-showing of any Step for the pairing idea. Its own numbered Tradition comes dead last of
-twelve.
+showing of any Step for the pairing idea. Its own numbered Tradition ties for the worst rank in
+the table.
 
 ## Step Eleven, the conscious contact
 

@@ -11,7 +11,7 @@ Start with the one everybody blames, since it is real.
 
 The movement concentrated its public credibility in a small number of named men. John Hawkins, the hatter, was on the platform within months of signing and eventually gave upward of five thousand speeches. John Gough became the most famous reformed drunkard in America. When Gough disappeared for a week in September 1845 and was found in a house on Walker Street, the aggregate moved with him, and a thousand quiet recoveries in a thousand other towns could not average it out.
 
-That is the prominent agent from Chapter Nine, and it does real damage. But notice what it does not explain. Gough relapsed in 1843 as well, and nothing happened, because in 1843 he was nobody. The prominent-agent problem is a consequence of how the movement had grown, not a cause of anything. Something had made a handful of men load-bearing. The question is what.
+That is the prominent agent from Chapter Nine, and it does real damage. But notice what it does not explain. Gough relapsed in 1843 as well, and nothing happened, because in 1843 he was a rising speaker and not yet the movement's public asset. The prominent-agent problem is a consequence of how the movement had grown, not a cause of anything. Something had made a handful of men load-bearing. The question is what.
 
 ---
 
@@ -23,7 +23,7 @@ Now consider how the movement *grew*. It grew by sending speakers out. Pollard a
 
 A lecture is not a meeting. Attention runs one way. Five thousand people listen to Hawkins; Hawkins listens to nobody. He cannot; that is what a platform is.
 
-And Chapter Nine showed what happens to a group in which a small set of people receive a great deal of attention and return almost none. It is not merely that they hold a large share. In the limit they hold **all** of it. A movement of a hundred thousand people, whose attention structure is dominated by a few dozen touring speakers, decides and believes approximately what those few dozen speakers decide and believe. The other ninety-nine thousand-odd are talking, and are genuinely being heard by each other in their own rooms, and are not entering the aggregate.
+And Chapter Nine showed what happens to a group in which a small set of people receive a great deal of attention and return almost none. It is not merely that they hold a large share. If they return no attention at all they hold **all** of it, and if they return a little their share settles at a fixed fraction that does not shrink however large the movement grows. A movement of a hundred thousand people, whose attention structure is dominated by a few dozen touring speakers, decides and believes approximately what those few dozen speakers decide and believe. The other ninety-nine thousand-odd are talking, and are genuinely being heard by each other in their own rooms, and are not entering the aggregate.
 
 So the Washingtonians did not have one failure mode with a famous man attached. They had the worst of the three, and they had it structurally, built into the only mechanism they possessed for growing.
 
@@ -53,7 +53,7 @@ Now the limits, and there are four that matter.
 
 **The exchangeability in Chapter Eight is exact only in the limit.** Real trust is never perfectly uniform, even under flawless adherence. The Traditions push maximum influence toward one over N; they do not deliver it.
 
-**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. It ranks the two, and the ranking favours the critic.
+**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. It ranks referral loss above attraction loss, which favours the critic's emphasis on inflow, but nothing in the model ranks inflow against the structure of influence.
 
 I think both matter and I think the honest position is that the model cannot rank them. What the model can say is that the two do different work. Inflow determines whether a group survives. Influence structure determines whether the decisions it makes on the way are any good. A group can have plenty of the first and still spend twenty years deciding things badly, and nothing in its experience will tell it so.
 
@@ -79,7 +79,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 **The Washingtonian meeting was structurally flat.** Everyone testified, attention ran in every direction, and on the model's terms a room like that satisfies the condition well.
 
-**The Washingtonian growth mechanism was structurally imbalanced**, which Chapter Nine showed to be the most damaging of the three. A touring speaker receives attention from thousands and returns none, and a movement whose attention structure is dominated by such figures concentrates effectively all of its influence in them. The computation behind that claim is in Chapter Nine: a group of two hundred and fifty with a closed core of five has error 0.357, exactly the error of a five-member group, because the influence of everyone outside the core is identically zero.
+**The Washingtonian growth mechanism was structurally imbalanced**, which Chapter Nine showed to be the most damaging of the three. A touring speaker receives attention from thousands and returns none, and a movement whose attention structure is dominated by such figures concentrates in them a share of its influence that does not shrink as the movement grows, and all of it in the extreme case where they return no attention. The computation behind that claim is in Chapter Nine, in its extreme case: a group of two hundred and fifty with a closed core of five that returns no attention has error 0.357, exactly the error of a five-member group, because the influence of everyone outside the core is identically zero.
 
 **The prominent-agent problem was downstream of this, not independent of it.** Gough's 1843 relapse produced nothing and his 1845 relapse produced a national controversy. The variable that changed was the weight the growth mechanism had placed on him.
 

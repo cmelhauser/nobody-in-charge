@@ -39,7 +39,7 @@ That is why a group with no authority does not deadlock. Authority is one way to
 
 The condition is that the room is not actually two rooms.
 
-Take the same five people and split them: two who listen only to each other, three who listen only to each other, no attention crossing between them. Run the same process and it does not converge at all. Each faction settles internally, one camp at nine and the other at one, and there they sit forever. More discussion does not help, because no information passes between the halves. Each side is talking, adjusting, reaching agreement, and doing all of it inside a sealed compartment.
+Take the same five people and split them: two who listen only to each other, three who listen only to each other, no attention crossing between them. Run the same process and it does not converge at all. Each faction settles internally on a value of its own, the two values differ and neither is the room's average, and there they sit forever. More discussion does not help, because no information passes between the halves. Each side is talking, adjusting, reaching agreement, and doing all of it inside a sealed compartment.
 
 That is a schism in slow motion, and it is worth noticing that the mathematics sees it coming before anybody in the room does. Both factions are having what feels like a productive conversation. Both are converging. What has failed is not any individual's willingness to listen; it is the connectivity of the whole.
 
@@ -115,7 +115,7 @@ Starting beliefs 9, 2, 6, 4, 7. Successive rounds give 6.00, 5.25, 5.85, 5.60, 5
 
 Influence weights: Ann 0.204, Ben 0.178, Cara 0.333, Dan 0.147, Eve 0.138. The weighted average of the starting beliefs under these weights is 5.74, matching the simulated settling point exactly, which is the check that the eigenvector calculation and the iteration agree.
 
-The split-room example uses a block-diagonal matrix with no cross-block attention. It has two dominant eigenvalues rather than one, the chain is not strongly connected, and the iteration converges to two distinct values, 9 and 1, rather than to a consensus.
+The split-room example uses a block-diagonal matrix with no cross-block attention. It has two dominant eigenvalues rather than one, the chain is not strongly connected, and the iteration converges to two distinct values, one for each block, rather than to a consensus.
 
 ### 3. Notes on sources
 

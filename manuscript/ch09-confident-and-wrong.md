@@ -37,9 +37,9 @@ Picture five members who are widely respected. Everybody in the room listens to 
 
 There is nothing malicious in it. It is what happens naturally when a group develops a core.
 
-Attention now flows in one direction. Five people receive a great deal of it and return almost none. And the mathematics of that arrangement is brutal in a way I did not anticipate: in the limit, those five hold **all** of the group's influence. Not most. All. Everyone else holds approximately nothing.
+Attention now flows in one direction. Five people receive a great deal of it and return almost none. And the mathematics of that arrangement is brutal in a way I did not anticipate: in the extreme case where the five return no attention at all, they hold **all** of the group's influence. Not most. All. Everyone else holds approximately nothing. If they return even a little, their share settles at a fixed fraction instead, set by how much attention they receive relative to how much they give, and that fraction does not shrink as the group grows.
 
-Which means a meeting of two hundred and fifty people, structured this way, decides exactly as well as a meeting of five. Its error is 0.357, which is precisely what you get from averaging five independent views. The other two hundred and forty-five members are, from the point of view of the decision, not in the room.
+Which means that in that extreme case a meeting of two hundred and fifty people, structured this way, decides exactly as well as a meeting of five. Its error is 0.357, which is precisely what you get from averaging five independent views. The other two hundred and forty-five members are, from the point of view of the decision, not in the room.
 
 They are talking. They are being heard, in the ordinary social sense. Their views are simply not entering the answer, because the people whose views do enter the answer are not updating on them.
 
@@ -95,7 +95,7 @@ Three failure modes, three arrangements of the trust matrix.
 
 The **dominant member** is Golub and Jackson's prominent agent: one member receives a fixed share of everyone's attention. The **caucus** is their insufficient dispersion: a small subgroup receives a fixed share collectively while no individual is dominant. The **closed core** is their imbalance: a subgroup receives far more attention than it gives.
 
-Imbalance is qualitatively worse than the other two and I did not expect that before computing it. The first two put a floor under the group's error. The third effectively deletes the rest of the group from the calculation: in the limit, all influence accrues to the closed subgroup, and the group's accuracy is exactly that of the subgroup alone, regardless of how many other people are present.
+Imbalance is qualitatively worse than the other two and I did not expect that before computing it. The first two put a floor under the group's error. The third effectively deletes the rest of the group from the calculation: if the subgroup returns no attention at all, all influence accrues to it, and the group's accuracy is exactly that of the subgroup alone, regardless of how many other people are present. With any attention returned, the subgroup's share settles at a fixed fraction that does not shrink as the group grows, which is still a failure of the condition and no longer a deletion of everyone else.
 
 The practical reading is that the dangerous question about a group's core is not whether it is respected. It is whether it listens.
 
