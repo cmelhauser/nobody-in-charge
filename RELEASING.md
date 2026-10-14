@@ -59,7 +59,8 @@ independently, the central claim has not been checked by anyone but its author.
 A tag asserts that the repository was in a releasable state at that commit. It is a claim, so
 it has to be earned. All of these, in this order:
 
-1. `tools/run_ci_locally.sh` clean, all four jobs.
+1. `tools/run_ci_locally.sh` clean, all four jobs, with nothing reported as NOT RUN: a job whose
+   tool is missing is skipped, and the verdict then says so.
 2. `python3 tools/check_release.py` with **no** `--skip-artifacts`. The six artifact
    checks are the point of a release; skipping them is for a fresh clone, never for a tag.
 3. `python3 tools/check_pdfs.py` clean, with poppler present so the ink measurement runs

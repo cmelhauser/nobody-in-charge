@@ -30,8 +30,7 @@ should not pretend otherwise.
 ## 2. Chapter plan
 
 ### Chapter 12. Twelve Dials
-*Target 3,000 words. **Next to draft.** Not started; it is third in the sequence by design,
-not overdue.*
+*Target 3,000 words. **Drafted** (2,012 words); the sequence below records the order.*
 
 **What two drafted chapters have already promised Chapter 12 must deliver.** Both are
 forward pointers that currently do not resolve, and they are the only two in the book.
@@ -54,8 +53,9 @@ parameter and leave it there.
 
 **Numbers available and already asserted in the notebook:** the derived group-dependence
 coefficients, running 1.00 at Steps 1 and 12 down to 0.17 at Step 7, mean 0.53; the
-upward-to-downward transmission ratio, 1 to 6.0 and averaging 1.9. These are section 5 of
-the notebook and need no new computation.
+upward-to-downward transmission ratio, 1 to 6.0 and averaging 1.9, which the release audit
+retired: no state-free ratio is implemented and no transmission claim follows. The coefficients
+are section 5 of the notebook and need no new computation.
 
 **The parameter honesty line for this chapter:** 118 numbers chosen by hand out of 226
 cells, none fitted. See `../research/PARAMETERS.md`, which was corrected on 2 August 2026
@@ -262,7 +262,7 @@ Chapter 13, which was rewritten around them.
    full sweep found the step-ordering exponent to be the single strongest influence on
    outcomes anywhere in the model, which is a better argument for Chapter 13's research
    programme than Chapter 13 makes for itself.
-5. **Chapter 15 next and last in Part Three**, since it points forward into Part Five and
+5. ~~**Chapter 15 next and last in Part Three**~~ (**drafted**), since it points forward into Part Five and
    benefits from knowing what Part Five will need. Note what the other three have already
    spent: Chapter 12 owns the apparatus and the group-dependence coefficients, Chapter 13
    the substitution parameter, Chapter 14 maintenance and the threshold. Chapter 15's own

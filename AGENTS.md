@@ -33,7 +33,7 @@ a checker says otherwise. Your job is almost certainly not to re-derive anything
 2. **Do not edit an analysis script under `model/` whose cache exists.** Caches record the script
    hash too. Editing the script invalidates the cache and the gate fails. Regenerating the Sobol
    design alone costs about four hours.
-3. **Do not restart a completed analysis.** All nineteen caches are complete and hash-current.
+3. **Do not restart a completed analysis.** All twenty caches are complete and hash-current.
 4. **Do not commit a source document.** No PDF or extracted text belongs in git. See below.
 5. **Do not weaken a checker to make it pass.** The checkers have caught real errors, including a
    misprinted number that had survived every human read. If one fails, the finding is usually
@@ -44,8 +44,8 @@ a checker says otherwise. Your job is almost certainly not to re-derive anything
    `research/progress-log.md`, and report the original and revised analysis both.
 8. **Do not restore the wording "this project does not acquire AA copyright material."** It was
    removed on 10 August 2026 as a category error. Reading a copyrighted work and holding one are
-   different acts and the rule is about holding: read what is lawfully readable, hold nothing,
-   quote nothing at length, record the provenance.
+   different acts and the rule is about holding: read what is lawfully readable, hold only lawful copies and
+   never commit them, quote nothing at length, record the provenance.
 
 ## Authority order
 
@@ -101,7 +101,9 @@ corpus, because `tools/check_book.py` identifies a source in prose by that token
 
 ## Tests
 
-`python3 -m pytest` after `pip install -r requirements-dev.txt`. No source document is needed.
+`python3 -m pytest` after `pip install -r requirements-dev.txt`, on Python 3.11 or newer: the tools use
+features older interpreters lack, and the stock `python3` on some machines is 3.9. No source document
+is needed.
 
 The coverage gate is 100 per cent of `model/aa_group_model.py` and is enforced by `.coveragerc`.
 **Never edit that file to make a test pass**: its SHA-256 is the release identity, and

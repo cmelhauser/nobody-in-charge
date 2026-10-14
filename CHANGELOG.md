@@ -14,6 +14,13 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- A review of the documentation corrected stale statements in `AGENTS.md`, `AGENT_VERIFY.md`,
+  `HANDOFF.md`, `RELEASING.md`, `README.md` and the plans: a cache count, the copyright rule, notebook
+  counts, a closed Rohr action item, stale chapter statuses, a retired transmission ratio, and the
+  randomization result in Part Four's plan. They now state that Python 3.11 or newer is required, since
+  the stock `python3` on some machines is 3.9 and the tools fail on it. `tools/run_ci_locally.sh` no
+  longer prints a bare "local CI clear" when it skipped a job for want of a tool; it names what did not run.
+
 - Continuous integration does less work for the same assurance. On `main` the Python versions
   other than 3.12 run the model tests, the release invariants and the direct tool tests under the
   100 per cent coverage gate, not the subprocess runs of the checkers that 3.12 already covers.

@@ -46,7 +46,8 @@ cd "$(dirname "$0")/.." || { echo "cannot reach the repository root" >&2; exit 1
 PY=python3
 [ -x .venv/bin/python ] && PY=.venv/bin/python
 
-pass=0; fail=0
+pass=0; fail=0; skipped=""
+not_run() { skipped="${skipped:+$skipped; }$1"; echo "$1; skipping"; }
 step() {
   local name="$1"; shift
   printf '\n\033[1m== %s\033[0m\n' "$name"
@@ -114,7 +115,7 @@ if [ "$job" = all ] || [ "$job" = lint ]; then
     step "canonical model takes no lint waiver" \
          "$RUFF" check model/aa_group_model.py --isolated --select E9,F,B
   else
-    echo "ruff not installed; skipping lint"
+    not_run "ruff not installed: lint not run"
   fi
   SHCK=""
   [ -x .venv/bin/shellcheck ] && SHCK=.venv/bin/shellcheck
@@ -122,7 +123,7 @@ if [ "$job" = all ] || [ "$job" = lint ]; then
   if [ -n "$SHCK" ]; then
     step "shell lint" "$SHCK" tools/run_ci_locally.sh
   else
-    echo "shellcheck not installed; skipping"
+    not_run "shellcheck not installed: shell lint not run"
   fi
 fi
 
@@ -146,7 +147,7 @@ fi
 if [ "$job" = all ] || [ "$job" = documents ]; then
   printf '\n\033[1m--- job: documents ---\033[0m\n'
   if ! command -v pandoc >/dev/null || ! command -v tectonic >/dev/null; then
-    echo "pandoc or tectonic missing; skipping the rendering job"
+    not_run "pandoc or tectonic missing: the documents job not run"
   else
     step "derived reports"     reports
     step "build all three PDFs" build_docs
@@ -160,4 +161,9 @@ fi
 
 printf '\n\033[1m%d passed, %d failed\033[0m\n' "$pass" "$fail"
 [ "$fail" -eq 0 ] || exit 1
-echo "local CI clear"
+# A job that could not run is not a job that passed, so say so where the verdict is read.
+if [ -n "$skipped" ]; then
+  echo "local CI clear for what ran; NOT RUN: $skipped"
+else
+  echo "local CI clear"
+fi
