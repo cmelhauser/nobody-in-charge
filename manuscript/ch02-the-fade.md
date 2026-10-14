@@ -237,7 +237,7 @@ The gatekeeping row is the model's nearest analogue to what the Sons of Temperan
 
 The Sons did something the model genuinely cannot represent: they screened *at the door*, before entry, by nomination and investigation. That is Iannaccone's club-good mechanism, costly entry requirements that exclude free-riders and thereby strengthen the community, and it is precisely the mechanism AA forbids in Tradition 3. A model built to describe AA has no way to express it.
 
-**Where this leaves the argument.** The model supports the fade rather than the collapse, and supports the claim that such a fade would have been invisible to the people living through it. It cannot adjudicate the supersession story at all. I have relied on the historical record for that, and the reader should discount accordingly.
+**Where this leaves the argument.** The model supports the fade rather than the collapse, and supports the claim that the practice of the members who remained would have been a poor sign of the group's failing, though not that nobody would have seen the room empty. It cannot adjudicate the supersession story at all. I have relied on the historical record for that, and the reader should discount accordingly.
 
 ### 3. Notes on sources
 

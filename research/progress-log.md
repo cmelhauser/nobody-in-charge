@@ -5711,3 +5711,17 @@ two Worcester sentences, which its own notes say rest on a figure that is not in
 the recipient resource and no longer cite a Worcester number. Chapter 4 no longer lists Amos's
 fifty-thousand-dollar recommendation as well attested, since the chapter itself says it rests on
 Wilson's memory and is disputed, and files the AA historical compilations under Cited at a remove.
+
+**A second reading of the corrections themselves.** Three readers reviewed only what the first
+round changed, and found where the fixes had left neighbours behind. Corrected: Chapter 17's
+"four and four" principal suppliers (unity four, group conscience three, one exact tie), and its
+"most exposed" and "no specific symptom" wording, which still read B as a failure prediction; the
+orphaned invisibility sentences at the end of Chapter 2, in the introduction, and in the paper's and
+Appendix A12.7's inference six; Chapter 13's output figures, now stated with their other inputs;
+Chapter 19's note on sources, which still framed the open door as retention only; Chapter 10's "nothing
+further on the Concepts"; Chapter 5's duplicate listing of the April 1946 article; the "return even a
+little" wording in Chapters 9 and 11, which could be read against the fixed-ratio result of Chapter 8;
+"three or five seeds" where the screens used three; the primer's Step Four ("no single principal
+supplier" after naming one) and Step Ten ("worst showing"); Appendix A13's "1939" attribution and its
+denominators; the paper's Appendix B (the one three-seed screen in Section 4), its Cochrane clause,
+its "no worse" for the invisible group, and 0.168 for 0.167. The paper's printed decimals are 491.
