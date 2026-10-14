@@ -216,8 +216,8 @@ source; the authority is `"record_only": true` in each `metadata.json`. They are
 in copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, consulted on 10 August
 2026 from scans whose posting authorization is unverified, which the project's own rights review
 directs be cited and quoted within limits rather than archived; Iannaccone (1992), read on the same
-footing on 29 September 2026; Rohr (2011), described below; and *Tricycle* (2019), paywalled past
-its opening. Each record keeps the citation, the rights position,
+footing on 29 September 2026; Rohr (2011), described below; and *Tricycle* (2019), read at source on 17
+August 2026 and kept as record only, since it is paywalled past its opening. Each record keeps the citation, the rights position,
 the hash of the copy consulted, and the passages verified from it. Six more were record only until
 13 September 2026 and now hold copies; each `metadata.json` says so under `formerly_record_only`.
 
@@ -303,8 +303,10 @@ to run one of them.
 All three builds set `SOURCE_DATE_EPOCH` from the date each document declares, through
 `tools/source_date.py`: the book and primer builders do it themselves, and the paper needs the
 `export` above. TeX otherwise stamps the clock into every PDF, so a rebuild of unchanged sources
-used to leave all three committed PDFs modified; with it, the rebuild is byte-identical and the
-tree stays clean.
+used to leave all three committed PDFs modified; with it, a rebuild on the same machine and
+toolchain is byte-identical and the tree stays clean. Across machines only the paper is: on the
+runner the book and primer differ from the committed files even with the pinned pandoc, so build
+the committed PDFs with pandoc 3.10.2, the CI pin, and do not expect a byte match elsewhere.
 
 `check_release.py` runs last, and the order is not a matter of taste. The gate requires every
 rendered artifact to be at least as new as the sources feeding it, so running it before the three
