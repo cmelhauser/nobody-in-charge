@@ -79,7 +79,7 @@ The *Grapevine*, four months old, endorsed the new committee enthusiastically. W
 
 Then the committee solicited funds, and at some point the solicitation went out to AA members.
 
-That is the moment. Three years earlier the fellowship had accepted that money would spoil it. Now its founders' names sat on the letterhead of an organisation asking its members for money, with its own magazine's endorsement attached. The public could not tell where one organisation ended and the other began.
+That is the moment. Years earlier the fellowship had accepted that money would spoil it. Now its founders' names sat on the letterhead of an organisation asking its members for money, with its own magazine's endorsement attached. The public could not tell where one organisation ended and the other began.
 
 Wilson and Smith withdrew. Mann agreed to stop publicly identifying herself as an AA member. And the conclusion the founders drew, in the words of AA's own account, was that total non-affiliation was the only answer.
 
@@ -95,7 +95,7 @@ The difference is not that AA faced no threat. The difference is that AA had ele
 
 And the fellowship kept holding. In 1954 Yale offered Bill Wilson an honorary doctorate. He wanted it; he had never graduated from college. A trustee mentioned that Theodore Roosevelt had refused personal honours, and Wilson declined. He wrote to an old friend that turning it down would act as a terrific restraint on big shots and power seekers in AA. He was declining for that reason, he said, and not because he was noble.
 
-That is a man applying a rule against his own interest nine years after he wrote it, having watched what happened when he did not.
+That is a man applying a rule against his own interest eight years after he wrote it, having watched what happened when he did not.
 
 ---
 

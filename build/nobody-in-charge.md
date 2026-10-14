@@ -446,7 +446,7 @@ That is a group operating on one engine. And a one-engine group has a property t
 
 I did not go looking for this. It fell out of noticing what the model needed and what 1840 could supply, and it reframes the growth in this chapter: the six hundred thousand, which is a claim and not a count, is not only a sign of how well the thing worked. However many it was, it shows how completely everything depended on one mechanism.
 
-The other model connection here is the Worcester number, and I will only gesture at it. In the model, one of the resources a group produces is an *opportunity to help*. Its proxy is the number of low-practice members per high-practice potential helper. That is not a count of newcomers: the model contains no tenure or sponsorship state and cannot know who arrived when. A society of five hundred containing fifty alcoholics can therefore illustrate the intuition, but the historical example is not something the simulation measures.
+The other model connection here is the recipient resource, and I will only gesture at it. In the model, one of the resources a group produces is an *opportunity to help*. Its proxy is the number of low-practice members per high-practice potential helper. That is not a count of newcomers: the model contains no tenure or sponsorship state and cannot know who arrived when. A society of five hundred containing fifty alcoholics can therefore illustrate the intuition, but the historical example is not something the simulation measures.
 
 ### 2. The technical version
 
@@ -471,7 +471,7 @@ A one-engine group is therefore not merely smaller. It sits on the fragile branc
 
 The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A7.3 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. The global and one-at-a-time counts are screens, three or five common seeds to a point, and not confirmatory replications; the thirty-five governance cells cannot move at full adherence, so the 944 points test fewer than all hundred and eighteen in practice. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch, and its 400-seed paired runs confirm the decay rate's and locate it: the mean-size ordering holds with the rate fifteen per cent lower and reverses at twenty, the referral-starved group ending the larger, while on viability the ordering is never reversed, though at fifty and seventy-five per cent lower every run ties. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
 
-The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. Worcester in June 1841 motivates the idea of a crowded room with few relevant recipients; it does not validate the proxy.
+The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. A crowded room with few relevant recipients is the idea it is meant to capture; the proxy is not validated against any real room.
 
 **Caveat, stated plainly:** the model has no term for a competing organisation. That absence matters enormously in the next chapter, and I flag it here so it does not arrive as a surprise.
 
@@ -1219,7 +1219,7 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 **This chapter is the least well sourced in Part One, and I want that on the record.** Chapters One to Three rest on documents I read in full: Maxwell's 1950 study and Gough's 1869 autobiography. This chapter was first drafted on a scholarly work I had not yet obtained, plus a set of secondary accounts that mostly derive from AA's own copyrighted histories. That work, Kurtz's *Not-God*, has since been read, and the notes below record what it changed and what is still at a remove.
 
-**What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation and his fifty-thousand-dollar recommendation; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
+**What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation, though not what he recommended, which is contested below; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
 
 **What I am reporting at one or more removes.** Nearly all of it. The Amos report, the Scott question and Rockefeller's reasoning are quoted in AA's own *Alcoholics Anonymous Comes of Age* and *Dr. Bob and the Good Oldtimers*, and reach me through secondary sites that quote those books. Wilson's disappointment at being refused, and his later crediting of Rockefeller with the nonprofessional principle, come from secondary accounts of his own recollections. The paragraph on the working manuscript is the exception: it is taken from the manuscript itself, apart from the number of copies circulated and Dr. Howard's profession, which are its editors'.
 
@@ -1243,8 +1243,6 @@ Kurtz, E. (1979; expanded edition 1991). *Not-God: A History of Alcoholics Anony
 
 Maxwell, M. A. (1950). For AA's early structure and his contemporaneous description of the fellowship as small, informal, poor and unpretentious in its first years.
 
-Various AA area and intergroup historical compilations, used only where two or more agreed and where the claim traced to a named AA publication.
-
 *The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the February 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the single collated copy, the change of speaker, the modals on MS pp. 30, 41 and 42, the struck kneeling instruction and ultimatum, and Dr. Howard's marginal notes.
 
 *Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. The personal stories were read in full for appendix A13; for this chapter, the printed wording of the passages quoted from the working manuscript, at printed pages 71 and 95.
@@ -1256,6 +1254,8 @@ Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age.*
 Alcoholics Anonymous World Services (1980). *Dr. Bob and the Good Oldtimers*, pp. 128 to 130. Source of the Frank Amos Akron investigation and report.
 
 Minutes of the first meeting of the Alcoholic Foundation board. Source of the 2,150 figure.
+
+Various AA area and intergroup historical compilations, read at a remove and used only where two or more agreed and where the claim traced to a named AA publication.
 
 The facsimile editors' essays in *The Book That Started It All* (2010), for the number of copies circulated and Dr. Howard's profession. Where they quote AA's own histories they are a further remove.
 
@@ -1554,7 +1554,7 @@ The *Grapevine*, four months old, endorsed the new committee enthusiastically. W
 
 Then the committee solicited funds, and at some point the solicitation went out to AA members.
 
-That is the moment. Three years earlier the fellowship had accepted that money would spoil it. Now its founders' names sat on the letterhead of an organisation asking its members for money, with its own magazine's endorsement attached. The public could not tell where one organisation ended and the other began.
+That is the moment. Years earlier the fellowship had accepted that money would spoil it. Now its founders' names sat on the letterhead of an organisation asking its members for money, with its own magazine's endorsement attached. The public could not tell where one organisation ended and the other began.
 
 Wilson and Smith withdrew. Mann agreed to stop publicly identifying herself as an AA member. And the conclusion the founders drew, in the words of AA's own account, was that total non-affiliation was the only answer.
 
@@ -1570,7 +1570,7 @@ The difference is not that AA faced no threat. The difference is that AA had ele
 
 And the fellowship kept holding. In 1954 Yale offered Bill Wilson an honorary doctorate. He wanted it; he had never graduated from college. A trustee mentioned that Theodore Roosevelt had refused personal honours, and Wilson declined. He wrote to an old friend that turning it down would act as a terrific restraint on big shots and power seekers in AA. He was declining for that reason, he said, and not because he was noble.
 
-That is a man applying a rule against his own interest nine years after he wrote it, having watched what happened when he did not.
+That is a man applying a rule against his own interest eight years after he wrote it, having watched what happened when he did not.
 
 ---
 
