@@ -91,7 +91,7 @@ No new computation. The figures referenced are from Chapter Nine, section 2, and
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 
-~~I have not simulated this bipartite structure.~~ **It has now been simulated, and it turns out to have an exact closed form.**
+**I simulated this bipartite structure, and it has an exact closed form.**
 
 Let each member give a fraction of their attention to the touring speakers and let the speakers give a fraction of theirs back to the general membership. Then the speakers' total influence is
 

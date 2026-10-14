@@ -208,7 +208,7 @@ Cohen, J. P., A. C. Johnston and A. S. Lindner (2023). "Skill Depreciation durin
 
 Edgren, R., D. Baretta and J. Inauen (2025). "The temporal trajectories of habit decay in daily life: An intensive longitudinal study on four health-risk behaviors." *Applied Psychology: Health and Well-Being* 17(1): e12612. **Read in full** on 22 September 2026, apart from the supplement, the figures and the references; open access under CC BY 4.0, held git-ignored in `research/incorporated/Edgren_2025/` as the publisher's deposited full text. The first intensive longitudinal study of habit decay in daily life, and the fast end of the bracket around this chapter's decay rate. **Note what it measures**: an unwanted habit being deliberately weakened with an implementation intention, not a wanted practice left unrenewed.
 
-Kaskutas, L. A., J. Bond and L. A. Avalos (2009). "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment." *Addictive Behaviors* 34(12): 1029-1035. **Read in full** on 22 September 2026, apart from the three figures; the NIH author manuscript, held git-ignored in `research/incorporated/Kaskutas_2009/`. Four attendance trajectories over seven years, the slow end of the bracket, and the source of this chapter's warning that attendance and outcome come apart. **Note the copy**: the accepted manuscript, so its pagination is not the journal's, and the plotted curves are in figures the deposit does not contain, which is why no figure is quoted from it.
+Kaskutas, L. A., J. Bond and L. A. Avalos (2009). "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment." *Addictive Behaviors* 34(12): 1029-1035. **Read in full** on 22 September 2026, apart from the three figures; the NIH author manuscript, held git-ignored in `research/incorporated/KaskutasBondAvalos_2009/`. Four attendance trajectories over seven years, the slow end of the bracket, and the source of this chapter's warning that attendance and outcome come apart. **Note the copy**: the accepted manuscript, so its pagination is not the journal's, and the plotted curves are in figures the deposit does not contain, which is why no figure is quoted from it.
 
 **Cited at a remove:**
 
@@ -216,7 +216,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-The derived group-dependence coefficients, the transmission ratio, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`. The decay-ordering run is `model/decay_ordering.py`, cached in `research/decay_ordering.json`, and the run that locates the membership reversal is `model/decay_reversal.py`, cached in `research/decay_reversal.json`.
+The derived group-dependence coefficients, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`. The decay-ordering run is `model/decay_ordering.py`, cached in `research/decay_ordering.json`, and the run that locates the membership reversal is `model/decay_reversal.py`, cached in `research/decay_reversal.json`.
 
 **What was not read:**
 

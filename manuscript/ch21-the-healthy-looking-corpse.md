@@ -137,7 +137,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 2 for the absence of external validation.
+`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 1 for the absence of external validation.
 
 **What was not read:**
 

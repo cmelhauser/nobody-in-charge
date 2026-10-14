@@ -159,7 +159,7 @@ AA forbade **respectability**: anonymity at the level of press and public, princ
 
 Every single innovation the Sons of Temperance introduced to fix the Washingtonians' retention problem, AA specifically prohibited.
 
-The Sons of Temperance today is a vestige. Alcoholics Anonymous remains a worldwide fellowship of autonomous groups, still operating under Traditions it has not substantially amended since 1950. The current group and membership counts appear in an AA service document that this project has located but not read, so I do not reproduce them.
+The Sons of Temperance today is a vestige. Alcoholics Anonymous remains a worldwide fellowship of autonomous groups, still operating under Traditions it has not substantially amended since 1950. The membership table in the AA service document read here stops at 2020, so I give no present count.
 
 ---
 

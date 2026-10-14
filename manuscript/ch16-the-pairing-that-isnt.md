@@ -180,7 +180,7 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used for any result in this chapter; named because the governance matrix was built for Part Two's argument and not for this one, which is what makes the test here meaningful.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. All twenty-four chapters, for the cross-reference count in the main text. Copyright AAWS; held as a record with no document.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. All twenty-four chapters, for the cross-reference count in the main text. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed.
 
 Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited for containing no discussion of the Traditions.
 
@@ -190,7 +190,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A7.1, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
 

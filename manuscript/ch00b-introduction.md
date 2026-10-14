@@ -3,7 +3,7 @@
 
 In 1840, six drunks in a Baltimore tavern founded a society to keep each other sober. Within four years there were societies like it across the United States and the movement claimed to have reached hundreds of thousands of people. Within ten years it was gone, so completely that a century later almost nobody had heard of it.
 
-In 1935, in Akron, two more drunks founded another one. It is still here, a worldwide fellowship of autonomous groups, and its constitution has stood essentially unchanged since 1950. I do not give a current membership or group count because the AA service document that would support one has been located but not read.
+In 1935, in Akron, two more drunks founded another one. It is still here, a worldwide fellowship of autonomous groups, and its constitution has stood essentially unchanged since 1950. I do not give a current membership or group count because the edition of the AA service membership table read here stops at 2020.
 
 The obvious question is what the second one had that the first one did not, and the obvious answer is a set of twelve rules that the second one wrote down in 1946. This book is about whether that answer is right, and it arrives at a smaller version of it than I set out to prove.
 
@@ -49,7 +49,7 @@ A model like that cannot show that anything is true. It can show that a set of i
 
 What it turned out to be best at was destroying my own claims. The model found that a single-equilibrium version made group collapse mathematically impossible, which meant the first version could not represent the thing the book is about. It found that a decline table I had published was computed from ten random seeds and was wrong by a factor of two when recomputed from four hundred. It found that the most robust thing the simulation says holds on one measure and reverses on another, and that I had never said which measure I meant.
 
-Chapter Twenty-Three is a list of twenty-five such errors, sorted by which instrument caught each one. It is the most useful chapter in the book for anybody doing work of this kind, and it exists because the corrections were more informative than the results.
+Chapter Twenty-Three is a ledger of more than thirty such errors, sorted by which instrument caught each one. It is the most useful chapter in the book for anybody doing work of this kind, and it exists because the corrections were more informative than the results.
 
 ---
 
@@ -71,7 +71,7 @@ Three warnings about how to read what follows.
 
 **No sentence here bears on how any individual is doing.** What the model calls practice is a coordinate on a scale I made up, and it diagnoses nobody. The book cannot grade a meeting either, and it offers no advice to anyone. Chapter Twenty-Five is entirely about that limit, which is why it comes last.
 
-**And the fellowship in question would rather nobody spoke on its behalf.** This account stands wholly outside it, drawing on the published short text of the Traditions and on historians with no stake in the outcome, since AA's own writing is under copyright and the project leaves it alone. On the single occasion somebody who knows the rooms read a draft, they identified a case I had constructed that the Third Tradition rules out, and no other intervention in the project changed as much for as few words. The implication for the parts nobody has checked is uncomfortable.
+**And the fellowship in question would rather nobody spoke on its behalf.** This account stands wholly outside it, drawing on the published short text of the Traditions, on AA's own writing read where it is lawfully available and quoted only within limits, and on historians whose sympathies the chapters state. On the single occasion somebody who knows the rooms read a draft, they identified a case I had constructed that the Third Tradition rules out, and no other intervention in the project changed as much for as few words. The implication for the parts nobody has checked is uncomfortable.
 
 ---
 

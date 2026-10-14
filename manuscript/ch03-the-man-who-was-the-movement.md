@@ -151,7 +151,7 @@ But the setup was already complete in 1845. A movement had concentrated its cred
 
 The model treats a group as members who weight each other's judgment. Each member has an *influence weight*: the share of the group's eventual view traceable to that member. The weights sum to one.
 
-The result in Chapter Seven says that such a group gets reliably closer to the truth as it grows if and only if the largest single influence weight shrinks toward zero. If one person permanently holds a fixed share of the outcome, adding members stops helping, because that person's errors never average away.
+The result in Chapter Eight says that such a group gets reliably closer to the truth as it grows if and only if the largest single influence weight shrinks toward zero. If one person permanently holds a fixed share of the outcome, adding members stops helping, because that person's errors never average away.
 
 Gough is a historical analogy for what concentrated public prominence can look
 like, not a measurement of a stationary influence weight.
@@ -174,7 +174,7 @@ do not identify influence weight as the cause.
 
 ### 2. The technical version
 
-Let A be the row-stochastic matrix of trust weights among N members and s the influence vector, normalised so that the entries sum to one. The simulation in Chapter Seven compares four governance regimes as N grows:
+Let A be the row-stochastic matrix of trust weights among N members and s the influence vector, normalised so that the entries sum to one. The simulation in Chapter Eight compares four governance regimes as N grows; two are shown here:
 
 | Regime | max influence, N=10 | N=500 |
 |---|---|---|

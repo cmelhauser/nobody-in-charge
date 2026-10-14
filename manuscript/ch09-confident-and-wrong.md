@@ -173,4 +173,4 @@ Influence weights and consensus errors for four governance regimes at N = 10, 50
 
 **What was not read:**
 
-Any measurement of attention or influence inside a real mutual-aid group. The three regimes in this chapter are constructed matrices, not observed ones, and appendix A8 sets out what would have to be measured to know whether any of them resembles a meeting. Chapter Twenty-Four lists that measurement and admits it may not be obtainable ethically in an anonymous fellowship.
+Any measurement of attention or influence inside a real mutual-aid group. The three regimes in this chapter are constructed matrices, not observed ones, and Chapter Twenty-Four sets out what would have to be measured to know whether any of them resembles a meeting, and admits it may not be obtainable ethically in an anonymous fellowship.

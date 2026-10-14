@@ -107,7 +107,7 @@ Three results, all at 400 seeds, thirty-year horizon, full Tradition adherence.
 
 **Service is load-bearing rather than terminal inside the model.** Setting the twelfth step's growth rate to zero costs 5.33 members [4.44, 6.21], or 30 per cent of baseline membership, and lowers maintenance capacity by 0.0135 [0.0079, 0.0192]. Average practice falls by 0.0150, with paired interval [0.0076, 0.0223].
 
-**Losing it does not change endpoint viability in these runs.** In each condition 394 of 400 runs finish above five members. The result is a smaller group over thirty modeled years; it is not proof of permanence or survival forever.
+**Losing it does not change endpoint viability in these runs.** In the baseline and in the disabled-Step-Twelve condition 394 of 400 runs finish above five members, and 395 do when recipient capacity is forced. The result is a smaller group over thirty modeled years; it is not proof of permanence or survival forever.
 
 **The clean recipient override is unresolved.** Forcing recipient capacity to one
 raises final membership by 1.03 members relative to baseline, with paired 95 per
