@@ -5632,3 +5632,12 @@ paper no longer says no AA publication was acquired, restates the Cochrane findi
 does, names the twenty-year horizon of its Tradition table, and points to Section 3.7 for touring
 speakers. The book and primer are rebuilt with pandoc 3.10.2, the version CI pins, and their
 declared dates are 14 October 2026.
+
+**What the runner showed about reproducibility.** The committed PDFs were built here with pandoc
+3.12.1 while CI pins 3.10.2. The three were therefore rebuilt with 3.10.2 and the full workflow was
+run on a scratch branch (since deleted) that compared the runner's rebuilt PDFs with the committed
+ones. The paper is byte-identical on the runner and the book and primer are not, even with the
+same pandoc version, so a difference other than pandoc remains, most likely the font files or
+tectonic's bundle. The statement that a rebuild leaves the tree unchanged is therefore true for one
+machine and one toolchain, and for the paper across machines; it is not claimed for the book or the
+primer across machines.
