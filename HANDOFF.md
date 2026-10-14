@@ -94,7 +94,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 318 pages, paper 35, primer 24
+- three built PDFs: book 319 pages, paper 35, primer 24
 
 ---
 
@@ -112,8 +112,8 @@ As of 3 October 2026, everything passes:
 | `tools/check_docs.py` | 28 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
-| `model/book-calculations.ipynb` | 8 cells, 89 assertions, clean |
-| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 113 assertions, clean |
+| `model/book-calculations.ipynb` | 8 cells, 100 assertions, clean |
+| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 124 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
 The 39 `check_book` warnings are repetition and sentence-length notes. They are not failures and

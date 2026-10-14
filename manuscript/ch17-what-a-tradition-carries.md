@@ -67,11 +67,11 @@ I do not want to overstate what that settles. Kurtz named a specific passage in 
 
 There is one more thing worth reporting, and it is the reason this chapter might reasonably be read before Chapter Sixteen rather than after.
 
-Unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds.
+Under magnitude randomisation, unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds. It is not the most robust under every design: when cells of the governance matrix are flipped at random, the paper's sparsity table, which prices that design, shows the Step Twelve to Tradition Five claim holding more often than unity leading.
 
-Under multiplicative disagreement about the magnitudes, unity leads in every one of two thousand draws at fifteen per cent, every draw at thirty per cent, 98.0 per cent at fifty, and 86.8 per cent at seventy-five. Then take the structural test Chapter Sixteen describes, in which every magnitude is discarded and only the sparsity survives. Unity still leads in 75.4 per cent of draws.
+Under multiplicative disagreement about the magnitudes, unity leads in every one of two thousand draws at fifteen per cent, every draw at thirty per cent, 98.0 per cent at fifty, and 86.9 per cent at seventy-five. Then take the structural test Chapter Sixteen describes, in which every magnitude is discarded and only the sparsity survives. Unity still leads in 75.4 per cent of draws.
 
-Compare that with the rest of the part on the same test: 40.6 per cent for index-pairing, 17.5 for the Step Five inversion, 27.6 for the Step Twelve inversion. Those are results that depend on my magnitudes. Unity's primacy depends on them much less, because three-quarters of the time a random matrix with the same sparsity pattern puts unity first anyway.
+Compare that with the rest of the part on the same test: 40.6 per cent for index-pairing, 17.5 for the Step Five inversion, 27.7 for the Step Twelve inversion. Those are results that depend on my magnitudes. Unity's primacy depends on them much less, because three-quarters of the time a random matrix with the same sparsity pattern puts unity first anyway.
 
 That is not a hundred per cent and I will not round it up. A quarter of the time it does not. But it is the difference between a claim that rests mainly on structure and a claim that rests mainly on judgement, and Part Four contains one of the first and several of the second.
 
@@ -105,8 +105,8 @@ Load per Tradition, exact, with the concentration of that load across resources.
 
 | Tradition | Load | Resources governed | Largest resource | Its share | HHI | Principal for | Runner-up for |
 |---|---|---|---|---|---|---|---|
-| T1 unity | 6.52 | 8 | continuity | 0.29 | 0.204 | 4 | 6 |
-| T2 group conscience | 3.89 | 4 | counsel | 0.69 | 0.520 | 4 | 4 |
+| T1 unity | 6.52 | 8 | continuity | 0.29 | 0.204 | 4 | 5 |
+| T2 group conscience | 3.89 | 4 | counsel | 0.69 | 0.520 | 3 | 4 |
 | T5 singleness of purpose | 3.88 | 6 | proof | 0.24 | 0.197 | 1 | 1 |
 | T3 open door | 2.69 | 4 | admission | 0.37 | 0.297 | 1 | 1 |
 | T11 attraction | 2.69 | 4 | proof | 0.49 | 0.335 | 1 | 0 |
@@ -114,7 +114,7 @@ Load per Tradition, exact, with the concentration of that load across resources.
 | T8 non-professional | 1.11 | 4 | confidential | 0.41 | 0.290 | 0 | 0 |
 | T4, T6, T7, T9, T10 | 0.00 | 0 | none | - | - | 0 | 0 |
 
-Unity is the only Tradition governing all eight resources and the only one in the top two for ten of the twelve Steps. It is **not** the most diffuse by HHI: singleness of purpose scores 0.197 against unity's 0.204, marginally lower. The claim in the main text is breadth of coverage, eight resources against six, and not minimum concentration.
+Step Four is an exact tie between unity and group conscience, so it counts as sole principal supplier for neither; counting the tie as a place in the top two, unity is the only Tradition governing all eight resources and the only one in the top two for ten of the twelve Steps. It is **not** the most diffuse by HHI: singleness of purpose scores 0.197 against unity's 0.204, marginally lower. The claim in the main text is breadth of coverage, eight resources against six, and not minimum concentration.
 
 Unity's load by resource, exact: continuity 1.89, pressure 1.86, identification 0.85, counsel 0.60, the demonstration that recovery happens 0.57, confidentiality 0.45, admission 0.20, somebody to help 0.10. Continuity and pressure are 57.5 per cent of the total. Removing both leaves 2.77, which is third, behind group conscience at 3.89 and singleness of purpose at 3.88 and ahead of the open door at 2.69. An earlier draft said fourth; the notebook assertion caught it.
 
@@ -140,10 +140,10 @@ Two of eight flip it. The finding is conditional on those two assignments and on
 | jitter ±15% | 100.0 [99.8, 100.0] |
 | jitter ±30% | 100.0 [99.8, 100.0] |
 | jitter ±50% | 98.0 [97.3, 98.5] |
-| jitter ±75% | 86.8 [85.3, 88.3] |
+| jitter ±75% | 86.9 [85.3, 88.3] |
 | structural, sparsity only | 75.4 [73.5, 77.2] |
 
-The structural figure is the highest of any Part Four claim on that test, against 40.6 per cent for index-pairing on all counts, 17.5 for the Step Five inversion and 27.6 for the Step Twelve inversion. The two 100.0 entries are 2,000 of 2,000 and should be read as "not observed to fail".
+The structural figure is the highest of any Part Four claim on that test, against 40.6 per cent for index-pairing on all counts, 17.5 for the Step Five inversion and 27.7 for the Step Twelve inversion. The two 100.0 entries are 2,000 of 2,000 and should be read as "not observed to fail".
 
 **What the load measure assumes, and it is not innocuous.** Summing a column treats demand for one resource as commensurable with demand for another, which is a choice and not a derivation. A Tradition governing a resource that many Steps need a little of will score like one governing a resource that one Step needs a great deal of. Nothing in the model justifies that trade; the column sum is a summary statistic and the chapter uses it as one.
 
@@ -159,7 +159,7 @@ It is not the document Kurtz named. He points at Wilson's discussion of the Firs
 
 **A second thing I cannot check.** Kurtz says the conflation appears in *some later AA literature*. He does not say which, and I have not identified an instance. So I am answering a charge whose extent I have not been able to measure.
 
-**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in `model/book-calculations.ipynb` section 11d.
+**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in the part4 blocks of `model/book-calculations.ipynb`.
 
 ### 4. References
 
@@ -175,7 +175,7 @@ Wilson, W. (1945). "Modesty One Plank for Good Public Relations." *AA Grapevine*
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11d, and section 17 for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
 
 **What was not read:**
 

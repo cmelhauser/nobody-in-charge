@@ -113,7 +113,7 @@ The rotation matrix is constructed by averaging over a cycle: for each of R term
 | 100 | 0.005 | 0.047 | 0.004 |
 | 400 | 0.003 | 0.040 | 0.001 |
 
-Flat benchmark at N = 400: max influence 0.0025, error 0.040. The alpha over R approximation tracks the computed value closely, which is the check that the mechanism is what the text says it is.
+Flat benchmark at N = 400: max influence 0.0025, error 0.040. The alpha over R approximation tracks the computed value closely for small pools, up to about twenty-five, which is the check that the mechanism is what the text says it is; at larger pools the flat share, (1 - alpha)/N for everyone outside the pool, is no longer negligible.
 
 **Fixed pool of twelve, as the group grows:**
 
@@ -179,7 +179,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased, and the 1953 comment
 
 **Internal, and reproducible from this repository:**
 
-The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in `model/book-calculations.ipynb`, section 2. The elder-statesman family and the twenty-six-per-cent contrast quoted above are computed in `model/part2_influence.py`, sections 5b and 5c, and cached to `research/part2_influence.json`.
+The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in the part2 closed-forms block of `model/book-calculations.ipynb`. The elder-statesman family and the twenty-six-per-cent contrast quoted above are computed in `model/part2_influence.py`, sections 5b and 5c, and cached to `research/part2_influence.json`.
 
 **What was not read:**
 
