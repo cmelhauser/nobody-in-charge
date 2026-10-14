@@ -3,7 +3,7 @@
 
 By 1945 the mail was the problem.
 
-Jack Alexander's article had done what the founders spent 1937 failing to buy: it had made Alcoholics Anonymous national, and it had done so without missionaries, without hospitals, and without a dollar of Rockefeller money. The two thousand members who had watched that article appear in 1941 were more than fifteen thousand by 1945. Groups were forming in cities where nobody from New York had ever set foot. There was no organisation to speak of, no charter, no permission required. Two or three alcoholics could call themselves an AA group and did.
+Jack Alexander's article had done what the founders spent 1937 failing to buy: it had made Alcoholics Anonymous national, and it had done so without missionaries, without hospitals, and without Rockefeller's millions. The two thousand members who had watched that article appear in 1941 were more than fifteen thousand by 1945. Groups were forming in cities where nobody from New York had ever set foot. There was no organisation to speak of, no charter, no permission required. Two or three alcoholics could call themselves an AA group and did.
 
 And they wrote to New York. Most of the letters wanted literature, or the address of another drunk in the next county. But a good many asked questions of procedure and practice, and a few asked questions of theory, and Wilson answered them himself, for hours, one at a time. Ernest Kurtz, who read the files, reconstructs the house style of those replies:
 

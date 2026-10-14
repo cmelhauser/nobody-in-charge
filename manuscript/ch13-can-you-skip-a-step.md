@@ -25,7 +25,7 @@ Then they did a factor analysis, and found that step work does not behave as one
 
 That is not what a strict chain looks like.
 
-If the twelve steps were a single sequence in which each link enables the next, you would expect them to move together and to have a common relationship with outcomes. Two separable factors, pulling in opposite directions over time, with only one of them predicting whether people drink, is evidence for something more like two intertwined processes than one ladder.
+If the twelve steps were a single sequence in which each link enables the next, you would expect them to move together and to have a common relationship with outcomes. Two separable factors, one holding steady and one declining over time, with only one of them predicting whether people drink, is evidence for something more like two intertwined processes than one ladder.
 
 I want to be careful about how much weight that carries. It is one study, of a hundred and thirty people, using an exploratory method on self-reported data. It does not show that the steps can be done in any order. But it is the closest thing we have to evidence on the question, it arrived before I built anything, and it points away from the simplest version of what everyone says.
 
@@ -41,7 +41,7 @@ Now apply that to a step whose predecessor has not been done at all, and watch w
 
 At the extreme negative end, output is zero. There is no partial credit. That is exactly the folk claim, stated formally: you cannot make amends you have no inventory for, and no amount of meetings or sponsorship or willingness compensates. Bring the parameter up to minus four and it is still zero. Minus one, still zero. Even at exactly zero, the boundary case, it is still zero.
 
-Push it just above zero and the picture changes completely. At 0.3, a person with no prior step at all is running at about 22 per cent of what they would otherwise manage. At 0.6, about 39 per cent. At 0.9, about 48 per cent. The group is carrying them past the gap.
+Push it just above zero and the picture changes completely. At 0.3, a person with no prior step at all produces an output of 0.22, on a scale where full inputs at every step give one. At 0.6 the output is 0.39. At 0.9 it is 0.48. The group is carrying them past the gap.
 
 **So the entire question reduces to the sign of one number.** Negative or zero, and the steps are a chain, and everyone in the rooms has been right for ninety years. Positive, and they are more like a menu with a strong recommended order, and a well-supported person can get most of the way without a step they never did.
 

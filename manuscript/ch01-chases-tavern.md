@@ -107,9 +107,9 @@ By 1848 it was essentially over.
 
 Not disgraced. Not banned. Not broken up by opponents. Simply, gone. The societies thinned and folded. The great processions stopped. The speakers moved on to other platforms and other causes. By the time Bill Wilson and Dr Bob Smith met in Akron in 1935, the Washingtonian movement was so thoroughly extinct that it had to be *rediscovered*, dug out of libraries, as a curiosity: a thing that had once happened, at scale, and left almost nothing behind.
 
-Six hundred thousand people. Eight years. Gone.
+A claimed six hundred thousand people. Eight years. Gone.
 
-That is the fact this book exists to understand, and I want to be careful about it immediately, because the tidy version of the story is very tempting and it is not obviously true.
+That is the story this book exists to understand, and I want to be careful about it immediately, because the tidy version of the story is very tempting and it is not obviously true.
 
 The tidy version, the one told in a thousand meeting rooms, and I will be examining it closely in the next chapter, is that the Washingtonians destroyed themselves by getting distracted. They took up prohibition. They took up abolition. They took up sectarian religion and party politics and any other cause that came through the door. They quarrelled. They leaned on famous speakers, and when one of the famous speakers was found drunk in 1845 the movement's credibility went down with him. They lost sight of the one thing they had been for.
 
@@ -163,7 +163,7 @@ The limits are worth stating too. This is one compiler's manual, in one edition,
 
 Ninety-five years after Chase's Tavern, in a house in Akron, a failed stockbroker and a proctologist who could not stop drinking founded a fellowship on almost exactly the same insight: that one alcoholic talking to another does something no outsider can do.
 
-The Washingtonians had that insight first, executed it beautifully, and reached six hundred thousand people with it.
+The Washingtonians had that insight first, executed it beautifully, and claimed to have reached six hundred thousand people with it.
 
 Alcoholics Anonymous has been running for more than ninety years. It keeps no membership
 lists, and the edition of its own membership table read here stops at 2020, so I state no
@@ -195,7 +195,7 @@ Modern AA runs on both. In 1840 the second channel did not exist. There were no 
 
 That is a group operating on one engine. And a one-engine group has a property the model makes very stark: its growth is proportional to how much its members are *currently* out carrying the message, so it can grow explosively, which the Washingtonians did, faster than almost any voluntary organisation in American history, and it has no floor underneath it. Nothing arrives on its own. If the carrying slows for any reason at all, inflow does not slow proportionately. It stops.
 
-I did not go looking for this. It fell out of noticing what the model needed and what 1840 could supply, and it reframes the growth in this chapter: the six hundred thousand is not only evidence of how well the thing worked. It is evidence of how completely everything depended on one mechanism.
+I did not go looking for this. It fell out of noticing what the model needed and what 1840 could supply, and it reframes the growth in this chapter: the six hundred thousand, which is a claim and not a count, is not only a sign of how well the thing worked. However many it was, it shows how completely everything depended on one mechanism.
 
 The other model connection here is the Worcester number, and I will only gesture at it. In the model, one of the resources a group produces is an *opportunity to help*. Its proxy is the number of low-practice members per high-practice potential helper. That is not a count of newcomers: the model contains no tenure or sponsorship state and cannot know who arrived when. A society of five hundred containing fifty alcoholics can therefore illustrate the intuition, but the historical example is not something the simulation measures.
 
