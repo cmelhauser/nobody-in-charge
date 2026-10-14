@@ -97,7 +97,7 @@ One last observation, which is the strangest thing the sensitivity work turned u
 
 Thirty-five of those hundred and eighteen numbers record which Traditions govern the supply of which group resource. All of Part Four is built on them. And they have no effect at all on a group that follows the Traditions completely.
 
-This is arithmetic and not a result. Each column of that matrix is scaled to sum to one before it is used, so at full adherence the scaling undoes the entries exactly and every resource comes out at quality one, no matter what I put in the cells. Those thirty-five numbers begin to bite only when adherence is partial, and even then a quarter's change in any one of them shifts nothing you could measure.
+This is arithmetic and not a result. Each column of that matrix is scaled to sum to one before it is used, so at full adherence the scaling undoes the entries exactly and every resource comes out at quality one, no matter what I put in the cells. Those thirty-five numbers begin to bite only when adherence is partial, and even then a quarter's change in any one of them is small in the Morris screen, which is a screen and not a test of each cell.
 
 This cancellation is scenario-specific, not reassurance that the governance
 matrix is unimportant. At partial adherence its magnitudes matter, and Part Four's

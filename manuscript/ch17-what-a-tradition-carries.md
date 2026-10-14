@@ -3,7 +3,7 @@
 
 Chapter Sixteen read the coupling one row at a time and asked, of each Step, which Tradition supplies it. Read the same table one column at a time and a different question appears: how much is each Tradition carrying?
 
-Add a Tradition's column and you get the total demand placed on everything it governs, summed across all twelve Steps. It is a crude measure and I want to say so before using it. It treats a unit of demand for confidentiality as interchangeable with a unit of demand for somebody to help, which is not obviously right. What it does capture is exposure: how much of the programme stops working if this Tradition stops working.
+Add a Tradition's column and you get the total demand placed on everything it governs, summed across all twelve Steps. It is a crude measure and I want to say so before using it. It treats a unit of demand for confidentiality as interchangeable with a unit of demand for somebody to help, which is not obviously right. What it does capture is overlap in my coding: how much of the programme's demand falls on resources this Tradition governs. It does not say what happens to a group when the Tradition fails, and the simulated degradations of Chapter Six order the Traditions differently.
 
 The answer is lopsided, and the shape of the lopsidedness is the chapter.
 
@@ -37,7 +37,7 @@ Which is a much more specific claim than "unity is important", and it is the one
 
 ---
 
-A critic has, in a sense, already attacked it, and the attack is a hundred years old and comes from inside the fellowship's own historiography.
+A critic has, in a sense, already attacked it, and the attack is decades old and comes from inside the fellowship's own historiography.
 
 Ernest Kurtz, in a note to his fifth chapter, records that in some later AA literature the concept properly conveyed by the term *single-purposed* was obfuscated by substituting the term *unity* as its supposed exact equivalent, and that after Wilson's death AA itself at times fell into this. He is not speculating. The sentence he is glossing is Wilson's own, from the *Grapevine* of August 1945, where Wilson writes that AA must make everlastingly certain that it will always be strong enough and single-purposed enough from within to relate itself rightly to the world without. That is the sentence Wilson wrote eight months before publishing the Traditions, and the thing it calls single-purposed is close to what the First Tradition would later be called on to mean.
 
@@ -81,7 +81,7 @@ A second design agrees, and it agrees on the interesting part. Appendix A7.6 reb
 
 What this means for the rest of the book is a handover rather than a conclusion.
 
-A Tradition that supplies something to nearly every resource is a Tradition whose failure has no signature. It does not break the room in a way anyone can point at in the month it happens. It lowers the ceiling on everything, and the group carries on looking like itself, and the decline is legible only in the aggregate and only later.
+A Tradition that supplies something to nearly every resource is a Tradition whose failure, if my coding is right, has no signature. This is a reading of the derived matrix, not a simulated result. It does not break the room in a way anyone can point at in the month it happens. It lowers the ceiling on everything, and the group carries on looking like itself, and the decline is legible only in the aggregate and only later.
 
 That is precisely the failure this book opened with. The Washingtonians did not lose a specific capability on a specific date. They were absorbed, gradually, into something adjacent, and the record of the absorption is a set of small changes none of which looked fatal at the time. Part Five is about what that looks like from inside a group and what, if anything, would show up in the numbers first.
 

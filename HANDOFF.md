@@ -94,7 +94,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 314 pages, paper 35, primer 24
+- three built PDFs: book 316 pages, paper 35, primer 24
 
 ---
 
