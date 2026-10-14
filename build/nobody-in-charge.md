@@ -1682,7 +1682,7 @@ Ann arrives thinking nine. Ben thinks two. Cara thinks six, Dan four, Eve seven.
 
 Now they talk. Nobody is trying to win. Everybody listens to everybody, and everybody adjusts a bit, and how much each person adjusts depends on whose judgment they have come to trust. Ann respects Cara's caution about money and moves toward her. Ben has been coming three months and moves toward almost anyone. Cara listens too, but less, because she has thought about this before.
 
-Run that for one round of conversation and the spread has already collapsed. Ann has come down from nine to six. Ben has come up from two to five and a quarter. The others have converged toward the middle. After a second round they are within a tenth of each other, and by the third round they have all arrived at the same number, and it is 5.74.
+Run that for one round of conversation and the spread has already collapsed. Ann has come down from nine to six. Ben has come up from two to five and a quarter. The others have converged toward the middle. After a second round they are within a tenth of each other, after a third within a hundredth, and by the fourth they have all arrived at the same number, and it is 5.74.
 
 Nobody proposed 5.74. Nobody argued for it. It is not anyone's original view and it is not a compromise anybody negotiated. It is where the room goes when people who trust each other unequally keep adjusting toward each other.
 
@@ -1772,7 +1772,7 @@ The worked example uses this matrix, rows in the order Ann, Ben, Cara, Dan, Eve:
 | Dan | 0.15 | 0.15 | 0.35 | 0.20 | 0.15 |
 | Eve | 0.20 | 0.15 | 0.30 | 0.15 | 0.20 |
 
-Starting beliefs 9, 2, 6, 4, 7. Successive rounds give 6.00, 5.25, 5.85, 5.60, 5.90; then 5.75, 5.69, 5.76, 5.74, 5.76; then agreement at 5.74 to two decimal places.
+Starting beliefs 9, 2, 6, 4, 7. Successive rounds give 6.00, 5.25, 5.85, 5.60, 5.90; then 5.76, 5.69, 5.76, 5.74, 5.76; then all within a hundredth of 5.74; then agreement at 5.74 to two decimal places.
 
 Influence weights: Ann 0.204, Ben 0.178, Cara 0.333, Dan 0.147, Eve 0.138. The weighted average of the starting beliefs under these weights is 5.74, matching the simulated settling point exactly, which is the check that the eigenvector calculation and the iteration agree.
 
@@ -1986,7 +1986,7 @@ The result in this chapter is not mine and it is not simulated. It is a theorem,
 
 What my own model contributes is the tables. The theorem tells you that maximum influence must vanish; it does not tell you how fast concentration hurts in a group of any particular size, or how the damage compares between a single dominant member and a small clique. Those are computed from constructed trust matrices, and the computation is simple enough to be checkable by hand for small groups.
 
-The one substantive thing the model adds to the theorem is the small-group observation: at ten members, all four governance arrangements produce similar accuracy. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
+The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 45 per cent of one another in accuracy, against a factor of seven or eight at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
 
 ### 2. The technical version
 
@@ -2015,7 +2015,7 @@ The error is available in closed form, which is how the second table was compute
 
 > consensus = mu + sum over j of s(j) e(j)
 
-and that weighted sum of errors is normally distributed with mean zero and standard deviation sigma times ||s||, the Euclidean length of the influence vector. For a normal variable with mean zero, the expected absolute value is its standard deviation times sqrt(2/pi). So
+and, if the errors are independent normal draws with mean zero and variance sigma squared, that weighted sum of errors is normally distributed with mean zero and standard deviation sigma times ||s||, the Euclidean length of the influence vector. For other error distributions the root-mean-square error is still proportional to ||s||, and the closed form below is a benchmark. For a normal variable with mean zero, the expected absolute value is its standard deviation times sqrt(2/pi). So
 
 > E | consensus - mu | = sigma * ||s|| * sqrt(2/pi)
 
@@ -2029,7 +2029,7 @@ Golub and Jackson identify three obstructions to the vanishing condition: promin
 
 **That mapping was stated here for some time without being computed, and computing it changed it.** The three obstructions are properties of *sequences* of societies as they grow, not properties of a room. Take the clique and the imbalanced member at fixed magnitude and neither obstructs anything. Take a clique of three that gives a tenth of its attention outward. Between them the three hold 0.750 of the influence in a group of ten. In a group of fifty it is 0.375, in a group of two hundred and fifty 0.107, and in a group of a thousand 0.029. A member who receives twenty times the attention he gives holds 0.690 in a group of ten and 0.020 in a group of a thousand. Both shares vanish, so both satisfy the condition and neither is an obstruction at all.
 
-Now let the same two practices grow with the group. A clique whose inwardness approaches one as the group expands holds 0.167 of the influence at every size tested from ten to a thousand. A member whose attention advantage grows in proportion to the group runs from 0.182 at ten to 0.167 at a thousand, converging to a positive share rather than settling on one exactly. Neither is falling toward zero, and that is the whole of what makes them obstructions.
+Now let the same two practices grow with the group. A clique of three whose inwardness approaches one as the group expands holds 0.500 of the influence between them, 0.167 each, at every size tested from ten to a thousand. A member whose attention advantage grows in proportion to the group runs from 0.182 at ten to 0.167 at a thousand, converging to a positive share rather than settling on one exactly. Neither is falling toward zero, and that is the whole of what makes them obstructions.
 
 So what makes a practice dangerous is not its severity but whether it scales. A fellowship with one very prominent member in every room of thirty is in a different position from a fellowship with one very prominent member however large the room gets, and the difference is not a matter of degree. It is the difference between a share that vanishes and a share that does not.
 
@@ -2053,9 +2053,9 @@ The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0
 | rotation only, pool at 26 per cent | 2.0 | 2.0 | 2.0 |
 | plus 3 elders at 0.10 | 2.5 | 9.2 | 34.2 |
 | plus 3 elders at 0.20 | 4.1 | 17.4 | 67.4 |
-| plus 5 elders at 0.20 | 2.7 | 10.7 | 40.7 |
+| plus 5 elders at 0.20 | 2.8 | 10.8 | 40.8 |
 
-Entries are maximum influence as a multiple of the flat benchmark. The first row holding at exactly 2.0 is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
+Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
 
 And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the companion paper and it starts hurting almost immediately.
 
@@ -2397,7 +2397,7 @@ The rotation matrix is constructed by averaging over a cycle: for each of R term
 | 100 | 0.005 | 0.047 | 0.004 |
 | 400 | 0.003 | 0.040 | 0.001 |
 
-Flat benchmark at N = 400: max influence 0.0025, error 0.040. The alpha over R approximation tracks the computed value closely, which is the check that the mechanism is what the text says it is.
+Flat benchmark at N = 400: max influence 0.0025, error 0.040. The alpha over R approximation tracks the computed value closely for small pools, up to about twenty-five, which is the check that the mechanism is what the text says it is; at larger pools the flat share, (1 - alpha)/N for everyone outside the pool, is no longer negligible.
 
 **Fixed pool of twelve, as the group grows:**
 
@@ -2463,7 +2463,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased, and the 1953 comment
 
 **Internal, and reproducible from this repository:**
 
-The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in `model/book-calculations.ipynb`, section 2. The elder-statesman family and the twenty-six-per-cent contrast quoted above are computed in `model/part2_influence.py`, sections 5b and 5c, and cached to `research/part2_influence.json`.
+The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the required-pool calculation at each size. Code and assertions in the part2 closed-forms block of `model/book-calculations.ipynb`. The elder-statesman family and the twenty-six-per-cent contrast quoted above are computed in `model/part2_influence.py`, sections 5b and 5c, and cached to `research/part2_influence.json`.
 
 **What was not read:**
 
@@ -2525,7 +2525,7 @@ Now the limits, and there are four that matter.
 
 **The exchangeability in Chapter Eight is exact only in the limit.** Real trust is never perfectly uniform, even under flawless adherence. The Traditions push maximum influence toward one over N; they do not deliver it.
 
-**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. It ranks referral loss above attraction loss, which favours the critic's emphasis on inflow, but nothing in the model ranks inflow against the structure of influence.
+**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. At the default decay rate, over 400 paired seeds, final membership is lower under referral loss than under attraction loss, which favours the critic's emphasis on inflow, though that ordering reverses on membership at decay rates a quarter or more below the default. Nothing in the model ranks inflow against the structure of influence.
 
 I think both matter and I think the honest position is that the model cannot rank them. What the model can say is that the two do different work. Inflow determines whether a group survives. Influence structure determines whether the decisions it makes on the way are any good. A group can have plenty of the first and still spend twenty years deciding things badly, and nothing in its experience will tell it so.
 
@@ -2559,7 +2559,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 ### 2. The technical version
 
-No new computation. The figures referenced are from Chapter Nine, section 2, and are asserted in `model/book-calculations.ipynb`, section 2: closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
+No new computation. The figures referenced are from Chapter Nine, section 2, and are computed in the part2 closed-forms block of `model/book-calculations.ipynb`: closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 
@@ -2651,7 +2651,7 @@ A dial cannot rise much while the one before it sits near zero. In the model the
 
 This is the assumption most likely to be wrong, and it is also the one doing the most work, which is an uncomfortable combination. Chapter Thirteen is entirely about whether it is true, and states plainly that nobody has tested it, so Chapter Twelve should not pretend the matter is settled. What this chapter contributes is only that the folk rule is expressible: the claim that you cannot skip a step is a claim about the value of one exponent, and writing it that way is what makes it checkable.
 
-There is also a fact about that exponent I did not expect, which comes from the sensitivity work rather than from any argument. Of the hundred and eighteen numbers in this model, the step-ordering exponent is the one with the largest single influence on how a group ends up, and it holds that position on all three outcomes the sweep scores. Moved alone by a quarter in either direction, it swings the group's daily practice by about one and a quarter times its own baseline value, its maintenance by five and a half times, and its final membership by two and a half times, which is more than the decay rate does and more than anything else does. The strictness of the ordering is the most consequential thing in the apparatus and it is a number nobody has measured. That is worth saying plainly, and it is a better argument for Chapter Thirteen's research programme than anything Chapter Thirteen says on its own behalf.
+There is also a fact about that exponent I did not expect, which comes from the sensitivity work rather than from any argument. Of the hundred and eighteen numbers in this model, the step-ordering exponent is the one with the largest single influence on how a group ends up, and it holds that position at a quarter either way on mean practice, maintenance and final membership, the three outcomes it moves. Moved alone by a quarter in either direction, it swings the group's mean practice across the twelve Steps by about one and a quarter times its own baseline value, its maintenance by five and a half times, and its final membership by about 2.6 times, which is more than the decay rate does at that distance. Over the whole four-distance ladder the decay rate and churn lead on practice and membership. The strictness of the ordering is the most consequential thing in the apparatus and it is a number nobody has measured. That is worth saying plainly, and it is a better argument for Chapter Thirteen's research programme than anything Chapter Thirteen says on its own behalf.
 
 ---
 
@@ -2775,8 +2775,8 @@ one, so changing het_sd changes dispersion without mechanically changing average
 |---|---|---|---|
 | 1 admit | 1.00 | 7 ask | 0.17 |
 | 2 believe | 0.71 | 8 list harms | 0.33 |
-| 3 decide | 0.29 | 9 amends | 0.62 |
-| 4 inventory | 0.33 | 10 daily | 0.62 |
+| 3 decide | 0.29 | 9 amends | 0.63 |
+| 4 inventory | 0.33 | 10 daily | 0.63 |
 | 5 tell someone | 0.71 | 11 connect | 0.33 |
 | 6 willing | 0.25 | 12 carry it | 1.00 |
 
@@ -2788,7 +2788,7 @@ Maximum 1.00 at Steps 1 and 12, minimum 0.17 at Step 7, mean 0.53, ratio of extr
 
 This model gives each step a single level. It therefore cannot represent the member their data describes, whose behavioural practice holds while the spiritual part falls away, and it collapses into one number the only component that predicted an outcome. That is a limitation of the representation and not a detail of calibration, and no sensitivity analysis in this book can reach it, because every design here perturbs the values of the dials rather than the decision to have one dial. Their study is small, nine months long and observational, so it is not a refutation. It is a well-aimed objection to the shape of the apparatus, and Chapter Thirteen's research programme should include it.
 
-**From the multi-level sweep** (`research/oat_full.json`, notebook section 9): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on every scored outcome. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-11 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
+**From the multi-level sweep** (`research/oat_full.json`, notebook section 9): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on mean practice, maintenance and final membership at plus or minus 25 per cent, and leaves viability and existence unmoved. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-11 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
 
 ### 3. Notes on sources
 
@@ -2800,9 +2800,9 @@ This model gives each step a single level. It therefore cannot represent the mem
 
 **The decay rate against the skill literature.** Two papers on adult skill depreciation were read on 13 September 2026, and neither measures anything the model's dials represent. Dinerstein, Megalokonomou and Yannelis use the quasi-random order in which Greek graduates wait for teaching posts and estimate that teaching skill depreciates at about four per cent a year in early-career teachers, and at about seventeen per cent in more experienced ones with a standard error larger than the estimate; they describe both as lower bounds if age itself adds skill, and their district-level estimates rest on a weak first stage. Cohen, Johnston and Lindner follow newly unemployed German workers for up to three years and find no decline in cognitive skills or in the noncognitive skills that predict earnings, although self-assessed conscientiousness, risk tolerance, trust, patience and reciprocity fall by between a fifth and three fifths of a standard deviation. The model's six per cent a week compounds to a loss of about 96 per cent a year, a half-life of 11.6 weeks against roughly sixteen and four years for teaching skill. Read as skill, the rate is one to two orders of magnitude too fast. Read as practice, which is what the dial is, it is untested: these papers bound how fast a capability fades, not how fast the habit of using it lapses, and the one declining measure in them is closer to a habit than a skill. I have left the value unchanged, because replacing an authored number with another authored number chosen after reading two papers about something else would not be an improvement, and I report instead how much rides on it.
 
-**Where the rate sits against the literature on lapsing.** The skill papers are its slow end, and after searching the literature on how fast habits and practices lapse I read two more on 22 September 2026. Edgren, Baretta and Inauen followed a hundred and ninety-four people in Switzerland for ninety-one days while each tried to weaken one habit, taking a daily automaticity rating and fitting six curves per person, eleven thousand eight hundred and five ratings in all. Where a person's trajectory both fitted well and crossed the middle of the scale, the decline settled after nine or ten days on average, with a range from one day to sixty-five, and about three quarters of the variance lay between people rather than within them. That is an order of magnitude faster than six per cent a week. It also measures the opposite case: an unwanted habit being actively removed, with a substitution or inhibition plan, where the model's dial is a wanted practice fading because nothing renews it. The authors add two cautions I take seriously, that settling is not the same as breaking, and that their shortest estimates are too short to believe. Kaskutas, Bond and Avalos give the other end from inside AA itself. They followed five hundred and eighty-six alcohol-dependent people for seven years and found four patterns of meeting attendance: nearly two thirds attending almost none, a sixth at about fifty meetings a year throughout, a ninth starting near a hundred and fifty and falling steeply, and a tenth starting near two hundred and falling gradually. Their central finding is a warning to anyone who would test this model against attendance rolls, because the falls in attendance were not matched by falls in abstinence: about three quarters of both declining groups were abstinent at seven years, and most of the high group were still helping newcomers. The rate is therefore bracketed rather than measured. Deliberate weakening of a habit is faster, in days; skill fades slower, in years; participation in the fellowship falls away over years while the outcome it is meant to protect does not follow it down. Six per cent a week sits where a reader would expect the lapse of a voluntary practice to sit, between two measured literatures rather than outside them, and that is a statement about plausibility rather than evidence for the number. I have left it unchanged.
+**Where the rate sits against the literature on lapsing.** The skill papers are its slow end, and after searching the literature on how fast habits and practices lapse I read two more on 22 September 2026. Edgren, Baretta and Inauen followed a hundred and ninety-four people in Switzerland for ninety-one days while each tried to weaken one habit, taking a daily automaticity rating and fitting six curves per person, eleven thousand eight hundred and five ratings in all. Where a person's trajectory both fitted well and crossed the middle of the scale, the decline settled after nine or ten days at the median, with a range from one day to sixty-five, and about three quarters of the variance lay between people rather than within them. That is an order of magnitude faster than six per cent a week. It also measures the opposite case: an unwanted habit being actively removed, with a substitution or inhibition plan, where the model's dial is a wanted practice fading because nothing renews it. The authors add two cautions I take seriously, that settling is not the same as breaking, and that their shortest estimates are too short to believe. Kaskutas, Bond and Avalos give the other end from inside AA itself. They followed five hundred and eighty-six alcohol-dependent people for seven years and found four patterns of meeting attendance: nearly two thirds attending almost none, a sixth at about fifty meetings a year throughout, a ninth starting near a hundred and fifty and falling steeply, and a tenth starting near two hundred and falling gradually. Their central finding is a warning to anyone who would test this model against attendance rolls, because the falls in attendance were not matched by falls in abstinence: about three quarters of both declining groups were abstinent at seven years, and most of the high group were still helping newcomers. The rate is therefore bracketed rather than measured. Deliberate weakening of a habit is faster, in days; skill fades slower, in years; participation in the fellowship falls away over years while the outcome it is meant to protect does not follow it down. Six per cent a week sits where a reader would expect the lapse of a voluntary practice to sit, between two measured literatures rather than outside them, and that is a statement about plausibility rather than evidence for the number. I have left it unchanged.
 
-**How much rides on it.** The decay rate is second only to the ordering exponent in the multi-level sweep, the Morris screen and the Sobol decomposition, where its membership total-order index is 0.373. Chapter Fourteen's 400-seed sweep takes it from 30 per cent below its value to 50 per cent above, and at 30 per cent below the full-adherence group ends with 57.71 members against 17.80, close to the room's capacity. The one-at-a-time screen, run at three common seeds per endpoint, found large downward moves of this rate among the few that reverse the ordering between losing referrals and losing attraction on final membership (Chapter One; appendix A7.5), and a confirmatory run now measures that directly (`research/decay_ordering.json`): three conditions, both channels, pure attraction loss and referral loss, at full adherence otherwise, with 400 seeds held in common across all of them, a thirty-year horizon and a half-week step, at the rate's value and at 25, 50 and 75 per cent below it. At the model's own rate the published ordering holds on every outcome: attraction loss minus referral loss is 11.87 members [11.47, 12.27] on final membership, 0.9575 [0.9365, 0.9785] on endpoint viability and 0.8950 [0.8649, 0.9251] on existence, all paired 95 per cent intervals. A second run on the same design (`research/decay_reversal.json`) fills in ten, fifteen and twenty per cent below and locates the change. At ten per cent below the attraction-starved group is still the larger, by 10.92 members [10.18, 11.66], and at fifteen per cent below by 6.35 [5.03, 7.68]. At twenty per cent below, a half-life of 14.4 weeks, the paired difference is 2.79 members [0.81, 4.77] the other way, and the referral-starved group ends the larger. The membership ordering therefore turns between fifteen and twenty per cent, and at all three of those rates the attraction-starved group remains the more often viable and the more often alive, with no paired run reversed on either. A quarter below, a half-life of 15.4 weeks, the outcomes part company. The referral-starved group now ends the larger, at 29.98 members ±2.25 against 15.01 ±0.37, a paired difference of 14.97 [12.73, 17.21] in its favour, yet it is still the less often viable, at 75.50 per cent [71.06, 79.46] against 100 per cent [99.05, 100], and it closes in 64 runs of 400 where the attraction-starved group never closes; the paired differences are 0.2450 [0.2028, 0.2872] on viability and 0.1600 [0.1240, 0.1960] on existence. Half and three quarters below, the referral-starved group is viable in all 400 runs and ends at 59.21 ±0.12 and 59.71 ±0.07 members, at the edge of the room's capacity of 60, while the attraction-starved group ends at 18.19 ±0.40 and 20.59 ±0.43. A rate anywhere near the skill literature's lies far beyond even the slowest of these. The comparisons the book reports are therefore conditional on practice lapsing at roughly the assumed rate: slow it by a fifth and which loss is worse depends on the outcome scored, and slow it by half and a group with no referrals fills its room. A measurement of how fast a practice lapses would be worth nearly as much to the book as a measurement of the ordering exponent.
+**How much rides on it.** The decay rate is second only to the ordering exponent on membership in the Morris screen, in the Sobol decomposition and in the multi-level sweep at plus or minus a quarter, and first on mean practice in the Morris screen; its membership total-order index is 0.373. Chapter Fourteen's 400-seed sweep takes it from 30 per cent below its value to 50 per cent above, and at 30 per cent below the full-adherence group ends with 57.71 members against 17.80, close to the room's capacity. The one-at-a-time screen, run at three common seeds per endpoint, found large downward moves of this rate among the few that reverse the ordering between losing referrals and losing attraction on final membership (Chapter One; appendix A7.5), and a confirmatory run now measures that directly (`research/decay_ordering.json`): three conditions, both channels, pure attraction loss and referral loss, at full adherence otherwise, with 400 seeds held in common across all of them, a thirty-year horizon and a half-week step, at the rate's value and at 25, 50 and 75 per cent below it. At the model's own rate the published ordering holds on every outcome: attraction loss minus referral loss is 11.87 members [11.47, 12.27] on final membership, 0.9575 [0.9365, 0.9785] on endpoint viability and 0.8950 [0.8649, 0.9251] on existence, all paired 95 per cent intervals. A second run on the same design (`research/decay_reversal.json`) fills in ten, fifteen and twenty per cent below and locates the change. At ten per cent below the attraction-starved group is still the larger, by 10.92 members [10.18, 11.66], and at fifteen per cent below by 6.35 [5.03, 7.68]. At twenty per cent below, a half-life of 14.4 weeks, the paired difference is 2.79 members [0.81, 4.77] the other way, and the referral-starved group ends the larger. The membership ordering therefore turns between fifteen and twenty per cent, and at all three of those rates the attraction-starved group remains the more often viable and the more often alive, with no paired run reversed on either. A quarter below, a half-life of 15.4 weeks, the outcomes part company. The referral-starved group now ends the larger, at 29.98 members ±2.25 against 15.01 ±0.37, a paired difference of 14.97 [12.73, 17.21] in its favour, yet it is still the less often viable, at 75.50 per cent [71.06, 79.46] against 100 per cent [99.05, 100], and it closes in 64 runs of 400 where the attraction-starved group never closes; the paired differences are 0.2450 [0.2028, 0.2872] on viability and 0.1600 [0.1240, 0.1960] on existence. Half and three quarters below, the referral-starved group is viable in all 400 runs and ends at 59.21 ±0.12 and 59.71 ±0.07 members, at the edge of the room's capacity of 60, while the attraction-starved group ends at 18.19 ±0.40 and 20.59 ±0.43. A rate anywhere near the skill literature's lies far beyond even the slowest of these. The comparisons the book reports are therefore conditional on practice lapsing at roughly the assumed rate: slow it by a fifth and which loss is worse depends on the outcome scored, and slow it by half and a group with no referrals fills its room. A measurement of how fast a practice lapses would be worth nearly as much to the book as a measurement of the ordering exponent.
 
 **The numbers are computed, not cited**, and are asserted against these printed values in the companion notebook.
 
@@ -3034,7 +3034,7 @@ Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error.
 
 **Internal, and reproducible from this repository:**
 
-The substitution table and cross-partial series are checked in `model/book-calculations.ipynb`; both are exact algebra on a fixed functional form and carry no sampling error. The 3,200 proxy-averaging jobs, 400 replications for each of four true values and two proxy counts, are in `research/ch13_reps.json`, generated by `model/ch13_reps.py`. Those replications do carry sampling error, and the fractions below are proportions over 400 replications with 95 per cent Wilson intervals. At rho = 0 the estimated effect is nonpositive in 53.5 per cent of the one-proxy designs, interval 48.6 to 58.3, and in 55.5 per cent of the three-proxy designs, interval 50.6 to 60.3. At rho = -4 and rho = -1 it is nonpositive in every replication, interval 99.0 to 100.0, and at rho = 0.5 in 0.2 per cent of the one-proxy designs, interval 0.0 to 1.4, and none of the three-proxy designs, interval 0.0 to 1.0.
+The substitution table and cross-partial series are checked in `model/book-calculations.ipynb`; both are exact algebra on a fixed functional form and carry no sampling error. The 3,200 proxy-averaging jobs, 400 replications for each of four true values and two proxy counts, are in `research/ch13_reps.json`, generated by `model/ch13_reps.py`. Those replications do carry sampling error, and the fractions below are proportions over 400 replications with 95 per cent Wilson intervals. At rho = 0 the estimated effect is nonpositive in 53.5 per cent of the one-proxy designs, interval 48.6 to 58.3, and in 55.5 per cent of the three-proxy designs, interval 50.6 to 60.3. At rho = -4 and rho = -1 it is nonpositive in every replication, interval 99.0 to 100.0, and at rho = 0.5 in 0.25 per cent of the one-proxy designs, interval 0.0 to 1.4, and none of the three-proxy designs, interval 0.0 to 1.0.
 
 **What was not read:**
 
@@ -3080,7 +3080,7 @@ Both were genuine equilibria of that frozen diagnostic. They are not two typical
 
 The old frozen-environment diagnostic also produced a distinctive collapsed profile, which is retained here as a record of the proposed mechanism rather than as a release result.
 
-The collapsed member has not lost everything. Averaged over all twelve dials they are at 0.27 against the healthy member's 0.50, which is a bit under half. That sounds like a person in obvious trouble. Look at the dials one at a time and it is stranger than that.
+The collapsed member has not lost everything. Averaged over all twelve dials they are at 0.27 against the healthy member's 0.50, which is a bit over half. That sounds like a person in obvious trouble. Look at the dials one at a time and it is stranger than that.
 
 Step One, the admission, sits at 0.758 in the collapsed state against 0.766 in the healthy one. It is essentially untouched. Step Two and Step Three are down by a few per cent. Step Four, the inventory, has gone from 0.56 to 0.44, which you would have to be looking for. From there it falls off a shelf: Step Eight from 0.46 to 0.06, Step Nine from 0.36 to 0.01, and the three daily steps to nothing at all.
 
@@ -3342,7 +3342,7 @@ The more ambitious cross-step claim does not survive correction. Step Nine is lo
 
 That is weaker than the result I wanted. Inside this model Step Twelve is load-bearing for membership and the maintenance aggregate. The evidence does not isolate damage to a particular Step with no direct connection to it.
 
-And notice what does *not* happen within the thirty-year experiment. The same 394 of 400 runs finish endpoint-viable in the baseline and with Step Twelve disabled. That is a finite-horizon result, not proof that a group with no service practice persists indefinitely. Within the modeled horizon it looks smaller without changing the estimated viability fraction.
+And notice what does *not* happen within the thirty-year experiment. The same number, 394 of 400, finish endpoint-viable in the baseline and with Step Twelve disabled, though not the same runs: six seeds are viable in only one condition and six in only the other. That is a finite-horizon result, not proof that a group with no service practice persists indefinitely. Within the modeled horizon it looks smaller without changing the estimated viability fraction.
 
 ---
 
@@ -3515,7 +3515,7 @@ For a long time this chapter said that AA's own literature gestures at the paral
 
 The book to check is the obvious one. *Twelve Steps and Twelve Traditions*, published in 1953, is the only work that treats both lists at length, one chapter each, bound together, by the same author. If the pairing were intended by anyone it would show up there.
 
-Across the twelve Tradition chapters, not one refers to the Step of its own number. Not once in twelve. Across the twelve Step chapters, the word *Tradition* does not appear at all, in any of them, at any point. The single indexed cross-reference in the whole book runs the wrong way for the conjecture: the chapter on Tradition Eight mentions the Twelfth Step, and mentions it to explain that a paid worker's job is not to do Twelfth Step work but to make Twelfth Step work possible.
+Across the twelve Tradition chapters, not one refers to the Step of its own number. Not once in twelve. Across the twelve Step chapters, the word *Tradition* does not appear at all, in any of them, at any point. The one cross-reference to a Step that I found runs the wrong way for the conjecture: the chapter on Tradition Eight mentions the Twelfth Step, and mentions it to explain that a paid worker's job is not to do Twelfth Step work but to make Twelfth Step work possible.
 
 That is a stronger result than the chapter previously claimed and it costs nothing to obtain. The man who wrote both lists wrote a book about both lists and never once connected them by number.
 
@@ -3553,15 +3553,15 @@ That is where this chapter stood when it was drafted, and Chapter Eighteen has s
 
 Here is how the seven fail, because they do not all fail the same way.
 
-Step One, admitting powerlessness, is the near miss and the only one. Its principal supplier is open membership, at 1.22, and its index-mate unity comes second at 0.99. A reader who thought I had overweighted the admission resource by a fifth could flip it. That is one count of seven where the result is close enough to argue about, and I would not want the chapter to rest on it.
+Step One, admitting powerlessness, is the near miss and the only one. Its principal supplier is open membership, at 1.22, and its index-mate unity comes second at 0.99. A reader who thought I had overweighted the admission resource by about a third could flip it. That is one count of seven where the result is close enough to argue about, and I would not want the chapter to rest on it.
 
-That guess turns out to be measurable, and it is right. Delete each of the eight resources in turn, then merge each pair, then delete each pair, which is sixty-four different resource lists, and ask which Steps get their index-mates back. Two do. Step One in fifteen of the sixty-four, and Step Two in one. The other five non-trivial counts never break under any of it, and every one of the fifteen Step One failures involves removing or merging the admission resource, which is precisely the thing that gives the open door its lead there. So the chapter's weakest count is weak in exactly the way and for exactly the reason I guessed, and the other six are not.
+That guess turns out to be measurable, and it is right. Delete each of the eight resources in turn, then merge each pair, then delete each pair, which is sixty-four different resource lists, and ask which Steps get their index-mates back. Two do. Step One in fifteen of the sixty-four, and Step Two in one. The other five non-trivial counts never break under any of it, and eleven of the fifteen Step One failures involve removing or merging the admission resource, which is precisely the thing that gives the open door its lead there; the other four merge identification or proof with another resource. So the chapter's weakest count is weak in exactly the way and for exactly the reason I guessed, and the other six are not.
 
 The other six are not close. Step Two, coming to believe, is supplied principally by attraction rather than by group conscience, and its index-mate ranks seventh of twelve. Step Three's index-mate ranks seventh, with an entry of 0.01. Step Eight's ranks fourth. Step Eleven's ranks fourth. Step Nine's index-mate is one of the five that govern nothing.
 
 Then there are the two that make the point vivid, and they are inversions rather than misses.
 
-Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality more heavily than any other Step consumes any other resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
+Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality as heavily as any Step consumes any resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
 
 Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of low-practice members for each high-practice member who could help them.
 
@@ -3573,11 +3573,11 @@ The chapter would be finished there if I were willing to report one robustness n
 
 Take the two matrices and multiply every entry by a random factor, so that a reader who would have written 0.7 where I wrote 0.9 is represented in the draws. Do that two thousand times at each of four levels of disagreement, and then do something harder: throw the magnitudes away entirely, keep only which cells are empty, and fill every non-empty cell with a fresh random number.
 
-At plus or minus fifteen per cent, index-pairing fails on all counts in 98.8 per cent of draws, and the Step Twelve inversion holds in 89.7. At thirty per cent the figures are 85.5 and 67.3. At fifty per cent, 72.5 and 52.9. At seventy-five per cent, 65.2 and 43.8. Under structural randomisation, where only the sparsity survives, index-pairing fails on all counts in 40.6 per cent of draws, which is less often than it holds, and the Step Five inversion survives in 17.5 per cent.
+At plus or minus fifteen per cent, index-pairing fails on all counts in 98.8 per cent of draws, and the Step Twelve inversion holds in 89.7. At thirty per cent the figures are 85.5 and 67.4. At fifty per cent, 72.5 and 52.9. At seventy-five per cent, 65.2 and 43.8. Under structural randomisation, where only the sparsity survives, index-pairing fails on all counts in 40.6 per cent of draws, which is less often than it holds, and the Step Five inversion survives in 17.5 per cent.
 
 Read the whole curve rather than any row of it. What it says is that the result is robust to a reader who disagrees with me moderately about the magnitudes and is not robust to a reader who thinks the matrices are essentially arbitrary. That is a real claim and a bounded one. It is also a different kind of claim from the ones in Parts One and Three, which survive the structural test at a hundred per cent and may therefore be defended as resting on structure rather than on my judgement. Part Four cannot borrow that defence. It rests on the magnitudes, the magnitudes are judgement, and the argument for them is the derivation itself, chapter by chapter, and not a robustness statistic.
 
-The unevenness inside those figures matters as much as the levels. The Step Five inversion holds at 99.5 per cent at thirty per cent jitter, and the Step Twelve inversion at only 67.3. The reason is visible in the numbers: for Step Twelve, open membership is a close second at 1.10 against singleness of purpose at 1.25, because both govern the recipient resource, and a modest perturbation flips them. So the sentence about Step Five is firm and the sentence about Step Twelve is a two-in-three proposition, and I would rather say that than average them.
+The unevenness inside those figures matters as much as the levels. The Step Five inversion holds at 99.5 per cent at thirty per cent jitter, and the Step Twelve inversion at only 67.4. The reason is visible in the numbers: for Step Twelve, open membership is a close second at 1.10 against singleness of purpose at 1.25, because both govern the recipient resource, and a modest perturbation flips them. So the sentence about Step Five is firm and the sentence about Step Twelve is a two-in-three proposition, and I would rather say that than average them.
 
 ---
 
@@ -3655,12 +3655,12 @@ Load per Tradition, exact: T1 6.52, T2 3.89, T5 3.88, T3 2.69, T11 2.69, T12 2.6
 | Design | T1 most load-bearing | Index-pairing wrong on all counts | Step 5 to T12 | Step 12 to T5 |
 |---|---|---|---|---|
 | jitter ±15% | 100.0 [99.8, 100.0] | 98.8 [98.2, 99.2] | 100.0 [99.8, 100.0] | 89.7 [88.3, 91.0] |
-| jitter ±30% | 100.0 [99.8, 100.0] | 85.5 [83.9, 87.0] | 99.5 [99.1, 99.7] | 67.3 [65.3, 69.4] |
+| jitter ±30% | 100.0 [99.8, 100.0] | 85.5 [83.9, 87.0] | 99.5 [99.1, 99.7] | 67.4 [65.3, 69.4] |
 | jitter ±50% | 98.0 [97.3, 98.5] | 72.5 [70.5, 74.4] | 88.7 [87.2, 90.0] | 52.9 [50.7, 55.1] |
-| jitter ±75% | 86.8 [85.3, 88.3] | 65.2 [63.0, 67.2] | 71.5 [69.5, 73.4] | 43.8 [41.6, 45.9] |
-| structural | 75.4 [73.5, 77.2] | 40.6 [38.5, 42.8] | 17.5 [15.9, 19.2] | 27.6 [25.7, 29.7] |
+| jitter ±75% | 86.9 [85.3, 88.3] | 65.2 [63.0, 67.2] | 71.5 [69.5, 73.4] | 43.8 [41.6, 45.9] |
+| structural | 75.4 [73.5, 77.2] | 40.6 [38.5, 42.8] | 17.5 [15.9, 19.2] | 27.7 [25.7, 29.7] |
 
-Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,000 of 2,000 and their intervals are one-sided in effect; they should be read as "not observed to fail", not as certainty.
+Intervals are Wilson at 95 per cent on n = 2,000. The three 100.0 entries are 2,000 of 2,000 and their intervals are one-sided in effect; they should be read as "not observed to fail", not as certainty.
 
 **Why Step 12 is the weak row.** In the unperturbed coupling, Step 12's top two are T5 at 1.25 and T3 at 1.10, a margin of 0.15 on a value of 1.25. Both Traditions govern the recipient resource, T5 at 0.9 and T3 at 0.8, so a perturbation that moves them in opposite directions flips the winner. The margin, not the level, is what makes the row fragile.
 
@@ -3670,7 +3670,7 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 ### 3. Notes on sources
 
-**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced by section 11 of `model/book-calculations.ipynb`, with assertions against the printed values.
+**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced in the part4 blocks of `model/book-calculations.ipynb`, with assertions against the printed values.
 
 **A provenance note that belongs in the record.** The 85.5 per cent figure was carried in `research/PARAMETERS.md` for some time before it could be reproduced from the book's own repository; the code lived only in the working paper the book grew out of. It was ported into the notebook so that the claim stands on the book's own files, and the port is what produced the degradation curve and the structural test, neither of which existed before.
 
@@ -3694,7 +3694,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks for every matrix figure above and for the threshold test that reaches the five counts this chapter's designs cannot, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list test. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
 
@@ -3774,11 +3774,11 @@ I do not want to overstate what that settles. Kurtz named a specific passage in 
 
 There is one more thing worth reporting, and it is the reason this chapter might reasonably be read before Chapter Sixteen rather than after.
 
-Unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds.
+Under magnitude randomisation, unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds. It is not the most robust under every design: when cells of the governance matrix are flipped at random, the paper's sparsity table, which prices that design, shows the Step Twelve to Tradition Five claim holding more often than unity leading.
 
-Under multiplicative disagreement about the magnitudes, unity leads in every one of two thousand draws at fifteen per cent, every draw at thirty per cent, 98.0 per cent at fifty, and 86.8 per cent at seventy-five. Then take the structural test Chapter Sixteen describes, in which every magnitude is discarded and only the sparsity survives. Unity still leads in 75.4 per cent of draws.
+Under multiplicative disagreement about the magnitudes, unity leads in every one of two thousand draws at fifteen per cent, every draw at thirty per cent, 98.0 per cent at fifty, and 86.9 per cent at seventy-five. Then take the structural test Chapter Sixteen describes, in which every magnitude is discarded and only the sparsity survives. Unity still leads in 75.4 per cent of draws.
 
-Compare that with the rest of the part on the same test: 40.6 per cent for index-pairing, 17.5 for the Step Five inversion, 27.6 for the Step Twelve inversion. Those are results that depend on my magnitudes. Unity's primacy depends on them much less, because three-quarters of the time a random matrix with the same sparsity pattern puts unity first anyway.
+Compare that with the rest of the part on the same test: 40.6 per cent for index-pairing, 17.5 for the Step Five inversion, 27.7 for the Step Twelve inversion. Those are results that depend on my magnitudes. Unity's primacy depends on them much less, because three-quarters of the time a random matrix with the same sparsity pattern puts unity first anyway.
 
 That is not a hundred per cent and I will not round it up. A quarter of the time it does not. But it is the difference between a claim that rests mainly on structure and a claim that rests mainly on judgement, and Part Four contains one of the first and several of the second.
 
@@ -3812,8 +3812,8 @@ Load per Tradition, exact, with the concentration of that load across resources.
 
 | Tradition | Load | Resources governed | Largest resource | Its share | HHI | Principal for | Runner-up for |
 |---|---|---|---|---|---|---|---|
-| T1 unity | 6.52 | 8 | continuity | 0.29 | 0.204 | 4 | 6 |
-| T2 group conscience | 3.89 | 4 | counsel | 0.69 | 0.520 | 4 | 4 |
+| T1 unity | 6.52 | 8 | continuity | 0.29 | 0.204 | 4 | 5 |
+| T2 group conscience | 3.89 | 4 | counsel | 0.69 | 0.520 | 3 | 4 |
 | T5 singleness of purpose | 3.88 | 6 | proof | 0.24 | 0.197 | 1 | 1 |
 | T3 open door | 2.69 | 4 | admission | 0.37 | 0.297 | 1 | 1 |
 | T11 attraction | 2.69 | 4 | proof | 0.49 | 0.335 | 1 | 0 |
@@ -3821,7 +3821,7 @@ Load per Tradition, exact, with the concentration of that load across resources.
 | T8 non-professional | 1.11 | 4 | confidential | 0.41 | 0.290 | 0 | 0 |
 | T4, T6, T7, T9, T10 | 0.00 | 0 | none | - | - | 0 | 0 |
 
-Unity is the only Tradition governing all eight resources and the only one in the top two for ten of the twelve Steps. It is **not** the most diffuse by HHI: singleness of purpose scores 0.197 against unity's 0.204, marginally lower. The claim in the main text is breadth of coverage, eight resources against six, and not minimum concentration.
+Step Four is an exact tie between unity and group conscience, so it counts as sole principal supplier for neither; counting the tie as a place in the top two, unity is the only Tradition governing all eight resources and the only one in the top two for ten of the twelve Steps. It is **not** the most diffuse by HHI: singleness of purpose scores 0.197 against unity's 0.204, marginally lower. The claim in the main text is breadth of coverage, eight resources against six, and not minimum concentration.
 
 Unity's load by resource, exact: continuity 1.89, pressure 1.86, identification 0.85, counsel 0.60, the demonstration that recovery happens 0.57, confidentiality 0.45, admission 0.20, somebody to help 0.10. Continuity and pressure are 57.5 per cent of the total. Removing both leaves 2.77, which is third, behind group conscience at 3.89 and singleness of purpose at 3.88 and ahead of the open door at 2.69. An earlier draft said fourth; the notebook assertion caught it.
 
@@ -3847,10 +3847,10 @@ Two of eight flip it. The finding is conditional on those two assignments and on
 | jitter ±15% | 100.0 [99.8, 100.0] |
 | jitter ±30% | 100.0 [99.8, 100.0] |
 | jitter ±50% | 98.0 [97.3, 98.5] |
-| jitter ±75% | 86.8 [85.3, 88.3] |
+| jitter ±75% | 86.9 [85.3, 88.3] |
 | structural, sparsity only | 75.4 [73.5, 77.2] |
 
-The structural figure is the highest of any Part Four claim on that test, against 40.6 per cent for index-pairing on all counts, 17.5 for the Step Five inversion and 27.6 for the Step Twelve inversion. The two 100.0 entries are 2,000 of 2,000 and should be read as "not observed to fail".
+The structural figure is the highest of any Part Four claim on that test, against 40.6 per cent for index-pairing on all counts, 17.5 for the Step Five inversion and 27.7 for the Step Twelve inversion. The two 100.0 entries are 2,000 of 2,000 and should be read as "not observed to fail".
 
 **What the load measure assumes, and it is not innocuous.** Summing a column treats demand for one resource as commensurable with demand for another, which is a choice and not a derivation. A Tradition governing a resource that many Steps need a little of will score like one governing a resource that one Step needs a great deal of. Nothing in the model justifies that trade; the column sum is a summary statistic and the chapter uses it as one.
 
@@ -3866,7 +3866,7 @@ It is not the document Kurtz named. He points at Wilson's discussion of the Firs
 
 **A second thing I cannot check.** Kurtz says the conflation appears in *some later AA literature*. He does not say which, and I have not identified an instance. So I am answering a charge whose extent I have not been able to measure.
 
-**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in `model/book-calculations.ipynb` section 11d.
+**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in the part4 blocks of `model/book-calculations.ipynb`.
 
 ### 4. References
 
@@ -3882,7 +3882,7 @@ Wilson, W. (1945). "Modesty One Plank for Good Public Relations." *AA Grapevine*
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11d, and section 17 for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
 
 **What was not read:**
 
@@ -4027,7 +4027,7 @@ This is one division per Step and carries no sampling error. It is the only desi
 | 11 | T11 | 0.47 | 0.80 | 0.588 | 1.57 |
 | 12 | T12 | 1.25 | 2.40 | 0.521 | 1.39 |
 
-Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and an order of magnitude smaller than the distance to the mean live entry.
+Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a quarter of the distance to the mean live entry.
 
 Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44 at Step 5.
 
@@ -4069,7 +4069,7 @@ The wording of the Twelve Traditions themselves. They are AA copyright, this pro
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, section 11c, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
+`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, its part4 threshold block, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
 
 **What was not read:**
 
@@ -4162,11 +4162,11 @@ Design: 400 paired seeds, all other Traditions at 1.0, thirty-year horizon, dt o
 | Condition | Final N | Exists, N > 0 | Endpoint viable, N > 5 | Closed, N = 0 | Established practice | Low-practice fraction |
 |----------------------|-----------|-----------|-----------|-----------|-----------|-----------|
 | Baseline | 17.80 [16.92, 18.68] | 100.0% [99.0, 100.0] | 98.5% [96.8, 99.3] | 0.0% [0.0, 1.0] | 0.2645 [0.2587, 0.2703] | 0.2345 [0.2215, 0.2474] |
-| Friction loss only | 14.84 [13.91, 15.76] | 99.2% [97.8, 99.7] | 94.0% [91.2, 95.9] | 0.8% [0.3, 2.2] | 0.2886 [0.2806, 0.2965] | 0.2225 [0.2073, 0.2376] |
-| Governance loss only | 11.77 [11.15, 12.40] | 98.0% [96.1, 99.0] | 91.2% [88.1, 93.6] | 2.0% [1.0, 3.9] | 0.2648 [0.2553, 0.2743] | 0.4059 [0.3860, 0.4257] |
+| Friction loss only | 14.84 [13.91, 15.76] | 99.3% [97.8, 99.7] | 94.0% [91.2, 95.9] | 0.8% [0.3, 2.2] | 0.2886 [0.2806, 0.2965] | 0.2225 [0.2073, 0.2376] |
+| Governance loss only | 11.77 [11.15, 12.40] | 98.0% [96.1, 99.0] | 91.3% [88.1, 93.6] | 2.0% [1.0, 3.9] | 0.2648 [0.2553, 0.2743] | 0.4059 [0.3860, 0.4257] |
 | Combined loss | 6.76 [6.17, 7.34] | 75.0% [70.5, 79.0] | 54.8% [49.9, 59.6] | 25.0% [21.0, 29.5] | 0.2246 [0.2086, 0.2406] | 0.2937 [0.2694, 0.3179] |
 
-Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], governance 6.03 [5.04, 7.01], combined 11.05 [10.03, 12.06]. The factorial interaction is -2.06 [-3.41, -0.70].
+Paired final-N contrasts, baseline minus loss: friction 2.96 [1.85, 4.08], governance 6.03 [5.04, 7.01], combined 11.05 [10.03, 12.06]. The factorial interaction is -2.06 [-3.41, -0.70] on the final-N scale, which is to say that the combined loss costs 2.06 members more than the two single losses added together.
 
 **Quality and low-practice fraction are conditional on endpoint population and this matters more here than it looks.** Closed runs contribute no members to either column. Conditioning can therefore make the remaining groups look stronger than the all-run population. Endpoint nonviability is not itself death: runs with one to five members are extant and are reported separately from closure in the release-gate analysis.
 
@@ -5833,7 +5833,7 @@ instead.
 |---|---|
 | A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
 | A4.6, A5.5 | A7.5, Morris and Sobol |
-| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with notebook sections 11c and 11d |
+| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with the part4 blocks of the notebook |
 | A5.4d | A5.2, the degradation ranking |
 | A5.6 | A7.1, the design registry and what no design covers |
 | A9 as structural variants | A7.3 |
@@ -6997,7 +6997,7 @@ the pairing is not absurd anywhere, and it wins nowhere.
 
 ## Step Nine, amends
 
-*Technical.* beta = 0.62. Principal supplier Tradition 2 at 0.90, with Tradition 1 at
+*Technical.* beta = 0.63. Principal supplier Tradition 2 at 0.90, with Tradition 1 at
 0.48, a margin of 0.42 and the third widest in the matrix behind Step Ten's 0.51 and
 Step Five's 0.43. Step Nine consumes counsel at 0.9, the largest entry in S other than
 the four entries at 1.0. It carries the lowest top speed of any Step, 0.15 per week.
@@ -7031,7 +7031,7 @@ spillover into Step Nine itself.
 
 ## Step Ten, the daily inventory
 
-*Technical.* beta = 0.62. Principal supplier Tradition 1 at 0.94, with Tradition 2
+*Technical.* beta = 0.63. Principal supplier Tradition 1 at 0.94, with Tradition 2
 second at 0.43, a margin of 0.51, the widest in the matrix. Its largest consumptions are
 gentle pressure at 0.7 and week-to-week continuity at 0.5, which between them are the
 two resources Tradition 1 supplies most heavily. Index-mate Tradition 10 is a structural
@@ -7104,7 +7104,7 @@ capacity to one raises final membership by 1.03 members with paired 95 per cent
 interval [-0.26, 2.31], so the effect is unresolved. Index-mate Tradition 12 ranks sixth
 at 0.12, and this
 is the fragile row of Part Four: the top two are 1.25 and 1.10, a margin of 0.15, and
-the Step Twelve to Tradition 5 assignment survives only 67.3 per cent [65.3, 69.4] of
+the Step Twelve to Tradition 5 assignment survives only 67.4 per cent [65.3, 69.4] of
 draws at plus or minus thirty per cent jitter. *Algebra and simulation.*
 
 *What was assumed.* Seven of the eight resources are non-zero, the most of any Step:
@@ -7122,7 +7122,7 @@ particular newcomer. Whether that ratio is a reasonable stand-in for the opportu
 be useful is a hypothesis, and it is the hypothesis on which the thirty per cent
 membership result rests. The row is also the fragile one in Part Four for a separate
 reason: the top two Traditions are 1.25 and 1.10, and the assignment to Tradition 5
-survives only 67.3 per cent of magnitude draws.
+survives only 67.4 per cent of magnitude draws.
 
 *In plain terms.* Carrying the message is not a reward collected at the end inside this
 model. Turn its growth off and the group loses about thirty per cent of mean endpoint
@@ -7864,13 +7864,12 @@ than repeated here.
 `model/aa_group_model.py`, matrices S and GOV, the effective-adherence function, and
 the arrival and dropout expressions.
 
-`model/book-calculations.ipynb`. Section 2 for the influence weights and consensus
-errors behind every deliberation figure; 3 for the twelve-Tradition degradation
-comparison; 10 for the apparatus, including the derived group-dependence table; 11 and
-11b for the coupling, the principal suppliers and the perturbation designs; 11c for the
-threshold test; 11d for the load column and the reassignment test; 13 for the service
-results behind Step Twelve; 14 for the Part Five failure modes; 17 for the resource-list
-test; 18 for the sparsity perturbation.
+`model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
+closed forms for the influence weights and rotation pools behind the deliberation figures, the part4
+blocks for the coupling, the principal suppliers, the index-mate ranks, the threshold test, the load
+column and the reassignment test, the part5 blocks for the Step Twelve service results and the
+failure modes, and the sparsity perturbation; the resource-list test is `research/resource_list.json`
+with `model/resource_list_test.py`.
 
 `research/tradition_paired.json`, the 400-replication paired degradation runs, produced
 by `model/tradition_paired.py`. `research/part5.json`, 4,800 runs behind the Tradition 3
@@ -8449,10 +8448,10 @@ robustness.
 | Design | T1 leads | Index-pairing wrong, all | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
 |:---|---:|---:|---:|---:|
 | jitter $\pm$`<!-- -->`{=html}15% | 100.0 99.8 to 100.0 | 98.8 98.2 to 99.2 | 100.0 99.8 to 100.0 | 89.7 88.3 to 91.0 |
-| jitter $\pm$`<!-- -->`{=html}30% | 100.0 99.8 to 100.0 | 85.5 83.9 to 87.0 | 99.5 99.1 to 99.7 | 67.3 65.3 to 69.4 |
+| jitter $\pm$`<!-- -->`{=html}30% | 100.0 99.8 to 100.0 | 85.5 83.9 to 87.0 | 99.5 99.1 to 99.7 | 67.4 65.3 to 69.4 |
 | jitter $\pm$`<!-- -->`{=html}50% | 98.0 97.3 to 98.5 | 72.5 70.5 to 74.4 | 88.7 87.2 to 90.0 | 52.9 50.7 to 55.1 |
-| jitter $\pm$`<!-- -->`{=html}75% | 86.8 85.3 to 88.3 | 65.2 63.0 to 67.2 | 71.5 69.5 to 73.4 | 43.8 41.6 to 45.9 |
-| **structural** | **75.4 73.5 to 77.2** | **40.6 38.5 to 42.8** | **17.5 15.9 to 19.2** | **27.6 25.7 to 29.7** |
+| jitter $\pm$`<!-- -->`{=html}75% | 86.9 85.3 to 88.3 | 65.2 63.0 to 67.2 | 71.5 69.5 to 73.4 | 43.8 41.6 to 45.9 |
+| **structural** | **75.4 73.5 to 77.2** | **40.6 38.5 to 42.8** | **17.5 15.9 to 19.2** | **27.7 25.7 to 29.7** |
 
 : Percentage of draws in which each claim holds. Wilson intervals at 95 per cent on
 $n = 2{,}000$. The three 100.0 entries are 2,000 of 2,000 and should be read as "not
@@ -8499,10 +8498,10 @@ protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 
 it extends below it at both ends. Mean $c^{*}$ is 0.501 for the five protective Steps,
 0.531 for the seven enabling ones, and 0.518 across all twelve. The protective Steps are
 therefore marginally *closer* to index-pairing holding, by 0.03 on the mean threshold,
-which is the direction an objector would predict and an order of magnitude smaller than
-the distance to the mean live entry. Setting $c$ to the mean live entry of 0.374 for every
-Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to
-0.44 at Step 5.
+which is the direction an objector would predict and about a quarter of the distance to
+the mean live entry. Setting $c$ to the mean live entry of 0.374 for every Step
+simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44
+at Step 5.
 
 What the test licenses is the statement that index-pairing would require the index-mate to
 govern its own Step's needs more strongly than a typical entry in the matrix, uniformly
@@ -8587,7 +8586,7 @@ concerns the executable model, not the raw coupling statistics in this section.
 
 The **coupling** claims of this section do not. Index-pairing fails on all twelve in only
 40.6 per cent of structurally randomized draws, which is less often than it holds; the
-Step 5 inversion survives in 17.5 per cent and the Step 12 inversion in 27.6. These claims
+Step 5 inversion survives in 17.5 per cent and the Step 12 inversion in 27.7. These claims
 rest on the magnitudes in two matrices we wrote, and they must be argued for rather than
 certified by a robustness percentage earned elsewhere. The one exception is unity's
 primacy, which survives structural randomization in 75.4 per cent of draws, the highest

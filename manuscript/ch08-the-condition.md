@@ -173,7 +173,7 @@ The result in this chapter is not mine and it is not simulated. It is a theorem,
 
 What my own model contributes is the tables. The theorem tells you that maximum influence must vanish; it does not tell you how fast concentration hurts in a group of any particular size, or how the damage compares between a single dominant member and a small clique. Those are computed from constructed trust matrices, and the computation is simple enough to be checkable by hand for small groups.
 
-The one substantive thing the model adds to the theorem is the small-group observation: at ten members, all four governance arrangements produce similar accuracy. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
+The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 45 per cent of one another in accuracy, against a factor of seven or eight at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
 
 ### 2. The technical version
 
@@ -202,7 +202,7 @@ The error is available in closed form, which is how the second table was compute
 
 > consensus = mu + sum over j of s(j) e(j)
 
-and that weighted sum of errors is normally distributed with mean zero and standard deviation sigma times ||s||, the Euclidean length of the influence vector. For a normal variable with mean zero, the expected absolute value is its standard deviation times sqrt(2/pi). So
+and, if the errors are independent normal draws with mean zero and variance sigma squared, that weighted sum of errors is normally distributed with mean zero and standard deviation sigma times ||s||, the Euclidean length of the influence vector. For other error distributions the root-mean-square error is still proportional to ||s||, and the closed form below is a benchmark. For a normal variable with mean zero, the expected absolute value is its standard deviation times sqrt(2/pi). So
 
 > E | consensus - mu | = sigma * ||s|| * sqrt(2/pi)
 
@@ -216,7 +216,7 @@ Golub and Jackson identify three obstructions to the vanishing condition: promin
 
 **That mapping was stated here for some time without being computed, and computing it changed it.** The three obstructions are properties of *sequences* of societies as they grow, not properties of a room. Take the clique and the imbalanced member at fixed magnitude and neither obstructs anything. Take a clique of three that gives a tenth of its attention outward. Between them the three hold 0.750 of the influence in a group of ten. In a group of fifty it is 0.375, in a group of two hundred and fifty 0.107, and in a group of a thousand 0.029. A member who receives twenty times the attention he gives holds 0.690 in a group of ten and 0.020 in a group of a thousand. Both shares vanish, so both satisfy the condition and neither is an obstruction at all.
 
-Now let the same two practices grow with the group. A clique whose inwardness approaches one as the group expands holds 0.167 of the influence at every size tested from ten to a thousand. A member whose attention advantage grows in proportion to the group runs from 0.182 at ten to 0.167 at a thousand, converging to a positive share rather than settling on one exactly. Neither is falling toward zero, and that is the whole of what makes them obstructions.
+Now let the same two practices grow with the group. A clique of three whose inwardness approaches one as the group expands holds 0.500 of the influence between them, 0.167 each, at every size tested from ten to a thousand. A member whose attention advantage grows in proportion to the group runs from 0.182 at ten to 0.167 at a thousand, converging to a positive share rather than settling on one exactly. Neither is falling toward zero, and that is the whole of what makes them obstructions.
 
 So what makes a practice dangerous is not its severity but whether it scales. A fellowship with one very prominent member in every room of thirty is in a different position from a fellowship with one very prominent member however large the room gets, and the difference is not a matter of degree. It is the difference between a share that vanishes and a share that does not.
 
@@ -240,9 +240,9 @@ The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0
 | rotation only, pool at 26 per cent | 2.0 | 2.0 | 2.0 |
 | plus 3 elders at 0.10 | 2.5 | 9.2 | 34.2 |
 | plus 3 elders at 0.20 | 4.1 | 17.4 | 67.4 |
-| plus 5 elders at 0.20 | 2.7 | 10.7 | 40.7 |
+| plus 5 elders at 0.20 | 2.8 | 10.8 | 40.8 |
 
-Entries are maximum influence as a multiple of the flat benchmark. The first row holding at exactly 2.0 is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
+Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
 
 And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the companion paper and it starts hurting almost immediately.
 

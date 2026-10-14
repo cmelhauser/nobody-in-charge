@@ -27,7 +27,13 @@ def load_model():
 
 
 def pct(x):
-    return f"{100*x:.1f}%"
+    """A percentage to one decimal, rounding an exact half away from zero as the book does.
+
+    Python's own formatting rounds half to even, so 99.25 printed as 99.2 here and 99.3 in the
+    book. The decimal is taken from the repr of the float, which is what the book's reader sees.
+    """
+    from decimal import ROUND_HALF_UP, Decimal
+    return f"{(Decimal(repr(round(100 * x, 10)))).quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)}%"
 
 
 def ci_mean(s):

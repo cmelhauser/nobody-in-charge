@@ -53,7 +53,7 @@ Now the limits, and there are four that matter.
 
 **The exchangeability in Chapter Eight is exact only in the limit.** Real trust is never perfectly uniform, even under flawless adherence. The Traditions push maximum influence toward one over N; they do not deliver it.
 
-**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. It ranks referral loss above attraction loss, which favours the critic's emphasis on inflow, but nothing in the model ranks inflow against the structure of influence.
+**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. At the default decay rate, over 400 paired seeds, final membership is lower under referral loss than under attraction loss, which favours the critic's emphasis on inflow, though that ordering reverses on membership at decay rates a quarter or more below the default. Nothing in the model ranks inflow against the structure of influence.
 
 I think both matter and I think the honest position is that the model cannot rank them. What the model can say is that the two do different work. Inflow determines whether a group survives. Influence structure determines whether the decisions it makes on the way are any good. A group can have plenty of the first and still spend twenty years deciding things badly, and nothing in its experience will tell it so.
 
@@ -87,7 +87,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 ### 2. The technical version
 
-No new computation. The figures referenced are from Chapter Nine, section 2, and are asserted in `model/book-calculations.ipynb`, section 2: closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
+No new computation. The figures referenced are from Chapter Nine, section 2, and are computed in the part2 closed-forms block of `model/book-calculations.ipynb`: closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 

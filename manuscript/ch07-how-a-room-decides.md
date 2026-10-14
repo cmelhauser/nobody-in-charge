@@ -21,7 +21,7 @@ Ann arrives thinking nine. Ben thinks two. Cara thinks six, Dan four, Eve seven.
 
 Now they talk. Nobody is trying to win. Everybody listens to everybody, and everybody adjusts a bit, and how much each person adjusts depends on whose judgment they have come to trust. Ann respects Cara's caution about money and moves toward her. Ben has been coming three months and moves toward almost anyone. Cara listens too, but less, because she has thought about this before.
 
-Run that for one round of conversation and the spread has already collapsed. Ann has come down from nine to six. Ben has come up from two to five and a quarter. The others have converged toward the middle. After a second round they are within a tenth of each other, and by the third round they have all arrived at the same number, and it is 5.74.
+Run that for one round of conversation and the spread has already collapsed. Ann has come down from nine to six. Ben has come up from two to five and a quarter. The others have converged toward the middle. After a second round they are within a tenth of each other, after a third within a hundredth, and by the fourth they have all arrived at the same number, and it is 5.74.
 
 Nobody proposed 5.74. Nobody argued for it. It is not anyone's original view and it is not a compromise anybody negotiated. It is where the room goes when people who trust each other unequally keep adjusting toward each other.
 
@@ -111,7 +111,7 @@ The worked example uses this matrix, rows in the order Ann, Ben, Cara, Dan, Eve:
 | Dan | 0.15 | 0.15 | 0.35 | 0.20 | 0.15 |
 | Eve | 0.20 | 0.15 | 0.30 | 0.15 | 0.20 |
 
-Starting beliefs 9, 2, 6, 4, 7. Successive rounds give 6.00, 5.25, 5.85, 5.60, 5.90; then 5.75, 5.69, 5.76, 5.74, 5.76; then agreement at 5.74 to two decimal places.
+Starting beliefs 9, 2, 6, 4, 7. Successive rounds give 6.00, 5.25, 5.85, 5.60, 5.90; then 5.76, 5.69, 5.76, 5.74, 5.76; then all within a hundredth of 5.74; then agreement at 5.74 to two decimal places.
 
 Influence weights: Ann 0.204, Ben 0.178, Cara 0.333, Dan 0.147, Eve 0.138. The weighted average of the starting beliefs under these weights is 5.74, matching the simulated settling point exactly, which is the check that the eigenvector calculation and the iteration agree.
 

@@ -368,14 +368,14 @@ Carlo suite interactively.
 **The two notebooks are no longer the same artifact, and a verifier should confirm that.** Until
 9 August 2026 the paper notebook was byte-identical to the book notebook apart from its title,
 which satisfied this section mechanically while verifying nothing specific to the paper. The book
-notebook now runs 8 cells and 89 assertions; the paper notebook runs 10 and 113. Its
+notebook now runs 8 cells and 100 assertions; the paper notebook runs 10 and 124. Its
 two extra cells:
 
 1. **Paper headline claims.** Re-derives the paper's principal tables from the caches: all eight
    release-gate conditions, the paired T3 and T11 contrasts, the recipient contrast's interval
    crossing zero, the Sobol first-order admissibility split between membership and practice, and
    the structural ordering in all five architectures.
-2. **Paper traceability.** Every decimal the paper prints, currently 500 of them after excluding
+2. **Paper traceability.** Every decimal the paper prints, currently 498 of them after excluding
    DOIs and the five figures quoted from cited literature, must be reachable from the model
    source, a hash-linked cache, or a derivation shown in the notebook. This is the paper's
    equivalent of the figure check `tools/check_book.py` performs for the chapters, which the paper

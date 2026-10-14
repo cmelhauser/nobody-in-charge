@@ -269,6 +269,89 @@ def show(label, value, pct=False):
 
 def emit():
     """Print derived public figures. This is the body that will move into the notebook."""
+    # ---- part4: matrix tests that Chapters Sixteen to Eighteen quote ------------------------
+    # The threshold test, the principal-supplier counts and the index-mate ranks were computed
+    # for those chapters in an earlier notebook whose sections 11 to 11d no longer exist; they
+    # are rebuilt here from the model's own S and GOV so the figures stand on a visible computation.
+    print('part4 threshold test and principal suppliers (Chapters Sixteen to Eighteen)')
+    Sm = np.array(m.S, float)
+    Gm = np.array(m.GOV, float)
+    Bm = np.round(Sm @ Gm.T, 12)           # rounded so exact ties stay ties
+    rowsum = Sm.sum(1)
+    cstar = np.round(Bm.max(1) / rowsum, 12)  # strength an index-mate would need to govern everything its Step consumes
+    live = Gm[Gm > 0]
+    show('live GOV entries (count)', float(live.size))
+    show('mean live GOV entry', float(live.mean()))
+    show('median live GOV entry', float(np.median(live)))
+    protective = [3, 5, 6, 8, 9]           # Steps 4, 6, 7, 9, 10: the index-mate governs nothing
+    enabling = [i for i in range(12) if i not in protective]
+    for i in range(12):
+        show(f'threshold c* for Step {i + 1}', float(cstar[i]))
+    for label, idx in (('protective', protective), ('enabling', enabling), ('all twelve', list(range(12)))):
+        show(f'mean c* {label}', float(cstar[idx].mean()))
+        show(f'min c* {label}', float(cstar[idx].min()))
+        show(f'max c* {label}', float(cstar[idx].max()))
+    check('live GOV entries', int(live.size), 35)
+    check('every protective c* exceeds the mean live entry',
+          bool((cstar[protective] > live.mean()).all()), True)
+    check('every protective c* exceeds the median live entry',
+          bool((cstar[protective] > np.median(live)).all()), True)
+    check('protective c* range starts below the enabling range',
+          bool(cstar[protective].min() < cstar[enabling].min()), True)
+    check('protective c* range ends below the enabling range',
+          bool(cstar[protective].max() < cstar[enabling].max()), True)
+    ranks = [1 + int((Bm[i] > Bm[i, i]).sum()) for i in range(12)]
+    print('  index-mate competition rank by Step (ties share): ' + ' '.join(map(str, ranks)))
+    check('index-mate competition ranks', ranks, [2, 7, 7, 8, 5, 7, 7, 4, 8, 8, 4, 6])
+    sole, tied_steps, runner = collections.Counter(), [], collections.Counter()
+    for i in range(12):
+        lead = [j + 1 for j in range(12) if Bm[i, j] == Bm[i].max()]
+        if len(lead) == 1:
+            sole[lead[0]] += 1
+            second = sorted(set(Bm[i]), reverse=True)[1]
+            for j in range(12):
+                if Bm[i, j] == second:
+                    runner[j + 1] += 1
+        else:
+            tied_steps.append((i + 1, lead))
+    print('  sole principal supplier counts by Tradition: ' + str(dict(sorted(sole.items()))))
+    print('  steps with an exact tie at the top: ' + str(tied_steps))
+    print('  sole-lead runner-up counts by Tradition: ' + str(dict(sorted(runner.items()))))
+    check('unity sole principal suppliers', sole[1], 4)
+    check('group conscience sole principal suppliers', sole[2], 3)
+    check('exact top ties', tied_steps, [(4, [1, 2])])
+
+    # ---- part2: the closed forms Chapters Nine and Ten quote ---------------------------------
+    print('part2 closed forms (Chapters Nine and Ten)')
+    alpha = 0.35
+
+    def rotation_row(n, pool):
+        """Influence vector of a rotating pool: every row of the cycle-averaged matrix is this one."""
+        member = alpha / pool + (pool - 1) / pool * (1 - alpha) / (n - 1)
+        return member, (1 - alpha) / (n - 1)
+
+    def rotation_error(n, pool):
+        member, other = rotation_row(n, pool)
+        return float(np.sqrt(pool * member ** 2 + (n - pool) * other ** 2) * np.sqrt(2 / np.pi))
+
+    for pool in (3, 6, 12, 25, 50, 100, 400):
+        show(f'rotation N=400 pool {pool} max influence', rotation_row(400, pool)[0])
+        show(f'rotation N=400 pool {pool} error', rotation_error(400, pool))
+        show(f'rotation N=400 pool {pool} alpha/pool', alpha / pool)
+    show('flat benchmark error N=400', float(np.sqrt(400 * (1 / 400) ** 2) * np.sqrt(2 / np.pi)))
+    for n in (50, 100, 200, 400, 800):
+        show(f'rotation pool 12 N={n} max influence', rotation_row(n, 12)[0])
+        show(f'rotation pool 12 N={n} multiple of flat', rotation_row(n, 12)[0] * n)
+        need = next(r for r in range(1, n + 1) if rotation_row(n, r)[0] <= 2.0 / n)
+        print(f'  pool needed within a factor of two of flat at N={n}: {need} ({100.0 * need / n:.1f} per cent of N)')
+    check('pool needed at N=400', next(r for r in range(1, 401) if rotation_row(400, r)[0] <= 2.0 / 400), 104)
+    check('pool needed at N=800', next(r for r in range(1, 801) if rotation_row(800, r)[0] <= 2.0 / 800), 208)
+    caucus = np.sqrt(3 * (1 / 6) ** 2 + 397 * (0.5 / 397) ** 2) * np.sqrt(2 / np.pi)
+    show('caucus of three holding half, N=400, error', float(caucus))
+    show('caucus of three holding half, N=400, each member share', 1 / 6)
+    closed = np.sqrt(5 * (1 / 5) ** 2) * np.sqrt(2 / np.pi)
+    show('closed core of five returning nothing, error', float(closed))
+
     # ---- part5: trajectories, T3 dose sweep, founder composition ---------------------
     d = load('part5.json')
     traj = collections.defaultdict(list)
