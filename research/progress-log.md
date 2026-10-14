@@ -5686,3 +5686,19 @@ table credits with the threshold and reassignment tests but does not contain the
 Appendix B sentence on 400 seeds beside its 200-seed and 3-seed designs; the Fatimah reference the
 paper never cites; and two items in `CLAUDE.md` itself (Tricycle's read status, and the claim that
 a rebuild is byte-identical, which holds on one machine for the book and the primer).
+
+**The leftovers from the 14 October review that could be settled from the files** were taken up on
+their own branch. The screening counts in Chapters 1 and 6 and the preface now say they are
+screens on three or five common seeds, and Chapter 1 says the decay-rate ordering is never
+reversed on viability but ties in every run at fifty and seventy-five per cent lower, which is
+what the 400-seed table shows. The primer's reference apparatus now lists the 1953 commentary, the
+Concepts and Service Manual, the 1939 stories, the four decay papers and *Tricycle* under Read in
+full, adds the two decay-ordering caches to Internal, and no longer says no independent account of
+the 2019 split was sought. Appendix A8 never contained the threshold and reassignment tests the
+renumbering table credited it with; they live in the Machinery sections of Chapters 18 and 17 and in
+notebook sections 11c and 11d, and the citations now say so. The paper's Appendix B no longer
+describes Sections 3 and 4 as free of sampling error, or 400 seeds as the minimum for every figure,
+and the Fatimah et al. reference is cited in Section 2.2 with the section pointer corrected. The
+paper's printed decimals are unchanged at 492. Not touched, because they depend on sources not in
+the repository: Chapter 6's "three years earlier" and "nine years after he wrote it", Chapter 1's
+Worcester examples, and Chapter 4's status lists.

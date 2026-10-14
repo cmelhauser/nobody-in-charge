@@ -1142,7 +1142,7 @@ and the arithmetic, is appendix section A12, and it is written to stand alone.
 
 **A second reading, from the other end.** The model assumes that most people arrive
 because a member brought them, rather than finding the group on their own. That is one of
-the hundred and eighteen chosen numbers and it had never been checked against anything.
+the hundred and eighteen registered sensitivity values and it had never been checked against anything.
 In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
 that time: the recurring shape is a recovered drinker turning up in person, often several
@@ -1200,6 +1200,37 @@ who held office in the predecessor organization, whose founder is named in that 
 and is deliberately not named here. Saved in
 `research/incorporated/RecoveryDharma_2023/`.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions.* Read in
+full on 10 August 2026, from the per-chapter files AAWS publishes free; held as a
+git-ignored reading copy since 13 September 2026 and never committed. The source behind
+the Tradition 2, 9 and 12 entries, and for the finding that no Tradition chapter refers to
+the Step of its own number.
+
+Alcoholics Anonymous World Services. *The Twelve Concepts for World Service* (Short Form),
+SMF-114 (adopted 1962), read at source on 17 August 2026, and *The A.A. Service Manual
+Combined with Twelve Concepts for World Service* (2024-2026 edition, BM-31), read in part on
+13 September 2026: Concepts IV and V in full, Concept XI on rotation, and every passage
+mentioning rotation. Both held git-ignored. Behind the Tradition 9 entry: Concept IV
+proportions voting weight to responsibility and holds no rule about the size of a rotating
+pool.
+
+*Alcoholics Anonymous* (first edition, 1939, in the 1999 reprint). The thirty personal
+stories read in full on 17 August 2026, for the census of how newcomers arrived, in the follow-up
+section above (appendix A13). Held git-ignored.
+
+Dinerstein, M., R. Megalokonomou and C. Yannelis (2022), NBER Working Paper 27925; Cohen, J.
+P., A. C. Johnston and A. S. Lindner (2023), NBER Working Paper 31120; Edgren, R., D.
+Baretta and J. Inauen (2025), *Applied Psychology: Health and Well-Being* 17(1): e12612; and
+Kaskutas, L. A., J. Bond and L. A. Avalos (2009), *Addictive Behaviors* 34(12): 1029-1035.
+The four papers that bracket the decay rate, read between 13 and 22 September 2026 (the
+first two apart from appendices, the Kaskutas paper apart from its figures). Held
+git-ignored. Chapter Twelve gives what each measures and what it does not.
+
+Jensen, K., and M. Abrahams (2019). "Buddha Buzz Weekly: Refuge Recovery Splits."
+*Tricycle: The Buddhist Review*, 13 July 2019. Read at source on 17 August 2026; held as
+record only. The independent account of the 2019 split, which corrects where the contrast
+with the predecessor falls (appendix A12.4).
+
 **Cited at a remove:**
 
 Nothing. Every source named here was read at source. The primer restates findings from
@@ -1225,11 +1256,12 @@ sweep and the three failure modes. `research/ch15_service.json`, the three servi
 configurations. `research/core_thresholds.json`, the two membership thresholds and the
 calibration figures. `research/resource_list.json`, the sixty-four resource-list
 variants. `research/oat_full.json`, the 944 registered multi-level perturbation points.
-`research/structural.json`, the four structural variants.
+`research/structural.json`, the four structural variants. `research/decay_ordering.json` and
+`research/decay_reversal.json`, the 400-seed paired runs on the decay rate.
 
 `appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A4 for
 the seed counts and estimands, A7.1 to A7.5 for the perturbation designs and what they
-cannot reach, A8 for the threshold, reassignment and sparsity-pricing tests, A5.2 for the
+cannot reach, A8 for the sparsity pricing, Chapter Eighteen for the threshold test and Chapter Seventeen for the reassignment test, A5.2 for the
 degradation ranking, A7.3 for the structural variants and A7.6 for the resource-list
 test. Part Two's sensitivity analysis is the section titled
 "Part Two and deterministic coupling tests", which is numbered A8.
@@ -1240,11 +1272,11 @@ sections carry the full designs and estimands for every figure quoted above.
 **What was not read:**
 
 The AA literature was said here to gesture at a parallel between the Steps and the
-Traditions. That was written without having read it. *Twelve Steps and Twelve Traditions*
-was read in full on 10 August 2026, and no Tradition chapter refers to the Step of its own
-number, while the word "Tradition" does not appear in any Step chapter at all. So the
-conjecture is refuted as a thing people believe rather than as a thing somebody
-published, and I cannot say how strongly the literature gestures.
+Traditions. That was written without having read it. The 1953 commentary, listed above, was
+read in full, and no Tradition chapter refers to the Step of its own number, while the word
+"Tradition" does not appear in any Step chapter at all. So the conjecture is refuted as a
+thing people believe rather than as a thing somebody published, and I cannot say how
+strongly the rest of the literature gestures.
 
 No study of AA group culture, which is why the behavioural description behind
 Tradition 3's retention mechanism is illustration rather than evidence.
@@ -1261,10 +1293,11 @@ one: with it a fifth lower, a 400-seed run finds that a group without referrals 
 larger than a group without attraction but still closes more often, and fifteen per cent
 lower is not enough to turn it. Chapter Twelve gives the detail.
 
-Anything independent about the 2019 split. The account above rests entirely on the
-successor fellowship's own literature, written by people who left the predecessor. No
-press coverage and no statement from the other side was sought. That is a one-sided
-record and the book's use of it inherits the weakness.
+Anything from the other side about the 2019 split. The account above rests chiefly on the
+successor fellowship's own literature, written by people who left the predecessor. One
+independent account, *Tricycle*'s, was read and corrected where the contrast falls, but no
+statement from the predecessor's side was sought. That is a largely one-sided record and the
+book's use of it inherits the weakness.
 
 The research literature on Buddhist and mindfulness-based recovery programs, which was
 not searched at all. The follow-up section compares program documents and one

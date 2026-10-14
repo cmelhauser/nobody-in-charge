@@ -112,7 +112,7 @@ So I did the obvious thing, which is to perturb everything and see what survives
 
 Every registered value is now examined in several designs. The global screen uses 1,002 independent perturbation draws, 334 at each of twelve and a half, twenty-five and fifty per cent. The multi-level one-at-a-time screen uses 944 endpoints, moving each registered value in both directions at four distances. A tiered screen and a randomized-matrix screen use 1,000 draws each; Morris uses twenty trajectories; the Sobol base sample is 1,024 rows. Those are screens over stated ranges, not proofs that a claim is structural or universal.
 
-The expanded global screen demonstrates why the results cannot be sorted into one robust and one fragile pile. Each draw compares referral loss with pure attraction loss on three separate outcomes. At 12.5 per cent perturbation, final membership is ordered, tied and reversed in 301, 0 and 33 of 334 draws; endpoint viability in 323, 10 and 1; and existence in 318, 16 and 0. At 25 per cent the corresponding counts are 251/1/82, 269/64/1 and 262/72/0. At 50 per cent they are 213/17/104, 201/117/16 and 215/117/2. A sentence saying only that the ordering "survives" would conceal both the outcome and the failures.
+The expanded global screen demonstrates why the results cannot be sorted into one robust and one fragile pile. Each draw, a screen on three common seeds, compares referral loss with pure attraction loss on three separate outcomes. At 12.5 per cent perturbation, final membership is ordered, tied and reversed in 301, 0 and 33 of 334 draws; endpoint viability in 323, 10 and 1; and existence in 318, 16 and 0. At 25 per cent the corresponding counts are 251/1/82, 269/64/1 and 262/72/0. At 50 per cent they are 213/17/104, 201/117/16 and 215/117/2. A sentence saying only that the ordering "survives" would conceal both the outcome and the failures.
 
 Full adherence has the same qualification. It is endpoint-viable in all three common seeds in 302, 291 and 256 of the 334 draws at the three amplitudes, while existence in all three seeds holds in 334, 325 and 287. Those are screening counts from three seeds per parameter point, not estimates of a population probability.
 
@@ -469,7 +469,7 @@ A one-engine group is therefore not merely smaller. It sits on the fragile branc
 
 **How far to trust these numbers.** They are Monte Carlo estimates inside a constructed model, not historical rates. The 95 per cent Wilson interval for endpoint viability is 0.968 to 0.993 in the baseline and 0.015 to 0.049 without referrals. The latter condition closes in 358 of 400 runs. These corrected results are much more severe than the earlier cache because the individual heterogeneity draw is now mean-centred; the old lognormal implementation silently raised average capability above one and cannot be compared to this release.
 
-The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A7.3 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch, and its 400-seed paired runs confirm the decay rate's and locate it: the mean-size ordering holds with the rate fifteen per cent lower and reverses at twenty, the referral-starved group ending the larger, while the viability ordering still holds at every rate tried. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
+The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A7.3 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. The global and one-at-a-time counts are screens, three or five common seeds to a point, and not confirmatory replications; the thirty-five governance cells cannot move at full adherence, so the 944 points test fewer than all hundred and eighteen in practice. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch, and its 400-seed paired runs confirm the decay rate's and locate it: the mean-size ordering holds with the rate fifteen per cent lower and reverses at twenty, the referral-starved group ending the larger, while on viability the ordering is never reversed, though at fifty and seventy-five per cent lower every run ties. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
 
 The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. Worcester in June 1841 motivates the idea of a crowded room with few relevant recipients; it does not validate the proxy.
 
@@ -1578,7 +1578,7 @@ Three weaker objections deserve naming, since none of them is fully answered by 
 
 **The disease concept and the medical alliance.** AA arrived alongside a scientific reframing of alcoholism that the Washingtonians never had, and benefited from it enormously. This is true and Part One does not dispute it. But note that the alliance was available precisely because of the Yale group, and note what nearly happened when AA got close to it.
 
-**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 934 of the 944 points, with ten tied, at which each parameter was moved alone, three common seeds to a point, which is the more demanding test though only a screen. Single-tradition degradations are a different matter: five of the twelve cannot be resolved even at four hundred seeds. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
+**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability, in three-seed screens, that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 934 of the 944 points, with ten tied, at which each parameter was moved alone, three common seeds to a point, which is the more demanding test though only a screen. Single-tradition degradations are a different matter: five of the twelve cannot be resolved even at four hundred seeds. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
 
 **Survivorship bias.** We are examining the one mutual-aid movement that lasted and reasoning backward from its features, which is exactly the procedure that produces spurious explanations. The defence is not that Part One escapes this. It is that Part Two does not depend on it: the argument there is that three Traditions satisfy a criterion provable in advance, not that they correlate with survival after the fact.
 
@@ -5725,7 +5725,7 @@ executable coupling, and the test is deterministic, so it carries no interval.
 | Drop two resources | 28 | 21 | 27 | 28 |
 
 Unity leads on 63 of the 64 variants. The single failure is the drop-two variant that removes
-continuity and pressure together, which is the same pair the reassignment test in A8 identifies as
+continuity and pressure together, which is the same pair the reassignment test in Chapter Seventeen identifies as
 the only transfer able to flip the result. Two instruments built for different purposes fail on the
 same two columns, which is worth more than either alone because it localizes the point of failure.
 
@@ -5833,7 +5833,7 @@ instead.
 |---|---|
 | A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
 | A4.6, A5.5 | A7.5, Morris and Sobol |
-| A5.4b, A5.4c, A5.4e | A8, threshold, reassignment, and sparsity-pricing tests |
+| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with notebook sections 11c and 11d |
 | A5.4d | A5.2, the degradation ranking |
 | A5.6 | A7.1, the design registry and what no design covers |
 | A9 as structural variants | A7.3 |
@@ -7759,7 +7759,7 @@ and the arithmetic, is appendix section A12, and it is written to stand alone.
 
 **A second reading, from the other end.** The model assumes that most people arrive
 because a member brought them, rather than finding the group on their own. That is one of
-the hundred and eighteen chosen numbers and it had never been checked against anything.
+the hundred and eighteen registered sensitivity values and it had never been checked against anything.
 In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
 that time: the recurring shape is a recovered drinker turning up in person, often several
@@ -7817,6 +7817,37 @@ who held office in the predecessor organization, whose founder is named in that 
 and is deliberately not named here. Saved in
 `research/incorporated/RecoveryDharma_2023/`.
 
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions.* Read in
+full on 10 August 2026, from the per-chapter files AAWS publishes free; held as a
+git-ignored reading copy since 13 September 2026 and never committed. The source behind
+the Tradition 2, 9 and 12 entries, and for the finding that no Tradition chapter refers to
+the Step of its own number.
+
+Alcoholics Anonymous World Services. *The Twelve Concepts for World Service* (Short Form),
+SMF-114 (adopted 1962), read at source on 17 August 2026, and *The A.A. Service Manual
+Combined with Twelve Concepts for World Service* (2024-2026 edition, BM-31), read in part on
+13 September 2026: Concepts IV and V in full, Concept XI on rotation, and every passage
+mentioning rotation. Both held git-ignored. Behind the Tradition 9 entry: Concept IV
+proportions voting weight to responsibility and holds no rule about the size of a rotating
+pool.
+
+*Alcoholics Anonymous* (first edition, 1939, in the 1999 reprint). The thirty personal
+stories read in full on 17 August 2026, for the census of how newcomers arrived, in the follow-up
+section above (appendix A13). Held git-ignored.
+
+Dinerstein, M., R. Megalokonomou and C. Yannelis (2022), NBER Working Paper 27925; Cohen, J.
+P., A. C. Johnston and A. S. Lindner (2023), NBER Working Paper 31120; Edgren, R., D.
+Baretta and J. Inauen (2025), *Applied Psychology: Health and Well-Being* 17(1): e12612; and
+Kaskutas, L. A., J. Bond and L. A. Avalos (2009), *Addictive Behaviors* 34(12): 1029-1035.
+The four papers that bracket the decay rate, read between 13 and 22 September 2026 (the
+first two apart from appendices, the Kaskutas paper apart from its figures). Held
+git-ignored. Chapter Twelve gives what each measures and what it does not.
+
+Jensen, K., and M. Abrahams (2019). "Buddha Buzz Weekly: Refuge Recovery Splits."
+*Tricycle: The Buddhist Review*, 13 July 2019. Read at source on 17 August 2026; held as
+record only. The independent account of the 2019 split, which corrects where the contrast
+with the predecessor falls (appendix A12.4).
+
 **Cited at a remove:**
 
 Nothing. Every source named here was read at source. The primer restates findings from
@@ -7842,11 +7873,12 @@ sweep and the three failure modes. `research/ch15_service.json`, the three servi
 configurations. `research/core_thresholds.json`, the two membership thresholds and the
 calibration figures. `research/resource_list.json`, the sixty-four resource-list
 variants. `research/oat_full.json`, the 944 registered multi-level perturbation points.
-`research/structural.json`, the four structural variants.
+`research/structural.json`, the four structural variants. `research/decay_ordering.json` and
+`research/decay_reversal.json`, the 400-seed paired runs on the decay rate.
 
 `appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A4 for
 the seed counts and estimands, A7.1 to A7.5 for the perturbation designs and what they
-cannot reach, A8 for the threshold, reassignment and sparsity-pricing tests, A5.2 for the
+cannot reach, A8 for the sparsity pricing, Chapter Eighteen for the threshold test and Chapter Seventeen for the reassignment test, A5.2 for the
 degradation ranking, A7.3 for the structural variants and A7.6 for the resource-list
 test. Part Two's sensitivity analysis is the section titled
 "Part Two and deterministic coupling tests", which is numbered A8.
@@ -7857,11 +7889,11 @@ sections carry the full designs and estimands for every figure quoted above.
 **What was not read:**
 
 The AA literature was said here to gesture at a parallel between the Steps and the
-Traditions. That was written without having read it. *Twelve Steps and Twelve Traditions*
-was read in full on 10 August 2026, and no Tradition chapter refers to the Step of its own
-number, while the word "Tradition" does not appear in any Step chapter at all. So the
-conjecture is refuted as a thing people believe rather than as a thing somebody
-published, and I cannot say how strongly the literature gestures.
+Traditions. That was written without having read it. The 1953 commentary, listed above, was
+read in full, and no Tradition chapter refers to the Step of its own number, while the word
+"Tradition" does not appear in any Step chapter at all. So the conjecture is refuted as a
+thing people believe rather than as a thing somebody published, and I cannot say how
+strongly the rest of the literature gestures.
 
 No study of AA group culture, which is why the behavioural description behind
 Tradition 3's retention mechanism is illustration rather than evidence.
@@ -7878,10 +7910,11 @@ one: with it a fifth lower, a 400-seed run finds that a group without referrals 
 larger than a group without attraction but still closes more often, and fifteen per cent
 lower is not enough to turn it. Chapter Twelve gives the detail.
 
-Anything independent about the 2019 split. The account above rests entirely on the
-successor fellowship's own literature, written by people who left the predecessor. No
-press coverage and no statement from the other side was sought. That is a one-sided
-record and the book's use of it inherits the weakness.
+Anything from the other side about the 2019 split. The account above rests chiefly on the
+successor fellowship's own literature, written by people who left the predecessor. One
+independent account, *Tricycle*'s, was read and corrected where the contrast falls, but no
+statement from the predecessor's side was sought. That is a largely one-sided record and the
+book's use of it inherits the weakness.
 
 The research literature on Buddhist and mindfulness-based recovery programs, which was
 not searched at all. The follow-up section compares program documents and one
@@ -8004,7 +8037,10 @@ agents moving between locations, one of which is a bar that concentrates drinker
 et al. 2006). Individual-level dynamical models fitted to clinical data are due to Banks
 and coauthors (2014, 2017). The relapse literature supplies the nonlinear,
 multiple-equilibrium structure this paper's individual model borrows (Hufford et al. 2003;
-Witkiewitz and Marlatt 2004, 2007).
+Witkiewitz and Marlatt 2004, 2007), and a double-well potential model of relapse supplies
+the strongest empirical warrant for a two-well landscape (Fatimah, Hunter, and Bornovalova
+2025), though Sections 6.2 and 8.2 report that the corrected model is rarely bistable in
+its own endpoint environment.
 
 ### Skill formation
 
@@ -9329,7 +9365,7 @@ Fatimah, H., M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics 
 Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and
 Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. **Read in full** from the author
 manuscript; the strongest empirical warrant used here for a two-well relapse landscape,
-with the limitations stated in Section 5.
+with the limitations stated in Sections 6.2 and 8.2.
 
 Fehlandt, A. F. (1904). *A Century of Drink Reform in the United States.* Cincinnati:
 Jennings and Graham. **Read at source**; public domain.
@@ -9786,26 +9822,28 @@ without reference to any external dataset, because there is no external dataset.
 
 ##### Deterministic results.
 
-Sections 3 and 4 are algebra on constructed matrices. Influence vectors are normalized
-left dominant eigenvectors; consensus errors come from the closed form in
-the consensus-error equation above; the coupling is
-a matrix product; the threshold test is one division per Step. These carry no sampling
-error and are exact to the digits printed.
+Section 3 and the coupling derivation of Section 4 are algebra on constructed matrices.
+Influence vectors are normalized left dominant eigenvectors; consensus errors come from
+the closed form in the consensus-error equation above; the coupling is a matrix product; the threshold test is one division
+per Step. These carry no sampling error and are exact to the digits printed. The
+magnitude-randomization and sparsity designs of Section 4 are not of this kind: they are
+Monte Carlo over 2,000 draws each and carry Wilson intervals.
 
 ##### Stochastic results.
 
 Section 6 reports Monte Carlo output. The design is: Euler integration at $dt = 0.5$ weeks
 over 1,560 weeks, except that the paired Tradition comparisons run 1,040 weeks; **400
-seeds minimum for any published figure**; survival reported with Wilson intervals;
-membership and quality with 95 per cent half-widths from the cross-run standard error;
-Tradition comparisons under common random numbers at 400 paired replications. **Common
-random numbers reduce variance and do not reduce the replication count required**: the
-comparison in Table [10](#tab:tradition){reference-type="ref" reference="tab:tradition"}
-was originally run at 30 paired replications, produced a different ranking, and reversed
-when rerun at 400. Numerical checks use 200 paired seeds at $dt=1.0$, 0.5, 0.25 and 0.125
-weeks and 200 seeds at 10, 20, 50 and 100 years. These support the finite-horizon
-numerical resolution and show continued long-run movement; they do not prove a steady
-state.
+seeds for every confirmatory contrast**, with the 200-seed numerical-resolution and
+horizon checks and the three- or five-seed parameter screens labelled as what they are;
+survival reported with Wilson intervals; membership and quality with 95 per cent
+half-widths from the cross-run standard error; Tradition comparisons under common random
+numbers at 400 paired replications. **Common random numbers reduce variance and do not
+reduce the replication count required**: the comparison in
+Table [10](#tab:tradition){reference-type="ref" reference="tab:tradition"} was originally
+run at 30 paired replications, produced a different ranking, and reversed when rerun at
+400. Numerical checks use 200 paired seeds at $dt=1.0$, 0.5, 0.25 and 0.125 weeks and 200
+seeds at 10, 20, 50 and 100 years. These support the finite-horizon numerical resolution
+and show continued long-run movement; they do not prove a steady state.
 
 ##### Perturbation designs.
 
