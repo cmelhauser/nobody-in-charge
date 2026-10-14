@@ -32,9 +32,10 @@ part where the sourcing and sensitivity discipline has to be tightest.
 Two facts that look similar and are not:
 
 **The survival claims are structural.** Replace every non-zero entry of both matrices with a
-random number, keeping only which cells are empty, and the ordering claim still holds in 100
-per cent of draws. Parts One and Three may be defended as resting on structure rather than
-on my judgement about magnitudes.
+random number, keeping only which cells are empty, and the referral-versus-attraction
+ordering holds in 1,000 of 1,000 strict draws on final membership and endpoint viability (999
+plus one tie on existence), though the fully adherent group's endpoint viability does not.
+That concerns the executable model; the coupling claims of Part Four do not survive it.
 
 **The coupling claims are not.** The same structural randomisation leaves index-pairing
 failing on all twelve in only **40.6 per cent** of draws, which is less often than it holds.
@@ -163,7 +164,7 @@ pressure. So the finding is conditional on the judgement that unity rather than 
 purpose governs whether the group persists and whether it exerts expectations, and on nothing
 else in the matrix. Appendix A5.4c, notebook 11d. **What is still not settled** is what Wilson
 says in *AA Comes of Age* pp. 97-98, which Kurtz names as decisive and which this project does
-not acquire. The chapter says so in its own notes.
+not hold: it is sold, and it is item 2 of `HANDOFF.md` section 10. The chapter says so in its own notes.
 
 **A historical objection that must be answered before this chapter is written.** Kurtz's
 note 16 to his Chapter Five records that in some later AA literature the concept properly
@@ -281,8 +282,8 @@ apparatus substitutes for that.
 **A new copy of Part Four's figures now exists outside Part Four, added 5 August 2026.**
 `reference/PRIMER-steps-and-traditions.md` restates the coupling table, the loads, the
 thresholds and every robustness proportion this part reports, once per Step and once per
-Tradition. It is a derived document that asserts nothing, no checker reads it, and it is
-therefore a second place for these numbers to go stale. If a figure in Chapters 16, 17 or 18
+Tradition. It is a derived document that asserts nothing, the checkers read it only for structure
+and stale language, and it is therefore a second place for these numbers to go stale. If a figure in Chapters 16, 17 or 18
 moves, it has to move there in the same session. `CLAUDE.md` carries the rule.
 
 **The primer also restates them in plain English, and that layer is the exposed one.** Each

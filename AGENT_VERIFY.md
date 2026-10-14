@@ -2,6 +2,9 @@
 
 ## Run the tests first
 
+Use Python 3.11 or newer (the CI floor). The tools use features older interpreters lack, and the
+stock `python3` on some machines is 3.9, where they fail.
+
 ```bash
 python3 -m pip install -r requirements-dev.txt
 python3 -m pytest
@@ -104,7 +107,8 @@ exception.
 Rohr (2011) carries the corpus's strongest provenance objection, recorded in its `metadata.json`:
 the copy consulted was an unauthorized posting of a current in-print title. It was not retained,
 its bibliographic record was confirmed independently, and both claims drawn from it are absence
-claims. Confirm any Rohr citation against a lawfully obtained edition before release.
+claims. This was resolved on 17 August 2026: the Human Author holds a lawful copy, and no Rohr claim
+carries a page citation, so there is nothing to confirm against an edition.
 
 **Citation checking must still pass with no documents present.** Each verification index records
 the source's vocabulary and, because a vocabulary set has no word order, which registered subjects
@@ -364,14 +368,14 @@ Carlo suite interactively.
 **The two notebooks are no longer the same artifact, and a verifier should confirm that.** Until
 9 August 2026 the paper notebook was byte-identical to the book notebook apart from its title,
 which satisfied this section mechanically while verifying nothing specific to the paper. The book
-notebook now runs 8 cells and about 78 assertions; the paper notebook runs 10 and about 102. Its
+notebook now runs 8 cells and 86 assertions; the paper notebook runs 10 and 110. Its
 two extra cells:
 
 1. **Paper headline claims.** Re-derives the paper's principal tables from the caches: all eight
    release-gate conditions, the paired T3 and T11 contrasts, the recipient contrast's interval
    crossing zero, the Sobol first-order admissibility split between membership and practice, and
    the structural ordering in all five architectures.
-2. **Paper traceability.** Every decimal the paper prints, currently 420 of them after excluding
+2. **Paper traceability.** Every decimal the paper prints, currently 489 of them after excluding
    DOIs and the five figures quoted from cited literature, must be reachable from the model
    source, a hash-linked cache, or a derivation shown in the notebook. This is the paper's
    equivalent of the figure check `tools/check_book.py` performs for the chapters, which the paper

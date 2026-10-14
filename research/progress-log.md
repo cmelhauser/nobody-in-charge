@@ -5593,3 +5593,23 @@ job upgraded pip and the lint job installed numpy, pytest and pypdf to run two l
 alone at the Human Author's direction: lint, unit tests and checkers on `main` after the pull
 request ran them, which test the merged result for about fifty seconds, the full four-version
 matrix, and the duplicated toolchain install in `release.yml`, which runs a few times a year.
+
+### 14 October 2026: a six-part review of the documents, and the first corrections
+
+Six independent readers were each given one slice and told to report only defects they could verify:
+the preface and Chapters 1 to 6, Chapters 7 to 13, Chapters 14 to 19, Chapters 20 to 25, the appendix
+and the primer, and the paper with the project documents and plans. About seventy findings came
+back. A sample of the most serious was checked against the files before any edit, and each held.
+They fall into three kinds. Tooling documents and plans that described the repository as it was:
+corrected here. Pointers and source statuses in the book, appendix, primer and paper that the
+appendix renumbering and the 13 September 2026 change in the rule about holding copies had left
+behind. And claims in the argument itself, which are for the Human Author to decide: the paper's
+plain-language appendix still quotes retired figures (a healthy group settling at "about 42
+members"), the "no warning signal inside the room" claim survives in the paper and Chapter 25, the
+"closed core holds all influence" limit is stated without its zero-return condition, and Chapter 1
+states the six hundred thousand figure that its own earlier pages say does not survive inspection.
+
+This entry covers the first kind. The documents now say that Python 3.11 or newer is required: on
+3.9, the stock `python3` on some machines, the tools fail on `zip(strict=True)`. And
+`tools/run_ci_locally.sh`, which printed "local CI clear" even when it had skipped the lint or
+rendering job for want of ruff, pandoc or tectonic, now names what did not run.

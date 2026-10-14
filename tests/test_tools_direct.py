@@ -11,6 +11,7 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 import types
@@ -571,3 +572,18 @@ def test_check_own_total_waits_for_a_full_run(docs_tree):
     check_docs.skips.append("SKIP: no pypdf")
     check_docs.check_own_total()
     assert check_docs.failures == [] and len(check_docs.skips) == 2
+
+
+# ------------------------------------------------------------------------ run_ci_locally
+
+def test_local_ci_says_when_a_job_could_not_run(tmp_path):
+    """A job that could not run is not a job that passed: the verdict names it."""
+    bare = tmp_path / "bin"
+    bare.mkdir()
+    (bare / "dirname").symlink_to(shutil.which("dirname"))
+    result = subprocess.run([shutil.which("bash"), str(ROOT / "tools" / "run_ci_locally.sh"), "documents"],
+                            cwd=ROOT, capture_output=True, text=True,
+                            env={"PATH": str(bare)})
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "NOT RUN: pandoc or tectonic missing: the documents job not run" in result.stdout
+    assert "local CI clear for what ran" in result.stdout

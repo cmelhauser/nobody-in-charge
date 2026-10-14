@@ -184,7 +184,7 @@ A Part Two chapter is finished when all of the following hold:
 2. **Every number in it added to `../model/book-calculations.ipynb` with an assertion**, in the
    section for that chapter, and the notebook re-run clean. Not carried over from an
    earlier session. The Monte Carlo drift found in the audit came from exactly that.
-3. `python3 check_chapter.py <file>` returns no FAIL.
+3. `python3 tools/check_chapter.py <file>` returns no FAIL.
 4. Warnings either cleared or consciously accepted and noted.
 5. Cross-checked against the chapters around it for repeated material. The
    influence tables already appear in ch03's Machinery; each further appearance
@@ -212,7 +212,8 @@ appearance needs a different job or the reader will feel the book circling.
 `reference/PRIMER-steps-and-traditions.md` restates the dominant-member floor, the
 five-per-cent dose, the rotation-pool scaling and the three obstructions, once under
 Tradition 2, once under Tradition 9 and once under Tradition 12. It is a derived
-document that asserts nothing and no checker reads it, so a corrected figure in
+document that asserts nothing and that the checkers read only for structure and stale
+language, so a corrected figure in
 Chapters 8, 9 or 10 has to be carried there in the same session. `CLAUDE.md` has the
 rule. The primer's job is different enough from the chapters' that it does not add to
 the circling risk above: it is a lookup table, not another telling.

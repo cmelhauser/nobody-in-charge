@@ -180,7 +180,8 @@ conditioning; neither receives a blanket sensitivity claim.
 **A second copy of this part's figures now exists, added 5 August 2026.**
 `reference/PRIMER-steps-and-traditions.md` restates the four decline conditions at year
 thirty and the whole Tradition 3 sweep, under Traditions 3 and 11. It is derived, it asserts
-nothing and no checker reads it, so a corrected figure here has to be carried there in the
+nothing and the checkers read it only for structure and stale language, so a corrected
+figure here has to be carried there in the
 same session. The specific risk for this part is that the primer's plain-English layer
 states the referral-versus-attraction result, whose wording matters most. Under the corrected
 mean-one capability model, referral loss is worse than pure attraction loss on existence,
