@@ -5702,3 +5702,12 @@ and the Fatimah et al. reference is cited in Section 2.2 with the section pointe
 paper's printed decimals are unchanged at 492. Not touched, because they depend on sources not in
 the repository: Chapter 6's "three years earlier" and "nine years after he wrote it", Chapter 1's
 Worcester examples, and Chapter 4's status lists.
+
+**The chronology items, settled from the chapters' own text.** Chapter 6's "three years earlier"
+is now "years earlier" (the Rockefeller episode it refers to is December 1937 to 1938, six years
+before October 1944), and "nine years after he wrote it" is "eight", from the chapter's own
+sequence (rules written eighteen months after the autumn of 1944, Yale's offer in 1954). Chapter 1's
+two Worcester sentences, which its own notes say rest on a figure that is not in Maxwell, now name
+the recipient resource and no longer cite a Worcester number. Chapter 4 no longer lists Amos's
+fifty-thousand-dollar recommendation as well attested, since the chapter itself says it rests on
+Wilson's memory and is disputed, and files the AA historical compilations under Cited at a remove.

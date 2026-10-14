@@ -108,7 +108,7 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 **This chapter is the least well sourced in Part One, and I want that on the record.** Chapters One to Three rest on documents I read in full: Maxwell's 1950 study and Gough's 1869 autobiography. This chapter was first drafted on a scholarly work I had not yet obtained, plus a set of secondary accounts that mostly derive from AA's own copyrighted histories. That work, Kurtz's *Not-God*, has since been read, and the notes below record what it changed and what is still at a remove.
 
-**What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation and his fifty-thousand-dollar recommendation; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
+**What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation, though not what he recommended, which is contested below; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
 
 **What I am reporting at one or more removes.** Nearly all of it. The Amos report, the Scott question and Rockefeller's reasoning are quoted in AA's own *Alcoholics Anonymous Comes of Age* and *Dr. Bob and the Good Oldtimers*, and reach me through secondary sites that quote those books. Wilson's disappointment at being refused, and his later crediting of Rockefeller with the nonprofessional principle, come from secondary accounts of his own recollections. The paragraph on the working manuscript is the exception: it is taken from the manuscript itself, apart from the number of copies circulated and Dr. Howard's profession, which are its editors'.
 
@@ -132,8 +132,6 @@ Kurtz, E. (1979; expanded edition 1991). *Not-God: A History of Alcoholics Anony
 
 Maxwell, M. A. (1950). For AA's early structure and his contemporaneous description of the fellowship as small, informal, poor and unpretentious in its first years.
 
-Various AA area and intergroup historical compilations, used only where two or more agreed and where the claim traced to a named AA publication.
-
 *The Book That Started It All: The Original Working Manuscript of Alcoholics Anonymous.* Center City, Minn.: Hazelden, 2010. A colour facsimile of the multilith copy onto which the comments on the February 1939 draft were collated. **Read in full on 12 September 2026**, every facsimile page, from photographs the Human Author took of their own copy; held as a git-ignored reading copy in `research/incorporated/WorkingManuscript_1939/` and never committed. Used here for the single collated copy, the change of speaker, the modals on MS pp. 30, 41 and 42, the struck kneeling instruction and ultimatum, and Dr. Howard's marginal notes.
 
 *Alcoholics Anonymous*, 1st ed. (1939). New York: Works Publishing. Held as the 1999 Alcoholics Anonymous Big Book Study Group reprint in `research/incorporated/BigBook_1939/`. The personal stories were read in full for appendix A13; for this chapter, the printed wording of the passages quoted from the working manuscript, at printed pages 71 and 95.
@@ -145,6 +143,8 @@ Alcoholics Anonymous World Services (1957). *Alcoholics Anonymous Comes of Age.*
 Alcoholics Anonymous World Services (1980). *Dr. Bob and the Good Oldtimers*, pp. 128 to 130. Source of the Frank Amos Akron investigation and report.
 
 Minutes of the first meeting of the Alcoholic Foundation board. Source of the 2,150 figure.
+
+Various AA area and intergroup historical compilations, read at a remove and used only where two or more agreed and where the claim traced to a named AA publication.
 
 The facsimile editors' essays in *The Book That Started It All* (2010), for the number of copies circulated and Dr. Howard's profession. Where they quote AA's own histories they are a further remove.
 
