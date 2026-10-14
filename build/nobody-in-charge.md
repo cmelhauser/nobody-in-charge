@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 3 October 2026"
+date: "Draft of 14 October 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -102,7 +102,7 @@ Underneath Parts Three, Four and Five sits a computer model of a mutual-aid grou
 
 The registered sensitivity set contains **118 numeric values**: twenty-two scalar defaults, twelve step speeds, forty-nine nonzero consumption cells and thirty-five nonzero governance cells. That is not a count of every choice in the model. Fixed coefficients, founder and arrival states, the time step, the horizon, the viability threshold, equations and 108 structural zeros are choices too. The blanks encode the author's claim that a relationship is absent; they are not facts discovered by the model.
 
-Not one of those numbers was fitted to data. There is no dataset of AA members' step practice over time to fit them to. Some are borrowed from literatures where analogous quantities have been estimated, some were set to target a stylized group size, and some are simply my judgement about what seemed reasonable. The target now fails: after correcting member heterogeneity to have mean one, 400 runs average 17.80 members and only 1.25 experienced members above the stated threshold, against targets of 45 and 9. I did not retune after seeing the failure. The two matrices are the most judgemental objects of all, and everything in Part Four inherits from them.
+Not one of those numbers was fitted to data. There is no dataset of AA members' step practice over time to fit them to. Some are borrowed from literatures where analogous quantities have been estimated, some were set to target a stylized group size, and some are simply my judgement about what seemed reasonable. The target now fails: after correcting member heterogeneity to have mean one, 400 runs average 17.80 members, and the viable endpoints average only 1.25 experienced members above the stated threshold, against targets of 45 and 9. I did not retune after seeing the failure. The two matrices are the most judgemental objects of all, and everything in Part Four inherits from them.
 
 A model like that can show that a set of ideas fits together. It cannot show that the ideas are true, and it certainly cannot be run backwards to tell you anything about an individual person.
 
@@ -156,7 +156,7 @@ I have tried throughout to state what would falsify each claim alongside the cla
 
 In 1840, six drunks in a Baltimore tavern founded a society to keep each other sober. Within four years there were societies like it across the United States and the movement claimed to have reached hundreds of thousands of people. Within ten years it was gone, so completely that a century later almost nobody had heard of it.
 
-In 1935, in Akron, two more drunks founded another one. It is still here, a worldwide fellowship of autonomous groups, and its constitution has stood essentially unchanged since 1950. I do not give a current membership or group count because the AA service document that would support one has been located but not read.
+In 1935, in Akron, two more drunks founded another one. It is still here, a worldwide fellowship of autonomous groups, and its constitution has stood essentially unchanged since 1950. I do not give a current membership or group count because the edition of the AA service membership table read here stops at 2020.
 
 The obvious question is what the second one had that the first one did not, and the obvious answer is a set of twelve rules that the second one wrote down in 1946. This book is about whether that answer is right, and it arrives at a smaller version of it than I set out to prove.
 
@@ -202,7 +202,7 @@ A model like that cannot show that anything is true. It can show that a set of i
 
 What it turned out to be best at was destroying my own claims. The model found that a single-equilibrium version made group collapse mathematically impossible, which meant the first version could not represent the thing the book is about. It found that a decline table I had published was computed from ten random seeds and was wrong by a factor of two when recomputed from four hundred. It found that the most robust thing the simulation says holds on one measure and reverses on another, and that I had never said which measure I meant.
 
-Chapter Twenty-Three is a list of twenty-five such errors, sorted by which instrument caught each one. It is the most useful chapter in the book for anybody doing work of this kind, and it exists because the corrections were more informative than the results.
+Chapter Twenty-Three is a ledger of more than thirty such errors, sorted by which instrument caught each one. It is the most useful chapter in the book for anybody doing work of this kind, and it exists because the corrections were more informative than the results.
 
 ---
 
@@ -224,7 +224,7 @@ Three warnings about how to read what follows.
 
 **No sentence here bears on how any individual is doing.** What the model calls practice is a coordinate on a scale I made up, and it diagnoses nobody. The book cannot grade a meeting either, and it offers no advice to anyone. Chapter Twenty-Five is entirely about that limit, which is why it comes last.
 
-**And the fellowship in question would rather nobody spoke on its behalf.** This account stands wholly outside it, drawing on the published short text of the Traditions and on historians with no stake in the outcome, since AA's own writing is under copyright and the project leaves it alone. On the single occasion somebody who knows the rooms read a draft, they identified a case I had constructed that the Third Tradition rules out, and no other intervention in the project changed as much for as few words. The implication for the parts nobody has checked is uncomfortable.
+**And the fellowship in question would rather nobody spoke on its behalf.** This account stands wholly outside it, drawing on the published short text of the Traditions, on AA's own writing read where it is lawfully available and quoted only within limits, and on historians whose sympathies the chapters state. On the single occasion somebody who knows the rooms read a draft, they identified a case I had constructed that the Third Tradition rules out, and no other intervention in the project changed as much for as few words. The implication for the parts nobody has checked is uncomfortable.
 
 ---
 
@@ -469,7 +469,7 @@ A one-engine group is therefore not merely smaller. It sits on the fragile branc
 
 **How far to trust these numbers.** They are Monte Carlo estimates inside a constructed model, not historical rates. The 95 per cent Wilson interval for endpoint viability is 0.968 to 0.993 in the baseline and 0.015 to 0.049 without referrals. The latter condition closes in 358 of 400 runs. These corrected results are much more severe than the earlier cache because the individual heterogeneity draw is now mean-centred; the old lognormal implementation silently raised average capability above one and cannot be compared to this release.
 
-The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A9 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch, and its 400-seed paired runs confirm the decay rate's and locate it: the mean-size ordering holds with the rate fifteen per cent lower and reverses at twenty, the referral-starved group ending the larger, while the viability ordering still holds at every rate tried. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
+The second is what survives that. Under a global perturbation of every model parameter by up to twelve and a half per cent, the ordering in this table holds on endpoint viability in 323 of 334 draws, ties in ten and reverses in one. At twenty-five per cent it holds in 269, ties in 64 and reverses in one. At fifty per cent it holds in 201, ties in 117 and reverses in sixteen. That is the viability column and it is the column the claim is about; the mean-size column is weaker at every amplitude and behaves differently under changes to the model's architecture, and appendix A7.3 sets out how. The ordering also survives a harder test, in which each of the model's hundred and eighteen numbers is moved alone by ten, twenty-five, fifty and seventy-five per cent in each direction. Across those 944 points the final-membership ordering holds in 931, ties in two and reverses in eleven, and the reversals are concentrated in large downward moves of the ordering exponent, the decay rate and churn. Chapter Twelve gives reason to think the decay rate may be well below what the model assumes, which makes those reversals the ones to watch, and its 400-seed paired runs confirm the decay rate's and locate it: the mean-size ordering holds with the rate fifteen per cent lower and reverses at twenty, the referral-starved group ending the larger, while the viability ordering still holds at every rate tried. The endpoint viability of the referral-starved case is robust to nothing at all, and twenty-six of the hundred and eighteen parameters can move it on their own. Read the ranking, not the figures.
 
 The recipient resource is defined as low-practice members *per high-practice potential helper*, saturating in that ratio rather than in raw membership. Worcester in June 1841 motivates the idea of a crowded room with few relevant recipients; it does not validate the proxy.
 
@@ -505,7 +505,7 @@ That is a deliberate restriction on who may address the room, and it is function
 
 So the honest statement of this book's comparison is not that the Washingtonians had no rules and AA had twelve. They had at least one good one, early, and it worked. Krout's next sentence is that the standard for other Washingtonian societies was thereby set, and his mechanism is imitation: the practice spread because people copied a meeting that was visibly working. **An earlier version of this note went on to say that imitation was all they had, and that no means existed of transmitting a practice as a rule. The *Pocket Companion* shows that to be wrong**, and the main text now carries the correction. Mitchell's speaking rule is not in Grosh's directions, which is a different and smaller point: a mechanism existed and this particular rule did not travel through it. Chapter Two is about what happened then.
 
-**A second version of the founding, and a conflict on one detail.** John Marsh, Corresponding Secretary of the American Temperance Union, prints the same scene in his 1866 memoir, taken from the eleventh annual report of the Maryland State Temperance Society, and I have now read it at source. The wording is close enough to be the same tradition: after all temperance is a good thing; a parcel of hypocrites; it is for your interest to cry them down; let's form a Temperance Society, and make Mitchell president. Two things differ. Marsh's source says **four** of the six went to the sermon, not one delegate. And it names the preacher not as Matthew Hale Smith but as **Elder Knapp**, presumably the revivalist Jacob Knapp. I cannot resolve which is right from anything I have; the two accounts descend from different Baltimore informants and both are retrospective. The chapter follows Maxwell on the preacher's name and I record the disagreement rather than choosing silently.
+**A second version of the founding, and a conflict on one detail.** John Marsh, Corresponding Secretary of the American Temperance Union, prints the same scene in his 1866 memoir, taken from the eleventh annual report of the Maryland State Temperance Society, and I have now read it at source. The wording is close enough to be the same tradition: after all temperance is a good thing; a parcel of hypocrites; it is for your interest to cry them down; let's form a Temperance Society, and make Mitchell president. Two things differ. Marsh's source says **four** of the six went to the sermon, not one delegate. And it names the preacher not as Matthew Hale Smith but as **Elder Knapp**, presumably the revivalist Jacob Knapp. I cannot resolve which is right from anything I have; the two accounts descend from different Baltimore informants and both are retrospective. The chapter leaves the preacher unnamed and I record the disagreement rather than choosing silently.
 
 **And the sermon itself was disputed at the time.** Marsh adds a sentence that is worth more than the detail it corrects: *This statement was afterward denied by some who preferred that the movement should be considered an immediate impulse from Heaven, without any human instrumentality.* So within twenty-five years there were already two constituencies, one holding that six men were moved by a preacher and one holding that they were moved by God directly. That is a founding myth under construction, visible in the act, and it is a reason to hold every detail of this scene loosely. What is not in dispute is the outcome: they organised, and they signed.
 
@@ -721,7 +721,7 @@ AA forbade **respectability**: anonymity at the level of press and public, princ
 
 Every single innovation the Sons of Temperance introduced to fix the Washingtonians' retention problem, AA specifically prohibited.
 
-The Sons of Temperance today is a vestige. Alcoholics Anonymous remains a worldwide fellowship of autonomous groups, still operating under Traditions it has not substantially amended since 1950. The current group and membership counts appear in an AA service document that this project has located but not read, so I do not reproduce them.
+The Sons of Temperance today is a vestige. Alcoholics Anonymous remains a worldwide fellowship of autonomous groups, still operating under Traditions it has not substantially amended since 1950. The membership table in the AA service document read here stops at 2020, so I give no present count.
 
 ---
 
@@ -1015,7 +1015,7 @@ But the setup was already complete in 1845. A movement had concentrated its cred
 
 The model treats a group as members who weight each other's judgment. Each member has an *influence weight*: the share of the group's eventual view traceable to that member. The weights sum to one.
 
-The result in Chapter Seven says that such a group gets reliably closer to the truth as it grows if and only if the largest single influence weight shrinks toward zero. If one person permanently holds a fixed share of the outcome, adding members stops helping, because that person's errors never average away.
+The result in Chapter Eight says that such a group gets reliably closer to the truth as it grows if and only if the largest single influence weight shrinks toward zero. If one person permanently holds a fixed share of the outcome, adding members stops helping, because that person's errors never average away.
 
 Gough is a historical analogy for what concentrated public prominence can look
 like, not a measurement of a stationary influence weight.
@@ -1038,7 +1038,7 @@ do not identify influence weight as the cause.
 
 ### 2. The technical version
 
-Let A be the row-stochastic matrix of trust weights among N members and s the influence vector, normalised so that the entries sum to one. The simulation in Chapter Seven compares four governance regimes as N grows:
+Let A be the row-stochastic matrix of trust weights among N members and s the influence vector, normalised so that the entries sum to one. The simulation in Chapter Eight compares four governance regimes as N grows; two are shown here:
 
 | Regime | max influence, N=10 | N=500 |
 |---|---|---|
@@ -1450,7 +1450,7 @@ It also supplies a fact the chapter needed and did not have. The pamphlet states
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Chapter Five and its notes, and the 1937 material in Chapter Three. Used here for the 1941 to 1945 statement of the problem, the membership figures, the reconstructed house style of Wilson's replies, his hesitation and what overcame it, the seven matters he listed as settled, his disclaimer that a code of traditions could never become rule or law, the April 1946 long form and its opening sentences, the November 1949 short form and the dropping of "honest" from Tradition Three, the June 1950 adoption, the Towns offer and the Clinton Street meeting, and the identification of that meeting as Wilson's first encounter with the group conscience. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
 
-Alcoholics Anonymous World Services. *A.A. Tradition: How It Developed.* Pamphlet P-17, July 2024 edition, written by Bill W. **Read in full**; obtained from AAWS's official distribution on 4 August 2026, and the two passages this book relies on were checked against the rendered page images rather than the OCR. Source for the text of the 1946 "Twelve Points to Assure Our Future" as AAWS reproduces it, and for the statement that in all but the Second Tradition the original language has been modified or shortened. **The document is deliberately not stored in this repository**: it is copyrighted AA literature and this repository is public, so the record under `research/incorporated/AAWS_2024_P17/` keeps the citation, the official URL, the file hash and the verified quotations instead. **Note what it is not.** It is a 2024 reproduction, not the April 1946 *Grapevine*, so it cannot adjudicate the conflicting issue numbers recorded above, and a claim turning on 1946 typography would still need the original.
+Alcoholics Anonymous World Services. *A.A. Tradition: How It Developed.* Pamphlet P-17, July 2024 edition, written by Bill W. **Read in full**; obtained from AAWS's official distribution on 4 August 2026, and the two passages this book relies on were checked against the rendered page images rather than the OCR. Source for the text of the 1946 "Twelve Points to Assure Our Future" as AAWS reproduces it, and for the statement that in all but the Second Tradition the original language has been modified or shortened. **The document is deliberately not committed to this repository**: it is copyrighted AA literature and this repository is public. A git-ignored local copy has been held since 13 September 2026, and the record under `research/incorporated/AAWS_2024_P17/` keeps the citation, the official URL, the file hash and the verified quotations. **Note what it is not.** It is a 2024 reproduction, not the April 1946 *Grapevine*, so it cannot adjudicate the conflicting issue numbers recorded above, and a claim turning on 1946 typography would still need the original.
 
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. **Read in full**; the original project PDF and text are stored in the Maxwell subdirectory of `research/incorporated/`, in a retyped copy whose transcription errors are listed in `research/SOURCES.md`. Source here for the catalogue of early AA organisational failures, taken by Maxwell from the 1947 *A.A. Tradition* booklet; for the observation that in AA there is actually no overhead authority and that wherever two or three alcoholics gather on the basis of the Twelve Step programme they may call themselves a group; and for the dating discussed above.
 
@@ -1464,7 +1464,7 @@ Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*
 
 The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the February 1939 draft.
 
-Wilson, W. The long form of the Twelve Traditions, *AA Grapevine* 2:11, April 1946, 2-3, and the short form, *AA Grapevine* 6:6, November 1949, 16-17. Both as cited by Kurtz. Not read. The two April 1946 citations conflict and the conflict is recorded above.
+Wilson, W. The long form of the Twelve Traditions, *AA Grapevine* 2:11, April 1946, 2-3, and the short form, *AA Grapevine* 6:6, November 1949, 16-17. The April 1946 long form was read at source on 10 August 2026, from a scan whose posting authorization is unverified, and is held as record only; the November 1949 short form is as cited by Kurtz and was not read. The two April 1946 citations conflict and the conflict is recorded above.
 
 *A.A. Tradition* (1947). New York: Works Publishing. Maxwell's source for the catalogue of failures. Not read.
 
@@ -1532,8 +1532,6 @@ Seventy-five years later, that research still has not been done in any systemati
 
 ---
 
-## The strongest objection, and what happened in 1944
-
 There is an objection to everything Part One has argued, and it is good enough that the book should meet it here rather than hope nobody raises it.
 
 The objection is that the comparison is confounded by timing.
@@ -1580,7 +1578,7 @@ Three weaker objections deserve naming, since none of them is fully answered by 
 
 **The disease concept and the medical alliance.** AA arrived alongside a scientific reframing of alcoholism that the Washingtonians never had, and benefited from it enormously. This is true and Part One does not dispute it. But note that the alliance was available precisely because of the Yale group, and note what nearly happened when AA got close to it.
 
-**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 931 of the 944 points at which each parameter was moved alone, which is the more demanding test. Single-tradition degradations, by contrast, mostly cannot be resolved at all. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
+**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 934 of the 944 points, with ten tied, at which each parameter was moved alone, three common seeds to a point, which is the more demanding test though only a screen. Single-tradition degradations are a different matter: five of the twelve cannot be resolved even at four hundred seeds. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
 
 **Survivorship bias.** We are examining the one mutual-aid movement that lasted and reasoning backward from its features, which is exactly the procedure that produces spurious explanations. The defence is not that Part One escapes this. It is that Part Two does not depend on it: the argument there is that three Traditions satisfy a criterion provable in advance, not that they correlate with survival after the fact.
 
@@ -1592,7 +1590,7 @@ Three weaker objections deserve naming, since none of them is fully answered by 
 
 This chapter is about the limits of comparative history, so the relevant model result is one about limits.
 
-Maxwell listed five differences between AA and the Washingtonians and argued each contributed. The natural next question is: which mattered most? The simulation can ask that question directly, by degrading one Tradition at a time and measuring what happens to the group over thirty years.
+Maxwell listed five differences between AA and the Washingtonians and argued each contributed. The natural next question is: which mattered most? The simulation can ask that question directly, by degrading one Tradition at a time and measuring what happens to the group over twenty years.
 
 It can answer it partly, and the size of the sample decides how much.
 
@@ -2031,7 +2029,7 @@ Golub and Jackson identify three obstructions to the vanishing condition: promin
 
 **That mapping was stated here for some time without being computed, and computing it changed it.** The three obstructions are properties of *sequences* of societies as they grow, not properties of a room. Take the clique and the imbalanced member at fixed magnitude and neither obstructs anything. Take a clique of three that gives a tenth of its attention outward. Between them the three hold 0.750 of the influence in a group of ten. In a group of fifty it is 0.375, in a group of two hundred and fifty 0.107, and in a group of a thousand 0.029. A member who receives twenty times the attention he gives holds 0.690 in a group of ten and 0.020 in a group of a thousand. Both shares vanish, so both satisfy the condition and neither is an obstruction at all.
 
-Now let the same two practices grow with the group. A clique whose inwardness approaches one as the group expands holds 0.167 of the influence at every size tested from ten to a thousand. A member whose attention advantage grows in proportion to the group runs from 0.182 at ten to 0.168 at a thousand, converging to a positive share rather than settling on one exactly. Neither is falling toward zero, and that is the whole of what makes them obstructions.
+Now let the same two practices grow with the group. A clique whose inwardness approaches one as the group expands holds 0.167 of the influence at every size tested from ten to a thousand. A member whose attention advantage grows in proportion to the group runs from 0.182 at ten to 0.167 at a thousand, converging to a positive share rather than settling on one exactly. Neither is falling toward zero, and that is the whole of what makes them obstructions.
 
 So what makes a practice dangerous is not its severity but whether it scales. A fellowship with one very prominent member in every room of thirty is in a different position from a fellowship with one very prominent member however large the room gets, and the difference is not a matter of degree. It is the difference between a share that vanishes and a share that does not.
 
@@ -2059,7 +2057,7 @@ The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0
 
 Entries are maximum influence as a multiple of the flat benchmark. The first row holding at exactly 2.0 is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
 
-And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the appendix and it starts hurting almost immediately.
+And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the companion paper and it starts hurting almost immediately.
 
 ### 3. Notes on sources
 
@@ -2087,7 +2085,7 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 DeGroot, M. H. (1974). "Reaching a Consensus." *Journal of the American Statistical Association* 69(345): 118-121. The updating model.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. The chapters on Traditions 2, 9 and 12, at printed pages 132 to 138, 174 to 178, and 187 to 191. Source of the group-conscience claim, the founding story of Tradition 2, the elder statesmen and bleeding deacons, the description of the committee as sharply limited, the warning against entrenched power, and the two functions of anonymity. Copyright AAWS; held as a record with no document, and paraphrased rather than quoted at length.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. The chapters on Traditions 2, 9 and 12, at printed pages 132 to 138, 174 to 178, and 187 to 191. Source of the group-conscience claim, the founding story of Tradition 2, the elder statesmen and bleeding deacons, the description of the committee as sharply limited, the warning against entrenched power, and the two functions of anonymity. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed, and paraphrased rather than quoted at length.
 
 Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited only for its reading of anonymity as confidentiality, and for containing no discussion of the Traditions.
 
@@ -2283,7 +2281,7 @@ Influence weights and consensus errors for four governance regimes at N = 10, 50
 
 **What was not read:**
 
-Any measurement of attention or influence inside a real mutual-aid group. The three regimes in this chapter are constructed matrices, not observed ones, and appendix A8 sets out what would have to be measured to know whether any of them resembles a meeting. Chapter Twenty-Four lists that measurement and admits it may not be obtainable ethically in an anonymous fellowship.
+Any measurement of attention or influence inside a real mutual-aid group. The three regimes in this chapter are constructed matrices, not observed ones, and Chapter Twenty-Four sets out what would have to be measured to know whether any of them resembles a meeting, and admits it may not be obtainable ethically in an anonymous fellowship.
 
 # Chapter Ten: Rotation Has to Be Wide
 
@@ -2317,7 +2315,7 @@ Take that same group with its same dozen volunteers, and let it reach eight hund
 
 It does not improve. It cannot, because the number of people among whom influence is being shared did not change when the group doubled. Twelve is twelve at any size.
 
-So the gap widens. At fifty members a rotating pool of twelve is twice the flat benchmark. At two hundred it is six times. At four hundred, twelve times. At eight hundred, twenty-three times. The group is getting bigger and the benefit of being bigger is being thrown away, one term at a time, by a practice everybody agrees is correct.
+So the gap widens. At fifty members a rotating pool of twelve is twice the flat benchmark. At two hundred it is six times. At four hundred, twelve times. At eight hundred, twenty-four times. The group is getting bigger and the benefit of being bigger is being thrown away, one term at a time, by a practice everybody agrees is correct.
 
 This is the condition from Chapter Eight failing in slow motion. It requires the largest share to *shrink toward nothing as the group grows*. A fixed rotation pool does not shrink. It converges to a floor at roughly the officeholder's share divided by the size of the pool, and sits there.
 
@@ -2437,15 +2435,23 @@ For comparison, at N = 400 a caucus of three holding half the influence between 
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. The vanishing-influence criterion, and the requirement that maximum influence go to zero as the society grows, which is what a fixed rotation pool fails.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a record with no document.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed.
 
 W., Bill. *The Twelve Concepts for World Service* (Short Form), SMF-114. Adopted 1962. Read at
-source on 17 August 2026 from the fellowship's own free posting and held as record only under
-`research/incorporated/TwelveConcepts_1962/`. Used here for Concept 4, the Right of
+source on 17 August 2026 from the fellowship's own free posting and held git-ignored under
+`research/incorporated/TwelveConcepts_1962/` since 13 September 2026. Used here for Concept 4, the Right of
 Participation, and for Concept 9 on the passage of primary service leadership from the founders
-to the trustees. The long-form Concepts and the essays accompanying them in the Service Manual
-were not read; if a rule about the size of a rotating pool exists anywhere, the Concept 4 essay
-is where it would be.
+to the trustees. The long-form Concept 4 essay was read in the Service Manual, below, and holds
+no rule about the size of a rotating pool.
+
+Alcoholics Anonymous World Services, *The A.A. Service Manual Combined with Twelve Concepts for
+World Service* (2024-2026 edition, BM-31). Read in part on 13 September 2026: Concepts IV and V in
+full, Concept XI on rotation, and every passage in the manual that mentions rotation. Held
+git-ignored under `research/incorporated/ServiceManual_2024/`. The Concept IV essay holds no rule
+about the size of a rotating pool: it concerns voting participation in proportion to
+responsibility among trustees, service directors and staff. Concept XI ties term length to
+responsibility. This is a prescription for the world service structure, not evidence about how
+home groups rotate.
 
 **Cited at a remove:**
 
@@ -2557,7 +2563,7 @@ No new computation. The figures referenced are from Chapter Nine, section 2, and
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 
-~~I have not simulated this bipartite structure.~~ **It has now been simulated, and it turns out to have an exact closed form.**
+**I simulated this bipartite structure, and it has an exact closed form.**
 
 Let each member give a fraction of their attention to the touring speakers and let the speakers give a fraction of theirs back to the general membership. Then the speakers' total influence is
 
@@ -2820,7 +2826,7 @@ Cohen, J. P., A. C. Johnston and A. S. Lindner (2023). "Skill Depreciation durin
 
 Edgren, R., D. Baretta and J. Inauen (2025). "The temporal trajectories of habit decay in daily life: An intensive longitudinal study on four health-risk behaviors." *Applied Psychology: Health and Well-Being* 17(1): e12612. **Read in full** on 22 September 2026, apart from the supplement, the figures and the references; open access under CC BY 4.0, held git-ignored in `research/incorporated/Edgren_2025/` as the publisher's deposited full text. The first intensive longitudinal study of habit decay in daily life, and the fast end of the bracket around this chapter's decay rate. **Note what it measures**: an unwanted habit being deliberately weakened with an implementation intention, not a wanted practice left unrenewed.
 
-Kaskutas, L. A., J. Bond and L. A. Avalos (2009). "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment." *Addictive Behaviors* 34(12): 1029-1035. **Read in full** on 22 September 2026, apart from the three figures; the NIH author manuscript, held git-ignored in `research/incorporated/Kaskutas_2009/`. Four attendance trajectories over seven years, the slow end of the bracket, and the source of this chapter's warning that attendance and outcome come apart. **Note the copy**: the accepted manuscript, so its pagination is not the journal's, and the plotted curves are in figures the deposit does not contain, which is why no figure is quoted from it.
+Kaskutas, L. A., J. Bond and L. A. Avalos (2009). "7-year trajectories of Alcoholics Anonymous attendance and associations with treatment." *Addictive Behaviors* 34(12): 1029-1035. **Read in full** on 22 September 2026, apart from the three figures; the NIH author manuscript, held git-ignored in `research/incorporated/KaskutasBondAvalos_2009/`. Four attendance trajectories over seven years, the slow end of the bracket, and the source of this chapter's warning that attendance and outcome come apart. **Note the copy**: the accepted manuscript, so its pagination is not the journal's, and the plotted curves are in figures the deposit does not contain, which is why no figure is quoted from it.
 
 **Cited at a remove:**
 
@@ -2828,7 +2834,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-The derived group-dependence coefficients, the transmission ratio, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`. The decay-ordering run is `model/decay_ordering.py`, cached in `research/decay_ordering.json`, and the run that locates the membership reversal is `model/decay_reversal.py`, cached in `research/decay_reversal.json`.
+The derived group-dependence coefficients, the parameter inventory, and the sweep results quoted above. Code and assertions in `model/book-calculations.ipynb`. The decay-ordering run is `model/decay_ordering.py`, cached in `research/decay_ordering.json`, and the run that locates the membership reversal is `model/decay_reversal.py`, cached in `research/decay_reversal.json`.
 
 **What was not read:**
 
@@ -3274,7 +3280,7 @@ The group sweep is a sensitivity curve, not evidence for individual bistability.
 
 Fatimah, H. M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. Read from the author manuscript; saved as `research/incorporated/Fatimah_2025/`. The two stable equilibria, the separation energy in each direction, the person-specific steepness and tilt, the between-subject variance in steepness and relapse risk, and the criterion validity against life satisfaction and criminal behaviour beyond proportion of days used and time to first use.
 
-Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Used here only for the contrast drawn at the end of the chapter, between influence failure and aggregation blindness.
+Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used in this chapter's argument; the influence criterion it supplies is developed in Chapter Eight.
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
 
@@ -3404,7 +3410,7 @@ Three results, all at 400 seeds, thirty-year horizon, full Tradition adherence.
 
 **Service is load-bearing rather than terminal inside the model.** Setting the twelfth step's growth rate to zero costs 5.33 members [4.44, 6.21], or 30 per cent of baseline membership, and lowers maintenance capacity by 0.0135 [0.0079, 0.0192]. Average practice falls by 0.0150, with paired interval [0.0076, 0.0223].
 
-**Losing it does not change endpoint viability in these runs.** In each condition 394 of 400 runs finish above five members. The result is a smaller group over thirty modeled years; it is not proof of permanence or survival forever.
+**Losing it does not change endpoint viability in these runs.** In the baseline and in the disabled-Step-Twelve condition 394 of 400 runs finish above five members, and 395 do when recipient capacity is forced. The result is a smaller group over thirty modeled years; it is not proof of permanence or survival forever.
 
 **The clean recipient override is unresolved.** Forcing recipient capacity to one
 raises final membership by 1.03 members relative to baseline, with paired 95 per
@@ -3678,7 +3684,7 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used for any result in this chapter; named because the governance matrix was built for Part Two's argument and not for this one, which is what makes the test here meaningful.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. All twenty-four chapters, for the cross-reference count in the main text. Copyright AAWS; held as a record with no document.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. All twenty-four chapters, for the cross-reference count in the main text. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed.
 
 Rohr, R. (2011). *Breathing Under Water: Spirituality and the Twelve Steps*. Cincinnati: Franciscan Media. Read in full 10 August 2026. Cited for containing no discussion of the Traditions.
 
@@ -3688,7 +3694,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A5.4 and A7.1, for the perturbation designs and for what they cannot reach. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
 
@@ -3868,7 +3874,7 @@ It is not the document Kurtz named. He points at Wilson's discussion of the Firs
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Note 16 to Chapter Five, for the charge that the concept conveyed by *single-purposed* was obfuscated by substituting *unity*, and that AA itself at times fell into this after Wilson's death; and the main text of Chapter Five for Wilson's August 1945 *Grapevine* sentence about being strong enough and single-purposed enough from within. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The chapters on Tradition 1 and Tradition 5, spanning printed pages 129 to 131 and 151 to 155, for Wilson keeping unity and singleness of purpose apart. Copyright AAWS; held as a record with no document.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The chapters on Tradition 1 and Tradition 5, spanning printed pages 129 to 131 and 151 to 155, for Wilson keeping unity and singleness of purpose apart. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed.
 
 **Cited at a remove:**
 
@@ -3876,7 +3882,7 @@ Wilson, W. (1945). "Modesty One Plank for Good Public Relations." *AA Grapevine*
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11d, and section 17 for the resource-list corroboration. `appendix/APPENDIX.md` A5.4 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11d, and section 17 for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
 
 **What was not read:**
 
@@ -3896,7 +3902,7 @@ Nobody decided this. It falls out of asking, one Tradition at a time, whether it
 
 Start with why it looks like a discovery.
 
-The five are a third of the code by count. They are also, by reputation, among the load-bearing ones: an AA member asked which Traditions matter would very likely name self-support and no outside opinion, and Part One spends two chapters on what happened to a movement that had neither firmly. If the derivation had been built to flatter the Traditions it would not have produced a result in which a third of them supply nothing.
+The five are five of the twelve by count. They are also, by reputation, among the load-bearing ones: an AA member asked which Traditions matter would very likely name self-support and no outside opinion, and Part One spends two chapters on what happened to a movement that had neither firmly. If the derivation had been built to flatter the Traditions it would not have produced a result in which five of the twelve supply nothing.
 
 And the split is not arbitrary in content. Read the five together and they are all about the group's relations with things that are not the group: other groups, outside enterprises, outside money, a structure above the group, the world's arguments. Read the seven together and they are all about what happens inside the room. That is a clean line and I did not draw it. I drew twelve rows of a matrix by asking a different question, and the line appeared.
 
@@ -4027,7 +4033,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What this test does and does not license.** It licenses the statement that index-pairing would require the index-mate to govern its own Step's needs more strongly than a typical entry in the matrix, uniformly across all twelve. It does not license any statement about whether the zeros are correctly placed, because it holds the sparsity pattern's origin fixed and prices only its consequences. It is a sensitivity analysis of a judgement, not a test of it.
 
-**What the multiplicative designs cannot do, restated so it is not lost.** Multiplying a zero by a random number leaves a zero. Both perturbation designs used elsewhere in this part are multiplicative on the non-zero entries and preserve sparsity by construction. Therefore neither can produce a draw in which a protective Tradition supplies anything, and neither can be quoted as evidence about the two-tier split. The 100 per cent figure previously recorded for the split is vacuous and has been removed from `research/PARAMETERS.md` and appendix A5.4.
+**What the multiplicative designs cannot do, restated so it is not lost.** Multiplying a zero by a random number leaves a zero. Both perturbation designs used elsewhere in this part are multiplicative on the non-zero entries and preserve sparsity by construction. Therefore neither can produce a draw in which a protective Tradition supplies anything, and neither can be quoted as evidence about the two-tier split. The 100 per cent figure previously recorded for the split is vacuous and has been removed from `research/PARAMETERS.md` and appendix A7.4.
 
 **The textual classification is a judgement and is recorded as one.** Criterion one, an explicit prohibition in the wording, matches three of the five and also matches one of the enabling seven; it fails. Criterion two, mentioning no individual person, matches four of the five cleanly, matches the fifth only if a clause about service boards being responsible to those they serve is read as referring to groups rather than to people, and matches none of the enabling seven. Reported as four clean, one strained, no false positives. No count here is a computation and none is asserted in the notebook.
 
@@ -4043,7 +4049,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
-**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
+**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, the rejection of index-pairing survives in 86 per cent of draws when four of fifty-six cells differ and in 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
 
 ### 4. References
 
@@ -4063,7 +4069,7 @@ The wording of the Twelve Traditions themselves. They are AA copyright, this pro
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, section 11c, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A5.3 for the exact cancellation at full adherence, and A5.4 for the perturbation designs and what they cannot reach.
+`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, section 11c, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
 
 **What was not read:**
 
@@ -4354,7 +4360,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A6 for the calibration.
+`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A3 for the calibration.
 
 **What was not read:**
 
@@ -4498,7 +4504,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 2 for the absence of external validation.
+`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 1 for the absence of external validation.
 
 **What was not read:**
 
@@ -4524,7 +4530,7 @@ So they did the thing the estimates invite. They wrote an assignment algorithm t
 
 Their own model predicted that the bottom third of the academic distribution would gain, on average, 0.053 grade points, and that the strong students would be unaffected. That is a modest, sensible, well-founded prediction.
 
-What they measured was a treatment effect of **minus 0.061 grade points** on exactly the students they had set out to help, statistically significant at conventional levels.
+What they measured was a treatment effect of **minus 0.061 grade points** on exactly the students they had set out to help, with a reported p-value of 0.055, significant at the ten per cent level and just short of the five per cent level.
 
 Not zero. Negative, and of the same size as the intended gain, in the opposite direction.
 
@@ -4744,7 +4750,7 @@ There is a fourth category that I want to name separately, because it appeared l
 
 Several of the errors above were caught by assertions rather than by me. The practice is simple: every number printed in the book is also written into a notebook cell with an assertion that it equals what the computation produces. The point is not that the assertions verify the numbers. It is that writing an assertion forces you to state the relationship you think holds, and stating it is what exposes the ones that do not.
 
-Five errors in this book were caught that way, and every one was a claimed relationship rather than a modelling fault. I wrote that a range of thresholds sat inside another range; it did not, it extended below it at both ends. I wrote that a Tradition stripped of two resources fell to fourth place; it fell to third. I wrote a constant as 0.2769 when it was 0.2269. In each case the sentence was in a draft, the assertion failed on its first run, and the sentence was corrected before anyone read it.
+Three errors in this book were caught that way, and every one was a claimed relationship rather than a modelling fault. I wrote that a range of thresholds sat inside another range; it did not, it extended below it at both ends. I wrote that a Tradition stripped of two resources fell to fourth place; it fell to third. I wrote a constant as 0.2769 when it was 0.2269. In each case the sentence was in a draft, the assertion failed on its first run, and the sentence was corrected before anyone read it.
 
 An assertion detects drift, not error. It cannot tell you that a number is wrong, only that it has changed. But an assertion about a *relationship*, of the form "this range contains that one" or "these two figures are equal", is a different instrument, and it catches the thing you were sure of.
 
@@ -4807,11 +4813,11 @@ The corrections, with what found each one and where the corrected version lives.
 | Eight grades of drinker | the same | Ch 1 |
 | The Traditions described as rules | Kurtz, quoting Wilson | Ch 5 |
 | Adoption at a 1950 convention | Kurtz | Ch 5 |
-| A group closing its doors | a reader who had been in the rooms | Ch 19, A9 |
+| A group closing its doors | a reader who had been in the rooms | Ch 19, A7.3 |
 | Threshold range containment | a notebook assertion | Ch 18 |
 | A rank stated as fourth | a notebook assertion | Ch 17 |
 | A constant transcribed as 0.2769 | a notebook assertion | Ch 22 |
-| "Worse" undefined in the book's strongest claim | structural variants, appendix A9 | preface, Ch 1, Ch 4, A9 |
+| "Worse" undefined in the book's strongest claim | structural variants, appendix A7.3 | preface, Ch 1, Ch 4, A7.3 |
 
 The table no longer has the tidy count this chapter once reported. The release-gate audit added
 distributional, semantic, estimand and reproducibility errors that cross the earlier categories.
@@ -4850,7 +4856,7 @@ Nothing applicable; this chapter reads only its own project.
 
 The honest position of this book is that it has shown a set of ideas to be consistent and has not shown them to be true.
 
-That is a real distinction and it is not a modest formula. A model with a hundred and eighteen chosen numbers, fitted to nothing, can demonstrate that a mechanism is *available*: that if groups work in a particular way, then certain things follow and certain other things cannot. It cannot demonstrate that groups work that way. No amount of further computation changes that, because the limitation is not computational.
+That is a real distinction and it is not a modest formula. A model with a hundred and eighteen registered sensitivity values, fitted to nothing, can demonstrate that a mechanism is *available*: that if groups work in a particular way, then certain things follow and certain other things cannot. It cannot demonstrate that groups work that way. No amount of further computation changes that, because the limitation is not computational.
 
 So this chapter is a list of measurements that would. Each one is something somebody could actually do, each has a result that would tell against the book as well as for it, and each is described precisely enough that a reader could start.
 
@@ -4920,9 +4926,9 @@ The fellowship's earliest record describes the configuration without measuring i
 
 **Six. Anything at all about the model's trajectories.**
 
-Threat two in the appendix says no output of this model has ever been set beside a real group. That is true and it is the largest gap, and it is worth separating what would help from what would not.
+Threat one in the appendix says no parameter of this model is fitted to longitudinal group data, and so no output has been set beside a real group. That is true and it is the largest gap, and it is worth separating what would help from what would not.
 
-Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The horizon, the arrival rate and the churn floor are three of the hundred and eighteen chosen numbers, and a match would mostly show that three numbers can be chosen to produce a match.
+Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The arrival rate and the churn rate are two of the hundred and eighteen registered sensitivity values, the horizon is a separate design choice, and a match would mostly show that a few numbers can be chosen to produce a match.
 
 What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. Chapter Twelve adds a reason to hold it loosely: the few reversals the one-at-a-time screen finds come mostly from large downward moves of three values, and one of them is the decay rate, which nothing measures for a practice. Two 400-seed runs have since confirmed the decay rate's reversal and located it: with practice lapsing a fifth more slowly, a group starved of referrals ends larger than one starved of attraction while still closing more often, so the outcomes a study scores could point in opposite directions, and fifteen per cent slower is not enough to produce that. A study that could record how fast practice lapses in the groups it follows would test the ordering and its most fragile assumption together. It would have to record practice rather than attendance. Kaskutas, Bond and Avalos followed five hundred and eighty-six people for seven years and found attendance falling away after the first year in all but one of their four groups. In the two that had attended most, abstinence did not follow it down. That is the comparison in item four, and it uses the same measurement.
 
@@ -5009,7 +5015,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`research/GOVERNANCE-MATRIX-ELICITATION.md` for item one. `appendix/APPENDIX.md` A7 for the threats each item addresses, A8 for the scaling result behind item five, A9 for the structural variants behind item six.
+`research/GOVERNANCE-MATRIX-ELICITATION.md` for item one. `appendix/APPENDIX.md` A11 for the threats each item addresses, A8 for the scaling result behind item five, A7.3 for the structural variants behind item six.
 
 **What was not read:**
 
@@ -5027,11 +5033,11 @@ It is worth setting out precisely what the book has done to him and what it has 
 
 Nothing in this book can tell you whether anyone is recovering.
 
-The quantity the model calls practice is not a measure of a person's condition. It is a number that goes up when the group supplies what a step consumes and down when it does not, and its units are arbitrary. When Chapter Twenty says an unreferred group's survivors sit at 0.348 against a healthy group's 0.338, that is a comparison between two simulated populations on a scale I invented. It is not a statement that anybody is doing well.
+The quantity the model calls practice is not a measure of a person's condition. It is a number that goes up when the group supplies what a step consumes and down when it does not, and its units are arbitrary. When Chapter Twenty says an unreferred group's survivors sit at 0.348 against a healthy group's 0.302 at year ten, that is a comparison between two simulated populations on a scale I invented. It is not a statement that anybody is doing well.
 
 Nothing here can tell you whether a particular meeting is a good meeting.
 
-The model has four failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three fingerprints will be doing something the model does not license.
+The model has three failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three fingerprints will be doing something the model does not license.
 
 Nothing here can tell anyone what to do.
 
@@ -5075,7 +5081,7 @@ So what is left.
 
 A set of ideas has been shown to be consistent. A fellowship's rules turn out to have a shape that can be described formally, and the description is not vacuous: it implies things that could have been false and are not, and it implied several things that were false and had to be removed. A movement that lacked those rules died, and the model gives an account of how a movement can die without anybody inside it noticing, which is a candidate explanation for a silence in the historical record and is not more than that.
 
-Against that: a hundred and eighteen chosen numbers, two matrices built by one person, a central mapping that no computation touches, and no contact with any real group at any point.
+Against that: a hundred and eighteen registered sensitivity values, and more choices besides, two matrices built by one person, a central mapping that no computation touches, and no contact with any real group at any point.
 
 The right way to hold the two is not to average them. It is to notice that they answer different questions. The book shows that a particular explanation is *available*. Whether it is *true* is a question about the world, and nothing in these pages has been near the world.
 
@@ -5083,7 +5089,7 @@ The right way to hold the two is not to average them. It is to notice that they 
 
 There is one thing I did not expect and will say plainly.
 
-I started this to find out whether an argument worked. What the work actually did was find twenty-five errors, most of them mine, and each correction made the claim smaller. The decline figures shrank. The twelve counts became seven. The most robust thing the simulation says turned out to hold on one measure and reverse on another. Part Four learned that it rests on judgement and not on structure. The book at the end claims considerably less than the book at the beginning intended to.
+I started this to find out whether an argument worked. What the work actually did was find more than thirty errors, most of them mine, and each correction made the claim smaller. The decline figures shrank. The twelve counts became seven. The most robust thing the simulation says turned out to hold on one measure and reverse on another. Part Four learned that it rests on judgement and not on structure. The book at the end claims considerably less than the book at the beginning intended to.
 
 That is what it is supposed to feel like, and it took me longer than it should have to recognise it.
 
@@ -5127,7 +5133,7 @@ For completeness, the three quantities the book reports and what each is not:
 
 **Survival**, the fraction of runs ending above five members. Not a measure of a fellowship's health, since a fellowship of small stable groups and a fellowship of large fragile ones can score identically.
 
-**Practice**, the mean of twelve numbers between zero and one. Not a clinical measure, not validated against anything, and not comparable between model configurations except in the ordinal sense the sensitivity work supports. Appendix A6 records that it is calibrated to a stylised fact rather than to data.
+**Practice**, the mean of twelve numbers between zero and one. Not a clinical measure, not validated against anything, and not comparable between model configurations except in the ordinal sense the sensitivity work supports. Appendix A3 records that the original calibration targets failed after the mean-one correction and were not retuned, and A11 that no parameter is fitted to longitudinal group data.
 
 ### 3. Notes on sources
 
@@ -5155,7 +5161,7 @@ Wilson's letters, throughout the Kurtz talk. Kurtz quotes them from memory and w
 
 **The previous version of this paragraph is withdrawn.** It said that nothing written by the fellowship about itself for its own members had been read, that the project does not acquire such material, and that at no point does the institution speak here in its own voice. That was true when written and is no longer. *Twelve Steps and Twelve Traditions* was read in full on 10 August 2026, and it changed Chapters Eight, Ten and Sixteen: it supplied the book's own thesis in Wilson's words, the best objection to that thesis, and the disproof of the index pairing. The institution now speaks in its own voice in three chapters, and the book is better for it.
 
-The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is stored, nothing is committed, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
+The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is committed, only lawful copies are held and those are git-ignored, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
 
 What genuinely remains unread is most of the canon: the daily reflections, most of the service manual, and seventy years of *Grapevine*, of which a single article from April 1946 has been read. The Twelve Concepts have since been opened, read in full in their short form on 17 August 2026 and in Bill W.'s essays in the 2024-26 service manual on 13 September, where they bear on Chapter Ten rather than on this one.
 
@@ -5510,7 +5516,8 @@ supports the tested half-week resolution for the reported comparisons; it does n
 convergence at arbitrary resolution.
 
 Mean final membership is 29.34 at 10 years, 21.14 at 20, 17.80 at 30, 16.43 at 50, and 15.64 at
-100. The 100-year series includes one closure in 200 runs. Because the horizon series continues
+100, with 95 per cent half-widths of 1.71, 1.60, 0.88, 1.08 and 0.99; the 30-year figure is from 400
+seeds and the others from 200, all at `dt=0.5`. The 100-year series includes one closure in 200 runs. Because the horizon series continues
 to move, the release makes no steady-state or indefinite-persistence claim.
 
 ---
@@ -5648,10 +5655,10 @@ and at 15 per cent lower, at 6.35 [5.03, 7.68]. At 20 per cent lower it is rever
 not reversed in a single paired run at any of the three, so the reversal remains confined to final
 membership throughout.
 
-Against a full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
+Against a three-seed full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
 ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
-minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the step-10
-speed 2.22; over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
+minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the Step 11
+speed 2.22 (cache labels such as `a:10` and `S:11,5` are zero-indexed, so `a:10` is Step 11); over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
 4.69.
 
 All 35 governance cells return zero change in every outcome and every scenario, with a maximum
@@ -6164,7 +6171,7 @@ that travels is a hypothesis about a fellowship the model has never been fitted 
    2.962 [1.848, 4.077] in final membership and its governance path 6.027 [5.043, 7.012], but losing
    both costs 11.045 [10.030, 12.060], with interaction -2.055 [-3.414, -0.696]. The joint loss
    exceeds the sum of the parts.
-6. *Referral loss is slow and it is disguised.* Under pure attraction loss, membership runs 21.55 at
+6. *Referral loss is slow and it is disguised.* Under referral loss, membership runs 21.55 at
    year 5, 11.68 at year 10, 2.50 at year 20 and 0.51 at year 30, while endpoint viability falls
    from 0.970 to 0.0275. In these runs a group losing its referral channel looks healthy for years
    before the decline is legible.
@@ -6821,7 +6828,7 @@ terms. Index-mate Tradition 3 ranks seventh at 0.01, the smallest non-zero index
 entry in the matrix. *Algebra.*
 
 *What was assumed.* Four small non-zero entries: counsel at 0.3, visible proof at 0.2,
-continuity at 0.1 and gentle pressure at 0.1, giving the second smallest row sum in the
+continuity at 0.1 and gentle pressure at 0.1, giving the third smallest row sum in the
 table at 0.70. Top speed 0.25 per week, gate exposure 0.223. Every number here is
 small, and that smallness is itself the assumption: the decision was coded as something
 a person does, with a group nearby rather than involved.
@@ -7213,8 +7220,8 @@ deliberation and simulation.*
 
 *What was assumed.* Four non-zero entries: counsel 0.9, continuity 0.2, gentle pressure
 0.2 and confidentiality 0.1. After column normalisation that makes the group conscience
-the owner of 69 per cent of all counsel in the model, the most concentrated position any
-Tradition holds over any resource except anonymity's hold on confidentiality.
+the owner of 69 per cent of all counsel in the model, the second most concentrated position any
+Tradition holds over any resource, after Tradition 3's 71 per cent of admission.
 
 That single assumption is doing nearly all the work in this row, and it encodes a
 specific reading: that when somebody in a meeting has somebody to ask, what they are
@@ -7561,8 +7568,9 @@ influence near one over N. *Algebra, deliberation and simulation.*
 
 *What was assumed.* Five non-zero entries, one of them decisive: confidentiality 1.0,
 identification 0.3, and admission, counsel and continuity at 0.1 each. The 1.0 gives
-anonymity 59 per cent of all confidentiality in the model, the largest single share any
-Tradition holds of any resource.
+anonymity 59 per cent of all confidentiality in the model, one of the larger single shares any
+Tradition holds of any resource, though Tradition 3's 71 per cent of admission and the group
+conscience's 69 per cent of counsel are larger.
 
 This is the assumption that produces the cleanest result in the book, and it was made
 independently of the matching assumption in Step Five's row only in the weak sense that
@@ -7770,9 +7778,8 @@ because it is an appendix rather than a chapter and the checker skips its struct
 block entirely. It keeps the convention anyway, and the exemption is the reason a reader
 should not assume anything enforced it.
 
-The separately supplied corpus under `research/staged/` is reserved for the next
-iteration. None of those remaining items is evidence for this primer merely because a
-local file exists.
+The corpus under `research/staged/` is fully incorporated; what remains there is provenance,
+not evidence. No file is evidence for this primer merely because it exists locally.
 
 **Read in full:**
 
@@ -7830,12 +7837,11 @@ variants. `research/oat_full.json`, the 944 registered multi-level perturbation 
 `research/structural.json`, the four structural variants.
 
 `appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A4 for
-the seed counts and estimands, A5.4 and A7.1 for the perturbation designs and what they
+the seed counts and estimands, A7.1 to A7.5 for the perturbation designs and what they
 cannot reach, A8 for the threshold, reassignment and sparsity-pricing tests, A5.2 for the
 degradation ranking, A7.3 for the structural variants and A7.6 for the resource-list
 test. Part Two's sensitivity analysis is the section titled
-"Part Two: sensitivity of the mapping between the theorem and the Traditions", which is
-numbered A8 and shares that number with the reproduction section at the end of the file.
+"Part Two and deterministic coupling tests", which is numbered A8.
 
 Manuscript chapters 8, 9, 10, 12, 13, 15, 16, 17, 18, 19 and 20, whose Machinery
 sections carry the full designs and estimands for every figure quoted above.
@@ -7891,22 +7897,25 @@ paper's.
 > Twelve Traditions, which is copyrighted by Alcoholics Anonymous World Services, Inc.;
 > short paraphrases are used throughout. AA is not affiliated with this work and, by its
 > Sixth Tradition, could not be. Nothing in this paper can assess any individual's
-> recovery, and it must not be used to do so. No AA publication was acquired for this
-> project; the historical material is drawn from independent scholarship and from primary
+> recovery, and it must not be used to do so. AA's own publications are read where they
+> can be lawfully obtained and are never reproduced at length; a lawful copy, where the
+> project holds one, is a git-ignored local file and is never committed. The historical
+> material is drawn from independent scholarship, from those readings, and from primary
 > temperance sources in the public domain.
 
 ## Introduction
 
 Two literatures have circled Alcoholics Anonymous without meeting. The clinical literature
-asks whether AA works and through what mechanism; a Cochrane review concludes that
-twelve-step facilitation performs at least as well as comparison treatments for abstinence
-and operates chiefly through changes in participants' social networks (Kelly, Humphreys,
-and Ferri 2020). The formal-modeling literature has produced compartmental models of
-drinking dynamics (Sánchez et al. 2007; Sharma and Samanta 2015), agent-based models of
-alcohol availability (Gorman et al. 2006), and individual-level dynamical models of
-behavior change fitted to clinical data (Banks et al. 2014, 2017). Neither literature has
-modeled the content of the Twelve Steps as a structured process, and neither has modeled
-the Twelve Traditions at all.
+asks whether AA works and through what mechanism; a Cochrane review finds, with high
+certainty, that manualized twelve-step interventions raise continuous abstinence at twelve
+months over established alternatives, while the mechanism literature credits chiefly
+changes in participants' social networks (Kelly, Humphreys, and Ferri 2020). The
+formal-modeling literature has produced compartmental models of drinking dynamics (Sánchez
+et al. 2007; Sharma and Samanta 2015), an agent-based model of drinking as social
+contagion (Gorman et al. 2006), and individual-level dynamical models of behavior change
+fitted to clinical data (Banks et al. 2014, 2017). Neither literature has modeled the
+content of the Twelve Steps as a structured process, and neither has modeled the Twelve
+Traditions at all.
 
 The omission is notable because the Traditions constitute an unusually clean object of
 institutional study. They are a written constitution for a radically decentralized
@@ -8762,7 +8771,7 @@ Discipline preceded comparison: baseline survival is stable across independent s
 blocks, and common random numbers reduce the paired standard error of membership
 comparisons. The reference cross-seed standard deviation is 5.67, while paired standard
 errors range from 0.22 to 0.33. Each Tradition is degraded singly from 0.85 to 0.5 against
-a reference group of 13.10 members.
+a reference group of 13.10 members, over a twenty-year (1,040-week) horizon.
 
 | Tradition              | Tier       | Members cost | 95% half-width |  $t$ |
 |:-----------------------|:-----------|-------------:|---------------:|-----:|
@@ -8941,7 +8950,7 @@ the aggregation condition points at.
 
 ### Prominence without anonymity
 
-The touring-speaker structure of §3.6 was built for this case. Washingtonian expansion
+The touring-speaker structure of §3.7 was built for this case. Washingtonian expansion
 from 1841 to 1843 proceeded through touring speakers addressing local societies, which is
 exactly a rise in the proportion of total attention carried by a one-directional
 cross-society channel. By the consensus-error equation above the speakers' share of influence is fixed by the ratio of
@@ -9070,11 +9079,11 @@ this limitation is listed first.
     different model, not a different run, and it is the largest single piece of technical
     work outstanding.
 
-11. **Durations were never calibrated.** The horizon, the arrival rate and the churn floor
-    are three of the 118 registered numeric values. Endpoint orderings have
-    outcome-specific sensitivity records, and the 10-, 20-, 30-, 50- and 100-year checks
-    continue to move. The trajectories are shapes inside the model, not forecasts of how
-    long a real group lasts or evidence of steady state.
+11. **Durations were never calibrated.** The arrival rate and the churn rate are two of
+    the 118 registered numeric values, and the horizon is a separate design choice.
+    Endpoint orderings have outcome-specific sensitivity records, and the 10-, 20-, 30-,
+    50- and 100-year checks continue to move. The trajectories are shapes inside the
+    model, not forecasts of how long a real group lasts or evidence of steady state.
 
 12. **Combinations were not tested.** Each decline condition switches one thing off at
     full adherence elsewhere. Real decline is unlikely to be so tidy and there is no
@@ -9239,7 +9248,7 @@ against entrenched power (Tradition 9, pp. 174-178), the two functions of anony
 (Tradition 12, pp. 187-191), and the unity/singleness-of-purpose distinction (Traditions 1
 and 5, pp. 129-131 and 151-155). Also the cross-reference count reported in
 Section [4.1](#sec:conjecture){reference-type="ref" reference="sec:conjecture"}. **In
-copyright; no copy is held in the project repository.**
+copyright; a lawful local copy is held, git-ignored and never committed.**
 
 Alexander, R. M. (1988). "'We Are Engaged as a Band of Sisters': Class and Domesticity in
 the Washingtonian Temperance Movement, 1840-1850." *Journal of American History* 75(3):
@@ -9387,7 +9396,8 @@ Bill Wilson." Undated recorded talk; transcript restored by historyofrecovery.co
 in full** 10 August 2026. The year is inferred from internal evidence and is given as
 approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted
 within it from memory and without page citations, so anything attributed to Wilson through
-this source is at a remove. **No copy is held.**
+this source is at a remove. **Held as a git-ignored transcription since 13 September 2026,
+never committed.**
 
 Kurtz, E. (1991). *Not-God: A History of Alcoholics Anonymous.* Expanded edition. Center
 City, Minn.: Hazelden. **Consulted at source**; in copyright, full text not stored. The
@@ -9769,16 +9779,17 @@ error and are exact to the digits printed.
 ##### Stochastic results.
 
 Section 6 reports Monte Carlo output. The design is: Euler integration at $dt = 0.5$ weeks
-over 1,560 weeks; **400 seeds minimum for any published figure**; survival reported with
-Wilson intervals; membership and quality with 95 per cent half-widths from the cross-run
-standard error; Tradition comparisons under common random numbers at 400 paired
-replications. **Common random numbers reduce variance and do not reduce the replication
-count required**: the comparison in Table [10](#tab:tradition){reference-type="ref"
-reference="tab:tradition"} was originally run at 30 paired replications, produced a
-different ranking, and reversed when rerun at 400. Numerical checks use 200 paired seeds
-at $dt=1.0$, 0.5, 0.25 and 0.125 weeks and 200 seeds at 10, 20, 50 and 100 years. These
-support the finite-horizon numerical resolution and show continued long-run movement; they
-do not prove a steady state.
+over 1,560 weeks, except that the paired Tradition comparisons run 1,040 weeks; **400
+seeds minimum for any published figure**; survival reported with Wilson intervals;
+membership and quality with 95 per cent half-widths from the cross-run standard error;
+Tradition comparisons under common random numbers at 400 paired replications. **Common
+random numbers reduce variance and do not reduce the replication count required**: the
+comparison in Table [10](#tab:tradition){reference-type="ref" reference="tab:tradition"}
+was originally run at 30 paired replications, produced a different ranking, and reversed
+when rerun at 400. Numerical checks use 200 paired seeds at $dt=1.0$, 0.5, 0.25 and 0.125
+weeks and 200 seeds at 10, 20, 50 and 100 years. These support the finite-horizon
+numerical resolution and show continued long-run movement; they do not prove a steady
+state.
 
 ##### Perturbation designs.
 

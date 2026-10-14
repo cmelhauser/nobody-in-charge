@@ -57,8 +57,6 @@ Seventy-five years later, that research still has not been done in any systemati
 
 ---
 
-## The strongest objection, and what happened in 1944
-
 There is an objection to everything Part One has argued, and it is good enough that the book should meet it here rather than hope nobody raises it.
 
 The objection is that the comparison is confounded by timing.
@@ -105,7 +103,7 @@ Three weaker objections deserve naming, since none of them is fully answered by 
 
 **The disease concept and the medical alliance.** AA arrived alongside a scientific reframing of alcoholism that the Washingtonians never had, and benefited from it enormously. This is true and Part One does not dispute it. But note that the alliance was available precisely because of the Yale group, and note what nearly happened when AA got close to it.
 
-**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 931 of the 944 points at which each parameter was moved alone, which is the more demanding test. Single-tradition degradations, by contrast, mostly cannot be resolved at all. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
+**The referral stream.** Chapter Four already concedes that AA acquired an inflow channel the Washingtonians never had, and the model treats that channel as decisive for survival. A critic could reasonably say that treatment centres and courts, not the Traditions, are what keep AA alive. The honest answer is that both matter, and that the model ranks them. Losing referrals damages a group more than losing attraction does. On endpoint viability that held in 323 of 334 draws when every number was allowed to move by up to twelve and a half per cent, in 269 of 334 at twenty-five per cent, with a single reversal at each amplitude, and in 201 of 334 at fifty per cent, where 117 draws tie and sixteen reverse. It also held at 934 of the 944 points, with ten tied, at which each parameter was moved alone, three common seeds to a point, which is the more demanding test though only a screen. Single-tradition degradations are a different matter: five of the twelve cannot be resolved even at four hundred seeds. How much more, the model cannot say with any confidence. If anything this objection deserves more weight than the book currently gives it.
 
 **Survivorship bias.** We are examining the one mutual-aid movement that lasted and reasoning backward from its features, which is exactly the procedure that produces spurious explanations. The defence is not that Part One escapes this. It is that Part Two does not depend on it: the argument there is that three Traditions satisfy a criterion provable in advance, not that they correlate with survival after the fact.
 
@@ -117,7 +115,7 @@ Three weaker objections deserve naming, since none of them is fully answered by 
 
 This chapter is about the limits of comparative history, so the relevant model result is one about limits.
 
-Maxwell listed five differences between AA and the Washingtonians and argued each contributed. The natural next question is: which mattered most? The simulation can ask that question directly, by degrading one Tradition at a time and measuring what happens to the group over thirty years.
+Maxwell listed five differences between AA and the Washingtonians and argued each contributed. The natural next question is: which mattered most? The simulation can ask that question directly, by degrading one Tradition at a time and measuring what happens to the group over twenty years.
 
 It can answer it partly, and the size of the sample decides how much.
 

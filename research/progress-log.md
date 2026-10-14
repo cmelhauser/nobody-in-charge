@@ -5613,3 +5613,31 @@ This entry covers the first kind. The documents now say that Python 3.11 or newe
 3.9, the stock `python3` on some machines, the tools fail on `zip(strict=True)`. And
 `tools/run_ci_locally.sh`, which printed "local CI clear" even when it had skipped the lint or
 rendering job for want of ruff, pandoc or tectonic, now names what did not run.
+
+**The second kind: pointers, statuses and numbers.** The corrections that needed no judgement about the
+argument were made and each checked against the file it cites. Appendix pointers retargeted after
+the renumbering (A5.3 and A5.4 for the perturbation designs became A7.1 to A7.5 and A8; A9 for the
+structural variants became A7.3; the threats are A11, and "no output has been set beside a real
+group" is threat one, not two). The 1953 commentary, the short-form Concepts and the fourth P-17
+copy are recorded as held git-ignored since 13 September 2026, the Service Manual is listed in
+Chapter 10's references, and the SMF-132 sentences in the introduction and Chapter 2 now say what was
+read. Numbers: Chapter 6's viability count is 934 of 944 (931 was the final-membership count), its
+horizon twenty years, and its stale line on single-Tradition resolution gone; Chapter 10's
+eight-hundred-member factor is 24 (23.9); Chapter 15's viability count is 394, 394 and 395;
+Chapter 18's five Traditions are five of twelve, not a third; Chapter 22's p-value is stated as
+0.055; Chapter 23 counts three errors caught by assertions; Chapter 25 uses the year-ten 0.302 and
+three failure modes; the primer's "largest share" claims and its "second smallest row sum" are
+corrected; Appendix A12.7 and A7.5 name the right channel and Step; A6 carries its half-widths. The
+paper no longer says no AA publication was acquired, restates the Cochrane finding as Section 2.1
+does, names the twenty-year horizon of its Tradition table, and points to Section 3.7 for touring
+speakers. The book and primer are rebuilt with pandoc 3.10.2, the version CI pins, and their
+declared dates are 14 October 2026.
+
+**What the runner showed about reproducibility.** The committed PDFs were built here with pandoc
+3.12.1 while CI pins 3.10.2. The three were therefore rebuilt with 3.10.2 and the full workflow was
+run on a scratch branch (since deleted) that compared the runner's rebuilt PDFs with the committed
+ones. The paper is byte-identical on the runner and the book and primer are not, even with the
+same pandoc version, so a difference other than pandoc remains, most likely the font files or
+tectonic's bundle. The statement that a rebuild leaves the tree unchanged is therefore true for one
+machine and one toolchain, and for the paper across machines; it is not claimed for the book or the
+primer across machines.

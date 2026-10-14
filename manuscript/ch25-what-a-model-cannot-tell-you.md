@@ -11,11 +11,11 @@ It is worth setting out precisely what the book has done to him and what it has 
 
 Nothing in this book can tell you whether anyone is recovering.
 
-The quantity the model calls practice is not a measure of a person's condition. It is a number that goes up when the group supplies what a step consumes and down when it does not, and its units are arbitrary. When Chapter Twenty says an unreferred group's survivors sit at 0.348 against a healthy group's 0.338, that is a comparison between two simulated populations on a scale I invented. It is not a statement that anybody is doing well.
+The quantity the model calls practice is not a measure of a person's condition. It is a number that goes up when the group supplies what a step consumes and down when it does not, and its units are arbitrary. When Chapter Twenty says an unreferred group's survivors sit at 0.348 against a healthy group's 0.302 at year ten, that is a comparison between two simulated populations on a scale I invented. It is not a statement that anybody is doing well.
 
 Nothing here can tell you whether a particular meeting is a good meeting.
 
-The model has four failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three fingerprints will be doing something the model does not license.
+The model has three failure modes and a healthy case, and a real room is not in one of those states. It is in some combination of all of them, changing week to week, with a history the model has no representation of and people in it whose reasons for being there the model does not encode. A person who reads Chapter Twenty and starts assessing their home group against the three fingerprints will be doing something the model does not license.
 
 Nothing here can tell anyone what to do.
 
@@ -59,7 +59,7 @@ So what is left.
 
 A set of ideas has been shown to be consistent. A fellowship's rules turn out to have a shape that can be described formally, and the description is not vacuous: it implies things that could have been false and are not, and it implied several things that were false and had to be removed. A movement that lacked those rules died, and the model gives an account of how a movement can die without anybody inside it noticing, which is a candidate explanation for a silence in the historical record and is not more than that.
 
-Against that: a hundred and eighteen chosen numbers, two matrices built by one person, a central mapping that no computation touches, and no contact with any real group at any point.
+Against that: a hundred and eighteen registered sensitivity values, and more choices besides, two matrices built by one person, a central mapping that no computation touches, and no contact with any real group at any point.
 
 The right way to hold the two is not to average them. It is to notice that they answer different questions. The book shows that a particular explanation is *available*. Whether it is *true* is a question about the world, and nothing in these pages has been near the world.
 
@@ -67,7 +67,7 @@ The right way to hold the two is not to average them. It is to notice that they 
 
 There is one thing I did not expect and will say plainly.
 
-I started this to find out whether an argument worked. What the work actually did was find twenty-five errors, most of them mine, and each correction made the claim smaller. The decline figures shrank. The twelve counts became seven. The most robust thing the simulation says turned out to hold on one measure and reverse on another. Part Four learned that it rests on judgement and not on structure. The book at the end claims considerably less than the book at the beginning intended to.
+I started this to find out whether an argument worked. What the work actually did was find more than thirty errors, most of them mine, and each correction made the claim smaller. The decline figures shrank. The twelve counts became seven. The most robust thing the simulation says turned out to hold on one measure and reverse on another. Part Four learned that it rests on judgement and not on structure. The book at the end claims considerably less than the book at the beginning intended to.
 
 That is what it is supposed to feel like, and it took me longer than it should have to recognise it.
 
@@ -111,7 +111,7 @@ For completeness, the three quantities the book reports and what each is not:
 
 **Survival**, the fraction of runs ending above five members. Not a measure of a fellowship's health, since a fellowship of small stable groups and a fellowship of large fragile ones can score identically.
 
-**Practice**, the mean of twelve numbers between zero and one. Not a clinical measure, not validated against anything, and not comparable between model configurations except in the ordinal sense the sensitivity work supports. Appendix A6 records that it is calibrated to a stylised fact rather than to data.
+**Practice**, the mean of twelve numbers between zero and one. Not a clinical measure, not validated against anything, and not comparable between model configurations except in the ordinal sense the sensitivity work supports. Appendix A3 records that the original calibration targets failed after the mean-one correction and were not retuned, and A11 that no parameter is fitted to longitudinal group data.
 
 ### 3. Notes on sources
 
@@ -139,6 +139,6 @@ Wilson's letters, throughout the Kurtz talk. Kurtz quotes them from memory and w
 
 **The previous version of this paragraph is withdrawn.** It said that nothing written by the fellowship about itself for its own members had been read, that the project does not acquire such material, and that at no point does the institution speak here in its own voice. That was true when written and is no longer. *Twelve Steps and Twelve Traditions* was read in full on 10 August 2026, and it changed Chapters Eight, Ten and Sixteen: it supplied the book's own thesis in Wilson's words, the best objection to that thesis, and the disproof of the index pairing. The institution now speaks in its own voice in three chapters, and the book is better for it.
 
-The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is stored, nothing is committed, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
+The lesson is not that the earlier policy was cowardly but that it was imprecise. A rule against *holding* copyrighted material is a copyright rule and this project keeps it: nothing is committed, only lawful copies are held and those are git-ignored, nothing is quoted at length. A rule against *reading* it was never a copyright rule at all, and it cost the argument three chapters' worth of evidence, including the one finding that most damages the book's own case.
 
 What genuinely remains unread is most of the canon: the daily reflections, most of the service manual, and seventy years of *Grapevine*, of which a single article from April 1946 has been read. The Twelve Concepts have since been opened, read in full in their short form on 17 August 2026 and in Bill W.'s essays in the 2024-26 service manual on 13 September, where they bear on Chapter Ten rather than on this one.

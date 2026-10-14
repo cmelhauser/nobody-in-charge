@@ -83,7 +83,7 @@ There is a fourth category that I want to name separately, because it appeared l
 
 Several of the errors above were caught by assertions rather than by me. The practice is simple: every number printed in the book is also written into a notebook cell with an assertion that it equals what the computation produces. The point is not that the assertions verify the numbers. It is that writing an assertion forces you to state the relationship you think holds, and stating it is what exposes the ones that do not.
 
-Five errors in this book were caught that way, and every one was a claimed relationship rather than a modelling fault. I wrote that a range of thresholds sat inside another range; it did not, it extended below it at both ends. I wrote that a Tradition stripped of two resources fell to fourth place; it fell to third. I wrote a constant as 0.2769 when it was 0.2269. In each case the sentence was in a draft, the assertion failed on its first run, and the sentence was corrected before anyone read it.
+Three errors in this book were caught that way, and every one was a claimed relationship rather than a modelling fault. I wrote that a range of thresholds sat inside another range; it did not, it extended below it at both ends. I wrote that a Tradition stripped of two resources fell to fourth place; it fell to third. I wrote a constant as 0.2769 when it was 0.2269. In each case the sentence was in a draft, the assertion failed on its first run, and the sentence was corrected before anyone read it.
 
 An assertion detects drift, not error. It cannot tell you that a number is wrong, only that it has changed. But an assertion about a *relationship*, of the form "this range contains that one" or "these two figures are equal", is a different instrument, and it catches the thing you were sure of.
 
@@ -146,11 +146,11 @@ The corrections, with what found each one and where the corrected version lives.
 | Eight grades of drinker | the same | Ch 1 |
 | The Traditions described as rules | Kurtz, quoting Wilson | Ch 5 |
 | Adoption at a 1950 convention | Kurtz | Ch 5 |
-| A group closing its doors | a reader who had been in the rooms | Ch 19, A9 |
+| A group closing its doors | a reader who had been in the rooms | Ch 19, A7.3 |
 | Threshold range containment | a notebook assertion | Ch 18 |
 | A rank stated as fourth | a notebook assertion | Ch 17 |
 | A constant transcribed as 0.2769 | a notebook assertion | Ch 22 |
-| "Worse" undefined in the book's strongest claim | structural variants, appendix A9 | preface, Ch 1, Ch 4, A9 |
+| "Worse" undefined in the book's strongest claim | structural variants, appendix A7.3 | preface, Ch 1, Ch 4, A7.3 |
 
 The table no longer has the tidy count this chapter once reported. The release-gate audit added
 distributional, semantic, estimand and reproducibility errors that cross the earlier categories.

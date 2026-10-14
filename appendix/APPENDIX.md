@@ -340,7 +340,8 @@ supports the tested half-week resolution for the reported comparisons; it does n
 convergence at arbitrary resolution.
 
 Mean final membership is 29.34 at 10 years, 21.14 at 20, 17.80 at 30, 16.43 at 50, and 15.64 at
-100. The 100-year series includes one closure in 200 runs. Because the horizon series continues
+100, with 95 per cent half-widths of 1.71, 1.60, 0.88, 1.08 and 0.99; the 30-year figure is from 400
+seeds and the others from 200, all at `dt=0.5`. The 100-year series includes one closure in 200 runs. Because the horizon series continues
 to move, the release makes no steady-state or indefinite-persistence claim.
 
 ---
@@ -478,10 +479,10 @@ and at 15 per cent lower, at 6.35 [5.03, 7.68]. At 20 per cent lower it is rever
 not reversed in a single paired run at any of the three, so the reversal remains confined to final
 membership throughout.
 
-Against a full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
+Against a three-seed full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
 ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
-minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the step-10
-speed 2.22; over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
+minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the Step 11
+speed 2.22 (cache labels such as `a:10` and `S:11,5` are zero-indexed, so `a:10` is Step 11); over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
 4.69.
 
 All 35 governance cells return zero change in every outcome and every scenario, with a maximum
@@ -994,7 +995,7 @@ that travels is a hypothesis about a fellowship the model has never been fitted 
    2.962 [1.848, 4.077] in final membership and its governance path 6.027 [5.043, 7.012], but losing
    both costs 11.045 [10.030, 12.060], with interaction -2.055 [-3.414, -0.696]. The joint loss
    exceeds the sum of the parts.
-6. *Referral loss is slow and it is disguised.* Under pure attraction loss, membership runs 21.55 at
+6. *Referral loss is slow and it is disguised.* Under referral loss, membership runs 21.55 at
    year 5, 11.68 at year 10, 2.50 at year 20 and 0.51 at year 30, while endpoint viability falls
    from 0.970 to 0.0275. In these runs a group losing its referral channel looks healthy for years
    before the decline is legible.

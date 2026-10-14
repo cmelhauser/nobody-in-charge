@@ -217,7 +217,7 @@ terms. Index-mate Tradition 3 ranks seventh at 0.01, the smallest non-zero index
 entry in the matrix. *Algebra.*
 
 *What was assumed.* Four small non-zero entries: counsel at 0.3, visible proof at 0.2,
-continuity at 0.1 and gentle pressure at 0.1, giving the second smallest row sum in the
+continuity at 0.1 and gentle pressure at 0.1, giving the third smallest row sum in the
 table at 0.70. Top speed 0.25 per week, gate exposure 0.223. Every number here is
 small, and that smallness is itself the assumption: the decision was coded as something
 a person does, with a group nearby rather than involved.
@@ -609,8 +609,8 @@ deliberation and simulation.*
 
 *What was assumed.* Four non-zero entries: counsel 0.9, continuity 0.2, gentle pressure
 0.2 and confidentiality 0.1. After column normalisation that makes the group conscience
-the owner of 69 per cent of all counsel in the model, the most concentrated position any
-Tradition holds over any resource except anonymity's hold on confidentiality.
+the owner of 69 per cent of all counsel in the model, the second most concentrated position any
+Tradition holds over any resource, after Tradition 3's 71 per cent of admission.
 
 That single assumption is doing nearly all the work in this row, and it encodes a
 specific reading: that when somebody in a meeting has somebody to ask, what they are
@@ -957,8 +957,9 @@ influence near one over N. *Algebra, deliberation and simulation.*
 
 *What was assumed.* Five non-zero entries, one of them decisive: confidentiality 1.0,
 identification 0.3, and admission, counsel and continuity at 0.1 each. The 1.0 gives
-anonymity 59 per cent of all confidentiality in the model, the largest single share any
-Tradition holds of any resource.
+anonymity 59 per cent of all confidentiality in the model, one of the larger single shares any
+Tradition holds of any resource, though Tradition 3's 71 per cent of admission and the group
+conscience's 69 per cent of counsel are larger.
 
 This is the assumption that produces the cleanest result in the book, and it was made
 independently of the matching assumption in Step Five's row only in the weak sense that
@@ -1166,9 +1167,8 @@ because it is an appendix rather than a chapter and the checker skips its struct
 block entirely. It keeps the convention anyway, and the exemption is the reason a reader
 should not assume anything enforced it.
 
-The separately supplied corpus under `research/staged/` is reserved for the next
-iteration. None of those remaining items is evidence for this primer merely because a
-local file exists.
+The corpus under `research/staged/` is fully incorporated; what remains there is provenance,
+not evidence. No file is evidence for this primer merely because it exists locally.
 
 **Read in full:**
 
@@ -1226,12 +1226,11 @@ variants. `research/oat_full.json`, the 944 registered multi-level perturbation 
 `research/structural.json`, the four structural variants.
 
 `appendix/APPENDIX.md`, sections A2 for the effective-adherence specification, A4 for
-the seed counts and estimands, A5.4 and A7.1 for the perturbation designs and what they
+the seed counts and estimands, A7.1 to A7.5 for the perturbation designs and what they
 cannot reach, A8 for the threshold, reassignment and sparsity-pricing tests, A5.2 for the
 degradation ranking, A7.3 for the structural variants and A7.6 for the resource-list
 test. Part Two's sensitivity analysis is the section titled
-"Part Two: sensitivity of the mapping between the theorem and the Traditions", which is
-numbered A8 and shares that number with the reproduction section at the end of the file.
+"Part Two and deterministic coupling tests", which is numbered A8.
 
 Manuscript chapters 8, 9, 10, 12, 13, 15, 16, 17, 18, 19 and 20, whose Machinery
 sections carry the full designs and estimands for every figure quoted above.
