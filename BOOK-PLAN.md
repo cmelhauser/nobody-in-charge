@@ -72,7 +72,7 @@ Six parts, 25 chapters, roughly 80,000 words.
 
 | Part | Chapters | Subject | Research needed |
 |---|---|---|---|
-| I | 1 to 6 | Two fellowships, 1840 and 1935 | **Blocked on acquisitions** |
+| I | 1 to 6 | Two fellowships, 1840 and 1935 | Done, with optional archive items remaining |
 | II | 7 to 11 | The group: the condition and its failure modes | **None. Complete.** |
 | III | 12 to 15 | The individual: steps as a technology | One literature check |
 | IV | 16 to 18 | How the two halves connect | None |
@@ -91,8 +91,8 @@ entirely in Part One.
 | 1 | Chase's Tavern | Solid |
 | 2 | The Fade | Solid |
 | 3 | The Man Who Was the Movement | Solid |
-| 4 | Akron, 1935 | Provisional |
-| 5 | Twelve Points to Assure Our Future | Provisional |
+| 4 | Akron, 1935 | Improved |
+| 5 | Twelve Points to Assure Our Future | Solid |
 | 6 | The Sociologist | Solid on Maxwell |
 
 Full detail, including what is needed from the author, in `plans/PART-1-PLAN.md`.
@@ -214,7 +214,7 @@ punctuation. Verified across all files.
 divided into read in full, cited at one or more removes, and still to obtain.
 
 **Every chapter is checked mechanically before it is called done.** Run
-`python3 check_chapter.py <file>` from the outputs directory. It enforces all of
+`python3 tools/check_chapter.py <file>` from the repository root. It enforces all of
 the above and fails the chapter if any is broken. Each rule exists because a
 chapter broke it once:
 
