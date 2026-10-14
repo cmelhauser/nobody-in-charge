@@ -188,7 +188,7 @@ Python 3.12 only; on `main` it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the ful
 others with the model tests and the tool imports. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate
 checks, reporting the other six as skipped. `documents` runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds
-all three PDFs, requires zero overfull boxes, checks the rendered PDFs with `tools/check_pdfs.py`,
+all three PDFs, requires zero overfull boxes, checks the font files against pinned hashes with `tools/check_fonts.py`, checks the rendered PDFs with `tools/check_pdfs.py`,
 and runs the full fail-closed gate. See `.github/workflows/ci.yml`.
 
 ## Reproduction and release checks

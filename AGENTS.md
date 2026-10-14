@@ -8,9 +8,9 @@ two overlap; nothing here contradicts it.
 
 A finished book-length research project. A 25-chapter manuscript, an academic paper, a technical
 appendix, a Steps-and-Traditions primer, an executable agent-based model, twenty-one analysis
-scripts, twenty hash-linked result caches, two verification notebooks, and seven checkers:
-`check_book.py`, `check_chapter.py`, `check_docs.py`, `check_pdfs.py`, `check_portability.py`,
-`check_release.py`, and `build_corpus.py --check`. Every count here is countable from the tree,
+scripts, twenty hash-linked result caches, two verification notebooks, and eight checkers:
+`check_book.py`, `check_chapter.py`, `check_docs.py`, `check_fonts.py`, `check_pdfs.py`,
+`check_portability.py`, `check_release.py`, and `build_corpus.py --check`. Every count here is countable from the tree,
 the cache count is the gate's own required list in `tools/check_release.py`, and
 `check_docs.py` is what now enforces that this paragraph stays true.
 
@@ -122,7 +122,7 @@ model takes no lint waiver. `unit-tests` runs pytest and the model hash across P
 versions the model tests, the release invariants and the direct tool tests, under the same coverage gate. `checkers` needs pip and nothing else and
 gates every push: corpus drift, portability, the book checks, and `check_release.py
 --skip-artifacts`, which runs 142 of the 148 release checks and reports the other six as skipped. `documents` renders the PDFs, checks
-them with `check_pdfs.py`, and runs the full gate, on `main` only, because it needs pandoc,
+them with `check_pdfs.py`, checks the font files against pinned hashes with `check_fonts.py`, and runs the full gate, on `main` only, because it needs pandoc,
 tectonic and a font, and every environmental failure this repository has had came from those
 three fetches. **Do not move a check into `documents` that does not need a rendered PDF.** The
 whole point of the split is that a CTAN timeout must not stop the release checks running.
