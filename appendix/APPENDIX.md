@@ -547,7 +547,7 @@ executable coupling, and the test is deterministic, so it carries no interval.
 | Drop two resources | 28 | 21 | 27 | 28 |
 
 Unity leads on 63 of the 64 variants. The single failure is the drop-two variant that removes
-continuity and pressure together, which is the same pair the reassignment test in A8 identifies as
+continuity and pressure together, which is the same pair the reassignment test in Chapter Seventeen identifies as
 the only transfer able to flip the result. Two instruments built for different purposes fail on the
 same two columns, which is worth more than either alone because it localizes the point of failure.
 
@@ -655,7 +655,7 @@ instead.
 |---|---|
 | A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
 | A4.6, A5.5 | A7.5, Morris and Sobol |
-| A5.4b, A5.4c, A5.4e | A8, threshold, reassignment, and sparsity-pricing tests |
+| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with notebook sections 11c and 11d |
 | A5.4d | A5.2, the degradation ranking |
 | A5.6 | A7.1, the design registry and what no design covers |
 | A9 as structural variants | A7.3 |

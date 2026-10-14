@@ -221,7 +221,10 @@ concentrates drinkers (Gorman et al.\ 2006).
 Individual-level dynamical models fitted to clinical data are due to Banks and
 coauthors (2014, 2017). The relapse literature supplies the nonlinear,
 multiple-equilibrium structure this paper's individual model borrows (Hufford et
-al.\ 2003; Witkiewitz and Marlatt 2004, 2007).
+al.\ 2003; Witkiewitz and Marlatt 2004, 2007), and a double-well potential model of
+relapse supplies the strongest empirical warrant for a two-well landscape (Fatimah,
+Hunter, and Bornovalova 2025), though Sections~6.2 and~8.2 report that the corrected
+model is rarely bistable in its own endpoint environment.
 
 \subsection{Skill formation}
 
@@ -1681,7 +1684,7 @@ verification index.
 
 \item Edgren, R., D. Baretta, and J. Inauen (2025). ``The temporal trajectories of habit decay in daily life: An intensive longitudinal study on four health-risk behaviors.'' \textit{Applied Psychology: Health and Well-Being} 17(1): e12612. \textbf{Read in full} apart from its supplement, figures, and references; open access under CC BY 4.0.
 
-\item Fatimah, H., M. D. Hunter, and M. A. Bornovalova (2025). ``Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System.'' \textit{Journal of Psychopathology and Clinical Science} 134(1): 69-80. doi:10.1037/abn0000960. \textbf{Read in full} from the author manuscript; the strongest empirical warrant used here for a two-well relapse landscape, with the limitations stated in Section~5.
+\item Fatimah, H., M. D. Hunter, and M. A. Bornovalova (2025). ``Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System.'' \textit{Journal of Psychopathology and Clinical Science} 134(1): 69-80. doi:10.1037/abn0000960. \textbf{Read in full} from the author manuscript; the strongest empirical warrant used here for a two-well relapse landscape, with the limitations stated in Sections~6.2 and~8.2.
 
 \item Fehlandt, A. F. (1904). \textit{A Century of Drink Reform in the United States.} Cincinnati: Jennings and Graham. \textbf{Read at source}; public domain.
 
@@ -2099,16 +2102,20 @@ Every quantitative claim in this paper is reproducible from the companion
 repository without reference to any external dataset, because there is no external
 dataset.
 
-\paragraph{Deterministic results.} Sections 3 and 4 are algebra on constructed
-matrices. Influence vectors are normalized left dominant eigenvectors; consensus
+\paragraph{Deterministic results.} Section 3 and the coupling derivation of Section 4
+are algebra on constructed matrices. Influence vectors are normalized left dominant eigenvectors; consensus
 errors come from the closed form in equation~(\ref{eq:err}); the coupling is a
 matrix product; the threshold test is one division per Step. These carry no
-sampling error and are exact to the digits printed.
+sampling error and are exact to the digits printed. The magnitude-randomization and
+sparsity designs of Section 4 are not of this kind: they are Monte Carlo over 2,000
+draws each and carry Wilson intervals.
 
 \paragraph{Stochastic results.} Section 6 reports Monte Carlo output. The design
 is: Euler integration at $dt = 0.5$ weeks over 1,560 weeks, except that the paired
 Tradition comparisons run 1,040 weeks;
-\textbf{400 seeds minimum for any published figure}; survival reported with Wilson
+\textbf{400 seeds for every confirmatory contrast}, with the 200-seed numerical-resolution
+and horizon checks and the three- or five-seed parameter screens labelled as what they
+are; survival reported with Wilson
 intervals; membership and quality with 95 per cent half-widths from the cross-run
 standard error; Tradition comparisons under common random numbers at 400 paired
 replications. \textbf{Common random numbers reduce variance and do not reduce the
