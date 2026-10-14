@@ -149,6 +149,8 @@ if [ "$job" = all ] || [ "$job" = documents ]; then
   if ! command -v pandoc >/dev/null || ! command -v tectonic >/dev/null; then
     not_run "pandoc or tectonic missing: the documents job not run"
   else
+    # Informational here: another font does not make a build wrong, only unable to match CI.
+    step "font files match CI's (reports only)" "$PY" tools/check_fonts.py
     step "derived reports"     reports
     step "build all three PDFs" build_docs
     step "no text outside the type block" overfull_gate

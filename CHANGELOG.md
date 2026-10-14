@@ -14,6 +14,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- `tools/check_fonts.py` pins the SHA-256 of the four TeX Gyre Pagella files CI downloads, and the
+  `documents` job fails if they change. The book and primer rebuilt on the runner differ from the
+  committed PDFs because the author's installed fonts differ from CI's, with tectonic and pandoc
+  identical; run it without `--strict` to see whether a machine's fonts match.
+
 - A review of the documentation corrected stale statements in `AGENTS.md`, `AGENT_VERIFY.md`,
   `HANDOFF.md`, `RELEASING.md`, `README.md` and the plans: a cache count, the copyright rule, notebook
   counts, a closed Rohr action item, stale chapter statuses, a retired transmission ratio, and the
