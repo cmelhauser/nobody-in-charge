@@ -24,6 +24,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import build_note  # noqa: E402
 import check_docs  # noqa: E402
+import check_fonts  # noqa: E402
 import check_pdfs  # noqa: E402
 import freeze_release_manifest as freeze  # noqa: E402
 import inventory_model_choices as inventory  # noqa: E402
@@ -587,3 +588,44 @@ def test_local_ci_says_when_a_job_could_not_run(tmp_path):
     assert result.returncode == 0, result.stdout + result.stderr
     assert "NOT RUN: pandoc or tectonic missing: the documents job not run" in result.stdout
     assert "local CI clear for what ran" in result.stdout
+
+
+# ----------------------------------------------------------------------------- check_fonts
+
+def _fonts_in(tmp_path, names=None, content=b"font"):
+    for name in (names or check_fonts.PINS):
+        (tmp_path / name).write_bytes(content)
+    return tmp_path
+
+
+def test_check_fonts_matches_the_pinned_hashes(tmp_path, monkeypatch):
+    content = b"a font"
+    monkeypatch.setattr(check_fonts, "PINS",
+                        {name: hashlib.sha256(content).hexdigest()
+                         for name in check_fonts.PINS})
+    good, bad = check_fonts.compare([_fonts_in(tmp_path, content=content)])
+    assert len(good) == 4 and bad == []
+
+
+def test_check_fonts_reports_a_mismatch_and_a_missing_file(tmp_path):
+    names = list(check_fonts.PINS)
+    _fonts_in(tmp_path, names[:3], content=b"not the pinned font")
+    good, bad = check_fonts.compare([tmp_path])
+    assert good == [] and len(bad) == 4
+    assert sum(line.startswith("MISMATCH") for line in bad) == 3
+    assert sum(line.startswith("MISSING") for line in bad) == 1
+
+
+def test_check_fonts_strict_exits_nonzero_only_when_asked(tmp_path, capsys):
+    _fonts_in(tmp_path, content=b"wrong")
+    assert check_fonts.main(["--dir", str(tmp_path)]) == 0
+    assert "will not match CI's byte for byte" in capsys.readouterr().out
+    assert check_fonts.main(["--strict", "--dir", str(tmp_path)]) == 1
+    with pytest.raises(SystemExit):
+        check_fonts.main(["--dir"])
+
+
+def test_check_fonts_pins_are_four_distinct_sha256_digests():
+    assert len(check_fonts.PINS) == 4 and len(set(check_fonts.PINS.values())) == 4
+    assert all(len(h) == 64 and set(h) <= set("0123456789abcdef") for h in check_fonts.PINS.values())
+    assert check_fonts.candidate_dirs() is not None

@@ -5735,6 +5735,14 @@ supplier" after naming one) and Step Ten ("worst showing"); Appendix A13's "1939
 denominators; the paper's Appendix B (the one three-seed screen in Section 4), its Cochrane clause,
 its "no worse" for the invisible group, and 0.168 for 0.167. The paper's printed decimals are 491.
 
+**Why the book and primer PDFs differ on the runner, and a pin so it cannot change unseen.** A
+scratch run printed the runner's toolchain: tectonic 0.17.0 and pandoc 3.10.2, the same as here, and
+four TeX Gyre Pagella files whose SHA-256 hashes differ from every one of the files in the author's
+user font directory. The font decides glyph outlines and metrics, so it decides the layout, and the
+paper, which does not use it, is the one PDF that reproduces. `tools/check_fonts.py` now pins the
+four hashes CI downloads; the `documents` job runs it with `--strict`, and without it the same script
+reports whether a machine's fonts match. Nothing was changed on the author's machine.
+
 **A third reading, of the paper alone.** One reader took the paper in full and found, beyond what the
 earlier rounds had: the abstract still said exclusionary groups "shrink without dissolving" (one in
 four closes) and that Sobol covered all 118 values (it covers eight leaders); the step-10 speed was
