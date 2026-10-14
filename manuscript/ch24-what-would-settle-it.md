@@ -3,7 +3,7 @@
 
 The honest position of this book is that it has shown a set of ideas to be consistent and has not shown them to be true.
 
-That is a real distinction and it is not a modest formula. A model with a hundred and eighteen chosen numbers, fitted to nothing, can demonstrate that a mechanism is *available*: that if groups work in a particular way, then certain things follow and certain other things cannot. It cannot demonstrate that groups work that way. No amount of further computation changes that, because the limitation is not computational.
+That is a real distinction and it is not a modest formula. A model with a hundred and eighteen registered sensitivity values, fitted to nothing, can demonstrate that a mechanism is *available*: that if groups work in a particular way, then certain things follow and certain other things cannot. It cannot demonstrate that groups work that way. No amount of further computation changes that, because the limitation is not computational.
 
 So this chapter is a list of measurements that would. Each one is something somebody could actually do, each has a result that would tell against the book as well as for it, and each is described precisely enough that a reader could start.
 
@@ -73,9 +73,9 @@ The fellowship's earliest record describes the configuration without measuring i
 
 **Six. Anything at all about the model's trajectories.**
 
-Threat two in the appendix says no output of this model has ever been set beside a real group. That is true and it is the largest gap, and it is worth separating what would help from what would not.
+Threat one in the appendix says no parameter of this model is fitted to longitudinal group data, and so no output has been set beside a real group. That is true and it is the largest gap, and it is worth separating what would help from what would not.
 
-Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The horizon, the arrival rate and the churn floor are three of the hundred and eighteen chosen numbers, and a match would mostly show that three numbers can be chosen to produce a match.
+Comparing the model's thirty-year membership curve against a real meeting's roll would not help much. The arrival rate and the churn rate are two of the hundred and eighteen registered sensitivity values, the horizon is a separate design choice, and a match would mostly show that a few numbers can be chosen to produce a match.
 
 What would help is comparing a prespecified *ordering* against real data. The strongest candidate is the comparison between referral loss and pure attraction loss, scored separately on closure, endpoint existence, endpoint viability and final membership. In the corrected model the referral-loss condition is worse on all three endpoint outcomes in the base architecture and four variants. The expanded parameter screens include ties and reversals, so the empirical study must name its outcome rather than inherit a blanket robustness claim. Chapter Twelve adds a reason to hold it loosely: the few reversals the one-at-a-time screen finds come mostly from large downward moves of three values, and one of them is the decay rate, which nothing measures for a practice. Two 400-seed runs have since confirmed the decay rate's reversal and located it: with practice lapsing a fifth more slowly, a group starved of referrals ends larger than one starved of attraction while still closing more often, so the outcomes a study scores could point in opposite directions, and fifteen per cent slower is not enough to produce that. A study that could record how fast practice lapses in the groups it follows would test the ordering and its most fragile assumption together. It would have to record practice rather than attendance. Kaskutas, Bond and Avalos followed five hundred and eighty-six people for seven years and found attendance falling away after the first year in all but one of their four groups. In the two that had attended most, abstinence did not follow it down. That is the comparison in item four, and it uses the same measurement.
 
@@ -162,7 +162,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`research/GOVERNANCE-MATRIX-ELICITATION.md` for item one. `appendix/APPENDIX.md` A7 for the threats each item addresses, A8 for the scaling result behind item five, A9 for the structural variants behind item six.
+`research/GOVERNANCE-MATRIX-ELICITATION.md` for item one. `appendix/APPENDIX.md` A11 for the threats each item addresses, A8 for the scaling result behind item five, A7.3 for the structural variants behind item six.
 
 **What was not read:**
 

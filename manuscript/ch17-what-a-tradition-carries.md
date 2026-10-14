@@ -167,7 +167,7 @@ It is not the document Kurtz named. He points at Wilson's discussion of the Firs
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Note 16 to Chapter Five, for the charge that the concept conveyed by *single-purposed* was obfuscated by substituting *unity*, and that AA itself at times fell into this after Wilson's death; and the main text of Chapter Five for Wilson's August 1945 *Grapevine* sentence about being strong enough and single-purposed enough from within. **In copyright; the full text is not stored in this repository.** See `research/SOURCES.md`.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The chapters on Tradition 1 and Tradition 5, spanning printed pages 129 to 131 and 151 to 155, for Wilson keeping unity and singleness of purpose apart. Copyright AAWS; held as a record with no document.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The chapters on Tradition 1 and Tradition 5, spanning printed pages 129 to 131 and 151 to 155, for Wilson keeping unity and singleness of purpose apart. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed.
 
 **Cited at a remove:**
 
@@ -175,7 +175,7 @@ Wilson, W. (1945). "Modesty One Plank for Good Public Relations." *AA Grapevine*
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11d, and section 17 for the resource-list corroboration. `appendix/APPENDIX.md` A5.4 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11d, and section 17 for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
 
 **What was not read:**
 

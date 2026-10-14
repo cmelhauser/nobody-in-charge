@@ -31,7 +31,7 @@ Take that same group with its same dozen volunteers, and let it reach eight hund
 
 It does not improve. It cannot, because the number of people among whom influence is being shared did not change when the group doubled. Twelve is twelve at any size.
 
-So the gap widens. At fifty members a rotating pool of twelve is twice the flat benchmark. At two hundred it is six times. At four hundred, twelve times. At eight hundred, twenty-three times. The group is getting bigger and the benefit of being bigger is being thrown away, one term at a time, by a practice everybody agrees is correct.
+So the gap widens. At fifty members a rotating pool of twelve is twice the flat benchmark. At two hundred it is six times. At four hundred, twelve times. At eight hundred, twenty-four times. The group is getting bigger and the benefit of being bigger is being thrown away, one term at a time, by a practice everybody agrees is correct.
 
 This is the condition from Chapter Eight failing in slow motion. It requires the largest share to *shrink toward nothing as the group grows*. A fixed rotation pool does not shrink. It converges to a floor at roughly the officeholder's share divided by the size of the pool, and sits there.
 
@@ -151,15 +151,23 @@ For comparison, at N = 400 a caucus of three holding half the influence between 
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. The vanishing-influence criterion, and the requirement that maximum influence go to zero as the society grows, which is what a fixed rotation pool fails.
 
-Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a record with no document.
+Alcoholics Anonymous World Services (1953). *Twelve Steps and Twelve Traditions*. Read in full 10 August 2026. The long form of Tradition 9, at printed page 177, for the statement that rotating leadership is best and for the secretary, committee and intergroup structure; the chapter on Tradition 9, at 174 to 178, for the warning against entrenched power; the chapter on Tradition 2, at 132 to 138, for the committee's limited authority and for the elder statesmen. Copyright AAWS; held as a git-ignored reading copy since 13 September 2026, never committed.
 
 W., Bill. *The Twelve Concepts for World Service* (Short Form), SMF-114. Adopted 1962. Read at
-source on 17 August 2026 from the fellowship's own free posting and held as record only under
-`research/incorporated/TwelveConcepts_1962/`. Used here for Concept 4, the Right of
+source on 17 August 2026 from the fellowship's own free posting and held git-ignored under
+`research/incorporated/TwelveConcepts_1962/` since 13 September 2026. Used here for Concept 4, the Right of
 Participation, and for Concept 9 on the passage of primary service leadership from the founders
-to the trustees. The long-form Concepts and the essays accompanying them in the Service Manual
-were not read; if a rule about the size of a rotating pool exists anywhere, the Concept 4 essay
-is where it would be.
+to the trustees. The long-form Concept 4 essay was read in the Service Manual, below, and holds
+no rule about the size of a rotating pool.
+
+Alcoholics Anonymous World Services, *The A.A. Service Manual Combined with Twelve Concepts for
+World Service* (2024-2026 edition, BM-31). Read in part on 13 September 2026: Concepts IV and V in
+full, Concept XI on rotation, and every passage in the manual that mentions rotation. Held
+git-ignored under `research/incorporated/ServiceManual_2024/`. The Concept IV essay holds no rule
+about the size of a rotating pool: it concerns voting participation in proportion to
+responsibility among trustees, service directors and staff. Concept XI ties term length to
+responsibility. This is a prescription for the world service structure, not evidence about how
+home groups rotate.
 
 **Cited at a remove:**
 
