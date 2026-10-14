@@ -5734,3 +5734,18 @@ little" wording in Chapters 9 and 11, which could be read against the fixed-rati
 supplier" after naming one) and Step Ten ("worst showing"); Appendix A13's "1939" attribution and its
 denominators; the paper's Appendix B (the one three-seed screen in Section 4), its Cochrane clause,
 its "no worse" for the invisible group, and 0.168 for 0.167. The paper's printed decimals are 491.
+
+**A third reading, of the paper alone.** One reader took the paper in full and found, beyond what the
+earlier rounds had: the abstract still said exclusionary groups "shrink without dissolving" (one in
+four closes) and that Sobol covered all 118 values (it covers eight leaders); the step-10 speed was
+step 11 (zero-indexed cache label; Chapter 12 had the same slip); the coupling table's caption said
+two 100.0 entries (three); "2,000 draws per row" meant per flip count; "settles" and "stable
+remnants" read as steady state where only the thirty-year horizon was run for attraction loss;
+"newcomers ... come once and do not come back" framed Tradition 3 as tenure, which the model does not
+record; a "cannot resolve" claim for a practice difference with no paired interval; screen results
+without their seed counts; a retired 128-row Sobol diagnostic quoted in public prose; the habit-decay
+median without its conditioning (the 22 per cent whose fits crossed the midpoint); and the
+Washingtonian "none of the enabling Traditions" claim, which the ledger supports only for Tradition 2
+and, in the opposite direction, Tradition 12. The intro's mechanism clause no longer rests on an unread
+source. Not changed: paired intervals for the year-ten practice differences, which would need a new
+analysis of the cached runs.
