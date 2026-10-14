@@ -112,8 +112,8 @@ As of 3 October 2026, everything passes:
 | `tools/check_docs.py` | 28 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
-| `model/book-calculations.ipynb` | 8 cells, 86 assertions, clean |
-| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 110 assertions, clean |
+| `model/book-calculations.ipynb` | 8 cells, 89 assertions, clean |
+| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 113 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
 The 39 `check_book` warnings are repetition and sentence-length notes. They are not failures and
