@@ -259,7 +259,8 @@ Tectonic from inside `paper/`, as continuous integration builds it; its preamble
 under two `pdflatex` passes, but that is not how the committed PDF is made. Every build takes a
 fixed timestamp from the date its document declares, through `tools/source_date.py`: the book and
 primer builders set it themselves, and the paper needs the `export` above. So a rebuild of
-unchanged sources is byte-identical, and together with the auxiliary files `.gitignore` excludes,
+unchanged sources on the same machine and toolchain is byte-identical (across machines only the
+paper is, so build the book and primer with pandoc 3.10.2, the CI pin), and together with the auxiliary files `.gitignore` excludes,
 a build does not dirty the working tree. Every tool prints its usage with `--help`.
 
 The paper is built from `paper/anonymity-as-an-aggregation-condition.tex`. The standalone
