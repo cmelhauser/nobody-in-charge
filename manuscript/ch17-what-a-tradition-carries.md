@@ -9,7 +9,7 @@ The answer is lopsided, and the shape of the lopsidedness is the chapter.
 
 Unity carries 6.52. Group conscience carries 3.89 and singleness of purpose 3.88, which is a tie in everything but the third decimal. The open door and attraction carry 2.69 each, anonymity 2.62, non-professionalism 1.11. And five carry nothing at all, for the reasons Chapter Eighteen sets out.
 
-So the most exposed Tradition in the programme is the first one, by a margin of two-thirds over its nearest rival.
+So the Tradition with the most overlap in my coding is the first one, by a margin of two-thirds over its nearest rival.
 
 ---
 
@@ -17,13 +17,13 @@ The obvious objection arrives immediately, and it is correct.
 
 Unity is not top because it is strong anywhere. It is top because it is everywhere.
 
-Look at how often it actually wins. Unity is the principal supplier of four Steps. Group conscience is also the principal supplier of four. On that measure they are level. What separates them is second place: unity is the runner-up for six more Steps, so it sits in the top two for ten of the twelve, and group conscience for eight. And unity is the only Tradition in the set that governs all eight resources. Nothing else governs more than six.
+Look at how often it actually wins. Unity is the sole principal supplier of four Steps and group conscience of three, and they tie exactly for a fourth, Step Four. On that measure they are close to level. What separates them is second place: unity is the runner-up for five more Steps, so counting the tie it sits in the top two for ten of the twelve, and group conscience for eight. And unity is the only Tradition in the set that governs all eight resources. Nothing else governs more than six.
 
 That is a Tradition which supplies a little of almost everything and the most of not very much.
 
 I think the objection is right and that it is the finding rather than a problem with it. Consider what the alternative would look like. A Tradition that carried a lot by governing one thing intensely would be a Tradition whose failure has a symptom: lose it, and one specific thing stops. Group conscience is close to that shape, taking sixty-nine per cent of its load from a single resource, counsel. Anonymity takes fifty-seven per cent from confidentiality. Attraction takes forty-nine per cent from the demonstration that recovery happens. Those are Traditions with a failure mode you could name.
 
-Unity is not shaped like that, and the consequence is uncomfortable. A group losing its unity does not present with a specific symptom. Everything gets slightly worse at once, which is the hardest kind of decline to notice from inside and the reason Part Five treats it separately.
+Unity is not shaped like that, and the consequence is uncomfortable. On that reading, a group losing its unity does not present with a specific symptom. Everything gets slightly worse at once, which is the hardest kind of decline to notice from inside and the reason Part Five treats it separately.
 
 ---
 

@@ -200,7 +200,7 @@ Wilson, W. (1946). "Twelve Suggested Points for A. A. Tradition." *AA Grapevine*
 
 The facsimile editors' essays in *The Book That Started It All* (2010), for the date and circulation of the February 1939 draft.
 
-Wilson, W. The long form of the Twelve Traditions, *AA Grapevine* 2:11, April 1946, 2-3, and the short form, *AA Grapevine* 6:6, November 1949, 16-17. The April 1946 long form was read at source on 10 August 2026, from a scan whose posting authorization is unverified, and is held as record only; the November 1949 short form is as cited by Kurtz and was not read. The two April 1946 citations conflict and the conflict is recorded above.
+Wilson, W. The short form of the Twelve Traditions, *AA Grapevine* 6:6, November 1949, 16-17, as cited by Kurtz. Not read. Kurtz's two citations for the April 1946 long form, listed above as read at source, conflict, and the conflict is recorded above.
 
 *A.A. Tradition* (1947). New York: Works Publishing. Maxwell's source for the catalogue of failures. Not read.
 

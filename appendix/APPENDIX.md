@@ -995,10 +995,11 @@ that travels is a hypothesis about a fellowship the model has never been fitted 
    2.962 [1.848, 4.077] in final membership and its governance path 6.027 [5.043, 7.012], but losing
    both costs 11.045 [10.030, 12.060], with interaction -2.055 [-3.414, -0.696]. The joint loss
    exceeds the sum of the parts.
-6. *Referral loss is slow and it is disguised.* Under referral loss, membership runs 21.55 at
+6. *Referral loss is slow, and the practice of those who remain hides it.* Under referral loss, membership runs 21.55 at
    year 5, 11.68 at year 10, 2.50 at year 20 and 0.51 at year 30, while endpoint viability falls
-   from 0.970 to 0.0275. In these runs a group losing its referral channel looks healthy for years
-   before the decline is legible.
+   from 0.970 to 0.0275. In these runs a group losing its referral channel keeps its remaining members
+   practising near their healthy level while the room shrinks, so the decline shows in the size of
+   the room and not in their practice.
 
 **Which of these depend on features Recovery Dharma shares.**
 
@@ -1009,7 +1010,7 @@ that travels is a hypothesis about a fellowship the model has never been fitted 
 | retention and reproduction on opposite ends | **no**, and this is the interesting failure | it is a corollary of the order gate; remove the sequence and the two ends are no longer far apart |
 | dispersion as multiplier | yes, and it becomes sharper | see the affinity-meeting note below |
 | openness compounds | untested either way | Recovery Dharma is open by construction, so the model's loss conditions have no counterpart to switch off |
-| referral loss is slow and disguised | partially | the arrival channel differs in kind; see below |
+| referral loss is slow, and the practice of those who remain hides it | partially | the arrival channel differs in kind; see below |
 
 **The sequence is where the two programs part company, and it is load-bearing.** Inferences 2 and 3
 are not independent findings. Both descend from the order gate, which makes each Step's growth
@@ -1299,7 +1300,7 @@ was based on the absence of a personal visit.
 
 ### A13.5 What this supports, and what it bounds
 
-**It supports the architecture of the arrival term for the 1939 fellowship the model was built from, and A13.7 bounds it for the later one.**
+**It supports the architecture of the arrival term for the fellowship the model was built from, and A13.7 bounds it for the later one.**
 The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
 in the twenty-six accounts the census covers, and the one case of arrival without a member is presented by
 the fellowship as an untested experiment about which it recorded doubt.
@@ -1365,8 +1366,10 @@ third of the classifiable stories.
 
 **What this bounds.** The member-initiated share falls from at least twenty of twenty-six in 1939, a phrase-matcher
 lower bound of seventy-seven per cent, to thirteen of thirty here, forty-three per cent. The two
-codings differ slightly (the 2001 rule separates out subjects who contacted the fellowship
-themselves), so this is a direction and not a measured change. The released baseline holds
+codings differ (the 2001 rule separates out subjects who contacted the fellowship
+themselves), and so do the denominators: the 1939 share keeps the six unmatched segments in its
+twenty-six, while the 2001 share drops twelve unresolved stories from its forty-two to reach thirty. This is a
+direction and not a measured change. The released baseline holds
 `lam_exog` fixed at 0.12 per week in every run, and no design in A7 lets it grow with the
 fellowship's size, so the model cannot represent that shift. A fellowship large enough
 to be found in a telephone book, and embedded in courts and treatment systems that refer to it, has
