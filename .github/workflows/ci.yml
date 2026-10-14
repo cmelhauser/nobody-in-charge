@@ -291,6 +291,13 @@ jobs:
           fc-list | grep -qi 'TeX Gyre Pagella' \
             || { echo 'TeX Gyre Pagella missing; the PDF builds will fail'; exit 1; }
 
+      # The book and the primer ask for TeX Gyre Pagella by name, and the glyphs inside the files
+      # decide the layout. The files come from CTAN mirrors, so their hashes are pinned in
+      # tools/check_fonts.py: a changed font fails here with a sentence, and is adopted
+      # deliberately, with the PDFs rebuilt and re-read, as the pandoc pin is.
+      - name: The font files are the pinned ones
+        run: python tools/check_fonts.py --strict --dir "$XDG_DATA_HOME/fonts"
+
       # The gate requires each derived report to be at least as new as the caches it
       # summarises, and a fresh clone gives them all one timestamp. All three read existing
       # caches and take under a second between them.
