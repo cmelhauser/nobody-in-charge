@@ -5711,3 +5711,12 @@ said a rebuild is byte-identical; that holds on one machine and toolchain, and f
 machines, but the runner's book and primer differ from the committed files even with the pinned
 pandoc. It now says so, and tells the reader to build the committed PDFs with pandoc 3.10.2. The same
 sentence is corrected in `README.md` and `AGENTS.md`.
+
+**The chronology items, settled from the chapters' own text.** Chapter 6's "three years earlier"
+is now "years earlier" (the Rockefeller episode it refers to is December 1937 to 1938, six years
+before October 1944), and "nine years after he wrote it" is "eight", from the chapter's own
+sequence (rules written eighteen months after the autumn of 1944, Yale's offer in 1954). Chapter 1's
+two Worcester sentences, which its own notes say rest on a figure that is not in Maxwell, now name
+the recipient resource and no longer cite a Worcester number. Chapter 4 no longer lists Amos's
+fifty-thousand-dollar recommendation as well attested, since the chapter itself says it rests on
+Wilson's memory and is disputed, and files the AA historical compilations under Cited at a remove.
