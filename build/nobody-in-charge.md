@@ -2788,7 +2788,7 @@ Maximum 1.00 at Steps 1 and 12, minimum 0.17 at Step 7, mean 0.53, ratio of extr
 
 This model gives each step a single level. It therefore cannot represent the member their data describes, whose behavioural practice holds while the spiritual part falls away, and it collapses into one number the only component that predicted an outcome. That is a limitation of the representation and not a detail of calibration, and no sensitivity analysis in this book can reach it, because every design here perturbs the values of the dials rather than the decision to have one dial. Their study is small, nine months long and observational, so it is not a refutation. It is a well-aimed objection to the shape of the apparatus, and Chapter Thirteen's research programme should include it.
 
-**From the multi-level sweep** (`research/oat_full.json`, notebook section 9): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on every scored outcome. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-10 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
+**From the multi-level sweep** (`research/oat_full.json`, notebook section 9): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on every scored outcome. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-11 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
 
 ### 3. Notes on sources
 
@@ -7954,14 +7954,15 @@ paper's.
 Two literatures have circled Alcoholics Anonymous without meeting. The clinical literature
 asks whether AA works and through what mechanism; a Cochrane review finds, with high
 certainty, that manualized twelve-step interventions raise continuous abstinence at twelve
-months over established alternatives (Kelly, Humphreys, and Ferri 2020), while most of the
-mechanism literature credits changes in participants' social networks (Kaskutas, Bond, and
-Humphreys 2002). The formal-modeling literature has produced compartmental models of
-drinking dynamics (Sánchez et al. 2007; Sharma and Samanta 2015), an agent-based model of
-drinking as social contagion (Gorman et al. 2006), and individual-level dynamical models
-of behavior change fitted to clinical data (Banks et al. 2014, 2017). Neither literature
-has modeled the content of the Twelve Steps as a structured process, and neither has
-modeled the Twelve Traditions at all.
+months over established alternatives (Kelly, Humphreys, and Ferri 2020), while the
+mechanism literature is usually read as crediting changes in participants' social networks
+(Section [2.1](#sec:lit-effect){reference-type="ref" reference="sec:lit-effect"}). The
+formal-modeling literature has produced compartmental models of drinking dynamics (Sánchez
+et al. 2007; Sharma and Samanta 2015), an agent-based model of drinking as social
+contagion (Gorman et al. 2006), and individual-level dynamical models of behavior change
+fitted to clinical data (Banks et al. 2014, 2017). Neither literature has modeled the
+content of the Twelve Steps as a structured process, and neither has modeled the Twelve
+Traditions at all.
 
 The omission is notable because the Traditions constitute an unusually clean object of
 institutional study. They are a written constitution for a radically decentralized
@@ -8015,7 +8016,7 @@ Appendix A restates the paper in plain language. Appendix B is a reproducibili
 
 ## Literature Review
 
-### Effectiveness and mechanisms of AA
+### Effectiveness and mechanisms of AA {#sec:lit-effect}
 
 The Cochrane review of Alcoholics Anonymous and twelve-step facilitation (Kelly,
 Humphreys, and Ferri 2020) finds, with high certainty, that manualized interventions raise
@@ -8454,7 +8455,7 @@ robustness.
 | **structural** | **75.4 73.5 to 77.2** | **40.6 38.5 to 42.8** | **17.5 15.9 to 19.2** | **27.6 25.7 to 29.7** |
 
 : Percentage of draws in which each claim holds. Wilson intervals at 95 per cent on
-$n = 2{,}000$. The two 100.0 entries are 2,000 of 2,000 and should be read as "not
+$n = 2{,}000$. The three 100.0 entries are 2,000 of 2,000 and should be read as "not
 observed to fail", not as certainty. {#tab:coupling-robust}
 
 Step 12 is the fragile row and the reason is the margin, not the level: its top two are T5
@@ -8543,11 +8544,11 @@ the assignment without being the passage Kurtz cited.
 
 Every design above varies magnitudes and holds the sparsity pattern fixed; a second reader
 would disagree about the pattern. Flipping cells at random within the seven enabling rows
-(56 cells, so the two-tier split is held fixed), 2,000 draws per row. A flipped cell takes
-the value 0.5, so a Step's strongest Traditions often tie exactly. A claim counts as
-holding in a draw only where it holds strictly, since a tie is not support, and the
-products are computed exactly, every weight being a multiple of 0.01, so the table does
-not depend on how a machine rounds:
+(56 cells, so the two-tier split is held fixed), 2,000 draws per flip count. A flipped
+cell takes the value 0.5, so a Step's strongest Traditions often tie exactly. A claim
+counts as holding in a draw only where it holds strictly, since a tie is not support, and
+the products are computed exactly, every weight being a multiple of 0.01, so the table
+does not depend on how a machine rounds:
 
 | Cells flipped | Index-pairing wrong, all | T1 leads | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
 |---:|---:|---:|---:|---:|
@@ -8675,7 +8676,7 @@ term for relocation and mortality.
 
 Two further design choices follow from the same logic. Carrying capacity is supplied by
 the established core rather than the population mean, since a room of three veterans and
-twenty newcomers still contains three people able to carry a newcomer. And the
+twenty newcomers still contains three people able to carry a low-practice member. And the
 maintenance-capacity gate, whose role is to model relapse in members with something to
 maintain, phases in with step index rather than throttling entry-level growth, to which it
 does not conceptually apply.
@@ -8866,13 +8867,14 @@ technical appendix, sections A3 to A9.
 ##### Which parameters matter.
 
 The ordering exponent $p$ has the largest single influence of any parameter on every
-outcome the multi-level sweep scores. Against a full-adherence baseline of 0.0431
-maintenance, moving $p$ alone by 25 per cent in each direction swings maintenance from
-0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate $\delta_0$ is second at
-3.27 and the step-10 speed third at 2.22. Across the full four-distance ladder the $p$
-range is 14.64 times baseline, $\delta_0$ 12.98 and member heterogeneity 4.69. The
-twenty-trajectory Morris screen ranks the same two first on membership $\mu^*$, at 52.44
-and 51.21, followed by churn at 33.48, dropout sharpness at 24.30, exogenous referral at
+outcome the multi-level sweep scores. In the three-seed one-at-a-time screen, against a
+full-adherence baseline of 0.0431 maintenance, moving $p$ alone by 25 per cent in each
+direction swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the
+decay rate $\delta_0$ is second at 3.27 and the step-11 speed third at 2.22. Across the
+full four-distance ladder the $p$ range is 14.64 times baseline, $\delta_0$ 12.98 and
+member heterogeneity 4.69. The twenty-trajectory Morris screen (five seeds a point, at the
+0.85 reference adherence) ranks the same two first on membership $\mu^*$, at 52.44 and
+51.21, followed by churn at 33.48, dropout sharpness at 24.30, exogenous referral at
 23.46, heterogeneity at 18.90 and the step-6 and step-12 speeds at 18.54 and 15.87. Sobol
 total-order indices on membership, over those eight leaders at plus or minus 25 per cent,
 agree: $p$ at 0.576 \[0.510, 0.643\], $\delta_0$ at 0.373 \[0.320, 0.428\], dropout
@@ -8881,15 +8883,14 @@ sharpness at 0.171, churn at 0.132, heterogeneity at 0.079 and exogenous referra
 speeds, at 0.029 and 0.038, sit at or below that floor and are not separated from Monte
 Carlo error.
 
-At the retired 128-row base sample the first-order column failed three internal
-diagnostics and was withheld. The 1,024-row release design repairs the membership column
-and not the practice column. On membership no factor now has $S_1 > S_T$, and the
-first-order indices sum to 0.693, so the column is admissible: $p$ resolves at 0.404
-\[0.288, 0.525\] and $\delta_0$ at 0.238 \[0.156, 0.327\], while the remaining six have
-intervals covering zero and are unresolved rather than zero. On practice the column is
-still not usable: $\delta_0$ returns $S_1 = 0.421$ against $S_T = 0.417$, violating the
-identity $S_T \ge S_1$ that holds for any true decomposition, and the practice first-order
-indices sum to 1.074, whereas a sum of first-order indices cannot exceed one. No practice
+The 1,024-row release design gives an admissible first-order column for membership and not
+for practice. On membership no factor now has $S_1 > S_T$, and the first-order indices sum
+to 0.693, so the column is admissible: $p$ resolves at 0.404 \[0.288, 0.525\] and
+$\delta_0$ at 0.238 \[0.156, 0.327\], while the remaining six have intervals covering zero
+and are unresolved rather than zero. On practice the column is still not usable:
+$\delta_0$ returns $S_1 = 0.421$ against $S_T = 0.417$, violating the identity
+$S_T \ge S_1$ that holds for any true decomposition, and the practice first-order indices
+sum to 1.074, whereas a sum of first-order indices cannot exceed one. No practice
 first-order number is quoted elsewhere. The sums of $S_T$ are 1.456 for membership and
 1.464 for practice, and the excess over one is the signature of interaction counted once
 per factor involved, so interactions are present and are not dominant. The decomposition
@@ -8987,8 +8988,9 @@ wherever a society is organized. **They had written rules, they had them within 
 of founding, and they had a mechanism for transmitting them.**
 
 What they had, in writing, were analogues of four of the Traditions this analysis
-classifies as protective. What they had none of were the seven classified as enabling. And
-on anonymity they took the opposite position deliberately and with an argument: Grosh's
+classifies as protective. So far as the ledger shows, what they had none of were the
+enabling Traditions: no analogue of Tradition 2, and the opposite of Tradition 12. And on
+anonymity they took the opposite position deliberately and with an argument: Grosh's
 directions for a first meeting have joiners rise and call out their names for the
 secretary, because "publicity and freedom are preferable to private solicitations,
 whisperings, and secresy in giving the names."
@@ -9152,10 +9154,11 @@ this limitation is listed first.
     the literature on how fast practices lapse brackets it rather than calibrating it.
     Edgren, Baretta, and Inauen (2025), the first intensive longitudinal study of habit
     decay in daily life, find self-reported automaticity settling in a median of 9 to 10
-    days (range 1 to 65) among people deliberately degrading an unwanted habit, an order
-    of magnitude faster than $\delta_0$ and a different object: a habit actively removed,
-    not a practice left unrenewed. Kaskutas, Bond, and Avalos (2009) give the other end
-    from inside AA, with four attendance trajectories over seven years in which
+    days (range 1 to 65) among the 22 per cent of participants whose fitted trajectory
+    crossed the scale midpoint, all of them deliberately degrading an unwanted habit, an
+    order of magnitude faster than $\delta_0$ and a different object: a habit actively
+    removed, not a practice left unrenewed. Kaskutas, Bond, and Avalos (2009) give the
+    other end from inside AA, with four attendance trajectories over seven years in which
     participation falls away on a scale of years and abstinence does not follow it down,
     which also cautions against reading the practice variable as a meeting count. The
     one-at-a-time screen found that lowering $\delta_0$ by 25 per cent or more reverses
@@ -9207,13 +9210,13 @@ this is marked.
     between losses in groups and members and the smaller change in practice among those
     who remain; it must be measured on all three series.
 
-4.  **The two supply channels dissociate**: attraction loss produces stable remnants,
-    referral loss produces delayed dissolution, so proximity to treatment facilities
-    should predict survival through low-attraction periods. *Partly answered, and
-    qualified.* Earlier drafts described this as one of exactly two universal simulation
-    results. The corrected analysis reports strict support, ties, reversals, and
-    unresolved screens separately; it does not promote a finite sensitivity suite into a
-    universal claim. Mortality and membership remain distinct estimands.
+4.  **The two supply channels dissociate**: attraction loss produces smaller remnants at
+    year thirty, referral loss produces delayed dissolution, so proximity to treatment
+    facilities should predict survival through low-attraction periods. *Partly answered,
+    and qualified.* Earlier drafts described this as one of exactly two universal
+    simulation results. The corrected analysis reports strict support, ties, reversals,
+    and unresolved screens separately; it does not promote a finite sensitivity suite into
+    a universal claim. Mortality and membership remain distinct estimands.
 
 5.  **Tradition 3 has distinct resource-governance and inverse-practice friction paths.**
     *Bearing of the analysis above:* at 400 paired seeds, combined loss ends at 6.76
@@ -9687,11 +9690,11 @@ So if a group cannot revoke anyone's membership, what can actually go wrong? Thr
 different things, and they leave three different marks:
 
 1.  **The group becomes invisible.** Nobody finds it anymore: it is not listed, it meets
-    at a bad time, word of mouth dried up. The model says this group settles at a smaller
-    size kept alive by court cards and treatment-center referrals, about seven tenths of a
-    healthy group's size at year thirty (12.4 members against 17.8). It does not die, and
-    the practice of the people in it is at most slightly lower than in a healthy group, by
-    0.0067 at year ten, a difference four hundred runs cannot resolve.
+    at a bad time, word of mouth dried up. The model says this group is much smaller at
+    year thirty, kept alive by court cards and treatment-center referrals: about seven
+    tenths of a healthy group's size (12.4 members against 17.8). It does not die, and the
+    practice of the people in it is at most slightly lower than in a healthy group, by
+    0.0067 at year ten, smaller than the half-widths of the two estimates.
 
 2.  **The referrals dry up.** The treatment center closed; the court program ended. The
     group coasts on word of mouth and shrinks. At year ten about one group in three has
@@ -9699,10 +9702,10 @@ different things, and they leave three different marks:
     altogether (89.5 per cent), leaving a handful of survivors.
 
 3.  **The group gets unwelcoming.** Nobody loses their membership, but there is an
-    in-crowd, and newcomers can feel it. They come once and do not come back. Averaged
-    over every run, this group is under two fifths the size of a healthy one at year
-    thirty (6.8 members against 17.8). One group in four closes outright and a little over
-    half are still viable at the end.
+    in-crowd, and people who come to it can feel it, and those with little practice drop
+    out sooner. Averaged over every run, this group is under two fifths the size of a
+    healthy one at year thirty (6.8 members against 17.8). One group in four closes
+    outright and a little over half are still viable at the end.
 
 **How much you can trust any of these numbers depends on how many times the simulation was
 run.** Every figure here comes from four hundred runs paired by common random numbers, and
