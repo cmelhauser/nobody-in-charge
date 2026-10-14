@@ -13,7 +13,7 @@ Nobody decided this. It falls out of asking, one Tradition at a time, whether it
 
 Start with why it looks like a discovery.
 
-The five are a third of the code by count. They are also, by reputation, among the load-bearing ones: an AA member asked which Traditions matter would very likely name self-support and no outside opinion, and Part One spends two chapters on what happened to a movement that had neither firmly. If the derivation had been built to flatter the Traditions it would not have produced a result in which a third of them supply nothing.
+The five are five of the twelve by count. They are also, by reputation, among the load-bearing ones: an AA member asked which Traditions matter would very likely name self-support and no outside opinion, and Part One spends two chapters on what happened to a movement that had neither firmly. If the derivation had been built to flatter the Traditions it would not have produced a result in which five of the twelve supply nothing.
 
 And the split is not arbitrary in content. Read the five together and they are all about the group's relations with things that are not the group: other groups, outside enterprises, outside money, a structure above the group, the world's arguments. Read the seven together and they are all about what happens inside the room. That is a clean line and I did not draw it. I drew twelve rows of a matrix by asking a different question, and the line appeared.
 
@@ -144,7 +144,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What this test does and does not license.** It licenses the statement that index-pairing would require the index-mate to govern its own Step's needs more strongly than a typical entry in the matrix, uniformly across all twelve. It does not license any statement about whether the zeros are correctly placed, because it holds the sparsity pattern's origin fixed and prices only its consequences. It is a sensitivity analysis of a judgement, not a test of it.
 
-**What the multiplicative designs cannot do, restated so it is not lost.** Multiplying a zero by a random number leaves a zero. Both perturbation designs used elsewhere in this part are multiplicative on the non-zero entries and preserve sparsity by construction. Therefore neither can produce a draw in which a protective Tradition supplies anything, and neither can be quoted as evidence about the two-tier split. The 100 per cent figure previously recorded for the split is vacuous and has been removed from `research/PARAMETERS.md` and appendix A5.4.
+**What the multiplicative designs cannot do, restated so it is not lost.** Multiplying a zero by a random number leaves a zero. Both perturbation designs used elsewhere in this part are multiplicative on the non-zero entries and preserve sparsity by construction. Therefore neither can produce a draw in which a protective Tradition supplies anything, and neither can be quoted as evidence about the two-tier split. The 100 per cent figure previously recorded for the split is vacuous and has been removed from `research/PARAMETERS.md` and appendix A7.4.
 
 **The textual classification is a judgement and is recorded as one.** Criterion one, an explicit prohibition in the wording, matches three of the five and also matches one of the enabling seven; it fails. Criterion two, mentioning no individual person, matches four of the five cleanly, matches the fifth only if a clause about service boards being responsible to those they serve is read as referring to groups rather than to people, and matches none of the enabling seven. Reported as four clean, one strained, no false positives. No count here is a computation and none is asserted in the notebook.
 
@@ -160,7 +160,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
-**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, index-pairing survives 86 per cent of the time when four of fifty-six cells differ and 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
+**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, the rejection of index-pairing survives in 86 per cent of draws when four of fifty-six cells differ and in 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
 
 ### 4. References
 
@@ -180,7 +180,7 @@ The wording of the Twelve Traditions themselves. They are AA copyright, this pro
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, section 11c, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A5.3 for the exact cancellation at full adherence, and A5.4 for the perturbation designs and what they cannot reach.
+`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, section 11c, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
 
 **What was not read:**
 

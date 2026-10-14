@@ -237,7 +237,7 @@ The group sweep is a sensitivity curve, not evidence for individual bistability.
 
 Fatimah, H. M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. Read from the author manuscript; saved as `research/incorporated/Fatimah_2025/`. The two stable equilibria, the separation energy in each direction, the person-specific steepness and tilt, the between-subject variance in steepness and relapse risk, and the criterion validity against life satisfaction and criminal behaviour beyond proportion of days used and time to first use.
 
-Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Used here only for the contrast drawn at the end of the chapter, between influence failure and aggregation blindness.
+Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used in this chapter's argument; the influence criterion it supplies is developed in Chapter Eight.
 
 Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
 

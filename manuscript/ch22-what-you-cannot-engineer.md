@@ -19,7 +19,7 @@ So they did the thing the estimates invite. They wrote an assignment algorithm t
 
 Their own model predicted that the bottom third of the academic distribution would gain, on average, 0.053 grade points, and that the strong students would be unaffected. That is a modest, sensible, well-founded prediction.
 
-What they measured was a treatment effect of **minus 0.061 grade points** on exactly the students they had set out to help, statistically significant at conventional levels.
+What they measured was a treatment effect of **minus 0.061 grade points** on exactly the students they had set out to help, with a reported p-value of 0.055, significant at the ten per cent level and just short of the five per cent level.
 
 Not zero. Negative, and of the same size as the intended gain, in the opposite direction.
 
