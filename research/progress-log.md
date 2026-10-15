@@ -5790,6 +5790,14 @@ Chapter 19's interaction sign. (4) Exact halves now round half away from zero in
 the five places they were quoted (67.4, 86.9, 27.7, 99.3, 91.3). Not changed: Chapter 8's table
 row labels (which office share each row assumes) and the page counts of the 1939 manuscript.
 
+**Chapter 8's elders table, labelled.** The table's four rows come from `elders_vs_prescription` in
+`research/part2_influence.json`, and they do not share an officeholder share: the rotation-only row
+uses 0.35 (the Chapter 10 default, giving 1.996 at every size) and the three rows with elders use 0.05
+(2.517, 9.183 and 34.183 for three elders at 0.10; 4.083, 17.417 and 67.417 at 0.20; 2.75, 10.75
+and 40.75 for five). The chapter said the officeholder had a deliberately small share without
+saying it applied only to the elder rows. Each row now states its office share. The cache also holds
+three elders at 0.10 with the 0.35 office share (2.2, 8.9, 33.9), which the table does not quote.
+
 ### 15 October 2026: the original project material is relicensed under the MIT License
 
 At the repository owner's direction (relayed by a licensing session), the licence of the original
