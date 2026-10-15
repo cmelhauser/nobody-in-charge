@@ -5789,3 +5789,19 @@ table counts and the scope of "most robust"; Chapter 18's "an order of magnitude
 Chapter 19's interaction sign. (4) Exact halves now round half away from zero in the gate report and
 the five places they were quoted (67.4, 86.9, 27.7, 99.3, 91.3). Not changed: Chapter 8's table
 row labels (which office share each row assumes) and the page counts of the 1939 manuscript.
+
+### 15 October 2026: the original project material is relicensed under the MIT License
+
+At the repository owner's direction (relayed by a licensing session), the licence of the original
+project material changes from The Unlicense, recorded above on an earlier date, to the MIT License,
+Copyright (c) 2026 Christopher Melhauser. `LICENSE` carries the standard MIT text. The statements
+that the material was dedicated to the public domain and that courtesy credit was requested are
+replaced in `ATTRIBUTION.md`, `README.md`, `HANDOFF.md`, `CITATION.cff`, the preface, the appendix,
+the primer and the paper's title block; the earlier entry above is left as the record of what was
+true then. The MIT License's one condition is that the copyright and permission notice be kept with
+copies or substantial portions of the material. The credits to the Human Author and the AI Writing
+Collaborator are an acknowledgement and are not a licence condition. Nothing about third-party
+material changes: the public-domain status of pre-1929 sources, the copyright and licence notes on
+Maxwell (1950), Recovery Dharma (CC BY-NC-SA 4.0) and every other source, and the rule that no source
+document is committed all concern those works and not this repository's licence. Anyone who has
+already received the material under the Unlicense keeps what they received.

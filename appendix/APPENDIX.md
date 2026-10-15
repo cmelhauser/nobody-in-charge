@@ -3,7 +3,7 @@
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
-Author: Anonymous. Released to the public domain under The Unlicense. See `../LICENSE`.
+Author: Anonymous. Released under the MIT License. See `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 
