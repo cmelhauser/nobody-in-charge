@@ -271,6 +271,11 @@ independent replications and not confirmatory estimates.
 
 ## A5. Confirmatory results
 
+Unless a section says otherwise, every result here is from 400 seeds paired by common random numbers,
+over 1,560 weeks (thirty years) at `dt = 0.5` weeks, with viable meaning more than five members at the
+stated horizon; the Tradition ranking in A5.2 uses a 20-year horizon of 1,040 weeks. Binary fractions
+carry Wilson intervals and contrasts carry paired intervals.
+
 ### A5.1 Conditions and mechanism factorials
 
 | Condition | Final N, mean [95% interval] | Exists | Viable | Closed |
@@ -296,9 +301,9 @@ interval crosses zero, so the clean recipient ablation is unresolved.
 
 ### A5.2 Service, composition, and the Tradition ranking
 
-Disabling Step 12 lowers final membership by 5.325 [4.437, 6.213], established practice by
-0.01497 [0.00765, 0.02229], and maintenance capacity by 0.01351 [0.00788, 0.01915]. The isolated
-Step 9 change is 0.00550 with an interval from -0.00149 to 0.01249 and is unresolved.
+Disabling Step 12 lowers final membership by 5.325 [4.437, 6.213], all-member practice by
+0.01497 [0.00765, 0.02229], and maintenance capacity by 0.01351 [0.00788, 0.01915]. With Step 12 disabled,
+Step 9 practice is lower by 0.00550, with an interval from -0.00149 to 0.01249, which is unresolved.
 
 The founder-composition experiment holds total initial practice at 13.75 and compares even,
 concentrated, and split allocations. Relative to even founders, paired final-membership
@@ -324,10 +329,11 @@ result.
 
 Under referral loss, all-run membership is 21.55 at year 5, 11.68 at year 10, 2.50 at year 20,
 and 0.51 at year 30. Endpoint viability falls from 0.970 to 0.660, 0.1725, and 0.0275. Membership
-among viable groups also falls, from 22.07 to 16.47, 11.39, and 12.27. The last mean is based on
-only eleven viable runs and has half-width 3.81. The corrected model therefore shows visible
+among viable groups also falls, from 22.07 to 16.47 and 11.39 at years 10 and 20, and is 12.27 at
+year 30. That last mean is based on only eleven viable runs and has half-width 3.81. The corrected model therefore shows visible
 room-size decline as well as closures. Established practice among selected viable remnants stays
-high; that selected quantity is not evidence that the interior has no warning signal.
+high, at 0.348, 0.348, 0.355 and 0.364 at years 5, 10, 20 and 30 against 0.322, 0.302, 0.273 and
+0.265 for the full-adherence group, the year-30 value resting on eleven runs; that selected quantity is not evidence that the interior has no warning signal.
 
 ---
 
@@ -335,9 +341,10 @@ high; that selected quantity is not evidence that the interior has no warning si
 
 At the baseline thirty-year horizon, mean final membership is 17.80 at `dt=0.5`. In 200 paired
 seeds, changes relative to that step are 1.535 plus or minus 1.777 at `dt=1`, 0.865 plus or minus
-1.836 at `dt=0.25`, and -0.405 plus or minus 1.742 at `dt=0.125`. All intervals cross zero. This
-supports the tested half-week resolution for the reported comparisons; it does not prove
-convergence at arbitrary resolution.
+1.836 at `dt=0.25`, and -0.405 plus or minus 1.742 at `dt=0.125`. All intervals cross zero, at
+half-widths of about 1.8 and against a 200-seed baseline of 17.32. With no equivalence margin that is
+unresolved, not evidence of equality; it is consistent with the tested half-week resolution for the
+reported comparisons and does not prove convergence at arbitrary resolution.
 
 Mean final membership is 29.34 at 10 years, 21.14 at 20, 17.80 at 30, 16.43 at 50, and 15.64 at
 100, with 95 per cent half-widths of 1.71, 1.60, 0.88, 1.08 and 0.99; the 30-year figure is from 400
@@ -360,6 +367,7 @@ to move, the release makes no steady-state or indefinite-persistence claim.
 | Sobol | 1,024 base rows, 11,264 points | 5 | conditional decomposition on eight Morris leaders |
 | Structural variants | 10,000 simulations | 400 | five architectures by five scenarios |
 | Decay-ordering confirmation | 4,800 simulations | 400 | referral against attraction loss at four `delta0` levels |
+| Decay-reversal location | 3,600 simulations | 400 | the same comparison at three further `delta0` levels, 10, 15 and 20 per cent lower |
 
 Multiplicative designs cannot move structural zeros. A full-adherence outcome cannot reveal the
 35 `GOV` magnitudes because they cancel. The randomized-matrix design holds sparsity fixed and
@@ -394,8 +402,10 @@ the hyperbolic response. The last variant still saturates at one despite its his
 | Capacity from all members | 14.730 / 1.000 / 1.000 | 2.003 / 0.2575 / 0.1225 |
 | Piecewise-linear capacity | 13.038 / 1.000 / 0.995 | 1.020 / 0.145 / 0.0575 |
 
-Referral loss is worse on final membership, existence, and endpoint viability in all five
-tested architectures. The earlier three-variant size reversal came from the retired uncentred
+The T3-on-admission row equals the base because Tradition 3 adherence is 1 in these scenarios;
+that variant differs from the base only in the gatekeeping scenario, which this table omits, so four
+distinct architectures are compared here. Referral loss is worse on final membership, existence,
+and endpoint viability in all five tested architectures. The earlier three-variant size reversal came from the retired uncentred
 capability model and does not reproduce. Five architectures are not every possible architecture.
 
 ### A7.4 Tiered and randomized-matrix screens
@@ -407,7 +417,8 @@ capability model and does not reproduce. Five architectures are not every possib
 
 Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss. Randomizing every
 nonzero matrix magnitude while preserving the zero pattern leaves the comparison intact on all
-three outcomes. The tiered design, which also varies scalar defaults and Step speeds over wider
+three outcomes. These designs run at full adherence, where the governance magnitudes cancel (A2.3),
+so they test the `S` magnitudes only. The tiered design, which also varies scalar defaults and Step speeds over wider
 ranges, produces substantial final-membership reversals and smaller numbers of viability and
 existence reversals. These are different robustness questions.
 
@@ -480,8 +491,8 @@ not reversed in a single paired run at any of the three, so the reversal remains
 membership throughout.
 
 Against a three-seed full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
-ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
-minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the Step 11
+ordering exponent `p_gate` has the largest single influence on mean practice, maintenance and
+final membership at plus or minus 25 per cent. At that distance its maintenance range is 5.45 times baseline, `delta0` 3.27 and the Step 11
 speed 2.22 (cache labels such as `a:10` and `S:11,5` are zero-indexed, so `a:10` is Step 11); over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
 4.69.
 
@@ -580,7 +591,7 @@ Sparsity has to be priced separately, because no magnitude design can move a zer
 of `GOV` at random within the seven enabling rows, so the protective rows stay empty, with 2,000
 draws for each count, the all-twelve rejection holds in 86.3 per cent [84.7, 87.7] of draws when
 four of the 56 enabling cells differ and in 51.7 per cent [49.5, 53.9] when sixteen do. A flipped
-cell takes the value 0.5, so ties are common, and a tie never counts as the rejection holding. The
+zero cell takes the value 0.5 and a flipped nonzero cell becomes 0, so ties are common, and a tie never counts as the rejection holding. The
 products are computed exactly, so the figures are the same on every machine. The paper's sparsity
 table gives the series and the other three claims.
 
@@ -899,7 +910,8 @@ a Buddhist chaplain visiting a treatment unit (106), a stranger's message on a m
 and, in three cases, founding a group rather than finding one. Only one route resembles a member
 carrying the message to a stranger. For this fellowship the exogenous constant would carry nearly
 all of the arrivals and the endogenous term would be close to idle, which is the reverse of the
-weighting the model uses and the reason inference 6 of A12.7 cannot be carried over unchanged.
+weighting the model uses in its founder years, though less far from its thirty-year baseline, and
+the reason inference 6 of A12.7 cannot be carried over unchanged.
 
 **Membership overlaps rather than substitutes.** Several contributors describe attending Recovery
 Dharma and a Twelve Step fellowship at the same time, one naming a sponsor, wise friends and a
@@ -1250,8 +1262,9 @@ lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
 ```
 
 The first term is arrival that does not pass through a member. The second is arrival carried by
-members, scaled by their Step 12 state. The model gives the endogenous term the dominant role, and
-that is an authored choice. The question here is whether the fellowship's own accounts of how people
+members, scaled by their Step 12 state. The model's endogenous term is large early, when founders hold Step 12 near 0.55, and at the
+thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (the endogenous rate
+exceeds it in about one run in ten). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
 arrived support it.
 
 The coding rule is: for each story, does the account describe a person who was themselves a recovered
@@ -1307,7 +1320,7 @@ the fellowship as an untested experiment about which it recorded doubt.
 
 **It bounds that architecture to that fellowship, and A12.5 is the other half of the bound.** The
 fourteen Recovery Dharma accounts report arrival through a noticeboard flier, a website, a free
-online book, internet searches, online meetings, a therapist and a prison chaplain, with almost no
+online book, internet searches, online meetings, a therapist and a Buddhist chaplain visiting a treatment unit, with almost no
 member-carried arrival at all. Two fellowships, eighty-four years apart, sit at opposite ends of the
 same parameter. A model that fixes the weighting between `lam_exog` and the endogenous term is
 therefore making a claim about a period and an organization rather than about mutual-aid groups, and
@@ -1322,8 +1335,9 @@ describes what moved him as a man who "talked my language", after reading widely
 many non-alcoholic experts to no effect. That is the identification resource of A2.2, which the
 matrix loads most heavily onto Step 1, described from the inside.
 
-**What it does not do.** It does not validate any numerical value. `lam_exog`, `lam0` and the
-attraction multiplier remain three of the hundred and eighteen registered values, fitted to nothing.
+**What it does not do.** It does not validate any numerical value. `lam_exog` and `lam0` remain two of the
+hundred and eighteen registered values, fitted to nothing, and the attraction multiplier is a
+Tradition 11 adherence setting.
 A census of how people say they arrived cannot set a rate. It also cannot speak to survivorship: the
 thirty accounts are of people who recovered and were chosen for a book intended to persuade, so
 they are the least representative sample imaginable of everyone the fellowship met. Nothing here
@@ -1370,8 +1384,8 @@ codings differ (the 2001 rule separates out subjects who contacted the fellowshi
 themselves), and so do the denominators: the 1939 share keeps the six unmatched segments in its
 twenty-six, while the 2001 share drops twelve unresolved stories from its forty-two to reach thirty. This is a
 direction and not a measured change. The released baseline holds
-`lam_exog` fixed at 0.12 per week in every run, and no design in A7 lets it grow with the
-fellowship's size, so the model cannot represent that shift. A fellowship large enough
+`lam_exog` at 0.12 per week, constant within a run; the A7 designs perturb or zero it, but none
+lets it grow with the fellowship's size, so the model cannot represent that shift. A fellowship large enough
 to be found in a telephone book, and embedded in courts and treatment systems that refer to it, has
 an exogenous arrival rate that grew with its own institutional presence. That is a mechanism the
 model does not contain, and the two censuses together are the clearest evidence in this appendix
@@ -1384,8 +1398,8 @@ edited collections sixty-two years apart, not a time series.
 
 ### A13.6 The Machinery
 
-**1. What the census says.** The model's arrival term gives the member-carried channel the dominant
-role. The 1939 accounts describe arrival that way, with a lower bound of twenty of the twenty-six
+**1. What the census says.** The model's arrival term gives the member-carried channel a large role
+early in a run. The 1939 accounts describe arrival that way, with a lower bound of twenty of the twenty-six
 story segments recovered from the thirty stories carrying explicit personal-contact language, and the single
 counter-case is one the fellowship itself flagged as an untested experiment about which it recorded
 doubt. Read beside A12.5, where a modern fellowship arrives almost entirely without members, the

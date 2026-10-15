@@ -53,7 +53,7 @@ I said the period's vocabulary distinguished at least eight grades of drinker. M
 
 I said the Traditions were a set of rules. Wilson's own framing sentence says a code of traditions could never become rule or law.
 
-I said the Traditions were adopted at a 1950 international convention. Kurtz dates the adoption to June 1950 and does not connect it to that gathering.
+I said the Traditions were adopted at a 1950 international convention. Kurtz dates the adoption to June 1950 and does not connect it to that gathering, though the 1953 commentary, which I read later, does; this one is a disagreement between sources, not a settled error.
 
 Every one of those became visible the moment a primary source was in front of me, and not one minute before.
 
@@ -145,7 +145,7 @@ The corrections, with what found each one and where the corrected version lives.
 | Maxwell precise about three founding dates | Maxwell, read from a saved copy | Ch 1 |
 | Eight grades of drinker | the same | Ch 1 |
 | The Traditions described as rules | Kurtz, quoting Wilson | Ch 5 |
-| Adoption at a 1950 convention | Kurtz | Ch 5 |
+| Adoption at a 1950 convention (the sources differ) | Kurtz, against the 1953 commentary | Ch 5 |
 | A group closing its doors | a reader who had been in the rooms | Ch 19, A7.3 (T3-on-admission variant) |
 | Threshold range containment | a notebook assertion | Ch 18 |
 | A rank stated as fourth | a notebook assertion | Ch 17 |

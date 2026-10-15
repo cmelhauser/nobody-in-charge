@@ -51,7 +51,7 @@ Take twenty-five founding members with a fixed total amount of practice between 
 
 Run each four hundred times for thirty years.
 
-Even ends at 17.80 members. Concentrated ends at 18.09. Split ends at 17.45. Their ninety-five per cent half-widths are 0.88, 0.99 and 0.93. Endpoint viability is 98.5, 98.75 and 98.5 per cent. Established-member practice is 0.2645, 0.2628 and 0.2660.
+Even ends at 17.80 members. Concentrated ends at 18.09. Split ends at 17.45. Their ninety-five per cent half-widths are 0.88, 0.99 and 0.93. Endpoint viability is 98.5, 98.75 and 98.5 per cent. Established-member practice, over all 400 runs of each, none of which closes, is 0.2645, 0.2628 and 0.2660.
 
 Unresolved. Relative to even founders, the paired membership difference is 0.29 [-0.90, 1.48] for concentrated and -0.35 [-1.47, 0.78] for split. Neither interval excludes zero, and no equivalence margin was specified in advance, so the experiment establishes neither a difference nor practical equality.
 

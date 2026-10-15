@@ -79,11 +79,11 @@ Read that last clause again. Thirty dollars for your funeral. These are men who 
 
 Look at what they added.
 
-**Screening.** To join the Sons, you had to be nominated by an existing member. Three other members would then investigate your life and determine whether you were worthy. This is the sharpest possible break from the Washingtonian pledge, which asked nothing of you but your name and your intention.
+**Screening.** As the encyclopaedic accounts have it, to join the Sons you had to be nominated by an existing member, and three other members would then investigate your life and determine whether you were worthy. The sources I hold do not confirm the investigation. This is the sharpest possible break from the Washingtonian pledge, which asked nothing of you but your name and your intention.
 
 **A price.** The founding call sets it at one dollar to initiate plus six and a quarter cents a week, and the fee rose afterwards. Set that beside what the Washingtonians charged, which Krout gives from the Maryland report of 1842: twenty-five cents to join and twelve and a half cents a month. The Sons cost four times as much to enter and roughly twice as much to stay. Unlike the Washingtonians, they gave you something measurable back. The Sons made membership expensive on purpose, and they made it worth buying.
 
-**Ritual and hierarchy.** Secret ceremonies, regalia, passwords, degrees of membership, Grand Divisions above local Divisions. Where the Washingtonians had a president because six men in a tavern thought it would be funny, the Sons had an architecture.
+**Ritual and hierarchy.** Regalia and Grand Divisions above local Divisions are in the sources I hold; the secret ceremonies, passwords and degrees of membership are as the encyclopaedic accounts have them. Where the Washingtonians had a president because six men in a tavern thought it would be funny, the Sons had an architecture.
 
 **Material benefit.** Four dollars a week if you fell sick. Thirty dollars to your family if you died. The Sons' own statement of purpose put it plainly: to shield members from the evils of intemperance, to give mutual assistance in illness, and to elevate their character as men. You joined and you got something tangible.
 
@@ -107,7 +107,7 @@ Marsh and the temperance leadership promoted the Washingtonians brilliantly. The
 
 Then the cause moved somewhere the Washingtonians could not follow. Temperance turned toward legal prohibition, and Washingtonianism was built on moral suasion, Mitchell had held that his societies should say nothing against the liquor traffic at all, and would admit sellers as members. When the movement's sponsors wanted legislation, the Washingtonian position was not merely dated; it was an obstacle. A senator looking back in 1888 called that emphasis on moral suasion a trace of maudlin insanity.
 
-What the Washingtonians did was not hold the line. Marsh describes a Connecticut convention at which the delegates marched from the Centre Church to the State House alongside the Hartford Washington Society, and adopted resolutions on the Washingtonian movement and on prohibiting the sale of intoxicating liquors by law. He adds a parenthesis, and it is the most useful five words in this chapter: *for a great change had come over the Washingtonians in this matter*. They did not resist the turn toward legislation. They came round to it.
+What the Washingtonians did was not hold the line. Marsh describes a Connecticut convention at which the delegates marched from the Centre Church to the State House alongside the Hartford Washington Society, and adopted resolutions on the Washingtonian movement and on prohibiting the sale of intoxicating liquors by law. He adds a parenthesis, and it is the most useful dozen words in this chapter: *for a great change had come over the Washingtonians in this matter*. They did not resist the turn toward legislation. They came round to it.
 
 The senator's line about maudlin insanity is worth having in full, because read whole it is not a stray insult but an indictment, and it shows what the moral-suasion position had come to cost by 1888. Henry Blair, who had spent a career trying to write prohibition into the Constitution, is reckoning up the movement's ledger. He allows that a hundred and fifty thousand reformed men held to their pledges and were saved, and then asks what are one hundred and fifty thousand among so many. Then this:
 
@@ -119,7 +119,7 @@ Two things follow. The first is that this is a hostile witness reciting the six 
 
 That is the political-entanglement charge, and reading it from a participant rather than from a summary changes what it means. Taking a position on prohibition was not a mistake the Washingtonians made. It was the price of remaining in the room where the cause was now being decided.
 
-An earlier draft of this chapter ended that thought by saying that having no rule against it, they had no way to decline, and that AA a century later wrote a rule and could point at it. That is wrong, and correcting it makes the chapter's argument harder and better. They had the rule, in two places, and Chapter One quotes both: a clause in the definition of principles barring anything inimical to any party or denomination from the movement's publications and meetings, and Article 3 of the model constitution circulated after the Utica mass convention of February 1842. It was in print, in a pocket edition, three years before the Connecticut delegates marched to the State House.
+An earlier draft of this chapter ended that thought by saying that having no rule against it, they had no way to decline, and that AA a century later wrote a rule and could point at it. That is wrong, and correcting it makes the chapter's argument harder and better. They had the rule, in two places, and Chapter One quotes both: a clause in the definition of principles barring anything inimical to any party or denomination from the movement's publications and meetings, and Article 3 of the model constitution circulated after the Utica mass convention of February 1842. It was in print, in a pocket edition, within months of the Connecticut delegates marching to the State House, which on Marsh's sequence of events fell in the same year.
 
 So the difference between the two fellowships is not that one wrote a rule about outside issues and the other did not. Both did, within two years of founding in the Washingtonian case and eleven in AA's. The Washingtonian rule failed, and reading it beside the event it failed to prevent shows two reasons, neither of which is a lack of rules.
 
@@ -131,7 +131,7 @@ AA's Tradition 10 differs on both counts. It binds the fellowship as well as the
 
 So the experience meeting palled, and moral suasion fell out of favour, and what was left of Washingtonianism as a distinct thing was only the reclaiming of drunkards, which was by then a secondary interest of nearly everyone involved. Maxwell's summary is that the movement turned into something it had not started out to be: a revival phase of the organised temperance movement.
 
-The sharpest line in his paper is not his own. It comes from E. M. Jellinek, in a personal communication, and it is nine words long:
+The sharpest line in his paper is not his own. It comes from E. M. Jellinek, in a personal communication, and it is fifteen words long:
 
 > the Washingtonian movement was not equipped with an ideology distinctive enough to prevent its dissolution.
 

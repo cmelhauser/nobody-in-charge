@@ -137,7 +137,9 @@ eight columns were the right eight.
 
 Each entry gives the derived group-dependence coefficient beta, which is the Step's
 row sum in S normalised by the largest row sum, and the Step's principal supplier,
-which is the Tradition governing the largest share of what that Step consumes. The
+which is the Tradition with the largest entry for that Step in B, the raw semantic overlap of
+the two authored matrices. The share-normalised map C can name a different Tradition, as it does at
+Step Twelve. The
 index-mate is the Tradition carrying the same number, and its rank among the twelve is
 the whole of Part Four's argument in one column.
 
@@ -168,9 +170,9 @@ measured that. Reverse the two largest entries, so that admission outranks
 identification, and Tradition 3 would win this row more clearly rather than less, so
 the headline result here is not sensitive to that particular judgement. What the row
 does depend on is the claim that identification is a distinct thing a group supplies,
-rather than an aspect of admission. The resource-list test can merge those two columns,
-and does, and Step One is among the fifteen variants where the index pairing comes
-back.
+rather than an aspect of admission. The resource-list test can delete or merge either column,
+and does: merging the two alone does not bring the index pairing back, but deleting both
+does, and Step One is among the fifteen variants where it comes back.
 
 *In plain terms.* This is the Step you cannot take by yourself, and it is tied with the
 twelfth for depending most on other people. What it needs is not advice. It is other
@@ -232,7 +234,7 @@ quiet.
 
 *In plain terms.* The decision asks less of a group than almost any other Step. What it
 does draw on is counsel: somebody to talk it over with. The Tradition sharing its
-number contributes essentially nothing to it, and that is the starkest single number
+number contributes essentially nothing to it, and that is the starkest non-zero number
 against the pairing idea anywhere in the matrix.
 
 ## Step Four, the inventory
@@ -320,7 +322,7 @@ Tradition 1 narrowly wins. The entry is phrased that way deliberately.
 
 *In plain terms.* Becoming willing barely needs a group at all: a little pressure, a
 little counsel, and that is most of it. The two Traditions at the top are so close that
-the model has no real opinion about which one carries it. Of all twelve Steps this is
+the model has no real opinion about which one carries it. By the threshold test, of all twelve Steps this is
 the one where the pairing comes nearest to being recoverable, and it still needs its own
 Tradition to look after its needs more attentively than a typical entry in the whole
 matrix.
@@ -364,9 +366,9 @@ confidentiality at 0.1. Top speed 0.18 per week, gate exposure 0.655. The readin
 that making the list is mostly a matter of having somebody to ask, with some
 expectation that it gets done and a little need for discretion.
 
-The single interesting assumption is the small confidentiality entry. It is the reason
-Tradition 8 reaches fourth here, its best rank anywhere, rather than disappearing.
-Remove that 0.1 and the index-mate's showing gets worse. The primer's claim that the
+The single interesting assumption is the small confidentiality entry. It gives
+Tradition 8 its 0.07 here, its best value anywhere. Remove that 0.1 and the entry falls
+to 0.04, tied with Tradition 12, though its competition rank stays fourth. The primer's claim that the
 pairing is not absurd anywhere therefore rests, in this row, on a judgement about a
 tenth of a unit.
 
@@ -499,8 +501,9 @@ consequence the author did not choose but must own: a group with fewer experienc
 members has a *higher* ratio and therefore looks richer in this resource, not poorer.
 It records no tenure, no sponsorship, and no matching between a particular helper and a
 particular newcomer. Whether that ratio is a reasonable stand-in for the opportunity to
-be useful is a hypothesis, and it is the hypothesis on which the thirty per cent
-membership result rests. The row is also the fragile one in Part Four for a separate
+be useful is a hypothesis. The thirty per cent membership loss is not shown to depend on it:
+forcing recipient capacity alone changes membership by 1.03 [-0.26, 2.31], which is
+unresolved, while disabling Step Twelve also removes its attraction and maintenance roles. The row is also the fragile one in Part Four for a separate
 reason: the top two Traditions are 1.25 and 1.10, and the assignment to Tradition 5
 survives only 67.4 per cent of magnitude draws.
 
@@ -561,10 +564,10 @@ entries instead lead with the more informative 400-seed path-split factorials.
 ## Tradition 1, unity
 
 *Technical.* Load 6.52, the largest, governing all eight resources and the only
-Tradition to do so. Principal supplier for four Steps and runner-up for six, so it is
-in the top two for ten of the twelve. Degrading it alone costs 1.65 members
+Tradition to do so. Principal supplier for four Steps, runner-up for five, and joint first with
+group conscience at Step Four, so it is in the top two for ten of the twelve. Degrading it alone costs 1.65 members
 [0.99, 2.30], third largest. Its primacy survives 75.4 per cent [73.5, 77.2] of fully
-structural draws, against 40.6 per cent for the index-pairing claim. It is not the most
+structural draws, against 40.6 per cent for the rejection of index-pairing. It is not the most
 diffuse Tradition by concentration: singleness of purpose scores marginally lower at
 0.197 against unity's 0.204. Its load is carried by two resources: continuity at 1.89
 and gentle pressure at 1.86 are 57.5 per cent of the total, and transferring either one
@@ -601,7 +604,7 @@ on.
 
 *Technical.* Load 3.89, second largest, governing four resources, with counsel at 0.69
 of its load and the highest concentration of any Tradition at 0.520. Principal supplier
-for four Steps and runner-up for four more. Degrading it alone costs 0.48 members
+for three Steps, runner-up for four, and joint first with unity at Step Four. Degrading it alone costs 0.48 members
 [-0.14, 1.10], an unresolved contrast. In the deliberation model it is one of three Traditions keeping maximum
 influence falling toward one over N, which is the Golub and Jackson condition for a
 consensus converging on the truth. A single member holding 0.35 of every row floors the
@@ -781,14 +784,15 @@ instrument that cannot resolve a thing is silent about it, not against it.
 guarding against outside override. Degrading it alone costs 0.88 members [0.26, 1.50],
 identical to Tradition 4's by construction. Money enters the simulation elsewhere,
 through a solvency term scaling the continuity resource: a group whose established
-members cannot cover the rent supplies continuity at 0.45 rather than 1.0. That
+members fall short of the rent supplies continuity somewhere between 1.0 and a floor of 0.45,
+nearer the floor the fewer established members it has. That
 mechanism is not attributed to Tradition 7 in the governance matrix. *Algebra and
 simulation.*
 
 *What was assumed.* An empty governance row, and the shared multiplier with Tradition 4.
 The consequential assumption is where money went instead. The model does represent
-solvency, through a term that drops the continuity resource from 1.0 to 0.45 when a
-group's established members cannot cover the rent, but that term was attached to the
+solvency, through a term that scales the continuity resource down from 1.0 toward a floor of 0.45
+as a group's established members fall short of what it takes to cover the rent, but that term was attached to the
 group's finances directly rather than to the Tradition that produces them.
 
 So the zero in this row is not a claim that self-support does not matter. It is a
@@ -798,7 +802,7 @@ what they would be disagreeing with: not a finding, but an attribution.
 
 *In plain terms.* Passing the basket looks after nothing directly in the matrix, and yet
 money is unmistakably in the model somewhere else: a group that cannot pay its rent
-supplies week-to-week continuity at less than half strength, and continuity is one of
+supplies week-to-week continuity at well below full strength, and continuity is one of
 the two things holding unity up. So the practical content of self-support is that the
 meeting keeps happening. The matrix does not give Tradition 7 credit for that, and a
 reader could reasonably say it should. This is one of the places a second person
@@ -961,8 +965,8 @@ influence near one over N. *Algebra, deliberation and simulation.*
 *What was assumed.* Five non-zero entries, one of them decisive: confidentiality 1.0,
 identification 0.3, and admission, counsel and continuity at 0.1 each. The 1.0 gives
 anonymity 59 per cent of all confidentiality in the model, one of the larger single shares any
-Tradition holds of any resource, though Tradition 3's 71 per cent of admission and the group
-conscience's 69 per cent of counsel are larger.
+Tradition holds of any resource, though Tradition 3's 71 per cent of admission, the group
+conscience's 69 per cent of counsel and unity's 60 per cent of gentle pressure are larger.
 
 This is the assumption that produces the cleanest result in the book, and it was made
 independently of the matching assumption in Step Five's row only in the weak sense that
@@ -1056,8 +1060,8 @@ Traditions look very much like instructions for avoiding exactly those things, b
 resources are that person's list and no source proposes it. A second reader marking the
 ninety-six governance cells is the largest outstanding item in the project and no further
 computation substitutes for it. Flipping four of fifty-six enabling cells at random
-leaves Part Four's claims standing 86 per cent of the time; flipping sixteen leaves them
-at a coin flip. In plainer terms: one disagreement here and there is survivable, wholesale
+leaves the rejection of index-pairing on all twelve counts standing in 86.3 per cent of
+draws; flipping sixteen leaves it at 51.7, close to a coin flip. In plainer terms: one disagreement here and there is survivable, wholesale
 disagreement is not, and only a second reader can say which this would be.
 
 **Nothing here is calibrated to AA data**, because none exists at the required
@@ -1188,7 +1192,7 @@ demonstrable transcription errors are listed in `research/SOURCES.md`.
 Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica,
 N.Y.: B. S. Merrell. The Washingtonians' own manual, used here for the written
 analogues of Traditions 4, 7, 9 and 10 and for their deliberate opposite position on
-anonymity. Read at source; saved in `research/`.
+anonymity. Read at source; held git-ignored in `research/incorporated/Grosh_1842/`.
 
 Recovery Dharma Global (2023). *Recovery Dharma.* Second edition. Recovery Dharma Inc.
 CC BY-NC-SA 4.0. The only source for the follow-up section above. Read in full, in two
