@@ -81,7 +81,7 @@ header-includes:
 
 # Preface: What This Book Knows, and How
 
-*Nobody in Charge* is by an anonymous author. Released to the public domain under The Unlicense.
+*Nobody in Charge* is by an anonymous author. Released under the MIT License.
 See `LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
@@ -2046,14 +2046,14 @@ That is the same finding this book reaches from another direction when it comes 
 
 The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0.0342, approaching it from above. The error ratio runs 1.01, 1.08, 1.35, 2.08 across those four sizes, which is the invisible-while-small pattern again and is why no group detects this by introspection.
 
-**Whether Chapter Ten's prescription helps.** It does not, and this is the practically important row. Setting the rotation pool to twenty-six per cent of the group at every size, as Chapter Ten recommends, and giving the officeholder a deliberately small share because the source text says the committee cannot govern or direct:
+**Whether Chapter Ten's prescription helps.** It does not, and this is the practically important row. Setting the rotation pool to twenty-six per cent of the group at every size, as Chapter Ten recommends, and, in the rows with elders, giving the officeholder a deliberately small share of 0.05 because the source text says the committee cannot govern or direct (the first row keeps Chapter Ten's officeholder share of 0.35):
 
 | structure | N = 50 | N = 250 | N = 1000 |
 |---|---|---|---|
-| rotation only, pool at 26 per cent | 2.0 | 2.0 | 2.0 |
-| plus 3 elders at 0.10 | 2.5 | 9.2 | 34.2 |
-| plus 3 elders at 0.20 | 4.1 | 17.4 | 67.4 |
-| plus 5 elders at 0.20 | 2.8 | 10.8 | 40.8 |
+| rotation only, pool at 26 per cent, office share 0.35 | 2.0 | 2.0 | 2.0 |
+| plus 3 elders at 0.10, office share 0.05 | 2.5 | 9.2 | 34.2 |
+| plus 3 elders at 0.20, office share 0.05 | 4.1 | 17.4 | 67.4 |
+| plus 5 elders at 0.20, office share 0.05 | 2.8 | 10.8 | 40.8 |
 
 Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
 
@@ -5181,7 +5181,7 @@ What genuinely remains unread is most of the canon: the daily reflections, most 
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
-Author: Anonymous. Released to the public domain under The Unlicense. See `../LICENSE`.
+Author: Anonymous. Released under the MIT License. See `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 
@@ -6639,7 +6639,7 @@ census here is of one book's self-selected accounts and is not a study.
 
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
 
-Released to the public domain under The Unlicense. See the repository's license notice.
+Released under the MIT License. See the repository's license notice.
 
 ## How to read this
 

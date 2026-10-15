@@ -22,7 +22,7 @@ does not close any item in section 10 below.
 Terra models. It argues that three of Alcoholics Anonymous's Twelve Traditions
 implement a formal condition, proved by Golub and Jackson in 2010, for when a group that decides
 by discussion can be trusted to converge on the truth. See `ATTRIBUTION.md` and `LICENSE` for
-authorship, acknowledgment and public-domain dedication.
+authorship, acknowledgment and the MIT licence.
 
 The condition: a group deciding by repeated averaging converges on the truth as it grows **if and
 only if** the largest share of influence held by any single member shrinks toward zero. Nobody may
