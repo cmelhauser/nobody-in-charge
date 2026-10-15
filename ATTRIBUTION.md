@@ -13,13 +13,15 @@ Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and Terra models. It is an acknow
 collaboration, not a legal author or rights holder.
 
 Christopher Melhauser is the human author and legal rights contact for the original project
-material. The original project material is dedicated to the public domain under The Unlicense.
-The project requests, but does not require, the courtesy credit above; see `LICENSE` for the
-dedication and its scope.
+material. The original project material is released under the MIT License, Copyright (c) 2026
+Christopher Melhauser. The License's one condition is that the copyright notice and permission
+notice in `LICENSE` be included in all copies or substantial portions of the material. The credits
+above acknowledge the collaboration and are not a licence condition; see `LICENSE` for the full
+terms and their scope.
 
 ## Scope of this notice
 
-This notice applies only to original project material. It does not claim ownership of Alcoholics
+This notice, and the MIT License in `LICENSE`, apply only to original project material. It does not claim ownership of Alcoholics
 Anonymous material, third-party scholarship, quotations, source metadata supplied by others, or
 any other third-party content. Such material remains subject to its own copyright, license, and
 provenance record.
