@@ -11,7 +11,7 @@ For a long time this chapter said that AA's own literature gestures at the paral
 
 The book to check is the obvious one. *Twelve Steps and Twelve Traditions*, published in 1953, is the only work that treats both lists at length, one chapter each, bound together, by the same author. If the pairing were intended by anyone it would show up there.
 
-Across the twelve Tradition chapters, not one refers to the Step of its own number. Not once in twelve. Across the twelve Step chapters, the word *Tradition* does not appear at all, in any of them, at any point. The single indexed cross-reference in the whole book runs the wrong way for the conjecture: the chapter on Tradition Eight mentions the Twelfth Step, and mentions it to explain that a paid worker's job is not to do Twelfth Step work but to make Twelfth Step work possible.
+Across the twelve Tradition chapters, not one refers to the Step of its own number. Not once in twelve. Across the twelve Step chapters, the word *Tradition* does not appear at all, in any of them, at any point. The one cross-reference to a Step that I found runs the wrong way for the conjecture: the chapter on Tradition Eight mentions the Twelfth Step, and mentions it to explain that a paid worker's job is not to do Twelfth Step work but to make Twelfth Step work possible.
 
 That is a stronger result than the chapter previously claimed and it costs nothing to obtain. The man who wrote both lists wrote a book about both lists and never once connected them by number.
 
@@ -49,15 +49,15 @@ That is where this chapter stood when it was drafted, and Chapter Eighteen has s
 
 Here is how the seven fail, because they do not all fail the same way.
 
-Step One, admitting powerlessness, is the near miss and the only one. Its principal supplier is open membership, at 1.22, and its index-mate unity comes second at 0.99. A reader who thought I had overweighted the admission resource by a fifth could flip it. That is one count of seven where the result is close enough to argue about, and I would not want the chapter to rest on it.
+Step One, admitting powerlessness, is the near miss and the only one. Its principal supplier is open membership, at 1.22, and its index-mate unity comes second at 0.99. A reader who thought I had overweighted the admission resource by about a third could flip it. That is one count of seven where the result is close enough to argue about, and I would not want the chapter to rest on it.
 
-That guess turns out to be measurable, and it is right. Delete each of the eight resources in turn, then merge each pair, then delete each pair, which is sixty-four different resource lists, and ask which Steps get their index-mates back. Two do. Step One in fifteen of the sixty-four, and Step Two in one. The other five non-trivial counts never break under any of it, and every one of the fifteen Step One failures involves removing or merging the admission resource, which is precisely the thing that gives the open door its lead there. So the chapter's weakest count is weak in exactly the way and for exactly the reason I guessed, and the other six are not.
+That guess turns out to be measurable, and it is right. Delete each of the eight resources in turn, then merge each pair, then delete each pair, which is sixty-four different resource lists, and ask which Steps get their index-mates back. Two do. Step One in fifteen of the sixty-four, and Step Two in one. The other five non-trivial counts never break under any of it, and eleven of the fifteen Step One failures involve removing or merging the admission resource, which is precisely the thing that gives the open door its lead there; the other four merge identification or proof with another resource. So the chapter's weakest count is weak in exactly the way and for exactly the reason I guessed, and the other six are not.
 
 The other six are not close. Step Two, coming to believe, is supplied principally by attraction rather than by group conscience, and its index-mate ranks seventh of twelve. Step Three's index-mate ranks seventh, with an entry of 0.01. Step Eight's ranks fourth. Step Eleven's ranks fourth. Step Nine's index-mate is one of the five that govern nothing.
 
 Then there are the two that make the point vivid, and they are inversions rather than misses.
 
-Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality more heavily than any other Step consumes any other resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
+Step Five is telling another human being the exact nature of one's wrongs. It is served principally by Tradition Twelve, anonymity, at 1.08, with its own index-mate fifth. The route is confidentiality. Step Five consumes confidentiality as heavily as any Step consumes any resource, and anonymity is what supplies it. A man does not describe the worst thing he has done to a room that might repeat it.
 
 Step Twelve is carrying the message to other alcoholics. It is served principally by Tradition Five, singleness of purpose, at 1.25, with its own index-mate sixth. The route is the recipient resource. A twelfth-step call needs somebody to make it to, and singleness of purpose is what keeps a supply of low-practice members for each high-practice member who could help them.
 
@@ -69,11 +69,11 @@ The chapter would be finished there if I were willing to report one robustness n
 
 Take the two matrices and multiply every entry by a random factor, so that a reader who would have written 0.7 where I wrote 0.9 is represented in the draws. Do that two thousand times at each of four levels of disagreement, and then do something harder: throw the magnitudes away entirely, keep only which cells are empty, and fill every non-empty cell with a fresh random number.
 
-At plus or minus fifteen per cent, index-pairing fails on all counts in 98.8 per cent of draws, and the Step Twelve inversion holds in 89.7. At thirty per cent the figures are 85.5 and 67.3. At fifty per cent, 72.5 and 52.9. At seventy-five per cent, 65.2 and 43.8. Under structural randomisation, where only the sparsity survives, index-pairing fails on all counts in 40.6 per cent of draws, which is less often than it holds, and the Step Five inversion survives in 17.5 per cent.
+At plus or minus fifteen per cent, index-pairing fails on all counts in 98.8 per cent of draws, and the Step Twelve inversion holds in 89.7. At thirty per cent the figures are 85.5 and 67.4. At fifty per cent, 72.5 and 52.9. At seventy-five per cent, 65.2 and 43.8. Under structural randomisation, where only the sparsity survives, index-pairing fails on all counts in 40.6 per cent of draws, which is less often than it holds, and the Step Five inversion survives in 17.5 per cent.
 
 Read the whole curve rather than any row of it. What it says is that the result is robust to a reader who disagrees with me moderately about the magnitudes and is not robust to a reader who thinks the matrices are essentially arbitrary. That is a real claim and a bounded one. It is also a different kind of claim from the ones in Parts One and Three, which survive the structural test at a hundred per cent and may therefore be defended as resting on structure rather than on my judgement. Part Four cannot borrow that defence. It rests on the magnitudes, the magnitudes are judgement, and the argument for them is the derivation itself, chapter by chapter, and not a robustness statistic.
 
-The unevenness inside those figures matters as much as the levels. The Step Five inversion holds at 99.5 per cent at thirty per cent jitter, and the Step Twelve inversion at only 67.3. The reason is visible in the numbers: for Step Twelve, open membership is a close second at 1.10 against singleness of purpose at 1.25, because both govern the recipient resource, and a modest perturbation flips them. So the sentence about Step Five is firm and the sentence about Step Twelve is a two-in-three proposition, and I would rather say that than average them.
+The unevenness inside those figures matters as much as the levels. The Step Five inversion holds at 99.5 per cent at thirty per cent jitter, and the Step Twelve inversion at only 67.4. The reason is visible in the numbers: for Step Twelve, open membership is a close second at 1.10 against singleness of purpose at 1.25, because both govern the recipient resource, and a modest perturbation flips them. So the sentence about Step Five is firm and the sentence about Step Twelve is a two-in-three proposition, and I would rather say that than average them.
 
 ---
 
@@ -151,12 +151,12 @@ Load per Tradition, exact: T1 6.52, T2 3.89, T5 3.88, T3 2.69, T11 2.69, T12 2.6
 | Design | T1 most load-bearing | Index-pairing wrong on all counts | Step 5 to T12 | Step 12 to T5 |
 |---|---|---|---|---|
 | jitter ±15% | 100.0 [99.8, 100.0] | 98.8 [98.2, 99.2] | 100.0 [99.8, 100.0] | 89.7 [88.3, 91.0] |
-| jitter ±30% | 100.0 [99.8, 100.0] | 85.5 [83.9, 87.0] | 99.5 [99.1, 99.7] | 67.3 [65.3, 69.4] |
+| jitter ±30% | 100.0 [99.8, 100.0] | 85.5 [83.9, 87.0] | 99.5 [99.1, 99.7] | 67.4 [65.3, 69.4] |
 | jitter ±50% | 98.0 [97.3, 98.5] | 72.5 [70.5, 74.4] | 88.7 [87.2, 90.0] | 52.9 [50.7, 55.1] |
-| jitter ±75% | 86.8 [85.3, 88.3] | 65.2 [63.0, 67.2] | 71.5 [69.5, 73.4] | 43.8 [41.6, 45.9] |
-| structural | 75.4 [73.5, 77.2] | 40.6 [38.5, 42.8] | 17.5 [15.9, 19.2] | 27.6 [25.7, 29.7] |
+| jitter ±75% | 86.9 [85.3, 88.3] | 65.2 [63.0, 67.2] | 71.5 [69.5, 73.4] | 43.8 [41.6, 45.9] |
+| structural | 75.4 [73.5, 77.2] | 40.6 [38.5, 42.8] | 17.5 [15.9, 19.2] | 27.7 [25.7, 29.7] |
 
-Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,000 of 2,000 and their intervals are one-sided in effect; they should be read as "not observed to fail", not as certainty.
+Intervals are Wilson at 95 per cent on n = 2,000. The three 100.0 entries are 2,000 of 2,000 and their intervals are one-sided in effect; they should be read as "not observed to fail", not as certainty.
 
 **Why Step 12 is the weak row.** In the unperturbed coupling, Step 12's top two are T5 at 1.25 and T3 at 1.10, a margin of 0.15 on a value of 1.25. Both Traditions govern the recipient resource, T5 at 0.9 and T3 at 0.8, so a perturbation that moves them in opposite directions flips the winner. The margin, not the level, is what makes the row fragile.
 
@@ -166,7 +166,7 @@ Intervals are Wilson at 95 per cent on n = 2,000. The two 100.0 entries are 2,00
 
 ### 3. Notes on sources
 
-**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced by section 11 of `model/book-calculations.ipynb`, with assertions against the printed values.
+**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced in the part4 blocks of `model/book-calculations.ipynb`, with assertions against the printed values.
 
 **A provenance note that belongs in the record.** The 85.5 per cent figure was carried in `research/PARAMETERS.md` for some time before it could be reproduced from the book's own repository; the code lived only in the working paper the book grew out of. It was ported into the notebook so that the claim stands on the book's own files, and the port is what produced the degradation curve and the structural test, neither of which existed before.
 
@@ -190,7 +190,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, sections 11 and 11b for every figure above, 17 for the resource-list test, and 11c for the threshold test that reaches the five counts this chapter's designs cannot. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks for every matrix figure above and for the threshold test that reaches the five counts this chapter's designs cannot, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list test. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
 

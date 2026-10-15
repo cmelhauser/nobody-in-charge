@@ -5767,4 +5767,25 @@ which crosses zero, so the invisible case is unresolved and not shown equal. Unr
 +0.0406 [0.0303, 0.0510] over 264 pairs. Unwelcoming minus full: +0.0564 [0.0456, 0.0672] over 361.
 The two earlier point differences (0.0459, 0.0581) were differences of the viable-subset means and
 overstate the paired contrasts slightly, since the viable subset of a failing condition is selected.
-The notebooks now run 89 and 113 assertions, and the paper prints 500 decimals.
+The notebooks now run 89 and 113 assertions, and the paper prints 498 decimals.
+
+**The numbers behind Parts Two, Three and Four, recomputed.** Three readers recomputed every quantitative
+claim in Chapters 7 to 19 from the model, the caches and closed forms, not by comparing documents.
+The headline results all reproduced. What they found was mostly provenance and wording. (1) The
+notebook sections the chapters cited (11, 11b, 11c, 11d, 17) no longer exist, and Chapter 18's threshold
+test and Chapters 9 and 10's closed forms (rotation pools, the required pool, the caucus and the
+closed core) had no computing source in the repository; both are now blocks of the notebook
+(`part4` and `part2`), with assertions, and every citation points to them or to the cache and script
+that hold the rest. The notebooks run 100 and 124 assertions. (2) Two statements the new blocks
+settled: the protective thresholds sit below the enabling ones at both ends (0.417 against 0.443 and
+0.627 against 0.635), and unity's four sole principal Steps against group conscience's three, with
+Step Four an exact tie, are now asserted. (3) Wording: Chapter 14's "a bit under half" is a bit over
+(0.539); Chapter 15's 394 are not the same runs; Chapter 12's decay-rate and ordering-exponent
+claims are qualified to what Morris, Sobol and the OAT ladder show; beta for Steps 9 and 10 is 0.63;
+Chapter 7's agreement is reached in the fourth round; Chapter 8's closed form assumes normal errors,
+and its clique share is 0.167 each; Chapter 10's alpha over R tracks only small pools; Chapter 11's
+ordering claim now has its design and its reversal; Chapter 16's eleven of fifteen; Chapter 17's
+table counts and the scope of "most robust"; Chapter 18's "an order of magnitude" is a quarter; and
+Chapter 19's interaction sign. (4) Exact halves now round half away from zero in the gate report and
+the five places they were quoted (67.4, 86.9, 27.7, 99.3, 91.3). Not changed: Chapter 8's table
+row labels (which office share each row assumes) and the page counts of the 1939 manuscript.
