@@ -19,7 +19,7 @@ So they did the thing the estimates invite. They wrote an assignment algorithm t
 
 Their own model predicted that the bottom third of the academic distribution would gain, on average, 0.053 grade points, and that the strong students would be unaffected. That is a modest, sensible, well-founded prediction.
 
-What they measured was a treatment effect of **minus 0.061 grade points** on exactly the students they had set out to help, with a reported p-value of 0.055, significant at the ten per cent level and just short of the five per cent level.
+What they measured was a treatment effect of **minus 0.061 grade points** on the lowest-ability students, whom the design aimed to help, with a reported p-value of 0.055, significant at the ten per cent level and just short of the five per cent level.
 
 Not zero. Negative, and of the same size as the intended gain, in the opposite direction.
 
@@ -115,7 +115,7 @@ Paired membership differences relative to even are concentrated 0.29 [-0.90, 1.4
 
 ### 3. Notes on sources
 
-**Carrell, Sacerdote and West is now read at source and it carries this chapter.** The earlier version of this chapter was 762 words, marked provisional, and said it should not be written at full length until the paper was in hand, per `plans/PART-5-PLAN.md`. The paper was obtained on 2 August 2026 from the lead author's university page. Figures used here, all from the paper itself: the predicted gain of 0.053 grade points for the bottom third of the academic distribution, the observed treatment effect of minus 0.061 on the lowest-ability students, significance at p = 0.055, the design pairing roughly fifteen lowest-ability with roughly fifteen highest-ability cadets, and the homophily finding that low-predicted-grade students in treatment squadrons actively sought out other low-predicted-grade students.
+**Carrell, Sacerdote and West is now read at source and it carries this chapter.** The earlier version of this chapter was 762 words, marked provisional, and said it should not be written at full length until the paper was in hand, per `plans/PART-5-PLAN.md`. The paper was obtained on 2 August 2026 from the lead author's university page. Figures used here, all from the paper itself: the predicted gain of 0.053 grade points for the bottom third of the academic distribution, the observed treatment effect of minus 0.061 on the lowest-ability students, significance at p = 0.055, the design pairing roughly fifteen lowest-ability with roughly fifteen highest-ability cadets, and the homophily finding that low-predicted-grade students in treatment squadrons actively sought out other low-predicted-grade students. The rest of the description of the design in the opening of this chapter, namely half the incoming cohorts, random assignment in earlier years, the middle left out of the treated squadrons and the strong students predicted to be unaffected, is my summary of the paper and is not separately recorded in `research/SOURCES.md`; the predicted gain is recorded for the bottom third and the observed effect for the lowest-ability students, and the two groups are not shown to be the same.
 
 **The working-paper title is quoted because it is the authors' own framing.** The NBER record for working paper 16865 notes that an earlier version circulated as *Beware of Economists Bearing Reduced Forms? An Experiment in How Not To Improve Student Outcomes.*
 
