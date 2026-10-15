@@ -37,7 +37,7 @@ Both were genuine equilibria of that frozen diagnostic. They are not two typical
 
 The old frozen-environment diagnostic also produced a distinctive collapsed profile, which is retained here as a record of the proposed mechanism rather than as a release result.
 
-The collapsed member has not lost everything. Averaged over all twelve dials they are at 0.27 against the healthy member's 0.50, which is a bit under half. That sounds like a person in obvious trouble. Look at the dials one at a time and it is stranger than that.
+The collapsed member has not lost everything. Averaged over all twelve dials they are at 0.27 against the healthy member's 0.50, which is a bit over half. That sounds like a person in obvious trouble. Look at the dials one at a time and it is stranger than that.
 
 Step One, the admission, sits at 0.758 in the collapsed state against 0.766 in the healthy one. It is essentially untouched. Step Two and Step Three are down by a few per cent. Step Four, the inventory, has gone from 0.56 to 0.44, which you would have to be looking for. From there it falls off a shelf: Step Eight from 0.46 to 0.06, Step Nine from 0.36 to 0.01, and the three daily steps to nothing at all.
 

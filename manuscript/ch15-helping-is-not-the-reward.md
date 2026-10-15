@@ -39,7 +39,7 @@ The more ambitious cross-step claim does not survive correction. Step Nine is lo
 
 That is weaker than the result I wanted. Inside this model Step Twelve is load-bearing for membership and the maintenance aggregate. The evidence does not isolate damage to a particular Step with no direct connection to it.
 
-And notice what does *not* happen within the thirty-year experiment. The same 394 of 400 runs finish endpoint-viable in the baseline and with Step Twelve disabled. That is a finite-horizon result, not proof that a group with no service practice persists indefinitely. Within the modeled horizon it looks smaller without changing the estimated viability fraction.
+And notice what does *not* happen within the thirty-year experiment. The same number, 394 of 400, finish endpoint-viable in the baseline and with Step Twelve disabled, though not the same runs: six seeds are viable in only one condition and six in only the other. That is a finite-horizon result, not proof that a group with no service practice persists indefinitely. Within the modeled horizon it looks smaller without changing the estimated viability fraction.
 
 ---
 

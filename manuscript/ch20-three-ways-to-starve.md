@@ -123,7 +123,7 @@ The unreferred row shown both unconditionally and conditioned on endpoint viabil
 
 The unconditional series falls by 98 per cent from year two to year thirty. Even the viable-subset membership falls sharply, while its practice measure rises. The gap is selection, but the corrected model no longer makes the decline invisible on membership.
 
-**Established-practice differences against a healthy viable group at year ten:** invisible is 0.0067 lower, unreferred is 0.0459 higher, and combined Tradition 3 loss is 0.0581 higher. Membership is lower in all three.
+**Established-practice differences against a healthy viable group at year ten:** invisible is 0.0067 lower, unreferred is 0.0459 higher, and combined Tradition 3 loss is 0.0581 higher. Paired by seed over the runs viable in both conditions at year ten (396, 264 and 361 pairs), the differences are -0.0070 [-0.0162, 0.0022], +0.0406 [0.0303, 0.0510] and +0.0564 [0.0456, 0.0672], so the invisible case is unresolved, not shown equal, and the other two are resolved upward. Membership is lower in all three.
 
 **What is not tested.** Combinations. Each condition switches one thing off at full adherence elsewhere. Real decline is unlikely to be so tidy and there is no reason to expect the costs to add. Appendix A7.1 lists this under what no design covers.
 

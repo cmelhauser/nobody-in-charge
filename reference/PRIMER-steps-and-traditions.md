@@ -377,7 +377,7 @@ the pairing is not absurd anywhere, and it wins nowhere.
 
 ## Step Nine, amends
 
-*Technical.* beta = 0.62. Principal supplier Tradition 2 at 0.90, with Tradition 1 at
+*Technical.* beta = 0.63. Principal supplier Tradition 2 at 0.90, with Tradition 1 at
 0.48, a margin of 0.42 and the third widest in the matrix behind Step Ten's 0.51 and
 Step Five's 0.43. Step Nine consumes counsel at 0.9, the largest entry in S other than
 the four entries at 1.0. It carries the lowest top speed of any Step, 0.15 per week.
@@ -411,7 +411,7 @@ spillover into Step Nine itself.
 
 ## Step Ten, the daily inventory
 
-*Technical.* beta = 0.62. Principal supplier Tradition 1 at 0.94, with Tradition 2
+*Technical.* beta = 0.63. Principal supplier Tradition 1 at 0.94, with Tradition 2
 second at 0.43, a margin of 0.51, the widest in the matrix. Its largest consumptions are
 gentle pressure at 0.7 and week-to-week continuity at 0.5, which between them are the
 two resources Tradition 1 supplies most heavily. Index-mate Tradition 10 is a structural
@@ -484,7 +484,7 @@ capacity to one raises final membership by 1.03 members with paired 95 per cent
 interval [-0.26, 2.31], so the effect is unresolved. Index-mate Tradition 12 ranks sixth
 at 0.12, and this
 is the fragile row of Part Four: the top two are 1.25 and 1.10, a margin of 0.15, and
-the Step Twelve to Tradition 5 assignment survives only 67.3 per cent [65.3, 69.4] of
+the Step Twelve to Tradition 5 assignment survives only 67.4 per cent [65.3, 69.4] of
 draws at plus or minus thirty per cent jitter. *Algebra and simulation.*
 
 *What was assumed.* Seven of the eight resources are non-zero, the most of any Step:
@@ -502,7 +502,7 @@ particular newcomer. Whether that ratio is a reasonable stand-in for the opportu
 be useful is a hypothesis, and it is the hypothesis on which the thirty per cent
 membership result rests. The row is also the fragile one in Part Four for a separate
 reason: the top two Traditions are 1.25 and 1.10, and the assignment to Tradition 5
-survives only 67.3 per cent of magnitude draws.
+survives only 67.4 per cent of magnitude draws.
 
 *In plain terms.* Carrying the message is not a reward collected at the end inside this
 model. Turn its growth off and the group loses about thirty per cent of mean endpoint
@@ -1244,13 +1244,12 @@ than repeated here.
 `model/aa_group_model.py`, matrices S and GOV, the effective-adherence function, and
 the arrival and dropout expressions.
 
-`model/book-calculations.ipynb`. Section 2 for the influence weights and consensus
-errors behind every deliberation figure; 3 for the twelve-Tradition degradation
-comparison; 10 for the apparatus, including the derived group-dependence table; 11 and
-11b for the coupling, the principal suppliers and the perturbation designs; 11c for the
-threshold test; 11d for the load column and the reassignment test; 13 for the service
-results behind Step Twelve; 14 for the Part Five failure modes; 17 for the resource-list
-test; 18 for the sparsity perturbation.
+`model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
+closed forms for the influence weights and rotation pools behind the deliberation figures, the part4
+blocks for the coupling, the principal suppliers, the index-mate ranks, the threshold test, the load
+column and the reassignment test, the part5 blocks for the Step Twelve service results and the
+failure modes, and the sparsity perturbation; the resource-list test is `research/resource_list.json`
+with `model/resource_list_test.py`.
 
 `research/tradition_paired.json`, the 400-replication paired degradation runs, produced
 by `model/tradition_paired.py`. `research/part5.json`, 4,800 runs behind the Tradition 3
