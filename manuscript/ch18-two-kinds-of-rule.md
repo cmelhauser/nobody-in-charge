@@ -138,7 +138,7 @@ This is one division per Step and carries no sampling error. It is the only desi
 | 11 | T11 | 0.47 | 0.80 | 0.588 | 1.57 |
 | 12 | T12 | 1.25 | 2.40 | 0.521 | 1.39 |
 
-Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a quarter of the distance to the mean live entry.
+Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518, to the mean live entry.
 
 Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44 at Step 5.
 

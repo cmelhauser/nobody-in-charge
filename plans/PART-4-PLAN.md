@@ -39,16 +39,16 @@ That concerns the executable model; the coupling claims of Part Four do not surv
 
 **The coupling claims are not.** The same structural randomisation leaves index-pairing
 failing on all twelve in only **40.6 per cent** of draws, which is less often than it holds.
-The Step 5 inversion survives in 17.5 per cent, the Step 12 inversion in 27.6, and unity's
+The Step 5 inversion survives in 17.5 per cent, the Step 12 inversion in 27.7, and unity's
 primacy in 75.4. The degradation is smooth rather than sudden:
 
 | Design | T1 most load-bearing | Index-pairing wrong on all 12 | Step 5 to T12 | Step 12 to T5 |
 |---|---|---|---|---|
 | jitter ±15% | 100.0% | 98.8% | 100.0% | 89.7% |
-| jitter ±30% | 100.0% | 85.5% | 99.5% | 67.3% |
+| jitter ±30% | 100.0% | 85.5% | 99.5% | 67.4% |
 | jitter ±50% | 98.0% | 72.5% | 88.7% | 52.9% |
-| jitter ±75% | 86.8% | 65.2% | 71.5% | 43.8% |
-| structural, sparsity only | 75.4% | 40.6% | 17.5% | 27.6% |
+| jitter ±75% | 86.9% | 65.2% | 71.5% | 43.8% |
+| structural, sparsity only | 75.4% | 40.6% | 17.5% | 27.7% |
 
 **What Part Four may therefore claim.** That index-pairing fails, and that the failure is
 robust to *modest* disagreement about the magnitudes: a reader who would have written 0.7
@@ -101,7 +101,7 @@ The chapter's argument:
    the recipient resource. The two most quotable pairings in the programme are swapped.
 5. Report the robustness honestly and *unequally*. Over 2,000 draws at plus or minus 30 per
    cent on every matrix entry, index-pairing fails on all twelve in 85.5 per cent of draws.
-   But the Step 5 inversion holds at 99.5 per cent and the Step 12 inversion at only 67.3,
+   But the Step 5 inversion holds at 99.5 per cent and the Step 12 inversion at only 67.4,
    because Tradition 3 is a close competitor for the recipient resource. **Chapter 16 must
    not present the twelve counts as equally secure.** See appendix A5.4.
 6. **And report the degradation curve, not one level.** The claim weakens smoothly as the

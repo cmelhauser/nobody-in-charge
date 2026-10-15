@@ -755,6 +755,12 @@ def emit():
     show('ch22 total initial practice', n0 * per)
     show('ch22 concentrated tail level', (per * n0 - 5.0) / 20)
 
+    def hu(x, places):
+        """Half-up rendering of a percentage, as the prose rounds; 67.35 is 67.4, not 67.3."""
+        from decimal import Decimal, ROUND_HALF_UP
+        return str(Decimal(repr(round(float(x), 10))).quantize(Decimal(1).scaleb(-places),
+                                                                 rounding=ROUND_HALF_UP))
+
     def wilson_pct(k, n, z=1.96):
         p = k / n
         den = 1 + z * z / n
@@ -786,14 +792,14 @@ def emit():
         for lab, c in zip(('T1_top', 'all12', 'S5_to_T12', 'S12_to_T5'), counts):
             lo, hi = wilson_pct(c, N)
             print(f'  jitter +/-{int(lvl*100)}% {lab}: {100*c/N:.4f}% [{lo:.4f}, {hi:.4f}]  '
-                  f'{100*c/N:.1f} [{lo:.1f}, {hi:.1f}]  {lo:.2f} {hi:.2f}')
+                  f'{hu(100*c/N, 1)} [{hu(lo, 1)}, {hu(hi, 1)}]  {hu(lo, 2)} {hu(hi, 2)}')
     fstruct = lambda rg: (np.where(m.S > 0, rg.uniform(.05, 1., m.S.shape), 0.),
                           np.where(m.GOV > 0, rg.uniform(.05, 1., m.GOV.shape), 0.))
     counts, N = coupling_test(fstruct, 23)
     for lab, c in zip(('T1_top', 'all12', 'S5_to_T12', 'S12_to_T5'), counts):
         lo, hi = wilson_pct(c, N)
         print(f'  structural {lab}: {100*c/N:.4f}% [{lo:.4f}, {hi:.4f}]  '
-              f'{100*c/N:.1f} [{lo:.1f}, {hi:.1f}]  {lo:.2f} {hi:.2f}')
+              f'{hu(100*c/N, 1)} [{hu(lo, 1)}, {hu(hi, 1)}]  {hu(lo, 2)} {hu(hi, 2)}')
 
     d = load('release_gate_results.json')
     rs = [v for k, v in d.items() if k != 'meta' and isinstance(v, dict) and 'condition' in v]

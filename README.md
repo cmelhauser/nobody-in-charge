@@ -162,7 +162,7 @@ exhaustively; `tests/test_release_invariants.py` also pins its SHA-256, the room
 60, the viability threshold of 5, and the 22 + 12 + 49 + 35 = 118 decomposition. The scripts
 under `tools/` are batch jobs and entry points rather than libraries, so they sit outside the
 coverage gate and are covered by `tests/test_tools_integration.py`, which runs each one for
-real, and, for the five that nothing else exercised, by `tests/test_tools_direct.py`, which calls
+real, and, for the seven that nothing else exercised, and the local CI runner, by `tests/test_tools_direct.py`, which calls
 their functions with every output redirected to a temporary directory.
 
 Work happens on a branch and merges through a pull request; `main` takes no direct commits.
@@ -186,7 +186,7 @@ GitHub Actions runs four jobs, split by what can be checked without a network an
 on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
 model takes no lint waiver. `unit-tests` runs pytest and the model hash: on pull requests it uses
 Python 3.12 only; on `main` it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
-others with the model tests and the tool imports. `checkers` runs once on 3.12: corpus
+others with the model tests, the direct tool tests and a byte-compile of every tool and script. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate
 checks, reporting the other six as skipped. `documents` runs on `main`, installs a pinned pandoc, tectonic and the book font, rebuilds
 all three PDFs, requires zero overfull boxes, checks the font files against pinned hashes with `tools/check_fonts.py`, checks the rendered PDFs with `tools/check_pdfs.py`,

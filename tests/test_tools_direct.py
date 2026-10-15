@@ -1,4 +1,4 @@
-"""Direct tests of five tools that the integration tests only reach through the release gate.
+"""Direct tests of seven tools and the local CI runner, which the integration tests reach only through the gate.
 
 `tests/test_tools_integration.py` runs the tools as commands. These import them and call their
 functions, with every output redirected into a temporary directory, so that a branch that the
@@ -363,6 +363,9 @@ def test_formatters_and_ranks():
     import numpy as np
 
     assert gate.pct(0.1234) == "12.3%"
+    # Exact halves go up, as the book rounds them, and numpy floats are accepted.
+    assert gate.pct(0.9925) == "99.3%" and gate.pct(0.9125) == "91.3%"
+    assert gate.pct(np.float64(0.9925)) == "99.3%"
     assert gate.ci_mean({"mean": 1, "lo": 0.5, "hi": 1.5}) == "1.000 [0.500, 1.500]"
     assert gate.ci_prop({"proportion": 0.5, "lo": 0.25, "hi": 0.75}) == "50.0% [25.0%, 75.0%]"
     M = np.array([[1.0, 1.0, 0.0], [0.0, 2.0, 1.0], [0.5, 0.2, 0.0]])
@@ -528,18 +531,18 @@ def test_python_version_claims_read_lists_across_wrapped_lines():
     text = "unit tests run across Python 3.11, 3.12,\n3.13 and 3.14; on pull requests Python 3.12\nonly."
     assert check_docs.python_version_claims(text) == [
         ("list", ["3.11", "3.12", "3.13", "3.14"]), ("only", ["3.12"])]
-    assert check_docs.python_version_claims("3.12 and 3.13") == [("list", ["3.12", "3.13"])]
+    assert check_docs.python_version_claims("Python 3.12 and 3.13") == [("list", ["3.12", "3.13"])]
     assert check_docs.python_version_claims("Python 3 is used; version 3.14.1") == []
 
 
 def test_check_python_versions_passes_and_catches_a_short_list(docs_tree):
-    (docs_tree / "A.md").write_text("It runs 3.11, 3.12 and 3.13 on main and 3.12 only on pulls.\n")
+    (docs_tree / "A.md").write_text("It runs Python 3.11, 3.12 and 3.13 on main and 3.12 only on pulls.\n")
     (docs_tree / "CHANGELOG.md").write_text("History: 3.11 and 3.12 once ran.\n")
     (docs_tree / "B.md").write_text("> Retired: 3.10 and 3.11.\n")
     check_docs.check_python_versions()
     assert check_docs.failures == [] and "2 claim(s)" in check_docs.passes[0]
 
-    (docs_tree / "C.md").write_text("Unit tests\nrun on 3.11 and 3.12.\n\nOn pulls, 3.13 only.\n")
+    (docs_tree / "C.md").write_text("Unit tests\nrun on Python 3.11 and 3.12.\n\nOn pulls, Python 3.13 only.\n")
     check_docs.passes.clear()
     check_docs.check_python_versions()
     wrong = " ".join(check_docs.failures)
@@ -575,6 +578,17 @@ def test_check_own_total_waits_for_a_full_run(docs_tree):
     assert check_docs.failures == [] and len(check_docs.skips) == 2
 
 
+def test_check_own_total_waits_for_a_clean_run(docs_tree):
+    check_docs.failures.append("an earlier failure")
+    check_docs.check_own_total()
+    assert check_docs.failures == ["an earlier failure"] and len(check_docs.skips) == 1
+
+
+def test_version_claims_need_the_word_python():
+    assert check_docs.python_version_claims("tested on 3.11, 3.12 and 3.13") == []
+    assert check_docs.python_version_claims("Python 3.12 only") == [("only", ["3.12"])]
+
+
 # ------------------------------------------------------------------------ run_ci_locally
 
 def test_local_ci_says_when_a_job_could_not_run(tmp_path):
@@ -585,9 +599,9 @@ def test_local_ci_says_when_a_job_could_not_run(tmp_path):
     result = subprocess.run([shutil.which("bash"), str(ROOT / "tools" / "run_ci_locally.sh"), "documents"],
                             cwd=ROOT, capture_output=True, text=True,
                             env={"PATH": str(bare)})
-    assert result.returncode == 0, result.stdout + result.stderr
+    assert result.returncode == 1, result.stdout + result.stderr    # nothing ran is not a pass
     assert "NOT RUN: pandoc or tectonic missing: the documents job not run" in result.stdout
-    assert "local CI clear for what ran" in result.stdout
+    assert "nothing ran" in result.stdout and "local CI clear" not in result.stdout
 
 
 # ----------------------------------------------------------------------------- check_fonts
@@ -628,4 +642,23 @@ def test_check_fonts_strict_exits_nonzero_only_when_asked(tmp_path, capsys):
 def test_check_fonts_pins_are_four_distinct_sha256_digests():
     assert len(check_fonts.PINS) == 4 and len(set(check_fonts.PINS.values())) == 4
     assert all(len(h) == 64 and set(h) <= set("0123456789abcdef") for h in check_fonts.PINS.values())
-    assert check_fonts.candidate_dirs() is not None
+
+
+def test_check_fonts_finds_files_by_any_case_and_guards_its_arguments(tmp_path, capsys):
+    (tmp_path / "TeXGyrePagella-Regular.otf").write_bytes(b"x")
+    assert check_fonts.locate("texgyrepagella-regular.otf", [tmp_path]).name.lower() == "texgyrepagella-regular.otf"
+    assert check_fonts.locate("texgyrepagella-bold.otf", [tmp_path]) is None
+    with pytest.raises(SystemExit):
+        check_fonts.main(["--dir", "--strict"])
+    assert check_fonts.main(["--strict", "--dir", str(tmp_path)]) == 1
+    assert "bump the cache key" in capsys.readouterr().out
+
+
+def test_check_fonts_candidate_dirs_reads_fontconfig_output(tmp_path, monkeypatch):
+    font_dir = tmp_path / "with:colon"
+    font_dir.mkdir()
+    listing = f"{font_dir}/TeXGyrePagella-Bold.otf: \n"
+    monkeypatch.setattr(check_fonts.shutil, "which", lambda name: "/usr/bin/fc-list")
+    monkeypatch.setattr(check_fonts.subprocess, "run",
+                        lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=listing, stderr=""))
+    assert font_dir in check_fonts.candidate_dirs()
