@@ -67,7 +67,7 @@ I do not want to overstate what that settles. Kurtz named a specific passage in 
 
 There is one more thing worth reporting, and it is the reason this chapter might reasonably be read before Chapter Sixteen rather than after.
 
-Under magnitude randomisation, unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds. It is not the most robust under every design: when cells of the governance matrix are flipped at random, the paper's sparsity table, which prices that design, shows the Step Twelve to Tradition Five claim holding more often than unity leading.
+Under magnitude randomisation, unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds. It is not the most robust under every design: when cells of the governance matrix are flipped at random, the paper's sparsity table, which prices that design, shows unity leading in 50.8 per cent of draws at sixteen flipped cells, less often than either the Step Five to Tradition Twelve claim (70.8) or the Step Twelve to Tradition Five claim (52.9) holds, and the first already holds more often than unity leads at eight flips (85.4 against 83.6). Two thousand draws per flip count.
 
 Under multiplicative disagreement about the magnitudes, unity leads in every one of two thousand draws at fifteen per cent, every draw at thirty per cent, 98.0 per cent at fifty, and 86.9 per cent at seventy-five. Then take the structural test Chapter Sixteen describes, in which every magnitude is discarded and only the sparsity survives. Unity still leads in 75.4 per cent of draws.
 
@@ -159,7 +159,7 @@ It is not the document Kurtz named. He points at Wilson's discussion of the Firs
 
 **A second thing I cannot check.** Kurtz says the conflation appears in *some later AA literature*. He does not say which, and I have not identified an instance. So I am answering a charge whose extent I have not been able to measure.
 
-**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in the part4 blocks of `model/book-calculations.ipynb`.
+**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in the blocks of `model/book-calculations.ipynb` headed "Part Four semantic overlap B = S @ GOV.T", "load by resource for each tradition", "ch17 reassignment test" and "coupling perturbation tests, 2,000 draws each".
 
 ### 4. References
 
@@ -175,7 +175,7 @@ Wilson, W. (1945). "Modesty One Plank for Good Public Relations." *AA Grapevine*
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its blocks "part4 threshold test and principal suppliers", "load by resource for each tradition" and "ch17 reassignment test", and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
 
 **What was not read:**
 

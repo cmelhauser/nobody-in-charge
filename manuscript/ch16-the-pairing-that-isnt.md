@@ -166,7 +166,7 @@ Intervals are Wilson at 95 per cent on n = 2,000. The three 100.0 entries are 2,
 
 ### 3. Notes on sources
 
-**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced in the part4 blocks of `model/book-calculations.ipynb`, with assertions against the printed values.
+**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced in the blocks of `model/book-calculations.ipynb` headed "Part Four semantic overlap B = S @ GOV.T", "part4 threshold test and principal suppliers" and "coupling perturbation tests, 2,000 draws each", with assertions against the printed values.
 
 **A provenance note that belongs in the record.** The 85.5 per cent figure was carried in `research/PARAMETERS.md` for some time before it could be reproduced from the book's own repository; the code lived only in the working paper the book grew out of. It was ported into the notebook so that the claim stands on the book's own files, and the port is what produced the degradation curve and the structural test, neither of which existed before.
 
@@ -190,7 +190,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks for every matrix figure above and for the threshold test that reaches the five counts this chapter's designs cannot, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list test. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its blocks "Part Four semantic overlap B = S @ GOV.T" and "coupling perturbation tests, 2,000 draws each" for every matrix figure above, and "part4 threshold test and principal suppliers" for the threshold test that reaches the five counts this chapter's designs cannot, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list test. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
 

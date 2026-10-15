@@ -149,7 +149,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A3 for the calibration.
+`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb`, its "part5 trajectories, yearly means" and "part5 paired established-practice contrast at year 10, viable in both" blocks, for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A3 for the calibration.
 
 **What was not read:**
 

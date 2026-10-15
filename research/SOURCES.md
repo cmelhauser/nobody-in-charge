@@ -835,7 +835,7 @@ retelling descends from. Reading it directly corrected three things in Chapter 1
 - **The preacher is unnamed.** Harrison says only that a clergyman preaching in the city had
   given public notice of a discourse on temperance. Maxwell's Matthew Hale Smith and Marsh's
   Elder Knapp are both later attributions to a silence.
-- **Four of the six went**, not one. This agrees with Marsh's source and against Maxwell.
+- **Four of the six went**, not one. This agrees with Marsh's source and with Maxwell, who also says four; Chapter 1 now records that the three agree. (An earlier note here set Harrison against Maxwell, and was wrong.)
 - **The pledge was written Monday morning**, not on the Sunday walk. What happened on the
   walk was the agreement to draft one.
 

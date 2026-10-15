@@ -5864,3 +5864,51 @@ prediction recorded for the bottom third to a result recorded for the lowest-abi
 chapter now says the lowest-ability students and says the wider description is a summary the record
 does not capture; `research/SOURCES.md` says the same. A copy of the paper, if the Human Author has
 one, would let the details be recorded and the sentence removed.
+
+### 15 October 2026, later: a final-pass review of the manuscript, appendix, primer, paper and tooling
+
+Three independent read-only reviews of the day's changes found corrections, applied on one branch.
+
+- *Two mistakes of my own, from the same day's corrections.* Chapter 11 said the referral-versus-attraction
+  membership ordering reverses at decay rates "a quarter or more below the default"; the reversal is already
+  at 20 per cent below, so it now says a fifth. Chapter 1's note on the Martha Washington Societies stated
+  women's leadership flat where the body of the chapter hedges it, and carried a double space.
+- *Numbers.* Chapter 8: the four regimes are within about 40 per cent of one another at ten members and a
+  factor of ten apart at five hundred (not 45 per cent and seven or eight, which was the dominant member
+  against flat only), and 1.996 holds from fifty members up (1.82 at ten, 2.11 at twenty-five). Chapter 17's
+  sparsity sentence now quotes the paper's table: at sixteen flipped cells unity leads in 50.8 per cent,
+  less often than the Step Five (70.8) or Step Twelve (52.9) claim holds. Chapter 18 and the paper's "about a
+  quarter of the distance" named no reference point; it is about a fifth of the way from the all-twelve mean
+  threshold, 0.518, to the mean live entry, 0.374. The primer's Step Eight entry said Tradition 8's 0.07 was
+  its best value anywhere (its largest entry is 0.34, at Step Five), and its last sentence contradicted its
+  own rank claim. `plans/PART-4-PLAN.md` still carried 67.3, 27.6 and 86.8 for the exact halves 67.4, 27.7
+  and 86.9, and the notebook's jitter lines printed with Python's half-to-even; they now use half-up.
+- *Sources and records.* Chapter 4's "or three in Wilson's own later telling" is dropped: no held source gives
+  it. Chapter 2's Connecticut year was inferred, not stated by Marsh, and now says "about the same time".
+  `research/SOURCES.md` still set Harrison against Maxwell on how many went to the sermon, and
+  `research/part1-claim-register.md` still listed the 1950 convention link as dropped; both now say what
+  Chapter 1 and Chapter 5 say.
+- *Appendix and primer.* A13.5 and the primer said the endogenous arrival channel dominates and that the
+  assumption was "one of the hundred and eighteen registered sensitivity values"; A13.2, A13.6 and A12.5 say
+  it dominates early and supplies the smaller share at the thirty-year endpoint, and the registered values
+  involved are `lam_exog` and `lam0`. A13.2's "about one run in ten" had no source; it is now labelled as an
+  ad hoc check (43 of 400, seeds 0 to 399, full adherence), not a release result. A7.4 now says that among
+  the matrix magnitudes the full-adherence designs test only `S`. A5 now points to where the Wilson
+  intervals for the A5.1 fractions are.
+- *Notebook pointers.* The book notebook has eight cells, not fourteen sections, and its labelled blocks are
+  not all "part4" or "part5". Chapters 12, 16, 17, 20, 21 and 22 and the primer now name the blocks by their
+  printed headings.
+- *Tooling.* `summarize_release_gate.pct` raised on a numpy float and its test passed for the wrong reason;
+  both fixed. `check_fonts.py` compared file names case-sensitively, split fontconfig output on colons, took
+  `--strict` as the value of `--dir`, and gave a failure message that fits a developer, not the runner; all
+  fixed and tested. `check_docs.py` read "3.12 only" wherever it stood and now needs the word Python in the
+  paragraph, and its own-total check is skipped when another check has failed (a failure reports a line per
+  claim, so the count shifts). `run_ci_locally.sh` says "nothing ran" and exits 1 when no job ran. The
+  non-3.12 test legs imported only seven of nineteen tools, so the claim that they import every tool was
+  wrong; they now also byte-compile every tool and script. "Five tools" in `.coveragerc`, `AGENTS.md`,
+  `README.md`, `CLAUDE.md`, the test module and the changelog now say seven tools and the local runner.
+
+Not changed: `release.yml` does not run the font-pin check (the release workflow was left as it was, and
+whether to add it is the Human Author's call); the Carrell, Sacerdote and West details, the Marty Mann and
+Yale items and the Kurtz-dependent claims still need sources not held.
+

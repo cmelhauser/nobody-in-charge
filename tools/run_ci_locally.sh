@@ -164,7 +164,10 @@ fi
 printf '\n\033[1m%d passed, %d failed\033[0m\n' "$pass" "$fail"
 [ "$fail" -eq 0 ] || exit 1
 # A job that could not run is not a job that passed, so say so where the verdict is read.
-if [ -n "$skipped" ]; then
+if [ $((pass + fail)) -eq 0 ]; then
+  echo "nothing ran${skipped:+; NOT RUN: $skipped}"
+  exit 1
+elif [ -n "$skipped" ]; then
   echo "local CI clear for what ran; NOT RUN: $skipped"
 else
   echo "local CI clear"
