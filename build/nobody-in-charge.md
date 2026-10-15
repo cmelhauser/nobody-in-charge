@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 14 October 2026"
+date: "Draft of 15 October 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -332,17 +332,17 @@ Hold that last sentence somewhere. We will come back to it.
 
 Societies formed in city after city, mostly by simple imitation. There was no headquarters worth the name, no charter, no franchise agreement, nobody's permission to ask. Baltimore's own society had about three hundred members by December 1840, of whom, a local observer wrote, upward of two hundred were reformed drunkards, reformed within the previous eight months. On the first anniversary, 5 April 1841, roughly a thousand reformed drunkards and five thousand other members and friends paraded through Baltimore in front of something like forty thousand spectators.
 
-Mitchell had a motto for the weekly meetings, and it is the whole growth mechanism in nine words: *Let every man be present, and every man bring with him a man.*
+Mitchell had a motto for the weekly meetings, and it is the whole growth mechanism in thirteen words: *Let every man be present, and every man bring with him a man.*
 
 Teams of speakers went out on tour. Two Baltimore men, Pollard and Wright, worked central and western New York, then New Jersey and Pennsylvania, and collected 23,340 signatures, of which perhaps a fifth, it was supposed, were common drunkards. Another pair, Vickers and Small, opened Pittsburgh, where in a short time ten thousand signed, then Wheeling, then Cincinnati, which became the movement's western capital. From Cincinnati other teams fanned out: one pair took 6,529 signatures in an eight-week campaign in the surrounding country. A correspondent in Pittsburgh, writing in April 1842, said the work had spread at a rate that defied any accurate registration of its triumphs, eight or ten missionaries in the field continuously since the previous June, leaving no school house, country church, village, crossroads, forge, furnace, factory or mill unvisited.
 
-The movement also spread sideways, into populations the six founders had not imagined. In May 1841 the first Martha Washington Society met in New York, organised for women and children: it gave moral and material support to female inebriates and to the wives and children of male ones, and it was the first temperance organisation in which American women took leadership roles in their own right. Juvenile auxiliaries followed. Freed Black Americans organised separate Washingtonian societies of their own.
+The movement also spread sideways, into populations the six founders had not imagined. In May 1841 the first Martha Washington Society met in New York, organised for women and children: it gave moral and material support to female inebriates and to the wives and children of male ones, and it has been called the first temperance organisation in which American women took leadership roles in their own right, which I have not been able to check. Juvenile auxiliaries followed. Maxwell reports that the pledge was taken by Black as well as white drinkers at Norfolk.
 
 That expansion is usually told as evidence of the movement's reach, and it is. It is also, read against what happens in the next chapter, the first visible sign of a boundary problem. A society founded by six alcoholics for six alcoholics had within a year become a structure that non-alcoholic women, children and sympathisers could join and lead.
 
 How many people this actually reached is a question I have to handle carefully, because the honest answer is that nobody knows and the famous numbers do not survive inspection.
 
-The figure usually quoted is six hundred thousand. It traces to the American Temperance Union's 1843 report, which claimed that half a million hard drinkers and a hundred thousand sots had been brought to sign the pledge in two years. A larger claim also circulated: five million pledge signers by 1843, which would be something near a quarter of the entire American population aged fifteen and over. Per-capita consumption of distilled spirits among Americans aged fifteen and over fell by only 14.3 per cent between 1840 and 1850, on Jellinek's estimate, from a base of 4.9 gallons, which is not what a quarter of the adult population going dry looks like. Marsh, who produced the original estimate, quietly revised it down to four million by 1848, and later put the number of drunkards permanently rescued at 150,000, having, five years earlier, described half a million.
+The figure usually quoted is six hundred thousand. It traces to the American Temperance Union's 1843 report, which claimed that half a million hard drinkers and a hundred thousand sots had been brought to sign the pledge in two years. A larger claim also circulated: five million pledge signers by 1843, which would be something near a quarter of the entire American population aged fifteen and over. Per-capita consumption of distilled spirits among Americans aged fifteen and over fell by only 14.3 per cent between 1840 and 1850, on Jellinek's estimate, from a base of 4.9 gallons, which is not what a quarter of the adult population going dry looks like. Marsh, who produced the original estimate, quietly revised it down to four million by 1848, and in his 1866 recollections gave 150,000 decidedly intemperate men who took the pledge and abandoned their cups, a figure Maxwell glosses as the number permanently rescued, against the half a million he had described twenty-three years earlier.
 
 The terminology is the deeper problem. The sources distinguish drunkards from common drunkards from confirmed drunkards from inebriates from sots from tipplers from tipplers in a fair way to become sots, and no one defined any of it.
 
@@ -487,7 +487,7 @@ The recipient resource is defined as low-practice members *per high-practice pot
 
 **The preacher is not named.** Harrison, the earliest of the three accounts, says only that a clergyman preaching in the city had given public notice he would deliver a discourse on temperance. No name. Maxwell supplies Matthew Hale Smith; Marsh, from the Maryland State Temperance Society's report, supplies Elder Knapp. Both are later, both are confident, and they disagree. The earliest source is silent, which is usually what a silence means: the six men did not record who it was, and two later traditions filled the gap differently. This chapter now leaves him unnamed.
 
-**Four went, not one.** Harrison has it that four of the six were sent to hear the sermon. Marsh's source says four. Only Maxwell has a single delegate. Two independent accounts against one settles it as well as it is going to be settled, and the chapter follows the two.
+**Four went.** Harrison has it that four of the six were sent to hear the sermon. Marsh's source says four, and Maxwell, too, says four of them went. The three agree.
 
 **And Harrison dates it to a Friday.** He writes "Friday evening, the second of April, 1840." The second of April 1840 was a Thursday. Maxwell has Thursday and is right on the arithmetic. This is a small thing, but it is a useful calibration of Harrison: he is the origin of the scene and he is loose about detail, which is a reason to keep the dialogue as reported speech rather than promoting it to fact.
 
@@ -497,7 +497,7 @@ One correction to the chapter's own sequence. Harrison has the pledge written on
 
 **And Hawkins's own account puts his signing a day later than Maxwell does.** Maxwell has 14 June 1840. Hawkins says the crisis was the 12th, that the next day he felt better, and that he signed on the Monday. The 12th of June 1840 was a Friday, which makes his Monday the 15th; the 14th was a Sunday. Either Maxwell is a day out, or Hawkins was loose about the weekday twenty years on, and I cannot tell which. The chapter now says the middle of June and does not pick. It changes nothing about the argument, and pretending to a precision two sources do not jointly support would be the error this book keeps finding in itself.
 
-**Krout corroborates the founding independently, and adds a rule I had missed.** John Krout's 1925 *Origins of Prohibition*, which I have now read at source rather than through Maxwell, takes the scene from the Maryland State Temperance Society's annual report of 1842. The officers, the twenty-five cent fee and the twelve-and-a-half cent dues are all there as this chapter has them, which is worth knowing because it means those details rest on two independent readings of a contemporary report rather than on one historian's summary. Krout adds two small things: the six agreed that each would bring a friend to the first regular meeting, and a proposal to name the society after Jefferson was rejected before they settled on Washington.
+**Krout corroborates the founding independently, and adds a rule I had missed.** John Krout's 1925 *Origins of Prohibition*, which I have now read at source rather than through Maxwell, takes the scene from the Maryland State Temperance Society's annual report of 1842. The twenty-five cent fee and the twelve-and-a-half cent dues are there as this chapter has them, which is worth knowing because it means those details rest on two independent readings of a contemporary report rather than on one historian's summary. Krout adds two small things: the six agreed that each would bring a friend to the first regular meeting, and a proposal to name the society after Jefferson was rejected before they settled on Washington.
 
 The thing I had missed is a rule, and it is not the same as the closed meetings described above. Closed meetings governed who could come in, and they ended in November 1840. This governed who could speak, and it did not. As the Baltimore society grew and the problem of keeping meetings interesting arose, Mitchell proposed that the programme be limited to members narrating their own experience, and the society **admitted no outside speakers unless they came to relate their experience as reformed men**.
 
@@ -505,11 +505,11 @@ That is a deliberate restriction on who may address the room, and it is function
 
 So the honest statement of this book's comparison is not that the Washingtonians had no rules and AA had twelve. They had at least one good one, early, and it worked. Krout's next sentence is that the standard for other Washingtonian societies was thereby set, and his mechanism is imitation: the practice spread because people copied a meeting that was visibly working. **An earlier version of this note went on to say that imitation was all they had, and that no means existed of transmitting a practice as a rule. The *Pocket Companion* shows that to be wrong**, and the main text now carries the correction. Mitchell's speaking rule is not in Grosh's directions, which is a different and smaller point: a mechanism existed and this particular rule did not travel through it. Chapter Two is about what happened then.
 
-**A second version of the founding, and a conflict on one detail.** John Marsh, Corresponding Secretary of the American Temperance Union, prints the same scene in his 1866 memoir, taken from the eleventh annual report of the Maryland State Temperance Society, and I have now read it at source. The wording is close enough to be the same tradition: after all temperance is a good thing; a parcel of hypocrites; it is for your interest to cry them down; let's form a Temperance Society, and make Mitchell president. Two things differ. Marsh's source says **four** of the six went to the sermon, not one delegate. And it names the preacher not as Matthew Hale Smith but as **Elder Knapp**, presumably the revivalist Jacob Knapp. I cannot resolve which is right from anything I have; the two accounts descend from different Baltimore informants and both are retrospective. The chapter leaves the preacher unnamed and I record the disagreement rather than choosing silently.
+**A second version of the founding, and a conflict on one detail.** John Marsh, Corresponding Secretary of the American Temperance Union, prints the same scene in his 1866 memoir, taken from the eleventh annual report of the Maryland State Temperance Society, and I have now read it at source. The wording is close enough to be the same tradition: after all temperance is a good thing; a parcel of hypocrites; it is for your interest to cry them down; let's form a Temperance Society, and make Mitchell president. Two things differ. Marsh's source says four of the six went to the sermon, as Maxwell does. And it names the preacher not as Matthew Hale Smith but as **Elder Knapp**, presumably the revivalist Jacob Knapp. I cannot resolve which is right from anything I have; the two accounts descend from different Baltimore informants and both are retrospective. The chapter leaves the preacher unnamed and I record the disagreement rather than choosing silently.
 
 **And the sermon itself was disputed at the time.** Marsh adds a sentence that is worth more than the detail it corrects: *This statement was afterward denied by some who preferred that the movement should be considered an immediate impulse from Heaven, without any human instrumentality.* So within twenty-five years there were already two constituencies, one holding that six men were moved by a preacher and one holding that they were moved by God directly. That is a founding myth under construction, visible in the act, and it is a reason to hold every detail of this scene loosely. What is not in dispute is the outcome: they organised, and they signed.
 
-**A significant omission, flagged rather than fixed.** This chapter tells the Washingtonian story as six working men and their imitators, which is broadly how Maxwell tells it and entirely how the AA-derived literature tells it. It is incomplete. The movement spawned the Martha Washington Societies from May 1841, in which women took leadership roles for the first time in American temperance, giving moral and material support to female inebriates and to the wives and children of male ones. It spawned juvenile auxiliaries. And freed Black Americans organised separate Washingtonian societies. Ruth M. Alexander's 1988 article in the *Journal of American History* treats the class and domestic dimensions directly and I have not read it. A historian would notice the absence immediately, and it bears on the argument as well as the coverage: a movement that generated auxiliaries for non-alcoholic women and children is a movement whose boundary was porous by design, which is the absorption thesis of Chapter Two appearing earlier than I have placed it.
+**A significant omission, flagged rather than fixed.** This chapter tells the Washingtonian story as six working men and their imitators, which is broadly how Maxwell tells it and entirely how the AA-derived literature tells it. It is incomplete. The movement spawned the Martha Washington Societies from May 1841, in which women took leadership roles for the first time in American temperance, giving moral and material support to female inebriates and to the wives and children of male ones. It spawned juvenile auxiliaries.  Ruth M. Alexander's 1988 article in the *Journal of American History* treats the class and domestic dimensions directly and I have not read it. A historian would notice the absence immediately, and it bears on the argument as well as the coverage: a movement that generated auxiliaries for non-alcoholic women and children is a movement whose boundary was porous by design, which is the absorption thesis of Chapter Two appearing earlier than I have placed it.
 
 **The pledge is independently corroborated, and the corroboration is two years old rather than a hundred and ten.** This chapter takes the pledge text from Maxwell, who took it from the Baltimore records. Grosh prints it in 1842 as "the original or Baltimore Pledge", set beside the Utica pledge that some societies preferred, and the two texts agree word for word apart from punctuation: Grosh uses long dashes where this chapter has commas, writes "Society" with a capital, and drops the comma before "or cider". Nothing in the wording differs. The claim moves from scholarly to primary, and the fact that a Utica compiler in 1842 could print the Baltimore wording as the original is itself evidence that the text travelled intact.
 
@@ -525,9 +525,9 @@ Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studi
 
 Harrison, D. Jr. (1860). *A Voice from the Washingtonian Home: Being a History of the Foundation, Rise, and Progress of the Washingtonian Home... Together with a Sketch of the Temperance Reform in America.* Boston: Redding & Co. **Read at source**; saved as `research/incorporated/Harrison_1860/`. The earliest of the three founding accounts and the origin of the tavern dialogue. Used for the scene, the six men and their trades, the unnamed clergyman, the four delegates, the walking and treating, the Monday morning pledge and the Anderson signing. Its Friday dating is wrong and that is recorded above.
 
-Hawkins, W. G. (1862). *Life of John H. W. Hawkins.* Compiled by his son. Boston: Briggs and Richards, sixth thousand. **Read at source**; saved as text in `research/`. Hawkins's account of 12 June 1840 in his own words, including the quart and a pint, the daughter, the horrors of the pit, and his wife's *hold on, hold on*. **Note the edition**: this is not the Jewett printing usually cited and the two have not been collated.
+Hawkins, W. G. (1862). *Life of John H. W. Hawkins.* Compiled by his son. Boston: Briggs and Richards, sixth thousand. **Read at source**; held git-ignored in `research/incorporated/Hawkins_1862/`. Hawkins's account of 12 June 1840 in his own words, including the quart and a pint, the daughter, the horrors of the pit, and his wife's *hold on, hold on*. **Note the edition**: this is not the Jewett printing usually cited and the two have not been collated.
 
-Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. **Read at source**; saved as `research/incorporated/Krout_1925/`. Used here for the officers, the independent corroboration of the officers, fee and dues, the bring-a-friend agreement, the rejected Jefferson proposal, and Mitchell's rule admitting no outside speakers except reformed men relating their experience. Krout takes these from the Maryland State Temperance Society's annual report of 1842.
+Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. **Read at source**; saved as `research/incorporated/Krout_1925/`. Used here for the fee and dues, the bring-a-friend agreement, the rejected Jefferson proposal, and Mitchell's rule admitting no outside speakers except reformed men relating their experience. Krout takes these from the Maryland State Temperance Society's annual report of 1842.
 
 American Temperance Union (1841). *Annual Report of the American Temperance Union.* Appendix, page 39. **Read at source**; public-domain Internet Archive scan `annualreportamer00amer_5`, stored with its citation and metadata in `research/incorporated/ATU_1841/`. The quotation below was verified against the page image rather than the OCR. This is the earliest source in this chapter and the only contemporary institutional one: a national body describing the Baltimore society within a year of its founding, and independent of Harrison, of Maxwell, and of the Maryland state report Krout used. It gives the founding date as 5 April 1840, confirms the six men, the public tavern, the simple total-abstinence pledge and the name, and reports that the society passed a thousand members inside a year, most of them formerly "grossly intemperate." Its account of how the room worked is the reason it is quoted rather than merely cited:
 
@@ -641,11 +641,11 @@ Read that last clause again. Thirty dollars for your funeral. These are men who 
 
 Look at what they added.
 
-**Screening.** To join the Sons, you had to be nominated by an existing member. Three other members would then investigate your life and determine whether you were worthy. This is the sharpest possible break from the Washingtonian pledge, which asked nothing of you but your name and your intention.
+**Screening.** As the encyclopaedic accounts have it, to join the Sons you had to be nominated by an existing member, and three other members would then investigate your life and determine whether you were worthy. The sources I hold do not confirm the investigation. This is the sharpest possible break from the Washingtonian pledge, which asked nothing of you but your name and your intention.
 
 **A price.** The founding call sets it at one dollar to initiate plus six and a quarter cents a week, and the fee rose afterwards. Set that beside what the Washingtonians charged, which Krout gives from the Maryland report of 1842: twenty-five cents to join and twelve and a half cents a month. The Sons cost four times as much to enter and roughly twice as much to stay. Unlike the Washingtonians, they gave you something measurable back. The Sons made membership expensive on purpose, and they made it worth buying.
 
-**Ritual and hierarchy.** Secret ceremonies, regalia, passwords, degrees of membership, Grand Divisions above local Divisions. Where the Washingtonians had a president because six men in a tavern thought it would be funny, the Sons had an architecture.
+**Ritual and hierarchy.** Regalia and Grand Divisions above local Divisions are in the sources I hold; the secret ceremonies, passwords and degrees of membership are as the encyclopaedic accounts have them. Where the Washingtonians had a president because six men in a tavern thought it would be funny, the Sons had an architecture.
 
 **Material benefit.** Four dollars a week if you fell sick. Thirty dollars to your family if you died. The Sons' own statement of purpose put it plainly: to shield members from the evils of intemperance, to give mutual assistance in illness, and to elevate their character as men. You joined and you got something tangible.
 
@@ -669,7 +669,7 @@ Marsh and the temperance leadership promoted the Washingtonians brilliantly. The
 
 Then the cause moved somewhere the Washingtonians could not follow. Temperance turned toward legal prohibition, and Washingtonianism was built on moral suasion, Mitchell had held that his societies should say nothing against the liquor traffic at all, and would admit sellers as members. When the movement's sponsors wanted legislation, the Washingtonian position was not merely dated; it was an obstacle. A senator looking back in 1888 called that emphasis on moral suasion a trace of maudlin insanity.
 
-What the Washingtonians did was not hold the line. Marsh describes a Connecticut convention at which the delegates marched from the Centre Church to the State House alongside the Hartford Washington Society, and adopted resolutions on the Washingtonian movement and on prohibiting the sale of intoxicating liquors by law. He adds a parenthesis, and it is the most useful five words in this chapter: *for a great change had come over the Washingtonians in this matter*. They did not resist the turn toward legislation. They came round to it.
+What the Washingtonians did was not hold the line. Marsh describes a Connecticut convention at which the delegates marched from the Centre Church to the State House alongside the Hartford Washington Society, and adopted resolutions on the Washingtonian movement and on prohibiting the sale of intoxicating liquors by law. He adds a parenthesis, and it is the most useful dozen words in this chapter: *for a great change had come over the Washingtonians in this matter*. They did not resist the turn toward legislation. They came round to it.
 
 The senator's line about maudlin insanity is worth having in full, because read whole it is not a stray insult but an indictment, and it shows what the moral-suasion position had come to cost by 1888. Henry Blair, who had spent a career trying to write prohibition into the Constitution, is reckoning up the movement's ledger. He allows that a hundred and fifty thousand reformed men held to their pledges and were saved, and then asks what are one hundred and fifty thousand among so many. Then this:
 
@@ -681,7 +681,7 @@ Two things follow. The first is that this is a hostile witness reciting the six 
 
 That is the political-entanglement charge, and reading it from a participant rather than from a summary changes what it means. Taking a position on prohibition was not a mistake the Washingtonians made. It was the price of remaining in the room where the cause was now being decided.
 
-An earlier draft of this chapter ended that thought by saying that having no rule against it, they had no way to decline, and that AA a century later wrote a rule and could point at it. That is wrong, and correcting it makes the chapter's argument harder and better. They had the rule, in two places, and Chapter One quotes both: a clause in the definition of principles barring anything inimical to any party or denomination from the movement's publications and meetings, and Article 3 of the model constitution circulated after the Utica mass convention of February 1842. It was in print, in a pocket edition, three years before the Connecticut delegates marched to the State House.
+An earlier draft of this chapter ended that thought by saying that having no rule against it, they had no way to decline, and that AA a century later wrote a rule and could point at it. That is wrong, and correcting it makes the chapter's argument harder and better. They had the rule, in two places, and Chapter One quotes both: a clause in the definition of principles barring anything inimical to any party or denomination from the movement's publications and meetings, and Article 3 of the model constitution circulated after the Utica mass convention of February 1842. It was in print, in a pocket edition, within months of the Connecticut delegates marching to the State House, which on Marsh's sequence of events fell in the same year.
 
 So the difference between the two fellowships is not that one wrote a rule about outside issues and the other did not. Both did, within two years of founding in the Washingtonian case and eleven in AA's. The Washingtonian rule failed, and reading it beside the event it failed to prevent shows two reasons, neither of which is a lack of rules.
 
@@ -693,7 +693,7 @@ AA's Tradition 10 differs on both counts. It binds the fellowship as well as the
 
 So the experience meeting palled, and moral suasion fell out of favour, and what was left of Washingtonianism as a distinct thing was only the reclaiming of drunkards, which was by then a secondary interest of nearly everyone involved. Maxwell's summary is that the movement turned into something it had not started out to be: a revival phase of the organised temperance movement.
 
-The sharpest line in his paper is not his own. It comes from E. M. Jellinek, in a personal communication, and it is nine words long:
+The sharpest line in his paper is not his own. It comes from E. M. Jellinek, in a personal communication, and it is fifteen words long:
 
 > the Washingtonian movement was not equipped with an ideology distinctive enough to prevent its dissolution.
 
@@ -995,7 +995,7 @@ They simply could not do it for a famous man, and by 1845 they had made several.
 
 There is a coda, and I want to keep it because it complicates the moral.
 
-Gough came back. Over the following forty years he gave something like nine thousand six hundred lectures to perhaps nine million people. When he died in 1886 the *New York Times* judged him probably better known in America and Britain than any other public speaker. His church kept him, his wife kept him, his movement kept him. He is buried in Worcester, where he first got sober.
+Gough came back. Over the following forty years he gave something like nine thousand six hundred lectures to perhaps nine million people. When he died in 1886 the *New York Times* judged him probably better known in America and Britain than any other public speaker. His church kept him, his wife kept him, his movement kept him. The figures in this coda, the 1886 judgement and the burial come from secondary accounts that none of this chapter's sources covers. He is buried in Worcester, where he first got sober.
 
 The man survived. Handsomely.
 
@@ -1132,7 +1132,7 @@ Wilson had been approaching alcoholics as a man who had recovered, offering to h
 
 The alcoholics who preceded him in the Oxford Group had noticed that the group's methods worked on some drinkers. Wilson noticed something narrower and more useful: that the work itself was the medicine, and that its therapeutic value accrued to the person doing it. That is what the Washingtonians had discovered in Baltimore in 1840 and what the Sons of Temperance quietly dropped when they added sick pay and ranks. Wilson rediscovered it in a lobby, under pressure, for the most self-interested reason imaginable.
 
-By 1937 the two groups, Akron and New York, could count about forty sober members between them, and Wilson and Smith sat down and counted. Twenty or so people had stayed dry for a meaningful stretch. It had taken two years to produce forty. At that rate the thing would reach a few thousand alcoholics in a century, and there were, they believed, hundreds of thousands of them.
+By 1937 the two groups, Akron and New York, could count about forty sober members between them, and Wilson and Smith sat down and counted. Twenty or so people had stayed dry for a meaningful stretch. It had taken two years to produce forty, or three in Wilson's own later telling. At that rate the thing would reach a few thousand alcoholics in a century, and there were, they believed, hundreds of thousands of them.
 
 They decided they had a communication problem, and this decision produced everything that followed, including the crisis that produced the Traditions.
 
@@ -1166,7 +1166,7 @@ Wilson began writing in 1938. The chapter containing the actual programme was dr
 
 *Alcoholics Anonymous* was published in April 1939. It sold badly. The venture was rescued at one point by a member who mortgaged his tailor shop to pay the printer. The first board minutes of the Alcoholic Foundation record a treasury of 2,150, which was what remained of Rockefeller's five thousand.
 
-Then, in the autumn of 1939, *Liberty* magazine ran an article, and about eight hundred desperate calls came in. In 1941 the *Saturday Evening Post* sent Jack Alexander, a sceptical reporter, who came away convinced and published a long piece in March. The response was overwhelming: thousands of appeals, and a fellowship that had taken four years to reach a few hundred members began growing at a rate nobody had planned for.
+Then, in the autumn of 1939, *Liberty* magazine ran an article, and about eight hundred desperate calls came in. In 1941 the *Saturday Evening Post* sent Jack Alexander, a sceptical reporter, who came away convinced and published a long piece in March. The response was overwhelming: thousands of appeals, and a fellowship that had taken six years to reach about two thousand members began growing at a rate nobody had planned for.
 
 That is where Part One's argument reconnects with its beginning, and it does so at a point I did not anticipate before building the model.
 
@@ -1299,7 +1299,7 @@ The long form went into the *A.A. Grapevine* in April 1946, headed "Twelve Sugge
 
 > Nobody invented Alcoholics Anonymous. It grew. Trial and error has produced a rich experience.
 
-The text was cut soon after, to sit closer to the two hundred words of the Twelve Steps, and that short form appeared in November 1949. The fellowship adopted the Traditions officially in June 1950.
+The text was cut soon after, to sit closer to the two hundred words of the Twelve Steps, and that short form appeared in November 1949. The fellowship adopted the Traditions officially in 1950: Kurtz dates it to June, and the 1953 commentary says they were confirmed at the First International Convention at Cleveland that year.
 
 One edit made during the shortening is worth more than its size. Tradition Three had required an *honest* desire to stop drinking. The qualifier was dropped in 1949, on the published ground that it is nearly impossible to determine what constitutes an honest desire to stop as against the other forms in which the desire arrives. A fellowship that had just spent four years codifying its experience was still amending the code on the evidence three years later, which is what it looks like when a document is a record rather than a founding charter.
 
@@ -1428,7 +1428,7 @@ So the honest reading of this comparison is the opposite of what it was: **the T
 
 The article itself has since been read, and it explains the two titles rather than the two issue numbers. Its *Grapevine* headline is "Twelve Suggested Points for A. A. Tradition, By Bill". Inside the body, Bill introduces the list under a heading of his own: "An Alcoholics Anonymous Tradition of Relations, Twelve Points to Assure Our Future". Kurtz is citing that internal heading, AAWS's own pamphlet uses the same phrase, and this chapter takes its title from it. So the two names are one article and neither citation is wrong about the title. **The issue numbers remain unadjudicated**: the scan consulted carries no issue or page markers, so one of 2:10 and 2:11 is still a slip and I still cannot say which.
 
-**The chapter previously said the Traditions were formally adopted at the fellowship's first international convention in 1950.** Kurtz says they were officially adopted in June 1950, and separately describes the Cleveland gathering of 1950 as the fifteenth anniversary convention, which Wilson labelled A.A.'s Coming of Age party. He does not connect the adoption to that meeting. I have dropped the connection rather than assert it.
+**The chapter previously said the Traditions were formally adopted at the fellowship's first international convention in 1950.** Kurtz says they were officially adopted in June 1950, and separately describes the Cleveland gathering of 1950 as the fifteenth anniversary convention, which Wilson labelled A.A.'s Coming of Age party. He does not connect the adoption to that meeting. I dropped the connection on his account, but the 1953 commentary, which I read later, does make it: its foreword says the Traditions were "later confirmed at A.A.'s First International Convention, held at Cleveland in 1950", and the 2024 Service Manual says much the same. The sources differ and I have not reconciled the June date with the convention.
 
 **The Towns episode is new and is the best-documented thing in the chapter.** Kurtz gives the offer, Wilson's reaction, the meeting at Clinton Street and the group's reply, quoting Wilson's own later telling throughout. Two cautions. It is Wilson recalling a scene in which he is corrected, decades later, for an audience that had come to believe in the correction, which is the kind of story institutions polish. And the dating is Kurtz's: the financial crisis at Clinton Street in mid-1937, the Towns offer following, and the Rockefeller board room some six months after that.
 
@@ -1544,7 +1544,7 @@ It is a serious objection. It also turns out to be testable, because something d
 
 ---
 
-In April of that year, an AA member named Marty Mann moved to New Haven and founded the National Committee for Education on Alcoholism. Its first offices were at Yale. Its sponsor was the Yale group around E. M. Jellinek, the same Jellinek whose one-line judgment about the Washingtonians' lack of a distinctive ideology Maxwell quoted six years later. Its message had three points: alcoholism is a disease and the alcoholic a sick person; the alcoholic can be helped and is worth helping; alcoholism is a public health problem and therefore a public responsibility.
+In 1944 an AA member named Marty Mann moved to New Haven and founded the National Committee for Education on Alcoholism. Its first offices were at Yale. Its sponsor was the Yale group around E. M. Jellinek, the same Jellinek whose one-line judgment about the Washingtonians' lack of a distinctive ideology Maxwell quoted six years later. Its message had three points: alcoholism is a disease and the alcoholic a sick person; the alcoholic can be helped and is worth helping; alcoholism is a public health problem and therefore a public responsibility.
 
 Every one of those propositions was to AA's benefit. Mann was a member in good standing, the first woman to achieve long-term sobriety in the fellowship, and Bill Wilson was her sponsor.
 
@@ -1602,7 +1602,7 @@ So the honest version of the methodological point is narrower and less comfortab
 
 What remains true, and it is the part that bears on Maxwell, is that a comparative study of two historical movements has no replications at all. It has one of each. Whatever this model can or cannot resolve at four hundred runs, the historical method cannot resolve any of it, and that asymmetry is the chapter's actual subject.
 
-What the model does establish is narrower and I think more useful. It shows that the mechanisms Maxwell grouped as hazard-avoiding have explicit functions in the authored model, and that loss of outside referrals produces the highest closure rate among the tested decline paths. Conditional practice can mask that decline, though room-size loss is visible. Those are claims that can be checked against real groups. What the comparison no longer supports is the suggestion that the guard Traditions dominate the ranking.
+What the model does establish is narrower and I think more useful. It shows that the mechanisms Maxwell grouped as hazard-avoiding have explicit functions in the authored model, and that loss of outside referrals produces the highest closure rate among the single-channel decline paths tested. Conditional practice can mask that decline, though room-size loss is visible. Those are claims that can be checked against real groups. What the comparison no longer supports is the suggestion that the guard Traditions dominate the ranking.
 
 ### 2. The technical version
 
@@ -4055,7 +4055,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **Read in full:**
 
-Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica, N.Y.: B. S. Merrell. **Read at source**; saved in `research/`. Used here only for the four written analogues of protective Traditions and the three contradicted enabling ones. Full bibliographic detail and the quotations are in Chapter One.
+Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica, N.Y.: B. S. Merrell. **Read at source**; held git-ignored in `research/incorporated/Grosh_1842/`. Used here only for the four written analogues of protective Traditions and the three contradicted enabling ones. Full bibliographic detail and the quotations are in Chapter One.
 
 Kurtz, E. (1979, expanded 1991). *Not-God: A History of Alcoholics Anonymous.* Center City, Minn.: Hazelden. **Read at source.** Used here for the dependence of Wilson's Washingtonian reading on the Traditions he was drafting. **In copyright; the full text is not stored in this repository.**
 
@@ -4242,7 +4242,7 @@ At year one an unreferred group has 32.7 members. At year two, 30.4. At year fiv
 
 Five years in, a viable unreferred group is a smaller meeting full of apparently solid people.
 
-By year ten, 66.0 per cent remain endpoint-viable and 94.8 per cent still exist. The viable groups average 16.5 members and sit at 0.348, above the healthy group. By year twenty, 17.3 per cent remain viable and 42.5 per cent exist; the viable subset averages 11.4 members at 0.355. By year thirty, only 2.75 per cent remain viable, 10.5 per cent exist at all, and 89.5 per cent have closed. The eleven viable groups average 12.3 members.
+By year ten, 66.0 per cent have more than five members and 94.8 per cent still exist. The viable groups average 16.5 members and sit at 0.348, above the healthy group. By year twenty, 17.3 per cent remain viable and 42.5 per cent exist; the viable subset averages 11.4 members at 0.355. By year thirty, only 2.75 per cent remain viable, 10.5 per cent exist at all, and 89.5 per cent have closed. The eleven viable groups average 12.3 members.
 
 Read the viable-subset columns down and two things diverge. Membership falls from 22.1 at year five to 12.3 at year thirty, a visible warning. Practice goes the other way, from 0.348 to 0.364, while the viable subset shrinks from 388 groups to eleven. The corrected model therefore does not support the claim that nothing inside the room looks wrong. It supports the narrower claim that practice among selected survivors can look strong while the population of groups disappears.
 
@@ -4380,7 +4380,7 @@ At year thirty, 10.5 per cent still exist and 2.75 per cent remain viable. The e
 
 Read those columns down. Membership falls from 22 to 12 while established practice stays high. The practice reading looks healthy; the room count does not.
 
-Now read the existence column down. One hundred per cent. Ninety-five. Forty-three. Eleven. The viable column falls faster still.
+Now read the existence column down. One hundred per cent. Ninety-five. Forty-two and a half. Ten and a half. The viable column falls faster still.
 
 Almost nine in ten groups are closed. The selected survivors look strong on practice, but they look small. The earlier chapter title overstates what the corrected model shows.
 
@@ -4480,7 +4480,7 @@ For comparison, viable baseline groups average 29.40 members and 0.3016 establis
 
 **The historical application is a candidate mechanism and not a finding, and the chapter says so twice.** I want it recorded here as well. The argument is that the thinness of the Washingtonian decline record is consistent with a failure mode that leaves no trace in surviving institutions. It is consistent with several other explanations, including the one Chapter Two documents at length, which is that the record was curated by a man with an interest in what the movement should have been. The two explanations predict the same silence and nothing in the surviving material distinguishes them.
 
-**The series has now been obtained and read, and it supplies one number.** The document is service material SMF-132, *Estimated Worldwide A.A. Individual and Group Membership*, published free by the General Service Office as a table of groups and members by year, 1935 to 2020. It was located on 2 August 2026, left unread on a policy ground that was itself corrected on 10 August, and read at source on 17 August 2026. Dividing reported members by reported groups gives a mean of 18.4 members per group across 2001 to 2020, ranging from 16.5 to 22.1 and falling steadily as groups are added faster than members. The model's endpoint membership at full adherence is 17.80, with a 95 per cent interval of [16.92, 18.68] on 400 seeds at thirty years. That sits inside the observed range and close to its mean, and the model was not fitted to it: room capacity, arrival and dropout were all set before this table was read, which is what makes the comparison out of sample at all. **It is a consistency check and not a validation, and the source says why.** AA keeps no membership lists, and these are reports from groups registered with general service offices. A ratio of two estimated aggregates is not a sample of group sizes: it carries no interval, and it says nothing about a distribution that is certainly skewed. The model produces a distribution and the table produces a point. They agree at the point, which is worth a sentence and not a chapter. Two limitations named earlier survive unchanged. The series is worldwide rather than regional, so the natural experiment this chapter proposes, a region whose referral pipeline changed sharply, still needs finer data than SMF-132 carries. And a count of groups is not a count of group deaths, because the total moves with births as well.
+**The series has now been obtained and read, and it supplies one number.** The document is service material SMF-132, *Estimated Worldwide A.A. Individual and Group Membership*, published free by the General Service Office as a table of groups and members by year, 1935 to 2020. It was located on 2 August 2026, left unread on a policy ground that was itself corrected on 10 August, and read at source on 17 August 2026. Dividing reported members by reported groups gives a mean of 18.4 members per group across 2001 to 2020, ranging from 16.5 to 22.1 and falling on trend as groups are added faster than members. The model's endpoint membership at full adherence is 17.80, with a 95 per cent interval of [16.92, 18.68] on 400 seeds at thirty years. That sits inside the observed range and close to its mean, and the model was not fitted to it: room capacity, arrival and dropout were all set before this table was read, which is what makes the comparison out of sample at all. **It is a consistency check and not a validation, and the source says why.** AA keeps no membership lists, and these are reports from groups registered with general service offices. A ratio of two estimated aggregates is not a sample of group sizes: it carries no interval, and it says nothing about a distribution that is certainly skewed. The model produces a distribution and the table produces a point. They agree at the point, which is worth a sentence and not a chapter. Two limitations named earlier survive unchanged. The series is worldwide rather than regional, so the natural experiment this chapter proposes, a region whose referral pipeline changed sharply, still needs finer data than SMF-132 carries. And a count of groups is not a count of group deaths, because the total moves with births as well.
 
 **A second consistency check, of a different number.** The 1939 working manuscript records how large the first meetings were, in members' own round figures: gatherings of forty to eighty in Akron, and sixty or eighty as a rule in the house where they met; thirty or forty in New York; more than seventy, some sixty and some seventy in three of the stories; and some thirty men, and some forty others at one meeting, in another. Each was checked against the facsimile's page images, on MS pp. 11, 78, 79, 95, 117, 132, 140 and 141. These bear on the model's room capacity of sixty, which they bracket, and not on the endpoint mean of 17.80 that SMF-132 is compared with, so they are not a second test of that number. Nor are they observations in any statistical sense. They are round numbers for overlapping places within a few weeks, written by members, and one of them counts families as well as members. The capacity stays at sixty, and nothing here was used to set it.
 
@@ -4562,7 +4562,7 @@ Take twenty-five founding members with a fixed total amount of practice between 
 
 Run each four hundred times for thirty years.
 
-Even ends at 17.80 members. Concentrated ends at 18.09. Split ends at 17.45. Their ninety-five per cent half-widths are 0.88, 0.99 and 0.93. Endpoint viability is 98.5, 98.75 and 98.5 per cent. Established-member practice is 0.2645, 0.2628 and 0.2660.
+Even ends at 17.80 members. Concentrated ends at 18.09. Split ends at 17.45. Their ninety-five per cent half-widths are 0.88, 0.99 and 0.93. Endpoint viability is 98.5, 98.75 and 98.5 per cent. Established-member practice, over all 400 runs of each, none of which closes, is 0.2645, 0.2628 and 0.2660.
 
 Unresolved. Relative to even founders, the paired membership difference is 0.29 [-0.90, 1.48] for concentrated and -0.35 [-1.47, 0.78] for split. Neither interval excludes zero, and no equivalence margin was specified in advance, so the experiment establishes neither a difference nor practical equality.
 
@@ -4720,7 +4720,7 @@ I said the period's vocabulary distinguished at least eight grades of drinker. M
 
 I said the Traditions were a set of rules. Wilson's own framing sentence says a code of traditions could never become rule or law.
 
-I said the Traditions were adopted at a 1950 international convention. Kurtz dates the adoption to June 1950 and does not connect it to that gathering.
+I said the Traditions were adopted at a 1950 international convention. Kurtz dates the adoption to June 1950 and does not connect it to that gathering, though the 1953 commentary, which I read later, does; this one is a disagreement between sources, not a settled error.
 
 Every one of those became visible the moment a primary source was in front of me, and not one minute before.
 
@@ -4812,7 +4812,7 @@ The corrections, with what found each one and where the corrected version lives.
 | Maxwell precise about three founding dates | Maxwell, read from a saved copy | Ch 1 |
 | Eight grades of drinker | the same | Ch 1 |
 | The Traditions described as rules | Kurtz, quoting Wilson | Ch 5 |
-| Adoption at a 1950 convention | Kurtz | Ch 5 |
+| Adoption at a 1950 convention (the sources differ) | Kurtz, against the 1953 commentary | Ch 5 |
 | A group closing its doors | a reader who had been in the rooms | Ch 19, A7.3 (T3-on-admission variant) |
 | Threshold range containment | a notebook assertion | Ch 18 |
 | A rank stated as fourth | a notebook assertion | Ch 17 |
@@ -5059,7 +5059,7 @@ I have tried throughout to say "a group's decisions are more reliable" rather th
 
 The people in Part One are the other case, and they need a different kind of care.
 
-John Hawkins was a hatter who drank for twenty years, was reclaimed in June 1840, spoke to the Maryland legislature within eight months, and spent the rest of his life at it. John Gough was the most famous reformed drunkard in America and was found, in 1845, in circumstances he described by writing *I have fallen*. William Mitchell was a tailor who proposed a joke and made it into an institution. Six men in a bar in Baltimore.
+John Hawkins was a hatter who drank for twenty years, was reclaimed in June 1840, spoke to the Maryland legislature within eight months, and spent the rest of his life at it. John Gough was the most famous reformed drunkard in America and was found, in 1845, in circumstances he described by writing *I have fallen*. William Mitchell was a tailor whom a joke made president and who wrote the pledge. Six men in a bar in Baltimore.
 
 They are used in this book as evidence. Their movement is a control case: the fellowship that had the same insight and did not last, whose absence of certain rules makes the presence of those rules in AA legible. That is a legitimate use of history and it is what historical evidence is for.
 
@@ -5449,6 +5449,11 @@ independent replications and not confirmatory estimates.
 
 ## A5. Confirmatory results
 
+Unless a section says otherwise, every result here is from 400 seeds paired by common random numbers,
+over 1,560 weeks (thirty years) at `dt = 0.5` weeks, with viable meaning more than five members at the
+stated horizon; the Tradition ranking in A5.2 uses a 20-year horizon of 1,040 weeks. Binary fractions
+carry Wilson intervals and contrasts carry paired intervals.
+
 ### A5.1 Conditions and mechanism factorials
 
 | Condition | Final N, mean [95% interval] | Exists | Viable | Closed |
@@ -5474,9 +5479,9 @@ interval crosses zero, so the clean recipient ablation is unresolved.
 
 ### A5.2 Service, composition, and the Tradition ranking
 
-Disabling Step 12 lowers final membership by 5.325 [4.437, 6.213], established practice by
-0.01497 [0.00765, 0.02229], and maintenance capacity by 0.01351 [0.00788, 0.01915]. The isolated
-Step 9 change is 0.00550 with an interval from -0.00149 to 0.01249 and is unresolved.
+Disabling Step 12 lowers final membership by 5.325 [4.437, 6.213], all-member practice by
+0.01497 [0.00765, 0.02229], and maintenance capacity by 0.01351 [0.00788, 0.01915]. With Step 12 disabled,
+Step 9 practice is lower by 0.00550, with an interval from -0.00149 to 0.01249, which is unresolved.
 
 The founder-composition experiment holds total initial practice at 13.75 and compares even,
 concentrated, and split allocations. Relative to even founders, paired final-membership
@@ -5502,10 +5507,11 @@ result.
 
 Under referral loss, all-run membership is 21.55 at year 5, 11.68 at year 10, 2.50 at year 20,
 and 0.51 at year 30. Endpoint viability falls from 0.970 to 0.660, 0.1725, and 0.0275. Membership
-among viable groups also falls, from 22.07 to 16.47, 11.39, and 12.27. The last mean is based on
-only eleven viable runs and has half-width 3.81. The corrected model therefore shows visible
+among viable groups also falls, from 22.07 to 16.47 and 11.39 at years 10 and 20, and is 12.27 at
+year 30. That last mean is based on only eleven viable runs and has half-width 3.81. The corrected model therefore shows visible
 room-size decline as well as closures. Established practice among selected viable remnants stays
-high; that selected quantity is not evidence that the interior has no warning signal.
+high, at 0.348, 0.348, 0.355 and 0.364 at years 5, 10, 20 and 30 against 0.322, 0.302, 0.273 and
+0.265 for the full-adherence group, the year-30 value resting on eleven runs; that selected quantity is not evidence that the interior has no warning signal.
 
 ---
 
@@ -5513,9 +5519,10 @@ high; that selected quantity is not evidence that the interior has no warning si
 
 At the baseline thirty-year horizon, mean final membership is 17.80 at `dt=0.5`. In 200 paired
 seeds, changes relative to that step are 1.535 plus or minus 1.777 at `dt=1`, 0.865 plus or minus
-1.836 at `dt=0.25`, and -0.405 plus or minus 1.742 at `dt=0.125`. All intervals cross zero. This
-supports the tested half-week resolution for the reported comparisons; it does not prove
-convergence at arbitrary resolution.
+1.836 at `dt=0.25`, and -0.405 plus or minus 1.742 at `dt=0.125`. All intervals cross zero, at
+half-widths of about 1.8 and against a 200-seed baseline of 17.32. With no equivalence margin that is
+unresolved, not evidence of equality; it is consistent with the tested half-week resolution for the
+reported comparisons and does not prove convergence at arbitrary resolution.
 
 Mean final membership is 29.34 at 10 years, 21.14 at 20, 17.80 at 30, 16.43 at 50, and 15.64 at
 100, with 95 per cent half-widths of 1.71, 1.60, 0.88, 1.08 and 0.99; the 30-year figure is from 400
@@ -5538,6 +5545,7 @@ to move, the release makes no steady-state or indefinite-persistence claim.
 | Sobol | 1,024 base rows, 11,264 points | 5 | conditional decomposition on eight Morris leaders |
 | Structural variants | 10,000 simulations | 400 | five architectures by five scenarios |
 | Decay-ordering confirmation | 4,800 simulations | 400 | referral against attraction loss at four `delta0` levels |
+| Decay-reversal location | 3,600 simulations | 400 | the same comparison at three further `delta0` levels, 10, 15 and 20 per cent lower |
 
 Multiplicative designs cannot move structural zeros. A full-adherence outcome cannot reveal the
 35 `GOV` magnitudes because they cancel. The randomized-matrix design holds sparsity fixed and
@@ -5572,8 +5580,10 @@ the hyperbolic response. The last variant still saturates at one despite its his
 | Capacity from all members | 14.730 / 1.000 / 1.000 | 2.003 / 0.2575 / 0.1225 |
 | Piecewise-linear capacity | 13.038 / 1.000 / 0.995 | 1.020 / 0.145 / 0.0575 |
 
-Referral loss is worse on final membership, existence, and endpoint viability in all five
-tested architectures. The earlier three-variant size reversal came from the retired uncentred
+The T3-on-admission row equals the base because Tradition 3 adherence is 1 in these scenarios;
+that variant differs from the base only in the gatekeeping scenario, which this table omits, so four
+distinct architectures are compared here. Referral loss is worse on final membership, existence,
+and endpoint viability in all five tested architectures. The earlier three-variant size reversal came from the retired uncentred
 capability model and does not reproduce. Five architectures are not every possible architecture.
 
 ### A7.4 Tiered and randomized-matrix screens
@@ -5585,7 +5595,8 @@ capability model and does not reproduce. Five architectures are not every possib
 
 Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss. Randomizing every
 nonzero matrix magnitude while preserving the zero pattern leaves the comparison intact on all
-three outcomes. The tiered design, which also varies scalar defaults and Step speeds over wider
+three outcomes. These designs run at full adherence, where the governance magnitudes cancel (A2.3),
+so they test the `S` magnitudes only. The tiered design, which also varies scalar defaults and Step speeds over wider
 ranges, produces substantial final-membership reversals and smaller numbers of viability and
 existence reversals. These are different robustness questions.
 
@@ -5658,8 +5669,8 @@ not reversed in a single paired run at any of the three, so the reversal remains
 membership throughout.
 
 Against a three-seed full-adherence baseline of 18.67 members, 0.2261 practice and 0.0431 maintenance, the
-ordering exponent `p_gate` has the largest single influence on all three outcomes. At plus or
-minus 25 per cent its maintenance range is 5.45 times baseline, `delta0` 3.27 and the Step 11
+ordering exponent `p_gate` has the largest single influence on mean practice, maintenance and
+final membership at plus or minus 25 per cent. At that distance its maintenance range is 5.45 times baseline, `delta0` 3.27 and the Step 11
 speed 2.22 (cache labels such as `a:10` and `S:11,5` are zero-indexed, so `a:10` is Step 11); over the whole four-distance ladder the figures are 14.64, 12.98 and, for `het_sd`,
 4.69.
 
@@ -5758,7 +5769,7 @@ Sparsity has to be priced separately, because no magnitude design can move a zer
 of `GOV` at random within the seven enabling rows, so the protective rows stay empty, with 2,000
 draws for each count, the all-twelve rejection holds in 86.3 per cent [84.7, 87.7] of draws when
 four of the 56 enabling cells differ and in 51.7 per cent [49.5, 53.9] when sixteen do. A flipped
-cell takes the value 0.5, so ties are common, and a tie never counts as the rejection holding. The
+zero cell takes the value 0.5 and a flipped nonzero cell becomes 0, so ties are common, and a tie never counts as the rejection holding. The
 products are computed exactly, so the figures are the same on every machine. The paper's sparsity
 table gives the series and the other three claims.
 
@@ -6077,7 +6088,8 @@ a Buddhist chaplain visiting a treatment unit (106), a stranger's message on a m
 and, in three cases, founding a group rather than finding one. Only one route resembles a member
 carrying the message to a stranger. For this fellowship the exogenous constant would carry nearly
 all of the arrivals and the endogenous term would be close to idle, which is the reverse of the
-weighting the model uses and the reason inference 6 of A12.7 cannot be carried over unchanged.
+weighting the model uses in its founder years, though less far from its thirty-year baseline, and
+the reason inference 6 of A12.7 cannot be carried over unchanged.
 
 **Membership overlaps rather than substitutes.** Several contributors describe attending Recovery
 Dharma and a Twelve Step fellowship at the same time, one naming a sponsor, wise friends and a
@@ -6428,8 +6440,9 @@ lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
 ```
 
 The first term is arrival that does not pass through a member. The second is arrival carried by
-members, scaled by their Step 12 state. The model gives the endogenous term the dominant role, and
-that is an authored choice. The question here is whether the fellowship's own accounts of how people
+members, scaled by their Step 12 state. The model's endogenous term is large early, when founders hold Step 12 near 0.55, and at the
+thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (the endogenous rate
+exceeds it in about one run in ten). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
 arrived support it.
 
 The coding rule is: for each story, does the account describe a person who was themselves a recovered
@@ -6485,7 +6498,7 @@ the fellowship as an untested experiment about which it recorded doubt.
 
 **It bounds that architecture to that fellowship, and A12.5 is the other half of the bound.** The
 fourteen Recovery Dharma accounts report arrival through a noticeboard flier, a website, a free
-online book, internet searches, online meetings, a therapist and a prison chaplain, with almost no
+online book, internet searches, online meetings, a therapist and a Buddhist chaplain visiting a treatment unit, with almost no
 member-carried arrival at all. Two fellowships, eighty-four years apart, sit at opposite ends of the
 same parameter. A model that fixes the weighting between `lam_exog` and the endogenous term is
 therefore making a claim about a period and an organization rather than about mutual-aid groups, and
@@ -6500,8 +6513,9 @@ describes what moved him as a man who "talked my language", after reading widely
 many non-alcoholic experts to no effect. That is the identification resource of A2.2, which the
 matrix loads most heavily onto Step 1, described from the inside.
 
-**What it does not do.** It does not validate any numerical value. `lam_exog`, `lam0` and the
-attraction multiplier remain three of the hundred and eighteen registered values, fitted to nothing.
+**What it does not do.** It does not validate any numerical value. `lam_exog` and `lam0` remain two of the
+hundred and eighteen registered values, fitted to nothing, and the attraction multiplier is a
+Tradition 11 adherence setting.
 A census of how people say they arrived cannot set a rate. It also cannot speak to survivorship: the
 thirty accounts are of people who recovered and were chosen for a book intended to persuade, so
 they are the least representative sample imaginable of everyone the fellowship met. Nothing here
@@ -6548,8 +6562,8 @@ codings differ (the 2001 rule separates out subjects who contacted the fellowshi
 themselves), and so do the denominators: the 1939 share keeps the six unmatched segments in its
 twenty-six, while the 2001 share drops twelve unresolved stories from its forty-two to reach thirty. This is a
 direction and not a measured change. The released baseline holds
-`lam_exog` fixed at 0.12 per week in every run, and no design in A7 lets it grow with the
-fellowship's size, so the model cannot represent that shift. A fellowship large enough
+`lam_exog` at 0.12 per week, constant within a run; the A7 designs perturb or zero it, but none
+lets it grow with the fellowship's size, so the model cannot represent that shift. A fellowship large enough
 to be found in a telephone book, and embedded in courts and treatment systems that refer to it, has
 an exogenous arrival rate that grew with its own institutional presence. That is a mechanism the
 model does not contain, and the two censuses together are the clearest evidence in this appendix
@@ -6562,8 +6576,8 @@ edited collections sixty-two years apart, not a time series.
 
 ### A13.6 The Machinery
 
-**1. What the census says.** The model's arrival term gives the member-carried channel the dominant
-role. The 1939 accounts describe arrival that way, with a lower bound of twenty of the twenty-six
+**1. What the census says.** The model's arrival term gives the member-carried channel a large role
+early in a run. The 1939 accounts describe arrival that way, with a lower bound of twenty of the twenty-six
 story segments recovered from the thirty stories carrying explicit personal-contact language, and the single
 counter-case is one the fellowship itself flagged as an untested experiment about which it recorded
 doubt. Read beside A12.5, where a modern fellowship arrives almost entirely without members, the
@@ -6757,7 +6771,9 @@ eight columns were the right eight.
 
 Each entry gives the derived group-dependence coefficient beta, which is the Step's
 row sum in S normalised by the largest row sum, and the Step's principal supplier,
-which is the Tradition governing the largest share of what that Step consumes. The
+which is the Tradition with the largest entry for that Step in B, the raw semantic overlap of
+the two authored matrices. The share-normalised map C can name a different Tradition, as it does at
+Step Twelve. The
 index-mate is the Tradition carrying the same number, and its rank among the twelve is
 the whole of Part Four's argument in one column.
 
@@ -6788,9 +6804,9 @@ measured that. Reverse the two largest entries, so that admission outranks
 identification, and Tradition 3 would win this row more clearly rather than less, so
 the headline result here is not sensitive to that particular judgement. What the row
 does depend on is the claim that identification is a distinct thing a group supplies,
-rather than an aspect of admission. The resource-list test can merge those two columns,
-and does, and Step One is among the fifteen variants where the index pairing comes
-back.
+rather than an aspect of admission. The resource-list test can delete or merge either column,
+and does: merging the two alone does not bring the index pairing back, but deleting both
+does, and Step One is among the fifteen variants where it comes back.
 
 *In plain terms.* This is the Step you cannot take by yourself, and it is tied with the
 twelfth for depending most on other people. What it needs is not advice. It is other
@@ -6852,7 +6868,7 @@ quiet.
 
 *In plain terms.* The decision asks less of a group than almost any other Step. What it
 does draw on is counsel: somebody to talk it over with. The Tradition sharing its
-number contributes essentially nothing to it, and that is the starkest single number
+number contributes essentially nothing to it, and that is the starkest non-zero number
 against the pairing idea anywhere in the matrix.
 
 ## Step Four, the inventory
@@ -6940,7 +6956,7 @@ Tradition 1 narrowly wins. The entry is phrased that way deliberately.
 
 *In plain terms.* Becoming willing barely needs a group at all: a little pressure, a
 little counsel, and that is most of it. The two Traditions at the top are so close that
-the model has no real opinion about which one carries it. Of all twelve Steps this is
+the model has no real opinion about which one carries it. By the threshold test, of all twelve Steps this is
 the one where the pairing comes nearest to being recoverable, and it still needs its own
 Tradition to look after its needs more attentively than a typical entry in the whole
 matrix.
@@ -6984,9 +7000,9 @@ confidentiality at 0.1. Top speed 0.18 per week, gate exposure 0.655. The readin
 that making the list is mostly a matter of having somebody to ask, with some
 expectation that it gets done and a little need for discretion.
 
-The single interesting assumption is the small confidentiality entry. It is the reason
-Tradition 8 reaches fourth here, its best rank anywhere, rather than disappearing.
-Remove that 0.1 and the index-mate's showing gets worse. The primer's claim that the
+The single interesting assumption is the small confidentiality entry. It gives
+Tradition 8 its 0.07 here, its best value anywhere. Remove that 0.1 and the entry falls
+to 0.04, tied with Tradition 12, though its competition rank stays fourth. The primer's claim that the
 pairing is not absurd anywhere therefore rests, in this row, on a judgement about a
 tenth of a unit.
 
@@ -7119,8 +7135,9 @@ consequence the author did not choose but must own: a group with fewer experienc
 members has a *higher* ratio and therefore looks richer in this resource, not poorer.
 It records no tenure, no sponsorship, and no matching between a particular helper and a
 particular newcomer. Whether that ratio is a reasonable stand-in for the opportunity to
-be useful is a hypothesis, and it is the hypothesis on which the thirty per cent
-membership result rests. The row is also the fragile one in Part Four for a separate
+be useful is a hypothesis. The thirty per cent membership loss is not shown to depend on it:
+forcing recipient capacity alone changes membership by 1.03 [-0.26, 2.31], which is
+unresolved, while disabling Step Twelve also removes its attraction and maintenance roles. The row is also the fragile one in Part Four for a separate
 reason: the top two Traditions are 1.25 and 1.10, and the assignment to Tradition 5
 survives only 67.4 per cent of magnitude draws.
 
@@ -7181,10 +7198,10 @@ entries instead lead with the more informative 400-seed path-split factorials.
 ## Tradition 1, unity
 
 *Technical.* Load 6.52, the largest, governing all eight resources and the only
-Tradition to do so. Principal supplier for four Steps and runner-up for six, so it is
-in the top two for ten of the twelve. Degrading it alone costs 1.65 members
+Tradition to do so. Principal supplier for four Steps, runner-up for five, and joint first with
+group conscience at Step Four, so it is in the top two for ten of the twelve. Degrading it alone costs 1.65 members
 [0.99, 2.30], third largest. Its primacy survives 75.4 per cent [73.5, 77.2] of fully
-structural draws, against 40.6 per cent for the index-pairing claim. It is not the most
+structural draws, against 40.6 per cent for the rejection of index-pairing. It is not the most
 diffuse Tradition by concentration: singleness of purpose scores marginally lower at
 0.197 against unity's 0.204. Its load is carried by two resources: continuity at 1.89
 and gentle pressure at 1.86 are 57.5 per cent of the total, and transferring either one
@@ -7221,7 +7238,7 @@ on.
 
 *Technical.* Load 3.89, second largest, governing four resources, with counsel at 0.69
 of its load and the highest concentration of any Tradition at 0.520. Principal supplier
-for four Steps and runner-up for four more. Degrading it alone costs 0.48 members
+for three Steps, runner-up for four, and joint first with unity at Step Four. Degrading it alone costs 0.48 members
 [-0.14, 1.10], an unresolved contrast. In the deliberation model it is one of three Traditions keeping maximum
 influence falling toward one over N, which is the Golub and Jackson condition for a
 consensus converging on the truth. A single member holding 0.35 of every row floors the
@@ -7401,14 +7418,15 @@ instrument that cannot resolve a thing is silent about it, not against it.
 guarding against outside override. Degrading it alone costs 0.88 members [0.26, 1.50],
 identical to Tradition 4's by construction. Money enters the simulation elsewhere,
 through a solvency term scaling the continuity resource: a group whose established
-members cannot cover the rent supplies continuity at 0.45 rather than 1.0. That
+members fall short of the rent supplies continuity somewhere between 1.0 and a floor of 0.45,
+nearer the floor the fewer established members it has. That
 mechanism is not attributed to Tradition 7 in the governance matrix. *Algebra and
 simulation.*
 
 *What was assumed.* An empty governance row, and the shared multiplier with Tradition 4.
 The consequential assumption is where money went instead. The model does represent
-solvency, through a term that drops the continuity resource from 1.0 to 0.45 when a
-group's established members cannot cover the rent, but that term was attached to the
+solvency, through a term that scales the continuity resource down from 1.0 toward a floor of 0.45
+as a group's established members fall short of what it takes to cover the rent, but that term was attached to the
 group's finances directly rather than to the Tradition that produces them.
 
 So the zero in this row is not a claim that self-support does not matter. It is a
@@ -7418,7 +7436,7 @@ what they would be disagreeing with: not a finding, but an attribution.
 
 *In plain terms.* Passing the basket looks after nothing directly in the matrix, and yet
 money is unmistakably in the model somewhere else: a group that cannot pay its rent
-supplies week-to-week continuity at less than half strength, and continuity is one of
+supplies week-to-week continuity at well below full strength, and continuity is one of
 the two things holding unity up. So the practical content of self-support is that the
 meeting keeps happening. The matrix does not give Tradition 7 credit for that, and a
 reader could reasonably say it should. This is one of the places a second person
@@ -7581,8 +7599,8 @@ influence near one over N. *Algebra, deliberation and simulation.*
 *What was assumed.* Five non-zero entries, one of them decisive: confidentiality 1.0,
 identification 0.3, and admission, counsel and continuity at 0.1 each. The 1.0 gives
 anonymity 59 per cent of all confidentiality in the model, one of the larger single shares any
-Tradition holds of any resource, though Tradition 3's 71 per cent of admission and the group
-conscience's 69 per cent of counsel are larger.
+Tradition holds of any resource, though Tradition 3's 71 per cent of admission, the group
+conscience's 69 per cent of counsel and unity's 60 per cent of gentle pressure are larger.
 
 This is the assumption that produces the cleanest result in the book, and it was made
 independently of the matching assumption in Step Five's row only in the weak sense that
@@ -7676,8 +7694,8 @@ Traditions look very much like instructions for avoiding exactly those things, b
 resources are that person's list and no source proposes it. A second reader marking the
 ninety-six governance cells is the largest outstanding item in the project and no further
 computation substitutes for it. Flipping four of fifty-six enabling cells at random
-leaves Part Four's claims standing 86 per cent of the time; flipping sixteen leaves them
-at a coin flip. In plainer terms: one disagreement here and there is survivable, wholesale
+leaves the rejection of index-pairing on all twelve counts standing in 86.3 per cent of
+draws; flipping sixteen leaves it at 51.7, close to a coin flip. In plainer terms: one disagreement here and there is survivable, wholesale
 disagreement is not, and only a second reader can say which this would be.
 
 **Nothing here is calibrated to AA data**, because none exists at the required
@@ -7808,7 +7826,7 @@ demonstrable transcription errors are listed in `research/SOURCES.md`.
 Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion.* Second edition. Utica,
 N.Y.: B. S. Merrell. The Washingtonians' own manual, used here for the written
 analogues of Traditions 4, 7, 9 and 10 and for their deliberate opposite position on
-anonymity. Read at source; saved in `research/`.
+anonymity. Read at source; held git-ignored in `research/incorporated/Grosh_1842/`.
 
 Recovery Dharma Global (2023). *Recovery Dharma.* Second edition. Recovery Dharma Inc.
 CC BY-NC-SA 4.0. The only source for the follow-up section above. Read in full, in two
@@ -8544,10 +8562,10 @@ the assignment without being the passage Kurtz cited.
 Every design above varies magnitudes and holds the sparsity pattern fixed; a second reader
 would disagree about the pattern. Flipping cells at random within the seven enabling rows
 (56 cells, so the two-tier split is held fixed), 2,000 draws per flip count. A flipped
-cell takes the value 0.5, so a Step's strongest Traditions often tie exactly. A claim
-counts as holding in a draw only where it holds strictly, since a tie is not support, and
-the products are computed exactly, every weight being a multiple of 0.01, so the table
-does not depend on how a machine rounds:
+zero cell takes the value 0.5 and a flipped nonzero cell becomes 0, so a Step's strongest
+Traditions often tie exactly. A claim counts as holding in a draw only where it holds
+strictly, since a tie is not support, and the products are computed exactly, every weight
+being a multiple of 0.01, so the table does not depend on how a machine rounds:
 
 | Cells flipped | Index-pairing wrong, all | T1 leads | Step 5 $\to$ T12 | Step 12 $\to$ T5 |
 |---:|---:|---:|---:|---:|

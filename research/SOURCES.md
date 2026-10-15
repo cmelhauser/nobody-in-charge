@@ -404,7 +404,7 @@ eight months, the anniversary parade of about 1,000 reformed drunkards and 5,000
 40,000 spectators, Mitchell's motto, the 23,340 signatures, Pittsburgh's 10,000, Cincinnati's
 900 of 8,000, the Vermont 518 of 42,273, Hawkins joining on 14 June 1840 and speaking at
 Annapolis in February 1841, the 600,000 figure's descent from the 1843 ATU Report, Marsh's
-revisions to 4,000,000 and then 150,000, Jellinek's nine words about the missing ideology, the
+revisions to 4,000,000 and then 150,000, Jellinek's fifteen words about the missing ideology, the
 "sheer survival value" passage and Maxwell's five-point comparison are all present and say
 what the book says they say.
 
@@ -439,7 +439,7 @@ What the second reading supplied, all of it new to the book:
 | Wilson's hesitation, and writer's cramp, scant staff and repetition overcoming it | ch5 |
 | The seven matters he listed as settled by painful experience | ch5 |
 | His disclaimer that a code of traditions could never become rule or law | ch5, and it corrected the chapter's central vocabulary |
-| Long form April 1946; short form November 1949; adoption June 1950 | ch5, replacing a wrong adoption claim |
+| Long form April 1946; short form November 1949; adoption June 1950 | ch5; the 1953 commentary's foreword also ties the adoption to the 1950 Cleveland convention, which Kurtz does not, and the two are not reconciled |
 | "Nobody invented Alcoholics Anonymous. It grew. Trial and error has produced a rich experience." | ch5, quoted; it is the chapter's thesis in Wilson's own words |
 | "Honest" dropped from Tradition Three in 1949 | ch5 |
 | The 1937 Towns offer, the Clinton Street meeting and the group's reply | ch5, quoted at length |
@@ -483,8 +483,8 @@ the four figures Chapter 22 uses, each taken from the paper's own text:
 | Homophily: low-predicted-grade students in treatment squadrons actively sought out other low-predicted-grade students | the mechanism |
 
 **This unblocked Chapter 22**, which had been drafted at 762 words under an explicit instruction
-in `plans/PART-5-PLAN.md` not to write it at full length without this paper. It is now 1,297
-words and the paper carries it.
+in `plans/PART-5-PLAN.md` not to write it at full length without this paper. It was 1,297
+words when first rewritten, has grown since, and the paper carries it.
 
 **One acquisition attempted on 2 August 2026 and not obtained. The other has since been read.**
 
@@ -663,8 +663,8 @@ Offsets are into the whitespace-normalised text, which is how the passages are l
 | 624,387 | The founding scene from the eleventh annual report of the Maryland State Temperance Society, naming Elder Knapp, and the note that the account was later denied |
 
 **A conflict this source creates rather than settles.** Marsh's founding account names the
-preacher as Elder Knapp and has four of the six attend; Maxwell has Matthew Hale Smith and a
-single delegate. Both are retrospective and descend from different Baltimore informants.
+preacher as Elder Knapp and has four of the six attend; Maxwell has Matthew Hale Smith and
+also four of the six attending, so the two agree on the number and differ only on the preacher. Both are retrospective and descend from different Baltimore informants.
 Recorded in Chapter 1's notes on sources; not resolved.
 
 **Grosh, A. B., comp. (1842). *Washingtonian Pocket Companion: containing a choice
