@@ -69,7 +69,7 @@ It is a serious objection. It also turns out to be testable, because something d
 
 ---
 
-In April of that year, an AA member named Marty Mann moved to New Haven and founded the National Committee for Education on Alcoholism. Its first offices were at Yale. Its sponsor was the Yale group around E. M. Jellinek, the same Jellinek whose one-line judgment about the Washingtonians' lack of a distinctive ideology Maxwell quoted six years later. Its message had three points: alcoholism is a disease and the alcoholic a sick person; the alcoholic can be helped and is worth helping; alcoholism is a public health problem and therefore a public responsibility.
+In 1944 an AA member named Marty Mann moved to New Haven and founded the National Committee for Education on Alcoholism. Its first offices were at Yale. Its sponsor was the Yale group around E. M. Jellinek, the same Jellinek whose one-line judgment about the Washingtonians' lack of a distinctive ideology Maxwell quoted six years later. Its message had three points: alcoholism is a disease and the alcoholic a sick person; the alcoholic can be helped and is worth helping; alcoholism is a public health problem and therefore a public responsibility.
 
 Every one of those propositions was to AA's benefit. Mann was a member in good standing, the first woman to achieve long-term sobriety in the fellowship, and Bill Wilson was her sponsor.
 
@@ -127,7 +127,7 @@ So the honest version of the methodological point is narrower and less comfortab
 
 What remains true, and it is the part that bears on Maxwell, is that a comparative study of two historical movements has no replications at all. It has one of each. Whatever this model can or cannot resolve at four hundred runs, the historical method cannot resolve any of it, and that asymmetry is the chapter's actual subject.
 
-What the model does establish is narrower and I think more useful. It shows that the mechanisms Maxwell grouped as hazard-avoiding have explicit functions in the authored model, and that loss of outside referrals produces the highest closure rate among the tested decline paths. Conditional practice can mask that decline, though room-size loss is visible. Those are claims that can be checked against real groups. What the comparison no longer supports is the suggestion that the guard Traditions dominate the ranking.
+What the model does establish is narrower and I think more useful. It shows that the mechanisms Maxwell grouped as hazard-avoiding have explicit functions in the authored model, and that loss of outside referrals produces the highest closure rate among the single-channel decline paths tested. Conditional practice can mask that decline, though room-size loss is visible. Those are claims that can be checked against real groups. What the comparison no longer supports is the suggestion that the guard Traditions dominate the ranking.
 
 ### 2. The technical version
 

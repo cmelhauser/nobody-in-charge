@@ -5813,3 +5813,45 @@ material changes: the public-domain status of pre-1929 sources, the copyright an
 Maxwell (1950), Recovery Dharma (CC BY-NC-SA 4.0) and every other source, and the rule that no source
 document is committed all concern those works and not this repository's licence. Anyone who has
 already received the material under the Unlicense keeps what they received.
+
+### 15 October 2026: verification reports on the primer, appendix, Part Five and Parts One and Six
+
+Four more readers recomputed or source-checked what the earlier rounds had not: the primer's numbers
+against the model, the appendix's against the caches, Chapters 20 to 22 against the 400-seed
+trajectories, and Chapters 1 to 6 and 23 to 25 against the held sources. The Part Five figures all
+reproduced. The rest are corrected here.
+
+- *Primer.* Unity's and group conscience's principal and runner-up counts follow the exact table
+  (four and five; three and four; joint first at Step Four). The 0.1 confidentiality entry gives
+  Tradition 8 its value, not its rank. Step One's resource-list recovery needs both columns deleted,
+  not merged. Tradition 7's solvency term is graded toward a floor of 0.45, not a switch. The principal
+  supplier is the raw-B maximum, which the normalised map C can contradict at Step Twelve. The
+  sparsity sentence names the claim it prices. The thirty per cent Step Twelve loss is not shown to
+  depend on the recipient proxy. Step Six is nearest by the threshold test only; Step Three's 0.01 is the
+  starkest non-zero number; unity's 60 per cent of pressure is added beside the larger column shares.
+- *Appendix.* The endogenous arrival term is large in the founder years and supplies a minority of
+  arrivals at the thirty-year baseline endpoint (A13.2, A13.5, A13.6, A12.5, A13.7); the T3-on-admission
+  variant equals the base outside the gatekeeping scenario; the randomized-matrix and tiered designs
+  test S magnitudes only; ch15's `practice` is all-member practice; `lam_exog` and `lam0` are two of the
+  118, not three; the A5.4 direction words, the A6 equivalence wording and the A7.5 "all three outcomes"
+  are qualified; the decay-reversal design joins the registry; a flipped zero cell becomes 0.5 and a
+  flipped nonzero cell 0; A5 states its estimand and A5.4 quotes the practice values.
+- *Chapters 1 to 6 and 23 to 25.* The 1953 commentary and the 2024 Service Manual both tie the
+  Traditions' confirmation to the 1950 Cleveland convention, so Chapters 5 and 23 no longer call that
+  connection an error; the sources differ and are not reconciled. All three of Chapter 1's sources agree
+  that four of the six went to the sermon. Three written word counts were wrong (thirteen, fifteen and
+  a dozen, not nine, nine and five). The Connecticut convention fell within months of the Utica
+  constitution, not three years after. Marsh's 150,000 is from 1866 and "permanently rescued" is Maxwell's
+  gloss. Krout does not give the officers. Mitchell did not propose the joke; he was made president by it.
+  The Sons of Temperance screening and ritual, the Martha Washington priority, Black Washingtonian
+  societies and Gough's coda figures are hedged as unsourced in the held record. The Chapter 4 member
+  counts are aligned with Chapter 5 and Wilson's three years. Chapter 6's "In April" and "highest
+  closure rate" are qualified.
+- *Chapters 20 to 22.* Chapter 20's year-ten 66.0 per cent is "more than five members", not endpoint
+  viability; Chapter 22's practice values are over all 400 runs; Chapter 21's existence column reads
+  42.5 and 10.5; the SMF-132 series falls on trend, not steadily.
+
+Not changed: Chapter 22's Carrell, Sacerdote and West design details beyond the four recorded figures
+and the "bottom third" versus "lowest-ability" scope, which need the paper; the Marty Mann and Yale
+honorary-degree items, which rest on secondary accounts; and Kurtz-dependent claims, since Kurtz is
+record only.

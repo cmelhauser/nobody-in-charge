@@ -35,7 +35,7 @@ I have tried throughout to say "a group's decisions are more reliable" rather th
 
 The people in Part One are the other case, and they need a different kind of care.
 
-John Hawkins was a hatter who drank for twenty years, was reclaimed in June 1840, spoke to the Maryland legislature within eight months, and spent the rest of his life at it. John Gough was the most famous reformed drunkard in America and was found, in 1845, in circumstances he described by writing *I have fallen*. William Mitchell was a tailor who proposed a joke and made it into an institution. Six men in a bar in Baltimore.
+John Hawkins was a hatter who drank for twenty years, was reclaimed in June 1840, spoke to the Maryland legislature within eight months, and spent the rest of his life at it. John Gough was the most famous reformed drunkard in America and was found, in 1845, in circumstances he described by writing *I have fallen*. William Mitchell was a tailor whom a joke made president and who wrote the pledge. Six men in a bar in Baltimore.
 
 They are used in this book as evidence. Their movement is a control case: the fellowship that had the same insight and did not last, whose absence of certain rules makes the presence of those rules in AA legible. That is a legitimate use of history and it is what historical evidence is for.
 
