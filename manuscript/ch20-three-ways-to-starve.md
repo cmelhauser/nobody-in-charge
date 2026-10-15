@@ -31,7 +31,7 @@ At year one an unreferred group has 32.7 members. At year two, 30.4. At year fiv
 
 Five years in, a viable unreferred group is a smaller meeting full of apparently solid people.
 
-By year ten, 66.0 per cent remain endpoint-viable and 94.8 per cent still exist. The viable groups average 16.5 members and sit at 0.348, above the healthy group. By year twenty, 17.3 per cent remain viable and 42.5 per cent exist; the viable subset averages 11.4 members at 0.355. By year thirty, only 2.75 per cent remain viable, 10.5 per cent exist at all, and 89.5 per cent have closed. The eleven viable groups average 12.3 members.
+By year ten, 66.0 per cent have more than five members and 94.8 per cent still exist. The viable groups average 16.5 members and sit at 0.348, above the healthy group. By year twenty, 17.3 per cent remain viable and 42.5 per cent exist; the viable subset averages 11.4 members at 0.355. By year thirty, only 2.75 per cent remain viable, 10.5 per cent exist at all, and 89.5 per cent have closed. The eleven viable groups average 12.3 members.
 
 Read the viable-subset columns down and two things diverge. Membership falls from 22.1 at year five to 12.3 at year thirty, a visible warning. Practice goes the other way, from 0.348 to 0.364, while the viable subset shrinks from 388 groups to eleven. The corrected model therefore does not support the claim that nothing inside the room looks wrong. It supports the narrower claim that practice among selected survivors can look strong while the population of groups disappears.
 

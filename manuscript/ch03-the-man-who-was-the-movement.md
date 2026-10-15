@@ -131,7 +131,7 @@ They simply could not do it for a famous man, and by 1845 they had made several.
 
 There is a coda, and I want to keep it because it complicates the moral.
 
-Gough came back. Over the following forty years he gave something like nine thousand six hundred lectures to perhaps nine million people. When he died in 1886 the *New York Times* judged him probably better known in America and Britain than any other public speaker. His church kept him, his wife kept him, his movement kept him. He is buried in Worcester, where he first got sober.
+Gough came back. Over the following forty years he gave something like nine thousand six hundred lectures to perhaps nine million people. When he died in 1886 the *New York Times* judged him probably better known in America and Britain than any other public speaker. His church kept him, his wife kept him, his movement kept him. The figures in this coda, the 1886 judgement and the burial come from secondary accounts that none of this chapter's sources covers. He is buried in Worcester, where he first got sober.
 
 The man survived. Handsomely.
 

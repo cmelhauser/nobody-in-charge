@@ -21,7 +21,7 @@ Wilson had been approaching alcoholics as a man who had recovered, offering to h
 
 The alcoholics who preceded him in the Oxford Group had noticed that the group's methods worked on some drinkers. Wilson noticed something narrower and more useful: that the work itself was the medicine, and that its therapeutic value accrued to the person doing it. That is what the Washingtonians had discovered in Baltimore in 1840 and what the Sons of Temperance quietly dropped when they added sick pay and ranks. Wilson rediscovered it in a lobby, under pressure, for the most self-interested reason imaginable.
 
-By 1937 the two groups, Akron and New York, could count about forty sober members between them, and Wilson and Smith sat down and counted. Twenty or so people had stayed dry for a meaningful stretch. It had taken two years to produce forty. At that rate the thing would reach a few thousand alcoholics in a century, and there were, they believed, hundreds of thousands of them.
+By 1937 the two groups, Akron and New York, could count about forty sober members between them, and Wilson and Smith sat down and counted. Twenty or so people had stayed dry for a meaningful stretch. It had taken two years to produce forty, or three in Wilson's own later telling. At that rate the thing would reach a few thousand alcoholics in a century, and there were, they believed, hundreds of thousands of them.
 
 They decided they had a communication problem, and this decision produced everything that followed, including the crisis that produced the Traditions.
 
@@ -55,7 +55,7 @@ Wilson began writing in 1938. The chapter containing the actual programme was dr
 
 *Alcoholics Anonymous* was published in April 1939. It sold badly. The venture was rescued at one point by a member who mortgaged his tailor shop to pay the printer. The first board minutes of the Alcoholic Foundation record a treasury of 2,150, which was what remained of Rockefeller's five thousand.
 
-Then, in the autumn of 1939, *Liberty* magazine ran an article, and about eight hundred desperate calls came in. In 1941 the *Saturday Evening Post* sent Jack Alexander, a sceptical reporter, who came away convinced and published a long piece in March. The response was overwhelming: thousands of appeals, and a fellowship that had taken four years to reach a few hundred members began growing at a rate nobody had planned for.
+Then, in the autumn of 1939, *Liberty* magazine ran an article, and about eight hundred desperate calls came in. In 1941 the *Saturday Evening Post* sent Jack Alexander, a sceptical reporter, who came away convinced and published a long piece in March. The response was overwhelming: thousands of appeals, and a fellowship that had taken six years to reach about two thousand members began growing at a rate nobody had planned for.
 
 That is where Part One's argument reconnects with its beginning, and it does so at a point I did not anticipate before building the model.
 
