@@ -5855,3 +5855,12 @@ Not changed: Chapter 22's Carrell, Sacerdote and West design details beyond the 
 and the "bottom third" versus "lowest-ability" scope, which need the paper; the Marty Mann and Yale
 honorary-degree items, which rest on secondary accounts; and Kurtz-dependent claims, since Kurtz is
 record only.
+
+**Chapter 22's description of the Carrell, Sacerdote and West design.** The record holds four figures
+and the pairing and homophily findings. The chapter's wider account of the design, half the incoming
+cohorts, random assignment in earlier years, the middle left out and the strong students predicted
+unaffected, was not recorded, and its "exactly the students they had set out to help" joined a
+prediction recorded for the bottom third to a result recorded for the lowest-ability students. The
+chapter now says the lowest-ability students and says the wider description is a summary the record
+does not capture; `research/SOURCES.md` says the same. A copy of the paper, if the Human Author has
+one, would let the details be recorded and the sentence removed.

@@ -482,6 +482,11 @@ the four figures Chapter 22 uses, each taken from the paper's own text:
 | Design pairing roughly fifteen lowest-ability with roughly fifteen highest-ability cadets | the intervention |
 | Homophily: low-predicted-grade students in treatment squadrons actively sought out other low-predicted-grade students | the mechanism |
 
+**Not recorded here:** the rest of Chapter 22's description of the design (half the incoming cohorts,
+random assignment in earlier years, the middle left out of the treated squadrons, the strong students
+predicted to be unaffected) is a summary of the paper that this record does not capture, and the
+prediction is recorded for the bottom third while the result is recorded for the lowest-ability students.
+
 **This unblocked Chapter 22**, which had been drafted at 762 words under an explicit instruction
 in `plans/PART-5-PLAN.md` not to write it at full length without this paper. It was 1,297
 words when first rewritten, has grown since, and the paper carries it.
