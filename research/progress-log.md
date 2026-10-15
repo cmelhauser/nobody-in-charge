@@ -5757,3 +5757,14 @@ Washingtonian "none of the enabling Traditions" claim, which the ledger supports
 and, in the opposite direction, Tradition 12. The intro's mechanism clause no longer rests on an unread
 source. Not changed: paired intervals for the year-ten practice differences, which would need a new
 analysis of the cached runs.
+
+**Paired intervals for the year-ten practice differences.** The paper and Chapter 20 gave three
+differences in established-member practice at year ten with no paired interval. They are now
+computed from the cached 400-seed trajectories, paired by seed over the runs viable in both
+conditions (a closed run's series stops before year ten), with a normal 95 per cent interval on the
+paired differences, in both notebooks. Invisible minus full: -0.0070 [-0.0162, 0.0022] over 396 pairs,
+which crosses zero, so the invisible case is unresolved and not shown equal. Unreferred minus full:
++0.0406 [0.0303, 0.0510] over 264 pairs. Unwelcoming minus full: +0.0564 [0.0456, 0.0672] over 361.
+The two earlier point differences (0.0459, 0.0581) were differences of the viable-subset means and
+overstate the paired contrasts slightly, since the viable subset of a failing condition is selected.
+The notebooks now run 89 and 113 assertions, and the paper prints 500 decimals.
