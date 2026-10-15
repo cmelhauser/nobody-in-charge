@@ -7,7 +7,8 @@ AI Writing Collaborator: theonlymuffinbot (theonlymuffinbot@outlook.com), using 
 Anthropic Claude Opus 5 and OpenAI GPT-5.6 Sol and Terra models
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) for the authorship and rights statement, and
-[LICENSE](LICENSE) for the public-domain dedication and courtesy-credit request.
+[LICENSE](LICENSE) for the MIT License, which covers the original project material only; third-party
+material keeps its own rights.
 
 This repository contains a complete 25-chapter manuscript, an academic paper, a technical
 appendix, a Steps-and-Traditions primer, the executable model, analysis scripts, cached

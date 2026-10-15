@@ -5,7 +5,7 @@ author:
   - "Anonymous"
 ---
 
-Released to the public domain under The Unlicense. See the repository's license notice.
+Released under the MIT License. See the repository's license notice.
 
 ## How to read this
 

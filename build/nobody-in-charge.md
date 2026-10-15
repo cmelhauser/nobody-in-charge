@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 14 October 2026"
+date: "Draft of 15 October 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -81,7 +81,7 @@ header-includes:
 
 # Preface: What This Book Knows, and How
 
-*Nobody in Charge* is by an anonymous author. Released to the public domain under The Unlicense.
+*Nobody in Charge* is by an anonymous author. Released under the MIT License.
 See `LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
@@ -5181,7 +5181,7 @@ What genuinely remains unread is most of the canon: the daily reflections, most 
 *Nobody in Charge.* Released model specification, estimands, numerical checks, sensitivity
 designs, source boundaries, and reproduction instructions.
 
-Author: Anonymous. Released to the public domain under The Unlicense. See `../LICENSE`.
+Author: Anonymous. Released under the MIT License. See `../LICENSE`.
 
 This appendix describes the release-gate model identified by SHA-256:
 
@@ -6625,7 +6625,7 @@ census here is of one book's self-selected accounts and is not a study.
 
 # Appendix: What the Model Says About the Twelve Steps and the Twelve Traditions
 
-Released to the public domain under The Unlicense. See the repository's license notice.
+Released under the MIT License. See the repository's license notice.
 
 ## How to read this
 
