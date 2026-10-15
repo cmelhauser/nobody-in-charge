@@ -312,6 +312,27 @@ def emit():
             if allrun[a]:
                 print(f'  {cond} per-cent fall y{a} to y{b}: {100.0 * (1 - allrun[b] / allrun[a]):.4f}')
 
+    # Paired year-ten contrasts in established-member practice against the full-adherence group.
+    # Quality is read among viable groups, so a pair counts only where both runs are viable at
+    # year ten (more than five members); a closed run's series stops before year ten. The
+    # interval is a normal 95 per cent interval on the paired differences, as the book's others.
+    print('part5 paired established-practice contrast at year 10, viable in both')
+    full = {int(k.split('|')[2]): v for k, v in d.items() if k.startswith('traj|full|')}
+    for cond, label in (('t11_attraction_loss', 'invisible'), ('referral_loss', 'unreferred'),
+                        ('t3_combined_loss', 'unwelcoming')):
+        other = {int(k.split('|')[2]): v for k, v in d.items() if k.startswith(f'traj|{cond}|')}
+        diffs = []
+        for seed in sorted(set(full) & set(other)):
+            a, b = full[seed], other[seed]
+            if len(a['yrN']) > 10 and len(b['yrN']) > 10 and a['yrN'][10] > 5 and b['yrN'][10] > 5:
+                diffs.append(b['yrQ_established'][10] - a['yrQ_established'][10])
+        diffs = np.array(diffs)
+        half = 1.96 * diffs.std(ddof=1) / np.sqrt(len(diffs))
+        print(f'  {label} minus full: n={len(diffs)} mean={diffs.mean():.4f} '
+              f'[{diffs.mean() - half:.4f}, {diffs.mean() + half:.4f}]')
+        check(f'{label} paired practice interval crosses zero at year 10',
+              bool(diffs.mean() - half <= 0 <= diffs.mean() + half), cond == 't11_attraction_loss')
+
     for grp, label in (('t3', 'T3 dose'), ('comp', 'founder composition')):
         g = collections.defaultdict(list)
         for k, v in d.items():
