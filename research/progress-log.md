@@ -5790,6 +5790,30 @@ Chapter 19's interaction sign. (4) Exact halves now round half away from zero in
 the five places they were quoted (67.4, 86.9, 27.7, 99.3, 91.3). Not changed: Chapter 8's table
 row labels (which office share each row assumes) and the page counts of the 1939 manuscript.
 
+**Chapter 8's elders table, labelled.** The table's four rows come from `elders_vs_prescription` in
+`research/part2_influence.json`, and they do not share an officeholder share: the rotation-only row
+uses 0.35 (the Chapter 10 default, giving 1.996 at every size) and the three rows with elders use 0.05
+(2.517, 9.183 and 34.183 for three elders at 0.10; 4.083, 17.417 and 67.417 at 0.20; 2.75, 10.75
+and 40.75 for five). The chapter said the officeholder had a deliberately small share without
+saying it applied only to the elder rows. Each row now states its office share. The cache also holds
+three elders at 0.10 with the 0.35 office share (2.2, 8.9, 33.9), which the table does not quote.
+
+### 15 October 2026: the original project material is relicensed under the MIT License
+
+At the repository owner's direction (relayed by a licensing session), the licence of the original
+project material changes from The Unlicense, recorded above on an earlier date, to the MIT License,
+Copyright (c) 2026 Christopher Melhauser. `LICENSE` carries the standard MIT text. The statements
+that the material was dedicated to the public domain and that courtesy credit was requested are
+replaced in `ATTRIBUTION.md`, `README.md`, `HANDOFF.md`, `CITATION.cff`, the preface, the appendix,
+the primer and the paper's title block; the earlier entry above is left as the record of what was
+true then. The MIT License's one condition is that the copyright and permission notice be kept with
+copies or substantial portions of the material. The credits to the Human Author and the AI Writing
+Collaborator are an acknowledgement and are not a licence condition. Nothing about third-party
+material changes: the public-domain status of pre-1929 sources, the copyright and licence notes on
+Maxwell (1950), Recovery Dharma (CC BY-NC-SA 4.0) and every other source, and the rule that no source
+document is committed all concern those works and not this repository's licence. Anyone who has
+already received the material under the Unlicense keeps what they received.
+
 ### 15 October 2026: verification reports on the primer, appendix, Part Five and Parts One and Six
 
 Four more readers recomputed or source-checked what the earlier rounds had not: the primer's numbers

@@ -14,6 +14,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- The original project material is relicensed from The Unlicense to the MIT License, Copyright (c)
+  2026 Christopher Melhauser. `LICENSE`, `CITATION.cff` and the licence statements in the
+  attribution, README, handoff, preface, appendix, primer and paper are updated. Third-party material
+  and its rights notes are unchanged. See `research/progress-log.md`, 15 October 2026.
+
 - `tools/check_fonts.py` pins the SHA-256 of the four TeX Gyre Pagella files CI downloads, and the
   `documents` job fails if they change. The book and primer rebuilt on the runner differ from the
   committed PDFs because the author's installed fonts differ from CI's, with tectonic and pandoc

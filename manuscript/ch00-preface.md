@@ -1,7 +1,7 @@
 # Preface
 ## What This Book Knows, and How
 
-*Nobody in Charge* is by an anonymous author. Released to the public domain under The Unlicense.
+*Nobody in Charge* is by an anonymous author. Released under the MIT License.
 See `LICENSE`.
 
 This book makes claims of three different kinds, and they are not equally good. Since the whole argument turns on that difference, it is worth setting out before anything else.
