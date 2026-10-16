@@ -19,6 +19,9 @@ someone who wants to know what changed between two tags does not have to read it
   regimes in Chapter 8, replaced stale notebook-section pointers, and tightened `check_fonts.py` and its
   tests. No model change.
 
+- The release workflow now runs `tools/check_fonts.py --strict` after installing the book font, as the
+  pull-request workflow does, so a release cannot be built from fonts other than the pinned ones.
+
 - A final-pass review corrected the Chapter 11 reversal threshold (a fifth, not a quarter), Chapter 8's
   small-group figures, Chapter 17's sparsity sentence, an unreferenced "quarter of the distance" in
   Chapter 18 and the paper, the primer's Step Eight entry, the appendix's arrival-channel wording and
