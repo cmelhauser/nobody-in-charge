@@ -1986,7 +1986,7 @@ The result in this chapter is not mine and it is not simulated. It is a theorem,
 
 What my own model contributes is the tables. The theorem tells you that maximum influence must vanish; it does not tell you how fast concentration hurts in a group of any particular size, or how the damage compares between a single dominant member and a small clique. Those are computed from constructed trust matrices, and the computation is simple enough to be checkable by hand for small groups.
 
-The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 40 per cent of one another in accuracy, against a factor of ten at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
+The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements of Chapter Nine (flat, one dominant member, a caucus of three and a closed core of five) are within about 40 per cent of one another in accuracy, against a factor of ten at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
 
 ### 2. The technical version
 
@@ -2099,7 +2099,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for flat, rotating, dominant and clique regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
+Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
 
 **What was not read:**
 
@@ -4069,7 +4069,7 @@ The wording of the Twelve Traditions themselves. They are AA copyright, this pro
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, its part4 threshold block, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
+`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, its "part4 threshold test and principal suppliers" block, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
 
 **What was not read:**
 
@@ -5845,7 +5845,7 @@ instead.
 |---|---|
 | A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
 | A4.6, A5.5 | A7.5, Morris and Sobol |
-| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with the part4 blocks of the notebook |
+| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with the notebook blocks of those names |
 | A5.4d | A5.2, the degradation ranking |
 | A5.6 | A7.1, the design registry and what no design covers |
 | A9 as structural variants | A7.3 |
@@ -6442,9 +6442,9 @@ lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
 
 The first term is arrival that does not pass through a member. The second is arrival carried by
 members, scaled by their Step 12 state. The model's endogenous term is large early, when founders hold Step 12 near 0.55, and at the
-thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (in an ad hoc check of
-seeds 0 to 399 at full adherence, 1,560 weeks, step 0.5, the endogenous rate exceeded it in 43 runs, 10.75
-per cent, which is not in any release cache and is stated here as an orientation, not a result). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
+thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (the endogenous rate
+exceeds it in a minority of runs; no release cache or notebook block records how many, so no figure is
+given). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
 arrived support it.
 
 The coding rule is: for each story, does the account describe a person who was themselves a recovered
@@ -7782,9 +7782,10 @@ fellowships for effectiveness, and nothing in this project could. Nothing here i
 about which room anyone should walk into. The full comparison, with the page references
 and the arithmetic, is appendix section A12, and it is written to stand alone.
 
-**A second reading, from the other end.** The model assumes that most people arrive
-because a member brought them, rather than finding the group on their own. That rests on
-two values the book authored, the rate at which people arrive on their own and the rate at which a
+**A second reading, from the other end.** In its founding years the model has most
+people arrive because a member brought them, rather than finding the group on their own,
+though by the thirty-year endpoint the arrivals that do not pass through a member usually
+supply most of them. That rests on two values the book authored, the rate at which people arrive on their own and the rate at which a
 member brings someone, and it had never been checked against anything.
 In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
@@ -8327,7 +8328,7 @@ $\max_j s_j$ as a multiple of the flat benchmark: rotation alone holds at 2.0, 2
 $N = 50, 250, 1000$, which is a self-consistency check since twenty-six per cent was
 defined as the within-a-factor-of-two pool. Adding three elders at $\alpha_e = 0.10$ gives
 2.5, 9.2, 34.2. At $\alpha_e = 0.20$, 4.1, 17.4, 67.4. With five elders at
-$\alpha_e = 0.20$, 2.7, 10.7, 40.7.
+$\alpha_e = 0.20$, 2.8, 10.8, 40.8.
 
 ### Touring speakers: a closed form
 

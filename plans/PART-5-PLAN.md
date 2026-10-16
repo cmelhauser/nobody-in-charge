@@ -4,7 +4,7 @@ Chapters 19 to 22, roughly 12,000 words.
 
 Master plan: `../BOOK-PLAN.md`. Companions: `PART-1-PLAN.md` to `PART-4-PLAN.md`. Technical
 apparatus: `../appendix/APPENDIX.md`. Computation: `../model/part5_runs.py`, cached in
-`../research/part5.json`, verified in notebook section 14.
+`../research/part5.json`, verified in the "part5" blocks of `model/book-calculations.ipynb`.
 
 **Written 2 August 2026, after Parts One to Four were drafted and after the runs were made.**
 This is the only part whose plan was written with its numbers already in hand, which is why it

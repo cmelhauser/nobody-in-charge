@@ -55,7 +55,8 @@ parameter and leave it there.
 coefficients, running 1.00 at Steps 1 and 12 down to 0.17 at Step 7, mean 0.53; the
 upward-to-downward transmission ratio, 1 to 6.0 and averaging 1.9, which the release audit
 retired: no state-free ratio is implemented and no transmission claim follows. The coefficients
-are section 5 of the notebook and need no new computation.
+were section 5 of the notebook when this plan was written. The rebuilt notebook is organised by
+labelled blocks and no longer has a section of that name.
 
 **The parameter honesty line for this chapter:** 118 numbers chosen by hand out of 226
 cells, none fitted. See `../research/PARAMETERS.md`, which was corrected on 2 August 2026
