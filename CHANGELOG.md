@@ -14,6 +14,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- A public-repository audit added a non-affiliation statement, `SECURITY.md` and `CONTRIBUTING.md`, pinned the
+  CI actions, the pandoc package and the tectonic installer by commit hash or checksum, shortened two block
+  quotations in Chapter 5, recorded a rights exposure in git history, and corrected the branch ruleset so it
+  protects `main`. No model change.
+
 - The book notebook gains a "part2 influence regimes and elders" block that reads `research/part2_influence.json`
   and asserts the Chapter 8, 9 and 11 regime, elder and prescription tables (109 assertions, up from 100).
   No model change.

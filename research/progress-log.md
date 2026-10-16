@@ -5983,3 +5983,29 @@ at five hundred, the dominant-member limit, the 1.84 and 3.3 dose-response facto
 2.11 at twenty-five). The notebook now has 109 assertions, up from 100. The random-network controls are still not
 in a notebook. Chapters 8, 9 and 11, the appendix and the primer point at the new block.
 
+### 16 October 2026, last: a public-repository audit
+
+The Human Author asked for a full scan against public-repository standards. Nothing was found that blocks
+public release. Checked and clean: no keys, tokens or credentials in the tree or in any commit (secret scanning
+and push protection are on); the withheld name appears in no added line of any commit, in none of 168 historical
+PDF versions and in none of the three v0.9.0 release PDFs; no machine-specific paths; no tracked source
+document; the licence is MIT with third-party rights carved out.
+
+Found and decided. (1) The first import (6 August) committed twelve source files; eleven are public-domain works
+(ten works, one of them as both text and PDF), and one, the Fatimah et al. (2025) NIH author manuscript, is not. The Human
+Author chose to document it (`research/SOURCES.md`, `SECURITY.md`) and not to rewrite history, after being told
+that a rewrite would change every hash and would not clear GitHub's 62 pull-request refs without a Support request.
+A rewrite was prepared and verified in a scratch clone (tree byte-identical, file absent from all 229 commits)
+and then discarded. (2) The "main branch protection" ruleset matched no branch; it now targets the default branch
+and blocks deletion and force-push and requires a pull request, with no bypass. (3) The pull-request flow is now
+enforced for the owner too. (4) CI actions, the pandoc package and the tectonic installer were pinned to commit
+hashes and checksums; the installer had piped whatever was newest into a shell. The font cache key moved to v3 so
+the pinned tectonic is exercised on the next cold run. (5) Added a non-affiliation statement (README,
+`ATTRIBUTION.md`), `SECURITY.md` and `CONTRIBUTING.md`. (6) Two block quotations in Chapter 5 from Kurtz's
+account of Wilson were cut from about 85 and 78 words to about 45 and 38.
+
+Not done, left to the Human Author: the write-enabled deploy key titled for the Cowork sandbox, which should be
+deleted on GitHub if the sandbox is no longer used; the public elicitation collator notes
+(`research/elicitation/4-collator-notes.pdf`), which name the answer the exercise is meant to elicit; Dependabot
+alerts, which are off.
+
