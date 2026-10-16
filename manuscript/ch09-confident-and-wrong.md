@@ -169,7 +169,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for four governance regimes at N = 10, 50, 250 and 500, with the analytic limits. Per-step group-dependence coefficients from the model module. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 closed forms" block reproduces only the rotation-pool, caucus and closed-core figures, not the regime tables.
+Influence weights and consensus errors for four governance regimes at N = 10, 50, 250 and 500, with the analytic limits. Per-step group-dependence coefficients from the model module. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 influence regimes and elders" block reads that cache, rebuilds the caucus and closed core, and asserts the regime tables.
 
 **What was not read:**
 
