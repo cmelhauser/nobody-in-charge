@@ -33,7 +33,7 @@ def pct(x):
     book. The decimal is taken from the repr of the float, which is what the book's reader sees.
     """
     from decimal import ROUND_HALF_UP, Decimal
-    return f"{(Decimal(repr(round(100 * x, 10)))).quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)}%"
+    return f"{(Decimal(repr(float(round(100 * x, 10))))).quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)}%"
 
 
 def ci_mean(s):

@@ -87,36 +87,36 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 ## 3. What the project contains
 
 - 25 chapters plus preface and introduction, `manuscript/`
-- an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 35 pages
+- an academic paper, `paper/anonymity-as-an-aggregation-condition.tex`, 36 pages
 - a technical appendix, `appendix/APPENDIX.md`
 - a Steps-and-Traditions primer, `reference/PRIMER-steps-and-traditions.md`
 - the frozen model and 21 analysis scripts, `model/`
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 319 pages, paper 35, primer 24
+- three built PDFs: book 320 pages, paper 36, primer 24
 
 ---
 
 ## 4. Verification state
 
-As of 3 October 2026, everything passes:
+As of 15 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
 | `python3 -m pytest` | all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1` |
 | `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
-| `tools/check_book.py` | 0 failures, 39 warnings |
+| `tools/check_book.py` | 0 failures, 45 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 28 checks, 0 failed |
+| `tools/check_docs.py` | 30 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
 | `model/book-calculations.ipynb` | 8 cells, 100 assertions, clean |
 | `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 124 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
-The 39 `check_book` warnings are repetition and sentence-length notes. They are not failures and
+The 45 `check_book` warnings are repetition and sentence-length notes. They are not failures and
 have been reviewed. Do not chase them to zero; some repetition between a chapter and its Machinery
 is deliberate.
 
