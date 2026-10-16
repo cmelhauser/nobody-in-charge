@@ -66,9 +66,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
           cache: pip
@@ -90,7 +90,7 @@ jobs:
       # The workflow is code too, and a typo in it fails at the worst moment: on push,
       # after review. actionlint also runs shellcheck over every `run:` block.
       - name: Lint this workflow
-        uses: raven-actions/actionlint@v2
+        uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2
 
       # shellcheck-py is a dev dependency; no apt package is needed.
       - name: Lint the shell scripts
@@ -105,9 +105,9 @@ jobs:
       matrix:
         python-version: ${{ github.event_name == 'pull_request' && fromJSON('["3.12"]') || fromJSON('["3.11", "3.12", "3.13", "3.14"]') }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
@@ -155,11 +155,11 @@ jobs:
       # Full history, so check_docs.py can date each document's sources. A one-commit
       # checkout has only the merge GitHub synthesises on the day, and the date checks
       # would skip; the repository is small enough that the whole history costs seconds.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
           cache: pip
@@ -214,9 +214,9 @@ jobs:
     timeout-minutes: 25
     if: github.event_name != 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
           cache: pip
@@ -230,12 +230,12 @@ jobs:
       # cache. Caching the bundle removes that failure mode after the first successful run
       # rather than retrying through it.
       - name: Cache the TeX toolchain
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: |
             .tex-cache
             .xdg
-          key: tex-${{ runner.os }}-${{ env.PANDOC_VERSION }}-v2
+          key: tex-${{ runner.os }}-${{ env.PANDOC_VERSION }}-v3
 
       - name: Install pandoc, tectonic and the book font
         run: |
@@ -243,6 +243,7 @@ jobs:
 
           curl -fsSL --retry 3 --retry-delay 3 --connect-timeout 10 -o /tmp/pandoc.deb \
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          echo "6c06b69b49ae95087573631a6fcafb233ab7ab51e5cfa73f7539d6c964a2640d  /tmp/pandoc.deb" | sha256sum -c -
           sudo dpkg -i /tmp/pandoc.deb
 
           # Explicit mirrors, not the CTAN redirector, which once sent a runner to a host
@@ -289,12 +290,16 @@ jobs:
           # from this cache, ahead of ubuntu-latest moving there, and on 12 October every
           # job passed there again with 3.14 in the matrix, except that actionlint rejects
           # the ubuntu-26.04 label as unknown, which is why the label is not used here.
+          # Tectonic 0.17.0, from its release page, checked against the SHA-256 GitHub records for
+          # that asset. It used to be fetched with a piped installer that took whatever was newest.
+          # Raise it deliberately: change the URL and the hash together, and bump the cache key.
           TECTONIC_BIN="$TECTONIC_CACHE_DIR/bin"
           mkdir -p "$TECTONIC_BIN"
           if [ ! -x "$TECTONIC_BIN/tectonic" ]; then
-            curl -fsSL --retry 2 --retry-delay 3 --connect-timeout 10 \
-              https://drop-sh.fullyjustified.net | sh
-            mv tectonic "$TECTONIC_BIN/"
+            curl -fsSL --retry 2 --retry-delay 3 --connect-timeout 10 -o /tmp/tectonic.tar.gz \
+              "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-x86_64-unknown-linux-musl.tar.gz"
+            echo "8533d07f9ccbd7a65824b9e0459041bca34af1eb33daba48f59215593753a3b7  /tmp/tectonic.tar.gz" | sha256sum -c -
+            tar -xzf /tmp/tectonic.tar.gz -C "$TECTONIC_BIN" tectonic
           fi
           echo "$TECTONIC_BIN" >> "$GITHUB_PATH"
           export PATH="$TECTONIC_BIN:$PATH"

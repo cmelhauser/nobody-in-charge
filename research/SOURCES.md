@@ -902,6 +902,15 @@ Clinical Science* 134(1): 69-80.** doi:10.1037/abn0000960.
 public access. Supplied by the author 2 August 2026. Model code deposited at osf.io/tkg9s;
 study protocol at osf.io/kysdt.
 
+**Rights exposure, recorded 16 October 2026.** The text of this manuscript was committed in the first import
+of 6 August 2026 and removed on 10 August 2026 (`39725c9`), when the project stopped committing source
+documents. The repository is public, so it remains in git history. Its record says "Not redistributed here".
+The Human Author decided on 16 October 2026 not to rewrite history, because a rewrite would change every commit
+hash and would not remove the file from GitHub's pull-request refs. If a rights holder asks, the response is a
+history rewrite and a request to GitHub Support to clear those refs. The other eleven files in the same import
+(ten works: Blair, Crothers, Eddy, Fehlandt, Gough, Grosh as text and PDF, Harrison, Hawkins, Krout and Marsh, all
+published before 1929) are in the public domain.
+
 **This is now the strongest external evidence in the book, and it was not on the acquisition
 list.** It supersedes Hufford (2003) as the empirical warrant for Chapter 14.
 
