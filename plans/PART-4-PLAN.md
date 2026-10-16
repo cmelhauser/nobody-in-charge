@@ -75,7 +75,8 @@ coupling, and they survive.
 ~~*Target 4,000 words.*~~ **Drafted 2 August 2026, 2,001 words of main text.** Shorter than
 planned because the plan's step 3, "report the result", turned out to need step 3a: report how
 much of the result is arithmetic. Five of the twelve counts are trivial, the chapter says so in
-its fourth paragraph, and notebook section 11b proves the five contribute nothing to any
+its fourth paragraph, and (in the notebook as it stood then, which was organised by numbered
+sections) section 11b proved the five contribute nothing to any
 robustness figure at any level. What was planned as the strongest chapter in Part Four is still
 the strongest and is a smaller claim than the plan expected.
 
@@ -245,7 +246,8 @@ Unchanged from Part Three, plus the appendix standard now in `../CLAUDE.md`:
 ## 4. Sequence
 
 1. ~~**Chapter 16 first.**~~ **Done 2 August 2026.** The coupling is now introduced and
-   notebook section 11b has been added beside section 11.
+   notebook section 11b was added beside section 11 (numbered sections no longer exist; see the
+   labelled blocks).
 2. ~~**Chapter 18 second.**~~ **Done, and the sequencing paid.** Writing it second is what
    produced the threshold test, which then repaired a claim in Chapter 16. Had it been written
    third the repair would have arrived after both other chapters were settled.

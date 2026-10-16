@@ -68,7 +68,7 @@ def locate(name: str, directories: list[Path]) -> Path | None:
     for directory in directories:
         if (directory / name).is_file():
             return directory / name
-        for path in directory.rglob("*.otf"):
+        for path in directory.rglob("*"):
             if path.name.lower() == name and path.is_file():
                 return path
     return None
@@ -103,10 +103,12 @@ def main(argv: list[str]) -> int:
     if bad:
         print(f"\n{len(bad)} of {len(PINS)} font files differ from CI's. PDFs built here that use "
               "TeX Gyre Pagella (the book and the primer) will not match CI's byte for byte.")
-        if strict:
-            print("On the runner this means the CTAN mirror served a different file, or a cached one "
-                  "is stale: update PINS deliberately and rebuild and re-read the PDFs, or bump the "
+        if strict and any(line.startswith("MISMATCH") for line in bad):
+            print("On the runner a mismatch means the CTAN mirror served a different file, or a cached "
+                  "one is stale: update PINS deliberately and rebuild and re-read the PDFs, or bump the "
                   "cache key (tex-...-vN) in .github/workflows/ci.yml.")
+        elif strict:
+            print("On the runner a missing file means the font download or install step failed.")
         return 1 if strict else 0
     print(f"\nall {len(PINS)} font files match CI's")
     return 0

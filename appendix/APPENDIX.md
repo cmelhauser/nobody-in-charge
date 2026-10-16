@@ -667,7 +667,7 @@ instead.
 |---|---|
 | A3.3, A3.3b, A3.4 | A4, estimands, seed counts, and the selection threat |
 | A4.6, A5.5 | A7.5, Morris and Sobol |
-| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with the part4 blocks of the notebook |
+| A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with the notebook blocks of those names |
 | A5.4d | A5.2, the degradation ranking |
 | A5.6 | A7.1, the design registry and what no design covers |
 | A9 as structural variants | A7.3 |
@@ -1264,9 +1264,9 @@ lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
 
 The first term is arrival that does not pass through a member. The second is arrival carried by
 members, scaled by their Step 12 state. The model's endogenous term is large early, when founders hold Step 12 near 0.55, and at the
-thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (in an ad hoc check of
-seeds 0 to 399 at full adherence, 1,560 weeks, step 0.5, the endogenous rate exceeded it in 43 runs, 10.75
-per cent, which is not in any release cache and is stated here as an orientation, not a result). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
+thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (the endogenous rate
+exceeds it in a minority of runs; no release cache or notebook block records how many, so no figure is
+given). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
 arrived support it.
 
 The coding rule is: for each story, does the account describe a person who was themselves a recovered
