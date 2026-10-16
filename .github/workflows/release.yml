@@ -95,6 +95,11 @@ jobs:
           fi
           echo "$TECTONIC_BIN" >> "$GITHUB_PATH"
 
+      # The same pin the pull-request workflow holds: a release is built from the fonts that
+      # tools/check_fonts.py names, or it fails here with a sentence and not a changed layout.
+      - name: The font files are the pinned ones
+        run: python tools/check_fonts.py --strict --dir "$XDG_DATA_HOME/fonts"
+
       # The tag message is where the release state is recorded, and the model hash is the
       # part of it that matters, because every cache is keyed to that hash. A tag claiming a
       # model that is not the one in the tree is worse than no tag.
