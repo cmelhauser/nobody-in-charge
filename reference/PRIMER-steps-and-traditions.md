@@ -1146,9 +1146,10 @@ fellowships for effectiveness, and nothing in this project could. Nothing here i
 about which room anyone should walk into. The full comparison, with the page references
 and the arithmetic, is appendix section A12, and it is written to stand alone.
 
-**A second reading, from the other end.** The model assumes that most people arrive
-because a member brought them, rather than finding the group on their own. That rests on
-two values the book authored, the rate at which people arrive on their own and the rate at which a
+**A second reading, from the other end.** In its founding years the model has most
+people arrive because a member brought them, rather than finding the group on their own,
+though by the thirty-year endpoint the arrivals that do not pass through a member usually
+supply most of them. That rests on two values the book authored, the rate at which people arrive on their own and the rate at which a
 member brings someone, and it had never been checked against anything.
 In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at

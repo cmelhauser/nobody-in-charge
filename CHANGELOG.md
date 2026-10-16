@@ -14,6 +14,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- A second review pass corrected the primer's arrival-channel paragraph, removed an uncached figure from
+  Appendix A13.2, aligned the paper's five-elder row with Chapter 8's half-up rounding, named the four
+  regimes in Chapter 8, replaced stale notebook-section pointers, and tightened `check_fonts.py` and its
+  tests. No model change.
+
 - The release workflow now runs `tools/check_fonts.py --strict` after installing the book font, as the
   pull-request workflow does, so a release cannot be built from fonts other than the pinned ones.
 

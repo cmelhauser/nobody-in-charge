@@ -18,6 +18,9 @@
 #   tools/run_ci_locally.sh checks          unit-tests and checkers together
 #   tools/run_ci_locally.sh documents       the rendering job only
 #
+# A job that could not run is reported as NOT RUN, and a run in which nothing ran at all
+# prints "nothing ran" and exits 1, since no check passed.
+#
 # This is a convenience, not an authority. The workflow file is the authority, and if the
 # two drift apart the workflow is right. Keep them in step by hand; nothing enforces it.
 #
