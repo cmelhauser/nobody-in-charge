@@ -14,6 +14,10 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- The book notebook gains a "part2 influence regimes and elders" block that reads `research/part2_influence.json`
+  and asserts the Chapter 8, 9 and 11 regime, elder and prescription tables (109 assertions, up from 100).
+  No model change.
+
 - A third review pass corrected attributions and reference headings in Chapters 1, 3, 4, 5 and 10, the
   paper's approximation and parameter-influence claims, notebook claims for Part Two and Chapter 14, the claim
   register's counts, and several counts in `CLAUDE.md`, `AGENT_VERIFY.md` and this file. The workflows discard

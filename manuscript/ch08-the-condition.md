@@ -286,7 +286,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 closed forms" block reproduces only the rotation-pool and closed-core figures, not these tables.
+Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 influence regimes and elders" block reads that cache and asserts these tables.
 
 **What was not read:**
 

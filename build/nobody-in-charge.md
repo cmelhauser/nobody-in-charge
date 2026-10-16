@@ -2099,7 +2099,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 closed forms" block reproduces only the rotation-pool and closed-core figures, not these tables.
+Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 influence regimes and elders" block reads that cache and asserts these tables.
 
 **What was not read:**
 
@@ -2277,7 +2277,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for four governance regimes at N = 10, 50, 250 and 500, with the analytic limits. Per-step group-dependence coefficients from the model module. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 closed forms" block reproduces only the rotation-pool, caucus and closed-core figures, not the regime tables.
+Influence weights and consensus errors for four governance regimes at N = 10, 50, 250 and 500, with the analytic limits. Per-step group-dependence coefficients from the model module. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 influence regimes and elders" block reads that cache, rebuilds the caucus and closed core, and asserts the regime tables.
 
 **What was not read:**
 
@@ -2559,7 +2559,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 ### 2. The technical version
 
-No new computation. The figures referenced are from Chapter Nine, section 2, and the error 0.357 is reproduced in the "part2 closed forms" block of `model/book-calculations.ipynb`; the aggregate and outside shares come from `model/part2_influence.py` and `research/part2_influence.json`. Closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
+No new computation. The figures referenced are from Chapter Nine, section 2, and are asserted in the "part2 influence regimes and elders" block of `model/book-calculations.ipynb`. Closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 
@@ -5759,7 +5759,7 @@ claim that Traditions 2, 9, and 12 operationalize its assumptions is this projec
 reading.
 
 The deterministic Part Two analysis, `model/part2_influence.py` with its cache, covers finite-group influence,
-scaling of rotation pools, the three obstruction constructions, and random-network controls; the notebook's "part2 closed forms" block reproduces only the rotation-pool and closed-core figures. These are not runs of the
+scaling of rotation pools, the three obstruction constructions, and random-network controls; the notebook's "part2 closed forms" and "part2 influence regimes and elders" blocks assert the rotation-pool, regime, elder and clique figures, but not the random-network controls. These are not runs of the
 stochastic membership model. The matrices in Part Four reject index-pairing on the authored
 values, but five of the twelve rejections are forced by structural zeros. Threshold and sparsity
 tests are required where multiplicative perturbation is blind. Under wholesale randomization of
@@ -7888,8 +7888,8 @@ than repeated here.
 the arrival and dropout expressions.
 
 `model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
-closed forms for the rotation pools and the closed-core error behind the deliberation figures (the
-influence weights are in `model/part2_influence.py` and its cache), the part4
+closed forms for the rotation pools behind the deliberation figures, the part2 influence block for
+the regime and elder tables, the part4
 blocks for the coupling, the principal suppliers, the index-mate ranks and the threshold test, the
 "load by resource for each tradition" block for the load column, the "ch17 reassignment test" block,
 the "ch15 service" block for the Step Twelve service results, the part5 blocks for the failure modes

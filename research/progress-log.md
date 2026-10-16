@@ -5971,3 +5971,15 @@ on one branch:
 Not changed: the pinned analysis scripts that still say "notebook section 1"; actions pinned to major tags
 rather than commit hashes; no artifacts are uploaded from a failed documents job.
 
+### 16 October 2026, later: the Part Two tables are asserted in the notebook
+
+The third review found that neither notebook loaded `research/part2_influence.json`, so the Chapter 8, 9 and 11
+regime, elder and prescription tables were checked only by the loose any-decimal-in-any-cache test. The book
+notebook has a new block, "part2 influence regimes and elders", that reads the cache, rebuilds the caucus of three
+and the closed core of five from their stated constructions, prints the figures at the precisions the chapters use
+and asserts the headline ones: the four regimes about 40 per cent apart in error at ten members and a factor of ten
+at five hundred, the dominant-member limit, the 1.84 and 3.3 dose-response factors, the three-elder error ratios
+1.01, 1.08, 1.35 and 2.08, and the rotation-only prescription holding at 1.996 from fifty members up (1.82 at ten,
+2.11 at twenty-five). The notebook now has 109 assertions, up from 100. The random-network controls are still not
+in a notebook. Chapters 8, 9 and 11, the appendix and the primer point at the new block.
+
