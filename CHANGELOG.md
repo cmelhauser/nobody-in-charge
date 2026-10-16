@@ -14,6 +14,11 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- A second review pass corrected the primer's arrival-channel paragraph, removed an uncached figure from
+  Appendix A13.2, aligned the paper's five-elder row with Chapter 8's half-up rounding, named the four
+  regimes in Chapter 8, replaced stale notebook-section pointers, and tightened `check_fonts.py` and its
+  tests. No model change.
+
 - A final-pass review corrected the Chapter 11 reversal threshold (a fifth, not a quarter), Chapter 8's
   small-group figures, Chapter 17's sparsity sentence, an unreferenced "quarter of the distance" in
   Chapter 18 and the paper, the primer's Step Eight entry, the appendix's arrival-channel wording and

@@ -537,8 +537,8 @@ def test_python_version_claims_read_lists_across_wrapped_lines():
 
 def test_check_python_versions_passes_and_catches_a_short_list(docs_tree):
     (docs_tree / "A.md").write_text("It runs Python 3.11, 3.12 and 3.13 on main and 3.12 only on pulls.\n")
-    (docs_tree / "CHANGELOG.md").write_text("History: 3.11 and 3.12 once ran.\n")
-    (docs_tree / "B.md").write_text("> Retired: 3.10 and 3.11.\n")
+    (docs_tree / "CHANGELOG.md").write_text("History: Python 3.11 and 3.12 once ran.\n")
+    (docs_tree / "B.md").write_text("> Retired: Python 3.10 and 3.11.\n")
     check_docs.check_python_versions()
     assert check_docs.failures == [] and "2 claim(s)" in check_docs.passes[0]
 

@@ -180,7 +180,7 @@ The wording of the Twelve Traditions themselves. They are AA copyright, this pro
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, its part4 threshold block, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
+`model/aa_group_model.py`, matrix GOV, for the five zero rows. `model/book-calculations.ipynb`, its "part4 threshold test and principal suppliers" block, for the threshold table and the matrix statistics. `appendix/APPENDIX.md`, sections A2 for the multiplier specification, A2.3 for the exact cancellation at full adherence, and A7.1 to A7.5 for the perturbation designs and A8 for what they cannot reach.
 
 **What was not read:**
 

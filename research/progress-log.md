@@ -5891,8 +5891,9 @@ Three independent read-only reviews of the day's changes found corrections, appl
 - *Appendix and primer.* A13.5 and the primer said the endogenous arrival channel dominates and that the
   assumption was "one of the hundred and eighteen registered sensitivity values"; A13.2, A13.6 and A12.5 say
   it dominates early and supplies the smaller share at the thirty-year endpoint, and the registered values
-  involved are `lam_exog` and `lam0`. A13.2's "about one run in ten" had no source; it is now labelled as an
-  ad hoc check (43 of 400, seeds 0 to 399, full adherence), not a release result. A7.4 now says that among
+  involved are `lam_exog` and `lam0`. A13.2's "about one run in ten" had no source; it was first relabelled as an
+  ad hoc check (43 of 400, seeds 0 to 399, full adherence), and in the second pass (below) the figure was
+  removed, since a number in no cache or notebook has no place in the appendix. A7.4 now says that among
   the matrix magnitudes the full-adherence designs test only `S`. A5 now points to where the Wilson
   intervals for the A5.1 fractions are.
 - *Notebook pointers.* The book notebook has eight cells, not fourteen sections, and its labelled blocks are
@@ -5911,4 +5912,22 @@ Three independent read-only reviews of the day's changes found corrections, appl
 Not changed: `release.yml` does not run the font-pin check (the release workflow was left as it was, and
 whether to add it is the Human Author's call); the Carrell, Sacerdote and West details, the Marty Mann and
 Yale items and the Kurtz-dependent claims still need sources not held.
+
+### 15 October 2026, last: a second review pass on the merged corrections
+
+Two readers re-derived the changes of the pass above from the caches. The corrections held except for
+these. The primer's arrival paragraph still opened with "the model assumes that most people arrive
+because a member brought them", against Appendix A13.2 and A13.5; it now says that is true of the
+founding years and that by the thirty-year endpoint the arrivals not passing through a member usually
+supply most of them. Appendix A13.2 no longer quotes the 43 of 400 figure, which is in no cache or
+notebook and was given without an interval. The paper's five-elder row read 2.7, 10.7 and 40.7 where the
+cache's exact halves (2.75, 10.75, 40.75) round half-up to 2.8, 10.8 and 40.8 as Chapter 8 prints them.
+Chapter 8 said "the four governance arrangements" without naming them, and its Machinery named four
+others; the figures are Chapter 9's flat, dominant, caucus and closed-core regimes, and both places now
+say so. The remaining "notebook section N" and "part4 blocks" pointers in the plans, Chapter 18 and the
+appendix are fixed or marked as historical. Tooling: a test fixture lost its word "Python" when
+`check_docs` began to require it, so two exclusions went unexercised; `check_fonts` printed its mirror
+message for a missing file and walked each directory once per pin; the README, `AGENTS.md` and the
+`run_ci_locally.sh` header were a clause short. Not changed: the two hash-pinned analysis scripts that still
+say "notebook section 1" in their headers, since editing them would invalidate their caches.
 
