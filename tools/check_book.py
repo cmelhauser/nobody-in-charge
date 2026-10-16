@@ -293,7 +293,7 @@ def check_history():
             # progress log cannot support. A duration inside the simulated world is a model
             # output with a notebook assertion behind it and is checkable in the ordinary
             # way. Added 2 August 2026 when PART-5-PLAN.md said a starved group "looks
-            # completely healthy for years", which is notebook section 14 and not a claim
+            # completely healthy for years", which is in the notebook's part5 blocks and not a claim
             # about the project at all.
             # NOTE the first attempt at this exemption keyed on words like "group" and
             # "member" and would have silenced the check across most of the plans. It was

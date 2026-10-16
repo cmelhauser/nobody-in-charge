@@ -624,7 +624,9 @@ The updating model in Chapter 7. Read at source.
 
 **Holmström, B. (1982). "Moral Hazard in Teams." *Bell Journal of Economics* 13(2):
 324-340.**
-The budget-breaker impossibility applied to Tradition 7 in Chapter 5.
+The budget-breaker impossibility applied to Tradition 7 in Chapter 5. **Read status:** Chapter 5 says the
+author read the argument; the date and the copy are not recorded, no copy is held, and the paper cites it. Treated as
+read, without a date, until a copy is supplied. The application to Tradition 7 is interpretation, not finding.
 
 **Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2):
 271-291.**

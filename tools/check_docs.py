@@ -558,6 +558,18 @@ def check_page_counts() -> None:
                   re.compile(r"\.tex`,\s+(\d+)\s+pages"))
 
 
+def check_paper_decimals() -> None:
+    """The number of decimals the paper prints, as the paper notebook records it, against the
+    figure AGENT_VERIFY.md quotes. It had drifted by one after a wording change in the paper."""
+    notebook = ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb"
+    found = re.search(r"decimals printed in the paper: (\d+)",
+                      notebook.read_text(encoding="utf-8")) if notebook.exists() else None
+    if not found:
+        skip("the paper's decimal count (no stored notebook output to read)")
+        return
+    assert_claims("paper decimal count", int(found.group(1)), re.compile(r"currently (\d+) of them"))
+
+
 def check_document_dates() -> None:
     """A document's printed date must come from its text, not from the clock.
 
@@ -741,6 +753,7 @@ def main() -> int:
     check_release_gate_counts()
     check_python_versions()
     check_page_counts()
+    check_paper_decimals()
     check_document_dates()
     check_handoff_date()
     check_own_total()

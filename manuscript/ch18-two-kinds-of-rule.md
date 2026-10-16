@@ -51,7 +51,7 @@ It gets better, and the way it gets better is the part I did not expect.
 
 Run the same division for the seven Steps whose index-mates do govern things. The thresholds are 0.443, 0.482, 0.508, 0.521, 0.538, 0.588 and 0.635, averaging 0.531. The five protective thresholds run from 0.417 to 0.627 and average 0.501.
 
-I first wrote that the protective range sits inside the enabling one. It does not, and the assertion I had added to the notebook said so before anyone else could. The protective range extends slightly below the enabling range at both ends. So the protective Steps are not equidistant from index-pairing; they are marginally closer to it than the others, by three hundredths on the average threshold. That is the direction a sceptic would predict, and it is much smaller than the gap that would matter.
+I first wrote that the protective range sits inside the enabling one. It does not, and the assertion I had added to the notebook said so before anyone else could. The protective range sits slightly lower than the enabling range at both ends, 0.417 against 0.443 at the bottom and 0.627 against 0.635 at the top. So the protective Steps are not equidistant from index-pairing; they are marginally closer to it than the others, by three hundredths on the average threshold. That is the direction a sceptic would predict, and it is much smaller than the gap that would matter.
 
 What survives is the substantive point. Index-pairing is about equally far from holding everywhere, whether the index-mate governs nothing or governs a great deal, and if you hand every Tradition the mean live strength across its own Step's needs, all twelve still lose. Across all twelve the threshold averages 0.518, against a matrix whose live entries average 0.374.
 
@@ -138,7 +138,7 @@ This is one division per Step and carries no sampling error. It is the only desi
 | 11 | T11 | 0.47 | 0.80 | 0.588 | 1.57 |
 | 12 | T12 | 1.25 | 2.40 | 0.521 | 1.39 |
 
-Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518, to the mean live entry.
+Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it is shifted down, 0.417 against 0.443 at the bottom and 0.627 against 0.635 at the top. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518, to the mean live entry.
 
 Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44 at Step 5.
 
@@ -150,7 +150,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 ### 3. Notes on sources
 
-**An error caught by the notebook rather than by me.** The main text of this chapter first said the protective thresholds sit inside the enabling range. They do not; the protective range extends below the enabling range at both ends, and the protective mean threshold is 0.501 against 0.531. The assertion added for that sentence failed on its first run and the text was corrected before the chapter was saved. The corrected version is a weaker claim in the direction an objector would want, and it is in the main text rather than here.
+**An error caught by the notebook rather than by me.** The main text of this chapter first said the protective thresholds sit inside the enabling range. They do not; the protective range is shifted below the enabling range at both ends, and the protective mean threshold is 0.501 against 0.531. The assertion added for that sentence failed on its first run and the text was corrected before the chapter was saved. The corrected version is a weaker claim in the direction an objector would want, and it is in the main text rather than here.
 
 **The threshold test is new to this chapter and it changed the previous one.** Chapter Sixteen reports that five of its twelve counts against index-pairing are arithmetic rather than evidence, because no sparsity-preserving perturbation can reach them. That is true of the designs Chapter Sixteen runs. It is not true in general, and the threshold test above reaches them and finds they fail by margins comparable to the seven. Chapter Sixteen now carries a pointer to this chapter at that paragraph rather than being silently amended.
 

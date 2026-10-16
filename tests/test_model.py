@@ -261,7 +261,12 @@ def test_component_dict_reports_the_recipient_ratio():
     _, _, comp = m.resources(X, alive, m.FULL, m.DEFAULTS, 1.0, return_components=True)
     assert set(comp) >= {"capacity", "governance", "effective_adherence",
                          "low_practice", "high_practice", "recipient_ratio"}
-    assert comp["recipient_ratio"] >= 0.0
+    assert comp["recipient_ratio"] == 0.0                 # everyone is a high-practice helper
+    X, alive = _state(10, 0.05)
+    X[5:10] = 0.9
+    _, _, mixed = m.resources(X, alive, m.FULL, m.DEFAULTS, 1.0, return_components=True)
+    assert (mixed["low_practice"], mixed["high_practice"]) == (5, 5)
+    assert mixed["recipient_ratio"] == 1.0                # five recipients per five potential helpers
 
 
 # -------------------------------------------------------------------- step growth
@@ -362,8 +367,13 @@ def test_history_of_a_group_that_starts_empty_still_has_fields():
 
 
 def test_initial_practice_sets_the_founding_composition():
-    r = m.simulate(m.FULL, T_end=5, seed=0, initial_practice=np.full(10, 0.4))
-    assert r["N"] >= 1
+    """After one week the mean practice is still near the founders' level, not the default seeding."""
+    low = m.simulate(m.FULL, T_end=1, seed=0, initial_practice=np.full(10, 0.4))
+    high = m.simulate(m.FULL, T_end=1, seed=0, initial_practice=np.full(10, 0.9))
+    default = m.simulate(m.FULL, T_end=1, seed=0)
+    assert low["N"] == 10 and abs(low["mean"] - 0.4) < 0.05
+    assert abs(high["mean"] - 0.9) < 0.05
+    assert default["N"] != 10 and abs(default["mean"] - 0.4) > 0.1
 
 
 @pytest.mark.parametrize("bad", [np.zeros((2, 2)), np.zeros(999)])
@@ -377,25 +387,35 @@ def test_split_paths_are_separately_controllable():
     base = m.simulate(m.FULL, T_end=260, seed=3)
     no_attraction = m.simulate(m.FULL, T_end=260, seed=3, attraction_T11=0.0)
     no_friction = m.simulate(m.FULL, T_end=260, seed=3, dropout_T3=0.0)
-    assert no_attraction["N"] <= base["N"]
-    assert isinstance(no_friction["N"], int)
+    assert no_attraction["N"] < base["N"]                 # 11 against 20 at this seed
+    assert no_friction["N"] != base["N"]                  # the friction path is not ignored
+    assert no_friction["mean"] != base["mean"]
 
 
 def test_arrival_t3_is_off_by_default_and_scales_inflow_when_given():
     """The base model has no T3 arrival path; a numeric value enables the variant."""
+    default = m.simulate(m.FULL, T_end=260, seed=5)
     closed_door = m.simulate(m.FULL, T_end=260, seed=5, arrival_T3=0.0)
     open_door = m.simulate(m.FULL, T_end=260, seed=5, arrival_T3=1.0)
-    assert closed_door["N"] <= open_door["N"]
+    assert (default["N"], default["mean"]) == (open_door["N"], open_door["mean"])
+    assert closed_door["N"] < open_door["N"]              # 3 against 31 at this seed
 
 
 def test_recipient_override_flows_through_the_simulation():
+    free = m.simulate(m.FULL, T_end=60, seed=2)
+    none = m.simulate(m.FULL, T_end=60, seed=2, recipient_override=0.0)
     forced = m.simulate(m.FULL, T_end=60, seed=2, recipient_override=1.0)
-    assert forced["endpoint_exists"] in (True, False)
+    assert len({free["N"], none["N"], forced["N"]}) == 3      # 34, 35 and 40 at this seed
+    assert forced["mean"] != none["mean"]
 
 
 def test_viability_threshold_is_configurable_and_reported():
     r = m.simulate(m.FULL, T_end=20, seed=0, viability_threshold=0)
     assert r["viability_threshold"] == 0
+    low = m.simulate(m.FULL, T_end=20, seed=0, n_seed=8, viability_threshold=5)
+    high = m.simulate(m.FULL, T_end=20, seed=0, n_seed=8, viability_threshold=10)
+    assert low["N"] == high["N"] == 8
+    assert low["endpoint_viable"] is True and high["endpoint_viable"] is False
 
 
 def test_first_crossing_and_recovery_are_recorded_when_they_happen():
@@ -421,7 +441,7 @@ def test_a_custom_parameter_dictionary_overrides_only_named_defaults():
 def test_resource_t_override_reaches_the_simulation():
     starved = m.simulate(m.FULL, T_end=260, seed=4, resource_T=np.zeros(12))
     base = m.simulate(m.FULL, T_end=260, seed=4)
-    assert starved["mean"] <= base["mean"]
+    assert starved["N"] < base["N"] and starved["mean"] < base["mean"]      # 6 against 35 at this seed
 
 
 def test_a_viable_group_can_close_while_recording_history():

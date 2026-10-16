@@ -449,8 +449,8 @@ $N=1000$. Both shares vanish, both satisfy the condition, and neither is an
 obstruction.
 
 Now let the same two practices scale with the group. A clique whose inwardness
-approaches one as the group expands holds 0.167 at every size tested from 10 to
-1000. A member whose attention advantage grows in proportion to the group runs
+approaches one as the group expands holds 0.500 between its three members, 0.167
+each, at every size tested from 10 to 1000. A member whose attention advantage grows in proportion to the group runs
 from 0.182 at $N=10$ to 0.167 at $N=1000$, converging to a positive share rather
 than settling on one exactly. Neither falls toward zero, and that is the whole of
 what makes them obstructions.
@@ -479,8 +479,9 @@ bounded below and the wisdom condition fails despite rotation.
 At $N=400$ and $\alpha = 0.35$, the sweep over $R$ gives maximum influence 0.118,
 0.060, 0.031, 0.016, 0.009, 0.005 and 0.003 at $R = 3, 6, 12, 25, 50, 100$ and
 400, against a flat benchmark of 0.0025. The $\alpha/R$ approximation tracks the
-computed value closely at every point, which is the check that the mechanism is
-the one claimed. Holding the pool at twelve while the group grows, maximum
+computed value closely for pools up to about twenty-five; beyond that the flat
+share $(1-\alpha)/N$ is no longer negligible and the approximation falls below the
+computed value, which is the check that the mechanism is the one claimed. Holding the pool at twelve while the group grows, maximum
 influence converges to a floor (0.041, 0.035, 0.032, 0.031, 0.030 at $N = 50, 100,
 200, 400, 800$) while the flat benchmark does not (0.020, 0.010, 0.005, 0.0025,
 0.0013). The ratio between them runs 2.1, 3.5, 6.4, 12.3, 23.9. That divergence is
@@ -771,7 +772,7 @@ Table~\ref{tab:coupling-robust}. Exact; no sampling error.}
 The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median
 0.300, minimum 0.10 and maximum 1.00. \emph{Every} $c^{*}$ exceeds both the mean
 and the median. The protective range, 0.417 to 0.627, is not contained in the
-enabling range, 0.443 to 0.635; it extends below it at both ends. Mean $c^{*}$ is
+enabling range, 0.443 to 0.635; it is shifted down, 0.417 against 0.443 at the bottom and 0.627 against 0.635 at the top. Mean $c^{*}$ is
 0.501 for the five protective Steps, 0.531 for the seven enabling ones, and 0.518
 across all twelve. The protective Steps are therefore marginally \emph{closer} to
 index-pairing holding, by 0.03 on the mean threshold, which is the direction an
@@ -1203,7 +1204,8 @@ change the model's architecture rather than its numbers; and a resource-list tes
 Full specifications are in the book's technical appendix, sections A3 to A9.
 
 \paragraph{Which parameters matter.} The ordering exponent $p$ has the largest
-single influence of any parameter on every outcome the multi-level sweep scores.
+single influence of any parameter on every outcome the multi-level sweep scores at
+$\pm 25$ per cent; across the full four-distance ladder it is first on maintenance only.
 In the three-seed one-at-a-time screen, against a full-adherence baseline of 0.0431
 maintenance, moving $p$ alone by 25 per
 cent in each direction swings maintenance from 0.0027 to 0.2373, a range of 5.45

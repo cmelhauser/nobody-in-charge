@@ -290,7 +290,7 @@ Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion: containing a choice 
 
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner & Co. **Read at source**; saved as `research/incorporated/Marsh_1866/`. Used here for the second version of the founding scene, taken by Marsh from the eleventh annual report of the Maryland State Temperance Society, and for the contemporary dispute over whether a sermon triggered it at all.
 
-Lincoln, A. (1842). Address before the Springfield Washington Temperance Society, 22 February. Confirmed independently; Maxwell notes the occasion.
+Lincoln, A. (1842). Address before the Springfield Washington Temperance Society, 22 February. The occasion is noted by Maxwell; the address itself was not read for this chapter.
 
 The pledge text dates from 1840 and is in the public domain.
 

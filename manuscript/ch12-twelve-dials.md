@@ -198,7 +198,7 @@ Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous To
 
 Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *American Economic Review* 97(2): 31-47. Self-productivity, and the conditioning of later growth on earlier stocks.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology whose substitution parameter is Chapter Thirteen's subject.
+Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology whose substitution parameter is Chapter Thirteen's subject.
 
 Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. Group quality as a strictly concave function of the other members' average participation and of group size (277): the diminishing returns behind this chapter's participatory resources, though not the saturating form they take, which is this book's. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 

@@ -1252,7 +1252,8 @@ than repeated here.
 the arrival and dropout expressions.
 
 `model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
-closed forms for the influence weights and rotation pools behind the deliberation figures, the part4
+closed forms for the rotation pools and the closed-core error behind the deliberation figures (the
+influence weights are in `model/part2_influence.py` and its cache), the part4
 blocks for the coupling, the principal suppliers, the index-mate ranks and the threshold test, the
 "load by resource for each tradition" block for the load column, the "ch17 reassignment test" block,
 the "ch15 service" block for the Step Twelve service results, the part5 blocks for the failure modes
