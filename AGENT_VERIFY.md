@@ -368,7 +368,7 @@ Carlo suite interactively.
 **The two notebooks are no longer the same artifact, and a verifier should confirm that.** Until
 9 August 2026 the paper notebook was byte-identical to the book notebook apart from its title,
 which satisfied this section mechanically while verifying nothing specific to the paper. The book
-notebook now runs 8 cells and 100 assertions; the paper notebook runs 10 and 124. Its
+notebook now runs 8 cells and 109 assertions; the paper notebook runs 10 and 124. Its
 two extra cells:
 
 1. **Paper headline claims.** Re-derives the paper's principal tables from the caches: all eight

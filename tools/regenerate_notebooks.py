@@ -93,6 +93,7 @@ expected = {
     "ch15_service.json": 1200,
     "core_thresholds.json": 400,
     "part5.json": 4800,
+    "part2_influence.json": None,
     "mc_error.json": 2600,
     "tradition_paired.json": 5200,
     "structural.json": 10000,
@@ -351,6 +352,68 @@ def emit():
     show('caucus of three holding half, N=400, each member share', 1 / 6)
     closed = np.sqrt(5 * (1 / 5) ** 2) * np.sqrt(2 / np.pi)
     show('closed core of five returning nothing, error', float(closed))
+
+    # ---- part2 influence: the regime, elder and prescription tables Chapters Eight to Eleven quote --
+    # Chapters Eight, Nine and Eleven and the paper print influence weights and consensus errors for
+    # flat, dominant, caucus and closed-core regimes, the elder-statesman family and the twenty-six-per-
+    # cent contrast. They come from model/part2_influence.py and its cache; this block reads the cache
+    # (and rebuilds the caucus and closed core from their stated constructions) so that they stand in
+    # the notebook with assertions, and not only in the loose any-decimal-in-any-cache test.
+    print('part2 influence regimes and elders (Chapters Eight to Eleven)')
+    P2 = load('part2_influence.json')
+    dominance = {row['alpha']: row for row in P2['dominance']}
+    sizes = (10, 50, 250, 500)
+    flat_err, dom_err, cau_err, core_err = {}, {}, {}, {}
+    for n in sizes:
+        for label, alpha_, store in (('flat', 0.0, flat_err), ('dominant', 0.35, dom_err)):
+            top, err = dominance[alpha_][str(n)]
+            show(f'{label} N={n} max influence', top)
+            show(f'{label} N={n} error', err)
+            store[n] = err
+        cau_err[n] = float(np.sqrt(3 * (1 / 6) ** 2 + (n - 3) * (0.5 / (n - 3)) ** 2) * np.sqrt(2 / np.pi))
+        core_err[n] = float(np.sqrt(5 * (1 / 5) ** 2) * np.sqrt(2 / np.pi))
+        show(f'caucus of 3 holding half N={n} error', cau_err[n])
+        show(f'closed core of 5 N={n} error', core_err[n])
+    show('caucus of 3 holding half, each member', 1 / 6)
+    show('closed core of 5, each member', 1 / 5)
+    show('closed core of 5, share held in aggregate', 5 * (1 / 5))
+    show('closed core of 5, share held outside the core', 1 - 5 * (1 / 5))
+    for n in (10, 500):
+        spread = max(flat_err[n], dom_err[n], cau_err[n], core_err[n]) / min(
+            flat_err[n], dom_err[n], cau_err[n], core_err[n])
+        show(f'four regimes, largest error over smallest, N={n}', spread)
+    check('four regimes within about 40 per cent at N=10', round(core_err[10] / flat_err[10], 2), 1.41)
+    check('four regimes about a factor of ten apart at N=500', round(core_err[500] / flat_err[500], 1), 10.0)
+    check('dominant error limit at N=500 (0.35 * sqrt(2/pi))', round(dom_err[500], 3), 0.280)
+    for alpha_ in (0.05, 0.1):
+        top, err = dominance[alpha_]['1000']
+        show(f'dominant {alpha_} N=1000 error', err)
+        show(f'dominant {alpha_} N=1000 error over flat', err / dominance[0.0]['1000'][1])
+    show('flat N=1000 error', dominance[0.0]['1000'][1])
+    check('five per cent dominant over flat at N=1000', round(dominance[0.05]['1000'][1] / dominance[0.0]['1000'][1], 2), 1.84)
+    check('ten per cent dominant over flat at N=1000', round(dominance[0.1]['1000'][1] / dominance[0.0]['1000'][1], 1), 3.3)
+    elders = {(row['elders'], row['alpha_elder']): row for row in P2['elders']}
+    for n in (10, 50, 250, 1000):
+        top, err, _, ratio = elders[(3, 0.1)][str(n)]
+        show(f'3 elders at 0.10 N={n} max influence', top)
+        show(f'3 elders at 0.10 N={n} error', err)
+        show(f'3 elders at 0.10 N={n} error over flat', ratio)
+    check('3 elders at 0.10 error ratios', [round(elders[(3, 0.1)][str(n)][3], 2) for n in (10, 50, 250, 1000)],
+          [1.01, 1.08, 1.35, 2.08])
+    for row in P2['elders_vs_prescription']:
+        tag = f"{row['elders']} elders at {row['alpha_elder']} office {row.get('alpha_office')}"
+        for n in (10, 25, 50, 250, 1000):
+            if str(n) in row:
+                show(f'prescription {tag} N={n} multiple of flat', row[str(n)][2])
+    firsts = [row['elders_vs_prescription'][0][str(n)][2] for row in [P2] for n in (50, 100, 250, 500, 1000)]
+    check('rotation-only prescription holds at 2.0 from N=50', [round(v, 3) for v in firsts], [1.996] * 5)
+    check('rotation-only prescription at N=10 and 25',
+          [round(P2['elders_vs_prescription'][0][str(n)][2], 2) for n in (10, 25)], [1.82, 2.11])
+    clique = P2['scaling'][0]
+    imbalance = P2['scaling'][1]
+    for n in (10, 1000):
+        show(f'clique of three, inward to one, N={n} each member', clique[str(n)][0])
+        show(f'imbalanced member N={n} share', imbalance[str(n)][0])
 
     # ---- part5: trajectories, T3 dose sweep, founder composition ---------------------
     d = load('part5.json')
