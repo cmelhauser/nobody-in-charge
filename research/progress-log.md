@@ -6009,3 +6009,14 @@ deleted on GitHub if the sandbox is no longer used; the public elicitation colla
 (`research/elicitation/4-collator-notes.pdf`), which name the answer the exercise is meant to elicit; Dependabot
 alerts, which are off.
 
+### 16 October 2026, after the audit: the deploy key is gone
+
+Merged as #63. The write-enabled deploy key titled for the Cowork sandbox has been deleted from GitHub at the
+Human Author's direction. This checkout had been pushing with it (`core.sshCommand` pointed at the ignored
+`.git-deploy-key`), so before deleting it the checkout was switched to the Human Author's own `gh` credential
+over HTTPS and a branch push and delete were tested; the key was deleted only after that, and a second push
+test followed. The local `.git-deploy-key` and `.git-deploy-key.pub` files are now dead and can be deleted.
+The audit's "not done" list therefore shrinks to the public elicitation collator notes, which the Human Author
+chose to leave (Chapter 18 states the same rows), and Dependabot alerts, which are off. The earlier entry's
+statement that the key was still in place is true of that entry's date only.
+
