@@ -33,12 +33,12 @@ jobs:
       # A shallow checkout gives the commit and a ref, not the annotated tag object, so
       # `git for-each-ref --format=%(contents)` comes back without the message and the
       # check fails on a tag that is in fact correct. That happened on v0.9.0.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
           fetch-tags: true
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
           cache: pip
@@ -50,18 +50,19 @@ jobs:
           python -m pip install -r requirements-dev.txt
 
       - name: Cache the TeX toolchain
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: |
             .tex-cache
             .xdg
-          key: tex-${{ runner.os }}-${{ env.PANDOC_VERSION }}-v2
+          key: tex-${{ runner.os }}-${{ env.PANDOC_VERSION }}-v3
 
       - name: Install pandoc, tectonic and the book font
         run: |
           set -euo pipefail
           curl -fsSL --retry 3 --retry-delay 3 --connect-timeout 10 -o /tmp/pandoc.deb \
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          echo "6c06b69b49ae95087573631a6fcafb233ab7ab51e5cfa73f7539d6c964a2640d  /tmp/pandoc.deb" | sha256sum -c -
           sudo dpkg -i /tmp/pandoc.deb
 
           mkdir -p "$XDG_DATA_HOME/fonts"
@@ -91,12 +92,16 @@ jobs:
           done
           fc-cache -f
 
+          # Tectonic 0.17.0, from its release page, checked against the SHA-256 GitHub records for
+          # that asset. It used to be fetched with a piped installer that took whatever was newest.
+          # Raise it deliberately: change the URL and the hash together, and bump the cache key.
           TECTONIC_BIN="$TECTONIC_CACHE_DIR/bin"
           mkdir -p "$TECTONIC_BIN"
           if [ ! -x "$TECTONIC_BIN/tectonic" ]; then
-            curl -fsSL --retry 2 --retry-delay 3 --connect-timeout 10 \
-              https://drop-sh.fullyjustified.net | sh
-            mv tectonic "$TECTONIC_BIN/"
+            curl -fsSL --retry 2 --retry-delay 3 --connect-timeout 10 -o /tmp/tectonic.tar.gz \
+              "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-x86_64-unknown-linux-musl.tar.gz"
+            echo "8533d07f9ccbd7a65824b9e0459041bca34af1eb33daba48f59215593753a3b7  /tmp/tectonic.tar.gz" | sha256sum -c -
+            tar -xzf /tmp/tectonic.tar.gz -C "$TECTONIC_BIN" tectonic
           fi
           echo "$TECTONIC_BIN" >> "$GITHUB_PATH"
 
