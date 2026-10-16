@@ -62,12 +62,9 @@ def test_registered_sensitivity_values_decompose_to_one_hundred_and_eighteen():
 def test_the_model_choice_inventory_matches_the_current_model():
     """tools/check_release.py enforces this too; it is pinned here so a unit run catches it."""
     inventory = ROOT / "research" / "model-choice-inventory.json"
-    if not inventory.exists():
-        return
+    assert inventory.exists()
     data = json.loads(inventory.read_text())
-    recorded = data.get("model_sha256") or data.get("model_hash")
-    if recorded:
-        assert recorded == CANONICAL_MODEL_SHA256
+    assert data["model_sha256"] == CANONICAL_MODEL_SHA256
 
 
 def test_semantic_and_executable_objects_stay_distinct():

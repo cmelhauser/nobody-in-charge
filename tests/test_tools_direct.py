@@ -651,7 +651,7 @@ def test_check_fonts_finds_files_by_any_case_and_guards_its_arguments(tmp_path, 
     with pytest.raises(SystemExit):
         check_fonts.main(["--dir", "--strict"])
     assert check_fonts.main(["--strict", "--dir", str(tmp_path)]) == 1
-    assert "bump the cache key" in capsys.readouterr().out
+    assert "update PINS deliberately" in capsys.readouterr().out
 
 
 def test_check_fonts_candidate_dirs_reads_fontconfig_output(tmp_path, monkeypatch):

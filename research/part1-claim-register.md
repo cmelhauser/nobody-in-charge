@@ -265,8 +265,8 @@ future session can see what was removed and why.
 | 1 | 39 | 36 | 3 | Solid |
 | 2 | 31 | 28 | 3 | Solid |
 | 3 | 19 | 14 | 5 | Solid |
-| 4 | 18 | 7 | 11 | Improved; the funding narrative is now first-hand as to the meeting and still at a remove as to the Amos report |
-| 5 | 16 | 15 | 1 | **Solid.** Rewritten on Kurtz 2 Aug 2026; the single remaining item is the Holmström application, which is mine |
+| 4 | 23 | 12 | 11 | Improved; the funding narrative is now first-hand as to the meeting and still at a remove as to the Amos report |
+| 5 | 22 | 20 | 2 | **Solid.** Rewritten on Kurtz 2 Aug 2026; the two remaining items are at a remove or inferred, one of them the Holmström application, which is mine |
 | 6 | 16 | 9 | 7 | Solid on Maxwell, weak on 1944 |
 
 **Updated 2 August 2026 after acquiring Marsh 1866** (`marsh-1866-temperance-recollections.txt`).

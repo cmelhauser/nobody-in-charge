@@ -580,8 +580,8 @@ that maximum influence vanishes as group size grows. The theorem is published ma
 claim that Traditions 2, 9, and 12 operationalize its assumptions is this project's unverified
 reading.
 
-The deterministic Part Two notebook checks finite-group influence, scaling of rotation pools,
-the three obstruction constructions, and random-network controls. These are not runs of the
+The deterministic Part Two analysis, `model/part2_influence.py` with its cache, covers finite-group influence,
+scaling of rotation pools, the three obstruction constructions, and random-network controls; the notebook's "part2 closed forms" block reproduces only the rotation-pool and closed-core figures. These are not runs of the
 stochastic membership model. The matrices in Part Four reject index-pairing on the authored
 values, but five of the twelve rejections are forced by structural zeros. Threshold and sparsity
 tests are required where multiplicative perturbation is blind. Under wholesale randomization of

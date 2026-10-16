@@ -65,6 +65,11 @@ jobs:
           sudo dpkg -i /tmp/pandoc.deb
 
           mkdir -p "$XDG_DATA_HOME/fonts"
+          # A cached font that is not the pinned one is discarded, so that updating PINS in
+          # tools/check_fonts.py is enough: the cache is immutable per key and would otherwise
+          # keep serving the old files to the strict check below.
+          python tools/check_fonts.py --strict --dir "$XDG_DATA_HOME/fonts" >/dev/null 2>&1 \
+            || rm -f "$XDG_DATA_HOME"/fonts/texgyrepagella-*.otf
           MIRRORS="https://ftp.fau.de/ctan/fonts/tex-gyre/opentype
                    https://mirrors.ctan.org/fonts/tex-gyre/opentype
                    https://ctan.math.illinois.edu/fonts/tex-gyre/opentype"
@@ -94,6 +99,9 @@ jobs:
             mv tectonic "$TECTONIC_BIN/"
           fi
           echo "$TECTONIC_BIN" >> "$GITHUB_PATH"
+
+          fc-list | grep -qi 'TeX Gyre Pagella' \
+            || { echo 'TeX Gyre Pagella missing; the PDF builds will fail'; exit 1; }
 
       # The same pin the pull-request workflow holds: a release is built from the fonts that
       # tools/check_fonts.py names, or it fails here with a sentence and not a changed layout.
@@ -176,6 +184,11 @@ jobs:
 
       - name: The rendered PDFs are sound documents
         run: python tools/check_pdfs.py
+
+      # RELEASING.md condition 4: the documentation agrees with the tree after the PDFs are
+      # rebuilt, page counts included. The pull-request workflow runs the same check.
+      - name: Documentation, including page counts
+        run: python tools/check_docs.py
 
       # No --skip-artifacts. The six artifact checks are what a release is about.
       - name: Full release gate and the slow integration tests

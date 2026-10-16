@@ -87,7 +87,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 ### 2. The technical version
 
-No new computation. The figures referenced are from Chapter Nine, section 2, and are computed in the part2 closed-forms block of `model/book-calculations.ipynb`: closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
+No new computation. The figures referenced are from Chapter Nine, section 2, and the error 0.357 is reproduced in the "part2 closed forms" block of `model/book-calculations.ipynb`; the aggregate and outside shares come from `model/part2_influence.py` and `research/part2_influence.json`. Closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 

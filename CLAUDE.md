@@ -140,7 +140,7 @@ record only, each now holding a copy obtained free from its publisher or made by
 AAWS pamphlet P-17, SMF-132 and the short-form Concepts, all three byte-identical to the files
 read in August; the *Twelve Steps and Twelve Traditions* and the fourth-edition Big Book,
 assembled from the per-chapter PDFs aa.org posts; and the Kurtz talk, in the Human Author's own
-transcription. The same day added `ServiceManual_2024`, bringing the corpus to 34: the 2024-26
+transcription. The same day added `ServiceManual_2024`, bringing the corpus to 33: the 2024-26
 *A.A. Service Manual* with Bill W.'s full Twelve Concepts, which AAWS posts free and which settles
 the Concept 4 question that `HANDOFF.md` section 10 carried. Seven open-access papers followed,
 five the paper cites and two from the skill-depreciation literature Chapter 12 had not consulted,
