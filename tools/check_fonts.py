@@ -51,8 +51,8 @@ def candidate_dirs() -> list[Path]:
         out = subprocess.run(["fc-list", ":family=TeX Gyre Pagella", "file"],
                              capture_output=True, text=True, check=False).stdout
         for line in out.splitlines():
-            path = Path(line.split(":")[0].strip())
-            if path.name in PINS and path.parent not in found:
+            path = Path(line.strip().removesuffix(":").strip())      # a path may itself hold colons
+            if path.name.lower() in PINS and path.parent not in found:
                 found.append(path.parent)
     home = Path.home()
     if os.environ.get("XDG_DATA_HOME"):
@@ -63,9 +63,13 @@ def candidate_dirs() -> list[Path]:
 
 
 def locate(name: str, directories: list[Path]) -> Path | None:
+    """The file called `name` (a pin, lower case) in or under any directory, whatever its case:
+    fontconfig lists the same file as TeXGyrePagella-Regular.otf on some systems."""
     for directory in directories:
-        for path in (directory / name, *directory.rglob(name)):
-            if path.is_file():
+        if (directory / name).is_file():
+            return directory / name
+        for path in directory.rglob("*.otf"):
+            if path.name.lower() == name and path.is_file():
                 return path
     return None
 
@@ -90,7 +94,7 @@ def main(argv: list[str]) -> int:
     directories = candidate_dirs()
     if "--dir" in argv:
         position = argv.index("--dir")
-        if position + 1 >= len(argv):
+        if position + 1 >= len(argv) or argv[position + 1].startswith("--"):
             raise SystemExit("--dir needs a directory")
         directories = [Path(argv[position + 1])]
     good, bad = compare(directories)
@@ -99,6 +103,10 @@ def main(argv: list[str]) -> int:
     if bad:
         print(f"\n{len(bad)} of {len(PINS)} font files differ from CI's. PDFs built here that use "
               "TeX Gyre Pagella (the book and the primer) will not match CI's byte for byte.")
+        if strict:
+            print("On the runner this means the CTAN mirror served a different file, or a cached one "
+                  "is stale: update PINS deliberately and rebuild and re-read the PDFs, or bump the "
+                  "cache key (tex-...-vN) in .github/workflows/ci.yml.")
         return 1 if strict else 0
     print(f"\nall {len(PINS)} font files match CI's")
     return 0

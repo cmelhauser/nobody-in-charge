@@ -5,7 +5,8 @@ name: CI
 #
 # `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only;
 # on `main` and on demand it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
-# others with the model tests and the tool imports. The version-independent checkers live in
+# others with the model tests, the direct tool tests and a byte-compile of every tool
+# and analysis script. The version-independent checkers live in
 # `checkers`, which runs once on 3.12, so the release gate and the book-level checks are not
 # repeated across the matrix.
 #
@@ -116,18 +117,23 @@ jobs:
 
       # 3.12 is the version the checkers run on, so it runs everything: the model tests and
       # the integration tests that spawn each tool. The other versions run what can differ
-      # between versions, the model's arithmetic and every tool's import, and not the
+      # between versions, the model's arithmetic, the tools the direct tests call, and a
+      # byte-compile of every tool and script for syntax, and not the
       # subprocess runs of the checkers, which are version-independent and cost about 35 s
       # a leg. Each still holds the 100 per cent coverage gate on the canonical model.
       - name: Unit tests, with the 100 per cent coverage gate on the canonical model
         if: matrix.python-version == '3.12'
         run: python -m pytest --cov --cov-report=term-missing
 
-      - name: Model tests and tool imports, with the same coverage gate
+      - name: Model and direct tool tests, with the same coverage gate
         if: matrix.python-version != '3.12'
         run: >
           python -m pytest tests/test_model.py tests/test_release_invariants.py
           tests/test_tools_direct.py --cov --cov-report=term-missing
+
+      - name: Byte-compile every tool and script under this version
+        if: matrix.python-version != '3.12'
+        run: python -m compileall -q tools model
 
       - name: Confirm the canonical model hash
         run: |

@@ -509,7 +509,7 @@ So the honest statement of this book's comparison is not that the Washingtonians
 
 **And the sermon itself was disputed at the time.** Marsh adds a sentence that is worth more than the detail it corrects: *This statement was afterward denied by some who preferred that the movement should be considered an immediate impulse from Heaven, without any human instrumentality.* So within twenty-five years there were already two constituencies, one holding that six men were moved by a preacher and one holding that they were moved by God directly. That is a founding myth under construction, visible in the act, and it is a reason to hold every detail of this scene loosely. What is not in dispute is the outcome: they organised, and they signed.
 
-**A significant omission, flagged rather than fixed.** This chapter tells the Washingtonian story as six working men and their imitators, which is broadly how Maxwell tells it and entirely how the AA-derived literature tells it. It is incomplete. The movement spawned the Martha Washington Societies from May 1841, in which women took leadership roles for the first time in American temperance, giving moral and material support to female inebriates and to the wives and children of male ones. It spawned juvenile auxiliaries.  Ruth M. Alexander's 1988 article in the *Journal of American History* treats the class and domestic dimensions directly and I have not read it. A historian would notice the absence immediately, and it bears on the argument as well as the coverage: a movement that generated auxiliaries for non-alcoholic women and children is a movement whose boundary was porous by design, which is the absorption thesis of Chapter Two appearing earlier than I have placed it.
+**A significant omission, flagged rather than fixed.** This chapter tells the Washingtonian story as six working men and their imitators, which is broadly how Maxwell tells it and entirely how the AA-derived literature tells it. It is incomplete. The movement spawned the Martha Washington Societies from May 1841, which gave moral and material support to female inebriates and to the wives and children of male ones; whether women led them, and whether they were the first women to lead in American temperance, I have not been able to check. It spawned juvenile auxiliaries. Ruth M. Alexander's 1988 article in the *Journal of American History* treats the class and domestic dimensions directly and I have not read it. A historian would notice the absence immediately, and it bears on the argument as well as the coverage: a movement that generated auxiliaries for non-alcoholic women and children is a movement whose boundary was porous by design, which is the absorption thesis of Chapter Two appearing earlier than I have placed it.
 
 **The pledge is independently corroborated, and the corroboration is two years old rather than a hundred and ten.** This chapter takes the pledge text from Maxwell, who took it from the Baltimore records. Grosh prints it in 1842 as "the original or Baltimore Pledge", set beside the Utica pledge that some societies preferred, and the two texts agree word for word apart from punctuation: Grosh uses long dashes where this chapter has commas, writes "Society" with a capital, and drops the comma before "or cider". Nothing in the wording differs. The claim moves from scholarly to primary, and the fact that a Utica compiler in 1842 could print the Baltimore wording as the original is itself evidence that the text travelled intact.
 
@@ -681,7 +681,7 @@ Two things follow. The first is that this is a hostile witness reciting the six 
 
 That is the political-entanglement charge, and reading it from a participant rather than from a summary changes what it means. Taking a position on prohibition was not a mistake the Washingtonians made. It was the price of remaining in the room where the cause was now being decided.
 
-An earlier draft of this chapter ended that thought by saying that having no rule against it, they had no way to decline, and that AA a century later wrote a rule and could point at it. That is wrong, and correcting it makes the chapter's argument harder and better. They had the rule, in two places, and Chapter One quotes both: a clause in the definition of principles barring anything inimical to any party or denomination from the movement's publications and meetings, and Article 3 of the model constitution circulated after the Utica mass convention of February 1842. It was in print, in a pocket edition, within months of the Connecticut delegates marching to the State House, which on Marsh's sequence of events fell in the same year.
+An earlier draft of this chapter ended that thought by saying that having no rule against it, they had no way to decline, and that AA a century later wrote a rule and could point at it. That is wrong, and correcting it makes the chapter's argument harder and better. They had the rule, in two places, and Chapter One quotes both: a clause in the definition of principles barring anything inimical to any party or denomination from the movement's publications and meetings, and Article 3 of the model constitution circulated after the Utica mass convention of February 1842. It was in print, in a pocket edition, within months of the Connecticut delegates marching to the State House, which on Marsh's sequence of events fell at about the same time.
 
 So the difference between the two fellowships is not that one wrote a rule about outside issues and the other did not. Both did, within two years of founding in the Washingtonian case and eleven in AA's. The Washingtonian rule failed, and reading it beside the event it failed to prevent shows two reasons, neither of which is a lack of rules.
 
@@ -1132,7 +1132,7 @@ Wilson had been approaching alcoholics as a man who had recovered, offering to h
 
 The alcoholics who preceded him in the Oxford Group had noticed that the group's methods worked on some drinkers. Wilson noticed something narrower and more useful: that the work itself was the medicine, and that its therapeutic value accrued to the person doing it. That is what the Washingtonians had discovered in Baltimore in 1840 and what the Sons of Temperance quietly dropped when they added sick pay and ranks. Wilson rediscovered it in a lobby, under pressure, for the most self-interested reason imaginable.
 
-By 1937 the two groups, Akron and New York, could count about forty sober members between them, and Wilson and Smith sat down and counted. Twenty or so people had stayed dry for a meaningful stretch. It had taken two years to produce forty, or three in Wilson's own later telling. At that rate the thing would reach a few thousand alcoholics in a century, and there were, they believed, hundreds of thousands of them.
+By 1937 the two groups, Akron and New York, could count about forty sober members between them, and Wilson and Smith sat down and counted. Twenty or so people had stayed dry for a meaningful stretch. It had taken two years to produce forty. At that rate the thing would reach a few thousand alcoholics in a century, and there were, they believed, hundreds of thousands of them.
 
 They decided they had a communication problem, and this decision produced everything that followed, including the crisis that produced the Traditions.
 
@@ -1986,7 +1986,7 @@ The result in this chapter is not mine and it is not simulated. It is a theorem,
 
 What my own model contributes is the tables. The theorem tells you that maximum influence must vanish; it does not tell you how fast concentration hurts in a group of any particular size, or how the damage compares between a single dominant member and a small clique. Those are computed from constructed trust matrices, and the computation is simple enough to be checkable by hand for small groups.
 
-The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 45 per cent of one another in accuracy, against a factor of seven or eight at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
+The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 40 per cent of one another in accuracy, against a factor of ten at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
 
 ### 2. The technical version
 
@@ -2055,7 +2055,7 @@ The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0
 | plus 3 elders at 0.20, office share 0.05 | 4.1 | 17.4 | 67.4 |
 | plus 5 elders at 0.20, office share 0.05 | 2.8 | 10.8 | 40.8 |
 
-Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
+Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size from fifty members up, 1.82 at ten and 2.11 at twenty-five) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
 
 And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the companion paper and it starts hurting almost immediately.
 
@@ -2525,7 +2525,7 @@ Now the limits, and there are four that matter.
 
 **The exchangeability in Chapter Eight is exact only in the limit.** Real trust is never perfectly uniform, even under flawless adherence. The Traditions push maximum influence toward one over N; they do not deliver it.
 
-**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. At the default decay rate, over 400 paired seeds, final membership is lower under referral loss than under attraction loss, which favours the critic's emphasis on inflow, though that ordering reverses on membership at decay rates a quarter or more below the default. Nothing in the model ranks inflow against the structure of influence.
+**And the objection raised in Chapter Six has not gone away.** A critic can say that treatment centres and courts keep AA alive, not the aggregation properties of its governance, and that this book has spent five chapters on the less important variable. The simulation does not refute that. At the default decay rate, over 400 paired seeds, final membership is lower under referral loss than under attraction loss, which favours the critic's emphasis on inflow, though that ordering reverses on membership at decay rates a fifth or more below the default. Nothing in the model ranks inflow against the structure of influence.
 
 I think both matter and I think the honest position is that the model cannot rank them. What the model can say is that the two do different work. Inflow determines whether a group survives. Influence structure determines whether the decisions it makes on the way are any good. A group can have plenty of the first and still spend twenty years deciding things badly, and nothing in its experience will tell it so.
 
@@ -2788,7 +2788,7 @@ Maximum 1.00 at Steps 1 and 12, minimum 0.17 at Step 7, mean 0.53, ratio of extr
 
 This model gives each step a single level. It therefore cannot represent the member their data describes, whose behavioural practice holds while the spiritual part falls away, and it collapses into one number the only component that predicted an outcome. That is a limitation of the representation and not a detail of calibration, and no sensitivity analysis in this book can reach it, because every design here perturbs the values of the dials rather than the decision to have one dial. Their study is small, nine months long and observational, so it is not a refutation. It is a well-aimed objection to the shape of the apparatus, and Chapter Thirteen's research programme should include it.
 
-**From the multi-level sweep** (`research/oat_full.json`, notebook section 9): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on mean practice, maintenance and final membership at plus or minus 25 per cent, and leaves viability and existence unmoved. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-11 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
+**From the multi-level sweep** (`research/oat_full.json`, block "oat influence ranges over baseline" of `model/book-calculations.ipynb`): 118 registered values, each moved alone by 10, 25, 50 and 75 per cent in each direction, three common seeds per endpoint, 944 perturbation points. Against a full-adherence baseline of 0.0431 maintenance, 0.2261 practice and 18.67 members, the ordering exponent `p_gate` has the largest single influence on mean practice, maintenance and final membership at plus or minus 25 per cent, and leaves viability and existence unmoved. At plus or minus 25 per cent it swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the decay rate `delta0` is second at 3.27 and the step-11 speed third at 2.22. Across the whole four-level ladder the `p_gate` maintenance range is 14.64 times baseline, `delta0` 12.98 and member heterogeneity 4.69. All 35 governance cells produce zero change in every outcome and every scenario, to floating-point precision, because the sweep runs at full adherence and the column-normalised governance quality is then identically 1 whatever the underlying cell magnitudes are. That is a property of the reference point, not evidence that governance is inert, and it is why the Morris and Sobol designs sit at 0.85 adherence instead.
 
 ### 3. Notes on sources
 
@@ -3670,7 +3670,7 @@ Intervals are Wilson at 95 per cent on n = 2,000. The three 100.0 entries are 2,
 
 ### 3. Notes on sources
 
-**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced in the part4 blocks of `model/book-calculations.ipynb`, with assertions against the printed values.
+**Everything in this chapter is computation on two matrices I built.** There is no external source and there is nothing to verify against. The matrices are printed in full in `model/aa_group_model.py` and every figure above is reproduced in the blocks of `model/book-calculations.ipynb` headed "Part Four semantic overlap B = S @ GOV.T", "part4 threshold test and principal suppliers" and "coupling perturbation tests, 2,000 draws each", with assertions against the printed values.
 
 **A provenance note that belongs in the record.** The 85.5 per cent figure was carried in `research/PARAMETERS.md` for some time before it could be reproduced from the book's own repository; the code lived only in the working paper the book grew out of. It was ported into the notebook so that the claim stands on the book's own files, and the port is what produced the degradation curve and the structural test, neither of which existed before.
 
@@ -3694,7 +3694,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks for every matrix figure above and for the threshold test that reaches the five counts this chapter's designs cannot, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list test. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its blocks "Part Four semantic overlap B = S @ GOV.T" and "coupling perturbation tests, 2,000 draws each" for every matrix figure above, and "part4 threshold test and principal suppliers" for the threshold test that reaches the five counts this chapter's designs cannot, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list test. `appendix/APPENDIX.md`, sections A7.1 to A7.5 for the perturbation designs and A8 for the sparsity pricing that reaches what they cannot. `plans/PART-4-PLAN.md` section 1, which records that this part's central claim was found to be non-structural after the plan had asserted the opposite.
 
 The cross-reference count is not internal and not a simulation. It is a search of the twenty-four chapters, and anyone can repeat it in a few minutes from the files AAWS publishes free at aa.org. The method is stated in the main text so that it can be checked rather than believed: count, in each Tradition chapter, references to the Step of that chapter's own number, and count, in each Step chapter, occurrences of the word *Tradition*.
 
@@ -3774,7 +3774,7 @@ I do not want to overstate what that settles. Kurtz named a specific passage in 
 
 There is one more thing worth reporting, and it is the reason this chapter might reasonably be read before Chapter Sixteen rather than after.
 
-Under magnitude randomisation, unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds. It is not the most robust under every design: when cells of the governance matrix are flipped at random, the paper's sparsity table, which prices that design, shows the Step Twelve to Tradition Five claim holding more often than unity leading.
+Under magnitude randomisation, unity's primacy is the most robust claim in Part Four, and it is the only one that survives the hardest test at better than even odds. It is not the most robust under every design: when cells of the governance matrix are flipped at random, the paper's sparsity table, which prices that design, shows unity leading in 50.8 per cent of draws at sixteen flipped cells, less often than either the Step Five to Tradition Twelve claim (70.8) or the Step Twelve to Tradition Five claim (52.9) holds, and the first already holds more often than unity leads at eight flips (85.4 against 83.6). Two thousand draws per flip count.
 
 Under multiplicative disagreement about the magnitudes, unity leads in every one of two thousand draws at fifteen per cent, every draw at thirty per cent, 98.0 per cent at fifty, and 86.9 per cent at seventy-five. Then take the structural test Chapter Sixteen describes, in which every magnitude is discarded and only the sparsity survives. Unity still leads in 75.4 per cent of draws.
 
@@ -3866,7 +3866,7 @@ It is not the document Kurtz named. He points at Wilson's discussion of the Firs
 
 **A second thing I cannot check.** Kurtz says the conflation appears in *some later AA literature*. He does not say which, and I have not identified an instance. So I am answering a charge whose extent I have not been able to measure.
 
-**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in the part4 blocks of `model/book-calculations.ipynb`.
+**Everything else here is computation on matrices I built**, printed in `model/aa_group_model.py`, with every figure reproduced and asserted in the blocks of `model/book-calculations.ipynb` headed "Part Four semantic overlap B = S @ GOV.T", "load by resource for each tradition", "ch17 reassignment test" and "coupling perturbation tests, 2,000 draws each".
 
 ### 4. References
 
@@ -3882,7 +3882,7 @@ Wilson, W. (1945). "Modesty One Plank for Good Public Relations." *AA Grapevine*
 
 **Internal, and reproducible from this repository:**
 
-`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its part4 blocks, and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
+`model/aa_group_model.py`, matrices S and GOV. `model/book-calculations.ipynb`, its blocks "part4 threshold test and principal suppliers", "load by resource for each tradition" and "ch17 reassignment test", and `research/resource_list.json` with `model/resource_list_test.py` for the resource-list corroboration. `appendix/APPENDIX.md` A7.1 to A7.5 for the perturbation designs. `plans/PART-4-PLAN.md` section 2, which raised the conflation objection.
 
 **What was not read:**
 
@@ -4027,7 +4027,7 @@ This is one division per Step and carries no sampling error. It is the only desi
 | 11 | T11 | 0.47 | 0.80 | 0.588 | 1.57 |
 | 12 | T12 | 1.25 | 2.40 | 0.521 | 1.39 |
 
-Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a quarter of the distance to the mean live entry.
+Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518, to the mean live entry.
 
 Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44 at Step 5.
 
@@ -4360,7 +4360,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb` section 14 for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A3 for the calibration.
+`model/part5_runs.py` for the runs. `research/part5.json` for the raw output. `model/book-calculations.ipynb`, its "part5 trajectories, yearly means" and "part5 paired established-practice contrast at year 10, viable in both" blocks, for every figure with its assertion. `appendix/APPENDIX.md` A4 for the selection threat that this chapter turns into a finding, A7.1 for what no design covers, A3 for the calibration.
 
 **What was not read:**
 
@@ -4504,7 +4504,7 @@ Nothing.
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb` section 14. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 1 for the absence of external validation.
+`model/part5_runs.py`, `research/part5.json`, `model/book-calculations.ipynb`, its "part5 trajectories, yearly means" and "part5 paired established-practice contrast at year 10, viable in both" blocks. `appendix/APPENDIX.md` A4 for the selection threat, A7.1 for what no design covers, A11 threat 1 for the absence of external validation.
 
 **What was not read:**
 
@@ -4650,7 +4650,7 @@ Silkworth, W. D. (1939). An article in the *Journal-Lancet*, July 1939, as quote
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the composition experiment and for the three lines it duplicates from `simulate()` in order to seed founders individually. `research/part5.json`, `model/book-calculations.ipynb` section 14.
+`model/part5_runs.py` for the composition experiment and for the three lines it duplicates from `simulate()` in order to seed founders individually. `research/part5.json`, `model/book-calculations.ipynb`, its "part5 founder composition" block and the "ch22" lines of the published-figures cell.
 
 **What was not read:**
 
@@ -5452,7 +5452,8 @@ independent replications and not confirmatory estimates.
 Unless a section says otherwise, every result here is from 400 seeds paired by common random numbers,
 over 1,560 weeks (thirty years) at `dt = 0.5` weeks, with viable meaning more than five members at the
 stated horizon; the Tradition ranking in A5.2 uses a 20-year horizon of 1,040 weeks. Binary fractions
-carry Wilson intervals and contrasts carry paired intervals.
+carry Wilson intervals and contrasts carry paired intervals. The A5.1 table prints the fractions alone; their
+Wilson intervals are in `research/RELEASE-GATE-RESULTS.md`, whose condition table lists them beside each fraction.
 
 ### A5.1 Conditions and mechanism factorials
 
@@ -5596,7 +5597,7 @@ capability model and does not reproduce. Five architectures are not every possib
 Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss. Randomizing every
 nonzero matrix magnitude while preserving the zero pattern leaves the comparison intact on all
 three outcomes. These designs run at full adherence, where the governance magnitudes cancel (A2.3),
-so they test the `S` magnitudes only. The tiered design, which also varies scalar defaults and Step speeds over wider
+so among the matrix magnitudes they test only `S`. The tiered design, which also varies scalar defaults and Step speeds over wider
 ranges, produces substantial final-membership reversals and smaller numbers of viability and
 existence reversals. These are different robustness questions.
 
@@ -6441,8 +6442,9 @@ lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
 
 The first term is arrival that does not pass through a member. The second is arrival carried by
 members, scaled by their Step 12 state. The model's endogenous term is large early, when founders hold Step 12 near 0.55, and at the
-thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (the endogenous rate
-exceeds it in about one run in ten). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
+thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (in an ad hoc check of
+seeds 0 to 399 at full adherence, 1,560 weeks, step 0.5, the endogenous rate exceeded it in 43 runs, 10.75
+per cent, which is not in any release cache and is stated here as an orientation, not a result). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
 arrived support it.
 
 The coding rule is: for each story, does the account describe a person who was themselves a recovered
@@ -6492,7 +6494,7 @@ was based on the absence of a personal visit.
 ### A13.5 What this supports, and what it bounds
 
 **It supports the architecture of the arrival term for the fellowship the model was built from, and A13.7 bounds it for the later one.**
-The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
+The model's endogenous channel, which dominates early and supplies the smaller share at the thirty-year endpoint, is not an artifact of convenience. It is what the source describes,
 in the twenty-six accounts the census covers, and the one case of arrival without a member is presented by
 the fellowship as an untested experiment about which it recorded doubt.
 
@@ -7001,10 +7003,11 @@ that making the list is mostly a matter of having somebody to ask, with some
 expectation that it gets done and a little need for discretion.
 
 The single interesting assumption is the small confidentiality entry. It gives
-Tradition 8 its 0.07 here, its best value anywhere. Remove that 0.1 and the entry falls
-to 0.04, tied with Tradition 12, though its competition rank stays fourth. The primer's claim that the
-pairing is not absurd anywhere therefore rests, in this row, on a judgement about a
-tenth of a unit.
+Tradition 8 its 0.07 here, which is not its largest entry in the table (that is 0.34, at
+Step Five). Remove that 0.1 and the entry falls to 0.04, tied with Tradition 12, though its
+competition rank stays fourth. The rank therefore does not rest on that tenth of a unit, but
+the 0.07 does. Its fourth place, shared with Step Eleven's, is the best index-mate rank
+in the table after Step One's second.
 
 *In plain terms.* Making the list is mostly a matter of having somebody to ask, which
 is why the group conscience supplies it. Its own numbered Tradition does better here
@@ -7780,8 +7783,9 @@ about which room anyone should walk into. The full comparison, with the page ref
 and the arithmetic, is appendix section A12, and it is written to stand alone.
 
 **A second reading, from the other end.** The model assumes that most people arrive
-because a member brought them, rather than finding the group on their own. That is one of
-the hundred and eighteen registered sensitivity values and it had never been checked against anything.
+because a member brought them, rather than finding the group on their own. That rests on
+two values the book authored, the rate at which people arrive on their own and the rate at which a
+member brings someone, and it had never been checked against anything.
 In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
 that time: the recurring shape is a recovered drinker turning up in person, often several
@@ -7884,9 +7888,10 @@ the arrival and dropout expressions.
 
 `model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
 closed forms for the influence weights and rotation pools behind the deliberation figures, the part4
-blocks for the coupling, the principal suppliers, the index-mate ranks, the threshold test, the load
-column and the reassignment test, the part5 blocks for the Step Twelve service results and the
-failure modes, and the sparsity perturbation; the resource-list test is `research/resource_list.json`
+blocks for the coupling, the principal suppliers, the index-mate ranks and the threshold test, the
+"load by resource for each tradition" block for the load column, the "ch17 reassignment test" block,
+the "ch15 service" block for the Step Twelve service results, the part5 blocks for the failure modes
+and the Tradition 3 dose sweep, and the coupling perturbation tests for the sparsity perturbation; the resource-list test is `research/resource_list.json`
 with `model/resource_list_test.py`.
 
 `research/tradition_paired.json`, the 400-replication paired degradation runs, produced
@@ -8516,10 +8521,10 @@ protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 
 it extends below it at both ends. Mean $c^{*}$ is 0.501 for the five protective Steps,
 0.531 for the seven enabling ones, and 0.518 across all twelve. The protective Steps are
 therefore marginally *closer* to index-pairing holding, by 0.03 on the mean threshold,
-which is the direction an objector would predict and about a quarter of the distance to
-the mean live entry. Setting $c$ to the mean live entry of 0.374 for every Step
-simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44
-at Step 5.
+which is the direction an objector would predict and about a fifth of the distance from
+the all-twelve mean threshold, 0.518, to the mean live entry. Setting $c$ to the mean live
+entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by
+margins from 0.02 at Step 7 to 0.44 at Step 5.
 
 What the test licenses is the statement that index-pairing would require the index-mate to
 govern its own Step's needs more strongly than a typical entry in the matrix, uniformly

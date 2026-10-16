@@ -363,7 +363,7 @@ is pure computation, so it is worth testing exhaustively. The scripts under `too
 analysis scripts under `model/` are deliberately outside the gate: they are batch jobs and
 entry points that write hash-linked caches and render PDFs. They are covered by
 `tests/test_tools_integration.py`, which runs each one for real, by `tests/test_tools_direct.py`,
-which calls the functions of the five tools that file reaches only through the gate with every
+which calls the functions of the seven tools, and the local CI runner, that file reaches only through the gate with every
 output redirected to a temporary directory, and by the release gate.
 
 **`model/aa_group_model.py` must never be edited to make a test pass.** Its SHA-256 is the
@@ -376,7 +376,7 @@ verified without a network. `lint` runs ruff, actionlint and shellcheck and need
 
 `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
 it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the others with the model tests, the
-release invariants and the direct tool tests, each under the same coverage gate. `checkers` runs once on 3.12 and covers everything that does not
+release invariants and the direct tool tests, each under the same coverage gate, plus a byte-compile of every tool and script. `checkers` runs once on 3.12 and covers everything that does not
 require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
 142 of the 148 release-gate checks via `check_release.py --skip-artifacts`, which reports the
 other six as skipped.

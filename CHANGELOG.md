@@ -14,6 +14,12 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- A final-pass review corrected the Chapter 11 reversal threshold (a fifth, not a quarter), Chapter 8's
+  small-group figures, Chapter 17's sparsity sentence, an unreferenced "quarter of the distance" in
+  Chapter 18 and the paper, the primer's Step Eight entry, the appendix's arrival-channel wording and
+  several notebook pointers, and hardened `check_fonts.py`, `check_docs.py` and `run_ci_locally.sh`.
+  The non-3.12 test legs now also byte-compile every tool. No model change.
+
 - The original project material is relicensed from The Unlicense to the MIT License, Copyright (c)
   2026 Christopher Melhauser. `LICENSE`, `CITATION.cff` and the licence statements in the
   attribution, README, handoff, preface, appendix, primer and paper are updated. Third-party material
@@ -44,10 +50,10 @@ someone who wants to know what changed between two tags does not have to read it
 - The tracked `paper/anonymity-as-an-aggregation-condition.xdv`, a stale 10 August build
   intermediate, is removed and ignored, as the other LaTeX intermediates already were.
 
-- Thirty-five direct tests cover the five tools the integration tests reached only through
-  the release gate (`check_pdfs`, `build_note`, `freeze_release_manifest`,
-  `inventory_model_choices`, `summarize_release_gate`), in `tests/test_tools_direct.py`. No tool or
-  model change.
+- Fifty-one direct tests cover seven tools and the local CI runner that the integration tests reached
+  only through the release gate (`check_pdfs`, `build_note`, `freeze_release_manifest`,
+  `inventory_model_choices`, `summarize_release_gate`, `check_docs` and `check_fonts`, with
+  `run_ci_locally.sh`), in `tests/test_tools_direct.py`. No model change.
 
 - Continuous integration tests Python 3.14 on `main`, beside 3.11, 3.12 and 3.13. It is the
   current release and the version this project is developed on, and the matrix had stopped a

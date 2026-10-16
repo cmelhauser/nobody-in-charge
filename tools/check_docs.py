@@ -485,6 +485,8 @@ def python_version_claims(text: str) -> list[tuple[str, list[str]]]:
     """Python versions a paragraph says CI runs: ("list", [..]) for "3.11, 3.12 and 3.13" and
     ("only", [..]) for "3.12 only". Whitespace is collapsed first, because prose wraps lines."""
     text = " ".join(text.split())
+    if "Python" not in text:                      # "3.12 only" in a paragraph about something else
+        return []
     found = [("list", [*re.split(r",\s*", match.group(1)), match.group(2)])
              for match in VERSION_LIST.finditer(text)]
     return found + [("only", [match.group(1)]) for match in VERSION_ONLY.finditer(text)]
@@ -551,6 +553,9 @@ def check_page_counts() -> None:
     assert_claims("book page count in 'N-page PDF'", pages["book"],
                   re.compile(r"runs to\s+(\d+)\s+pages"))
     assert_claims("primer page count", pages["primer"], re.compile(r"primer\s+(\d+)\s*$"))
+    assert_claims("paper page count", pages["paper"], re.compile(r"paper\s+(\d+),\s+primer"))
+    assert_claims("paper page count in its listing", pages["paper"],
+                  re.compile(r"\.tex`,\s+(\d+)\s+pages"))
 
 
 def check_document_dates() -> None:
@@ -704,9 +709,10 @@ def check_own_total() -> None:
     running does (the page-count check reports one line for each claim it reads), so the total in
     a tree without pypdf is not the tree's total, and comparing it would fail a correct table.
     """
-    if skips:
-        skip("how many checks check_docs.py runs (a skipped check changes the count, so only a "
-             "full run can be compared with HANDOFF.md)")
+    if skips or failures:
+        skip("how many checks check_docs.py runs (a skipped or failed check changes the count, "
+             "since a failure reports one line for each claim it finds wrong, so only a full "
+             "clean run can be compared with HANDOFF.md)")
         return
     total = len(passes) + len(failures) + 1
     claimed = [

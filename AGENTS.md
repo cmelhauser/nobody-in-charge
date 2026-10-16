@@ -113,7 +113,7 @@ purpose and run the synchronization rule before touching anything.
 
 `tools/` and the analysis scripts sit outside the coverage gate on purpose; they are batch jobs,
 covered instead by `tests/test_tools_integration.py`, which runs each for real, and by
-`tests/test_tools_direct.py`, which calls five of them directly with outputs in a temporary
+`tests/test_tools_direct.py`, which calls seven of them and the local CI runner directly with outputs in a temporary
 directory. Slow work behind `NIC_SLOW_TESTS=1`.
 
 CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical

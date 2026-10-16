@@ -367,10 +367,11 @@ that making the list is mostly a matter of having somebody to ask, with some
 expectation that it gets done and a little need for discretion.
 
 The single interesting assumption is the small confidentiality entry. It gives
-Tradition 8 its 0.07 here, its best value anywhere. Remove that 0.1 and the entry falls
-to 0.04, tied with Tradition 12, though its competition rank stays fourth. The primer's claim that the
-pairing is not absurd anywhere therefore rests, in this row, on a judgement about a
-tenth of a unit.
+Tradition 8 its 0.07 here, which is not its largest entry in the table (that is 0.34, at
+Step Five). Remove that 0.1 and the entry falls to 0.04, tied with Tradition 12, though its
+competition rank stays fourth. The rank therefore does not rest on that tenth of a unit, but
+the 0.07 does. Its fourth place, shared with Step Eleven's, is the best index-mate rank
+in the table after Step One's second.
 
 *In plain terms.* Making the list is mostly a matter of having somebody to ask, which
 is why the group conscience supplies it. Its own numbered Tradition does better here
@@ -1146,8 +1147,9 @@ about which room anyone should walk into. The full comparison, with the page ref
 and the arithmetic, is appendix section A12, and it is written to stand alone.
 
 **A second reading, from the other end.** The model assumes that most people arrive
-because a member brought them, rather than finding the group on their own. That is one of
-the hundred and eighteen registered sensitivity values and it had never been checked against anything.
+because a member brought them, rather than finding the group on their own. That rests on
+two values the book authored, the rate at which people arrive on their own and the rate at which a
+member brings someone, and it had never been checked against anything.
 In August 2026 the thirty personal stories in the 1939 first edition of *Alcoholics
 Anonymous* were read for exactly this. They support the assumption for that fellowship at
 that time: the recurring shape is a recovered drinker turning up in person, often several
@@ -1250,9 +1252,10 @@ the arrival and dropout expressions.
 
 `model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
 closed forms for the influence weights and rotation pools behind the deliberation figures, the part4
-blocks for the coupling, the principal suppliers, the index-mate ranks, the threshold test, the load
-column and the reassignment test, the part5 blocks for the Step Twelve service results and the
-failure modes, and the sparsity perturbation; the resource-list test is `research/resource_list.json`
+blocks for the coupling, the principal suppliers, the index-mate ranks and the threshold test, the
+"load by resource for each tradition" block for the load column, the "ch17 reassignment test" block,
+the "ch15 service" block for the Step Twelve service results, the part5 blocks for the failure modes
+and the Tradition 3 dose sweep, and the coupling perturbation tests for the sparsity perturbation; the resource-list test is `research/resource_list.json`
 with `model/resource_list_test.py`.
 
 `research/tradition_paired.json`, the 400-replication paired degradation runs, produced

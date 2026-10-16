@@ -173,7 +173,7 @@ The result in this chapter is not mine and it is not simulated. It is a theorem,
 
 What my own model contributes is the tables. The theorem tells you that maximum influence must vanish; it does not tell you how fast concentration hurts in a group of any particular size, or how the damage compares between a single dominant member and a small clique. Those are computed from constructed trust matrices, and the computation is simple enough to be checkable by hand for small groups.
 
-The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 45 per cent of one another in accuracy, against a factor of seven or eight at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
+The one substantive thing the model adds to the theorem is the small-group observation: at ten members, the four governance arrangements are within about 40 per cent of one another in accuracy, against a factor of ten at five hundred. That has a practical implication the theorem does not state. **A group cannot audit its own governance by introspection while it is small, because while it is small the governance barely matters.** By the time the difference is visible in outcomes, the structure that produced it has been in place for years.
 
 ### 2. The technical version
 
@@ -242,7 +242,7 @@ The predicted floor is 0.10 / 3 = 0.0333 and the computed value at N = 1000 is 0
 | plus 3 elders at 0.20, office share 0.05 | 4.1 | 17.4 | 67.4 |
 | plus 5 elders at 0.20, office share 0.05 | 2.8 | 10.8 | 40.8 |
 
-Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
+Entries are maximum influence as a multiple of the flat benchmark. The first row holding at 2.0 (1.996 at every size from fifty members up, 1.82 at ten and 2.11 at twenty-five) is a self-consistency check rather than a finding, since twenty-six per cent was *defined* in Chapter Ten as the pool that comes within a factor of two. The rows below it are the finding: the prescription is necessary and nowhere near sufficient, and the gap it leaves grows with the group.
 
 And on severity, one correction to what the table above suggests. The illustration uses a dominant member at 0.35, which is a lot, and a reader could take from it that only substantial dominance matters. It does not take much. A member holding five per cent of every row floors the consensus error at 0.0465 against a flat 0.0252 at a thousand members, which is a factor of 1.84, and that factor grows without bound as the group grows because the flat error keeps falling and the other does not. At ten per cent the factor is 3.3. The dose-response is in the companion paper and it starts hurting almost immediately.
 

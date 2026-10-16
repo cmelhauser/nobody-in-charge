@@ -274,7 +274,8 @@ independent replications and not confirmatory estimates.
 Unless a section says otherwise, every result here is from 400 seeds paired by common random numbers,
 over 1,560 weeks (thirty years) at `dt = 0.5` weeks, with viable meaning more than five members at the
 stated horizon; the Tradition ranking in A5.2 uses a 20-year horizon of 1,040 weeks. Binary fractions
-carry Wilson intervals and contrasts carry paired intervals.
+carry Wilson intervals and contrasts carry paired intervals. The A5.1 table prints the fractions alone; their
+Wilson intervals are in `research/RELEASE-GATE-RESULTS.md`, whose condition table lists them beside each fraction.
 
 ### A5.1 Conditions and mechanism factorials
 
@@ -418,7 +419,7 @@ capability model and does not reproduce. Five architectures are not every possib
 Counts are strict/tied/reversed for pure-attraction-loss minus referral-loss. Randomizing every
 nonzero matrix magnitude while preserving the zero pattern leaves the comparison intact on all
 three outcomes. These designs run at full adherence, where the governance magnitudes cancel (A2.3),
-so they test the `S` magnitudes only. The tiered design, which also varies scalar defaults and Step speeds over wider
+so among the matrix magnitudes they test only `S`. The tiered design, which also varies scalar defaults and Step speeds over wider
 ranges, produces substantial final-membership reversals and smaller numbers of viability and
 existence reversals. These are different robustness questions.
 
@@ -1263,8 +1264,9 @@ lambda = lam_exog + lam0 * sum_i X[i,12] * attraction_T11.
 
 The first term is arrival that does not pass through a member. The second is arrival carried by
 members, scaled by their Step 12 state. The model's endogenous term is large early, when founders hold Step 12 near 0.55, and at the
-thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (the endogenous rate
-exceeds it in about one run in ten). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
+thirty-year endpoint of the baseline the exogenous constant supplies most arrivals (in an ad hoc check of
+seeds 0 to 399 at full adherence, 1,560 weeks, step 0.5, the endogenous rate exceeded it in 43 runs, 10.75
+per cent, which is not in any release cache and is stated here as an orientation, not a result). The weighting is an authored choice. The question here is whether the fellowship's own accounts of how people
 arrived support it.
 
 The coding rule is: for each story, does the account describe a person who was themselves a recovered
@@ -1314,7 +1316,7 @@ was based on the absence of a personal visit.
 ### A13.5 What this supports, and what it bounds
 
 **It supports the architecture of the arrival term for the fellowship the model was built from, and A13.7 bounds it for the later one.**
-The dominant endogenous channel is not an artifact of convenience. It is what the source describes,
+The model's endogenous channel, which dominates early and supplies the smaller share at the thirty-year endpoint, is not an artifact of convenience. It is what the source describes,
 in the twenty-six accounts the census covers, and the one case of arrival without a member is presented by
 the fellowship as an untested experiment about which it recorded doubt.
 

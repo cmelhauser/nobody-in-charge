@@ -205,7 +205,7 @@ which of two incompatible memories of the fifty thousand dollars is right.
 | The 1937 Towns offer, the Clinton Street meeting, the group's reply, and Wilson declining | Kurtz 1991, quoting Wilson's own telling | S |
 | That meeting was Wilson's first encounter with what he later called the group conscience | Kurtz 1991 | S |
 | ~~Trust agreement required an alcoholic trustee to resign on drinking~~ | **Dropped 2 Aug 2026.** Not found in Kurtz; had entered from a secondary account | - |
-| ~~Adopted at the first international convention, 1950~~ | **Dropped 2 Aug 2026.** Kurtz gives June 1950 and does not connect the adoption to the Cleveland convention | - |
+| ~~Adopted at the first international convention, 1950~~ | **Dropped 2 Aug 2026.** Kurtz gives June 1950 and does not connect the adoption to the Cleveland convention. **Superseded by Chapter 5:** the 1953 commentary, read later, says the Traditions were confirmed at the First International Convention at Cleveland that year, and Chapter 5 now states both dates | - |
 | Traditions were compiled from failure reports rather than designed | Kurtz 1991 and Wilson's own opening sentence; previously my reading | S |
 | Holmström's budget-breaker impossibility applies to Tradition 7 | Holmström 1982 | I |
 | The typed Foreword of the 1939 draft asks members to keep their names out of print and the press to respect it, disclaims organisation in the conventional sense, takes no fees or dues, and sets one requirement, "an honest desire to stop drinking" | *The Book That Started It All* (Hazelden 2010), the typed Foreword, **checked against the page image** | P |
