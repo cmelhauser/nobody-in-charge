@@ -94,7 +94,7 @@ The chapter's argument:
 3a. **And immediately report that five of the twelve are arithmetic.** T4, T6, T7, T9 and T10
    have identically zero rows in G, so steps 4, 6, 7, 9 and 10 have index-mate entries of
    exactly zero. No sparsity-preserving perturbation can change that. Verified in notebook
-   11b: at every level the "all twelve" proportion equals the "all seven non-trivial"
+   11b (a numbered section of the time; the rebuilt notebook uses labelled blocks): at every level the "all twelve" proportion equals the "all seven non-trivial"
    proportion exactly.
 4. **Report the two inversions that make the point vivid.** Step 5, telling another human
    being, is chiefly served by Tradition 12, anonymity, by way of confidentiality. Step 12,
@@ -163,7 +163,7 @@ unity's governance of one resource to singleness of purpose, wholesale, one reso
 flips the lead for two of the eight and not for the other six. The two are continuity and
 pressure. So the finding is conditional on the judgement that unity rather than singleness of
 purpose governs whether the group persists and whether it exerts expectations, and on nothing
-else in the matrix. Appendix A5.4c, notebook 11d. **What is still not settled** is what Wilson
+else in the matrix. Appendix A5.4c, notebook 11d (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). **What is still not settled** is what Wilson
 says in *AA Comes of Age* pp. 97-98, which Kurtz names as decisive and which this project does
 not hold: it is sold, and it is item 2 of `HANDOFF.md` section 10. The chapter says so in its own notes.
 
@@ -180,7 +180,7 @@ clarifying the distinction, before drafting. This is exactly the kind of thing t
 been wrong about before.
 
 ~~**Still to compute.** Whether the primacy of unity survives the structural test.~~
-**Computed 2 August 2026: 75.4 per cent.** Notebook section 11. Unity's primacy is the only
+**Computed 2 August 2026: 75.4 per cent.** Notebook section 11 (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). Unity's primacy is the only
 coupling claim that survives structural randomisation at better than even odds, which makes
 this chapter the most defensible in Part Four and is a reason to consider promoting it ahead
 of Chapter 16 in the reading order, though not in the writing order.
@@ -209,7 +209,7 @@ into a non-zero. Any claim that it "survives" perturbation is vacuous.
 > index-mate the principal supplier including the five with empty rows. Every threshold exceeds
 > both the mean and the median live entry of the governance matrix, and at the mean live
 > strength no index-mate wins. This is the only design in Part Four that could have overturned
-> the five protective counts, and it does not. Appendix A5.4b, notebook 11c. **It prices the
+> the five protective counts, and it does not. Appendix A5.4b, notebook 11c (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). **It prices the
 > zeros; it does not test whether they belong there.**
 
 The remaining and unsolved test is

@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 15 October 2026"
+date: "Draft of 16 October 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -539,7 +539,7 @@ Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion: containing a choice 
 
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner & Co. **Read at source**; saved as `research/incorporated/Marsh_1866/`. Used here for the second version of the founding scene, taken by Marsh from the eleventh annual report of the Maryland State Temperance Society, and for the contemporary dispute over whether a sermon triggered it at all.
 
-Lincoln, A. (1842). Address before the Springfield Washington Temperance Society, 22 February. Confirmed independently; Maxwell notes the occasion.
+Lincoln, A. (1842). Address before the Springfield Washington Temperance Society, 22 February. The occasion is noted by Maxwell; the address itself was not read for this chapter.
 
 The pledge text dates from 1840 and is in the public domain.
 
@@ -1090,13 +1090,13 @@ outcome and derivative. None is estimated here.
 
 Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough, with Twenty-Six Years' Experience as a Public Speaker.* Springfield, Mass.: Bill, Nichols & Co. Public domain; full text via the Internet Archive. Chapters I to V for the early life; Chapter X for the 1843 relapse in full; Chapter XIII for the 1845 episode, the September 22 statement, and the Mount Vernon Church committee report of October 31; Chapters XXVII to XXIX for the Dead Letter controversy of 1857, Gough's stated reasons for publishing the whole record, and the trial transcript of 21 June 1858 including the examination quoted in the text; the contents apparatus for the structure discussed in the text.
 
-*Cataract and Washingtonian* (April 1843). Report of the Worcester and Westborough meetings, quoted in full by Gough at Chapter X.
-
-Report of the Examining Committee, Mount Vernon Congregational Church, Boston, 31 October 1845. Reproduced by Gough at Chapter XIII.
-
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. The assessment of anonymity's survival value; the judgment that opponents seized on the lapse and that public confidence was impaired; the generalisation to less prominent but publicly known Washingtonians.
 
 **Cited at a remove:**
+
+*Cataract and Washingtonian* (April 1843). Report of the Worcester and Westborough meetings, read as quoted in full by Gough at Chapter X, not at source.
+
+Report of the Examining Committee, Mount Vernon Congregational Church, Boston, 31 October 1845. Read as reproduced by Gough at Chapter XIII, not at source.
 
 *National Police Gazette* (1845), via Van Every, E. *The Sins of New York as "Exposed" by the Police Gazette*, ch. 4.
 
@@ -1221,7 +1221,7 @@ The parameter values used are lambda_exog = 0.12 arrivals per week and lambda_0 
 
 **What is well attested across independent sources.** The Mayflower Hotel lobby and the church directory; the Seiberling introduction; Smith's Oxford Group attendance without sobriety; the June 1935 founding date; the 1937 count of about forty members; the Rockefeller approach; Frank Amos's February 1938 Akron investigation, though not what he recommended, which is contested below; Albert Scott's question about money spoiling the thing; Rockefeller's refusal and the five thousand dollars at thirty dollars a week; the 1940 dinner; the 1939 publication; the *Liberty* article and roughly eight hundred responses; Jack Alexander's March 1941 *Saturday Evening Post* article and the flood that followed; the tailor-shop mortgage; the 2,150 first-meeting treasury.
 
-**What I am reporting at one or more removes.** Nearly all of it. The Amos report, the Scott question and Rockefeller's reasoning are quoted in AA's own *Alcoholics Anonymous Comes of Age* and *Dr. Bob and the Good Oldtimers*, and reach me through secondary sites that quote those books. Wilson's disappointment at being refused, and his later crediting of Rockefeller with the nonprofessional principle, come from secondary accounts of his own recollections. The paragraph on the working manuscript is the exception: it is taken from the manuscript itself, apart from the number of copies circulated and Dr. Howard's profession, which are its editors'.
+**What I am reporting at one or more removes.** The funding narrative after the December 1937 meeting. The Amos report, the Scott question and Rockefeller's reasoning are quoted in AA's own *Alcoholics Anonymous Comes of Age* and *Dr. Bob and the Good Oldtimers*, and reach me through secondary sites that quote those books. Wilson's disappointment at being refused, and his later crediting of Rockefeller with the nonprofessional principle, come from secondary accounts of his own recollections. The December 1937 meeting itself is read in Kurtz, and the paragraph on the working manuscript is taken from the manuscript itself, apart from the number of copies circulated and Dr. Howard's profession, which are its editors'.
 
 ~~**The acquisition that would fix this** is Ernest Kurtz, *Not-God*.~~ **Obtained and read, 2 August 2026**, in the expanded 1991 edition. The narrative spine of this chapter is now first-hand: the failed Akron proxy fight of early May 1935; Wilson pacing the Mayflower lobby on Saturday 11 May, the day before Mother's Day, with the bar filling at one end of his track and the hotel church directory standing at the other; the thought *God, I am going to get drunk* and the panic that followed it, which Kurtz calls the final founding moment; and Dr Bob Smith's last drink on 10 June 1935, followed the same day by his rounds of confession and restitution to creditors and others he had harmed.
 
@@ -1353,7 +1353,7 @@ There is one Tradition where the historical record is unusually clear about the 
 
 Tradition 7 says an AA group declines outside contributions and supports itself from the basket. Combined with Tradition 4, which makes each group autonomous, and Tradition 9, which forbids organising into a hierarchy, this closes the system: there is no party outside a group that can put resources into it or direct it.
 
-Bernard Holmström proved in 1982 that in team production where individual effort cannot be observed, no budget-balanced sharing rule attains the efficient outcome. To get there you need an outside party who absorbs the residual, a budget breaker. Tradition 7 forbids precisely that party.
+Bengt Holmström proved in 1982 that in team production where individual effort cannot be observed, no budget-balanced sharing rule attains the efficient outcome. To get there you need an outside party who absorbs the residual, a budget breaker. Tradition 7 forbids precisely that party.
 
 So AA is not merely autonomous. It is operating at a knowing second best, and it has been since Albert Scott asked his question in a room in 1937. The fellowship pays for its independence in efficiency, permanently, and the model in Part Five puts a number on part of the cost: a group's ability to carry newcomers is bounded by what its established members can supply, with nothing available from outside when that runs short.
 
@@ -2099,7 +2099,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in the companion notebook.
+Influence weights and consensus errors for the flat, dominant, caucus and closed-core regimes at N = 10, 50, 250 and 500. The elder-statesman family and the twenty-six-per-cent contrast, added 10 August 2026, in `model/part2_influence.py`, sections 5b and 5c, cached to `research/part2_influence.json` under the keys `elders` and `elders_vs_prescription`. Influence vectors computed as left dominant eigenvectors of constructed trust matrices; errors from the closed form above rather than by simulation. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 closed forms" block reproduces only the rotation-pool and closed-core figures, not these tables.
 
 **What was not read:**
 
@@ -2277,7 +2277,7 @@ The Twelve Traditions of Alcoholics Anonymous, paraphrased. The text is copyrigh
 
 **Internal, and reproducible from this repository:**
 
-Influence weights and consensus errors for four governance regimes at N = 10, 50, 250 and 500, with the analytic limits. Per-step group-dependence coefficients from the model module. Code in the companion notebook.
+Influence weights and consensus errors for four governance regimes at N = 10, 50, 250 and 500, with the analytic limits. Per-step group-dependence coefficients from the model module. Code in `model/part2_influence.py`, cached to `research/part2_influence.json`; the notebook's "part2 closed forms" block reproduces only the rotation-pool, caucus and closed-core figures, not the regime tables.
 
 **What was not read:**
 
@@ -2445,8 +2445,8 @@ to the trustees. The long-form Concept 4 essay was read in the Service Manual, b
 no rule about the size of a rotating pool.
 
 Alcoholics Anonymous World Services, *The A.A. Service Manual Combined with Twelve Concepts for
-World Service* (2024-2026 edition, BM-31). Read in part on 13 September 2026: Concepts IV and V in
-full, Concept XI on rotation, and every passage in the manual that mentions rotation. Held
+World Service* (2024-2026 edition, BM-31). Read in part on 13 September 2026; the passages named here were
+read in full and the rest of the manual was not (see "What was not read"): Concepts IV and V, Concept XI on rotation, and every passage in the manual that mentions rotation. Held
 git-ignored under `research/incorporated/ServiceManual_2024/`. The Concept IV essay holds no rule
 about the size of a rotating pool: it concerns voting participation in proportion to
 responsibility among trustees, service directors and staff. Concept XI ties term length to
@@ -2467,7 +2467,7 @@ The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the
 
 **What was not read:**
 
-Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
+The rest of the Service Manual beyond the passages named above. Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
 
 The long-form essays on the Concepts other than IV, V and XI were not read. The short form was read on 17 August 2026, and the three essays named above on 13 September 2026.
 
@@ -2559,7 +2559,7 @@ This chapter applies Chapter Nine's three failure modes to a historical case, so
 
 ### 2. The technical version
 
-No new computation. The figures referenced are from Chapter Nine, section 2, and are computed in the part2 closed-forms block of `model/book-calculations.ipynb`: closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
+No new computation. The figures referenced are from Chapter Nine, section 2, and the error 0.357 is reproduced in the "part2 closed forms" block of `model/book-calculations.ipynb`; the aggregate and outside shares come from `model/part2_influence.py` and `research/part2_influence.json`. Closed core of five in a group of two hundred and fifty holds influence 1.000 in aggregate with 0.000 outside it, and error 0.357, matching the square root of two over pi divided by the square root of five.
 
 The classification claim can be stated formally. A movement's attention structure can be modelled as a bipartite arrangement: within-group attention, which was flat, and cross-group attention flowing through touring speakers, which was one-directional. As the proportion of total attention carried by the second channel rises, the influence vector converges on the speakers regardless of how many members the movement has. The Washingtonians' expansion from 1841 to 1843 was precisely a rise in that proportion.
 
@@ -2816,7 +2816,7 @@ Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous To
 
 Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *American Economic Review* 97(2): 31-47. Self-productivity, and the conditioning of later growth on earlier stocks.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology whose substitution parameter is Chapter Thirteen's subject.
+Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology whose substitution parameter is Chapter Thirteen's subject.
 
 Iannaccone, L. R. (1992). "Sacrifice and Stigma." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. Group quality as a strictly concave function of the other members' average participation and of group size (277): the diminishing returns behind this chapter's participatory resources, though not the saturating form they take, which is this book's. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 
@@ -3022,7 +3022,7 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 Cunha, F. and J. J. Heckman (2007). "The Technology of Skill Formation." *American Economic Review* 97(2): 31-47. Self-productivity and dynamic complementarity.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The CES stage technology, the measurement system, anchoring, and the treatment of endogenous investment.
+Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The CES stage technology, the measurement system, anchoring, and the treatment of endogenous investment.
 
 Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs." *Psychology of Addictive Behaviors* 27(3): 553-561. **Read in full**; the NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026 and stored in `research/incorporated/Greenfield_Tonigan_2013/`. Source for the two-factor structure, the predictors and time paths of each factor, spiritual step-work predicting percent days abstinent where behavioural step-work did not, the instrument discrepancy on nine of twelve steps, and the sample of 130 affiliates over nine months. **Note the copy**: the author manuscript's pagination is not the journal's.
 
@@ -3186,7 +3186,7 @@ Maintenance capacity is the mean of the practice levels on Steps Ten, Eleven and
 
 Two findings replace the old claims.
 
-**The old frozen-environment demonstration is not the released baseline.** Its high state, separatrix and hysteresis are reproducible under its recorded constants, but those constants came from the retired capability-inflated population.
+**The old frozen-environment demonstration is not the released baseline.** Its high state, separatrix and hysteresis were computed under its recorded constants in a retired notebook that is no longer in this repository, and those constants came from the retired capability-inflated population.
 
 **The environment-matched test mostly has one low attractor.** Across 400 corrected full-adherence endpoint environments, only seven yield a high-start/low-start maintenance difference above 0.05 for a capability-one member. The mean environment yields maintenance of approximately 0.00000003 from either start.
 
@@ -3213,7 +3213,7 @@ Step One the gate is almost inoperative whatever C is; at Step Twelve it binds f
 Twelve states the same two lines, because each chapter's Machinery is meant to be readable
 without the other.
 
-**Retired frozen-environment diagnostic**, capability 1.0, obsolete resource vector and Gcap = 0.245. These values reproduce the prior chapter but are not current baseline outputs:
+**Retired frozen-environment diagnostic**, capability 1.0, obsolete resource vector and Gcap = 0.245. These values are carried over from the prior chapter and a retired notebook; this repository does not recompute them, the obsolete resource vector is not recorded, and they are not current baseline outputs:
 
 | quantity | healthy | collapsed |
 |---|---|---|
@@ -3272,17 +3272,17 @@ The group sweep is a sensitivity curve, not evidence for individual bistability.
 
 **No part of this chapter has been tested against a person.** There is no longitudinal dataset of step practice with the resolution this would need, which is the same gap Chapter Thirteen ran into from the other direction.
 
-**The numbers are computed, not cited.** The corrected environment test is generated by `model/ch14_individual.py`; the group sweep by `model/ch14_sweep.py`. The retired constants remain displayed so the superseded calculation can be reproduced and distinguished from the release result.
+**The numbers are computed, not cited.** The corrected environment test is generated by `model/ch14_individual.py`; the group sweep by `model/ch14_sweep.py`. The retired values remain displayed, as carried over, so the superseded calculation can be distinguished from the release result; this repository cannot recompute them.
 
 ### 4. References
 
 **Read in full:**
 
-Fatimah, H. M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. Read from the author manuscript; saved as `research/incorporated/Fatimah_2025/`. The two stable equilibria, the separation energy in each direction, the person-specific steepness and tilt, the between-subject variance in steepness and relapse risk, and the criterion validity against life satisfaction and criminal behaviour beyond proportion of days used and time to first use.
+Fatimah, H., M. D. Hunter, and M. A. Bornovalova (2025). "Modeling the Dynamics of Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopathology and Clinical Science* 134(1): 69-80. doi:10.1037/abn0000960. Read from the author manuscript; saved as `research/incorporated/Fatimah_2025/`. The two stable equilibria, the separation energy in each direction, the person-specific steepness and tilt, the between-subject variance in steepness and relapse risk, and the criterion validity against life satisfaction and criminal behaviour beyond proportion of days used and time to first use.
 
 Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the Wisdom of Crowds." *American Economic Journal: Microeconomics* 2(1): 112-149. Not used in this chapter's argument; the influence criterion it supplies is developed in Chapter Eight.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
+Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
 
 Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. The ancestry of the depreciation structure, described in Chapter Twelve rather than here.
 
@@ -3290,9 +3290,9 @@ Witkiewitz, K. and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatm
 
 **Cited at a remove:**
 
-Hufford, M. R. K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003). "Relapse as a Nonlinear Dynamic System: Application to Patients with Alcohol Use Disorders." *Journal of Abnormal Psychology* 112(2): 219-227. Read via abstract; full text not obtained.
+Hufford, M. R., K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003). "Relapse as a Nonlinear Dynamic System: Application to Patients with Alcohol Use Disorders." *Journal of Abnormal Psychology* 112(2): 219-227. Read via abstract; full text not obtained.
 
-Hunter-Reel, D. B. McCrady, and E. Hildebrandt (2009). "Emphasizing Interpersonal Factors: An Extension of the Witkiewitz and Marlatt Relapse Model." *Addiction* 104(8): 1281-1290. The source of the Witkiewitz and Marlatt quotation described in the notes above.
+Hunter-Reel, D., B. McCrady, and E. Hildebrandt (2009). "Emphasizing Interpersonal Factors: An Extension of the Witkiewitz and Marlatt Relapse Model." *Addiction* 104(8): 1281-1290. The source of the Witkiewitz and Marlatt quotation described in the notes above.
 
 **Internal, and reproducible from this repository:**
 
@@ -3469,7 +3469,7 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. The premise that goods produced by participation rise with it at a diminishing rate (277); the saturating form this book gives them, including the recipient resource, is its own. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
+Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA): A new perspective on behavior change in self-help organizations for addiction." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. The sober member who does not sponsor as a free-rider who shrinks the pool of possible sponsors. The paper is theoretical, and its two cases are clinical vignettes.
 
@@ -3940,7 +3940,7 @@ It gets better, and the way it gets better is the part I did not expect.
 
 Run the same division for the seven Steps whose index-mates do govern things. The thresholds are 0.443, 0.482, 0.508, 0.521, 0.538, 0.588 and 0.635, averaging 0.531. The five protective thresholds run from 0.417 to 0.627 and average 0.501.
 
-I first wrote that the protective range sits inside the enabling one. It does not, and the assertion I had added to the notebook said so before anyone else could. The protective range extends slightly below the enabling range at both ends. So the protective Steps are not equidistant from index-pairing; they are marginally closer to it than the others, by three hundredths on the average threshold. That is the direction a sceptic would predict, and it is much smaller than the gap that would matter.
+I first wrote that the protective range sits inside the enabling one. It does not, and the assertion I had added to the notebook said so before anyone else could. The protective range sits slightly lower than the enabling range at both ends, 0.417 against 0.443 at the bottom and 0.627 against 0.635 at the top. So the protective Steps are not equidistant from index-pairing; they are marginally closer to it than the others, by three hundredths on the average threshold. That is the direction a sceptic would predict, and it is much smaller than the gap that would matter.
 
 What survives is the substantive point. Index-pairing is about equally far from holding everywhere, whether the index-mate governs nothing or governs a great deal, and if you hand every Tradition the mean live strength across its own Step's needs, all twelve still lose. Across all twelve the threshold averages 0.518, against a matrix whose live entries average 0.374.
 
@@ -4027,7 +4027,7 @@ This is one division per Step and carries no sampling error. It is the only desi
 | 11 | T11 | 0.47 | 0.80 | 0.588 | 1.57 |
 | 12 | T12 | 1.25 | 2.40 | 0.521 | 1.39 |
 
-Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it extends below it at both ends. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518, to the mean live entry.
+Bold rows are the five protective Traditions. The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300, minimum 0.10 and maximum 1.00. Every c* exceeds both the mean and the median. The protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635; it is shifted down, 0.417 against 0.443 at the bottom and 0.627 against 0.635 at the top. Mean c* is 0.501 for the five protective Steps, 0.531 for the seven enabling ones and 0.518 across all twelve. The protective Steps are therefore marginally closer to index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518, to the mean live entry.
 
 Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44 at Step 5.
 
@@ -4039,7 +4039,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 ### 3. Notes on sources
 
-**An error caught by the notebook rather than by me.** The main text of this chapter first said the protective thresholds sit inside the enabling range. They do not; the protective range extends below the enabling range at both ends, and the protective mean threshold is 0.501 against 0.531. The assertion added for that sentence failed on its first run and the text was corrected before the chapter was saved. The corrected version is a weaker claim in the direction an objector would want, and it is in the main text rather than here.
+**An error caught by the notebook rather than by me.** The main text of this chapter first said the protective thresholds sit inside the enabling range. They do not; the protective range is shifted below the enabling range at both ends, and the protective mean threshold is 0.501 against 0.531. The assertion added for that sentence failed on its first run and the text was corrected before the chapter was saved. The corrected version is a weaker claim in the direction an objector would want, and it is in the main text rather than here.
 
 **The threshold test is new to this chapter and it changed the previous one.** Chapter Sixteen reports that five of its twelve counts against index-pairing are arithmetic rather than evidence, because no sparsity-preserving perturbation can reach them. That is true of the designs Chapter Sixteen runs. It is not true in general, and the threshold test above reaches them and finds they fail by margins comparable to the seven. Chapter Sixteen now carries a pointer to this chapter at that paragraph rather than being silently amended.
 
@@ -4492,7 +4492,7 @@ For comparison, viable baseline groups average 29.40 members and 0.3016 establis
 
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. Saved under `research/incorporated/Maxwell_1950/`; see Chapter One for the note on the retyped copy. Used here only for the character of the decline record, which is discussed at length in Chapter Two.
 
-Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Saved in `research/`. Used here for the same purpose.
+Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Held in `research/incorporated/Krout_1925/`. Used here for the same purpose.
 
 Alcoholics Anonymous World Services. *Estimated Worldwide A.A. Individual and Group Membership*, SMF-132, Rev. 12/20. Read at source on 17 August 2026; a copy has been held since 13 September 2026 under `research/incorporated/SMF132_2020/`. Used here for the members-per-group ratio and for the method note that limits it.
 
@@ -4750,7 +4750,7 @@ There is a fourth category that I want to name separately, because it appeared l
 
 Several of the errors above were caught by assertions rather than by me. The practice is simple: every number printed in the book is also written into a notebook cell with an assertion that it equals what the computation produces. The point is not that the assertions verify the numbers. It is that writing an assertion forces you to state the relationship you think holds, and stating it is what exposes the ones that do not.
 
-Three errors in this book were caught that way, and every one was a claimed relationship rather than a modelling fault. I wrote that a range of thresholds sat inside another range; it did not, it extended below it at both ends. I wrote that a Tradition stripped of two resources fell to fourth place; it fell to third. I wrote a constant as 0.2769 when it was 0.2269. In each case the sentence was in a draft, the assertion failed on its first run, and the sentence was corrected before anyone read it.
+Three errors in this book were caught that way, and every one was a claimed relationship rather than a modelling fault. I wrote that a range of thresholds sat inside another range; it did not, it was shifted below it at both ends. I wrote that a Tradition stripped of two resources fell to fourth place; it fell to third. I wrote a constant as 0.2769 when it was 0.2269. In each case the sentence was in a draft, the assertion failed on its first run, and the sentence was corrected before anyone read it.
 
 An assertion detects drift, not error. It cannot tell you that a number is wrong, only that it has changed. But an assertion about a *relationship*, of the form "this range contains that one" or "these two figures are equal", is a different instrument, and it catches the thing you were sure of.
 
@@ -5758,8 +5758,8 @@ that maximum influence vanishes as group size grows. The theorem is published ma
 claim that Traditions 2, 9, and 12 operationalize its assumptions is this project's unverified
 reading.
 
-The deterministic Part Two notebook checks finite-group influence, scaling of rotation pools,
-the three obstruction constructions, and random-network controls. These are not runs of the
+The deterministic Part Two analysis, `model/part2_influence.py` with its cache, covers finite-group influence,
+scaling of rotation pools, the three obstruction constructions, and random-network controls; the notebook's "part2 closed forms" block reproduces only the rotation-pool and closed-core figures. These are not runs of the
 stochastic membership model. The matrices in Part Four reject index-pairing on the authored
 values, but five of the twelve rejections are forced by structural zeros. Threshold and sparsity
 tests are required where multiplicative perturbation is blind. Under wholesale randomization of
@@ -7888,7 +7888,8 @@ than repeated here.
 the arrival and dropout expressions.
 
 `model/book-calculations.ipynb`, whose published-figures cell holds labelled blocks: the part2
-closed forms for the influence weights and rotation pools behind the deliberation figures, the part4
+closed forms for the rotation pools and the closed-core error behind the deliberation figures (the
+influence weights are in `model/part2_influence.py` and its cache), the part4
 blocks for the coupling, the principal suppliers, the index-mate ranks and the threshold test, the
 "load by resource for each tradition" block for the load column, the "ch17 reassignment test" block,
 the "ch15 service" block for the Step Twelve service results, the part5 blocks for the failure modes
@@ -8255,10 +8256,11 @@ $N=50$, 0.074 at $N=250$ and 0.020 at $N=1000$. Both shares vanish, both satisfy
 condition, and neither is an obstruction.
 
 Now let the same two practices scale with the group. A clique whose inwardness approaches
-one as the group expands holds 0.167 at every size tested from 10 to 1000. A member whose
-attention advantage grows in proportion to the group runs from 0.182 at $N=10$ to 0.167 at
-$N=1000$, converging to a positive share rather than settling on one exactly. Neither
-falls toward zero, and that is the whole of what makes them obstructions.
+one as the group expands holds 0.500 between its three members, 0.167 each, at every size
+tested from 10 to 1000. A member whose attention advantage grows in proportion to the
+group runs from 0.182 at $N=10$ to 0.167 at $N=1000$, converging to a positive share
+rather than settling on one exactly. Neither falls toward zero, and that is the whole of
+what makes them obstructions.
 
 ::: corollary
 **Corollary 2** (Obstruction scaling). *Whether a concentration of attention obstructs
@@ -8283,9 +8285,10 @@ $\max_j s_j$ is bounded below and the wisdom condition fails despite rotation.*
 At $N=400$ and $\alpha = 0.35$, the sweep over $R$ gives maximum influence 0.118, 0.060,
 0.031, 0.016, 0.009, 0.005 and 0.003 at $R = 3, 6, 12, 25, 50, 100$ and 400, against a
 flat benchmark of 0.0025. The $\alpha/R$ approximation tracks the computed value closely
-at every point, which is the check that the mechanism is the one claimed. Holding the pool
-at twelve while the group grows, maximum influence converges to a floor (0.041, 0.035,
-0.032, 0.031, 0.030 at $N = 50, 100,
+for pools up to about twenty-five; beyond that the flat share $(1-\alpha)/N$ is no longer
+negligible and the approximation falls below the computed value, which is the check that
+the mechanism is the one claimed. Holding the pool at twelve while the group grows,
+maximum influence converges to a floor (0.041, 0.035, 0.032, 0.031, 0.030 at $N = 50, 100,
 200, 400, 800$) while the flat benchmark does not (0.020, 0.010, 0.005, 0.0025, 0.0013).
 The ratio between them runs 2.1, 3.5, 6.4, 12.3, 23.9. That divergence is the entire
 result.
@@ -8519,13 +8522,14 @@ Exact; no sampling error. {#tab:threshold}
 The governance matrix has 35 non-zero entries of 96 cells, with mean 0.374, median 0.300,
 minimum 0.10 and maximum 1.00. *Every* $c^{*}$ exceeds both the mean and the median. The
 protective range, 0.417 to 0.627, is not contained in the enabling range, 0.443 to 0.635;
-it extends below it at both ends. Mean $c^{*}$ is 0.501 for the five protective Steps,
-0.531 for the seven enabling ones, and 0.518 across all twelve. The protective Steps are
-therefore marginally *closer* to index-pairing holding, by 0.03 on the mean threshold,
-which is the direction an objector would predict and about a fifth of the distance from
-the all-twelve mean threshold, 0.518, to the mean live entry. Setting $c$ to the mean live
-entry of 0.374 for every Step simultaneously, all twelve index-mates still lose, by
-margins from 0.02 at Step 7 to 0.44 at Step 5.
+it is shifted down, 0.417 against 0.443 at the bottom and 0.627 against 0.635 at the top.
+Mean $c^{*}$ is 0.501 for the five protective Steps, 0.531 for the seven enabling ones,
+and 0.518 across all twelve. The protective Steps are therefore marginally *closer* to
+index-pairing holding, by 0.03 on the mean threshold, which is the direction an objector
+would predict and about a fifth of the distance from the all-twelve mean threshold, 0.518,
+to the mean live entry. Setting $c$ to the mean live entry of 0.374 for every Step
+simultaneously, all twelve index-mates still lose, by margins from 0.02 at Step 7 to 0.44
+at Step 5.
 
 What the test licenses is the statement that index-pairing would require the index-mate to
 govern its own Step's needs more strongly than a typical entry in the matrix, uniformly
@@ -8890,7 +8894,8 @@ technical appendix, sections A3 to A9.
 ##### Which parameters matter.
 
 The ordering exponent $p$ has the largest single influence of any parameter on every
-outcome the multi-level sweep scores. In the three-seed one-at-a-time screen, against a
+outcome the multi-level sweep scores at $\pm 25$ per cent; across the full four-distance
+ladder it is first on maintenance only. In the three-seed one-at-a-time screen, against a
 full-adherence baseline of 0.0431 maintenance, moving $p$ alone by 25 per cent in each
 direction swings maintenance from 0.0027 to 0.2373, a range of 5.45 times baseline; the
 decay rate $\delta_0$ is second at 3.27 and the step-11 speed third at 2.22. Across the

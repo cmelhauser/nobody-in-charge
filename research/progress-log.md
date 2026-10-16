@@ -5931,3 +5931,43 @@ message for a missing file and walked each directory once per pin; the README, `
 `run_ci_locally.sh` header were a clause short. Not changed: the two hash-pinned analysis scripts that still
 say "notebook section 1" in their headers, since editing them would invalidate their caches.
 
+### 16 October 2026: a third review pass, on the sources layer, the workflows and the numbers
+
+Three readers audited the merged state. The corpus counts, the read-status flags, the withheld-name rule,
+the gate (142 run, 6 skipped), both notebooks and some forty traced numbers held. What they found, applied
+on one branch:
+
+- *Prose.* Chapter 5 named the economist Bernard Holmström; it is Bengt. Holmström (1982) had no read
+  status in `research/SOURCES.md`; it now says the author read the argument, with no date and no copy held.
+  Chapter 10's Service Manual entry (read in part) and Chapter 3's two items read only through Gough sat under
+  "Read in full"; they are reworded or moved. Chapter 1's Lincoln entry carried "confirmed independently",
+  which is not a read status. Chapter 4 still said nearly everything was at a remove from before Kurtz was
+  read. Chapter 21 had a stale Krout path, and seven citations in Chapters 12 to 15 lacked a comma after the
+  first author's initials. "Extends below it at both ends" (Chapters 18 and 23 and the paper) was imprecise: the
+  protective range is shifted down, 0.417 against 0.443 and 0.627 against 0.635. The paper said the
+  alpha/R approximation tracks "closely at every point" (it does up to a pool of about twenty-five, as Chapter 10
+  says), gave p the largest influence "on every outcome" without Chapter 12's qualifier of plus or minus 25 per
+  cent, and quoted 0.167 for a clique's aggregate share when that is each member's (0.500 between three).
+- *Notebook claims.* Neither notebook loads `research/part2_influence.json`, so the Part Two regime and elder
+  tables are checked only by `check_book.py`'s any-decimal-in-any-cache test. Chapters 8, 9 and 11, the appendix
+  and the primer no longer say the notebook holds them; they cite `model/part2_influence.py` and its cache.
+  Chapter 14's retired-diagnostic tables were described as reproducible; they come from a retired notebook and
+  cannot be recomputed here, and now say so. Remaining numbered-section pointers in the plans are marked
+  historical.
+- *Records.* The Part One claim register's summary row for Chapter 4 (18 claims, 7 direct) and Chapter 5 (16, 15)
+  were recounted by the register's own rule: 23, 12 and 22, 20. `CLAUDE.md` said the Service Manual brought the
+  corpus to 34 (33). `AGENT_VERIFY.md` listed a deferred staged corpus that does not exist, omitted Iannaccone
+  and misquoted the paper's decimal count; `check_docs.py` now compares that count with the paper notebook's
+  stored output. The changelog dated 0.9.0 to 18 August (23 August) and quoted 28 checks. `HANDOFF.md` listed
+  Valverde and White-Mair as outstanding though nothing cites it.
+- *Workflows.* Both workflows shared a font-cache key that an update to the pinned hashes would have left
+  serving the old files; both now discard a cached font that fails the pin before the strict check. The release
+  workflow now runs `check_docs.py` (RELEASING.md condition 4) and the fontconfig check. A second merge to
+  `main` no longer cancels the first merge's documents job.
+- *Tests.* Ten tests passed when the code they cover was mutated (an ignored override, a viability threshold
+  that was only echoed, a recipient ratio that could not fail). They now assert differences at known seeds, and
+  the model-choice inventory test no longer returns early. The model is unchanged.
+
+Not changed: the pinned analysis scripts that still say "notebook section 1"; actions pinned to major tags
+rather than commit hashes; no artifacts are uploaded from a failed documents job.
+

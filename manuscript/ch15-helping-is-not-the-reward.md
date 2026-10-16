@@ -166,7 +166,7 @@ Because conditions use common random streams, uncertainty is computed on paired 
 
 Iannaccone, L. R. (1992). "Sacrifice and Stigma: Reducing Free-Riding in Cults, Communes, and Other Collectives." *Journal of Political Economy* 100(2): 271-291. Read at source, and reread on 29 September 2026. The premise that goods produced by participation rise with it at a diminishing rate (277); the saturating form this book gives them, including the recipient resource, is its own. **The copy is not held**; see `research/incorporated/Iannaccone_1992/`.
 
-Cunha, F. J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
+Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology through which the degradation propagates.
 
 Lembke, A. (n.d.). "Sacrifice, stigma, and free-riding in Alcoholics Anonymous (AA): A new perspective on behavior change in self-help organizations for addiction." Working paper, Association for the Study of Religion, Economics and Culture. **Read in full** on 13 September 2026; stored in `research/incorporated/Lembke_nd/`. The sober member who does not sponsor as a free-rider who shrinks the pool of possible sponsors. The paper is theoretical, and its two cases are clinical vignettes.
 

@@ -33,7 +33,7 @@ interpretation, not as evidence that decline is wholly invisible from inside.
 
 ## 2. What the runs establish
 
-4,800 runs, 400 seeds per condition, thirty-year horizon. Notebook section 14.
+4,800 runs, 400 seeds per condition, thirty-year horizon. In the notebook's "part5" blocks.
 
 **The three fingerprints, at year 10 and year 30.** Quality is established-member practice
 conditional on endpoint viability, defined as more than five members.
