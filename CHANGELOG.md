@@ -14,6 +14,12 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- A third review pass corrected attributions and reference headings in Chapters 1, 3, 4, 5 and 10, the
+  paper's approximation and parameter-influence claims, notebook claims for Part Two and Chapter 14, the claim
+  register's counts, and several counts in `CLAUDE.md`, `AGENT_VERIFY.md` and this file. The workflows discard
+  a cached font that fails the pin, the release workflow runs `check_docs.py`, `check_docs.py` checks the
+  paper's decimal count, and ten weak model tests now assert real differences. No model change.
+
 - A second review pass corrected the primer's arrival-channel paragraph, removed an uncached figure from
   Appendix A13.2, aligned the paper's five-elder row with Chapter 8's half-up rounding, named the four
   regimes in Chapter 8, replaced stale notebook-section pointers, and tightened `check_fonts.py` and its
@@ -53,7 +59,7 @@ someone who wants to know what changed between two tags does not have to read it
   Runner time per push to `main` falls by about two minutes of about six and a half.
 
 - `tools/check_docs.py` holds the Python versions the documents say CI tests to the workflow's
-  matrix, and counts its own checks against the handoff's verification table. It runs 28 checks.
+  matrix, and counts its own checks against the handoff's verification table. It ran 28 checks when added and runs 31 now (the paper's page count and its decimal count were added later).
 
 - The tracked `paper/anonymity-as-an-aggregation-condition.xdv`, a stale 10 August build
   intermediate, is removed and ignored, as the other LaTeX intermediates already were.
@@ -371,7 +377,7 @@ someone who wants to know what changed between two tags does not have to read it
   release artifact; it now calls `tools/build_primer.py`.
 - `CITATION.cff` carried no version and a release date preceding the tag.
 
-## [0.9.0] - 2026-08-18
+## [0.9.0] - 2026-08-23
 
 First tagged state. The manuscript, paper, appendix and primer are complete and every checker
 passes; the version is below 1.0 because the elicitation round is open, not because the prose

@@ -89,7 +89,7 @@ There is one Tradition where the historical record is unusually clear about the 
 
 Tradition 7 says an AA group declines outside contributions and supports itself from the basket. Combined with Tradition 4, which makes each group autonomous, and Tradition 9, which forbids organising into a hierarchy, this closes the system: there is no party outside a group that can put resources into it or direct it.
 
-Bernard Holmström proved in 1982 that in team production where individual effort cannot be observed, no budget-balanced sharing rule attains the efficient outcome. To get there you need an outside party who absorbs the residual, a budget breaker. Tradition 7 forbids precisely that party.
+Bengt Holmström proved in 1982 that in team production where individual effort cannot be observed, no budget-balanced sharing rule attains the efficient outcome. To get there you need an outside party who absorbs the residual, a budget breaker. Tradition 7 forbids precisely that party.
 
 So AA is not merely autonomous. It is operating at a knowing second best, and it has been since Albert Scott asked his question in a room in 1937. The fellowship pays for its independence in efficiency, permanently, and the model in Part Five puts a number on part of the cost: a group's ability to carry newcomers is bounded by what its established members can supply, with nothing available from outside when that runs short.
 

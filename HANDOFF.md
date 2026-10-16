@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 15 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 16 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -94,13 +94,13 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 320 pages, paper 36, primer 24
+- three built PDFs: book 320 pages, paper 36, primer 25
 
 ---
 
 ## 4. Verification state
 
-As of 15 October 2026, everything passes:
+As of 16 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
@@ -109,7 +109,7 @@ As of 15 October 2026, everything passes:
 | `tools/check_book.py` | 0 failures, 45 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 30 checks, 0 failed |
+| `tools/check_docs.py` | 31 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
 | `model/book-calculations.ipynb` | 8 cells, 100 assertions, clean |
@@ -366,7 +366,7 @@ inference from what is already here.
 
 **One is an ordinary scholarly loose end.**
 
-3. **Outstanding citations**, none load-bearing: Riessman (1965), Valverde and White-Mair (1999),
+3. **Outstanding citations**, none load-bearing: Riessman (1965),
    White's *Slaying the Dragon*, Blumberg and Pittman (1991), Alexander (1988), Blumberg (1980), the
    Gough scrapbook at AAS, the Rockefeller Archive holdings, and the adult skill-depreciation
    literature, of which two working papers were read in full on 13 September 2026. The literature on

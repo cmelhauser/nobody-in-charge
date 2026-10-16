@@ -104,9 +104,9 @@ def main(argv: list[str]) -> int:
         print(f"\n{len(bad)} of {len(PINS)} font files differ from CI's. PDFs built here that use "
               "TeX Gyre Pagella (the book and the primer) will not match CI's byte for byte.")
         if strict and any(line.startswith("MISMATCH") for line in bad):
-            print("On the runner a mismatch means the CTAN mirror served a different file, or a cached "
-                  "one is stale: update PINS deliberately and rebuild and re-read the PDFs, or bump the "
-                  "cache key (tex-...-vN) in .github/workflows/ci.yml.")
+            print("On the runner a mismatch means the CTAN mirror now serves a different file (a stale "
+                  "cached copy is discarded before this check): update PINS deliberately, then rebuild "
+                  "and re-read the PDFs.")
         elif strict:
             print("On the runner a missing file means the font download or install step failed.")
         return 1 if strict else 0

@@ -125,7 +125,7 @@ For comparison, viable baseline groups average 29.40 members and 0.3016 establis
 
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. Saved under `research/incorporated/Maxwell_1950/`; see Chapter One for the note on the retyped copy. Used here only for the character of the decline record, which is discussed at length in Chapter Two.
 
-Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Saved in `research/`. Used here for the same purpose.
+Krout, J. A. (1925). *The Origins of Prohibition.* New York: Alfred A. Knopf, chapter IX. Held in `research/incorporated/Krout_1925/`. Used here for the same purpose.
 
 Alcoholics Anonymous World Services. *Estimated Worldwide A.A. Individual and Group Membership*, SMF-132, Rev. 12/20. Read at source on 17 August 2026; a copy has been held since 13 September 2026 under `research/incorporated/SMF132_2020/`. Used here for the members-per-group ratio and for the method note that limits it.
 

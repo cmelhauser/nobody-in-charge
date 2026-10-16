@@ -48,8 +48,8 @@ Three statuses must remain distinct.
 1. **Used/current project.** Current claim support and read status are in
    `research/SOURCES.md`.
 2. **Incorporated local copies.** `research/incorporated/` holds 45 sources: those the project
-   used before the acquired corpus arrived, the six promoted out of the staged corpus, six
-   added on 10 August 2026, the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
+   used before the acquired corpus arrived, the six promoted out of the staged corpus, those
+   added on 10 August 2026: the April 1946 *A.A. Grapevine* article, DeGroot (1974), the 1939
    Big Book text in a 1999 reprint, AAWS *Twelve Steps and Twelve Traditions* (1953), Rohr (2011)
    and the Kurtz talk of about 1984, Recovery Dharma (2023) added on 16 August 2026 for
    appendix A12, and four added on 17 August 2026: AAWS service material SMF-132, the Twelve
@@ -60,7 +60,7 @@ Three statuses must remain distinct.
    open-access papers held the same day; and, added on 22 September 2026, the two papers that
    bracket the decay rate, Edgren, Baretta and Inauen (2025) and Kaskutas, Bond and Avalos (2009);
    and, added on 24 September 2026, two NIH author manuscripts the paper cites, Banks et al. (2017)
-   and Rynes and Tonigan (2012). A directory's leading token
+   and Rynes and Tonigan (2012); and, added on 29 September 2026, Iannaccone (1992), held as record only. A directory's leading token
    must be at least three characters and distinctive, because `check_book.py` identifies a
    source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
@@ -461,5 +461,5 @@ The report must include:
 Expected unresolved limitations are not failures: no fitted group data, failed calibration,
 unverified matrix elicitation, unverified mapping from Traditions to theorem assumptions,
 unresolved recipient and composition contrasts, rare rather than typical Chapter 14 separation,
-finite horizons, and the intentionally deferred staged corpus. Any contradictory number,
+finite horizons. Any contradictory number,
 stale cache, failed assertion, source-status upgrade, or uninspected PDF is a release failure.

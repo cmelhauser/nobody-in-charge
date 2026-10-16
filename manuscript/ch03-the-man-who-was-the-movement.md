@@ -226,13 +226,13 @@ outcome and derivative. None is estimated here.
 
 Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough, with Twenty-Six Years' Experience as a Public Speaker.* Springfield, Mass.: Bill, Nichols & Co. Public domain; full text via the Internet Archive. Chapters I to V for the early life; Chapter X for the 1843 relapse in full; Chapter XIII for the 1845 episode, the September 22 statement, and the Mount Vernon Church committee report of October 31; Chapters XXVII to XXIX for the Dead Letter controversy of 1857, Gough's stated reasons for publishing the whole record, and the trial transcript of 21 June 1858 including the examination quoted in the text; the contents apparatus for the structure discussed in the text.
 
-*Cataract and Washingtonian* (April 1843). Report of the Worcester and Westborough meetings, quoted in full by Gough at Chapter X.
-
-Report of the Examining Committee, Mount Vernon Congregational Church, Boston, 31 October 1845. Reproduced by Gough at Chapter XIII.
-
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. The assessment of anonymity's survival value; the judgment that opponents seized on the lapse and that public confidence was impaired; the generalisation to less prominent but publicly known Washingtonians.
 
 **Cited at a remove:**
+
+*Cataract and Washingtonian* (April 1843). Report of the Worcester and Westborough meetings, read as quoted in full by Gough at Chapter X, not at source.
+
+Report of the Examining Committee, Mount Vernon Congregational Church, Boston, 31 October 1845. Read as reproduced by Gough at Chapter XIII, not at source.
 
 *National Police Gazette* (1845), via Van Every, E. *The Sins of New York as "Exposed" by the Police Gazette*, ch. 4.
 

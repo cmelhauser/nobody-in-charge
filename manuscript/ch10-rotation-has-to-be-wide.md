@@ -161,8 +161,8 @@ to the trustees. The long-form Concept 4 essay was read in the Service Manual, b
 no rule about the size of a rotating pool.
 
 Alcoholics Anonymous World Services, *The A.A. Service Manual Combined with Twelve Concepts for
-World Service* (2024-2026 edition, BM-31). Read in part on 13 September 2026: Concepts IV and V in
-full, Concept XI on rotation, and every passage in the manual that mentions rotation. Held
+World Service* (2024-2026 edition, BM-31). Read in part on 13 September 2026; the passages named here were
+read in full and the rest of the manual was not (see "What was not read"): Concepts IV and V, Concept XI on rotation, and every passage in the manual that mentions rotation. Held
 git-ignored under `research/incorporated/ServiceManual_2024/`. The Concept IV essay holds no rule
 about the size of a rotating pool: it concerns voting participation in proportion to
 responsibility among trustees, service directors and staff. Concept XI ties term length to
@@ -183,6 +183,6 @@ The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the
 
 **What was not read:**
 
-Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
+The rest of the Service Manual beyond the passages named above. Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
 
 The long-form essays on the Concepts other than IV, V and XI were not read. The short form was read on 17 August 2026, and the three essays named above on 13 September 2026.

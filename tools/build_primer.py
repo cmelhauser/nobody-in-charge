@@ -41,7 +41,7 @@ OUT = ROOT / "reference" / "PRIMER-steps-and-traditions.pdf"
 
 # The revision date printed on the primer, declared rather than read off the clock.
 # See the note in build() for why it is neither computed nor hard-coded and unchecked.
-REVISED_DATE = '15 October 2026'
+REVISED_DATE = '16 October 2026'
 
 # Passed as pandoc -V variables rather than written into the source, so that the Markdown
 # contains no LaTeX. Keep in step with the HEADER in tools/build_book.py.

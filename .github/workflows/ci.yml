@@ -40,7 +40,9 @@ permissions:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Only a pull request's superseded run is cancelled. A second merge to main must not cancel
+  # the first merge's documents job, the one check that does not run on pull requests.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
   # Pinned because pandoc computes the column widths of every table in the book and does
@@ -249,6 +251,11 @@ jobs:
           # host's cost. Each file is checked for the OpenType magic, so an error page
           # cannot masquerade as a font.
           mkdir -p "$XDG_DATA_HOME/fonts"
+          # A cached font that is not the pinned one is discarded, so that updating PINS in
+          # tools/check_fonts.py is enough: the cache is immutable per key and would otherwise
+          # keep serving the old files to the strict check below.
+          python tools/check_fonts.py --strict --dir "$XDG_DATA_HOME/fonts" >/dev/null 2>&1 \
+            || rm -f "$XDG_DATA_HOME"/fonts/texgyrepagella-*.otf
           MIRRORS="https://ftp.fau.de/ctan/fonts/tex-gyre/opentype
                    https://mirrors.ctan.org/fonts/tex-gyre/opentype
                    https://ctan.math.illinois.edu/fonts/tex-gyre/opentype"
