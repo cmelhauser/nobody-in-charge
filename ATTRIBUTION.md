@@ -19,6 +19,13 @@ notice in `LICENSE` be included in all copies or substantial portions of the mat
 above acknowledge the collaboration and are not a licence condition; see `LICENSE` for the full
 terms and their scope.
 
+## Independence
+
+This project is independent. It is not affiliated with, endorsed by or approved by Alcoholics Anonymous World
+Services, Inc., the A.A. General Service Office, any A.A. group, Recovery Dharma Global, or any publisher or
+author it cites. Fellowship and publication names are used only to refer to them. Nothing here is advice about
+any individual's recovery.
+
 ## Scope of this notice
 
 This notice, and the MIT License in `LICENSE`, apply only to original project material. It does not claim ownership of Alcoholics

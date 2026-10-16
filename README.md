@@ -10,6 +10,12 @@ See [ATTRIBUTION.md](ATTRIBUTION.md) for the authorship and rights statement, an
 [LICENSE](LICENSE) for the MIT License, which covers the original project material only; third-party
 material keeps its own rights.
 
+This project is independent. It is not affiliated with, endorsed by or approved by Alcoholics Anonymous
+World Services, Inc., the A.A. General Service Office, any A.A. group, Recovery Dharma Global, or any
+publisher or author it cites. "Alcoholics Anonymous" and "A.A." are the names of the fellowship and are used
+here only to refer to it. Nothing here speaks for the fellowship, and nothing here is advice about any
+individual's recovery or a substitute for professional care.
+
 This repository contains a complete 25-chapter manuscript, an academic paper, a technical
 appendix, a Steps-and-Traditions primer, the executable model, analysis scripts, cached
 results, source ledgers, and reproducible PDF builds.

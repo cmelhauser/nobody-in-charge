@@ -1271,7 +1271,7 @@ Jack Alexander's article had done what the founders spent 1937 failing to buy: i
 
 And they wrote to New York. Most of the letters wanted literature, or the address of another drunk in the next county. But a good many asked questions of procedure and practice, and a few asked questions of theory, and Wilson answered them himself, for hours, one at a time. Ernest Kurtz, who read the files, reconstructs the house style of those replies:
 
-> If I understand correctly, your problem sounds similar to. . . . On that occasion, these good people, now years sober, tried. . . . Of course, it is for you and your group to work this out: I can only relate to you what we seem to have learned from past experience. Perhaps you and your group will choose to follow this, but whether you do or not, please let us know how it comes out.
+> Of course, it is for you and your group to work this out: I can only relate to you what we seem to have learned from past experience. . . . whether you do or not, please let us know how it comes out.
 
 Read that as a piece of governance rather than as correspondence. The man with more standing than anyone else in the fellowship is telling a group of strangers that the decision is theirs, that he can report experience and not issue instructions, and that he wants to hear the result whichever way they go. Two of the Traditions this chapter is about were being practised in the second person singular, in a letter, years before anyone wrote them down. And a third was being practised by omission, because the obvious solution to a repetitive mailbag is a rule book with an office behind it, and that is the solution nobody took.
 
@@ -1315,7 +1315,7 @@ Wilson, by his own account, was bowled over. He felt a few twinges of conscience
 
 That evening happened to be meeting night at Clinton Street. He came in and told the group about his opportunity, and as he laid out the details his enthusiasm drained away against their silence. His own record of it is that with waning enthusiasm his story trailed off to the end, and that there was a long silence. Then somebody spoke for the room:
 
-> We know how hard up you are, Bill . . . it bothers us a lot. . . . [But] don't you realize that you can never become a professional? . . . You tell us that Charlie's proposal is ethical. Sure, it's ethical. But what we've got won't run on ethics only; it has to be better. Sure, Charlie's idea is good, but it isn't good enough. This is a matter of life and death, Bill, and nothing but the very best will do.
+> [But] don't you realize that you can never become a professional? . . . what we've got won't run on ethics only; it has to be better. . . . This is a matter of life and death, Bill, and nothing but the very best will do.
 
 Wilson declined the offer. Kurtz's gloss is that this was the first time he heard the voice of what he would later call the group conscience, and that he obeyed it.
 
