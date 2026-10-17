@@ -100,7 +100,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 16 October 2026, everything passes:
+As of 17 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
