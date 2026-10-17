@@ -14,7 +14,7 @@ collaboration, not a legal author or rights holder.
 
 Christopher Melhauser is the human author and legal rights contact for the original project
 material. The original project material is released under the MIT License, Copyright (c) 2026
-Christopher Melhauser. The License's one condition is that the copyright notice and permission
+Christopher Melhauser (GitHub: cmelhauser). The License's one condition is that the copyright notice and permission
 notice in `LICENSE` be included in all copies or substantial portions of the material. The credits
 above acknowledge the collaboration and are not a licence condition; see `LICENSE` for the full
 terms and their scope.
