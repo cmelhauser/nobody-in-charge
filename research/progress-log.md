@@ -6020,3 +6020,16 @@ The audit's "not done" list therefore shrinks to the public elicitation collator
 chose to leave (Chapter 18 states the same rows), and Dependabot alerts, which are off. The earlier entry's
 statement that the key was still in place is true of that entry's date only.
 
+
+### 17 October 2026: the random-network controls are asserted
+
+The Part Two random control (200 seeded draws of a random row-stochastic matrix per cell, three sizes by five
+concentrations) is now asserted in the notebook rather than only cached. It confirms the closed form (mean error is
+sqrt(2/pi) times the mean 2-norm in every cell), that error falls as attention flattens, and that the flattest cell sits
+within 0.5 per cent of the flat error. It also records something the book does not say: the correlation between
+maximum influence and error, which the book uses as a proxy for the 2-norm, is positive in every cell (0.35 to 0.97) but
+falls with group size, to between 0.35 and 0.52 at N=250. Maximum influence is therefore a weaker stand-in for the error
+in large groups than the small-group figures suggest; the error itself depends only on the 2-norm, so no printed figure
+changes. The notebooks now run 114 and 138 assertions. The handoff and verifier brief had quoted 109 and 124; the paper
+notebook had in fact run 133 since the previous block, so the paper's figure was already stale. `check_docs.py` now
+compares both counts with the stored outputs. No model change.

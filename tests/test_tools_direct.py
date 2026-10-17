@@ -662,3 +662,36 @@ def test_check_fonts_candidate_dirs_reads_fontconfig_output(tmp_path, monkeypatc
     monkeypatch.setattr(check_fonts.subprocess, "run",
                         lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=listing, stderr=""))
     assert font_dir in check_fonts.candidate_dirs()
+
+
+def _write_notebook(path, passed, failed=0):
+    """A stored notebook whose printed output records `passed` OK lines and `failed` FAIL lines;
+    the source cell prints the markers too, which must not be counted."""
+    path.parent.mkdir(exist_ok=True)
+    lines = ["  OK x\n"] * passed + ["  FAIL y\n"] * failed
+    cell = {"cell_type": "code", "source": ["print('  OK ', '  FAIL')"],
+            "outputs": [{"output_type": "stream", "text": lines}]}
+    path.write_text(json.dumps({"cells": [cell, {"cell_type": "markdown", "source": []}]}), encoding="utf-8")
+
+
+def test_check_notebook_assertions_reads_outputs_and_catches_stale_counts(docs_tree):
+    _write_notebook(docs_tree / "model" / "book-calculations.ipynb", 3, 1)
+    _write_notebook(docs_tree / "paper" / "anonymity-as-an-aggregation-condition.ipynb", 5)
+    (docs_tree / "HANDOFF.md").write_text(
+        "| `model/book-calculations.ipynb` | 8 cells, 4 assertions, clean |\n"
+        "| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 5 assertions, clean |\n"
+        "The book notebook now runs 8 cells and 4 assertions; the paper notebook runs 10 and 5.\n",
+        encoding="utf-8")
+    check_docs.check_notebook_assertions()
+    assert check_docs.failures == [] and len(check_docs.passes) == 4
+    (docs_tree / "HANDOFF.md").write_text(
+        "| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 4 assertions, clean |\n",
+        encoding="utf-8")
+    check_docs.passes.clear()
+    check_docs.check_notebook_assertions()
+    assert any("says '4', tree has 5" in item for item in check_docs.failures)
+
+
+def test_check_notebook_assertions_skips_without_stored_notebooks(docs_tree):
+    check_docs.check_notebook_assertions()
+    assert len(check_docs.skips) == 2 and check_docs.failures == []

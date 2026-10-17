@@ -14,6 +14,12 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- The book notebook gains a "part2 random-network controls" block (114 assertions; the paper notebook now runs 138). The control
+  confirms that mean error is exactly sqrt(2/pi) times the mean 2-norm and falls as attention flattens, and it shows the
+  correlation between maximum influence and error is positive in every cell but falls to 0.35 at N=250, so the proxy is
+  weaker in larger groups than in small ones. `check_docs.py` now compares the assertion counts the handoff and the
+  verifier brief quote with the stored notebooks (they had read 109 and 124 for notebooks that ran 109 and 133). No model change.
+
 - A public-repository audit added a non-affiliation statement, `SECURITY.md` and `CONTRIBUTING.md`, pinned the
   CI actions, the pandoc package and the tectonic installer by commit hash or checksum, shortened two block
   quotations in Chapter 5, recorded a rights exposure in git history, and corrected the branch ruleset so it
