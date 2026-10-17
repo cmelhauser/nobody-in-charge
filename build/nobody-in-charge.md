@@ -3,7 +3,7 @@ title: "Nobody in Charge"
 subtitle: "How a Fellowship of Drunks Solved a Problem in Mathematics Without Knowing It"
 author:
   - "Anonymous"
-date: "Draft of 16 October 2026"
+date: "Draft of 17 October 2026"
 documentclass: report
 classoption: [11pt, oneside]
 geometry: [a4paper, margin=1.05in]
@@ -5759,7 +5759,7 @@ claim that Traditions 2, 9, and 12 operationalize its assumptions is this projec
 reading.
 
 The deterministic Part Two analysis, `model/part2_influence.py` with its cache, covers finite-group influence,
-scaling of rotation pools, the three obstruction constructions, and random-network controls; the notebook's "part2 closed forms" and "part2 influence regimes and elders" blocks assert the rotation-pool, regime, elder and clique figures, but not the random-network controls. These are not runs of the
+scaling of rotation pools, the three obstruction constructions, and random-network controls; the notebook's "part2 closed forms" and "part2 influence regimes and elders" blocks assert the rotation-pool, regime, elder and clique figures, and its "part2 random-network controls" block asserts the control's structural properties (not its every number, which no chapter prints). These are not runs of the
 stochastic membership model. The matrices in Part Four reject index-pairing on the authored
 values, but five of the twelve rejections are forced by structural zeros. Threshold and sparsity
 tests are required where multiplicative perturbation is blind. Under wholesale randomization of

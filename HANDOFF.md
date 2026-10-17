@@ -100,7 +100,7 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 16 October 2026, everything passes:
+As of 17 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
@@ -109,11 +109,11 @@ As of 16 October 2026, everything passes:
 | `tools/check_book.py` | 0 failures, 45 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 31 checks, 0 failed |
+| `tools/check_docs.py` | 35 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
-| `model/book-calculations.ipynb` | 8 cells, 109 assertions, clean |
-| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 124 assertions, clean |
+| `model/book-calculations.ipynb` | 8 cells, 114 assertions, clean |
+| `paper/anonymity-as-an-aggregation-condition.ipynb` | 10 cells, 138 assertions, clean |
 | `model/elicitation_compare.py --self-test` | passed |
 
 The 45 `check_book` warnings are repetition and sentence-length notes. They are not failures and
