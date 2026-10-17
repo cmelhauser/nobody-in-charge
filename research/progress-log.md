@@ -6033,3 +6033,11 @@ in large groups than the small-group figures suggest; the error itself depends o
 changes. The notebooks now run 114 and 138 assertions. The handoff and verifier brief had quoted 109 and 124; the paper
 notebook had in fact run 133 since the previous block, so the paper's figure was already stale. `check_docs.py` now
 compares both counts with the stored outputs. No model change.
+
+### 17 October 2026: Dependabot
+
+Dependabot vulnerability alerts turned out to be on already (the audit's "off" referred to Dependabot security
+updates, which were disabled). Security updates are now enabled through the repository settings, and
+`.github/dependabot.yml` asks for a monthly pull request raising the commit-hash pins of the CI actions and the
+`requirements-dev.txt` versions. The pins still have to be reviewed and merged by hand, and tectonic and pandoc
+are not covered by Dependabot because they are installed by URL and checksum, not as actions. No model change.
