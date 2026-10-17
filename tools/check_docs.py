@@ -570,6 +570,30 @@ def check_paper_decimals() -> None:
     assert_claims("paper decimal count", int(found.group(1)), re.compile(r"currently (\d+) of them"))
 
 
+def check_notebook_assertions() -> None:
+    """The assertion counts the handoff and the verifier brief quote, against the stored notebook
+    outputs. The paper's count had read 124 for a week after the notebook ran 133."""
+    counts = {}
+    for name, path in (("book", ROOT / "model" / "book-calculations.ipynb"),
+                       ("paper", ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb")):
+        if not path.exists():
+            skip(f"the {name} notebook's assertion count (no stored notebook to read)")
+            continue
+        printed = "".join("".join(output.get("text", ""))
+                          for cell in json.loads(path.read_text(encoding="utf-8"))["cells"]
+                          for output in cell.get("outputs", []))
+        counts[name] = printed.count("  OK ") + printed.count("  FAIL")
+    patterns = {
+        "book": (re.compile(r"book-calculations\.ipynb`\s*\|\s*\d+ cells, (\d+) assertions"),
+                 re.compile(r"notebook now runs \d+ cells and (\d+) assertions")),
+        "paper": (re.compile(r"anonymity-as-an-aggregation-condition\.ipynb`\s*\|\s*\d+ cells, (\d+) assertions"),
+                  re.compile(r"paper notebook runs \d+ and (\d+)")),
+    }
+    for name, count in counts.items():
+        for pattern in patterns[name]:
+            assert_claims(f"{name} notebook assertion count", count, pattern)
+
+
 def check_document_dates() -> None:
     """A document's printed date must come from its text, not from the clock.
 
@@ -754,6 +778,7 @@ def main() -> int:
     check_python_versions()
     check_page_counts()
     check_paper_decimals()
+    check_notebook_assertions()
     check_document_dates()
     check_handoff_date()
     check_own_total()

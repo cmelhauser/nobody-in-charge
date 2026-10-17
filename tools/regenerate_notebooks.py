@@ -415,6 +415,28 @@ def emit():
         show(f'clique of three, inward to one, N={n} each member', clique[str(n)][0])
         show(f'imbalanced member N={n} share', imbalance[str(n)][0])
 
+    # The random control asks whether the book's use of maximum influence as a proxy for the 2-norm of the
+    # influence vector (which alone sets the consensus error) is an artefact of the hand-built families.
+    # Random row-stochastic matrices, 200 seeded draws per cell; deterministic given that seed.
+    print('part2 random-network controls (Chapter Eight proxy)')
+    control = collections.defaultdict(list)
+    for row in P2['random_control']:
+        control[row['n']].append(row)
+        show(f"random network N={row['n']} concentration {row['conc']} mean max influence", row['max_mean'])
+        show(f"random network N={row['n']} concentration {row['conc']} mean error", row['err_mean'])
+        show(f"random network N={row['n']} concentration {row['conc']} corr(max influence, error)", row['corr_max_err'])
+    rows = P2['random_control']
+    check('random control cells (3 sizes x 5 concentrations, 200 draws each)', len(rows), 15)
+    check('random control: mean error is sqrt(2/pi) times mean 2-norm in every cell',
+          all(abs(r['err_mean'] - np.sqrt(2 / np.pi) * r['l2_mean']) < 1e-9 for r in rows), True)
+    check('random control: max influence and error correlate positively in every cell, from 0.35 to 0.97',
+          [round(min(r['corr_max_err'] for r in rows), 2), round(max(r['corr_max_err'] for r in rows), 2)],
+          [0.35, 0.97])
+    check('random control: mean error falls as attention flattens, at every size',
+          all(all(a['err_mean'] > b['err_mean'] for a, b in zip(rs, rs[1:])) for rs in control.values()), True)
+    check('random control: the flattest cell sits within 0.5 per cent of the flat error',
+          all(abs(rs[-1]['err_mean'] / (np.sqrt(2 / np.pi) / np.sqrt(n)) - 1) < 0.005 for n, rs in control.items()), True)
+
     # ---- part5: trajectories, T3 dose sweep, founder composition ---------------------
     d = load('part5.json')
     traj = collections.defaultdict(list)
