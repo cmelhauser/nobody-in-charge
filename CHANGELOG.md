@@ -24,6 +24,7 @@ someone who wants to know what changed between two tags does not have to read it
   `requirements-dev.txt` versions by pull request each month, and Dependabot security updates are switched on in the
   repository settings (alerts already were). No model change.
 
+- The copyright holder in `LICENSE` and `ATTRIBUTION.md` now reads "Christopher Melhauser (GitHub: cmelhauser)", the same name in every repository. The MIT terms are unchanged.
 - A public-repository audit added a non-affiliation statement, `SECURITY.md` and `CONTRIBUTING.md`, pinned the
   CI actions, the pandoc package and the tectonic installer by commit hash or checksum, shortened two block
   quotations in Chapter 5, recorded a rights exposure in git history, and corrected the branch ruleset so it
