@@ -6020,3 +6020,11 @@ The audit's "not done" list therefore shrinks to the public elicitation collator
 chose to leave (Chapter 18 states the same rows), and Dependabot alerts, which are off. The earlier entry's
 statement that the key was still in place is true of that entry's date only.
 
+
+### 17 October 2026: Dependabot
+
+Dependabot vulnerability alerts turned out to be on already (the audit's "off" referred to Dependabot security
+updates, which were disabled). Security updates are now enabled through the repository settings, and
+`.github/dependabot.yml` asks for a monthly pull request raising the commit-hash pins of the CI actions and the
+`requirements-dev.txt` versions. The pins still have to be reviewed and merged by hand, and tectonic and pandoc
+are not covered by Dependabot because they are installed by URL and checksum, not as actions. No model change.
