@@ -6041,3 +6041,11 @@ updates, which were disabled). Security updates are now enabled through the repo
 `.github/dependabot.yml` asks for a monthly pull request raising the commit-hash pins of the CI actions and the
 `requirements-dev.txt` versions. The pins still have to be reviewed and merged by hand, and tectonic and pandoc
 are not covered by Dependabot because they are installed by URL and checksum, not as actions. No model change.
+
+### 17 October 2026: two stale notebook pointers left on purpose
+
+`model/scenarios_hiseed.py` (line 9) and `model/part5_runs.py` (line 4) still say "notebook section 1" for the endpoint
+table, which the notebook now cites by its printed heading. They are left as they are at the Human Author's direction.
+Both scripts are hash-linked: editing a comment changes the script hash, which makes the cache stale and forces a
+rerun of 2,400 and 4,800 runs at 400 seeds for no change in any number. If either script is ever rerun for another
+reason, correct the pointer in the same commit. No model change.
