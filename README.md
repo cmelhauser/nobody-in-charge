@@ -145,6 +145,7 @@ appendix/               Technical appendix source
 paper/                  LaTeX paper, companion notebook, and PDF
 plans/                  Master and part plans plus the release-gate plan
 tools/                  Notebook runner, checkers, inventory, summaries, and builders
+tests/                  Model tests, release invariants, and tests of every tool (100 per cent coverage)
 build/                  Generated whole-book Markdown and PDF
 ```
 
