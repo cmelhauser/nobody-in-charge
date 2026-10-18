@@ -6049,3 +6049,14 @@ table, which the notebook now cites by its printed heading. They are left as the
 Both scripts are hash-linked: editing a comment changes the script hash, which makes the cache stale and forces a
 rerun of 2,400 and 4,800 runs at 400 seeds for no change in any number. If either script is ever rerun for another
 reason, correct the pointer in the same commit. No model change.
+
+### 18 October 2026: Dependabot narrowed to the actions
+
+Enabling Dependabot opened seven pull requests at once. The two Actions bumps (`actions/setup-python` 7.0.0 and
+`actions/checkout` 7.0.1) were merged after the full workflow, including the 3.11 to 3.14 legs and the documents job,
+passed on each branch by manual dispatch; the commit hashes were checked against the upstream tags. The five raises of
+`requirements-dev.txt` floors (numpy, pypdf, ruff, coverage, pytest-cov) were closed, because the file's versions are
+deliberate floors and CI installs the latest regardless. One of them, numpy 2.5.4, requires Python 3.12 or newer and
+would have broken the 3.11 leg, which pull requests do not run and so showed green. `.github/dependabot.yml` now
+watches only GitHub Actions. The committed book PDF was also rebuilt with the pinned pandoc 3.10.2 and is
+byte-identical. No model change.

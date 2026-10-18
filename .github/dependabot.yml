@@ -1,14 +1,10 @@
 # Raises the commit-hash pins in .github/workflows by pull request. Each action is pinned
 # to a SHA with its version in a trailing comment; Dependabot updates both together.
+# requirements-dev.txt is deliberately not watched: its versions are floors, not pins, and
+# raising one only narrows what the repository supports (numpy 2.5.4 would drop Python 3.11).
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: monthly
-    commit-message:
-      prefix: "ci"
-  - package-ecosystem: pip
     directory: /
     schedule:
       interval: monthly
