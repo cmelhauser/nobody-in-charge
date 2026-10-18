@@ -374,7 +374,7 @@ with its reason. The analysis scripts under `model/` other than the canonical mo
 deliberately outside the gate: they are batch Monte Carlo jobs, their bytes are frozen (each
 records its SHA-256 in its cache, so a test hook or a pragma would invalidate hours of
 computation), and the release gate verifies every cache against the script that made it.
-The version legs on Python 3.11, 3.13 and 3.14 do not run the subprocess tests, so they use
+The version legs other than 3.12 do not run the subprocess tests, so they use
 `.coveragerc-model`, which gates the canonical model alone.
 
 **`model/aa_group_model.py` must never be edited to make a test pass.** Its SHA-256 is the
