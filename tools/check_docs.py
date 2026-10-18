@@ -41,7 +41,16 @@ yet built, and reports itself rather than passing silently, because a check that
 not a check that succeeded. The `documents` job runs this file after rebuilding the PDFs from
 source, which is the only place a page count is confirmed against a fresh build.
 
-Run from anywhere:  python3 tools/check_docs.py
+Run from anywhere:  python3 tools/check_docs.py          (-h or --help prints this text)
+
+Reads tracked Markdown (from the version-control file list), the workflows, the `tools/` and
+`model/` listings, the corpus `metadata.json` files, the notebooks' stored output, the rendered
+PDFs when present, and the commit history for the date checks. It also runs
+`tools/check_release.py --skip-artifacts` to learn the gate's totals. It writes nothing.
+
+Output is one `OK:` line per passing check, then any `SKIP:` lines, then any `FAIL:` lines, then
+a summary. Exit status: 0 when nothing failed (skips do not fail the run), 1 when any claim
+contradicts the tree.
 """
 from __future__ import annotations
 
@@ -69,14 +78,17 @@ skips: list[str] = []
 
 
 def ok(message: str) -> None:
+    """Record a passing check."""
     passes.append(f"OK: {message}")
 
 
 def fail(message: str) -> None:
+    """Record a claim the tree contradicts, or a derivation that could not be made."""
     failures.append(f"FAIL: {message}")
 
 
 def skip(message: str) -> None:
+    """Record a check that could not run here, reported apart from passes on purpose."""
     skips.append(f"SKIP: {message}")
 
 
@@ -130,7 +142,8 @@ def assert_claims(label: str, expected: int, pattern: re.Pattern[str], group: in
                     continue
                 seen += 1
                 if claimed != expected:
-                    wrong.append(f"{rel}:{number}: says {match.group(group)!r}, tree has {expected}")
+                    wrong.append(
+                        f"{rel}:{number}: says {match.group(group)!r}, tree has {expected}")
     if wrong:
         for item in wrong:
             fail(f"{label} ({item})")
@@ -165,6 +178,13 @@ def ci_jobs() -> list[str]:
 
 
 def check_ci_jobs() -> None:
+    """Hold prose about the CI workflow to the jobs `ci.yml` defines.
+
+    Three things are checked: the stated job count, the older "runs both jobs" phrasing (legal
+    only while the workflow has exactly two jobs), and every job name quoted in backticks. The
+    last catches a rename as well as a miscount. `release` is a workflow, not a job, so it is
+    allowed wherever it is named.
+    """
     jobs = ci_jobs()
     if not jobs:
         fail("could not read job names from .github/workflows/ci.yml")
@@ -209,6 +229,7 @@ def check_ci_jobs() -> None:
 
 
 def check_checker_inventory() -> None:
+    """Hold the stated number of checkers, and every checker named in prose, to the tree."""
     checkers = sorted(p.name for p in (ROOT / "tools").glob("check_*.py"))
     # build_corpus.py --check is a checker by behaviour and is counted as one in AGENTS.md.
     total = len(checkers) + 1
@@ -232,6 +253,7 @@ def check_checker_inventory() -> None:
 
 
 def corpus_counts() -> tuple[int, int]:
+    """Return (sources in the corpus, how many of them are record only), from `metadata.json`."""
     total, record_only = 0, 0
     for meta in sorted((ROOT / "research/incorporated").glob("*/metadata.json")):
         total += 1
@@ -241,6 +263,7 @@ def corpus_counts() -> tuple[int, int]:
 
 
 def check_corpus() -> None:
+    """Hold the corpus size and the record-only count in present-tense prose to the metadata."""
     total, record_only = corpus_counts()
     # Present-tense only. "bringing the corpus to 26" is history and must stay legal.
     assert_claims(
@@ -256,17 +279,20 @@ def check_corpus() -> None:
     assert_claims(
         "record-only count",
         record_only,
-        re.compile(r"\b([A-Za-z]+|\d+)\s+(?:of the \d+ )?sources are\s+\*{0,2}(?:held as )?record only",
-                   re.IGNORECASE),
+        re.compile(
+            r"\b([A-Za-z]+|\d+)\s+(?:of the \d+ )?sources are\s+\*{0,2}(?:held as )?record only",
+            re.IGNORECASE),
     )
     assert_claims(
         "record-only count in 'N of the M sources are record only'",
         record_only,
-        re.compile(r"\b([A-Za-z]+|\d+)\s+of the \d+ sources are held as record only", re.IGNORECASE),
+        re.compile(r"\b([A-Za-z]+|\d+)\s+of the \d+ sources are held as record only",
+                   re.IGNORECASE),
     )
 
 
 def check_model_scripts() -> None:
+    """Hold the stated number of analysis scripts to the `model/*.py` files besides the model."""
     scripts = [p.name for p in (ROOT / "model").glob("*.py") if p.name != "aa_group_model.py"]
     assert_claims(
         "analysis-script count",
@@ -276,6 +302,7 @@ def check_model_scripts() -> None:
 
 
 def check_chapters() -> None:
+    """Hold the stated number of numbered chapters to the `manuscript/ch*.md` files."""
     # ch00-preface and ch00b-introduction are front matter, not numbered chapters. The book
     # is "25 chapters plus the preface and the introduction", and that is the claim checked.
     chapters = [
@@ -295,7 +322,7 @@ def check_chapters() -> None:
 
 
 def check_local_runner() -> None:
-    """The runner's own header must document every job it implements."""
+    """Require the runner's own usage header to document every job it implements."""
     path = ROOT / "tools/run_ci_locally.sh"
     text = path.read_text(encoding="utf-8")
     implemented = set(re.findall(r'\$job"\s*=\s*([a-z][a-z-]*)', text)) - {"all"}
@@ -312,7 +339,8 @@ def check_local_runner() -> None:
             + ", ".join(sorted(missing))
         )
     else:
-        ok(f"run_ci_locally.sh documents every job it implements: {', '.join(sorted(implemented))}")
+        ok("run_ci_locally.sh documents every job it implements: "
+           f"{', '.join(sorted(implemented))}")
 
 
 def check_model_hash() -> None:
@@ -350,6 +378,11 @@ def check_model_hash() -> None:
 
 
 def check_links() -> None:
+    """Require every relative Markdown link to resolve to a file or directory that exists.
+
+    Absolute URLs, `mailto:` links and bare `#fragment` links are skipped; a fragment on a
+    relative link is stripped, so only the file part is tested, not the heading it names.
+    """
     link = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
     broken = []
     for path in tracked_markdown():
@@ -391,7 +424,7 @@ SHORTENING = ("FAIL: cache exists:", "is not valid JSON", "FAIL: analysis source
 
 
 def release_gate_totals() -> dict[str, int] | None:
-    """The gate's own totals, from running it with `--skip-artifacts`.
+    """Return the gate's own totals, from running it with `--skip-artifacts`.
 
     Run rather than read, because the gate generates its checks in loops over the registered
     caches and the rendered artifacts, and counting them from its source would be a second
@@ -404,7 +437,7 @@ def release_gate_totals() -> dict[str, int] | None:
     """
     proc = subprocess.run(
         [sys.executable, str(ROOT / "tools" / "check_release.py"), "--skip-artifacts"],
-        cwd=ROOT, capture_output=True, text=True,
+        cwd=ROOT, capture_output=True, text=True, check=False,   # a failing gate still reports
     )
     found = re.search(r"^(\d+) checks passed; (\d+) failed; (\d+) skipped",
                       proc.stdout, re.MULTILINE)
@@ -438,7 +471,7 @@ def gate_claims_contradicting(totals: dict[str, int],
 
 
 def check_release_gate_counts() -> None:
-    """The release gate's totals, wherever the repository states them.
+    """Hold every statement of the release gate's totals to the gate's own count.
 
     They change whenever a cache is registered, and until 1 October 2026 they were kept by hand,
     in seven Markdown files, both workflows and the gate's own source. That day `RELEASING.md`
@@ -482,8 +515,10 @@ VERSION_ONLY = re.compile(r"\b(3\.\d+)\s+only\b")
 
 
 def python_version_claims(text: str) -> list[tuple[str, list[str]]]:
-    """Python versions a paragraph says CI runs: ("list", [..]) for "3.11, 3.12 and 3.13" and
-    ("only", [..]) for "3.12 only". Whitespace is collapsed first, because prose wraps lines.
+    """Return the Python versions a paragraph says CI runs.
+
+    A claim is ("list", [..]) for "3.11, 3.12 and 3.13" and ("only", [..]) for "3.12 only".
+    Whitespace is collapsed first, because prose wraps lines.
     """
     text = " ".join(text.split())
     if "Python" not in text:                      # "3.12 only" in a paragraph about something else
@@ -494,7 +529,7 @@ def python_version_claims(text: str) -> list[tuple[str, list[str]]]:
 
 
 def check_python_versions() -> None:
-    """The Python versions the documents say CI tests, against the workflow's matrix.
+    """Hold the Python versions the documents say CI tests to the workflow's matrix.
 
     Python 3.14 was added to the matrix on 12 October 2026 by hand, in the workflow's header, the
     four Markdown files that list versions and the changelog. This holds the Markdown to the
@@ -560,8 +595,10 @@ def check_page_counts() -> None:
 
 
 def check_paper_decimals() -> None:
-    """The number of decimals the paper prints, as the paper notebook records it, against the
-    figure AGENT_VERIFY.md quotes. It had drifted by one after a wording change in the paper.
+    """Hold the decimals figure AGENT_VERIFY.md quotes to the paper notebook's own record.
+
+    The notebook prints how many decimals the paper uses. The quoted figure had drifted by one
+    after a wording change in the paper. Skipped when the notebook has no stored output.
     """
     notebook = ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb"
     found = re.search(r"decimals printed in the paper: (\d+)",
@@ -569,12 +606,16 @@ def check_paper_decimals() -> None:
     if not found:
         skip("the paper's decimal count (no stored notebook output to read)")
         return
-    assert_claims("paper decimal count", int(found.group(1)), re.compile(r"currently (\d+) of them"))
+    assert_claims("paper decimal count", int(found.group(1)),
+                  re.compile(r"currently (\d+) of them"))
 
 
 def check_notebook_assertions() -> None:
-    """The assertion counts the handoff and the verifier brief quote, against the stored notebook
-    outputs. The paper's count had read 124 for a week after the notebook ran 133.
+    """Hold the assertion counts the handoff and verifier brief quote to the notebook outputs.
+
+    The count is taken from the stored printed output (`  OK ` and `  FAIL` markers), not from
+    the source cells, which print the same markers. The paper's count had read 124 for a week
+    after the notebook ran 133. A notebook with no stored file is skipped, not passed.
     """
     counts = {}
     for name, path in (("book", ROOT / "model" / "book-calculations.ipynb"),
@@ -589,7 +630,8 @@ def check_notebook_assertions() -> None:
     patterns = {
         "book": (re.compile(r"book-calculations\.ipynb`\s*\|\s*\d+ cells, (\d+) assertions"),
                  re.compile(r"notebook now runs \d+ cells and (\d+) assertions")),
-        "paper": (re.compile(r"anonymity-as-an-aggregation-condition\.ipynb`\s*\|\s*\d+ cells, (\d+) assertions"),
+        "paper": (re.compile(r"anonymity-as-an-aggregation-condition\.ipynb`\s*\|\s*\d+ cells, "
+                             r"(\d+) assertions"),
                   re.compile(r"paper notebook runs \d+ and (\d+)")),
     }
     for name, count in counts.items():
@@ -598,7 +640,7 @@ def check_notebook_assertions() -> None:
 
 
 def check_document_dates() -> None:
-    """A document's printed date must come from its text, not from the clock.
+    """Require a document's printed date to come from its text, not from the clock.
 
     `tools/build_book.py` and `tools/build_primer.py` both took their date from
     `date.today()`, so every rebuild redated the artifact. Continuous integration rebuilds both
@@ -617,6 +659,7 @@ def check_document_dates() -> None:
     from datetime import datetime
 
     def declared(tool: str, name: str) -> tuple[str, object] | None:
+        """Return (text, date) of `name = '...'` in `tools/{tool}`, or None after a failure."""
         text = (ROOT / "tools" / tool).read_text(encoding="utf-8")
         found = re.search(rf"^{name} = '([^']+)'", text, re.MULTILINE)
         if not found:
@@ -637,9 +680,13 @@ def check_document_dates() -> None:
     # record when branches met, not when the text changed.
     shallow = subprocess.run(
         ["git", "-C", str(ROOT), "rev-parse", "--is-shallow-repository"],
-        capture_output=True, text=True).stdout.strip() == "true"
+        capture_output=True, text=True, check=False).stdout.strip() == "true"
 
     def not_older(label: str, value: str, when, sources: list[str]) -> None:
+        """Pass if date `when` is on or after the last non-merge change to `sources`.
+
+        Skips, rather than passes, when the history needed to date that change is absent.
+        """
         if shallow:
             skip(f"{label} against its sources (shallow clone: the history that would date "
                  f"the last change is not here)")
@@ -647,7 +694,7 @@ def check_document_dates() -> None:
         proc = subprocess.run(
             ["git", "-C", str(ROOT), "log", "-1", "--no-merges", "--format=%cs", "--",
              *sources],
-            capture_output=True, text=True)
+            capture_output=True, text=True, check=False)
         stamp = proc.stdout.strip()
         if proc.returncode or not stamp:
             skip(f"{label} against its sources (no Git history for them here)")
@@ -741,7 +788,7 @@ def check_handoff_date() -> None:
 
 
 def check_own_total() -> None:
-    """The count of checks this file runs, where the handoff's verification table states it.
+    """Hold the check count in the handoff's verification table to the number this file runs.
 
     It has to be last, because it counts the others, and it counts itself. It reads the table
     only when nothing was skipped: a check that skips reports fewer lines than the same check
@@ -769,6 +816,10 @@ def check_own_total() -> None:
 
 
 def main() -> int:
+    """Run every check, print the report and return the process exit status.
+
+    Order matters only for `check_own_total`, which counts the others and so runs last.
+    """
     check_ci_jobs()
     check_checker_inventory()
     check_corpus()

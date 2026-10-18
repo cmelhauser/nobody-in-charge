@@ -1,6 +1,8 @@
-"""Execute a verification notebook end to end, in one process, and write the real outputs
-back into the file: model/book-calculations.ipynb by default, the paper's notebook with
---paper, or any notebook given by path.
+"""Execute a verification notebook end to end and write the real outputs back into it.
+
+The notebook runs in one process, cell by cell, with a shared namespace: the book's
+model/book-calculations.ipynb by default, the paper's notebook with --paper, or any
+notebook given by path (relative paths are taken from the repository root).
 
 This exists because for a long time the notebook was maintained cell by cell and never run
 as a whole, and a cell that referenced an undefined name sat broken and unnoticed. Running it
@@ -23,6 +25,14 @@ machine and the tests run on others, and that is not hypothetical: the DeGroot e
 round averages to 5.74275, which a last-bit difference in a matrix product prints as 5.7428 on
 one machine and 5.7427 on another.
 
+Reads the notebook and, when it is allowed to write, rewrites that one file in place with
+each code cell's stdout as its stored output. Cells run with the working directory set to the
+notebook's own directory, and it is restored afterwards. Nothing is written when a cell
+raised, so a broken notebook never overwrites good stored outputs.
+
+Exit status: 0 when the run is CLEAN (no cell raised, no recorded assertion failure, no code
+cell without output, and under --check no stale stored output), 1 otherwise.
+
 Run:  python3 tools/run_notebook.py [--no-write | --check] [--paper | path/to/notebook.ipynb]
 """
 import contextlib
@@ -44,7 +54,12 @@ PAPER_NB = os.path.join(ROOT, 'paper', 'anonymity-as-an-aggregation-condition.ip
 
 
 def same_number(x, y):
-    """Whole numbers exactly; a decimal to one unit in its last printed place, or 1e-9."""
+    """Return True if two printed numbers (given as strings) agree to the precision printed.
+
+    Whole numbers must match exactly, since they are counts. Otherwise a decimal may differ by
+    one unit in its last printed place (the longer of the two spellings sets the place), and
+    anything else, such as a float printed at full length, by a relative 1e-9.
+    """
     if x == y:
         return True
     if not any(mark in x + y for mark in '.eE'):
@@ -58,7 +73,11 @@ def same_number(x, y):
 
 
 def same_output(stored, fresh):
-    """Equal text, with every number equal to the precision printed; see same_number."""
+    """Return True if two outputs are equal text, with every number equal per same_number.
+
+    Numbers are masked out and the remaining text compared first, so a changed word or a
+    different count of numbers on a line is never excused by the numeric tolerance.
+    """
     if stored == fresh:
         return True
     old, new = stored.splitlines(), fresh.splitlines()
@@ -75,7 +94,11 @@ def same_output(stored, fresh):
 
 
 def stale_lines(nb, outs):
-    """(cell, stored line, fresh line) for every line a fresh run prints differently."""
+    """Return (cell index, stored line, fresh line) for every line a fresh run prints differently.
+
+    `nb` is the parsed notebook and `outs` maps cell index to the stdout the run just produced.
+    Cells whose stored and fresh outputs agree under same_output contribute nothing.
+    """
     stale = []
     for i, c in enumerate(nb['cells']):
         if c['cell_type'] != 'code':
@@ -89,8 +112,18 @@ def stale_lines(nb, outs):
 
 
 def main(notebook=BOOK_NB, write=True, check=False):
+    """Execute `notebook`, report problems, optionally write outputs back; return 0 or 1.
+
+    All code cells run in one shared namespace (`g`), in order, so a later cell can use an
+    earlier one's names, as in Jupyter. A cell that raises is recorded and the run goes on,
+    so one run lists every broken cell. `write=False` (--no-write) or `check=True` (--check)
+    leaves the file untouched; `check` also compares the stored outputs with the fresh ones.
+    Outputs are only written back when no cell raised, and an assertion failure alone (a
+    recorded FAILURES entry) still writes them, so the failure is visible in the file.
+    """
     notebook = os.path.abspath(notebook)
-    nb = json.load(open(notebook))
+    with open(notebook) as fh:
+        nb = json.load(fh)
     cwd = os.getcwd()
     os.chdir(os.path.dirname(notebook))
     g = {'__name__': '__main__'}
@@ -135,7 +168,8 @@ def main(notebook=BOOK_NB, write=True, check=False):
             o = outs.get(i, '')
             c['outputs'] = [{'output_type': 'stream', 'name': 'stdout', 'text': [o]}] if o else []
             c['execution_count'] = None
-        json.dump(nb, open(notebook, 'w'), indent=1)
+        with open(notebook, 'w') as fh:
+            json.dump(nb, fh, indent=1)
         print('outputs written back')
     ok = not errs and not fails and not blank and not stale
     print('CLEAN' if ok else 'NOT CLEAN')
