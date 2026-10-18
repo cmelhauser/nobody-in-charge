@@ -21,14 +21,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+import check_release as cr
 import pytest
+import regenerate_notebooks as regen
+import run_notebook as rn
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
-
-import check_release as cr  # noqa: E402
-import regenerate_notebooks as regen  # noqa: E402
-import run_notebook as rn  # noqa: E402
 
 # ---------------------------------------------------------------------------------------
 # check_release: a synthetic, complete repository

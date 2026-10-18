@@ -104,7 +104,8 @@ As of 18 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `python3 -m pytest` | all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1` |
+| `python3 -m pytest --cov` | 493 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,240 statements) |
+| `ruff check .` | clean, with no `noqa` comment and no waiver outside `model/` and the notebook generator's line length |
 | `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
 | `tools/check_book.py` | 0 failures, 45 warnings |
 | `tools/check_chapter.py` on the primer | clear |

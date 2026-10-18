@@ -147,7 +147,7 @@ five the paper cites and two from the skill-depreciation literature Chapter 12 h
 bringing the corpus to 40. All seven were read the same day, six in full and one in
 part, and what they bear on was applied to the manuscript, the paper, the primer and the appendix.
 The model is unchanged: the two skill-depreciation papers measure skill, not the practice the
-decay rate represents. Five sources remain record only because no lawful copy is yet in hand.
+decay rate represents. Five sources remained record only that day because no lawful copy was yet in hand; Iannaccone (1992) made it six on 29 September.
 
 Two more were added on 22 September 2026 at the Human Author's direction, bringing the corpus to
 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under

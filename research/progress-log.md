@@ -6060,3 +6060,22 @@ deliberate floors and CI installs the latest regardless. One of them, numpy 2.5.
 would have broken the 3.11 leg, which pull requests do not run and so showed green. `.github/dependabot.yml` now
 watches only GitHub Actions. The committed book PDF was also rebuilt with the pinned pandoc 3.10.2 and is
 byte-identical. No model change.
+
+### 18 October 2026: the code brought to a production standard
+
+Lint, comments and coverage were raised together. (1) `ruff.toml` now holds `tools/` and `tests/` to E, W, F, B, I, UP, C4,
+SIM, RUF, A, D (pep257, imperative-mood rule off) and PLW1510, and clears every finding by editing, with no `noqa`; the
+only waiver outside `model/` is E501 for `tools/regenerate_notebooks.py`, whose long lines are notebook cell source.
+(2) Every module, class, function, method, fixture and test in `tools/` and `tests/` has a docstring, and each tool's
+module docstring (which is its `--help`) states what it reads and writes and its exit codes. (3) `.coveragerc` now gates
+`model/aa_group_model.py` and every script under `tools/` at 100 per cent (2,240 statements), using `patch = subprocess`
+so the subprocess tests count; `.coveragerc-model` keeps the model-only gate for the 3.11, 3.13 and 3.14 legs. Coverage was 83
+per cent of the tools before the pass; five new test files (`test_build_tools.py`, `test_book_checkers.py`,
+`test_doc_checkers.py`, `test_release_tools.py`, `test_report_tools.py`) closed the gap without writing into the repository
+tree or needing pandoc, tectonic, fonts, the network or any source document. The `model/` analysis scripts remain outside
+both the coverage gate and the production lint rules: each records its SHA-256 in its cache, so a comment, a pragma or a
+reformat would invalidate hours of computation. Two latent defects were found on the way. `build_corpus.py --check` raised on
+a corrupt index belonging to a record-only source (fixed, reported as a problem instead); and its `TOKEN` regex lists the
+straight apostrophe twice, so it never matches the typographic one (left alone and commented, because fixing it would change
+every committed index). The book, primer and paper PDFs were rebuilt with the pinned pandoc 3.10.2 and are byte-identical.
+No model change.
