@@ -21,7 +21,7 @@ import ast
 import hashlib
 import json
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import numpy as np
@@ -151,7 +151,7 @@ def build():
     relevant_cells = int(sum(np.count_nonzero(S[i]) for i in protective_rows))
     summary = {
         "schema_version": 1,
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "model_sha256": sha(MODEL),
         "registered_set": registered,
         "authored_structural_zeros": {

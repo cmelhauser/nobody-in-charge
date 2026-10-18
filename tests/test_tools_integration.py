@@ -31,6 +31,7 @@ import shutil
 import subprocess
 import sys
 import types
+from datetime import UTC
 from pathlib import Path
 
 import pytest
@@ -159,12 +160,12 @@ def test_build_timestamps_follow_the_declared_dates():
     a rebuild of unchanged sources byte-identical. If it read the wrong date, the PDFs would
     still build and look right, so the mapping is pinned here.
     """
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     import source_date
 
     def midnight(text, fmt):
-        return int(datetime.strptime(text, fmt).replace(tzinfo=timezone.utc).timestamp())
+        return int(datetime.strptime(text, fmt).replace(tzinfo=UTC).timestamp())
 
     book = re.search(r"^DRAFT_DATE = '([^']+)'",
                      (ROOT / "tools" / "build_book.py").read_text(), re.MULTILINE).group(1)

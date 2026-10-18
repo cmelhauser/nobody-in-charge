@@ -9,6 +9,9 @@
 # A linter that forces edits to hash-pinned code is not a safety net, it is a hazard, and
 # the wider rules were measured against that code and rejected for exactly that reason.
 line-length = 100
+# The repository requires Python 3.11 or newer (CONTRIBUTING.md); say so, so the upgrade rules
+# do not depend on which ruff version is guessing the target.
+target-version = "py311"
 extend-exclude = [
     # Executed artifacts. Their stored output is checked by the release gate, and editing a
     # cell to satisfy a linter would change output the gate is entitled to trust.

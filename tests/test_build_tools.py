@@ -27,7 +27,7 @@ import stat
 import subprocess
 import sys
 import types
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
@@ -80,7 +80,7 @@ def only_tectonic(name):
 
 def midnight(text, fmt):
     """Epoch seconds for `text` parsed with `fmt`, as midnight UTC."""
-    return int(datetime.strptime(text, fmt).replace(tzinfo=timezone.utc).timestamp())
+    return int(datetime.strptime(text, fmt).replace(tzinfo=UTC).timestamp())
 
 
 # --------------------------------------------------------------------------- tool_help
@@ -154,7 +154,7 @@ def test_epoch_matches_each_documents_declared_date():
     assert source_date.epoch("book") == midnight(book, "%d %B %Y")
     assert source_date.epoch("primer") == midnight(primer, "%d %B %Y")
     assert source_date.epoch("paper") == midnight(paper, "%B %Y")
-    assert source_date.declared_date("book").tzinfo is timezone.utc
+    assert source_date.declared_date("book").tzinfo is UTC
 
 
 def test_declared_date_reads_whatever_file_it_is_pointed_at(monkeypatch, tmp_path):
