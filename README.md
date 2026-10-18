@@ -162,14 +162,15 @@ The suite runs without any source document, because every source under
 `research/incorporated/` is git-ignored and citation checking works from the committed
 verification indexes.
 
-The coverage gate is 100 per cent of `model/aa_group_model.py`, the canonical model, enforced
-by `.coveragerc`. That file is hash-frozen and is pure computation, so it is tested
-exhaustively; `tests/test_release_invariants.py` also pins its SHA-256, the room capacity of
+The coverage gate is 100 per cent of `model/aa_group_model.py`, the canonical model, and of every
+script under `tools/`, enforced by `.coveragerc`. The model is hash-frozen and pure computation, so it
+is tested exhaustively; `tests/test_release_invariants.py` also pins its SHA-256, the room capacity of
 60, the viability threshold of 5, and the 22 + 12 + 49 + 35 = 118 decomposition. The scripts
-under `tools/` are batch jobs and entry points rather than libraries, so they sit outside the
-coverage gate and are covered by `tests/test_tools_integration.py`, which runs each one for
-real, and, for the seven that nothing else exercised, and the local CI runner, by `tests/test_tools_direct.py`, which calls
-their functions with every output redirected to a temporary directory.
+under `tools/` are command-line entry points, so the suite both calls their functions with every
+output redirected to a temporary directory (`tests/test_tools_direct.py` and one test file per group
+of tools) and runs each one for real (`tests/test_tools_integration.py`); coverage follows the
+subprocesses. The analysis scripts under `model/` are outside the gate because their bytes are
+frozen: each records its SHA-256 in its cache.
 
 Work happens on a branch and merges through a pull request; `main` takes no direct commits.
 `RELEASING.md` covers branch naming, the version scheme and what a tag has to have earned;
