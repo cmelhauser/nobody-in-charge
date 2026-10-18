@@ -30,7 +30,6 @@ import freeze_release_manifest as freeze  # noqa: E402
 import inventory_model_choices as inventory  # noqa: E402
 import summarize_release_gate as gate  # noqa: E402
 
-
 # ----------------------------------------------------------------- freeze_release_manifest
 
 def test_digest_is_the_sha256_of_the_file(tmp_path):
@@ -666,7 +665,8 @@ def test_check_fonts_candidate_dirs_reads_fontconfig_output(tmp_path, monkeypatc
 
 def _write_notebook(path, passed, failed=0):
     """A stored notebook whose printed output records `passed` OK lines and `failed` FAIL lines;
-    the source cell prints the markers too, which must not be counted."""
+    the source cell prints the markers too, which must not be counted.
+    """
     path.parent.mkdir(exist_ok=True)
     lines = ["  OK x\n"] * passed + ["  FAIL y\n"] * failed
     cell = {"cell_type": "code", "source": ["print('  OK ', '  FAIL')"],

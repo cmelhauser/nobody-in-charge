@@ -483,7 +483,8 @@ VERSION_ONLY = re.compile(r"\b(3\.\d+)\s+only\b")
 
 def python_version_claims(text: str) -> list[tuple[str, list[str]]]:
     """Python versions a paragraph says CI runs: ("list", [..]) for "3.11, 3.12 and 3.13" and
-    ("only", [..]) for "3.12 only". Whitespace is collapsed first, because prose wraps lines."""
+    ("only", [..]) for "3.12 only". Whitespace is collapsed first, because prose wraps lines.
+    """
     text = " ".join(text.split())
     if "Python" not in text:                      # "3.12 only" in a paragraph about something else
         return []
@@ -560,7 +561,8 @@ def check_page_counts() -> None:
 
 def check_paper_decimals() -> None:
     """The number of decimals the paper prints, as the paper notebook records it, against the
-    figure AGENT_VERIFY.md quotes. It had drifted by one after a wording change in the paper."""
+    figure AGENT_VERIFY.md quotes. It had drifted by one after a wording change in the paper.
+    """
     notebook = ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb"
     found = re.search(r"decimals printed in the paper: (\d+)",
                       notebook.read_text(encoding="utf-8")) if notebook.exists() else None
@@ -572,7 +574,8 @@ def check_paper_decimals() -> None:
 
 def check_notebook_assertions() -> None:
     """The assertion counts the handoff and the verifier brief quote, against the stored notebook
-    outputs. The paper's count had read 124 for a week after the notebook ran 133."""
+    outputs. The paper's count had read 124 for a week after the notebook ran 133.
+    """
     counts = {}
     for name, path in (("book", ROOT / "model" / "book-calculations.ipynb"),
                        ("paper", ROOT / "paper" / "anonymity-as-an-aggregation-condition.ipynb")):

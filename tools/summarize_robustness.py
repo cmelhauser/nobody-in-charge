@@ -4,7 +4,8 @@
 Refuses to write if any cache it reads is incomplete or keyed to another model hash. The
 release gate requires the report to be at least as new as every registered cache.
 
-Run from anywhere:  python3 tools/summarize_robustness.py"""
+Run from anywhere:  python3 tools/summarize_robustness.py
+"""
 from __future__ import annotations
 
 import collections
@@ -14,7 +15,6 @@ import math
 from pathlib import Path
 
 import numpy as np
-
 
 ROOT = Path(__file__).resolve().parents[1]
 R = ROOT / "research"

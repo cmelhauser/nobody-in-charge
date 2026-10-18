@@ -25,7 +25,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "model" / "aa_group_model.py"
 

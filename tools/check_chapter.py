@@ -9,7 +9,10 @@ House-style check. Run against any chapter file before calling it done.
 Enforces the conventions established across Part One and Chapter 8.
 Every rule below exists because a chapter broke it once.
 """
-import re, sys, glob, os
+import glob
+import os
+import re
+import sys
 
 WANT_PARTS = ['1. What the model says', '2. The technical version',
               '3. Notes on sources', '4. References']

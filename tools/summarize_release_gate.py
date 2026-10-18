@@ -3,7 +3,8 @@
 
 Writes research/RELEASE-GATE-RESULTS.md from research/release_gate_results.json.
 
-Run from anywhere:  python3 tools/summarize_release_gate.py"""
+Run from anywhere:  python3 tools/summarize_release_gate.py
+"""
 from __future__ import annotations
 
 import importlib.util
@@ -11,7 +12,6 @@ import json
 from pathlib import Path
 
 import numpy as np
-
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "research" / "release_gate_results.json"

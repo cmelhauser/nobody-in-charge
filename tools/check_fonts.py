@@ -64,7 +64,8 @@ def candidate_dirs() -> list[Path]:
 
 def locate(name: str, directories: list[Path]) -> Path | None:
     """The file called `name` (a pin, lower case) in or under any directory, whatever its case:
-    fontconfig lists the same file as TeXGyrePagella-Regular.otf on some systems."""
+    fontconfig lists the same file as TeXGyrePagella-Regular.otf on some systems.
+    """
     for directory in directories:
         if (directory / name).is_file():
             return directory / name

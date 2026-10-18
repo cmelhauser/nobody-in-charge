@@ -25,7 +25,15 @@ one machine and 5.7427 on another.
 
 Run:  python3 tools/run_notebook.py [--no-write | --check] [--paper | path/to/notebook.ipynb]
 """
-import json, os, sys, io, contextlib, traceback, time, re, math
+import contextlib
+import io
+import json
+import math
+import os
+import re
+import sys
+import time
+import traceback
 from itertools import zip_longest
 
 NUMBER = re.compile(r'-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?')

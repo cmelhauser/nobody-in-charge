@@ -14,9 +14,8 @@ import hashlib
 import json
 from pathlib import Path
 
-import numpy as np
-
 import aa_group_model as m
+import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 

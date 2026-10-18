@@ -4,13 +4,13 @@
 Every tracked path must be repository-relative or derived at runtime, because the repository
 is public and a home directory or workspace root in it would publish the author's machine.
 
-Run from anywhere:  python3 tools/check_portability.py"""
+Run from anywhere:  python3 tools/check_portability.py
+"""
 from __future__ import annotations
 
 import re
 import subprocess
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {
