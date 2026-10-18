@@ -20,14 +20,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+import inventory_model_choices as inventory
 import pytest
+import summarize_release_gate as gate
+import summarize_robustness as robustness
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
-
-import inventory_model_choices as inventory  # noqa: E402
-import summarize_release_gate as gate  # noqa: E402
-import summarize_robustness as robustness  # noqa: E402
 
 # An invented word standing in for a withheld name in every corpus test below.
 INVENTED = "vexmoor"
