@@ -20,8 +20,8 @@ someone who wants to know what changed between two tags does not have to read it
   weaker in larger groups than in small ones. `check_docs.py` now compares the assertion counts the handoff and the
   verifier brief quote with the stored notebooks (they had read 109 and 124 for notebooks that ran 109 and 133). No model change.
 
-- Dependabot is configured (`.github/dependabot.yml`) to propose the commit-hash pins of the CI actions and the
-  `requirements-dev.txt` versions by pull request each month, and Dependabot security updates are switched on in the
+- Dependabot is configured (`.github/dependabot.yml`) to propose the commit-hash pins of the CI actions by pull request each
+  month (the `requirements-dev.txt` floors are deliberately not watched), and Dependabot security updates are switched on in the
   repository settings (alerts already were). No model change.
 
 - The copyright holder in `LICENSE` and `ATTRIBUTION.md` now reads "Christopher Melhauser (GitHub: cmelhauser)", the same name in every repository. The MIT terms are unchanged.
