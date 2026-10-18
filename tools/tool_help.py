@@ -10,6 +10,13 @@ not exit cleanly with its docstring or changes a tracked file.
 
 Each tool calls this first thing in its `if __name__ == "__main__":` block, so importing a tool
 from a test is unaffected.
+
+This module is a library, not a command: it has no `main` and is not run directly.
+
+Reads:      the process arguments (`sys.argv[1:]`), unless a caller passes its own list.
+Writes:     the usage text to standard output, only when help was asked for.
+Exit codes: 0 after printing help (via `SystemExit`); otherwise the function returns and the
+            calling tool carries on.
 """
 from __future__ import annotations
 
@@ -17,7 +24,12 @@ import sys
 
 
 def help_requested(doc: str | None, argv: list[str] | None = None) -> None:
-    """Print `doc` and exit 0 if the arguments ask for help; otherwise return."""
+    """Print `doc` and exit 0 if the arguments ask for help; otherwise return.
+
+    `argv` defaults to the process arguments without the program name; tests pass their own
+    list. A tool with no docstring (for example under `python -OO`, which strips them)
+    still answers with a fixed sentence rather than printing `None`.
+    """
     args = sys.argv[1:] if argv is None else argv
     if any(arg in ("-h", "--help") for arg in args):
         print((doc or "No usage is documented for this tool.").strip())

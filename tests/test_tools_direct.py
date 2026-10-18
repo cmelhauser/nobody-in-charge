@@ -1,10 +1,16 @@
-"""Direct tests of seven tools and the local CI runner, which the integration tests reach only through the gate.
+"""Direct tests of seven tools and the local CI runner.
 
 `tests/test_tools_integration.py` runs the tools as commands. These import them and call their
 functions, with every output redirected into a temporary directory, so that a branch that the
 real repository never takes (a corrupt PDF, an incomplete cache, a note with the wrong shape)
 is exercised on purpose rather than discovered when it happens. Nothing here writes into the
 repository. None of it is in the coverage gate, which is the canonical model; see `.coveragerc`.
+
+The tools covered are freeze_release_manifest, check_pdfs, build_note, summarize_release_gate,
+inventory_model_choices, check_docs and check_fonts, plus tools/run_ci_locally.sh. Run with
+`python3 -m pytest tests/test_tools_direct.py`; `pytest.ini` puts `tools/` on `sys.path`, so
+the tools import by bare name. A few tests compare against committed caches and reports
+rather than regenerating them.
 """
 from __future__ import annotations
 
@@ -17,28 +23,31 @@ import sys
 import types
 from pathlib import Path
 
+import build_note
+import check_docs
+import check_fonts
+import check_pdfs
+import freeze_release_manifest as freeze
+import inventory_model_choices as inventory
 import pytest
+import summarize_release_gate as gate
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
-
-import build_note  # noqa: E402
-import check_docs  # noqa: E402
-import check_fonts  # noqa: E402
-import check_pdfs  # noqa: E402
-import freeze_release_manifest as freeze  # noqa: E402
-import inventory_model_choices as inventory  # noqa: E402
-import summarize_release_gate as gate  # noqa: E402
 
 # ----------------------------------------------------------------- freeze_release_manifest
 
 def test_digest_is_the_sha256_of_the_file(tmp_path):
+    """digest() returns the SHA-256 of a file, including one larger than a single read block."""
     f = tmp_path / "x.bin"
     f.write_bytes(b"abc" * 1_000_000)          # larger than the one-megabyte read block
     assert freeze.digest(f) == hashlib.sha256(b"abc" * 1_000_000).hexdigest()
 
 
 def test_json_shape_describes_without_copying(tmp_path):
+    """json_shape() describes a cache without copying it.
+
+    It reports type, key counts and validity, and flags bad JSON.
+    """
     d = tmp_path / "d.json"
     d.write_text(json.dumps({"meta": 1, "result": 2, "12|3": 4, "a_b": 5}))
     shape = freeze.json_shape(d)
@@ -57,6 +66,7 @@ def test_json_shape_describes_without_copying(tmp_path):
 
 
 def _fake_tree(root: Path) -> None:
+    """Populate `root` with files that the inventory rules should keep or drop."""
     for rel, text in {
         "model/a.py": "x = 1\n",
         "model/cache.json": '{"meta": {}}',
@@ -74,9 +84,13 @@ def _fake_tree(root: Path) -> None:
 
 
 def test_included_follows_the_inventory_rules(tmp_path, monkeypatch):
+    """included() keeps tracked source in the inventoried directories.
+
+    Excluded suffixes, caches and staged sources are dropped.
+    """
     monkeypatch.setattr(freeze, "ROOT", tmp_path)
     _fake_tree(tmp_path)
-    keep = {rel for rel in ("model/a.py", "model/cache.json", "research/log.md", "README.md")}
+    keep = {"model/a.py", "model/cache.json", "research/log.md", "README.md"}
     drop = {"model/notes.txt", "tools/__pycache__/skipped.py", "research/staged/skipped.md",
             "research/data.csv", "OTHER.md"}
     assert all(freeze.included(tmp_path / r) for r in keep)
@@ -84,6 +98,10 @@ def test_included_follows_the_inventory_rules(tmp_path, monkeypatch):
 
 
 def test_build_and_main_write_a_repository_relative_manifest(tmp_path, monkeypatch, capsys):
+    """The manifest holds repository-relative paths only; no host path leaks.
+
+    main() writes it to the default or to an explicit output.
+    """
     monkeypatch.setattr(freeze, "ROOT", tmp_path)
     _fake_tree(tmp_path)
     (tmp_path / "research").mkdir(exist_ok=True)
@@ -110,6 +128,7 @@ def test_build_and_main_write_a_repository_relative_manifest(tmp_path, monkeypat
 
 @pytest.fixture
 def clean_pdf_state(monkeypatch):
+    """Reset check_pdfs' module-level result lists so tests do not leak into each other."""
     for name in ("failures", "notes", "skips"):
         monkeypatch.setattr(check_pdfs, name, [])
 
@@ -122,12 +141,14 @@ class _Obj(dict):
 
 
 def test_require_sorts_into_notes_and_failures(clean_pdf_state):
+    """require() files a passing condition under notes and a failing one under failures."""
     check_pdfs.require(True, "fine")
     check_pdfs.require(False, "broken")
     assert check_pdfs.notes == ["OK: fine"] and check_pdfs.failures == ["FAIL: broken"]
 
 
 def test_embedded_looks_for_a_glyph_program(clean_pdf_state):
+    """embedded() is true only when a FontFile entry exists, including inside composite fonts."""
     with_program = _Obj({"/FontDescriptor": _Obj({"/FontFile2": 1})})
     without = _Obj({"/FontDescriptor": _Obj({"/FontName": "x"})})
     none_at_all = _Obj({})
@@ -139,11 +160,13 @@ def test_embedded_looks_for_a_glyph_program(clean_pdf_state):
 
 
 def _bbox(*extents):
+    """Fake a pdftotext -bbox result with one page per (xMin, xMax) pair plus a blank page."""
     pages = "".join(f'<page><word xMin="{lo}" xMax="{hi}"/></page>' for lo, hi in extents)
     return types.SimpleNamespace(stdout=pages + "<page></page>")
 
 
 def test_ink_check_skips_without_poppler(clean_pdf_state, monkeypatch):
+    """Without pdftotext the ink check records a skip, not a pass or a failure."""
     monkeypatch.setattr(check_pdfs.shutil, "which", lambda _name: None)
     check_pdfs.check_ink(Path("x.pdf"), "x.pdf")
     assert check_pdfs.skips and check_pdfs.skips[0].startswith("SKIP: x.pdf")
@@ -151,6 +174,10 @@ def test_ink_check_skips_without_poppler(clean_pdf_state, monkeypatch):
 
 
 def test_ink_check_passes_and_breaches(clean_pdf_state, monkeypatch):
+    """Ink inside the paper edge passes and reports the closest margin.
+
+    Ink outside it fails and names the pages.
+    """
     monkeypatch.setattr(check_pdfs.shutil, "which", lambda _name: "/usr/bin/pdftotext")
     monkeypatch.setattr(check_pdfs.subprocess, "run", lambda *a, **k: _bbox((72, 500), (80, 510)))
     check_pdfs.check_ink(Path("x.pdf"), "x.pdf")
@@ -163,12 +190,14 @@ def test_ink_check_passes_and_breaches(clean_pdf_state, monkeypatch):
 
 
 def test_check_reports_a_missing_file(clean_pdf_state, monkeypatch, tmp_path):
+    """A PDF that does not exist is reported as a failed existence check."""
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
     check_pdfs.check("absent/doc.pdf", 1)
     assert check_pdfs.failures == ["FAIL: doc.pdf: exists"]
 
 
 def test_check_reports_a_file_that_is_not_a_pdf(clean_pdf_state, monkeypatch, tmp_path):
+    """A file that is not a PDF fails to parse and is reported once."""
     (tmp_path / "bad.pdf").write_bytes(b"this is not a pdf" * 100)
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
     check_pdfs.check("bad.pdf", 1)
@@ -176,6 +205,10 @@ def test_check_reports_a_file_that_is_not_a_pdf(clean_pdf_state, monkeypatch, tm
 
 
 def test_check_reports_a_blank_page_of_the_wrong_size(clean_pdf_state, monkeypatch, tmp_path):
+    """A blank 300-point page fails the page floor, A4 and text checks.
+
+    It also notes zero embedded fonts.
+    """
     pypdf = pytest.importorskip("pypdf")
     writer = pypdf.PdfWriter()
     writer.add_blank_page(width=300, height=300)
@@ -191,6 +224,7 @@ def test_check_reports_a_blank_page_of_the_wrong_size(clean_pdf_state, monkeypat
 
 
 def test_check_passes_the_committed_paper(clean_pdf_state):
+    """The committed paper PDF passes every check (skipped when it has not been built here)."""
     paper = ROOT / "paper" / "anonymity-as-an-aggregation-condition.pdf"
     if not paper.exists():
         pytest.skip("the paper is not built here")
@@ -200,6 +234,7 @@ def test_check_passes_the_committed_paper(clean_pdf_state):
 
 
 def test_main_counts_passes_failures_and_skips(clean_pdf_state, monkeypatch, capsys):
+    """main() returns 0 when nothing failed and 1 otherwise, and prints the three counts."""
     monkeypatch.setattr(check_pdfs, "DOCUMENTS", {})
     assert check_pdfs.main() == 0
     assert "0 checks passed; 0 failed" in capsys.readouterr().out
@@ -212,6 +247,7 @@ def test_main_counts_passes_failures_and_skips(clean_pdf_state, monkeypatch, cap
 
 
 def test_main_names_the_missing_dependency(monkeypatch):
+    """main() exits with a message naming pypdf when it cannot be imported."""
     monkeypatch.setitem(sys.modules, "pypdf", None)             # makes `import pypdf` fail
     with pytest.raises(SystemExit) as stop:
         check_pdfs.main()
@@ -240,11 +276,16 @@ Some text.
 
 
 def test_prepare_returns_scratch_markdown_and_the_running_head():
+    """prepare() returns scratch Markdown, the title, the running head and the date.
+
+    The table is kept with its heading rather than split from it.
+    """
     markdown, title, short, when = build_note.prepare(NOTE)
     assert title == "Short title: the rest of it" and short == "Short title"
     assert when == "3 October 2026"
     assert markdown.startswith("---\ntitle: ") and "\ndate: " in markdown
-    assert "\n---\n\n## Second section" not in markdown.split("---\n", 2)[2].replace("\n\n\n", "\n\n")
+    body = markdown.split("---\n", 2)[2].replace("\n\n\n", "\n\n")
+    assert "\n---\n\n## Second section" not in body
     assert build_note.WEIGHTED in markdown
     # The table is kept with its heading, not split from it.
     heading = markdown.index("## Second section")
@@ -253,6 +294,7 @@ def test_prepare_returns_scratch_markdown_and_the_running_head():
 
 
 def test_prepare_keeps_a_table_with_its_header_row_when_no_heading_leads_in():
+    """With no heading before the table, the keep-together marker still precedes its header row."""
     note = NOTE.replace("## Second section\n\n", "Text before the table.\n\n")
     note = note.replace("---\n\nText before", "---\n\n## Third section\n\nText before")
     markdown, *_ = build_note.prepare(note)
@@ -262,17 +304,23 @@ def test_prepare_keeps_a_table_with_its_header_row_when_no_heading_leads_in():
 @pytest.mark.parametrize("bad, reason", [
     ("no title here\n\n*x*\n\nbody\n", "does not open with a title"),
     ("# T: x\nnot blank\n*Dated 3 October 2026*\n\nok\n", "does not open with a title"),
-    ("# NoColon\n\n*Dated 3 October 2026*\n\n## S\n\n" + build_note.WEIGHTED + "\n", "unexpected title"),
+    ("# NoColon\n\n*Dated 3 October 2026*\n\n## S\n\n" + build_note.WEIGHTED + "\n",
+     "unexpected title"),
     ("# T: x\n\n*No date here*\n\n## S\n\nbody\n", "unexpected title"),
     ("# T: x\n\nDated 3 October 2026\n\n## S\n\nbody\n", "unexpected title"),
 ])
 def test_prepare_refuses_a_note_with_the_wrong_opening(bad, reason):
+    """prepare() exits with a named reason when the opening is wrong.
+
+    The note must open with a title line and a dated line.
+    """
     with pytest.raises(SystemExit) as stop:
         build_note.prepare(bad)
     assert reason in str(stop.value)
 
 
 def test_prepare_refuses_a_rule_that_does_not_open_a_section():
+    """A horizontal rule not followed by a section heading is refused."""
     note = NOTE.replace("---\n\n## Second section", "---\n\nplain text\n\n## Second section")
     with pytest.raises(SystemExit) as stop:
         build_note.prepare(note)
@@ -280,6 +328,7 @@ def test_prepare_refuses_a_rule_that_does_not_open_a_section():
 
 
 def test_prepare_requires_exactly_one_three_column_table():
+    """prepare() insists on exactly one three-column table and reports how many it found."""
     with pytest.raises(SystemExit) as stop:
         build_note.prepare(NOTE.split("| Page")[0])
     assert "found 0" in str(stop.value)
@@ -289,6 +338,7 @@ def test_prepare_requires_exactly_one_three_column_table():
 
 
 def _point_note_at(monkeypatch, tmp_path, text=NOTE):
+    """Point build_note at a scratch note and a scratch output path; return the note path."""
     src = tmp_path / "note.md"
     src.write_text(text)
     monkeypatch.setattr(build_note, "SRC", src)
@@ -297,6 +347,10 @@ def _point_note_at(monkeypatch, tmp_path, text=NOTE):
 
 
 def _fake_pandoc(returncode, output):
+    """Return a stand-in for subprocess.run with the given result.
+
+    It also asserts the pandoc command line uses tectonic and sets the title metadata.
+    """
     def run(cmd, **kwargs):
         assert cmd[0] == "pandoc" and "--pdf-engine=tectonic" in cmd
         assert any(a.startswith("title-meta=") for a in cmd)
@@ -305,6 +359,7 @@ def _fake_pandoc(returncode, output):
 
 
 def test_main_refuses_without_the_note_or_an_engine(monkeypatch, tmp_path):
+    """main() exits with a clear message when the note or a PDF engine is missing."""
     monkeypatch.setattr(build_note, "SRC", tmp_path / "absent.md")
     with pytest.raises(SystemExit) as stop:
         build_note.main()
@@ -318,6 +373,10 @@ def test_main_refuses_without_the_note_or_an_engine(monkeypatch, tmp_path):
 
 
 def test_main_reports_a_clean_build_and_an_overfull_one(monkeypatch, tmp_path, capsys):
+    """main() reports zero overfull boxes on a clean build.
+
+    Pandoc output showing an overfull box produces a warning but still succeeds.
+    """
     _point_note_at(monkeypatch, tmp_path)
     monkeypatch.setattr(build_note, "ROOT", tmp_path)
     monkeypatch.setattr(build_note, "OUT", tmp_path / "out" / "note.pdf")
@@ -336,6 +395,10 @@ def test_main_reports_a_clean_build_and_an_overfull_one(monkeypatch, tmp_path, c
 
 
 def test_main_shows_the_lines_that_name_a_failure(monkeypatch, tmp_path, capsys):
+    """On a pandoc failure main() shows the lines that name the error.
+
+    When no line does, it shows the output tail instead.
+    """
     _point_note_at(monkeypatch, tmp_path)
     monkeypatch.setattr(build_note, "OUT", tmp_path / "note.pdf")
     monkeypatch.setattr(build_note.shutil, "which",
@@ -359,6 +422,10 @@ def test_main_shows_the_lines_that_name_a_failure(monkeypatch, tmp_path, capsys)
 # ------------------------------------------------------------------ summarize_release_gate
 
 def test_formatters_and_ranks():
+    """The report's formatters round half up and its ranks are competition ranks.
+
+    Ties share a rank and zeros rank last. Job rows are selected from a cache by prefix.
+    """
     import numpy as np
 
     assert gate.pct(0.1234) == "12.3%"
@@ -375,16 +442,22 @@ def test_formatters_and_ranks():
 
 
 def test_the_report_regenerates_exactly_as_committed(tmp_path, monkeypatch, capsys):
+    """Regenerating the release-gate report reproduces the committed Markdown.
+
+    The comparison is byte for byte, from the committed cache.
+    """
     out = tmp_path / "RELEASE-GATE-RESULTS.md"
     monkeypatch.setattr(gate, "OUT", out)
     gate.main()
     assert out.read_text() == gate.OUT.read_text()
     assert out.read_text() == (ROOT / "research" / "RELEASE-GATE-RESULTS.md").read_text()
-    assert "includes zero, so the clean recipient-capacity ablation is unresolved" in out.read_text()
+    unresolved = "includes zero, so the clean recipient-capacity ablation is unresolved"
+    assert unresolved in out.read_text()
     assert "wrote" in capsys.readouterr().out
 
 
 def test_the_report_refuses_an_incomplete_cache(tmp_path, monkeypatch):
+    """A cache whose status is not complete is refused and no report is written."""
     cache = json.loads(gate.CACHE.read_text())
     cache["meta"]["status"] = "running"
     partial = tmp_path / "cache.json"
@@ -397,6 +470,10 @@ def test_the_report_refuses_an_incomplete_cache(tmp_path, monkeypatch):
 
 
 def test_the_report_says_when_the_recipient_interval_excludes_zero(tmp_path, monkeypatch):
+    """The recipient-ablation wording follows the interval.
+
+    An interval that excludes zero reads as resolved.
+    """
     cache = json.loads(gate.CACHE.read_text())
     contrast = cache["summary"]["paired_contrasts"]["recipient_unconstrained_minus_base"]["N"]
     contrast.update(mean=2.0, lo=1.0, hi=3.0)
@@ -429,6 +506,10 @@ def helper(): return 5.5
 
 
 def test_visitor_classifies_every_kind_of_literal():
+    """The inventory visitor assigns each numeric literal its category.
+
+    Booleans and strings are ignored.
+    """
     visitor = inventory.Visitor()
     visitor.visit(ast.parse(SNIPPET))
     by_value = {(r["value"], r["assignment"], r["function"]): r["category"] for r in visitor.rows}
@@ -437,7 +518,8 @@ def test_visitor_classifies_every_kind_of_literal():
     assert by_value[(2, "DEFAULTS", None)] == "registered sensitivity value"
     assert by_value[(7, "NSTEP", None)] == "fixed model or analysis choice"
     assert by_value[(9, "limit", None)] == "implementation, derived, or numerical constant"
-    assert by_value[(1.5, None, "effective_adherence")].startswith("fixed structural choice: protective")
+    protective = by_value[(1.5, None, "effective_adherence")]
+    assert protective.startswith("fixed structural choice: protective")
     assert by_value[(2.5, None, "resources")].endswith("resource capacity")
     assert by_value[(3.5, None, "step_growth")].endswith("state-update map")
     assert by_value[(4.5, None, "simulate")] == "fixed experiment or population-process choice"
@@ -446,6 +528,10 @@ def test_visitor_classifies_every_kind_of_literal():
 
 
 def test_the_registered_set_is_the_118_and_the_markdown_says_so():
+    """The registered set is 22 + 12 + 49 + 35 = 118 and the Markdown says so.
+
+    The inventory is keyed to the model hash.
+    """
     data = inventory.build()
     reg = data["registered_set"]
     assert (reg["scalar_defaults"], reg["step_speeds"],
@@ -456,6 +542,10 @@ def test_the_registered_set_is_the_118_and_the_markdown_says_so():
 
 
 def test_timestamp_is_kept_while_the_content_is_unchanged(tmp_path, monkeypatch, capsys):
+    """Re-running the inventory keeps the old timestamp while content is unchanged.
+
+    That keeps the committed files stable; changed or broken content gets a new stamp.
+    """
     monkeypatch.setattr(inventory, "JSON_OUT", tmp_path / "inv.json")
     monkeypatch.setattr(inventory, "MD_OUT", tmp_path / "inv.md")
     data = inventory.build()
@@ -477,6 +567,7 @@ def test_timestamp_is_kept_while_the_content_is_unchanged(tmp_path, monkeypatch,
 
 
 def test_the_committed_inventory_is_current():
+    """The committed model-choice inventory equals a fresh build apart from its timestamp."""
     committed = json.loads((ROOT / "research" / "model-choice-inventory.json").read_text())
     now = inventory.build()
     for d in (committed, now):
@@ -488,7 +579,8 @@ def test_subprocess_import_does_not_run_anything():
     """Importing a tool must not write files: the module bodies are definitions only."""
     code = ("import sys; sys.path.insert(0, 'tools'); import freeze_release_manifest, "
             "inventory_model_choices, summarize_release_gate, build_note, check_pdfs")
-    result = subprocess.run([sys.executable, "-c", code], cwd=ROOT, capture_output=True, text=True)
+    result = subprocess.run([sys.executable, "-c", code], cwd=ROOT, capture_output=True,
+                            text=True, check=False)
     assert result.returncode == 0, result.stderr
     assert result.stdout == ""
 
@@ -513,6 +605,10 @@ def docs_tree(tmp_path, monkeypatch):
 
 
 def test_ci_python_versions_reads_both_lists():
+    """ci_python_versions() parses the pull-request and main version lists.
+
+    It returns None when either list is absent.
+    """
     assert check_docs.ci_python_versions(MATRIX) == (["3.12"], ["3.11", "3.12", "3.13"])
     assert check_docs.ci_python_versions("python-version: ${{ matrix.x }}\n") is None
     one = "python-version: ${{ fromJSON('[\"3.12\"]') }}\n"
@@ -521,13 +617,16 @@ def test_ci_python_versions_reads_both_lists():
 
 
 def test_the_real_workflow_has_the_two_lists():
+    """The real ci.yml carries both lists, and the pull-request list is a subset of main's."""
     workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
     on_pull_request, on_main = check_docs.ci_python_versions(workflow)
     assert on_pull_request == ["3.12"] and set(on_pull_request) <= set(on_main)
 
 
 def test_python_version_claims_read_lists_across_wrapped_lines():
-    text = "unit tests run across Python 3.11, 3.12,\n3.13 and 3.14; on pull requests Python 3.12\nonly."
+    """Version claims are found across wrapped lines and classed as a list or an 'only'."""
+    text = ("unit tests run across Python 3.11, 3.12,\n3.13 and 3.14; "
+            "on pull requests Python 3.12\nonly.")
     assert check_docs.python_version_claims(text) == [
         ("list", ["3.11", "3.12", "3.13", "3.14"]), ("only", ["3.12"])]
     assert check_docs.python_version_claims("Python 3.12 and 3.13") == [("list", ["3.12", "3.13"])]
@@ -535,13 +634,19 @@ def test_python_version_claims_read_lists_across_wrapped_lines():
 
 
 def test_check_python_versions_passes_and_catches_a_short_list(docs_tree):
-    (docs_tree / "A.md").write_text("It runs Python 3.11, 3.12 and 3.13 on main and 3.12 only on pulls.\n")
+    """Documents matching the CI matrix pass; a stale or short list fails.
+
+    History and retired notes are exempt, and the failure carries its line number.
+    """
+    (docs_tree / "A.md").write_text(
+        "It runs Python 3.11, 3.12 and 3.13 on main and 3.12 only on pulls.\n")
     (docs_tree / "CHANGELOG.md").write_text("History: Python 3.11 and 3.12 once ran.\n")
     (docs_tree / "B.md").write_text("> Retired: Python 3.10 and 3.11.\n")
     check_docs.check_python_versions()
     assert check_docs.failures == [] and "2 claim(s)" in check_docs.passes[0]
 
-    (docs_tree / "C.md").write_text("Unit tests\nrun on Python 3.11 and 3.12.\n\nOn pulls, Python 3.13 only.\n")
+    (docs_tree / "C.md").write_text(
+        "Unit tests\nrun on Python 3.11 and 3.12.\n\nOn pulls, Python 3.13 only.\n")
     check_docs.passes.clear()
     check_docs.check_python_versions()
     wrong = " ".join(check_docs.failures)
@@ -550,12 +655,20 @@ def test_check_python_versions_passes_and_catches_a_short_list(docs_tree):
 
 
 def test_check_python_versions_fails_without_a_matrix(docs_tree):
+    """Without a two-list python-version line in ci.yml the check fails.
+
+    It must not pass vacuously.
+    """
     (docs_tree / ".github" / "workflows" / "ci.yml").write_text("jobs: {}\n")
     check_docs.check_python_versions()
     assert check_docs.failures and "no two-list python-version line" in check_docs.failures[0]
 
 
 def test_check_own_total_reads_the_handoff_table(docs_tree):
+    """check_docs verifies the check count HANDOFF.md states for itself.
+
+    A wrong or missing count fails.
+    """
     check_docs.passes.extend(["OK: a", "OK: b"])                  # two ran, and this is a third
     (docs_tree / "HANDOFF.md").write_text("| `tools/check_docs.py` | 3 checks, 0 failed |\n")
     check_docs.check_own_total()
@@ -572,18 +685,21 @@ def test_check_own_total_reads_the_handoff_table(docs_tree):
 
 
 def test_check_own_total_waits_for_a_full_run(docs_tree):
+    """With a skipped check the own-total check skips too instead of asserting a count."""
     check_docs.skips.append("SKIP: no pypdf")
     check_docs.check_own_total()
     assert check_docs.failures == [] and len(check_docs.skips) == 2
 
 
 def test_check_own_total_waits_for_a_clean_run(docs_tree):
+    """After an earlier failure the own-total check skips rather than stacking a second failure."""
     check_docs.failures.append("an earlier failure")
     check_docs.check_own_total()
     assert check_docs.failures == ["an earlier failure"] and len(check_docs.skips) == 1
 
 
 def test_version_claims_need_the_word_python():
+    """A bare list of version numbers is not a claim unless the word Python precedes it."""
     assert check_docs.python_version_claims("tested on 3.11, 3.12 and 3.13") == []
     assert check_docs.python_version_claims("Python 3.12 only") == [("only", ["3.12"])]
 
@@ -595,8 +711,9 @@ def test_local_ci_says_when_a_job_could_not_run(tmp_path):
     bare = tmp_path / "bin"
     bare.mkdir()
     (bare / "dirname").symlink_to(shutil.which("dirname"))
-    result = subprocess.run([shutil.which("bash"), str(ROOT / "tools" / "run_ci_locally.sh"), "documents"],
-                            cwd=ROOT, capture_output=True, text=True,
+    script = str(ROOT / "tools" / "run_ci_locally.sh")
+    result = subprocess.run([shutil.which("bash"), script, "documents"],
+                            cwd=ROOT, capture_output=True, text=True, check=False,
                             env={"PATH": str(bare)})
     assert result.returncode == 1, result.stdout + result.stderr    # nothing ran is not a pass
     assert "NOT RUN: pandoc or tectonic missing: the documents job not run" in result.stdout
@@ -606,12 +723,14 @@ def test_local_ci_says_when_a_job_could_not_run(tmp_path):
 # ----------------------------------------------------------------------------- check_fonts
 
 def _fonts_in(tmp_path, names=None, content=b"font"):
+    """Write a file for each font name (default: every pinned font) into `tmp_path`."""
     for name in (names or check_fonts.PINS):
         (tmp_path / name).write_bytes(content)
     return tmp_path
 
 
 def test_check_fonts_matches_the_pinned_hashes(tmp_path, monkeypatch):
+    """Fonts whose SHA-256 matches the pins are all reported good."""
     content = b"a font"
     monkeypatch.setattr(check_fonts, "PINS",
                         {name: hashlib.sha256(content).hexdigest()
@@ -621,6 +740,7 @@ def test_check_fonts_matches_the_pinned_hashes(tmp_path, monkeypatch):
 
 
 def test_check_fonts_reports_a_mismatch_and_a_missing_file(tmp_path):
+    """A wrong hash is reported as MISMATCH and an absent font as MISSING."""
     names = list(check_fonts.PINS)
     _fonts_in(tmp_path, names[:3], content=b"not the pinned font")
     good, bad = check_fonts.compare([tmp_path])
@@ -630,6 +750,7 @@ def test_check_fonts_reports_a_mismatch_and_a_missing_file(tmp_path):
 
 
 def test_check_fonts_strict_exits_nonzero_only_when_asked(tmp_path, capsys):
+    """Font drift is a warning by default and an error only under --strict."""
     _fonts_in(tmp_path, content=b"wrong")
     assert check_fonts.main(["--dir", str(tmp_path)]) == 0
     assert "will not match CI's byte for byte" in capsys.readouterr().out
@@ -639,13 +760,17 @@ def test_check_fonts_strict_exits_nonzero_only_when_asked(tmp_path, capsys):
 
 
 def test_check_fonts_pins_are_four_distinct_sha256_digests():
+    """The pins are four distinct 64-character hex digests, one per Pagella face."""
     assert len(check_fonts.PINS) == 4 and len(set(check_fonts.PINS.values())) == 4
-    assert all(len(h) == 64 and set(h) <= set("0123456789abcdef") for h in check_fonts.PINS.values())
+    hex_digits = set("0123456789abcdef")
+    assert all(len(h) == 64 and set(h) <= hex_digits for h in check_fonts.PINS.values())
 
 
 def test_check_fonts_finds_files_by_any_case_and_guards_its_arguments(tmp_path, capsys):
+    """locate() ignores filename case, and main() rejects a --dir with no value."""
     (tmp_path / "TeXGyrePagella-Regular.otf").write_bytes(b"x")
-    assert check_fonts.locate("texgyrepagella-regular.otf", [tmp_path]).name.lower() == "texgyrepagella-regular.otf"
+    found = check_fonts.locate("texgyrepagella-regular.otf", [tmp_path])
+    assert found.name.lower() == "texgyrepagella-regular.otf"
     assert check_fonts.locate("texgyrepagella-bold.otf", [tmp_path]) is None
     with pytest.raises(SystemExit):
         check_fonts.main(["--dir", "--strict"])
@@ -654,27 +779,38 @@ def test_check_fonts_finds_files_by_any_case_and_guards_its_arguments(tmp_path, 
 
 
 def test_check_fonts_candidate_dirs_reads_fontconfig_output(tmp_path, monkeypatch):
+    """candidate_dirs() includes directories parsed from fc-list output.
+
+    A colon in the path is handled.
+    """
     font_dir = tmp_path / "with:colon"
     font_dir.mkdir()
     listing = f"{font_dir}/TeXGyrePagella-Bold.otf: \n"
     monkeypatch.setattr(check_fonts.shutil, "which", lambda name: "/usr/bin/fc-list")
-    monkeypatch.setattr(check_fonts.subprocess, "run",
-                        lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=listing, stderr=""))
+    monkeypatch.setattr(
+        check_fonts.subprocess, "run",
+        lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=listing, stderr=""))
     assert font_dir in check_fonts.candidate_dirs()
 
 
 def _write_notebook(path, passed, failed=0):
-    """A stored notebook whose printed output records `passed` OK lines and `failed` FAIL lines;
-    the source cell prints the markers too, which must not be counted.
+    """Write a stored notebook with `passed` OK lines and `failed` FAIL lines in its output.
+
+    The source cell prints the markers too, which must not be counted.
     """
     path.parent.mkdir(exist_ok=True)
     lines = ["  OK x\n"] * passed + ["  FAIL y\n"] * failed
     cell = {"cell_type": "code", "source": ["print('  OK ', '  FAIL')"],
             "outputs": [{"output_type": "stream", "text": lines}]}
-    path.write_text(json.dumps({"cells": [cell, {"cell_type": "markdown", "source": []}]}), encoding="utf-8")
+    notebook = {"cells": [cell, {"cell_type": "markdown", "source": []}]}
+    path.write_text(json.dumps(notebook), encoding="utf-8")
 
 
 def test_check_notebook_assertions_reads_outputs_and_catches_stale_counts(docs_tree):
+    """check_docs counts OK and FAIL lines in stored notebook output.
+
+    It flags a HANDOFF.md that quotes a stale assertion count.
+    """
     _write_notebook(docs_tree / "model" / "book-calculations.ipynb", 3, 1)
     _write_notebook(docs_tree / "paper" / "anonymity-as-an-aggregation-condition.ipynb", 5)
     (docs_tree / "HANDOFF.md").write_text(
@@ -693,5 +829,6 @@ def test_check_notebook_assertions_reads_outputs_and_catches_stale_counts(docs_t
 
 
 def test_check_notebook_assertions_skips_without_stored_notebooks(docs_tree):
+    """Without stored notebooks the check records two skips and no failure."""
     check_docs.check_notebook_assertions()
     assert len(check_docs.skips) == 2 and check_docs.failures == []

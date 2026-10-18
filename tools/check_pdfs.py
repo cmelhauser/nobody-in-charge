@@ -34,10 +34,16 @@ On the bound: it is the paper edge, not the type block. Microtype sets terminal 
 point or two into the margin deliberately, so a type-block bound would fail on correct work.
 What cannot be correct is ink at the edge of the sheet.
 
-Run from anywhere:  python3 tools/check_pdfs.py
+Run from anywhere:  python3 tools/check_pdfs.py          (-h or --help prints this text)
+
+Reads the three PDFs named in DOCUMENTS, relative to the repository root, and writes nothing.
+Prints one `OK:`, `SKIP:` or `FAIL:` line per check, then a summary line. Exit status: 0 when no
+check failed (skips do not fail the run), 1 when any check failed, and a SystemExit message when
+pypdf is not installed.
 """
 from __future__ import annotations
 
+import importlib.util
 import re
 import shutil
 import subprocess
@@ -64,11 +70,16 @@ skips: list[str] = []
 
 
 def require(ok: bool, message: str) -> None:
+    """Record one check's verdict as an `OK:` note or a `FAIL:` failure."""
     (notes if ok else failures).append(("OK: " if ok else "FAIL: ") + message)
 
 
 def embedded(font_ref) -> bool:
-    """True if this font object carries its own glyph program."""
+    """Return True if this font object carries its own glyph program.
+
+    A composite (Type 0) font keeps its descriptor on the first descendant font, so that is
+    consulted when the font itself has none.
+    """
     font = font_ref.get_object()
     descriptor = font.get("/FontDescriptor")
     if descriptor is None and "/DescendantFonts" in font:
@@ -103,6 +114,11 @@ def check_ink(path: Path, name: str) -> None:
 
 
 def check(rel: str, min_pages: int) -> None:
+    """Run every per-document check on the PDF at `rel`, recording the results.
+
+    A missing or unparseable file records one failure and stops, because the later checks
+    have nothing to read. `min_pages` is the floor below which a build counts as truncated.
+    """
     import pypdf
 
     path = ROOT / rel
@@ -116,6 +132,8 @@ def check(rel: str, min_pages: int) -> None:
         pages = reader.pages
         n = len(pages)
     except Exception as exc:
+        # Deliberately broad: pypdf raises many unrelated types for a corrupt file, and every
+        # one of them means the same thing here, that the file is not a readable document.
         require(False, f"{name}: parses as a PDF ({type(exc).__name__})")
         return
     require(True, f"{name}: parses as a PDF")
@@ -152,10 +170,9 @@ def check(rel: str, min_pages: int) -> None:
 
 
 def main() -> int:
-    try:
-        import pypdf  # noqa: F401
-    except ImportError:
-        raise SystemExit("pypdf is required; pip install -r requirements-dev.txt") from None
+    """Check every registered PDF, print the report and return the process exit status."""
+    if importlib.util.find_spec("pypdf") is None:
+        raise SystemExit("pypdf is required; pip install -r requirements-dev.txt")
     for rel, floor in DOCUMENTS.items():
         check(rel, floor)
     for line in notes:

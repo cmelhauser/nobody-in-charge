@@ -7,6 +7,10 @@ a reader comparing prose against a cache.
 If one of these tests fails, the correct response is almost never to edit the test.
 It is to establish whether the model was changed deliberately, and if so to run the
 whole synchronization rule in CLAUDE.md before touching this file.
+
+Run with `python3 -m pytest tests/test_release_invariants.py`. These tests read the model,
+CLAUDE.md, the appendix and the model-choice inventory from the repository root; they need
+no source document and no network.
 """
 from __future__ import annotations
 
@@ -24,6 +28,7 @@ CANONICAL_MODEL_SHA256 = "c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce83
 
 
 def test_canonical_model_hash_is_unchanged():
+    """The model file's SHA-256 equals the release identity, so any edit to it fails the build."""
     digest = hashlib.sha256((ROOT / "model" / "aa_group_model.py").read_bytes()).hexdigest()
     assert digest == CANONICAL_MODEL_SHA256, (
         "model/aa_group_model.py has changed. Every hash-linked cache, both notebooks, "
@@ -45,6 +50,7 @@ def test_room_capacity_remains_sixty():
 
 
 def test_viability_threshold_remains_five():
+    """The endpoint viability line stays at N > 5, as every cache and chapter assumes."""
     assert m.VIABILITY_THRESHOLD == 5
 
 
