@@ -41,6 +41,11 @@ def fake_is_withheld(token: str) -> bool:
 # ------------------------------------------------------------------ summarize_release_gate
 
 def test_gate_formatters_round_half_up_and_format_intervals():
+    """Pin the release-gate number formatters and tie-aware ranking.
+
+    A drift to banker's rounding or a tie-breaking sort would silently change numbers in the
+    committed report.
+    """
     import numpy as np
 
     assert gate.pct(0.9925) == "99.3%"           # half to even would print 99.2
@@ -54,12 +59,22 @@ def test_gate_formatters_round_half_up_and_format_intervals():
 
 
 def test_gate_loads_the_model_by_path():
+    """Check that `load_model` imports the canonical model file by path.
+
+    The summary must read the frozen model rather than whatever `aa_group_model` happens to be on
+    `sys.path`.
+    """
     module = gate.load_model()
     assert module.__name__ == "summary_model"
     assert hasattr(module, "semantic_overlap")
 
 
 def test_gate_report_matches_the_committed_report(tmp_path, monkeypatch, capsys):
+    """Require the regenerated gate report to equal the committed one.
+
+    This catches a stale report or a generator change that was not propagated, without touching
+    the committed file.
+    """
     out = tmp_path / "RELEASE-GATE-RESULTS.md"
     monkeypatch.setattr(gate, "OUT", out)
     gate.main()
@@ -68,6 +83,10 @@ def test_gate_report_matches_the_committed_report(tmp_path, monkeypatch, capsys)
 
 
 def test_gate_refuses_an_incomplete_cache_before_writing(tmp_path, monkeypatch):
+    """Check that an unfinished cache stops `main` before any output exists.
+
+    A partial cache must never be summarised into a report that looks final.
+    """
     cache = json.loads(gate.CACHE.read_text())
     cache["meta"]["status"] = "running"
     partial = tmp_path / "cache.json"
@@ -81,6 +100,11 @@ def test_gate_refuses_an_incomplete_cache_before_writing(tmp_path, monkeypatch):
 
 
 def test_gate_states_when_the_recipient_interval_excludes_zero(tmp_path, monkeypatch):
+    """Pin the report's wording when the recipient interval excludes zero.
+
+    This pins the conditional wording so it cannot claim resolution (or silence) regardless of the
+    data.
+    """
     cache = json.loads(gate.CACHE.read_text())
     cache["summary"]["paired_contrasts"]["recipient_unconstrained_minus_base"]["N"].update(
         mean=2.0, lo=1.0, hi=3.0)
@@ -96,16 +120,29 @@ def test_gate_states_when_the_recipient_interval_excludes_zero(tmp_path, monkeyp
 # ---------------------------------------------------------------- summarize_robustness
 
 def test_robustness_helpers():
+    """Pin the arithmetic of the `hw` and `classify` helpers.
+
+    A change to either shifts every interval and support count in the robustness report.
+    """
     assert robustness.hw([1.0, 3.0]) == pytest.approx(1.96)      # SD sqrt(2) over sqrt(2)
     rows = [{"a": 2, "b": 1}, {"a": 1, "b": 1}, {"a": 0, "b": 1}]
     assert robustness.classify(rows, "a", "b") == (1, 1, 1)
 
 
 def test_robustness_report_matches_the_committed_report():
+    """Require `render()` to reproduce the committed `ROBUSTNESS-RESULTS.md` exactly.
+
+        This catches a report that has drifted from the caches or generator, which would leave
+    prose disagreeing with the numbers.
+    """
     assert robustness.render() == (ROOT / "research" / "ROBUSTNESS-RESULTS.md").read_text()
 
 
 def test_robustness_main_writes_the_rendered_text(tmp_path, monkeypatch, capsys):
+    """Check that `main` writes exactly what `render` returns.
+
+    This pins the write step and the console message separately from the report content.
+    """
     monkeypatch.setattr(robustness, "ROOT", tmp_path)
     monkeypatch.setattr(robustness, "OUT", tmp_path / "report.md")
     monkeypatch.setattr(robustness, "render", lambda: "rendered text")
@@ -128,12 +165,21 @@ def _patched_load(monkeypatch, name, edit):
 
 
 def test_robustness_refuses_an_incomplete_cache(monkeypatch):
+    """Check that `render` fails on a cache that is still running.
+
+    A report built from an unfinished cache would present partial results as final.
+    """
     _patched_load(monkeypatch, "sobol.json", lambda d: d["meta"].update(status="running"))
     with pytest.raises(AssertionError, match=r"sobol\.json incomplete"):
         robustness.render()
 
 
 def test_robustness_refuses_a_cache_keyed_to_another_model(monkeypatch):
+    """Check that `render` fails on a cache keyed to another model.
+
+    Caches are keyed to the canonical model, so a cache from another model must not feed the
+    report.
+    """
     _patched_load(monkeypatch, "mc_error.json",
                   lambda d: d["meta"].update(model_sha256="0" * 64))
     with pytest.raises(AssertionError, match=r"mc_error\.json model hash"):
@@ -141,6 +187,11 @@ def test_robustness_refuses_a_cache_keyed_to_another_model(monkeypatch):
 
 
 def test_robustness_insists_on_four_hundred_structural_seeds(monkeypatch):
+    """Delete one structural-cache entry and require `render` to fail its seed-count assertion.
+
+        The confirmatory rule is 400 seeds, so a short cache must stop the report rather than be
+    summarised.
+    """
     def drop_one(data):
         victim = next(k for k in data if k != "meta")
         del data[victim]
@@ -170,6 +221,11 @@ def helper(): return 5.5
 
 
 def test_inventory_visitor_classifies_by_assignment_then_function():
+    """Pin how the inventory visitor categorises numeric literals.
+
+    This pins the classification rules (structural zeros, registered values, named function maps,
+    implementation constants) and that booleans are not counted as numbers.
+    """
     import ast
 
     visitor = inventory.Visitor()
@@ -190,6 +246,11 @@ def test_inventory_visitor_classifies_by_assignment_then_function():
 
 
 def test_inventory_registered_set_is_the_118_decomposition():
+    """Pin the 118-value registered set and its 22 + 12 + 49 + 35 split.
+
+    This guards the headline count the project quotes, so a change to the model cannot go
+    unnoticed in the inventory.
+    """
     data = inventory.build()
     registered = data["registered_set"]
     assert registered["total"] == 118
@@ -202,6 +263,10 @@ def test_inventory_registered_set_is_the_118_decomposition():
 
 def test_inventory_main_writes_to_the_redirected_paths_and_keeps_its_timestamp(
         tmp_path, monkeypatch):
+    """Check inventory output paths and that unchanged content keeps its timestamp.
+
+    Rewriting identical content with a fresh timestamp would dirty the tree on every run.
+    """
     json_out, md_out = tmp_path / "inv.json", tmp_path / "inv.md"
     monkeypatch.setattr(inventory, "JSON_OUT", json_out)
     monkeypatch.setattr(inventory, "MD_OUT", md_out)
@@ -263,20 +328,38 @@ def load_corpus_tool(tmp_path, monkeypatch):
 
 @pytest.fixture
 def corpus(tmp_path, monkeypatch):
+    """Provide a private `build_corpus` module whose paths all lie under `tmp_path`.
+
+    Every corpus test uses it so none can write into the real `research/incorporated/`.
+    """
     return load_corpus_tool(tmp_path, monkeypatch)
 
 
 def run_main(corpus, monkeypatch, *flags):
+    """Run the corpus tool's `main` with the given flags and return its exit status.
+
+    It sets `sys.argv` through monkeypatch so the flags are undone after each test.
+    """
     monkeypatch.setattr(sys, "argv", ["build_corpus.py", *flags])
     return corpus.main()
 
 
 def test_corpus_constants_stay_inside_the_temporary_tree(corpus, tmp_path):
+    """Check that the fixture's `ROOT`, `RESEARCH` and `INCORP` all sit under `tmp_path`.
+
+        If the monkeypatching ever failed, later tests would write into the real research tree, so
+    this fails first.
+    """
     for path in (corpus.ROOT, corpus.RESEARCH, corpus.INCORP):
         assert tmp_path in path.parents
 
 
 def test_sha256_hashes_across_chunk_boundaries(corpus, tmp_path):
+    """Check the tool's SHA-256 against `hashlib` for a multi-chunk file.
+
+    This catches an off-by-one when reading in chunks, which would corrupt the stored source
+    hashes.
+    """
     data = b"x" * (3 * (1 << 20) + 5)
     f = tmp_path / "big.bin"
     f.write_bytes(data)
@@ -284,6 +367,10 @@ def test_sha256_hashes_across_chunk_boundaries(corpus, tmp_path):
 
 
 def test_citation_is_lifted_from_the_ledger(corpus):
+    """Check that `citation_from_ledger` lifts exactly one ledger entry.
+
+    Citations copied into `citation.md` must be the ledger's own text and no more.
+    """
     cite = corpus.citation_from_ledger("blair-1888-the-temperance-movement")
     assert cite.splitlines()[0].startswith("**Blair, J. (1888).**")
     assert "Reprint note on the second line." in cite
@@ -292,12 +379,21 @@ def test_citation_is_lifted_from_the_ledger(corpus):
 
 
 def test_citation_needs_a_bold_lead_in_within_forty_lines(corpus):
+    """Place a stem sixty lines below any bold lead-in and require no citation to be found.
+
+        This pins the search window so a stem mentioned in passing is not given an unrelated
+    entry.
+    """
     (corpus.RESEARCH / "SOURCES.md").write_text(
         "plain line\n" * 60 + "see `orphan-stem` here\n")
     assert corpus.citation_from_ledger("orphan-stem") is None
 
 
 def test_registered_subjects_are_read_from_the_checker(corpus):
+    """Check that registered subjects are read from `check_book.py`.
+
+    The index must follow the checker's registry, not a copy that can go stale.
+    """
     assert corpus.registered_subjects() == [
         "sheer survival value", "group conscience", "rotating leadership"]
     (corpus.ROOT / "tools" / "check_book.py").write_text("NOTHING = 1\n")
@@ -306,6 +402,10 @@ def test_registered_subjects_are_read_from_the_checker(corpus):
 
 def test_fuzzy_in_tolerates_ocr_noise_but_not_absence(corpus):
     # The matcher steps a quarter of the term's length, so the phrase is placed on a step.
+    """Pin the fuzzy matcher: it forgives OCR noise but not absence.
+
+    It must forgive OCR noise without reporting subjects the document lacks.
+    """
     blob = "." * 20 + "sheer surviv0l value" + " at length, said the committee"
     assert corpus.fuzzy_in("sheer survival value", blob)               # one-character noise
     assert corpus.fuzzy_in("committee", blob)                          # exact substring
@@ -314,6 +414,11 @@ def test_fuzzy_in_tolerates_ocr_noise_but_not_absence(corpus):
 
 
 def test_build_index_is_vocabulary_only_and_drops_the_withheld_word(corpus, tmp_path):
+    """Check that a built index is vocabulary only and drops the withheld word.
+
+    The index is committed in a public repository, so it must contain no prose and no withheld
+    name.
+    """
     doc = tmp_path / "doc.txt"
     doc.write_text("The group conscience met now. Sheer surviv0l value, said Vexmoor's friend. "
                    "A b c.\n")
@@ -331,12 +436,20 @@ def test_build_index_is_vocabulary_only_and_drops_the_withheld_word(corpus, tmp_
 
 
 def test_ensure_dir_creates_nested_directories(corpus):
+    """Check that `ensure_dir` creates the directory and is idempotent.
+
+    Normalization calls it repeatedly, so it must be idempotent.
+    """
     made = corpus.ensure_dir("New_2000")
     assert made == corpus.INCORP / "New_2000" and made.is_dir()
     assert corpus.ensure_dir("New_2000") == made             # idempotent
 
 
 def test_move_falls_back_to_a_plain_move_outside_a_repository(corpus, tmp_path):
+    """Move a file when `ROOT` is not a git repository and check a same-path move does nothing.
+
+    Git-ignored documents cannot be `git mv`-ed, so the fallback is what actually moves them.
+    """
     src, dst = tmp_path / "a.txt", tmp_path / "b.txt"
     src.write_text("hello")
     corpus.move(src, dst)                                     # ROOT is not a repository
@@ -346,6 +459,11 @@ def test_move_falls_back_to_a_plain_move_outside_a_repository(corpus, tmp_path):
 
 
 def test_move_prefers_git_mv_for_a_tracked_file(corpus):
+    """Check that `move` uses `git mv` so a tracked file stays tracked.
+
+    That proves tracked files keep their history through `git mv` rather than a plain move that
+    would leave them untracked.
+    """
     repo = corpus.ROOT
     subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
     src = repo / "tracked.txt"
@@ -360,6 +478,10 @@ def test_move_prefers_git_mv_for_a_tracked_file(corpus):
 
 
 def test_check_mode_reports_loose_files_and_unrenamed_directories(corpus, monkeypatch, capsys):
+    """Check that `--check` reports loose files and unrenamed directories.
+
+    It must also change nothing on disk, since check mode only reports drift.
+    """
     (corpus.RESEARCH / "blair-1888-the-temperance-movement.txt").write_text("text")
     (corpus.RESEARCH / "blair-1888-the-temperance-movement.md").write_text("not a document")
     (corpus.INCORP / "AA_Tradition_P17").mkdir()
@@ -378,6 +500,10 @@ def test_check_mode_reports_loose_files_and_unrenamed_directories(corpus, monkey
 
 
 def test_build_mode_normalizes_and_writes_the_record(corpus, monkeypatch, capsys):
+    """Check that build mode normalizes the layout and writes each record.
+
+    This is the end-to-end contract for what the corpus builder commits and what it leaves out.
+    """
     (corpus.RESEARCH / "blair-1888-the-temperance-movement.txt").write_text(
         "The group conscience met. Vexmoor spoke.\n")
     (corpus.INCORP / "AA_Tradition_P17").mkdir()
@@ -424,6 +550,10 @@ def test_build_mode_normalizes_and_writes_the_record(corpus, monkeypatch, capsys
 
 
 def test_a_second_run_changes_nothing(corpus, monkeypatch, capsys):
+    """Check that a second build changes nothing and `--check` then passes.
+
+    A non-idempotent build would dirty the tree on every run and hide real drift.
+    """
     (corpus.RESEARCH / "blair-1888-the-temperance-movement.txt").write_text("Some text here.\n")
     assert run_main(corpus, monkeypatch) == 0
 
@@ -441,6 +571,10 @@ def test_a_second_run_changes_nothing(corpus, monkeypatch, capsys):
 
 
 def test_existing_metadata_is_kept_and_an_unknown_rights_note_survives(corpus, monkeypatch):
+    """Check that existing metadata and an unknown rights note survive a build.
+
+    The builder must not overwrite rights decisions the Human Author has recorded.
+    """
     source = corpus.INCORP / "Unlisted_2001"
     source.mkdir()
     (source / "metadata.json").write_text(json.dumps(
@@ -453,6 +587,10 @@ def test_existing_metadata_is_kept_and_an_unknown_rights_note_survives(corpus, m
 
 
 def _source_with_index(corpus, name="Held_2002", text="alpha beta gamma\n"):
+    """Create a source holding one text document and return its index path.
+
+    The index itself is not written, so each test controls when it is built.
+    """
     source = corpus.INCORP / name
     source.mkdir()
     (source / f"{name}.txt").write_text(text)
@@ -460,6 +598,10 @@ def _source_with_index(corpus, name="Held_2002", text="alpha beta gamma\n"):
 
 
 def test_a_stale_or_corrupt_index_is_flagged_and_then_rebuilt(corpus, monkeypatch, capsys):
+    """Check that stale or corrupt indexes are flagged, then rebuilt only in build mode.
+
+    This is how a re-acquired document is kept from verifying citations against an old vocabulary.
+    """
     source, index = _source_with_index(corpus)
     assert run_main(corpus, monkeypatch, "--check") == 1       # no index yet
     assert "verification index missing or stale: Held_2002" in capsys.readouterr().out
@@ -481,6 +623,10 @@ def test_a_stale_or_corrupt_index_is_flagged_and_then_rebuilt(corpus, monkeypatc
 
 def test_work_label_comes_from_the_citation_or_falls_back_to_the_directory(
         corpus, monkeypatch):
+    """Check how an index's `work` label is derived from the citation.
+
+    The label must be short and stable, whatever shape the citation file has.
+    """
     source, index = _source_with_index(corpus)
     (source / "citation.md").write_text("# Citation, with no blank line anywhere")
     assert run_main(corpus, monkeypatch) == 0
@@ -499,6 +645,11 @@ def test_work_label_comes_from_the_citation_or_falls_back_to_the_directory(
 
 def test_a_withheld_word_is_flagged_in_check_mode_and_stripped_in_build_mode(
         corpus, monkeypatch, capsys):
+    """Check that a withheld word is flagged by `--check` and stripped by a build.
+
+    A committed vocabulary publishes every word in it, so a withheld name must be both detectable
+    and removable.
+    """
     source = corpus.INCORP / "Record_2000"
     source.mkdir()
     index = source / "Record_2000_verification-index.json"
@@ -516,6 +667,11 @@ def test_a_withheld_word_is_flagged_in_check_mode_and_stripped_in_build_mode(
 
 
 def test_the_three_statements_of_footing_must_agree(corpus, monkeypatch, capsys):
+    """Check that `--check` flags disagreement between the statements of footing.
+
+    Build mode must neither report nor repair them, since the footing is the Human Author's
+    decision.
+    """
     holds = corpus.INCORP / "Holds_2003"
     holds.mkdir()
     (holds / "Holds_2003.pdf").write_bytes(b"%PDF")

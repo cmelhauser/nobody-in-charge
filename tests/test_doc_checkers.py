@@ -60,6 +60,11 @@ def workflow(root: Path, *jobs: str) -> None:
 
 
 def test_value_of_reads_digits_and_words():
+    """value_of reads digits and spelled-out numbers, and gives None for anything else.
+
+    Every prose count claim is converted through it, so a misread number would either drop a
+    claim silently or compare the wrong figure.
+    """
     assert check_docs.value_of("12") == 12
     assert check_docs.value_of(" Seven ") == 7
     assert check_docs.value_of("thirty-three") == 33
@@ -67,6 +72,11 @@ def test_value_of_reads_digits_and_words():
 
 
 def test_tracked_markdown_drops_generated_output_and_the_progress_log(monkeypatch):
+    """tracked_markdown keeps hand-written Markdown from the git listing.
+
+    It must drop build output and the append-only progress log, otherwise generated text and
+    history would be read as live claims.
+    """
     listing = b"README.md\0build/book.md\0research/progress-log.md\0sub/A.md\0\0"
     monkeypatch.setattr(check_docs.subprocess, "run",
                         lambda *a, **k: types.SimpleNamespace(stdout=listing))
@@ -75,6 +85,11 @@ def test_tracked_markdown_drops_generated_output_and_the_progress_log(monkeypatc
 
 
 def test_prose_lines_skip_blockquotes_and_unreadable_files(tree):
+    """prose_lines skips blockquotes and files it cannot read.
+
+    Blockquotes quote retired claims on purpose, so reading them would flag the quotation. A
+    directory or an undecodable file must give an empty list rather than an exception.
+    """
     quoted = write(tree, "Q.md", "kept\n> retired claim\n   > indented retired claim\nalso kept\n")
     assert check_docs.prose_lines(quoted) == [(1, "kept"), (4, "also kept")]
     (tree / "dir.md").mkdir()
@@ -84,6 +99,11 @@ def test_prose_lines_skip_blockquotes_and_unreadable_files(tree):
 
 
 def test_assert_claims_passes_fails_and_ignores_unreadable_numbers(tree):
+    """assert_claims fails only on a readable number that disagrees with the tree.
+
+    A word with no numeric value is not a claim. This pins the shared mechanism behind every
+    count check: the failure message, the clean case and the pass message.
+    """
     import re
     write(tree, "A.md", "It has three widgets and 4 widgets and many widgets.\n")
     pattern = re.compile(r"\b(\w+) widgets")
@@ -101,6 +121,11 @@ def test_assert_claims_passes_fails_and_ignores_unreadable_numbers(tree):
 
 
 def test_ci_jobs_reads_column_two_keys_under_jobs(tree):
+    """ci_jobs returns the keys indented two spaces under `jobs:` and nothing else.
+
+    Comments, top-level keys and keys after the section must be ignored, or every job-count
+    claim would be checked against the wrong list.
+    """
     text = ("name: x\njobs:\n  lint:\n    runs-on: a\n  # a comment\n  unit-tests:\n"
             "    steps: []\n# top-level comment\nafter:\n  not_a_job:\n")
     write(tree, ".github/workflows/ci.yml", text)
@@ -108,12 +133,22 @@ def test_ci_jobs_reads_column_two_keys_under_jobs(tree):
 
 
 def test_check_ci_jobs_fails_when_the_workflow_has_no_jobs(tree):
+    """A workflow with no readable jobs fails with a named message.
+
+    Without it the check would compare prose against zero jobs and could pass vacuously after
+    ci.yml is broken or moved.
+    """
     write(tree, ".github/workflows/ci.yml", "name: nothing\n")
     check_docs.check_ci_jobs()
     assert check_docs.failures == ["FAIL: could not read job names from .github/workflows/ci.yml"]
 
 
 def test_check_ci_jobs_catches_a_miscount_and_the_both_jobs_phrasing(tree):
+    """A wrong job count, in two phrasings, and 'runs both jobs' are each reported.
+
+    The workflow has three jobs while the prose says two, four and 'both'. Each failure names
+    the file and line, covering the ways prose drifts when a job is added.
+    """
     workflow(tree, "lint", "unit-tests", "checkers")
     write(tree, "A.md", "GitHub Actions runs two jobs.\n"
                         "tools/run_ci_locally.sh runs all four jobs.\n"
@@ -126,6 +161,11 @@ def test_check_ci_jobs_catches_a_miscount_and_the_both_jobs_phrasing(tree):
 
 
 def test_check_ci_jobs_accepts_true_claims_and_both_jobs_for_two(tree):
+    """True job claims pass, including 'both jobs' when there are exactly two.
+
+    The job names quoted in backticks exist in the workflow. This guards against false positives
+    that would block correct documentation.
+    """
     workflow(tree, "lint", "unit-tests")
     write(tree, "A.md", "GitHub Actions runs two jobs. It runs both jobs. Job `lint` and\n"
                         "`unit-tests` and the `release` workflow.\n")
@@ -137,6 +177,11 @@ def test_check_ci_jobs_accepts_true_claims_and_both_jobs_for_two(tree):
 
 
 def test_check_ci_jobs_catches_a_job_name_the_workflow_lacks(tree):
+    """Prose naming a CI job the workflow does not define is a failure.
+
+    The failure carries the location. It catches documentation that outlives a renamed or
+    removed job.
+    """
     workflow(tree, "lint")
     write(tree, "A.md", "Run the `documents` job.\n")
     check_docs.check_ci_jobs()
@@ -147,6 +192,11 @@ def test_check_ci_jobs_catches_a_job_name_the_workflow_lacks(tree):
 
 
 def test_check_checker_inventory_counts_build_corpus_as_one(tree):
+    """The checker count is the check_*.py files plus build_corpus.py --check.
+
+    Two check files therefore make three checkers, and a true claim of three that names a real
+    file passes. This pins the counting rule.
+    """
     write(tree, "tools/check_a.py")
     write(tree, "tools/check_b.py")
     write(tree, "A.md", "There are three checkers; `check_a.py` runs first.\n")
@@ -156,6 +206,11 @@ def test_check_checker_inventory_counts_build_corpus_as_one(tree):
 
 
 def test_check_checker_inventory_catches_a_miscount_and_a_phantom_checker(tree):
+    """A wrong checker count and a phantom check_*.py name are both reported.
+
+    This catches prose that keeps naming a deleted or never-created checker, or whose total has
+    gone stale.
+    """
     write(tree, "tools/check_a.py")
     write(tree, "A.md", "We keep five checkers. See `check_ghost.py`.\n")
     check_docs.check_checker_inventory()
@@ -174,11 +229,21 @@ def corpus(root: Path) -> None:
 
 
 def test_corpus_counts_reads_the_record_only_flag(tree):
+    """corpus_counts returns (sources, record_only) from the metadata files.
+
+    One of the two fixture sources sets record_only, giving (2, 1). Every corpus-size claim is
+    checked against this pair.
+    """
     corpus(tree)
     assert check_docs.corpus_counts() == (2, 1)
 
 
 def test_check_corpus_passes_when_every_claim_matches(tree):
+    """Every supported corpus phrasing that matches the tree passes.
+
+    Four claims pass with no failures, and a 'bringing the corpus to 26' milestone is history
+    and is ignored. This guards against flagging dated narrative as a stale count.
+    """
     corpus(tree)
     write(tree, "A.md", "The project holds 2 sources.\nThe corpus to its present 2 is shown.\n"
                         "One sources are record only.\n"
@@ -190,6 +255,11 @@ def test_check_corpus_passes_when_every_claim_matches(tree):
 
 
 def test_check_corpus_catches_each_stale_claim(tree):
+    """Each of the four corpus phrasings is reported when its number is stale.
+
+    The source total, the 'present N' form, the record-only count and the 'N of the M' form each
+    fail with the tree value. This catches numbers that go stale when a source is added.
+    """
     corpus(tree)
     write(tree, "A.md", "The project holds 9 sources.\nThe corpus to its present 9 is shown.\n"
                         "Six sources are record only.\n"
@@ -206,6 +276,11 @@ def test_check_corpus_catches_each_stale_claim(tree):
 
 
 def test_check_model_scripts_excludes_the_model_itself(tree):
+    """The analysis-script count leaves out aa_group_model.py.
+
+    Three files under model/ count as two scripts, so only the claim of three fails. This keeps
+    the canonical model out of the tally.
+    """
     for name in ("aa_group_model.py", "one.py", "two.py"):
         write(tree, f"model/{name}")
     write(tree, "A.md", "It has 2 analysis scripts.\nIt has three analysis scripts.\n")
@@ -215,6 +290,11 @@ def test_check_model_scripts_excludes_the_model_itself(tree):
 
 
 def test_check_chapters_counts_numbered_chapters_only(tree):
+    """Only numbered chapters count; the preface and introduction do not.
+
+    A '25-chapter' claim fails against two chapters, and the 'N chapters plus preface' phrasing
+    is read separately and passes.
+    """
     for name in ("ch00-preface.md", "ch00b-introduction.md", "ch01-a.md", "ch02-b.md"):
         write(tree, f"manuscript/{name}")
     write(tree, "A.md", "A 25-chapter book.\nIt has 2 chapters plus the preface.\n")
@@ -241,6 +321,11 @@ if [ "$job" = all ]; then :; fi
 
 
 def test_check_local_runner_fails_for_an_undocumented_job_and_passes_when_documented(tree):
+    """check_local_runner compares the jobs the script implements with those it documents.
+
+    A job in the code but missing from the usage text fails, and documenting it passes. This
+    stops the runner gaining a hidden job.
+    """
     write(tree, "tools/run_ci_locally.sh", RUNNER.format(extra="(nothing)"))
     check_docs.check_local_runner()
     assert check_docs.failures == [
@@ -257,6 +342,11 @@ def test_check_local_runner_fails_for_an_undocumented_job_and_passes_when_docume
 
 
 def test_check_model_hash_reads_the_label_on_the_line_or_above(tree):
+    """A non-canonical digest fails only when it is labelled as the model hash.
+
+    The label may be on the same line or on the line above. Digests with another label, or none,
+    are left alone, so other hashes do not raise false alarms.
+    """
     wrong, other = "a" * 64, "b" * 64
     write(tree, "A.md", "\n".join([
         f"Model hash: `{wrong}`",                     # labelled the model, not canonical
@@ -277,6 +367,11 @@ def test_check_model_hash_reads_the_label_on_the_line_or_above(tree):
 
 
 def test_check_model_hash_passes_when_nothing_is_mislabelled(tree):
+    """A document quoting only the canonical model digest passes.
+
+    It records no failure and exactly one pass, confirming that correct documentation is not
+    flagged.
+    """
     write(tree, "A.md", f"Model: {check_docs.CANONICAL_MODEL}\n")
     check_docs.check_model_hash()
     assert check_docs.failures == [] and len(check_docs.passes) == 1
@@ -286,6 +381,11 @@ def test_check_model_hash_passes_when_nothing_is_mislabelled(tree):
 
 
 def test_check_links_flags_only_broken_relative_links(tree):
+    """Only a relative link whose target file is missing is a failure.
+
+    Existing files, fragments, web and mailto URLs and in-page anchors are ignored, so valid
+    references do not raise false alarms.
+    """
     write(tree, "exists.md")
     write(tree, "sub/B.md", "[up](../exists.md#section)\n")
     write(tree, "A.md", "[ok](exists.md) [frag](exists.md#h) [web](https://x.org) "
@@ -295,6 +395,11 @@ def test_check_links_flags_only_broken_relative_links(tree):
 
 
 def test_check_links_passes_when_every_link_resolves(tree):
+    """When every relative link resolves, check_links passes.
+
+    It records no failure and a pass saying so, which pins the success path a clean repository
+    takes.
+    """
     write(tree, "exists.md")
     write(tree, "A.md", "[ok](exists.md)\n")
     check_docs.check_links()
@@ -305,10 +410,19 @@ def test_check_links_passes_when_every_link_resolves(tree):
 
 
 def completed(stdout: str, returncode: int = 0):
+    """Build a CompletedProcess with the given stdout and return code.
+
+    It stands in for the result of a mocked subprocess.run call.
+    """
     return subprocess.CompletedProcess([], returncode, stdout=stdout, stderr="")
 
 
 def test_release_gate_totals_adds_failures_back_in(monkeypatch):
+    """release_gate_totals reads the gate's summary line and adds failures back in.
+
+    Ten passed and two failed means twelve checks run, and three skipped makes fifteen in all.
+    The gate exits nonzero here and its output must still be parsed.
+    """
     out = "noise\n10 checks passed; 2 failed; 3 skipped\n"
     monkeypatch.setattr(check_docs.subprocess, "run", lambda *a, **k: completed(out, 1))
     assert check_docs.release_gate_totals() == {"run": 12, "skipped": 3, "full": 15}
@@ -320,11 +434,21 @@ def test_release_gate_totals_adds_failures_back_in(monkeypatch):
     "10 checks passed; 0 failed; 3 skipped\nx is not valid JSON\n",
 ])
 def test_release_gate_totals_is_none_when_the_gate_ran_short(monkeypatch, stdout):
+    """release_gate_totals gives None when the gate output shows it did not run fully.
+
+    No summary line, a missing cache or an invalid JSON file all count. This stops an incomplete
+    run from setting the counts prose is held to.
+    """
     monkeypatch.setattr(check_docs.subprocess, "run", lambda *a, **k: completed(stdout))
     assert check_docs.release_gate_totals() is None
 
 
 def test_gate_claims_ignore_reported_speech_and_unreadable_numbers():
+    """gate_claims_contradicting ignores reported speech and numbers it cannot read.
+
+    Only the wrong total is returned, and the count of claims seen excludes the superseded
+    wording and the non-number, so quoting an old figure does not fail.
+    """
     totals = {"run": 10, "skipped": 3, "full": 13}
     lines = [
         ("a:1", "which runs 10 of the 13 release checks"),            # right
@@ -337,6 +461,10 @@ def test_gate_claims_ignore_reported_speech_and_unreadable_numbers():
 
 
 def test_check_release_gate_counts_skips_when_the_totals_are_unavailable(tree, monkeypatch):
+    """The gate-count check skips, rather than fails, when the totals are unavailable.
+
+    A missing gate result is an environmental gap and not a documentation error.
+    """
     monkeypatch.setattr(check_docs, "release_gate_totals", lambda: None)
     check_docs.check_release_gate_counts()
     assert check_docs.failures == [] and "release gate's totals" in check_docs.skips[0]
@@ -344,6 +472,11 @@ def test_check_release_gate_counts_skips_when_the_totals_are_unavailable(tree, m
 
 def test_check_release_gate_counts_reads_markdown_workflows_and_the_gate_source(
         tree, monkeypatch):
+    """Gate-count claims are read from Markdown, the workflow and the gate's own source.
+
+    A consistent set passes, and a Markdown claim of nine against thirteen then fails with its
+    location, so no place that quotes the figures escapes.
+    """
     monkeypatch.setattr(check_docs, "release_gate_totals",
                         lambda: {"run": 10, "skipped": 3, "full": 13})
     write(tree, "tools/check_release.py", "# the same 13 checks\n")
@@ -364,6 +497,11 @@ def test_check_release_gate_counts_reads_markdown_workflows_and_the_gate_source(
 
 
 def test_check_python_versions_flags_a_wrong_list(tree):
+    """A Python version list that differs from the workflow matrix is a failure.
+
+    Only the wrong list in A.md fails. CHANGELOG.md is history and is never read, and the pull-
+    request '3.12 only' sentence is not mistaken for a list.
+    """
     workflow(tree, "lint")
     write(tree, "CHANGELOG.md", "Python 3.9 and 3.10 once.\n")       # history: never read
     write(tree, "A.md", "CI runs Python 3.11, 3.12 and 3.13.\n\nOn pulls Python 3.12 only.\n")
@@ -393,6 +531,10 @@ def three_pdfs(root: Path, book: int = 3, paper: int = 2, primer: int = 1) -> No
 
 
 def test_check_page_counts_skips_naming_the_unbuilt_documents(tree):
+    """check_page_counts skips, naming the documents, when some PDFs are not built.
+
+    A fresh clone without renders therefore cannot fail on page numbers.
+    """
     blank_pdf(tree / "build/nobody-in-charge.pdf", 1)
     check_docs.check_page_counts()
     assert check_docs.failures == []
@@ -400,6 +542,11 @@ def test_check_page_counts_skips_naming_the_unbuilt_documents(tree):
 
 
 def test_check_page_counts_skips_without_pypdf(tree, monkeypatch):
+    """check_page_counts skips with an explicit message when pypdf cannot be imported.
+
+    Setting sys.modules['pypdf'] to None forces the import to fail. The dependency is optional,
+    so its absence must not raise or fail the check.
+    """
     three_pdfs(tree)
     monkeypatch.setitem(sys.modules, "pypdf", None)             # makes `import pypdf` fail
     check_docs.check_page_counts()
@@ -407,6 +554,11 @@ def test_check_page_counts_skips_without_pypdf(tree, monkeypatch):
 
 
 def test_check_page_counts_compares_every_claim_with_the_rendered_page_count(tree):
+    """Each page-count phrasing is compared with the PDF's real page count.
+
+    Five true claims pass, and a further claim of nine pages for a three-page book fails with
+    the tree value. This catches prose that drifts from the render.
+    """
     three_pdfs(tree)
     write(tree, "A.md", "The book 3 pages long.\nIt runs to 3 pages.\n"
                         "paper 2, primer 1\n"
@@ -423,6 +575,11 @@ def test_check_page_counts_compares_every_claim_with_the_rendered_page_count(tre
 
 
 def test_check_paper_decimals_skips_without_the_stored_output(tree):
+    """check_paper_decimals skips when the notebook or its stored output is missing.
+
+    It records one skip for no notebook and a second for a notebook without the decimals line. A
+    figure that cannot be read cannot be compared, so this must not fail.
+    """
     check_docs.check_paper_decimals()
     assert len(check_docs.skips) == 1
     write(tree, "paper/anonymity-as-an-aggregation-condition.ipynb", "{}")
@@ -431,6 +588,11 @@ def test_check_paper_decimals_skips_without_the_stored_output(tree):
 
 
 def test_check_paper_decimals_holds_the_quoted_figure_to_the_notebook(tree):
+    """The decimals figure quoted in AGENT_VERIFY.md must equal the notebook's.
+
+    With the notebook printing 4, a line saying 4 passes and one saying 5 fails, keeping the
+    verifier's expectation tied to the output.
+    """
     write(tree, "paper/anonymity-as-an-aggregation-condition.ipynb",
           '{"text": "decimals printed in the paper: 4"}')
     write(tree, "AGENT_VERIFY.md", "currently 4 of them\ncurrently 5 of them\n")
@@ -487,6 +649,11 @@ def primer_text(monkeypatch):
 
 def test_check_document_dates_passes_when_text_artifacts_and_history_agree(
         tree, monkeypatch, primer_text):
+    """Declared dates that agree with their artifacts and Git history all pass.
+
+    The book, primer and paper checks produce no failure and no skip. This is the baseline the
+    failing variants depart from.
+    """
     dated_tree(tree)
     monkeypatch.setattr(check_docs.subprocess, "run", FakeGit("2026-01-01"))
     check_docs.check_document_dates()
@@ -499,6 +666,11 @@ def test_check_document_dates_passes_when_text_artifacts_and_history_agree(
 
 def test_check_document_dates_fails_when_sources_changed_after_the_declared_date(
         tree, monkeypatch, primer_text):
+    """A source changed after a declared date fails the book, primer and paper checks.
+
+    Each failure names the change date from Git, so a document cannot keep an old date after its
+    sources move.
+    """
     dated_tree(tree)
     monkeypatch.setattr(check_docs.subprocess, "run", FakeGit("2026-12-01"))
     check_docs.check_document_dates()
@@ -510,6 +682,11 @@ def test_check_document_dates_fails_when_sources_changed_after_the_declared_date
 
 def test_check_document_dates_skips_the_history_comparison_when_it_cannot_be_made(
         tree, monkeypatch, primer_text):
+    """The history comparison skips, and does not fail, when Git cannot answer.
+
+    A shallow clone, a failing git log and an empty history each give three skips with the
+    reason. Missing history is an environmental limit, not a stale date.
+    """
     dated_tree(tree)
     monkeypatch.setattr(check_docs.subprocess, "run", FakeGit(shallow=True))
     check_docs.check_document_dates()
@@ -528,6 +705,10 @@ def test_check_document_dates_skips_the_history_comparison_when_it_cannot_be_mad
 
 
 def test_check_document_dates_reports_a_stale_or_unbuilt_book(tree, monkeypatch, primer_text):
+    """The assembled book fails if dated wrongly or undated, and skips if it is not built.
+
+    These are the three states of that artifact, each with its own message.
+    """
     dated_tree(tree)
     monkeypatch.setattr(check_docs.subprocess, "run", FakeGit("2026-01-01"))
     write(tree, "build/nobody-in-charge.md", 'date: "Draft of 3 March 2025"\n')
@@ -547,6 +728,12 @@ def test_check_document_dates_reports_a_stale_or_unbuilt_book(tree, monkeypatch,
 
 
 def test_check_document_dates_reports_an_unreadable_primer(tree, monkeypatch, primer_text):
+    """A primer without its declared date fails; an unreadable one skips.
+
+    A wrong 'Revised' date on the first page fails, a missing pypdf skips and a missing PDF
+    skips as not built. The check fails when it can read a wrong date and skips when it cannot
+    read at all.
+    """
     dated_tree(tree)
     monkeypatch.setattr(check_docs.subprocess, "run", FakeGit("2026-01-01"))
     primer_text["text"] = "Revised 9 September 2020"
@@ -566,6 +753,11 @@ def test_check_document_dates_reports_an_unreadable_primer(tree, monkeypatch, pr
 
 def test_check_document_dates_reports_declarations_it_cannot_read(
         tree, monkeypatch, primer_text):
+    """An unreadable date declaration is a failure, never a pass.
+
+    A missing DRAFT_DATE, an unparseable REVISED_DATE and a paper date macro without a month each
+    fail with their own message.
+    """
     dated_tree(tree)
     monkeypatch.setattr(check_docs.subprocess, "run", FakeGit("2026-01-01"))
     write(tree, "tools/build_book.py", "# no declaration\n")
@@ -582,6 +774,11 @@ def test_check_document_dates_reports_declarations_it_cannot_read(
 
 
 def test_check_handoff_date_enforces_the_handoffs_own_staleness_rule(tree):
+    """HANDOFF.md must be dated no earlier than the newest progress-log entry.
+
+    An equal date passes, and a handoff dated 5 March against a 6 March entry fails, quoting the
+    log date as the handoff's own rule requires.
+    """
     write(tree, "research/progress-log.md", "## 4 March 2026\n\n### 6 March 2026\n\ntext\n")
     write(tree, "HANDOFF.md", "Last updated 6 March 2026\n")
     check_docs.check_handoff_date()
@@ -595,6 +792,11 @@ def test_check_handoff_date_enforces_the_handoffs_own_staleness_rule(tree):
 
 
 def test_check_handoff_date_fails_without_a_date_on_either_side(tree):
+    """A missing date on either side of the handoff comparison is a failure.
+
+    A progress log with no dated entry and a HANDOFF.md with no 'Last updated' date each fail,
+    since a staleness test missing one side must not pass by default.
+    """
     write(tree, "research/progress-log.md", "no dated entry\n")
     write(tree, "HANDOFF.md", "Last updated 5 March 2026\n")
     check_docs.check_handoff_date()
@@ -609,6 +811,11 @@ def test_check_handoff_date_fails_without_a_date_on_either_side(tree):
 
 
 def test_check_own_total_counts_itself(tree):
+    """check_own_total counts itself in the total it compares.
+
+    One check already ran, so with this one the total is 2 and matches HANDOFF.md. It pins the
+    off-by-one that omitting the check's own pass would cause.
+    """
     write(tree, "HANDOFF.md", "| `tools/check_docs.py` | 2 checks, 0 failed |\n")
     check_docs.passes.append("OK: one")                           # one ran, and this is a second
     check_docs.check_own_total()
@@ -616,6 +823,11 @@ def test_check_own_total_counts_itself(tree):
 
 
 def test_check_notebook_assertions_counts_printed_output_not_source(tree):
+    """Notebook assertions are counted from printed output, not from source code.
+
+    The cell's source has a print call, but only the OK and FAIL lines in its output count,
+    giving three. Only the paper claim of nine fails.
+    """
     import json
     cell = {"source": ["print('  OK ', '  FAIL')"],
             "outputs": [{"text": ["  OK a\n", "  OK b\n", "  FAIL c\n"]}, {"data": {}}]}
@@ -642,6 +854,11 @@ CHECKS = ["check_ci_jobs", "check_checker_inventory", "check_corpus", "check_mod
 
 
 def test_main_runs_every_check_in_order_and_reports_a_clean_run(tree, monkeypatch, capsys):
+    """Running main calls every registered check in a fixed order and exits 0 when none fail.
+
+    The summary has no 'skipped' clause when nothing was skipped. This pins the check list and
+    the clean-run status.
+    """
     order = []
     for name in CHECKS:
         monkeypatch.setattr(check_docs, name, lambda name=name: order.append(name))
@@ -654,6 +871,10 @@ def test_main_runs_every_check_in_order_and_reports_a_clean_run(tree, monkeypatc
 
 
 def test_main_exits_one_and_prints_skips_before_failures(tree, monkeypatch, capsys):
+    """Running main exits 1 on any failure and prints passes, then skips, then failures.
+
+    The summary reports all three counts, and the order leaves the failures nearest the prompt.
+    """
     for name in CHECKS:
         monkeypatch.setattr(check_docs, name, lambda: None)
     check_docs.passes.append("OK: fine")
@@ -669,6 +890,11 @@ def test_main_exits_one_and_prints_skips_before_failures(tree, monkeypatch, caps
 
 
 def test_check_fonts_digest_is_the_sha256_of_the_file(tmp_path):
+    """check_fonts.digest returns the SHA-256 of the file's bytes.
+
+    The known digest of b'abc' fixes it. The pinned-font comparison means nothing if this hash
+    is wrong.
+    """
     path = tmp_path / "f.otf"
     path.write_bytes(b"abc")
     assert check_fonts.digest(path) == (
@@ -676,6 +902,11 @@ def test_check_fonts_digest_is_the_sha256_of_the_file(tmp_path):
 
 
 def test_check_fonts_locate_prefers_the_direct_hit_and_searches_subdirectories(tmp_path):
+    """The locate function finds a font by name regardless of case, searching subdirectories.
+
+    A file directly in the directory wins over a nested one, and an absent font gives None. A
+    wrong pick would hash the wrong file.
+    """
     name = "texgyrepagella-bold.otf"
     nested = tmp_path / "deep" / "er"
     nested.mkdir(parents=True)
@@ -688,6 +919,11 @@ def test_check_fonts_locate_prefers_the_direct_hit_and_searches_subdirectories(t
 
 def test_check_fonts_candidate_dirs_without_fontconfig_uses_the_usual_places(
         tmp_path, monkeypatch):
+    """Without fc-list, candidate_dirs falls back to the usual font directories.
+
+    These are the XDG data directory and the macOS Library fonts. Absent directories are dropped
+    and XDG_DATA_HOME counts only while set, so a Mac without fontconfig still finds its fonts.
+    """
     home = tmp_path / "home"
     xdg = tmp_path / "xdg"
     (home / "Library" / "Fonts").mkdir(parents=True)
@@ -705,6 +941,11 @@ def test_check_fonts_candidate_dirs_without_fontconfig_uses_the_usual_places(
 
 def test_check_fonts_candidate_dirs_lists_each_fontconfig_directory_once(
         tmp_path, monkeypatch):
+    """With fc-list, candidate_dirs keeps each Pagella font directory exactly once.
+
+    A directory listed for two Pagella files appears once, and one holding only unrelated fonts
+    is left out, so the search neither repeats nor wanders.
+    """
     first, second = tmp_path / "a", tmp_path / "b"
     first.mkdir()
     second.mkdir()
@@ -720,6 +961,11 @@ def test_check_fonts_candidate_dirs_lists_each_fontconfig_directory_once(
 
 def test_check_fonts_main_scans_the_default_directories_when_no_dir_is_given(
         monkeypatch, capsys):
+    """Without --dir, main scans candidate_dirs and reports each missing font.
+
+    With nothing found it prints MISSING for all four and exits 0, or 1 under --strict with the
+    install-step message. Strictness turns a report into a gate.
+    """
     monkeypatch.setattr(check_fonts, "candidate_dirs", lambda: [])
     assert check_fonts.main([]) == 0
     out = capsys.readouterr().out
@@ -730,6 +976,10 @@ def test_check_fonts_main_scans_the_default_directories_when_no_dir_is_given(
 
 def test_check_fonts_main_reports_success_when_every_file_matches(
         tmp_path, monkeypatch, capsys):
+    """Running main with --strict succeeds when all four font files match their pins.
+
+    It returns 0 and says all four match CI's, the path a correctly provisioned machine takes.
+    """
     import hashlib
     for name in check_fonts.PINS:
         (tmp_path / name).write_bytes(b"font")
@@ -772,6 +1022,11 @@ def pdf_with_font(path: Path, font_descriptor, pages: int = 1) -> None:
 
 def test_check_pdfs_flags_an_unembedded_font_and_accepts_an_embedded_one(
         pdf_state, monkeypatch, tmp_path):
+    """check_pdfs fails a PDF with a font that has no embedded glyph program.
+
+    The failure names the font, while a PDF whose font is embedded is noted as all embedded. An
+    unembedded font would render differently on another machine.
+    """
     pdf_with_font(tmp_path / "bare.pdf", None)
     pdf_with_font(tmp_path / "full.pdf", True)
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
@@ -787,6 +1042,10 @@ def test_check_pdfs_flags_an_unembedded_font_and_accepts_an_embedded_one(
 
 
 def test_check_pdfs_counts_a_font_shared_by_several_pages_once(pdf_state, monkeypatch, tmp_path):
+    """A font used on every page of a two-page PDF is counted once.
+
+    Without deduplication the embedded-font report would grow with the page count.
+    """
     pdf_with_font(tmp_path / "two.pdf", True, pages=2)
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
     check_pdfs.check("two.pdf", 2)
@@ -794,6 +1053,10 @@ def test_check_pdfs_counts_a_font_shared_by_several_pages_once(pdf_state, monkey
 
 
 def test_check_pdfs_reports_a_file_that_is_not_a_pdf(pdf_state, monkeypatch, tmp_path):
+    """A file that is not a PDF gives one 'parses as a PDF' failure, not an exception.
+
+    A corrupt render therefore produces a readable failure instead of a traceback.
+    """
     (tmp_path / "bad.pdf").write_bytes(b"this is not a pdf" * 100)
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
     check_pdfs.check("bad.pdf", 1)
@@ -803,6 +1066,11 @@ def test_check_pdfs_reports_a_file_that_is_not_a_pdf(pdf_state, monkeypatch, tmp
 
 def test_check_pdfs_reports_a_withheld_name_in_the_rendered_text(
         pdf_state, monkeypatch, tmp_path):
+    """check_pdfs fails a PDF whose text prints a name the project withholds.
+
+    prints_withheld is forced to True, and the 'prints no name' check fails. This is the last
+    defence for a name the repository undertakes never to print.
+    """
     pdf_with_font(tmp_path / "full.pdf", True)
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
     monkeypatch.setattr(check_pdfs, "prints_withheld", lambda _text: True)
@@ -812,6 +1080,11 @@ def test_check_pdfs_reports_a_withheld_name_in_the_rendered_text(
 
 
 def test_check_pdfs_main_checks_every_registered_document(pdf_state, monkeypatch, tmp_path, capsys):
+    """Running main checks every registered document, so a missing one fails the run.
+
+    two.pdf does not exist, giving exit 1, while one.pdf passes. With no poppler, the ink
+    measurement is skipped, not failed.
+    """
     pdf_with_font(tmp_path / "one.pdf", True)
     monkeypatch.setattr(check_pdfs, "ROOT", tmp_path)
     monkeypatch.setattr(check_pdfs, "DOCUMENTS", {"one.pdf": 1, "two.pdf": 1})
@@ -822,6 +1095,11 @@ def test_check_pdfs_main_checks_every_registered_document(pdf_state, monkeypatch
 
 
 def test_check_pdfs_embedded_looks_for_a_glyph_program_on_the_font_or_its_descendant():
+    """The embedded function looks for a glyph program on the font or on its descendant font.
+
+    A FontFile2 on the font and a FontFile3 on a composite font's descendant count. A descriptor
+    with no font file, or an empty font, does not.
+    """
     class Obj(dict):
         """A dict that answers get_object() with itself, like a pypdf indirect reference."""
 
@@ -836,6 +1114,11 @@ def test_check_pdfs_embedded_looks_for_a_glyph_program_on_the_font_or_its_descen
 
 
 def test_check_pdfs_ink_check_measures_pdftotext_boxes(pdf_state, monkeypatch):
+    """check_ink measures how close pdftotext's word boxes come to the paper edge.
+
+    A page with no words is ignored, and pages whose ink is too near the left or right edge are
+    listed, here pages 2 and 3. It catches clipped text that overfull warnings miss.
+    """
     def boxes(*extents):
         pages = "".join(f'<page><word xMin="{lo}" xMax="{hi}"/></page>' for lo, hi in extents)
         return completed(pages + "<page></page>")        # the last page has no words at all
@@ -852,6 +1135,10 @@ def test_check_pdfs_ink_check_measures_pdftotext_boxes(pdf_state, monkeypatch):
 
 
 def test_check_pdfs_main_names_the_missing_dependency(monkeypatch):
+    """Running main exits with a message naming pypdf when it cannot be imported.
+
+    The cause is stated plainly instead of appearing as a traceback.
+    """
     monkeypatch.setitem(sys.modules, "pypdf", None)
     with pytest.raises(SystemExit) as stop:
         check_pdfs.main()
@@ -859,6 +1146,11 @@ def test_check_pdfs_main_names_the_missing_dependency(monkeypatch):
 
 
 def test_check_fonts_reports_mismatches_missing_files_and_bad_arguments(tmp_path, capsys):
+    """The compare function reports MISMATCH and MISSING; main handles bad arguments.
+
+    A report-only run exits 0, --strict exits 1 and tells the reader to update PINS
+    deliberately, and a --dir with no directory exits with a clear message.
+    """
     (tmp_path / "texgyrepagella-regular.otf").write_bytes(b"not the pinned font")
     good, bad = check_fonts.compare([tmp_path])
     assert good == [] and bad[0].startswith("MISMATCH texgyrepagella-regular.otf")
@@ -874,6 +1166,12 @@ def test_check_fonts_reports_mismatches_missing_files_and_bad_arguments(tmp_path
 
 
 def test_check_docs_python_version_helpers_and_failure_paths(tree):
+    """The Python-version helpers and failure paths behave as documented.
+
+    ci_python_versions gives None for matrices it cannot read, and python_version_claims ignores
+    a version outside a Python context. A workflow lacking the two-list line fails, and a
+    correct pair passes.
+    """
     assert check_docs.ci_python_versions("python-version: ${{ matrix.x }}\n") is None
     assert check_docs.ci_python_versions(
         "python-version: ${{ fromJSON('[\"3.12\"]') }}\n") is None
@@ -894,6 +1192,11 @@ def test_check_docs_python_version_helpers_and_failure_paths(tree):
 
 
 def test_check_docs_own_total_and_notebooks_report_each_way_they_can_be_wrong(tree):
+    """The notebook and own-total checks report each way they can go wrong.
+
+    Absent notebooks skip, check_own_total skips after an earlier skip, and it fails when
+    HANDOFF.md states no total or a wrong one.
+    """
     check_docs.check_notebook_assertions()
     assert len(check_docs.skips) == 2
 
