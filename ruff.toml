@@ -50,3 +50,9 @@ known-first-party = []
     "F401", "F841", "B905", "B007",
     "E", "W", "I", "UP", "C4", "SIM", "RUF", "A", "D", "PLW1510",
 ]
+
+# tools/regenerate_notebooks.py holds the source of both notebooks as string literals, and
+# those lines are notebook code that the notebooks print and the release gate reads back.
+# Wrapping them to satisfy the line length would change the generated cells, not just the
+# generator, so the generator is excused from E501 and is held to every other rule.
+"tools/regenerate_notebooks.py" = ["E501"]
