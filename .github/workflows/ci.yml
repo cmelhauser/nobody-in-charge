@@ -131,7 +131,7 @@ jobs:
         if: matrix.python-version != '3.12'
         run: >
           python -m pytest tests/test_model.py tests/test_release_invariants.py
-          tests/test_tools_direct.py --cov --cov-report=term-missing
+          tests/test_tools_direct.py --cov --cov-config=.coveragerc-model --cov-report=term-missing
 
       - name: Byte-compile every tool and script under this version
         if: matrix.python-version != '3.12'
