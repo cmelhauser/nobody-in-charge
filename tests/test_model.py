@@ -12,10 +12,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import aa_group_model as m
 import numpy as np
 import pytest
-
-import aa_group_model as m
 
 MODEL_PATH = Path(__file__).resolve().parents[1] / "model" / "aa_group_model.py"
 
@@ -212,7 +211,7 @@ def test_unity_is_zero_when_no_member_is_established():
 
 
 def test_dispersion_lowers_unity():
-    """unity = 1 - 2*sd over established members, so spread degrades the room."""
+    """Unity = 1 - 2*sd over established members, so spread degrades the room."""
     even = np.zeros((60, m.NSTEP)); even[:4] = 0.5
     spread = np.zeros((60, m.NSTEP))
     spread[0] = 0.2; spread[1] = 0.4; spread[2] = 0.6; spread[3] = 0.8

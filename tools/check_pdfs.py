@@ -115,7 +115,7 @@ def check(rel: str, min_pages: int) -> None:
         reader = pypdf.PdfReader(str(path))
         pages = reader.pages
         n = len(pages)
-    except Exception as exc:                                    # noqa: BLE001
+    except Exception as exc:
         require(False, f"{name}: parses as a PDF ({type(exc).__name__})")
         return
     require(True, f"{name}: parses as a PDF")
@@ -153,7 +153,7 @@ def check(rel: str, min_pages: int) -> None:
 
 def main() -> int:
     try:
-        import pypdf                                            # noqa: F401
+        import pypdf  # noqa: F401
     except ImportError:
         raise SystemExit("pypdf is required; pip install -r requirements-dev.txt") from None
     for rel, floor in DOCUMENTS.items():

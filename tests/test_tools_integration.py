@@ -327,7 +327,8 @@ def test_both_notebooks_execute_clean():
     """Continuous integration otherwise never executes them, and `check_book.py` reads their
     committed outputs, so those must be what a fresh run prints. `--check` leaves the committed
     notebooks untouched and fails on a stale output: the paper notebook's said the paper
-    prints 451 decimals for ten days after the paper's count moved to 460 and then 461."""
+    prints 451 decimals for ten days after the paper's count moved to 460 and then 461.
+    """
     # Both are run before anything is asserted, so a failure reports both notebooks at once.
     results = [run("tools/run_notebook.py", "--check", *args) for args in ((), ("--paper",))]
     report = "\n".join(r.stdout + r.stderr for r in results)

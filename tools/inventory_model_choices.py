@@ -5,7 +5,8 @@ Writes research/model-choice-inventory.json and research/MODEL-CHOICE-INVENTORY.
 model/aa_group_model.py. The JSON's created_utc is kept while the content is unchanged, so
 regenerating an unchanged inventory leaves the tree clean.
 
-Run from anywhere:  python3 tools/inventory_model_choices.py"""
+Run from anywhere:  python3 tools/inventory_model_choices.py
+"""
 from __future__ import annotations
 
 import ast
@@ -16,7 +17,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
-
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "model" / "aa_group_model.py"

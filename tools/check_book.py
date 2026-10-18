@@ -17,7 +17,13 @@ checks the seven things that went wrong, so they fail loudly next time.
 
 Exit code 1 if any FAIL. Warnings do not fail.
 """
-import re, os, sys, json, glob, itertools, subprocess
+import glob
+import itertools
+import json
+import os
+import re
+import subprocess
+import sys
 
 from withheld import prints_withheld
 
@@ -123,7 +129,8 @@ SMALL   = re.compile(r'\b(?:ten|10|three|3|five|5)\s*seeds\b', re.I)
 def check_intervals():
     """A Machinery must not present simulation output without a sample size and an
     interval. A Machinery whose figures are exact says so and is exempt: the point of
-    rule 5 is that the two are distinguished, not that everything carries an error bar."""
+    rule 5 is that the two are distinguished, not that everything carries an error bar.
+    """
     for p in CHAPTERS:
         t = open(p).read(); nm = os.path.basename(p)
         i = t.find('## The Machinery')
@@ -182,8 +189,7 @@ def check_repetition():
 
 # --- 4. forward references into undrafted chapters -------------------------------------
 NUM = {w: i for i, w in enumerate(
-    'Zero One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen '
-    'Fifteen Sixteen Seventeen Eighteen Nineteen Twenty'.split())}
+    ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty'])}
 NUM.update({'Twenty-One': 21, 'Twenty-Two': 22, 'Twenty-Three': 23, 'Twenty-Four': 24,
             'Twenty-Five': 25})
 
@@ -356,7 +362,8 @@ SUBJECTS = ['sons of temperance', 'mitchell', 'beecher', 'washingtonian',
 def fuzzy_in(term, blob, thresh=0.72):
     """Is `term` present allowing OCR noise? Slides a window and scores position-wise
     character agreement. Needed because these are 1880s scans: Eddy renders Mitchell as
-    Mitrhell, Mituhell and MitrLell on the same page."""
+    Mitrhell, Mituhell and MitrLell on the same page.
+    """
     term = term.lower(); L = len(term)
     if term in blob: return True
     first = term[0]
