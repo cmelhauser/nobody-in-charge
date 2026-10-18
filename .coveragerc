@@ -21,7 +21,7 @@
 # a `# pragma` would invalidate the cache. They are checked by the release gate, which verifies
 # every cache against the script that made it and against the canonical model.
 #
-# The version legs on 3.11, 3.13 and 3.14 use `.coveragerc-model`, which gates the model alone,
+# The version legs other than 3.12 use `.coveragerc-model`, which gates the model alone,
 # because they do not run the subprocess tests.
 #
 # `model/aa_group_model.py` cannot carry `# pragma: no cover` comments, because editing
@@ -34,6 +34,9 @@ patch = subprocess
 include =
     model/aa_group_model.py
     tools/*.py
+# Tests that run a copy of a tool from a temporary tree must not have the copy measured.
+omit =
+    */pytest-of-*/*
 
 [report]
 show_missing = True
