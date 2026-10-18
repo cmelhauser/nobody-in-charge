@@ -407,8 +407,15 @@ def main() -> int:
         # included, which have no document to rebuild from. Nothing else in the index changes,
         # because the rest of it is a statement about the source file.
         idx_file = d / f"{d.name}_verification-index.json"
+        idx = None
         if idx_file.exists():
-            idx = json.loads(idx_file.read_text())
+            try:
+                idx = json.loads(idx_file.read_text())
+            except ValueError:
+                # An unreadable index is already reported as stale above when a document is
+                # held; a record-only source has nothing to rebuild it from, so say so here.
+                problems.append(f"verification index is not valid JSON: {d.name}")
+        if idx is not None:
             kept = [t for t in idx.get("vocab", []) if not is_withheld(t)]
             if len(kept) != len(idx.get("vocab", [])):
                 if check_only:

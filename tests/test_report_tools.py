@@ -700,3 +700,19 @@ def test_the_three_statements_of_footing_must_agree(corpus, monkeypatch, capsys)
     # A build run neither reports nor repairs them: only `--check` prints problems.
     assert run_main(corpus, monkeypatch) == 0
     assert (holds / "Holds_2003.pdf").exists()
+
+
+def test_an_unreadable_index_on_a_record_only_source_is_reported_not_raised(
+        corpus, monkeypatch, capsys):
+    """Check that a record-only source with a corrupt index is reported instead of crashing.
+
+    A record-only source has no document to rebuild from, so the withheld-name pass is the only
+    thing that reads its index; it used to raise on malformed JSON, which hid every other
+    problem in the run.
+    """
+    source = corpus.INCORP / "Record_2000"
+    source.mkdir()
+    (source / "Record_2000_verification-index.json").write_text("{not json")
+
+    assert run_main(corpus, monkeypatch, "--check") == 1
+    assert "verification index is not valid JSON: Record_2000" in capsys.readouterr().out
