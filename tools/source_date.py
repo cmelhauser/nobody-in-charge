@@ -32,7 +32,7 @@ from __future__ import annotations
 
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,7 +62,7 @@ def declared_date(document: str) -> datetime:
     found = re.search(pattern, path.read_text(encoding="utf-8"), re.MULTILINE)
     if not found:
         raise SystemExit(f"{path.relative_to(ROOT)} declares no date for the {document}")
-    return datetime.strptime(found.group(1), fmt).replace(tzinfo=timezone.utc)
+    return datetime.strptime(found.group(1), fmt).replace(tzinfo=UTC)
 
 
 def epoch(document: str) -> int:

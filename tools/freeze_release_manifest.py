@@ -102,7 +102,7 @@ def build(label: str) -> dict:
         item = {
             "sha256": digest(path),
             "bytes": stat.st_size,
-            "mtime_utc": dt.datetime.fromtimestamp(stat.st_mtime, dt.timezone.utc).isoformat(),
+            "mtime_utc": dt.datetime.fromtimestamp(stat.st_mtime, dt.UTC).isoformat(),
         }
         if path.suffix == ".json":
             item["json"] = json_shape(path)
@@ -110,7 +110,7 @@ def build(label: str) -> dict:
     return {
         "schema_version": 1,
         "label": label,
-        "created_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "created_utc": dt.datetime.now(dt.UTC).isoformat(),
         "project_root": ".",
         "path_semantics": "repository-relative",
         "python": sys.version,
