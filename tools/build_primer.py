@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the standalone reference primer to PDF.
+r"""Render the standalone reference primer to PDF.
 
 Why this file exists. The primer's PDF was being produced by a hand-typed pandoc command
 that lived nowhere, so its typography was whatever the last person typed. On 16 August
@@ -18,11 +18,22 @@ into the book as an appendix look like the same document.
   tolerance       1500 with emergencystretch 4em, so TeX prefers a slightly loose line
                   to one that runs into the margin. Long unbreakable tokens, file paths
                   and identifiers, are what overflow without it.
-  hyphenat[htt]   lets \\texttt spans break, which is where the overflow was
+  hyphenat[htt]   lets \texttt spans break, which is where the overflow was
   tabcolsep 4pt   wide result tables were the other cause
 
 Run from anywhere:
     python3 tools/build_primer.py
+
+Reads:      reference/PRIMER-steps-and-traditions.md (never written to).
+Writes:     reference/PRIMER-steps-and-traditions.pdf, which is tracked and checked byte for
+            byte; build/primer-header.tex, the LaTeX preamble; and build/primer-pandoc.log,
+            the engine's full output. The PDF timestamp comes from `SOURCE_DATE_EPOCH`
+            (see tools/source_date.py) unless the caller has set it.
+Needs:      pandoc and either xelatex or tectonic on the PATH, and the TeX Gyre Pagella font.
+Exit codes: 0 on success, including when overfull boxes are reported (this tool only prints
+            a warning; the CI documents job is what requires zero); 1 with a message if the
+            source is missing, no PDF engine is installed, or pandoc fails (the lines that
+            name the failure go to standard error first).
 """
 from __future__ import annotations
 
@@ -81,8 +92,14 @@ HEADER_INCLUDES = r"""
 
 
 def main() -> int:
+    """Render the primer and report overfull boxes; return the exit status (0).
+
+    Raises `SystemExit` with a message, rather than returning non-zero, when the source is
+    missing, no PDF engine is on the PATH, or pandoc exits non-zero. The full pandoc output
+    is always written to `build/primer-pandoc.log`, success or not.
+    """
     if not SRC.exists():
-        raise SystemExit("primer source not found: %s" % SRC)
+        raise SystemExit(f"primer source not found: {SRC}")
     engine = next((n for n in ("xelatex", "tectonic") if shutil.which(n)), None)
     if engine is None:
         raise SystemExit("no PDF engine found; install xelatex or tectonic")
@@ -103,13 +120,15 @@ def main() -> int:
            "-M", "date=Revised " + REVISED_DATE,
            "--include-in-header", str(header)]
     for key, value in VARIABLES:
-        cmd += ["-V", "%s=%s" % (key, value)]
+        cmd += ["-V", f"{key}={value}"]
 
     # A fixed timestamp from REVISED_DATE makes a rebuild of unchanged text byte-identical;
     # tools/source_date.py says why. A caller's own SOURCE_DATE_EPOCH wins.
     env = dict(os.environ)
     env.setdefault("SOURCE_DATE_EPOCH", str(source_date_epoch("primer")))
-    res = subprocess.run(cmd, capture_output=True, text=True, env=env)
+    # check=False: a failing pandoc is handled below, so the log is written first and the
+    # error that reaches the user names the lines that matter rather than a traceback.
+    res = subprocess.run(cmd, capture_output=True, text=True, env=env, check=False)
     log = ROOT / "build" / "primer-pandoc.log"
     log.write_text(res.stdout + res.stderr)
     if res.returncode != 0:
@@ -119,14 +138,14 @@ def main() -> int:
         lines = (res.stdout + res.stderr).splitlines()
         errs = [ln for ln in lines
                 if re.search(r"^!|error:|Error|Undefined|not loadable|not found|LaTeX Error", ln)]
-        tail = (errs[-25:] + ["--- tail ---"] + lines[-15:]) if errs else lines[-40:]
+        tail = [*errs[-25:], "--- tail ---", *lines[-15:]] if errs else lines[-40:]
         sys.stderr.write("\n".join(tail) + "\n")
-        raise SystemExit("pandoc failed, see %s" % log)
+        raise SystemExit(f"pandoc failed, see {log}")
 
     overfull = sum(1 for line in (res.stdout + res.stderr).splitlines()
                    if "Overfull" in line)
-    print("wrote %s using %s" % (OUT, engine))
-    print("overfull boxes: %d" % overfull)
+    print(f"wrote {OUT} using {engine}")
+    print(f"overfull boxes: {overfull}")
     if overfull:
         print("WARNING: content is running outside the type block; see " + str(log))
     return 0

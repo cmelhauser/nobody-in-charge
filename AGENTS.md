@@ -105,21 +105,23 @@ corpus, because `tools/check_book.py` identifies a source in prose by that token
 features older interpreters lack, and the stock `python3` on some machines is 3.9. No source document
 is needed.
 
-The coverage gate is 100 per cent of `model/aa_group_model.py` and is enforced by `.coveragerc`.
+The coverage gate is 100 per cent of `model/aa_group_model.py` and of every script under `tools/`, enforced by `.coveragerc`.
 **Never edit that file to make a test pass**: its SHA-256 is the release identity, and
 `tests/test_release_invariants.py` pins the digest along with capacity 60, viability 5, and the
 118-value decomposition. If a test there fails, find out whether the model was changed on
 purpose and run the synchronization rule before touching anything.
 
-`tools/` and the analysis scripts sit outside the coverage gate on purpose; they are batch jobs,
-covered instead by `tests/test_tools_integration.py`, which runs each for real, and by
-`tests/test_tools_direct.py`, which calls seven of them and the local CI runner directly with outputs in a temporary
-directory. Slow work behind `NIC_SLOW_TESTS=1`.
+The tools are tested by calling their functions (`tests/test_tools_direct.py` and the per-group
+test files) and by running them for real as subprocesses (`tests/test_tools_integration.py`);
+coverage follows the subprocesses. Use `# pragma: no cover` only for a line that needs an external
+toolchain or an operating-system failure, and give the reason on the line. The analysis scripts
+under `model/` (other than the canonical model) sit outside the gate on purpose: their bytes are
+frozen, so a test hook or a pragma would invalidate their caches. Slow work behind `NIC_SLOW_TESTS=1`.
 
 CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
 model takes no lint waiver. `unit-tests` runs pytest and the model hash across Python 3.11, 3.12,
 3.13 and 3.14 on `main`, and on 3.12 only on pull requests; 3.12 runs the full suite and the other
-versions the model tests, the release invariants and the direct tool tests, under the same coverage gate, plus a byte-compile of every tool and script. `checkers` needs pip and nothing else and
+versions the model tests, the release invariants and the direct tool tests, under the model-only coverage gate (`.coveragerc-model`), plus a byte-compile of every tool and script. `checkers` needs pip and nothing else and
 gates every push: corpus drift, portability, the book checks, and `check_release.py
 --skip-artifacts`, which runs 142 of the 148 release checks and reports the other six as skipped. `documents` renders the PDFs, checks
 them with `check_pdfs.py`, checks the font files against pinned hashes with `check_fonts.py`, and runs the full gate, on `main` only, because it needs pandoc,
@@ -148,8 +150,9 @@ whole point of the split is that a CTAN timeout must not stop the release checks
 
 ## Lint
 
-`ruff check .`, narrow by design and configured in `ruff.toml`. **Never let it edit a file
-under `model/`**: those record their SHA-256 in the caches they produced and a reformat
+`ruff check .`, configured in `ruff.toml`: a production ruleset for `tools/` and `tests/` (including a
+docstring on every function, class and module, and no `noqa` comments), and the original narrow set
+for the pinned code under `model/`. **Never let it edit a file under `model/`**: those record their SHA-256 in the caches they produced and a reformat
 invalidates hours of computation. They carry per-rule waivers.
 `model/aa_group_model.py` takes none and CI asserts it with `--isolated`.
 

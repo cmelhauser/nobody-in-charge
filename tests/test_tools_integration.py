@@ -10,6 +10,11 @@ Anything that renders a PDF or executes a release design is skipped unless the
 environment asks for it, because those take minutes and need a TeX toolchain. Set
 NIC_SLOW_TESTS=1 to include them.
 
+Run with `python3 -m pytest tests/test_tools_integration.py` from the repository root;
+`pytest.ini` puts `model/` and `tools/` on `sys.path` for the tests that import a script
+directly. The tests run tools as subprocesses with the current interpreter, so the active
+environment must have `requirements-dev.txt` installed.
+
 The group headed "generated outputs match what generates them" goes one step further and
 compares committed files with what their generators would write now, so a registered cache, a
 notebook or a derived report cannot go stale without a failure.
@@ -26,6 +31,7 @@ import shutil
 import subprocess
 import sys
 import types
+from datetime import UTC
 from pathlib import Path
 
 import pytest
@@ -36,19 +42,25 @@ requires_slow = pytest.mark.skipif(not SLOW, reason="set NIC_SLOW_TESTS=1 to run
 
 
 def run(*args: str) -> subprocess.CompletedProcess:
-    return subprocess.run([sys.executable, *args], cwd=ROOT,
+    """Run `python <args>` from the repository root and return the finished process.
+
+    A nonzero exit is not an error here: callers assert on the return code and output.
+    """
+    return subprocess.run([sys.executable, *args], cwd=ROOT, check=False,
                           capture_output=True, text=True, timeout=1800)
 
 
 # ------------------------------------------------------------------ fast checkers
 
 def test_check_book_reports_no_failures():
+    """tools/check_book.py exits cleanly and reports zero failures across the whole book."""
     result = run("tools/check_book.py")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "0 failures" in result.stdout
 
 
 def test_check_portability_finds_no_absolute_paths():
+    """No tracked file embeds a host-specific absolute path, so a fresh clone is portable."""
     result = run("tools/check_portability.py")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "no tracked machine-specific absolute paths" in result.stdout
@@ -131,7 +143,7 @@ def test_document_dates_are_declared_not_computed():
 
     # Both files name the retired call in a comment, on purpose, so look at the code only.
     def code(text: str) -> str:
-        return "\n".join(l for l in text.splitlines() if not l.lstrip().startswith("#"))
+        return "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
 
     assert "date.today()" not in code(book) and "date.today()" not in code(primer)
     draft = re.search(r"^DRAFT_DATE = '([^']+)'", book, re.MULTILINE)
@@ -148,12 +160,12 @@ def test_build_timestamps_follow_the_declared_dates():
     a rebuild of unchanged sources byte-identical. If it read the wrong date, the PDFs would
     still build and look right, so the mapping is pinned here.
     """
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     import source_date
 
     def midnight(text, fmt):
-        return int(datetime.strptime(text, fmt).replace(tzinfo=timezone.utc).timestamp())
+        return int(datetime.strptime(text, fmt).replace(tzinfo=UTC).timestamp())
 
     book = re.search(r"^DRAFT_DATE = '([^']+)'",
                      (ROOT / "tools" / "build_book.py").read_text(), re.MULTILINE).group(1)
@@ -173,6 +185,7 @@ def test_the_papers_references_are_in_order():
     Six entries were found out of order on 28 September 2026, one of them placed that week.
     Nothing had looked, because a misplaced entry renders perfectly well.
     """
+    import itertools
     import unicodedata
 
     tex = (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
@@ -190,7 +203,7 @@ def test_the_papers_references_are_in_order():
         return (first, year.group(1) if year and year.group(1) != "n.d." else "9999")
 
     out_of_order = [(a[:40], b[:40])
-                    for a, b in zip(items[:-1], items[1:], strict=True) if key(b) < key(a)]
+                    for a, b in itertools.pairwise(items) if key(b) < key(a)]
     assert out_of_order == []
 
 
@@ -199,7 +212,8 @@ _TOOLS = sorted(p.name for p in (ROOT / "tools").glob("*.py")
 
 
 def _tree_state() -> str:
-    return subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+    """Return `git status --porcelain` for the repository, as a fingerprint of the tree."""
+    return subprocess.run(["git", "status", "--porcelain"], cwd=ROOT, check=False,
                           capture_output=True, text=True).stdout
 
 
@@ -225,13 +239,16 @@ def test_every_tool_answers_help_without_running(tool):
 def test_the_local_ci_script_has_usage_and_refuses_unknown_jobs():
     """An unknown job used to run nothing and print "local CI clear"."""
     script = str(ROOT / "tools" / "run_ci_locally.sh")
-    shown = subprocess.run(["bash", script, "--help"], capture_output=True, text=True)
+    shown = subprocess.run(["bash", script, "--help"], check=False,
+                           capture_output=True, text=True)
     assert shown.returncode == 0 and "Usage:" in shown.stdout
-    typo = subprocess.run(["bash", script, "chekers"], capture_output=True, text=True)
+    typo = subprocess.run(["bash", script, "chekers"], check=False,
+                          capture_output=True, text=True)
     assert typo.returncode == 2 and "local CI clear" not in typo.stdout
 
 
 def test_check_chapter_accepts_the_primer():
+    """The standalone primer satisfies the chapter-structure checker (entries, headings)."""
     result = run("tools/check_chapter.py", "reference/PRIMER-steps-and-traditions.md")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "all clear" in result.stdout
@@ -240,11 +257,13 @@ def test_check_chapter_accepts_the_primer():
 @pytest.mark.parametrize("chapter", sorted(
     p.name for p in (ROOT / "manuscript").glob("ch*.md")))
 def test_every_chapter_passes_its_own_checker(chapter):
+    """Each manuscript chapter passes tools/check_chapter.py (one test per chapter file)."""
     result = run("tools/check_chapter.py", f"manuscript/{chapter}")
     assert result.returncode == 0, result.stdout + result.stderr
 
 
 def test_corpus_reports_no_drift():
+    """Every verification index matches its source record, with no hand-added source."""
     result = run("tools/build_corpus.py", "--check")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "0 corpus problems" in result.stdout
@@ -277,6 +296,7 @@ def test_every_tool_is_syntactically_importable():
 
 
 def test_every_model_script_is_syntactically_valid():
+    """Every script under model/ compiles, including the hash-pinned analysis scripts."""
     import py_compile
 
     for path in sorted((ROOT / "model").glob("*.py")):
@@ -285,7 +305,7 @@ def test_every_model_script_is_syntactically_valid():
 
 def test_no_source_document_is_tracked_by_git():
     """The corpus rule: no PDF, text, djvu or epub source is ever committed."""
-    tracked = subprocess.run(["git", "ls-files"], cwd=ROOT,
+    tracked = subprocess.run(["git", "ls-files"], cwd=ROOT, check=False,
                              capture_output=True, text=True).stdout.splitlines()
     offenders = [
         p for p in tracked
@@ -296,7 +316,8 @@ def test_no_source_document_is_tracked_by_git():
 
 
 def test_the_canonical_model_is_tracked():
-    tracked = subprocess.run(["git", "ls-files", "model/aa_group_model.py"],
+    """The canonical model is under version control, so its release hash has a history."""
+    tracked = subprocess.run(["git", "ls-files", "model/aa_group_model.py"], check=False,
                              cwd=ROOT, capture_output=True, text=True).stdout
     assert tracked.strip() == "model/aa_group_model.py"
 
@@ -324,10 +345,13 @@ def test_skip_artifacts_skips_exactly_the_artifact_checks():
 
 
 def test_both_notebooks_execute_clean():
-    """Continuous integration otherwise never executes them, and `check_book.py` reads their
+    """Both notebooks execute and their committed outputs are what a fresh run prints.
+
+    Continuous integration otherwise never executes them, and `check_book.py` reads their
     committed outputs, so those must be what a fresh run prints. `--check` leaves the committed
     notebooks untouched and fails on a stale output: the paper notebook's said the paper
-    prints 451 decimals for ten days after the paper's count moved to 460 and then 461."""
+    prints 451 decimals for ten days after the paper's count moved to 460 and then 461.
+    """
     # Both are run before anything is asserted, so a failure reports both notebooks at once.
     results = [run("tools/run_notebook.py", "--check", *args) for args in ((), ("--paper",))]
     report = "\n".join(r.stdout + r.stderr for r in results)
@@ -467,6 +491,7 @@ def test_decay_reversal_is_the_ordering_design_at_other_levels():
 @pytest.mark.filterwarnings("ignore::ResourceWarning",
                             "ignore::pytest.PytestUnraisableExceptionWarning")
 def test_decay_ordering_saves_atomically(tmp_path, monkeypatch):
+    """_save() writes the cache through a temporary file and leaves no `.tmp` behind."""
     import json
 
     import decay_ordering
@@ -479,6 +504,7 @@ def test_decay_ordering_saves_atomically(tmp_path, monkeypatch):
 
 
 def test_generator_entry_points_write_what_they_render(tmp_path, monkeypatch, capsys):
+    """The robustness-report and notebook generators write their rendered output and name it."""
     import json
 
     import regenerate_notebooks
@@ -503,6 +529,7 @@ def test_generator_entry_points_write_what_they_render(tmp_path, monkeypatch, ca
 @requires_slow
 @pytest.mark.skipif(shutil.which("pandoc") is None, reason="pandoc not installed")
 def test_the_primer_builds_without_overfull_boxes():
+    """tools/build_primer.py renders the primer PDF with no text outside the type block."""
     result = run("tools/build_primer.py")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "overfull boxes: 0" in result.stdout
@@ -511,6 +538,7 @@ def test_the_primer_builds_without_overfull_boxes():
 @requires_slow
 @pytest.mark.skipif(shutil.which("pandoc") is None, reason="pandoc not installed")
 def test_the_book_assembles():
+    """tools/build_book.py --no-pdf assembles the manuscript into build/nobody-in-charge.md."""
     result = run("tools/build_book.py", "--no-pdf")
     assert result.returncode == 0, result.stdout + result.stderr
     assert (ROOT / "build" / "nobody-in-charge.md").exists()
@@ -550,8 +578,13 @@ def test_the_withheld_set_still_holds_both_digests():
 
 
 def test_the_withheld_test_sees_through_possessives_and_compounds(monkeypatch):
+    """The withheld-name test matches case, straight and curly possessives, and compounds.
+
+    It does not match a lone first name or a near miss, which would be false positives.
+    """
     withheld = load_tool("withheld", monkeypatch)
-    for form in ("Vexmoor", "vexmoor's", "vexmoor’s", "vexmoor-style",
+    # The curly possessive is spelled by name so that it stays visible in review.
+    for form in ("Vexmoor", "vexmoor's", "vexmoor\N{RIGHT SINGLE QUOTATION MARK}s", "vexmoor-style",
                  "Quillon Vexmoor", "quillon vexmoor's"):
         assert withheld.is_withheld(form), form
     for form in ("quillon", "moor", "quillon moor"):
@@ -561,6 +594,7 @@ def test_the_withheld_test_sees_through_possessives_and_compounds(monkeypatch):
 
 
 def test_build_index_leaves_a_withheld_word_out(tmp_path, monkeypatch):
+    """The corpus builder keeps ordinary words in a source's vocabulary but drops the name."""
     build_corpus = load_tool("build_corpus", monkeypatch)
     doc = tmp_path / "doc.txt"
     doc.write_text("Quillon Vexmoor's retreats, and the Vexmoor years, ended in 2019.\n")
@@ -594,6 +628,7 @@ def test_corpus_check_flags_a_withheld_index_word_and_the_build_strips_it(
 
 
 def test_check_book_finds_a_withheld_name_in_an_index(tmp_path, monkeypatch):
+    """check_withheld_names() fails on an index that lists the name and passes clean prose."""
     check_book = load_tool("check_book", monkeypatch)
     index = tmp_path / "Record_2000_verification-index.json"
     index.write_text(json.dumps({"vocab": ["alpha", "vexmoor", "zeta"]}))

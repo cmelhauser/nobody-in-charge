@@ -58,9 +58,10 @@ env:
 
 jobs:
   # Lint is its own job so a style failure reads as a style failure, and so it reports in
-  # seconds without waiting on the matrix. The ruleset is narrow by design: syntax errors,
-  # pyflakes and bugbear. See ruff.toml for why the wider style rules were measured and
-  # rejected, and for which pinned files are excused from which rule.
+  # seconds without waiting on the matrix. tools/ and tests/ are held to a production
+  # ruleset (docstrings, import order, pyupgrade, simplification); the hash-pinned scripts
+  # under model/ keep the original narrow set. See ruff.toml for which files are excused
+  # from which rule, and why.
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -123,7 +124,8 @@ jobs:
       # byte-compile of every tool and script for syntax, and not the
       # subprocess runs of the checkers, which are version-independent and cost about 35 s
       # a leg. Each still holds the 100 per cent coverage gate on the canonical model.
-      - name: Unit tests, with the 100 per cent coverage gate on the canonical model
+      # 3.12 also holds the tools to 100 per cent, because coverage follows the subprocesses.
+      - name: Unit tests, with the 100 per cent coverage gate on the canonical model and the tools
         if: matrix.python-version == '3.12'
         run: python -m pytest --cov --cov-report=term-missing
 
@@ -131,7 +133,7 @@ jobs:
         if: matrix.python-version != '3.12'
         run: >
           python -m pytest tests/test_model.py tests/test_release_invariants.py
-          tests/test_tools_direct.py --cov --cov-report=term-missing
+          tests/test_tools_direct.py --cov --cov-config=.coveragerc-model --cov-report=term-missing
 
       - name: Byte-compile every tool and script under this version
         if: matrix.python-version != '3.12'

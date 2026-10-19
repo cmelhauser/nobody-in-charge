@@ -26,6 +26,20 @@ its source file. If the file is re-acquired and the hash differs, the index is s
 rebuilt rather than trusted.
 
 Idempotent. Run from anywhere:  python3 tools/build_corpus.py [--check]
+
+Without `--check` it rewrites each source's `metadata.json`, copies a missing `citation.md` from
+research/SOURCES.md, rebuilds any verification index whose stored hash no longer matches its
+document, strips a withheld name from every existing vocabulary, and moves loose or misnamed
+documents into place. With `--check` it makes none of those changes (it will create an empty
+directory for a registered source that has none) and instead lists what it would have done.
+
+Reads: research/SOURCES.md, tools/check_book.py (for the registered subjects), and every
+research/incorporated/<Dir>/ directory. Writes: only inside research/incorporated/.
+
+Exit status: 0 when the build finishes, or when `--check` finds no problem; 1 when `--check`
+finds drift. A record-only source that holds a document, or a summary that opens "Record only"
+over metadata that does not, counts as drift but is only ever reported, and only by `--check`:
+a build run never repairs it and does not mention it.
 """
 from __future__ import annotations
 
@@ -75,7 +89,8 @@ RIGHTS = {
     "AAWS_2024_P17": ("Copyrighted AAWS literature, published free as an official PDF on "
                      "aa.org. Held git-ignored since 13 September 2026 at the Human Author's "
                      "direction; never committed. Byte-identical to the file read in August."),
-    "Maxwell_1950": "Journal article, 1950. Retyped reproduction, not a scan. Not redistributed here.",
+    "Maxwell_1950": ("Journal article, 1950. Retyped reproduction, not a scan. "
+                     "Not redistributed here."),
     "Golub_Jackson_2010": "Author-hosted PDF. Not redistributed here.",
     "Kurtz_1991": "In copyright, all rights reserved. Never stored as full text.",
     # Catalogued 16 August 2026. Named here rather than left to DEFAULT_RIGHTS for the same
@@ -171,11 +186,17 @@ RIGHTS = {
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 
+# Suffixes that mark a file as a source document (git-ignored) rather than a committed record.
 DOC_SUFFIXES = {".pdf", ".txt", ".djvu", ".epub"}
+# Word tokens for the vocabulary index. The character class keeps the apostrophe and the
+# hyphen inside a token, so "book's" and "co-founder" stay whole, and digits, so years and
+# step numbers are searchable. (The class lists the straight apostrophe twice; it does not
+# match the typographic one. Left as is: changing it would change every committed index.)
 TOKEN = re.compile(r"[a-z0-9''-]+")
 
 
 def sha256(path: Path) -> str:
+    """Return the SHA-256 hex digest of `path`, read in 1 MiB chunks so large scans stay cheap."""
     h = hashlib.sha256()
     with path.open("rb") as fh:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
@@ -191,10 +212,12 @@ def citation_from_ledger(stem: str) -> str | None:
     """
     text = (RESEARCH / "SOURCES.md").read_text(errors="ignore")
     lines = text.splitlines()
-    anchor = next((i for i, l in enumerate(lines) if f"`{stem}" in l), None)
+    anchor = next((i for i, ln in enumerate(lines) if f"`{stem}" in ln), None)
     if anchor is None:
         return None
     start = None
+    # Walk back at most 40 lines to the bold lead-in of the entry. A line containing "Saved" is
+    # a bold note about the saved file, not the start of the citation.
     for i in range(anchor, max(-1, anchor - 40), -1):
         if lines[i].lstrip().startswith("**") and "Saved" not in lines[i]:
             start = i
@@ -208,7 +231,7 @@ def citation_from_ledger(stem: str) -> str | None:
 
 
 def registered_subjects() -> list[str]:
-    """The multi-word subjects tools/check_book.py checks citations against.
+    """Return the multi-word subjects tools/check_book.py checks citations against.
 
     Read from the checker rather than duplicated, so the two cannot drift apart.
     """
@@ -225,6 +248,12 @@ def registered_subjects() -> list[str]:
 
 
 def build_index(doc: Path, work: str, digest: str) -> dict:
+    """Build the vocabulary-only verification index for the text document `doc`.
+
+    `work` is the short bibliographic label and `digest` the document's SHA-256, stored beside
+    the index so a re-acquired file with a different hash is recognised as stale. The index
+    holds the sorted word set and which registered subjects the text contains, never prose.
+    """
     raw = doc.read_text(errors="ignore").lower()
     flat = re.sub(r"\s+", " ", raw)
     # A name the project has undertaken not to print is left out, since a committed
@@ -268,12 +297,18 @@ def fuzzy_in(term: str, blob: str, thresh: float = 0.72) -> bool:
 
 
 def ensure_dir(name: str) -> Path:
+    """Return `INCORP/name`, creating it (and `INCORP`) if absent."""
     d = INCORP / name
     d.mkdir(parents=True, exist_ok=True)
     return d
 
 
 def move(src: Path, dst: Path) -> None:
+    """Move `src` to `dst`, preferring `git mv` so tracked files keep their history.
+
+    Falls back to a plain move for anything git will not move, which is every git-ignored
+    document: they are untracked by design, so `git mv` fails on them.
+    """
     if src.resolve() == dst.resolve():
         return
     try:
@@ -284,6 +319,7 @@ def move(src: Path, dst: Path) -> None:
 
 
 def main() -> int:
+    """Normalize the corpus (or, with `--check`, report drift) and return the exit status."""
     check_only = "--check" in sys.argv
     problems: list[str] = []
 
@@ -371,8 +407,15 @@ def main() -> int:
         # included, which have no document to rebuild from. Nothing else in the index changes,
         # because the rest of it is a statement about the source file.
         idx_file = d / f"{d.name}_verification-index.json"
+        idx = None
         if idx_file.exists():
-            idx = json.loads(idx_file.read_text())
+            try:
+                idx = json.loads(idx_file.read_text())
+            except ValueError:
+                # An unreadable index is already reported as stale above when a document is
+                # held; a record-only source has nothing to rebuild it from, so say so here.
+                problems.append(f"verification index is not valid JSON: {d.name}")
+        if idx is not None:
             kept = [t for t in idx.get("vocab", []) if not is_withheld(t)]
             if len(kept) != len(idx.get("vocab", [])):
                 if check_only:

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Book-level coherence checks. Run from the repo root:
+"""Book-level coherence checks, run from the repo root.
+
+Usage:
 
     python3 tools/check_book.py
 
@@ -15,128 +17,206 @@ checks the seven things that went wrong, so they fail loudly next time.
     6  history       claims about the project's past that the progress log does not support
     7  sources       citations attributing content to a saved source that lacks it
 
-Exit code 1 if any FAIL. Warnings do not fail.
+An eighth check, `names`, scans every tracked text file for a name the project has
+undertaken not to print; see `tools/withheld.py`.
+
+Reads: `manuscript/ch*.md`, `model/book-calculations.ipynb`, `model/aa_group_model.py`,
+`research/*.json`, the verification indexes and (when present) the git-ignored source
+documents under `research/`, `README.md`, the instruction and plan files named in
+`check_history`, and every tracked text file for the name scan (the file list comes from
+`git ls-files`, falling back to a directory walk without Git).
+Writes: nothing but its report on standard output, one `ok`, `warn` or `FAIL` line per
+finding followed by a count.
+Exit codes: 0 when there is no FAIL (warnings do not fail), 1 when there is any FAIL. A
+check that itself raises is recorded as a FAIL rather than crashing the run.
 """
-import re, os, sys, json, glob, itertools, subprocess
+import contextlib
+import glob
+import itertools
+import json
+import os
+import re
+import subprocess
+import sys
 
 from withheld import prints_withheld
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-def P(*a): return os.path.join(ROOT, *a)
 
+
+def P(*parts):
+    """Join `parts` onto the repository root (looked up at call time, so tests can move it)."""
+    return os.path.join(ROOT, *parts)
+
+
+def read_text(path, **kwargs):
+    """Return the whole text of `path`; `kwargs` (for example `errors`) go to `open`."""
+    with open(path, **kwargs) as fh:
+        return fh.read()
+
+
+def read_json(path):
+    """Return the parsed JSON document at `path`."""
+    with open(path) as fh:
+        return json.load(fh)
+
+
+# Findings, as (section, message) pairs, appended to by the three functions below. They are
+# module-level so every check contributes to one report, and a few checks look back at what
+# earlier ones recorded.
 FAILS, WARNS, NOTES = [], [], []
-def fail(sec, msg): FAILS.append((sec, msg))
-def warn(sec, msg): WARNS.append((sec, msg))
-def note(sec, msg): NOTES.append((sec, msg))
+
+
+def fail(sec, msg):
+    """Record a failure in section `sec`; any failure makes the run exit 1."""
+    FAILS.append((sec, msg))
+
+
+def warn(sec, msg):
+    """Record a warning in section `sec`; warnings are printed but never fail the run."""
+    WARNS.append((sec, msg))
+
+
+def note(sec, msg):
+    """Record a passing note in section `sec`, printed as an `ok` line."""
+    NOTES.append((sec, msg))
+
 
 CHAPTERS = sorted(glob.glob(P('manuscript', 'ch*.md')))
 
 
 def body(path, main_only=True):
-    t = open(path).read()
+    """Return the text of a chapter, cut before `## The Machinery` when `main_only`."""
+    t = read_text(path)
     if main_only:
         i = t.find('## The Machinery')
-        if i > 0: t = t[:i]
+        if i > 0:
+            t = t[:i]
     return t
 
 
 def words(path, main_only=True):
+    """Return a chapter as lowercase alphabetic words with inline code removed."""
     t = re.sub(r'`[^`]*`', ' ', body(path, main_only))
     return re.sub(r'[^a-z ]', ' ', t.lower()).split()
 
 
 def grams(w, n):
-    return set(tuple(w[i:i + n]) for i in range(len(w) - n + 1))
+    """Return the set of all runs of `n` consecutive words in the list `w`, as tuples."""
+    return {tuple(w[i:i + n]) for i in range(len(w) - n + 1)}
 
 
 # --- 1. every decimal in a chapter must be traceable to a computational source --------
+# Strip identifiers before looking for figures. A DOI, an ISBN or a journal volume
+# is not a computed quantity, and flagging one is the checker crying wolf.
+STRIP = re.compile(r'doi:\S+|10\.\d{4,}/\S+|ISBN[\s:0-9X-]+', re.I)
+# A decimal quoted from a historical source is not a model output and has no business
+# in the notebook. Each exemption names the source it came from, so the reader of this
+# file can check it the same way the notebook is checked. Added deliberately, one at a
+# time; do not turn this into a blanket rule for numbers with a citation nearby.
+SOURCE_FIGURES = {
+    '14.3': "Jellinek's estimate, via Maxwell 1950: per-capita distilled spirits "
+            "consumption, ages 15+, fell 14.3 per cent between 1840 and 1850",
+    '4.9':  "the same passage: the 1840 base of 4.9 gallons per capita",
+    '0.053': "Carrell, Sacerdote and West (2013): the predicted grade-point gain for "
+             "the bottom third of the academic distribution",
+    '0.061': "the same paper: the observed treatment effect on the lowest-ability "
+             "students, negative",
+    '0.055': "the same paper: the p-value on that effect",
+}
+
+
+def reachable(n, blob):
+    """Return whether decimal string `n` is in `blob`, as written or as a rounding.
+
+    Roundings of an asserted value are acceptable; only what cannot be reached is flagged.
+    A string that is not a number is treated as reachable, so it can never be flagged.
+    """
+    if n in blob:
+        return True
+    try:
+        v = float(n)
+    except ValueError:
+        return True
+    d = len(n.split('.')[1])
+    for cand in re.findall(r'\d+\.\d+', blob):
+        with contextlib.suppress(ValueError):
+            if round(float(cand), d) == v:
+                return True
+    return False
+
+
 def check_figures():
+    """Fail on any decimal in a chapter that no notebook, model or cache can account for."""
     nbp = P('model', 'book-calculations.ipynb')
     if not os.path.exists(nbp):
-        fail('figures', 'notebook not found'); return
-    nb = json.load(open(nbp))
+        fail('figures', 'notebook not found')
+        return
+    nb = read_json(nbp)
     blob = []
     for c in nb['cells']:
-        if c['cell_type'] != 'code': continue
+        if c['cell_type'] != 'code':
+            continue
         blob.append(''.join(c['source']))
         for o in c.get('outputs', []):
             blob.append(''.join(o.get('text', [])))
     # The released notebooks are compact verification artifacts rather than duplicated raw
     # result stores. Cache and model source are therefore part of the traceability corpus.
     # Cache identity/completeness is checked independently by tools/check_release.py.
-    blob.append(open(P('model', 'aa_group_model.py')).read())
+    blob.append(read_text(P('model', 'aa_group_model.py')))
     for cache in glob.glob(P('research', '*.json')):
         if os.path.basename(cache) in {'audit-pre-correction-manifest.json',
                                        'kurtz-1991-verification-index.json'}:
             continue
-        blob.append(open(cache).read())
-    B = '\n'.join(blob)
-    # roundings of an asserted value are acceptable; flag only what cannot be reached
-    def reachable(n):
-        if n in B: return True
-        try: v = float(n)
-        except ValueError: return True
-        d = len(n.split('.')[1])
-        for cand in re.findall(r'\d+\.\d+', B):
-            try:
-                if round(float(cand), d) == v: return True
-            except ValueError: pass
-        return False
-    # Strip identifiers before looking for figures. A DOI, an ISBN or a journal volume
-    # is not a computed quantity, and flagging one is the checker crying wolf.
-    STRIP = re.compile(r'doi:\S+|10\.\d{4,}/\S+|ISBN[\s:0-9X-]+', re.I)
-    # A decimal quoted from a historical source is not a model output and has no business
-    # in the notebook. Each exemption names the source it came from, so the reader of this
-    # file can check it the same way the notebook is checked. Added deliberately, one at a
-    # time; do not turn this into a blanket rule for numbers with a citation nearby.
-    SOURCE_FIGURES = {
-        '14.3': "Jellinek's estimate, via Maxwell 1950: per-capita distilled spirits "
-                "consumption, ages 15+, fell 14.3 per cent between 1840 and 1850",
-        '4.9':  "the same passage: the 1840 base of 4.9 gallons per capita",
-        '0.053': "Carrell, Sacerdote and West (2013): the predicted grade-point gain for "
-                 "the bottom third of the academic distribution",
-        '0.061': "the same paper: the observed treatment effect on the lowest-ability "
-                 "students, negative",
-        '0.055': "the same paper: the p-value on that effect",
-    }
+        blob.append(read_text(cache))
+    corpus = '\n'.join(blob)
     bad = [(os.path.basename(p), n) for p in CHAPTERS
-           for n in sorted(set(re.findall(r'\d+\.\d+', STRIP.sub(' ', open(p).read()))))
-           if n not in SOURCE_FIGURES and not reachable(n)]
+           for n in sorted(set(re.findall(r'\d+\.\d+', STRIP.sub(' ', read_text(p)))))
+           if n not in SOURCE_FIGURES and not reachable(n, corpus)]
     if bad:
         for f, n in bad:
             fail('figures', f'{f}: {n} is not in the notebook, model, or cache, even as a rounding')
     else:
-        note('figures', f'all decimals across {len(CHAPTERS)} chapters trace to a computational source')
+        note('figures',
+             f'all decimals across {len(CHAPTERS)} chapters trace to a computational source')
 
 
 # --- 2. simulation figures must carry a sample size and an interval --------------------
 SIM_OUT = re.compile(r'\b\d{1,4}\s*(?:seeds|runs|replications|draws)\b|Monte Carlo', re.I)
-EXACT   = re.compile(r'\bexact\b|closed[- ]form|deterministic|not simulated|\btheorem\b'
-                     r'|\barithmetic\b|analytic', re.I)
-SIZE    = re.compile(r'\b\d{2,4}\s*(?:seeds|runs|replications|draws)\b'
-                     r'|\b(?:ten|thirty|four hundred|two thousand|twenty-five)\s*'
-                     r'(?:seeds|runs|replications|draws)\b', re.I)
-INTV    = re.compile(r'standard error|interval|\bSE\b|plus or minus|±|\+/-'
-                     r'|per cent of draws|confidence|Wilson', re.I)
-SMALL   = re.compile(r'\b(?:ten|10|three|3|five|5)\s*seeds\b', re.I)
+EXACT = re.compile(r'\bexact\b|closed[- ]form|deterministic|not simulated|\btheorem\b'
+                   r'|\barithmetic\b|analytic', re.I)
+SIZE = re.compile(r'\b\d{2,4}\s*(?:seeds|runs|replications|draws)\b'
+                  r'|\b(?:ten|thirty|four hundred|two thousand|twenty-five)\s*'
+                  r'(?:seeds|runs|replications|draws)\b', re.I)
+INTV = re.compile(r'standard error|interval|\bSE\b|plus or minus|±|\+/-'
+                  r'|per cent of draws|confidence|Wilson', re.I)
+SMALL = re.compile(r'\b(?:ten|10|three|3|five|5)\s*seeds\b', re.I)
+
 
 def check_intervals():
-    """A Machinery must not present simulation output without a sample size and an
-    interval. A Machinery whose figures are exact says so and is exempt: the point of
-    rule 5 is that the two are distinguished, not that everything carries an error bar."""
+    """Fail when a chapter's Machinery shows simulation output without size and interval.
+
+    A Machinery must not present simulation output without a sample size and an interval.
+    A Machinery whose figures are exact says so and is exempt: the point of rule 5 is that
+    the two are distinguished, not that everything carries an error bar.
+    """
     for p in CHAPTERS:
-        t = open(p).read(); nm = os.path.basename(p)
+        t = read_text(p)
+        nm = os.path.basename(p)
         i = t.find('## The Machinery')
         mach = t[i:] if i > 0 else ''
-        if not mach: continue
+        if not mach:
+            continue
         hits = list(SIM_OUT.finditer(mach))
-        if not hits: continue                         # no simulation output presented
+        if not hits:
+            continue                                  # no simulation output presented
         # A retrospective mention ("these WERE Monte Carlo, they are now closed-form") is
         # a chapter obeying rule 5, not breaking rule 2. Exempt when exactness is declared
         # in the same breath.
         live = [m for m in hits
                 if not EXACT.search(mach[max(0, m.start() - 400):m.start() + 400])]
-        if not live: continue
+        if not live:
+            continue
         if not SIZE.search(mach):
             fail('intervals', f'{nm}: presents simulation output with no sample size')
         if not INTV.search(mach):
@@ -166,36 +246,44 @@ ALLOWED = [
     # Quoting a source in two chapters is not duplication of prose. Added 2 August 2026.
     'membership is a desire',
 ]
+
+
 def check_repetition():
-    W = {p: words(p) for p in CHAPTERS}
+    """Warn about every 8-word run shared by two chapters' main text, bar the allow-list."""
+    chapter_words = {p: words(p) for p in CHAPTERS}
     total, flagged = 0, 0
     for a, b in itertools.combinations(CHAPTERS, 2):
-        sh = grams(W[a], 8) & grams(W[b], 8)
+        sh = grams(chapter_words[a], 8) & grams(chapter_words[b], 8)
         total += len(sh)
         for s in sh:
             j = ' '.join(s)
             if not any(x in j for x in ALLOWED):
                 flagged += 1
-                warn('repetition', f'{os.path.basename(a)[:6]} / {os.path.basename(b)[:6]}: "{j}"')
+                warn('repetition',
+                     f'{os.path.basename(a)[:6]} / {os.path.basename(b)[:6]}: "{j}"')
     note('repetition', f'{total} shared 8-grams across all pairs, {flagged} not on the allow-list')
 
 
 # --- 4. forward references into undrafted chapters -------------------------------------
-NUM = {w: i for i, w in enumerate(
-    'Zero One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen '
-    'Fifteen Sixteen Seventeen Eighteen Nineteen Twenty'.split())}
+NUM = {w: i for i, w in enumerate((
+    'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+    'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen',
+    'Nineteen', 'Twenty'))}
 NUM.update({'Twenty-One': 21, 'Twenty-Two': 22, 'Twenty-Three': 23, 'Twenty-Four': 24,
             'Twenty-Five': 25})
 
+
 def check_forward():
+    """Warn when a chapter's text names a chapter number that has no file yet."""
     drafted = {0} | {int(re.search(r'ch(\d+)', os.path.basename(p)).group(1)) for p in CHAPTERS}
     for p in CHAPTERS:
-        t = open(p).read()
+        t = read_text(p)
         refs = set()
         for m in re.finditer(r'Chapters? ([A-Z][a-z]+(?:-[A-Z][a-z]+)?)'
                              r'(?: (?:to|through|and) ([A-Z][a-z]+))?', t):
             for g in m.groups():
-                if g in NUM: refs.add(NUM[g])
+                if g in NUM:
+                    refs.add(NUM[g])
         fwd = sorted(r for r in refs if r not in drafted)
         if fwd:
             warn('forward', f'{os.path.basename(p)} points at undrafted {fwd}; '
@@ -205,42 +293,56 @@ def check_forward():
 
 
 # --- 5. the same quantity stated differently in different files ------------------------
+def _cell_output(cell):
+    """Return all stored output text of a notebook cell as one string."""
+    return ''.join(''.join(o.get('text', [])) for o in cell.get('outputs', []))
+
+
+def _calls_check(cell):
+    """Return whether a notebook cell calls `check(`, other than by defining it.
+
+    `def check(` is the setup cell defining the helper, not a cell using it.
+    """
+    s = re.sub(r'def check\(', '', ''.join(cell['source']))
+    return bool(re.search(r'(?<![\w.])check\(', s))
+
+
 def check_status():
-    def read(p): return open(P(p)).read() if os.path.exists(P(p)) else ''
+    """Compare stored notebook results and README counts with what is actually in the tree."""
+    def read(p):
+        return read_text(P(p)) if os.path.exists(P(p)) else ''
     readme = read('README.md')
     nbp = P('model', 'book-calculations.ipynb')
     if os.path.exists(nbp):
-        nb = json.load(open(nbp))
-        n = sum(''.join(''.join(o.get('text', [])) for o in c.get('outputs', [])).count('  OK ')
-                for c in nb['cells'] if c['cell_type'] == 'code')
-        bad = sum(''.join(''.join(o.get('text', [])) for o in c.get('outputs', [])).count('  FAIL')
-                  for c in nb['cells'] if c['cell_type'] == 'code')
+        nb = read_json(nbp)
+        code_cells = [c for c in nb['cells'] if c['cell_type'] == 'code']
+        n = sum(_cell_output(c).count('  OK ') for c in code_cells)
+        bad = sum(_cell_output(c).count('  FAIL') for c in code_cells)
         # A cell can carry an outputs entry whose text is the empty string, which is what a
         # cell that raised before printing anything leaves behind if the exception is not
         # stored. `not c.get('outputs')` is true only for a MISSING list, so that case passed
         # silently. On 2 August 2026 cell 4 had been broken that way since before the session
         # began: it referenced an undefined name, produced nothing, and no check saw it.
         # Look at the TEXT, not at the presence of the list.
-        def _txt(c): return ''.join(''.join(o.get('text', [])) for o in c.get('outputs', []))
         empty = [i for i, c in enumerate(nb['cells'])
-                 if c['cell_type'] == 'code' and c.get('source') and not _txt(c).strip()]
+                 if c['cell_type'] == 'code' and c.get('source')
+                 and not _cell_output(c).strip()]
         # And a cell that calls check() must show at least one result line, or it did not run.
-        # `def check(` is the setup cell defining the helper, not a cell using it.
-        def _calls_check(c):
-            s = re.sub(r'def check\(', '', ''.join(c['source']))
-            return bool(re.search(r'(?<![\w.])check\(', s))
         silent = [i for i, c in enumerate(nb['cells'])
                   if c['cell_type'] == 'code' and _calls_check(c)
-                  and '  OK ' not in _txt(c) and '  FAIL' not in _txt(c)]
-        if bad: fail('status', f'notebook has {bad} stored assertion failures')
-        if empty: fail('status', f'notebook code cells with blank output: {empty}')
-        if silent: fail('status', f'notebook cells call check() but stored no result: {silent}')
+                  and '  OK ' not in _cell_output(c) and '  FAIL' not in _cell_output(c)]
+        if bad:
+            fail('status', f'notebook has {bad} stored assertion failures')
+        if empty:
+            fail('status', f'notebook code cells with blank output: {empty}')
+        if silent:
+            fail('status', f'notebook cells call check() but stored no result: {silent}')
         m = re.search(r'makes (\d+) assertions', readme)
         if m and int(m.group(1)) != n:
             fail('status', f'README says {m.group(1)} assertions, notebook stores {n}')
         else:
             note('status', f'notebook: {n} assertions stored, {bad} failures')
-    wc = sum(len(open(p).read().split()) for p in CHAPTERS)
+    wc = sum(len(read_text(p).split()) for p in CHAPTERS)
     m = re.search(r'about ([\d,]+) words', readme)
     if m:
         stated = int(m.group(1).replace(',', ''))
@@ -250,7 +352,8 @@ def check_status():
             note('status', f'{len(CHAPTERS)} chapter files, {wc:,} words, README agrees')
     m = re.search(r'plus (\d+) of 25 chapters', readme)
     if m and int(m.group(1)) != len(CHAPTERS) - 1:
-        fail('status', f'README says {m.group(1)} chapters, {len(CHAPTERS)-1} exist besides the preface')
+        fail('status',
+             f'README says {m.group(1)} chapters, {len(CHAPTERS) - 1} exist besides the preface')
 
 
 # --- 6. claims about the project's own past ---------------------------------------------
@@ -262,8 +365,12 @@ HIST = re.compile(r'for months|for years|for several sessions|had survived sever
                   r'|for (?:\w+|\d+) (?:days|weeks|months|years) of work'
                   r'|for (?:two|three|four|five|six|several|many|\d+) (?:days|weeks|months|years)',
                   re.I)
+
+
 def check_history():
-    log = open(P('research', 'progress-log.md')).read() if os.path.exists(P('research', 'progress-log.md')) else ''
+    """Fail on a duration claim about the project's own past that the log cannot support."""
+    log_path = P('research', 'progress-log.md')
+    log = read_text(log_path) if os.path.exists(log_path) else ''
     dated = bool(re.search(r'\b20\d\d\b', log))
     # Widened 16 August 2026. The rule is about claims regarding THIS PROJECT's history, and
     # the four files below are exactly where such a claim would live, but they were not being
@@ -279,29 +386,34 @@ def check_history():
     targets = [P('CLAUDE.md'), P('README.md'), P('appendix', 'APPENDIX.md'),
                P('research', 'PARAMETERS.md'), P('HANDOFF.md'), P('AGENTS.md'),
                P('AGENT_VERIFY.md'), P('BOOK-PLAN.md'), P('CHANGELOG.md'),
-               P('RELEASING.md')] + glob.glob(P('plans', '*.md'))
+               P('RELEASING.md'), *glob.glob(P('plans', '*.md'))]
     for p in targets:
-        if not os.path.exists(p): continue
-        for ln, line in enumerate(open(p).read().split('\n'), 1):
-            if not HIST.search(line): continue
-            if '"' in line or line.lstrip().startswith('- '): continue   # quoted example
+        if not os.path.exists(p):
+            continue
+        for ln, line in enumerate(read_text(p).split('\n'), 1):
+            if not HIST.search(line):
+                continue
+            if '"' in line or line.lstrip().startswith('- '):
+                continue                                              # quoted example
             if re.search(r'if you are about to say|The rule:|grep research', line, re.I):
-                continue                                                  # the rule itself
+                continue                                              # the rule itself
             if re.search(r'cannot be supported|was written by me|do not say it'
-                         r'|unverifiable|no dates', line, re.I): continue
+                         r'|unverifiable|no dates', line, re.I):
+                continue
             # The rule is about claims regarding THIS PROJECT's history, which the undated
             # progress log cannot support. A duration inside the simulated world is a model
             # output with a notebook assertion behind it and is checkable in the ordinary
             # way. Added 2 August 2026 when PART-5-PLAN.md said a starved group "looks
-            # completely healthy for years", which is in the notebook's part5 blocks and not a claim
-            # about the project at all.
+            # completely healthy for years", which is in the notebook's part5 blocks and not a
+            # claim about the project at all.
             # NOTE the first attempt at this exemption keyed on words like "group" and
             # "member" and would have silenced the check across most of the plans. It was
             # narrowed to markers that only appear when the sentence is about the runs, and
             # regression-tested by reinserting a genuine project-history duration claim,
             # which it still catches. Do not widen it.
             if re.search(r'\b(simulat\w*|seeds?|horizon|notebook|runs?|trajector\w*|'
-                         r'model says|in the model|per cent of draws)\b', line, re.I): continue
+                         r'model says|in the model|per cent of draws)\b', line, re.I):
+                continue
             fail('history', f'{os.path.relpath(p, ROOT)}:{ln} claims a duration; '
                             'the progress log is undated, so this cannot be checked')
     if not dated:
@@ -353,21 +465,30 @@ SUBJECTS = ['sons of temperance', 'mitchell', 'beecher', 'washingtonian',
             'elder statesmen', 'bleeding deacon', 'entrenched power',
             'total disclosure', 'mental reservation', 'communion of saints']
 
+
 def fuzzy_in(term, blob, thresh=0.72):
-    """Is `term` present allowing OCR noise? Slides a window and scores position-wise
-    character agreement. Needed because these are 1880s scans: Eddy renders Mitchell as
-    Mitrhell, Mituhell and MitrLell on the same page."""
-    term = term.lower(); L = len(term)
-    if term in blob: return True
+    """Return whether `term` is present in `blob`, allowing OCR noise.
+
+    Slides a window and scores position-wise character agreement. Needed because these are
+    1880s scans: Eddy renders Mitchell as Mitrhell, Mituhell and MitrLell on the same page.
+    `blob` is expected to be lowercase already.
+    """
+    term = term.lower()
+    length = len(term)
+    if term in blob:
+        return True
     first = term[0]
     start = 0
     while True:
         k = blob.find(first, start)
-        if k < 0 or k + L > len(blob): return False
-        w = blob[k:k + L]
-        # Both are exactly L; the guard above rejects a short tail.
-        if sum(a == b for a, b in zip(w, term, strict=True)) / L >= thresh: return True
+        if k < 0 or k + length > len(blob):
+            return False
+        w = blob[k:k + length]
+        # Both are exactly `length`; the guard above rejects a short tail.
+        if sum(a == b for a, b in zip(w, term, strict=True)) / length >= thresh:
+            return True
         start = k + 1
+
 
 def window(seg, name, texts, sentences=2):
     """The span in which a source name is taken to be doing the citing.
@@ -379,19 +500,32 @@ def window(seg, name, texts, sentences=2):
     A citation belongs to the nearest preceding source name and rarely runs past the
     sentence after it, so the window now ends at whichever comes first: the start of
     another saved source's name, or the end of the second sentence.
+
+    `seg` starts with `name`; `texts` is a mapping whose keys are all the saved source
+    names. The result is lowercased.
     """
-    body = seg[len(name):]
-    cut = len(body)
+    rest = seg[len(name):]
+    cut = len(rest)
     for other in texts:
-        if other == name: continue
-        k = body.find(other)
-        if 0 <= k < cut: cut = k
-    ends = [m.end() for m in re.finditer(r'[.!?]["\u2019\')]*\s', body[:cut])]
-    if len(ends) >= sentences: cut = min(cut, ends[sentences - 1])
-    return (name + body[:cut]).lower()
+        if other == name:
+            continue
+        k = rest.find(other)
+        if 0 <= k < cut:
+            cut = k
+    ends = [m.end() for m in re.finditer(r'[.!?]["\u2019\')]*\s', rest[:cut])]
+    if len(ends) >= sentences:
+        cut = min(cut, ends[sentences - 1])
+    return (name + rest[:cut]).lower()
 
 
 def check_sources():
+    """Fail when a chapter cites a source for a subject that source does not contain.
+
+    For each chapter line that names a saved source, take the window after the name
+    (`window`) and look for each registered subject in it. The subject is then checked
+    against the source's full text when this copy holds the document, and otherwise against
+    the subject decisions recorded in its verification index.
+    """
     texts = {}
     # No source document is committed. Every source carries a vocabulary-only verification
     # index instead, which is enough to confirm that a cited subject appears in the work and
@@ -403,6 +537,7 @@ def check_sources():
     # therefore also records which registered subjects the real document contains, decided
     # against the text when the index was built and stamped with that file's SHA-256.
     subjects_present = {}
+
     # A source is identified in prose by the leading token of its directory name, so that
     # token has to be distinctive. "AA" is not: it appears on nearly every page of a book
     # about Alcoholics Anonymous, and a two-letter name manufactures thousands of spurious
@@ -415,7 +550,7 @@ def check_sources():
         return token if len(token) >= 3 else None
 
     for f in glob.glob(P('research', '**', '*_verification-index.json'), recursive=True):
-        d = json.load(open(f))
+        d = read_json(f)
         name = source_name(f)
         if name is None:
             warn('sources', f'corpus directory name is too short to identify citations: {f}')
@@ -427,7 +562,7 @@ def check_sources():
         if 'subjects_present' in d:
             subjects_present.setdefault(name, set()).update(d['subjects_present'])
     for f in glob.glob(P('research', '*-verification-index.json')):
-        d = json.load(open(f))
+        d = read_json(f)
         name = re.match(r'([A-Z][a-z]+)', d['work']).group(1)
         texts.setdefault(name, ' ' + ' '.join(d['vocab']) + ' ')
     # A working copy that still has the documents gets the stronger check for free: full
@@ -439,21 +574,22 @@ def check_sources():
         name = token if len(token) >= 3 else None
         doc = os.path.join(d, os.path.basename(d) + '.txt')
         if name and os.path.exists(doc):
-            with open(doc, errors='ignore') as fh:
-                body = re.sub(r'\s+', ' ', fh.read()).lower()
-            texts[name] = (texts[name] + ' ' + body) if name in full_text else body
+            doc_text = re.sub(r'\s+', ' ', read_text(doc, errors='ignore')).lower()
+            texts[name] = (texts[name] + ' ' + doc_text) if name in full_text else doc_text
             full_text.add(name)
     for stem, name in SAVED.items():
         hits = (glob.glob(P('research', stem + '*.txt')) +
                 glob.glob(P('research', 'incorporated', '**', stem + '*.txt'), recursive=True))
         if hits:
-            texts[name] = re.sub(r'\s+', ' ', open(hits[0], errors='ignore').read()).lower()
+            texts[name] = re.sub(r'\s+', ' ', read_text(hits[0], errors='ignore')).lower()
             full_text.add(name)
     if not texts:
-        warn('sources', 'no full-text sources found in research/'); return
+        warn('sources', 'no full-text sources found in research/')
+        return
     checked = 0
     for p in CHAPTERS:
-        t = open(p).read(); nm = os.path.basename(p)
+        t = read_text(p)
+        nm = os.path.basename(p)
         for name, blob in texts.items():
             for m in re.finditer(re.escape(name) + r'[^\n]{0,400}', t):
                 seg = window(m.group(0), name, texts)
@@ -480,12 +616,14 @@ def check_sources():
                             ok = fuzzy_in(subj, blob)
                         if not ok:
                             fail('sources', f'{nm}: cites {name} for "{subj}" but the recorded '
-                                            f'content of {name} does not contain it in any spelling')
+                                            f'content of {name} does not contain it in any '
+                                            'spelling')
     if not [f for f in FAILS if f[0] == 'sources']:
         note('sources', f'{checked} citation-subject pairs checked against '
                         f'{len(texts)} saved sources, all supported')
 
 
+# --- 8. names the project has undertaken not to print ----------------------------------
 # Names this project has undertaken not to print. Whose, why, and how they are stored
 # without being written down are in tools/withheld.py, which tools/build_corpus.py also
 # uses so that no verification index carries one.
@@ -516,13 +654,14 @@ def check_withheld_names(paths=None):
     """Fail if a name the project has undertaken not to print appears in any project text.
 
     That includes the vocabulary of every verification index, which is a list of single
-    words and so needs the one-word test as much as prose needs the two-word one.
+    words and so needs the one-word test as much as prose needs the two-word one. `paths`
+    overrides the file list (tests use it); by default every tracked text file is read.
+    An unreadable file is skipped. The failure message names the file, never the name.
     """
     hits = 0
     for path in tracked_text_files() if paths is None else paths:
         try:
-            with open(path, encoding='utf-8', errors='ignore') as fh:
-                text = fh.read()
+            text = read_text(path, encoding='utf-8', errors='ignore')
         except OSError:
             continue
         if prints_withheld(text):
@@ -534,19 +673,31 @@ def check_withheld_names(paths=None):
                       'verification indexes included')
 
 
-if __name__ == '__main__':
-    from tool_help import help_requested
-    help_requested(__doc__)
-    for fn in (check_figures, check_intervals, check_repetition, check_forward,
-               check_status, check_history, check_sources,
-               check_withheld_names):
+CHECKS = (check_figures, check_intervals, check_repetition, check_forward,
+          check_status, check_history, check_sources,
+          check_withheld_names)
+
+
+def main():
+    """Run every check, print the report and return the exit code (0 clear, 1 any FAIL)."""
+    for fn in CHECKS:
         try:
             fn()
         except Exception as e:
+            # A broken check must not read as a pass, so it becomes a FAIL of its own.
             fail(fn.__name__, f'check itself failed: {type(e).__name__}: {e}')
-    for sec, msg in NOTES: print(f'  ok    {sec:<11}{msg}')
-    for sec, msg in WARNS: print(f'  warn  {sec:<11}{msg}')
-    for sec, msg in FAILS: print(f'  FAIL  {sec:<11}{msg}')
+    for sec, msg in NOTES:
+        print(f'  ok    {sec:<11}{msg}')
+    for sec, msg in WARNS:
+        print(f'  warn  {sec:<11}{msg}')
+    for sec, msg in FAILS:
+        print(f'  FAIL  {sec:<11}{msg}')
     print(f'\n{len(FAILS)} failures, {len(WARNS)} warnings')
     print('book-level checks clear' if not FAILS else 'fix the FAILs')
-    sys.exit(1 if FAILS else 0)
+    return 1 if FAILS else 0
+
+
+if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
+    sys.exit(main())

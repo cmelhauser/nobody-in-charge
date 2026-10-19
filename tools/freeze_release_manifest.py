@@ -5,6 +5,17 @@ This is deliberately independent of the notebook.  It inventories source files,
 cached data, and rendered artifacts, records JSON top-level shapes without copying
 the data, and hashes every item so a later audit can distinguish reproduction from
 agreement with a stale cache.
+
+Run from anywhere (the repository root is derived from this file's location):
+
+    python3 tools/freeze_release_manifest.py pre-correction|post-correction [--output PATH]
+
+Reads: every file under model/, tools/, manuscript/, appendix/, paper/, reference/, plans/
+and research/ that `included()` selects, plus the top-level README.md, CLAUDE.md,
+BOOK-PLAN.md and AGENT_VERIFY.md. Writes: one JSON manifest, by default
+research/audit-<label>-manifest.json, through a temporary file and an atomic rename so an
+interrupted run never leaves a half-written manifest. Paths in the manifest are
+repository-relative. Exit status is 0 on success; argparse exits 2 on a bad argument.
 """
 from __future__ import annotations
 
@@ -17,7 +28,6 @@ import platform
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_SUFFIXES = {".py", ".md", ".tex", ".ipynb"}
 GENERATED_SUFFIXES = {".json", ".pdf"}
@@ -25,6 +35,7 @@ SKIP_PARTS = {"__pycache__", "staged"}
 
 
 def digest(path: Path) -> str:
+    """Return the hex SHA-256 of a file, read in one-megabyte blocks so large PDFs stay cheap."""
     h = hashlib.sha256()
     with path.open("rb") as fh:
         for block in iter(lambda: fh.read(1024 * 1024), b""):
@@ -33,6 +44,13 @@ def digest(path: Path) -> str:
 
 
 def json_shape(path: Path) -> dict:
+    """Describe a JSON file's structure without copying its data.
+
+    An unparsable file is recorded as `{"valid": False, "error": ...}` rather than raised, so
+    one corrupt cache is visible in the manifest and does not stop the snapshot. A dict
+    reports its key count, the first 20 keys, how many keys look like job ids (digits once
+    `|` and `_` are removed), and whether it carries `meta` and `result` entries.
+    """
     try:
         value = json.loads(path.read_text())
     except Exception as exc:
@@ -53,6 +71,13 @@ def json_shape(path: Path) -> dict:
 
 
 def included(path: Path) -> bool:
+    """Return True if `path` (under ROOT) belongs in the manifest.
+
+    The source directories contribute sources and generated artifacts, research/ contributes
+    JSON and Markdown only (its documents are git-ignored), and at the top level only the four
+    named governing documents count. Anything under a `__pycache__` or `staged` directory is
+    skipped, since neither is part of the release.
+    """
     rel = path.relative_to(ROOT)
     if any(part in SKIP_PARTS for part in rel.parts):
         return False
@@ -64,6 +89,12 @@ def included(path: Path) -> bool:
 
 
 def build(label: str) -> dict:
+    """Return the manifest for the current tree as a dict, labelled `label`.
+
+    Each included file gets its SHA-256, size and modification time, plus a JSON shape for
+    `.json` files. The result is the only thing that varies between runs of an unchanged
+    tree: `created_utc`, `python`, `platform` and the mtimes.
+    """
     files = {}
     for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and included(p)):
         stat = path.stat()
@@ -71,7 +102,7 @@ def build(label: str) -> dict:
         item = {
             "sha256": digest(path),
             "bytes": stat.st_size,
-            "mtime_utc": dt.datetime.fromtimestamp(stat.st_mtime, dt.timezone.utc).isoformat(),
+            "mtime_utc": dt.datetime.fromtimestamp(stat.st_mtime, dt.UTC).isoformat(),
         }
         if path.suffix == ".json":
             item["json"] = json_shape(path)
@@ -79,7 +110,7 @@ def build(label: str) -> dict:
     return {
         "schema_version": 1,
         "label": label,
-        "created_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "created_utc": dt.datetime.now(dt.UTC).isoformat(),
         "project_root": ".",
         "path_semantics": "repository-relative",
         "python": sys.version,
@@ -90,6 +121,7 @@ def build(label: str) -> dict:
 
 
 def main() -> int:
+    """Parse the command line, write the manifest atomically and return 0."""
     ap = argparse.ArgumentParser(description=(__doc__ or "").strip().splitlines()[0])
     ap.add_argument("label", choices=("pre-correction", "post-correction"),
                     help="which side of the correction round this snapshot records")

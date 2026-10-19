@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-House-style check. Run against any chapter file before calling it done.
+"""House-style check. Run against any chapter file before calling it done.
 
     python3 tools/check_chapter.py manuscript/ch09-confident-and-wrong.md
     python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
@@ -8,8 +7,20 @@ House-style check. Run against any chapter file before calling it done.
 
 Enforces the conventions established across Part One and Chapter 8.
 Every rule below exists because a chapter broke it once.
+
+Reads: each file named on the command line; with no arguments, the first of
+`manuscript/ch*.md`, `ch*.md` and `../manuscript/ch*.md` (relative to the working directory)
+that matches anything. Imports `textstat` if it is installed, for a Flesch-Kincaid grade;
+without it the grade is reported as "FK n/a" and nothing else changes.
+Writes: one status line per file and any FAIL or warn lines to standard output.
+Exit codes: 0 when no file has a FAIL (warnings do not count), 1 when any file does, 2 when
+no arguments were given and no chapter files were found. A named file that cannot be opened
+raises, so the interpreter exits 1 with a traceback.
 """
-import re, sys, glob, os
+import glob
+import os
+import re
+import sys
 
 WANT_PARTS = ['1. What the model says', '2. The technical version',
               '3. Notes on sources', '4. References']
@@ -34,8 +45,18 @@ FRONT_MATTER = ('ch00-preface', 'ch00b-introduction')
 # keeps them.
 BACK_MATTER = ('PRIMER-steps-and-traditions',)
 
+
 def check(path):
-    t = open(path).read()
+    """Check one chapter file against the house style and print its verdict.
+
+    Prints a status line (OK, warn or FAIL, the word count and the Flesch-Kincaid grade)
+    followed by one indented line per FAIL and per warning. Returns True when the file has no
+    FAIL, so callers can run it over many files without short-circuiting. Front and back
+    matter (see `FRONT_MATTER` and `BACK_MATTER`) skip the structural rules but keep the
+    notation, punctuation and readability rules.
+    """
+    with open(path) as fh:
+        t = fh.read()
     name = os.path.basename(path)
     fails, warns = [], []
     is_front = (any(name.startswith(f) for f in FRONT_MATTER)
@@ -45,29 +66,30 @@ def check(path):
     if is_front:
         # front matter still obeys the prose rules below, but has no Machinery
         # and no chapter heading. Skip the structural block.
-        main, mach = t, ''
+        narrative, mach = t, ''
     elif '## The Machinery' not in t:
         fails.append("no Machinery section")
-        main, mach = t, ''
+        narrative, mach = t, ''
     else:
-        i = t.index('## The Machinery'); main, mach = t[:i], t[i:]
+        i = t.index('## The Machinery')
+        narrative, mach = t[:i], t[i:]
 
     if not is_front:
         head = t.split('\n')[:4]
-        if not any(l.startswith('# Chapter ') for l in head):
+        if not any(ln.startswith('# Chapter ') for ln in head):
             fails.append("first heading must be '# Chapter <Word>'")
-        if not any(l.startswith('## ') for l in head):
+        if not any(ln.startswith('## ') for ln in head):
             fails.append("second heading must be '## <Title>'")
 
-        got = [re.sub(r'^### ', '', l) for l in mach.split('\n')
-               if l.startswith('### ') and len(l) > 4 and l[4].isdigit()]
+        got = [re.sub(r'^### ', '', ln) for ln in mach.split('\n')
+               if ln.startswith('### ') and len(ln) > 4 and ln[4].isdigit()]
         if got != WANT_PARTS:
             fails.append(f"Machinery parts wrong: {got}")
 
     # --- main-text style ---
-    if re.findall(r'^### ', main, re.M):
+    if re.findall(r'^### ', narrative, re.M):
         fails.append("no ### subheadings in main text; separate sections with ---")
-    if '\n|---' in main:
+    if '\n|---' in narrative:
         fails.append("no tables in main text; put figures in Machinery part 2 and "
                      "render them as prose in the narrative")
 
@@ -116,54 +138,73 @@ def check(path):
             marker = re.compile(r'\*\*(?:now )?(?:read in full|read at source)\b[^*]*\*\*', re.I)
             sections = re.split(r'^\*\*(' + '|'.join(re.escape(c) for c in CANON) +
                                 r')[:.]?\*\*\s*$', refs, flags=re.M)
-            for head, body in zip(sections[1::2], sections[2::2], strict=True):
-                if head == 'Read in full':
+            # re.split with one capture group alternates [preamble, heading, body, ...].
+            for sect_head, body in zip(sections[1::2], sections[2::2], strict=True):
+                if sect_head == 'Read in full':
                     continue
                 for entry in (e for e in body.split('\n\n') if marker.search(e)):
-                    fails.append(f"an entry marked as read sits under '{head}': "
+                    fails.append(f"an entry marked as read sits under '{sect_head}': "
                                  f"{entry.strip()[:60]}...")
             # An inline lead like "**What was not read.** Some prose" is not a heading and was
             # how sixteen chapters ended up with the statement buried inside another section.
             for m in re.finditer(r'^\*\*(' + '|'.join(re.escape(c) for c in CANON) +
                                  r')[^*]*\*\*[ \t]+\S', refs, re.M):
-                fails.append(f'canonical heading used inline rather than on its own line: '
+                fails.append('canonical heading used inline rather than on its own line: '
                              f'{m.group(1)}')
 
     # --- readability ---
-    prose = " ".join(l.strip() for l in main.split('\n')
-                     if l.strip() and not l.startswith(('#', '|', '>')))
+    prose = " ".join(ln.strip() for ln in narrative.split('\n')
+                     if ln.strip() and not ln.startswith(('#', '|', '>')))
     words = len(prose.split())
     try:
         import textstat
         fk = textstat.flesch_kincaid_grade(prose)
         # Drafted chapters run FK 6.7 (ch08) to 11.0 (ch06). Target is under 10;
         # above that a chapter is probably carrying too much abstraction per sentence.
-        if fk > 10.0: warns.append(f"FK grade {fk:.1f}; aim under 10, book runs 6.7 to 11.0")
+        if fk > 10.0:
+            warns.append(f"FK grade {fk:.1f}; aim under 10, book runs 6.7 to 11.0")
         grade = f"FK {fk:.1f}"
     except ImportError:
         grade = "FK n/a"
     longs = [s for s in re.split(r'(?<=[.!?]) ', prose) if len(s.split()) > 45]
-    if longs: warns.append(f"{len(longs)} sentence(s) over 45 words")
+    if longs:
+        warns.append(f"{len(longs)} sentence(s) over 45 words")
 
     status = "FAIL" if fails else ("warn" if warns else "OK")
     print(f"{name:<40}{status:<6}{words:>6}w  {grade}")
-    for f in fails: print(f"    FAIL  {f}")
-    for w in warns: print(f"    warn  {w}")
+    for f in fails:
+        print(f"    FAIL  {f}")
+    for w in warns:
+        print(f"    warn  {w}")
     return not fails
 
-if __name__ == '__main__':
-    from tool_help import help_requested
-    help_requested(__doc__)
-    if sys.argv[1:]:
-        targets = sys.argv[1:]
+
+def main(argv=None):
+    """Check the files named in `argv` (default `sys.argv[1:]`) and return an exit code.
+
+    With no files named, look for chapters from the repository root, the manuscript folder or
+    a sibling of it, taking the first pattern that matches. Returns 0 when every file is
+    clean, 1 when any file has a FAIL, and 2 when there was nothing to check.
+    """
+    args = sys.argv[1:] if argv is None else argv
+    if args:
+        targets = args
     else:
         # run from the repo root, the manuscript folder, or anywhere in between
         for pat in ('manuscript/ch*.md', 'ch*.md', '../manuscript/ch*.md'):
             targets = sorted(glob.glob(pat))
-            if targets: break
+            if targets:
+                break
         if not targets:
-            print("no chapter files found; pass paths explicitly"); sys.exit(2)
+            print("no chapter files found; pass paths explicitly")
+            return 2
     results = [check(p) for p in targets]   # no short-circuit; check every file
     ok = all(results)
     print("\nall clear" if ok else "\nfix the FAILs before calling the chapter done")
-    sys.exit(0 if ok else 1)
+    return 0 if ok else 1
+
+
+if __name__ == '__main__':
+    from tool_help import help_requested
+    help_requested(__doc__)
+    sys.exit(main())

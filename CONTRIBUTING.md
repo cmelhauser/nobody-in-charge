@@ -35,3 +35,11 @@ tests need.
 No em dashes in the author's prose. Chapters have no subheadings or tables in their narrative; tables belong
 in The Machinery. `CLAUDE.md` is the full statement of the conventions and `RELEASING.md` of branches,
 versions and tags.
+
+## Code
+
+Python under `tools/` and `tests/` must pass `ruff check .` with no `noqa` comments, carry a docstring on
+every module, class and function, and keep `tools/` and the canonical model at 100 per cent test coverage
+(`python3 -m pytest` enforces it). The analysis scripts under `model/` are frozen: each records its SHA-256
+in the cache it produced, so a linter, formatter or comment edit there invalidates hours of computation. Do
+not let a tool touch them.

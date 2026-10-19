@@ -1,10 +1,22 @@
 #!/usr/bin/env python3
 """Generate research/ROBUSTNESS-RESULTS.md from the expanded release caches.
 
-Refuses to write if any cache it reads is incomplete or keyed to another model hash. The
-release gate requires the report to be at least as new as every registered cache.
+Reads ten JSON caches under research/ (mc_error, tradition_paired, structural, sens3, tiered,
+oat_full, decay_ordering, decay_reversal, morris, sobol) and hashes model/aa_group_model.py.
+Writes research/ROBUSTNESS-RESULTS.md and prints its repository-relative path.
 
-Run from anywhere:  python3 tools/summarize_robustness.py"""
+Refuses to write if any cache it reads is incomplete or keyed to another model hash. The
+release gate requires the report to be at least as new as every registered cache. The refusal
+is an `assert`, so the report text is built in full, in memory, before the file is opened:
+a failed run leaves the previous report in place rather than a half-written one.
+
+Run from anywhere:  python3 tools/summarize_robustness.py
+
+Exit status: 0 after writing. An incomplete cache, a stale model hash, or a design whose row
+count is not the registered one (400 structural seeds, 944 one-at-a-time points) aborts with
+an AssertionError, so the exit status is non-zero. `-h` or `--help` prints this text and
+writes nothing.
+"""
 from __future__ import annotations
 
 import collections
@@ -15,28 +27,42 @@ from pathlib import Path
 
 import numpy as np
 
-
 ROOT = Path(__file__).resolve().parents[1]
 R = ROOT / "research"
 OUT = R / "ROBUSTNESS-RESULTS.md"
 
 
 def load(name):
+    """Parse the JSON cache `research/<name>`."""
     return json.loads((R / name).read_text())
 
 
 def hw(values):
+    """Half-width of a normal 95% interval for the mean of `values` (1.96 standard errors).
+
+    The sample SD uses ddof=1, so `values` needs at least two entries.
+    """
     a = np.asarray(values, float)
     return 1.96 * a.std(ddof=1) / math.sqrt(len(a))
 
 
 def classify(rows, left, right):
+    """Count seeds or draws where `left` beats, ties, or loses to `right`.
+
+    Returns (strict, tied, reversed) for the paired difference `row[left] - row[right]`. The
+    three are reported separately because a tie is not a reversal and not support.
+    """
     d = np.asarray([row[left] - row[right] for row in rows], float)
     return int((d > 0).sum()), int((d == 0).sum()), int((d < 0).sum())
 
 
 def render() -> str:
-    """The report's full text, so a test can compare it with the committed file."""
+    """Return the report's full text, so a test can compare it with the committed file.
+
+    Pure apart from reading the caches and the model file; it writes nothing. The assertions
+    inside are the release checks that the caches are complete, current, and the registered
+    size.
+    """
     lines = [
         "# Expanded Robustness Results",
         "",
@@ -66,7 +92,8 @@ def render() -> str:
         groups[tuple(row["job"][:3])].append(row)
     lines += [
         "", "## Integration and horizon", "",
-        "| Scenario | dt | Horizon years | Seeds | Mean N [95% half-width] | Existence | Viability | Closure |",
+        "| Scenario | dt | Horizon years | Seeds | Mean N [95% half-width] | Existence | "
+        "Viability | Closure |",
         "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for key in sorted(groups, key=lambda x: (x[0], x[2], x[1])):
@@ -85,8 +112,13 @@ def render() -> str:
     for dt in (1.0, 0.25, 0.125):
         comp = {r["seed"]: r for r in groups[("full", dt, 1560)]}
         d = np.asarray([comp[s]["N"] - base200[s]["N"] for s in range(200)], float)
-        lines.append(f"- `dt={dt:g}` minus `dt=0.5`: {d.mean():.3f} [{d.mean()-hw(d):.3f}, {d.mean()+hw(d):.3f}].")
-    lines.append("None resolves. The horizon series continues to move and is not a steady-state proof.")
+        lines.append(
+            f"- `dt={dt:g}` minus `dt=0.5`: "
+            f"{d.mean():.3f} [{d.mean()-hw(d):.3f}, {d.mean()+hw(d):.3f}]."
+        )
+    lines.append(
+        "None resolves. The horizon series continues to move and is not a steady-state proof."
+    )
 
     trad = load("tradition_paired.json")
     lines += [
@@ -96,7 +128,10 @@ def render() -> str:
         "", "| Tradition | Loss [95% interval] | t |", "|---:|---:|---:|",
     ]
     for row in sorted(trad["result"]["rows"], key=lambda r: -r["loss"]):
-        lines.append(f"| T{row['tradition']} | {row['loss']:.3f} [{row['lo']:.3f}, {row['hi']:.3f}] | {row['t']:.2f} |")
+        lines.append(
+            f"| T{row['tradition']} | {row['loss']:.3f} [{row['lo']:.3f}, {row['hi']:.3f}] | "
+            f"{row['t']:.2f} |"
+        )
 
     structural = load("structural.json")
     sg = collections.defaultdict(list)
@@ -141,7 +176,8 @@ def render() -> str:
     lines += [
         "Positive strict counts below mean the pure-attraction-loss condition ends larger or",
         "more viable than referral loss. Ties are reported separately.", "",
-        "| Design | Draws | N strict/tie/reversal | Viability strict/tie/reversal | Existence strict/tie/reversal | Full viable in all 3 seeds |",
+        "| Design | Draws | N strict/tie/reversal | Viability strict/tie/reversal | "
+        "Existence strict/tie/reversal | Full viable in all 3 seeds |",
         "|---|---:|---:|---:|---:|---:|",
     ]
     for name, rows in designs:
@@ -149,7 +185,10 @@ def render() -> str:
         cv = classify(rows, "att_s", "ref_s")
         ce = classify(rows, "att_exists", "ref_exists")
         full = sum(r["full_s"] == 1 for r in rows)
-        lines.append(f"| {name} | {len(rows)} | {cn[0]}/{cn[1]}/{cn[2]} | {cv[0]}/{cv[1]}/{cv[2]} | {ce[0]}/{ce[1]}/{ce[2]} | {full}/{len(rows)} |")
+        lines.append(
+            f"| {name} | {len(rows)} | {cn[0]}/{cn[1]}/{cn[2]} | {cv[0]}/{cv[1]}/{cv[2]} | "
+            f"{ce[0]}/{ce[1]}/{ce[2]} | {full}/{len(rows)} |"
+        )
 
     oat = load("oat_full.json")
     points = []
@@ -168,7 +207,9 @@ def render() -> str:
         f"{int((n_d>0).sum())}/{int((n_d==0).sum())}/{int((n_d<0).sum())}. Endpoint-viability "
         f"ordering is {int((v_d>0).sum())}/{int((v_d==0).sum())}/{int((v_d<0).sum())}.",
         f"Existence ordering is {int((e_d>0).sum())}/{int((e_d==0).sum())}/{int((e_d<0).sum())}.",
-        f"Full adherence is viable in all three seeds at {sum(p[2]['full']['surv']==1 for p in points)} of 944 points and exists in all three at {sum(p[2]['full']['exists']==1 for p in points)} points.",
+        f"Full adherence is viable in all three seeds at "
+        f"{sum(p[2]['full']['surv']==1 for p in points)} of 944 points and exists in all three "
+        f"at {sum(p[2]['full']['exists']==1 for p in points)} points.",
     ]
 
     morris = load("morris.json")
@@ -180,11 +221,16 @@ def render() -> str:
     levels = sorted({k[0] for k in cells}, reverse=True)
     lines += [
         "", "## Decay-ordering confirmation", "",
-        "The multi-level screen's `delta0` membership reversals, re-estimated at 400 seeds shared by",
-        "all twenty-one cells, so every contrast is paired by common random numbers. Full adherence",
-        "otherwise, 1,560 weeks, dt 0.5. Attraction is the pure T11 attraction path with governance",
-        "held at one; referral is `lam_exog = 0`. The default rate and 25, 50 and 75 per cent lower",
-        "come from `decay_ordering.json`; 10, 15 and 20 per cent lower, which locate the membership",
+        "The multi-level screen's `delta0` membership reversals, re-estimated at 400 seeds "
+        "shared by",
+        "all twenty-one cells, so every contrast is paired by common random numbers. Full "
+        "adherence",
+        "otherwise, 1,560 weeks, dt 0.5. Attraction is the pure T11 attraction path with "
+        "governance",
+        "held at one; referral is `lam_exog = 0`. The default rate and 25, 50 and 75 per cent "
+        "lower",
+        "come from `decay_ordering.json`; 10, 15 and 20 per cent lower, which locate the "
+        "membership",
         "reversal, from `decay_reversal.json`, whose design differs only in its level list.", "",
         "| delta0 change | Condition | Mean N [95% half-width] | Existence | Viability | Closure |",
         "|---:|---|---:|---:|---:|---:|",
@@ -210,7 +256,8 @@ def render() -> str:
             diff = np.asarray([a[s][fld] - b[s][fld] for s in seeds], float)
             h = hw(diff)
             lines.append(
-                f"| {pc}% | {fld} | {diff.mean():.3f} [{diff.mean() - h:.3f}, {diff.mean() + h:.3f}] | "
+                f"| {pc}% | {fld} | "
+                f"{diff.mean():.3f} [{diff.mean() - h:.3f}, {diff.mean() + h:.3f}] | "
                 f"{int((diff > 0).sum())} | {int((diff == 0).sum())} | {int((diff < 0).sum())} |")
 
     lines += [
@@ -222,7 +269,9 @@ def render() -> str:
     leaders = sorted(morris["result"]["rows"], key=lambda r: -r["membership"]["mu_star"])
     for rank, row in enumerate(leaders[:15], 1):
         x = row["membership"]
-        lines.append(f"| {rank} | {row['id']} | {x['mu']:.3f} | {x['mu_star']:.3f} | {x['sigma']:.3f} |")
+        lines.append(
+            f"| {rank} | {row['id']} | {x['mu']:.3f} | {x['mu_star']:.3f} | {x['sigma']:.3f} |"
+        )
 
     sobol = load("sobol.json")
     factors = sobol["meta"]["factors"]
@@ -231,7 +280,8 @@ def render() -> str:
         "The decomposition is conditional on the eight listed Morris leaders and the stated",
         "plus-or-minus 25 per cent ranges. First-order and total-order intervals are bootstrap",
         "intervals over base rows.", "",
-        "| Factor | Membership S1 [95%] | Membership ST [95%] | Practice S1 [95%] | Practice ST [95%] |",
+        "| Factor | Membership S1 [95%] | Membership ST [95%] | Practice S1 [95%] | "
+        "Practice ST [95%] |",
         "|---|---:|---:|---:|---:|",
     ]
     for i, factor in enumerate(factors):
@@ -241,12 +291,14 @@ def render() -> str:
             cells += [f"{r['S1'][i]:.3f} [{r['S1_lo'][i]:.3f}, {r['S1_hi'][i]:.3f}]",
                       f"{r['ST'][i]:.3f} [{r['ST_lo'][i]:.3f}, {r['ST_hi'][i]:.3f}]"]
         lines.append(f"| {factor} | " + " | ".join(cells) + " |")
-    lines += ["", f"Noise-replicate total-order diagnostics: {sobol['result']['noise_floor_ST']}." , ""]
+    lines += ["", f"Noise-replicate total-order diagnostics: {sobol['result']['noise_floor_ST']}.",
+              ""]
 
     return "\n".join(lines)
 
 
 def main():
+    """Write the rendered report to `OUT` and print its repository-relative path."""
     OUT.write_text(render())
     print(OUT.relative_to(ROOT))
 

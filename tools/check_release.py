@@ -14,6 +14,17 @@ Run from the repository root, last, after the three PDFs are built:
 sources, which a fresh clone can satisfy only by building them first, and reports those six
 as skipped rather than passed. Continuous integration's checkers job uses it; a release does
 not.
+
+Reads: the 20 registered caches under research/ and the analysis script each names, the
+canonical model, research/model-choice-inventory.json, research/ROBUSTNESS-RESULTS.md, both
+notebooks, the manuscript, appendix, primer and paper sources, and the three rendered PDFs.
+It also runs tools/check_portability.py as a child process. It writes nothing.
+
+Output: one `OK:`, `SKIP:` or `FAIL:` line per check, then a summary line.
+
+Exit status: 0 when no check failed, 1 when any did. A missing or unparsable cache is
+reported as a failure where it can be, but a missing file that the later design-count checks
+read directly raises instead, which also leaves the exit status non-zero.
 """
 from __future__ import annotations
 
@@ -24,7 +35,6 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "model" / "aa_group_model.py"
@@ -54,10 +64,17 @@ CACHES = {
 
 
 def sha256(path: Path) -> str:
+    """Return the hex SHA-256 of a file's bytes, the identity every cache is keyed to."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def load_model():
+    """Import the canonical model from its file path and return the module.
+
+    It is loaded under a private name rather than imported from `model/`, so the gate
+    executes exactly the file whose hash it has just checked and never a stale
+    `sys.modules` entry or an installed copy.
+    """
     spec = importlib.util.spec_from_file_location("release_check_model", MODEL)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -65,11 +82,17 @@ def load_model():
 
 
 def main() -> int:
+    """Run every release check, print the results and return the process exit status.
+
+    Checks accumulate in `notes` (passed) and `failures` rather than stopping at the first
+    problem, so one run shows everything that is wrong. Returns 0 when nothing failed.
+    """
     failures: list[str] = []
     notes: list[str] = []
     model_hash = sha256(MODEL)
 
     def require(ok: bool, message: str):
+        """Record a passed or failed check; a failure never raises."""
         (notes if ok else failures).append(("OK: " if ok else "FAIL: ") + message)
 
     for filename, (meta_key, script_name) in CACHES.items():
@@ -187,6 +210,7 @@ def main() -> int:
         cwd=ROOT,
         capture_output=True,
         text=True,
+        check=False,  # a nonzero exit is a failed check, reported below, not an exception
     )
     require(portability.returncode == 0,
             "tracked project text contains no machine-specific absolute paths")

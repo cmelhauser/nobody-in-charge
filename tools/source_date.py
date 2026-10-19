@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The build timestamp for each rendered document, taken from the date it declares.
+r"""Print the build timestamp for a rendered document, taken from the date it declares.
 
 TeX stamps a creation date and a document ID into every PDF it writes, so the book, the paper
 and the primer came out byte-different on every rebuild even when nothing in them had changed.
@@ -13,21 +13,35 @@ it moves only when the document's own date does:
 
   book     `DRAFT_DATE` in tools/build_book.py, at midnight UTC
   primer   `REVISED_DATE` in tools/build_primer.py, at midnight UTC
-  paper    the month in the paper's `\\date{...}`, on its first day at midnight UTC
+  paper    the month in the paper's `\date{...}`, on its first day at midnight UTC
 
 `tools/check_docs.py` already holds each of those dates to the sources it describes.
 
 Run from anywhere:  python3 tools/source_date.py book|primer|paper
+
+Other tools import `epoch()` rather than running this one: `build_book.py` and `build_primer.py`
+set `SOURCE_DATE_EPOCH` from it themselves, and the paper's build (a plain `tectonic` call
+in CI and `tools/run_ci_locally.sh`) takes it from this command's output.
+
+Reads:      the one source file that declares the date (listed above), never writing to it.
+Writes:     the epoch, as a bare integer, to standard output.
+Exit codes: 0 on success; 2 for a missing or unknown document name (usage goes to standard
+            error); a `SystemExit` with a message when the source declares no date.
 """
 from __future__ import annotations
 
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# document -> (file that declares its date, regex whose group 1 is the date text, strptime
+# format). The book and primer declare a day; the paper declares only a month, so its epoch
+# is the first of that month. Patterns are anchored on the declaration itself, not on prose
+# that merely mentions it, and the book/primer ones rely on the single-quoted constants in
+# the build scripts being left in that exact form.
 DECLARED = {
     "book": (ROOT / "tools" / "build_book.py", r"^DRAFT_DATE = '([^']+)'", "%d %B %Y"),
     "primer": (ROOT / "tools" / "build_primer.py", r"^REVISED_DATE = '([^']+)'", "%d %B %Y"),
@@ -37,11 +51,18 @@ DECLARED = {
 
 
 def declared_date(document: str) -> datetime:
+    """Return the date `document` declares, as midnight UTC.
+
+    `document` must be a key of `DECLARED`. Exits with a message naming the file if the
+    declaration cannot be found, because a silent fallback would stamp the clock's time into
+    the PDF, which is the defect this module exists to prevent. Midnight UTC keeps the
+    result independent of the machine's time zone.
+    """
     path, pattern, fmt = DECLARED[document]
     found = re.search(pattern, path.read_text(encoding="utf-8"), re.MULTILINE)
     if not found:
         raise SystemExit(f"{path.relative_to(ROOT)} declares no date for the {document}")
-    return datetime.strptime(found.group(1), fmt).replace(tzinfo=timezone.utc)
+    return datetime.strptime(found.group(1), fmt).replace(tzinfo=UTC)
 
 
 def epoch(document: str) -> int:
@@ -50,6 +71,11 @@ def epoch(document: str) -> int:
 
 
 def main() -> int:
+    """Print the epoch for the document named on the command line; return the exit status.
+
+    Returns 2, with usage on standard error, unless there is exactly one argument and it
+    names a known document; returns 0 after printing the epoch.
+    """
     if len(sys.argv) != 2 or sys.argv[1] not in DECLARED:
         print("usage: python3 tools/source_date.py book|primer|paper", file=sys.stderr)
         return 2

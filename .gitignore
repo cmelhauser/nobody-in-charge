@@ -70,3 +70,6 @@ htmlcov/
 # home-relative. See .github/workflows/ci.yml.
 .tex-cache/
 .xdg/
+
+# Scratch worktrees made by the agent tooling.
+.claude/worktrees/
