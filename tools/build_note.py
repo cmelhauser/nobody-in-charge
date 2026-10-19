@@ -27,6 +27,17 @@ The running head is taken from the title and the dateline, so it cannot drift fr
 
 Run from anywhere:
     python3 tools/build_note.py
+
+Reads:      research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md, which is
+            tracked and never written to. The source document of that directory is not used.
+Writes:     build/WorkingManuscript_1939-edits-and-suggested-uses.pdf, which is not tracked.
+            The scratch Markdown and LaTeX header live in a temporary directory that is
+            removed afterwards.
+Needs:      pandoc and either xelatex or tectonic on the PATH, and the TeX Gyre Pagella font.
+Exit codes: 0 on success, including when overfull boxes are listed as a warning; 1 with a
+            message if the note is missing or has an unexpected shape (see `prepare`), no PDF
+            engine is installed, or pandoc fails (the lines that name the failure go to
+            standard error first).
 """
 from __future__ import annotations
 
@@ -40,7 +51,8 @@ from itertools import takewhile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "research" / "incorporated" / "WorkingManuscript_1939" / "edits_and_suggested_uses.md"
+SRC = (ROOT / "research" / "incorporated" / "WorkingManuscript_1939"
+       / "edits_and_suggested_uses.md")
 OUT = ROOT / "build" / "WorkingManuscript_1939-edits-and-suggested-uses.pdf"
 
 VARIABLES = [
@@ -103,12 +115,26 @@ HEADER_INCLUDES = r"""
 \widowpenalty=10000
 """
 
+# A pipe-table separator row of exactly three columns of three or more dashes. `prepare`
+# insists the note has exactly one such table, so a second table, or a change in column
+# count, stops the build instead of leaving columns unweighted.
 SEPARATOR = re.compile(r"\|(?:-{3,}\|){3}")
+# The replacement separator. Pandoc sizes pipe-table columns in proportion to the dashes, so
+# this is the 10:30:52 weighting described in the module docstring.
 WEIGHTED = "|" + "-" * 10 + "|" + "-" * 30 + "|" + "-" * 52 + "|"
 
 
 def prepare(text: str) -> tuple[str, str, str, str]:
-    """Return the scratch Markdown, the plain title, the running title and the date."""
+    """Return the scratch Markdown, the plain title, the running title and the date.
+
+    `text` is the note as written. It must open with `# Short: rest`, a blank line, an
+    italic dateline containing a `D Month YYYY` date and a blank line, and must contain
+    exactly one three-column table. Anything else raises `SystemExit` naming the problem,
+    because the rewrites below assume that shape and a note that has lost it should stop the
+    build rather than render subtly wrong. The tuple is `(markdown, title, short, date)`:
+    the rewritten body behind a YAML block carrying the title and dateline, the full title,
+    the part of it before the colon, and the date alone.
+    """
     lines = text.splitlines()
     if len(lines) < 5 or not lines[0].startswith("# ") or lines[1] or lines[3]:
         raise SystemExit("note does not open with a title, a blank line and a dateline")
@@ -116,30 +142,34 @@ def prepare(text: str) -> tuple[str, str, str, str]:
     short, colon, rest = title.partition(": ")
     when = re.search(r"\b\d{1,2} [A-Z][a-z]+ \d{4}\b", dateline)
     if not colon or not when or not dateline.startswith("*"):
-        raise SystemExit("unexpected title or dateline: %r / %r" % (title, dateline))
+        raise SystemExit(f"unexpected title or dateline: {title!r} / {dateline!r}")
 
     body, tables = [], 0
     for i, line in enumerate(lines[4:], start=4):
         if line == "---":
+            # The rule is dropped, since each section opens with a hairline of its own, but
+            # only after checking that it really does stand before a section heading.
             following = next((ln for ln in lines[i + 1:] if ln.strip()), "")
             if not following.startswith("## "):
-                raise SystemExit("line %d: a rule that does not open a section" % (i + 1))
+                raise SystemExit(f"line {i + 1}: a rule that does not open a section")
             continue
         if SEPARATOR.fullmatch(line):
             # Ask for room for the whole table before its heading, or before its header
             # row if no heading leads into it. Rows here run to one or two lines.
             rows = sum(1 for _ in takewhile(lambda ln: ln.startswith("|"), lines[i + 1:]))
+            # `at` starts on the table's header row, the line just before the separator.
+            # Step back over blank lines and, if a heading sits there, insert above it.
             at = len(body) - 1
             k = at - 1
             while k >= 0 and not body[k].strip():
                 k -= 1
             if k >= 0 and body[k].startswith("#"):
                 at = k
-            body[at:at] = ["\\needspace{%d\\baselineskip}" % (rows + rows // 2 + 5), ""]
+            body[at:at] = [f"\\needspace{{{rows + rows // 2 + 5}\\baselineskip}}", ""]
             line, tables = WEIGHTED, tables + 1
         body.append(line)
     if tables != 1:
-        raise SystemExit("expected one three-column table, found %d; revisit WEIGHTED" % tables)
+        raise SystemExit(f"expected one three-column table, found {tables}; revisit WEIGHTED")
 
     # A raw \\ rather than \newline: inside the centred title \\ is \@centercr, while
     # \newline adds an \hfil that pushes the first line off centre.
@@ -151,8 +181,14 @@ def prepare(text: str) -> tuple[str, str, str, str]:
 
 
 def main() -> int:
+    """Render the note to `OUT`; return the exit status (0).
+
+    Raises `SystemExit` with a message, rather than returning non-zero, when the note is
+    missing or malformed, no PDF engine is on the PATH, or pandoc exits non-zero. Overfull
+    boxes are listed after the summary and do not change the exit status.
+    """
     if not SRC.exists():
-        raise SystemExit("note not found: %s" % SRC)
+        raise SystemExit(f"note not found: {SRC}")
     engine = next((n for n in ("xelatex", "tectonic") if shutil.which(n)), None)
     if engine is None:
         raise SystemExit("no PDF engine found; install xelatex or tectonic")
@@ -172,21 +208,23 @@ def main() -> int:
                "--include-in-header", str(tex),
                "-V", "title-meta=" + title]
         for key, value in VARIABLES:
-            cmd += ["-V", "%s=%s" % (key, value)]
-        res = subprocess.run(cmd, capture_output=True, text=True)
+            cmd += ["-V", f"{key}={value}"]
+        # check=False: a failing pandoc is reported below with the lines that name the
+        # failure, rather than as a traceback.
+        res = subprocess.run(cmd, capture_output=True, text=True, check=False)
 
     lines = (res.stdout + res.stderr).splitlines()
     if res.returncode != 0:
         # As build_primer.py: the lines naming the failure, then the tail.
         errs = [ln for ln in lines
                 if re.search(r"^!|error:|Error|Undefined|not loadable|not found|LaTeX Error", ln)]
-        tail = (errs[-25:] + ["--- tail ---"] + lines[-15:]) if errs else lines[-40:]
+        tail = [*errs[-25:], "--- tail ---", *lines[-15:]] if errs else lines[-40:]
         sys.stderr.write("\n".join(tail) + "\n")
         raise SystemExit("pandoc failed")
 
     overfull = sum(1 for line in lines if "Overfull" in line)
-    print("wrote %s using %s" % (OUT.relative_to(ROOT), engine))
-    print("overfull boxes: %d" % overfull)
+    print(f"wrote {OUT.relative_to(ROOT)} using {engine}")
+    print(f"overfull boxes: {overfull}")
     if overfull:
         print("WARNING: content is running outside the type block")
         for line in lines:

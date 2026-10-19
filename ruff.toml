@@ -1,11 +1,17 @@
 # Lint configuration.
 #
-# The ruleset is deliberately narrow: syntax errors and pyflakes, plus bugbear. Those
-# catch defects. The wider style rules were measured against this repository and rejected,
-# because clearing them would mean reformatting 373 long lines and 19 import blocks across
-# working checkers and, worse, across files whose bytes are pinned. A linter that forces
-# edits to hash-pinned code is not a safety net, it is a hazard.
+# TWO TIERS. The code a person edits (tools/, tests/) is held to a production ruleset:
+# syntax errors, pyflakes, bugbear, pycodestyle, import order, pyupgrade, comprehension and
+# simplification rules, ruff's own rules, builtin shadowing, docstrings on every module,
+# class and function, and subprocess calls that state `check=`. The code whose bytes are
+# pinned (model/*.py, the canonical model and the analysis scripts whose SHA-256 is recorded
+# in their caches) is held to the original narrow set: syntax errors, pyflakes and bugbear.
+# A linter that forces edits to hash-pinned code is not a safety net, it is a hazard, and
+# the wider rules were measured against that code and rejected for exactly that reason.
 line-length = 100
+# The repository requires Python 3.11 or newer (CONTRIBUTING.md); say so, so the upgrade rules
+# do not depend on which ruff version is guessing the target.
+target-version = "py311"
 extend-exclude = [
     # Executed artifacts. Their stored output is checked by the release gate, and editing a
     # cell to satisfy a linter would change output the gate is entitled to trust.
@@ -14,13 +20,27 @@ extend-exclude = [
 ]
 
 [lint]
-select = ["E9", "F", "B"]
+select = ["E", "W", "F", "B", "I", "UP", "C4", "SIM", "RUF", "A", "D", "PLW1510"]
+ignore = [
+    # D401 (imperative first line) is a phrasing preference, not a defect, and rewording
+    # several hundred accurate summaries to satisfy it would add churn and no information.
+    "D401",
+]
 
-# The analysis scripts under model/ are exempted from the four rules they trip. Their bytes
-# are load-bearing: each records its SHA-256 in the cache it produced, and
-# `tools/check_release.py` fails if a script hash stops matching its cache. Removing an
-# unused import from one of them would invalidate a cache that took hours to compute, in
-# order to silence a warning about a line that does nothing.
+[lint.pydocstyle]
+convention = "pep257"
+
+[lint.isort]
+# The tools import one another by bare name (the tests put tools/ on sys.path), so none of
+# them is a first-party package to ruff.
+known-first-party = []
+
+[lint.per-file-ignores]
+# The analysis scripts under model/ are exempt from the production rules and from four of
+# the original ones. Their bytes are load-bearing: each records its SHA-256 in the cache it
+# produced, and `tools/check_release.py` fails if a script hash stops matching its cache.
+# Removing an unused import from one of them would invalidate a cache that took hours to
+# compute, in order to silence a warning about a line that does nothing.
 #
 # The exemption is by rule, not wholesale, so a genuine defect in one of these files still
 # fails: an undefined name (F821) or a syntax error is not waived here.
@@ -29,5 +49,13 @@ select = ["E9", "F", "B"]
 # passes clean. CI asserts that separately with `ruff check model/aa_group_model.py
 # --isolated`, which ignores this configuration entirely, so the most pinned file in the
 # project cannot quietly acquire a waiver it did not need.
-[lint.per-file-ignores]
-"model/*.py" = ["F401", "F841", "B905", "B007"]
+"model/*.py" = [
+    "F401", "F841", "B905", "B007",
+    "E", "W", "I", "UP", "C4", "SIM", "RUF", "A", "D", "PLW1510",
+]
+
+# tools/regenerate_notebooks.py holds the source of both notebooks as string literals, and
+# those lines are notebook code that the notebooks print and the release gate reads back.
+# Wrapping them to satisfy the line length would change the generated cells, not just the
+# generator, so the generator is excused from E501 and is held to every other rule.
+"tools/regenerate_notebooks.py" = ["E501"]

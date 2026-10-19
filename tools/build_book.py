@@ -40,6 +40,17 @@ Run:
 The printed date is DRAFT_DATE, declared below and checked by tools/check_docs.py; the PDF's
 internal timestamp comes from the same date through tools/source_date.py, so a rebuild of
 unchanged text is byte-identical.
+
+Reads:      manuscript/ch*.md (the preface, introduction and 25 chapters), appendix/APPENDIX.md,
+            reference/PRIMER-steps-and-traditions.md and
+            paper/anonymity-as-an-aggregation-condition.tex. None of them is written to.
+Writes:     build/nobody-in-charge.md (the assembled book), and unless --no-pdf is given
+            build/nobody-in-charge.pdf and build/pandoc.log (the engine's full output).
+Needs:      pandoc always (to convert the paper); for the PDF also xelatex or tectonic on the
+            PATH and the TeX Gyre Pagella font.
+Exit codes: 0 on success; 1 with a message if pandoc cannot convert the paper, no PDF engine
+            is installed, or the PDF render fails (the lines that name the failure go to
+            standard error first); a missing source file raises an uncaught OSError.
 """
 import os
 import re
@@ -132,7 +143,8 @@ header-includes:
   - \\usepackage[english]{{babel}}
   - \\usepackage{{ragged2e}}
   - \\newcommand{{\\nictabragged}}{{\\RaggedRight\\hspace{{0pt}}}}
-  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\let\\raggedright\\nictabragged\\addtolength{{\\linewidth}}{{-1pt}}}}
+  - \\AtBeginEnvironment{{longtable}}{{\\footnotesize\\let\\raggedright\\nictabragged\
+\\addtolength{{\\linewidth}}{{-1pt}}}}
   # Wide result tables were the last thing sitting outside the type block. Pandoc sizes
   # each p-column as a fraction of (linewidth - 2*ncols*tabcolsep), so column padding is
   # taken out of the text before the columns are measured, and a wide table with
@@ -207,6 +219,7 @@ PARTS = [
 
 
 def read(path):
+    """Return the UTF-8 text of `path`; a missing file raises OSError rather than being skipped."""
     with open(path, encoding='utf-8') as fh:
         return fh.read()
 
@@ -221,6 +234,7 @@ def strip_front_matter(text):
 
 
 def demote_subscripts(text):
+    """Replace each Unicode subscript digit in `text` with the plain digit (see SUBSCRIPTS)."""
     for k, v in SUBSCRIPTS.items():
         text = text.replace(k, v)
     return text
@@ -232,20 +246,29 @@ def merge_title(text):
 
 
 def part_page(title, subtitle=None):
-    sub = '\\\\[0.6em]\n{\\large\\itshape %s}' % subtitle if subtitle else ''
+    """Return the LaTeX for a part's title page; the optional subtitle sits under the title."""
+    sub = f'\\\\[0.6em]\n{{\\large\\itshape {subtitle}}}' if subtitle else ''
     return PART_PAGE.format(title=title, sub=sub)
 
 
 def chapter(path):
+    """Return one chapter file ready to include: no front matter, merged title, plain digits.
+
+    The trailing whitespace is normalized to a single newline so the joined document has a
+    predictable blank line between chapters.
+    """
     return demote_subscripts(merge_title(strip_front_matter(read(path)))).rstrip() + '\n'
 
 
 def convert_paper():
-    """Convert the LaTeX paper to markdown, its sections one level down.
+    r"""Convert the LaTeX paper to markdown, its sections one level down.
 
-    Shifting is what keeps the paper's `\\section{Introduction}` from becoming a chapter
+    Shifting is what keeps the paper's `\section{Introduction}` from becoming a chapter
     of the book. With the shift its sections are `##`, which the depth-1 contents page
     does not list, so the paper appears in the table of contents as one entry.
+
+    Needs pandoc; if it is absent or fails, exits with a message that says so, because a
+    book assembled without its working paper would be silently incomplete.
     """
     try:
         md = subprocess.run(
@@ -258,17 +281,17 @@ def convert_paper():
              '--shift-heading-level-by=1'],
             capture_output=True, text=True, check=True).stdout
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
-        raise SystemExit('could not convert the paper: %s' % exc) from exc
+        raise SystemExit(f'could not convert the paper: {exc}') from exc
     return demote_subscripts(unwrap_pm(resolve_paper_crossrefs(md))).strip() + '\n'
 
 
 def unwrap_pm(md):
-    """Write the paper's `$a \\pm b$` cells as plain text, so a table row can break.
+    r"""Write the paper's `$a \pm b$` cells as plain text, so a table row can break.
 
     This is a typesetting fix with a real cause. Pandoc sizes each longtable column as a
     fraction of the text width, and the fractions come from the markdown intermediate,
     not from what the cells actually render to. The paper's seven-column scenario table
-    gives `$N$ if viable, y10` about an eighth of the width, and `$29.40 \\pm 1.16$` set
+    gives `$N$ if viable, y10` about an eighth of the width, and `$29.40 \pm 1.16$` set
     as maths is a single unbreakable box very close to that. Set maths cannot be
     hyphenated or broken, so when it does not fit it runs into the margin rather than
     wrapping, and how close it comes depends on the font build: the same source overflows
@@ -303,7 +326,7 @@ _SUFFIXES = ('tion', 'sion', 'ment', 'ness', 'able', 'ible', 'ing')
 
 
 def soften(row):
-    """Give an over-long word in a table cell somewhere to break.
+    r"""Give an over-long word in a table cell somewhere to break.
 
     Pandoc fixes each column's width as a fraction of the table, and the fractions are
     not stable across pandoc versions: the same table gives its first column 0.2577 here
@@ -312,17 +335,20 @@ def soften(row):
     margin rather than wrapping.
 
     Hyphenation would handle it, but only where it is available and allowed, and in a
-    table cell it is neither reliably: pandoc sets columns \\raggedright, which suppresses
+    table cell it is neither reliably: pandoc sets columns \raggedright, which suppresses
     it, and TeX will not hyphenate the first word of a paragraph, which is what a cell's
     content is. A soft hyphen sidesteps all of that. Pandoc writes U+00AD as an explicit
-    \\-, which TeX honours whatever the alignment, whatever the patterns, and wherever the
+    \-, which TeX honours whatever the alignment, whatever the patterns, and wherever the
     word sits.
 
     Only a known suffix is split off, and only where at least four letters remain before
     it, so the break is one English would make. Anything else is left alone: a wrong
     hyphen in a book is worse than a wide column.
+
+    Applied to a whole table row, it only touches ASCII words of eleven or more letters.
     """
     def split_word(match):
+        # Insert the soft hyphen before the first matching suffix, if enough stem remains.
         word = match.group(0)
         for suffix in _SUFFIXES:
             if word.lower().endswith(suffix) and len(word) - len(suffix) >= 4:
@@ -332,9 +358,9 @@ def soften(row):
 
 
 def resolve_paper_crossrefs(md):
-    """Neutralize LaTeX cross-reference markup that does not survive the round trip.
+    r"""Neutralize LaTeX cross-reference markup that does not survive the round trip.
 
-    The paper is LaTeX, and its `\\label`/`\\eqref` machinery converts to pandoc link
+    The paper is LaTeX, and its `\label`/`\eqref` machinery converts to pandoc link
     syntax that the second pass renders literally, so the book printed `[eq:err]` and
     `[prop:one]` where the paper prints a number. The paper's own PDF remains the
     authoritative rendering; inside the book these become plain words rather than dead
@@ -343,8 +369,10 @@ def resolve_paper_crossrefs(md):
     """
     # Anchor spans that pandoc emits for \label, e.g. [\[prop:one\]]{#prop:one label="..."}
     md = re.sub(r'\[\\\[[^\]]*?\\\]\]\{#[^}]*?\}\s*', '', md)
-    # Reference links, e.g. [\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"}
+
     def _ref(match):
+        # Reference links, e.g. [\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"},
+        # become a noun phrase chosen by the label's prefix.
         target = match.group(1)
         if target.startswith('eq:'):
             return 'the consensus-error equation above'
@@ -357,16 +385,16 @@ def resolve_paper_crossrefs(md):
         return 'above'
     md = re.sub(r'\[\\\[[^\]]*?\\\]\]\(#([^)]*?)\)\{reference-type="[^"]*"\s*reference="[^"]*"\}',
                 _ref, md)
-    # A leading "N." in a table cell is read as an ordered-list marker. Pandoc's LaTeX
-    # reader escapes every number except 1, which is the default list start and is dropped
-    # outright, so the paper's mapping table lost the "1." from its Common welfare row.
-    # Escape the survivors, then restore the one that was eaten.
     # The replacements above are noun phrases, so a preceding "Equation" or "equation ("
     # left over from the LaTeX would read "Equation the consensus-error equation above".
     md = re.sub(r'\b[Ee]quation\s+\((the [^)]*? above)\)', r'\1', md)
     md = re.sub(r'\b[Ee]quation\s+(the [a-z-]+ equation above)', r'\1', md)
     md = re.sub(r'\b[Ee]quation\s+(the proposition above)', r'\1', md)
 
+    # A leading "N." in a table cell is read as an ordered-list marker. Pandoc's LaTeX
+    # reader escapes every number except 1, which is the default list start and is dropped
+    # outright, so the paper's mapping table lost the "1." from its Common welfare row.
+    # Escape the survivors, then restore the one that was eaten.
     # Cells arrive either indented (simple and multiline tables) or after a pipe (grid and
     # pipe tables), so both openings have to be handled.
     md = re.sub(r'(\n(?:\s{2,}|\|\s*))(\d{1,2})\.(\s+\S)',
@@ -377,7 +405,14 @@ def resolve_paper_crossrefs(md):
 
 
 def assemble(build_date):
-    out = [HEADER.format(date=build_date)]
+    """Return the whole book as one Markdown string, headed with `build_date` as its draft date.
+
+    Reads the manuscript, appendix, primer and paper sources and writes nothing. Order is the
+    preface, the introduction, the six parts (each behind a title page), then the three
+    appendices. Raises OSError if a listed source is missing and SystemExit if pandoc cannot
+    convert the paper.
+    """
+    out =[HEADER.format(date=build_date)]
     out.append(chapter(os.path.join(ROOT, 'manuscript', 'ch00-preface.md')))
     out.append(chapter(os.path.join(ROOT, 'manuscript', 'ch00b-introduction.md')))
 
@@ -424,6 +459,12 @@ def assemble(build_date):
 
 
 def main():
+    """Assemble the book into build/, then render the PDF unless `--no-pdf` was given.
+
+    Reads `--date VALUE` and `--no-pdf` from `sys.argv`; a trailing `--date` with no value is
+    ignored. Returns None on success; raises `SystemExit` with a message if no PDF engine is
+    installed or pandoc fails.
+    """
     build_date = DRAFT_DATE
     for i, arg in enumerate(sys.argv):
         if arg == '--date' and len(sys.argv) > i + 1:
@@ -433,7 +474,7 @@ def main():
     text = assemble(build_date)
     with open(OUT_MD, 'w', encoding='utf-8') as fh:
         fh.write(text)
-    print('wrote %s, %d words' % (OUT_MD, len(text.split())))
+    print(f'wrote {OUT_MD}, {len(text.split())} words')
 
     if '--no-pdf' in sys.argv:
         return
@@ -446,7 +487,9 @@ def main():
     # tools/source_date.py says why. A caller's own SOURCE_DATE_EPOCH wins.
     env = dict(os.environ)
     env.setdefault('SOURCE_DATE_EPOCH', str(source_date_epoch('book')))
-    res = subprocess.run(cmd, capture_output=True, text=True, env=env)
+    # check=False: failure is handled below, after the log is written, so the user sees the
+    # lines that name the problem rather than a traceback.
+    res = subprocess.run(cmd, capture_output=True, text=True, env=env, check=False)
     log = os.path.join(BUILD, 'pandoc.log')
     with open(log, 'w', encoding='utf-8') as fh:
         fh.write(res.stdout + res.stderr)
@@ -457,10 +500,10 @@ def main():
         lines = (res.stdout + res.stderr).splitlines()
         errs = [ln for ln in lines
                 if re.search(r"^!|error:|Error|Undefined|not loadable|not found|LaTeX Error", ln)]
-        tail = (errs[-25:] + ["--- tail ---"] + lines[-15:]) if errs else lines[-40:]
+        tail = [*errs[-25:], "--- tail ---", *lines[-15:]] if errs else lines[-40:]
         sys.stderr.write('\n'.join(tail) + '\n')
-        raise SystemExit('pandoc failed, see %s' % log)
-    print('wrote %s using %s' % (OUT_PDF, engine))
+        raise SystemExit(f'pandoc failed, see {log}')
+    print(f'wrote {OUT_PDF} using {engine}')
 
 
 if __name__ == '__main__':

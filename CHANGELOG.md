@@ -14,6 +14,15 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Production-quality pass on the code. `ruff check .` now applies a production ruleset to `tools/` and `tests/`
+  (pycodestyle, import order, pyupgrade, simplification, ruff's own rules, builtin shadowing, a docstring on every
+  module, class and function, an explicit `check=` on subprocess calls) with no `noqa` comment; the hash-pinned
+  scripts under `model/` keep the original narrow set. The coverage gate now holds every script under `tools/` to
+  100 per cent beside the canonical model, following subprocesses (`.coveragerc`), and the Python 3.11, 3.13 and 3.14
+  legs keep a model-only gate (`.coveragerc-model`). Five new test files and 493 tests in all. One robustness fix:
+  `build_corpus.py --check` now reports a corrupt verification index on a record-only source instead of raising.
+  `CONTRIBUTING.md` states the code standards. No model change.
+
 - The book notebook gains a "part2 random-network controls" block (114 assertions; the paper notebook now runs 138). The control
   confirms that mean error is exactly sqrt(2/pi) times the mean 2-norm and falls as attention flattens, and it shows the
   correlation between maximum influence and error is positive in every cell but falls to 0.35 at N=250, so the proxy is

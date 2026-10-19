@@ -1,9 +1,21 @@
 #!/usr/bin/env python3
 """Render the corrected release-gate cache as a human-auditable report.
 
-Writes research/RELEASE-GATE-RESULTS.md from research/release_gate_results.json.
+Reads research/release_gate_results.json (the 400-seed condition cache) and
+model/aa_group_model.py, and writes research/RELEASE-GATE-RESULTS.md. Every number in the
+report is formatted from the cache, or recomputed from the model for the semantic-overlap and
+executable-coupling tables, so the Markdown is generated and never edited by hand.
 
-Run from anywhere:  python3 tools/summarize_release_gate.py"""
+The model is loaded from its file path under a private module name rather than imported, so
+the report always describes the file whose SHA-256 the cache records, whatever else is on
+`sys.path`.
+
+Run from anywhere:  python3 tools/summarize_release_gate.py
+
+Exit status: 0 after writing the report. An incomplete cache raises RuntimeError, which exits
+non-zero and leaves the existing report untouched. `-h` or `--help` prints this text and
+writes nothing.
+"""
 from __future__ import annotations
 
 import importlib.util
@@ -12,7 +24,6 @@ from pathlib import Path
 
 import numpy as np
 
-
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "research" / "release_gate_results.json"
 MODEL = ROOT / "model" / "aa_group_model.py"
@@ -20,6 +31,11 @@ OUT = ROOT / "research" / "RELEASE-GATE-RESULTS.md"
 
 
 def load_model():
+    """Load the canonical model from its file path as a throwaway module and return it.
+
+    A path-based load, not `import`, so the caller gets exactly the file at `MODEL` even if a
+    different `aa_group_model` is importable.
+    """
     spec = importlib.util.spec_from_file_location("summary_model", MODEL)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -27,36 +43,55 @@ def load_model():
 
 
 def pct(x):
-    """A percentage to one decimal, rounding an exact half away from zero as the book does.
+    """Format a proportion as a percentage to one decimal, rounding half away from zero.
+
+    This is what the book does.
 
     Python's own formatting rounds half to even, so 99.25 printed as 99.2 here and 99.3 in the
     book. The decimal is taken from the repr of the float, which is what the book's reader sees.
     """
     from decimal import ROUND_HALF_UP, Decimal
-    return f"{(Decimal(repr(float(round(100 * x, 10))))).quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)}%"
+    exact = Decimal(repr(float(round(100 * x, 10))))
+    return f"{exact.quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)}%"
 
 
 def ci_mean(s):
+    """Format a continuous summary dict (mean, lo, hi) as `mean [lo, hi]` to three places."""
     return f"{s['mean']:.3f} [{s['lo']:.3f}, {s['hi']:.3f}]"
 
 
 def ci_prop(s):
+    """Format a binary summary dict (proportion, lo, hi) as percentages with its interval."""
     return f"{pct(s['proportion'])} [{pct(s['lo'])}, {pct(s['hi'])}]"
 
 
 def top_sets(M):
+    """Per row of M, the 1-based column indices that attain the row maximum, ties included.
+
+    `isclose` rather than `==` so that ties which differ only by floating-point noise are
+    still reported as ties.
+    """
     return [[int(j)+1 for j in np.flatnonzero(np.isclose(row, row.max()))] for row in M]
 
 
 def ranks(M):
+    """Competition rank of each diagonal entry within its row: 1 + count of larger entries.
+
+    Equal values share a rank and structural zeros are not dropped, as the project requires.
+    """
     return [int(1 + np.sum(row > row[i])) for i, row in enumerate(M)]
 
 
 def rows(cache, cond):
+    """Return the per-seed result rows of condition `cond`, in seed order 0..nseed-1."""
     return [cache[f"{cond}|{seed}"] for seed in range(cache["meta"]["nseed"])]
 
 
 def main():
+    """Build the report from the cache and write it to `OUT`.
+
+    Raises RuntimeError, before touching `OUT`, if the cache is not marked complete.
+    """
     cache = json.loads(CACHE.read_text())
     if cache["meta"]["status"] != "complete":
         raise RuntimeError("release-gate cache is incomplete")
@@ -89,11 +124,13 @@ def main():
         "- Endpoint existence is N>0. Endpoint viability is N>5. N=0 is permanent closure.",
         "- Crossing N<=5 is not absorbing; recovery above 5 is recorded.",
         "- Continuous intervals are normal 95% intervals for paired or unpaired means as labelled.",
-        "- Binary condition intervals are Wilson intervals; binary contrasts retain pairing and report exact McNemar p-values in the cache.",
+        "- Binary condition intervals are Wilson intervals; binary contrasts retain pairing and "
+        "report exact McNemar p-values in the cache.",
         "",
         "## Condition outcomes",
         "",
-        "| Condition | Final N, mean [95% CI] | P(N>0) [95% CI] | P(N>5) [95% CI] | Ever crossed N<=5 | Recovered after crossing | P(N=0) |",
+        "| Condition | Final N, mean [95% CI] | P(N>0) [95% CI] | P(N>5) [95% CI] | "
+        "Ever crossed N<=5 | Recovered after crossing | P(N=0) |",
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for cond in cache["meta"]["conditions"]:
@@ -114,9 +151,11 @@ def main():
         "",
         "## Paired mechanism contrasts",
         "",
-        "Positive final-N contrasts below mean the intact or unconstrained first condition ends larger.",
+        "Positive final-N contrasts below mean the intact or unconstrained first condition "
+        "ends larger.",
         "",
-        "| Contrast | Paired final-N difference [95% CI] | Paired viability risk difference [95% CI] |",
+        "| Contrast | Paired final-N difference [95% CI] | "
+        "Paired viability risk difference [95% CI] |",
         "|---|---:|---:|",
     ]
     contrast_order = [
@@ -138,7 +177,8 @@ def main():
         "",
         "The interaction is baseline - path-loss - governance-loss + combined-loss.",
         "",
-        "| Tradition | Outcome | Path loss with governance intact [95% CI] | Governance loss with other path intact [95% CI] | Interaction [95% CI] |",
+        "| Tradition | Outcome | Path loss with governance intact [95% CI] | "
+        "Governance loss with other path intact [95% CI] | Interaction [95% CI] |",
         "|---|---|---:|---:|---:|",
     ]
     for label in ("t3", "t11"):
@@ -184,7 +224,8 @@ def main():
         "no-capacity linear map from effective adherence to Step resource bundles. Neither is",
         "the full state-update map or a trajectory effect.",
         "",
-        "| Step | Raw B maximizing Tradition set | Raw own-index competition rank | C maximizing Tradition set | C own-index competition rank |",
+        "| Step | Raw B maximizing Tradition set | Raw own-index competition rank | "
+        "C maximizing Tradition set | C own-index competition rank |",
         "|---:|---:|---:|---:|---:|",
     ]
     rb, rc = ranks(B), ranks(C)

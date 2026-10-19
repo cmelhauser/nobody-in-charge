@@ -147,7 +147,7 @@ five the paper cites and two from the skill-depreciation literature Chapter 12 h
 bringing the corpus to 40. All seven were read the same day, six in full and one in
 part, and what they bear on was applied to the manuscript, the paper, the primer and the appendix.
 The model is unchanged: the two skill-depreciation papers measure skill, not the practice the
-decay rate represents. Five sources remain record only because no lawful copy is yet in hand.
+decay rate represents. Five sources remained record only that day because no lawful copy was yet in hand; Iannaccone (1992) made it six on 29 September.
 
 Two more were added on 22 September 2026 at the Human Author's direction, bringing the corpus to
 42: Edgren, Baretta and Inauen (2025) on habit decay in daily life, open access under
@@ -337,10 +337,16 @@ publication rather than a mark in the history.
 
 ## Lint
 
-`ruff check .`, configured in `ruff.toml`. The ruleset is narrow on purpose: syntax errors,
-pyflakes and bugbear. The wider style rules were measured against this repository and
-rejected, because clearing them would mean reformatting 373 long lines and 19 import blocks
-across working checkers and across files whose bytes are pinned.
+`ruff check .`, configured in `ruff.toml`, in two tiers. The code a person edits (`tools/`
+and `tests/`) is held to a production ruleset: syntax errors, pyflakes, bugbear, pycodestyle,
+import order, pyupgrade, comprehension and simplification rules, ruff's own rules, builtin
+shadowing, a docstring on every module, class and function (pep257 convention, imperative-mood
+rule off), and an explicit `check=` on every `subprocess.run`. It passes with no `noqa`
+comments and no per-file waiver except one: `tools/regenerate_notebooks.py` is excused from
+the line-length rule, because its long lines are notebook cell source and wrapping them would
+change the generated notebooks. The pinned code (`model/*.py`) keeps the original narrow set:
+syntax errors, pyflakes and bugbear. Widening the ruleset over those files was measured and
+rejected, because clearing it would mean editing files whose bytes are pinned.
 
 **A linter must never be allowed to edit a hash-pinned file.** The analysis scripts under
 `model/` record their SHA-256 in the caches they produced, so removing an unused import from
@@ -357,14 +363,19 @@ waivers cannot reach it.
 does not need any source document: every source under `research/incorporated/` is git-ignored
 and the citation checker works from the committed verification indexes.
 
-The coverage gate is **100 per cent of `model/aa_group_model.py`** and is enforced by
-`.coveragerc` with `fail_under = 100`. That file is the canonical model, is hash-frozen, and
-is pure computation, so it is worth testing exhaustively. The scripts under `tools/` and the
-analysis scripts under `model/` are deliberately outside the gate: they are batch jobs and
-entry points that write hash-linked caches and render PDFs. They are covered by
-`tests/test_tools_integration.py`, which runs each one for real, by `tests/test_tools_direct.py`,
-which calls the functions of the seven tools, and the local CI runner, that file reaches only through the gate with every
-output redirected to a temporary directory, and by the release gate.
+The coverage gate is **100 per cent of `model/aa_group_model.py` and of every script under
+`tools/`**, enforced by `.coveragerc` with `fail_under = 100`. The canonical model is
+hash-frozen and pure computation, so it is tested exhaustively. The tools are command-line
+entry points, so the suite both calls their functions (`tests/test_tools_direct.py` and one
+test file per group of tools) and runs them as subprocesses (`tests/test_tools_integration.py`);
+`patch = subprocess` in `.coveragerc` makes coverage follow the subprocesses. Only lines that
+need an external toolchain or an operating-system failure carry `# pragma: no cover`, each
+with its reason. The analysis scripts under `model/` other than the canonical model are
+deliberately outside the gate: they are batch Monte Carlo jobs, their bytes are frozen (each
+records its SHA-256 in its cache, so a test hook or a pragma would invalidate hours of
+computation), and the release gate verifies every cache against the script that made it.
+The version legs other than 3.12 do not run the subprocess tests, so they use
+`.coveragerc-model`, which gates the canonical model alone.
 
 **`model/aa_group_model.py` must never be edited to make a test pass.** Its SHA-256 is the
 release identity. `tests/test_release_invariants.py` pins the digest, room capacity 60, the
@@ -376,7 +387,7 @@ verified without a network. `lint` runs ruff, actionlint and shellcheck and need
 
 `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only; on `main`
 it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the others with the model tests, the
-release invariants and the direct tool tests, each under the same coverage gate, plus a byte-compile of every tool and script. `checkers` runs once on 3.12 and covers everything that does not
+release invariants and the direct tool tests, each under the model-only coverage gate (`.coveragerc-model`), plus a byte-compile of every tool and script. `checkers` runs once on 3.12 and covers everything that does not
 require a rendered PDF: corpus drift, portability, the book-level checks, `check_docs.py`, and
 142 of the 148 release-gate checks via `check_release.py --skip-artifacts`, which reports the
 other six as skipped.
