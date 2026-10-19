@@ -14,6 +14,8 @@ someone who wants to know what changed between two tags does not have to read it
 
 ### Changed
 
+- Optional pre-commit hooks (`.pre-commit-config.yaml`) run the fast CI checks before a commit. No model change.
+
 - Production-quality pass on the code. `ruff check .` now applies a production ruleset to `tools/` and `tests/`
   (pycodestyle, import order, pyupgrade, simplification, ruff's own rules, builtin shadowing, a docstring on every
   module, class and function, an explicit `check=` on subprocess calls) with no `noqa` comment; the hash-pinned
