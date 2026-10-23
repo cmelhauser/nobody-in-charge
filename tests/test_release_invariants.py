@@ -23,7 +23,8 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# The canonical model identity quoted in CLAUDE.md, the appendix, and the README.
+# The canonical model identity, quoted in CLAUDE.md and the appendix (both checked below),
+# the README and other documents.
 CANONICAL_MODEL_SHA256 = "c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952"
 
 

@@ -67,7 +67,7 @@ The right way to hold the two is not to average them. It is to notice that they 
 
 There is one thing I did not expect and will say plainly.
 
-I started this to find out whether an argument worked. What the work actually did was find more than thirty errors, most of them mine, and each correction made the claim smaller. The decline figures shrank. The twelve counts became seven. The most robust thing the simulation says turned out to hold on one measure and reverse on another. Part Four learned that it rests on judgement and not on structure. The book at the end claims considerably less than the book at the beginning intended to.
+I started this to find out whether an argument worked. What the work actually did was find more than thirty errors, most of them mine, and each correction made the claim smaller. The decline figures shrank. Five of the twelve counts against index-pairing turned out to be untestable by the first design, and a threshold test later showed them failing by about the margins the other seven show. The most robust thing the simulation says turned out to hold on one measure and reverse on another. Part Four learned that it rests on judgement and not on structure. The book at the end claims considerably less than the book at the beginning intended to.
 
 That is what it is supposed to feel like, and it took me longer than it should have to recognise it.
 
@@ -99,7 +99,7 @@ I have spent a long time on why. I am fairly sure the answer is in this book. I 
 
 Nothing. This is the only chapter in the book without a model result in it, and that is deliberate.
 
-The one methodological point worth recording is about the outcome variable. Every quantitative claim in this book is about membership, group survival, or a scale I have called practice. None is about a person's condition, and the model contains no representation of harm, of suffering, or of anything that happens to somebody who leaves. A member who drops out is a row that stops contributing. The model's silence on what that means is total and is not an oversight; it is the boundary of what an aggregate model can be built to say.
+The one methodological point worth recording is about the outcome variable. Every quantitative claim in this book is about membership, endpoint viability, or a scale I have called practice. None is about a person's condition, and the model contains no representation of harm, of suffering, or of anything that happens to somebody who leaves. A member who drops out is a row that stops contributing. The model's silence on what that means is total and is not an oversight; it is the boundary of what an aggregate model can be built to say.
 
 ### 2. The technical version
 
@@ -109,7 +109,7 @@ For completeness, the three quantities the book reports and what each is not:
 
 **Membership**, the count of living rows at a horizon. Not a count of people helped, since it does not track anyone who left.
 
-**Survival**, the fraction of runs ending above five members. Not a measure of a fellowship's health, since a fellowship of small stable groups and a fellowship of large fragile ones can score identically.
+**Endpoint viability**, the fraction of runs ending above five members. Not survival, which is a different estimand from existence and closure, and not a measure of a fellowship's health, since a fellowship of small stable groups and a fellowship of large fragile ones can score identically.
 
 **Practice**, the mean of twelve numbers between zero and one. Not a clinical measure, not validated against anything, and not comparable between model configurations except in the ordinal sense the sensitivity work supports. Appendix A3 records that the original calibration targets failed after the mean-one correction and were not retuned, and A11 that no parameter is fitted to longitudinal group data.
 

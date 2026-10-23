@@ -1,6 +1,9 @@
 # Part Three: The Individual
 
-Chapters 12 to 15, roughly 14,000 words.
+**Status as of 22 October 2026: all chapters written; sections below are the plan as made; superseded items marked.**
+
+Chapters 12 to 15, roughly 14,000 words as planned (whole-file `wc -w` on 22 October 2026, still
+moving as chapters are revised: 5,690, 3,950, 4,980 and 3,560, about 18,200 in all).
 
 Master plan: `../BOOK-PLAN.md`. Companions: `PART-1-PLAN.md`, `PART-2-PLAN.md`.
 
@@ -30,7 +33,9 @@ should not pretend otherwise.
 ## 2. Chapter plan
 
 ### Chapter 12. Twelve Dials
-*Target 3,000 words. **Drafted** (2,012 words); the sequence below records the order.*
+*Target 3,000 words. **Drafted** (2,012 words when first drafted in August 2026; about 5,690
+words whole-file and 2,200 of main text on 22 October 2026); the sequence below records the
+order.*
 
 **What two drafted chapters have already promised Chapter 12 must deliver.** Both are
 forward pointers that currently do not resolve, and they are the only two in the book.
@@ -58,8 +63,10 @@ retired: no state-free ratio is implemented and no transmission claim follows. T
 were section 5 of the notebook when this plan was written. The rebuilt notebook is organised by
 labelled blocks and no longer has a section of that name.
 
-**The parameter honesty line for this chapter:** 118 numbers chosen by hand out of 226
-cells, none fitted. See `../research/PARAMETERS.md`, which was corrected on 2 August 2026
+**The parameter honesty line for this chapter:** 118 registered sensitivity values (22 scalar
+defaults, 12 step speeds, 49 nonzero `S` cells and 35 nonzero `GOV` cells, out of 226 scalars,
+speeds and matrix cells), none fitted. They are not all of the model's authored choices: the
+model also has 108 authored structural zeros and other fixed choices. See `../research/PARAMETERS.md`, which was corrected on 2 August 2026
 and whose breakdown had been wrong in four of six rows.
 
 The person as a state vector, in plain language. Twelve dials, each from zero to one,
@@ -249,7 +256,8 @@ Chapter 13, which was rewritten around them.
    6 below; the earlier separatrix, fragility and staggered-cliff interpretation are no
    longer baseline claims.
 
-~~4. Chapter 12.~~ **Drafted.** 2,012 words, FK 7.7, passes the checker, zero shared
+~~4. Chapter 12.~~ **Drafted.** 2,012 words at the time (see the note under Chapter 12 above for the current
+figure), FK 7.7, passes the checker, zero shared
    seven-word phrases with any other chapter. Both forward pointers discharged: it now owns
    the full description of the apparatus and the Ben-Porath ancestry of the depreciation
    structure. It does not restate the threshold and defers the CES substitution question to
@@ -276,8 +284,9 @@ Chapter 13, which was rewritten around them.
 ## 5. Risks
 
 **The honesty problem is sharper here than anywhere else in the book.** Part Three's
-results come from a simulation with 118 hand-chosen parameters, none fitted. (This line
-said "roughly twenty-eight" until the parameter audit; see `../research/PARAMETERS.md`.)
+results come from a simulation with 118 registered sensitivity values, none fitted, plus other
+authored choices that no sensitivity design moves. (This line said "roughly twenty-eight" until
+the parameter audit; see `../research/PARAMETERS.md`.)
 The chapters have to be readable and confident enough to be worth reading, while never
 letting a reader come away thinking any of it has been measured. The mechanism is the
 same one used elsewhere: the claim goes in the main text, the caveat goes in the main
@@ -303,8 +312,9 @@ read as advice about how to work the Steps. The primer's entries were written ag
 that risk and two of them still lean toward it, both recorded in the progress log. Any
 future edit to those entries should be checked against this section before it is saved.
 
-The mechanical part of the same problem: the primer is derived, it asserts nothing and no
-checker reads it, so a corrected figure in Chapters 12 to 15 has to be carried there in
+The mechanical part of the same problem: the primer is derived and it asserts nothing, and the
+checkers read it for structure and for banned or retired language (`tools/check_chapter.py`
+and `tools/check_release.py`), but nothing recomputes its figures, so a corrected figure in Chapters 12 to 15 has to be carried there in
 the same session. `CLAUDE.md` has the rule.
 
 ---
@@ -318,7 +328,7 @@ model correction:
 - all lognormal capability draws are mean-centred at one;
 - the \(\rho\) exercise is described only as a modest proxy-averaging result, not as proof that the latent state is recovered;
 - the recipient statistic is labelled opportunity per potential helper for low- and high-practice members, with a clean resource-override ablation that holds \(S\), \(\beta\), and the realized group fixed;
-- “118 registered parameter–statistic pairs” replaces any suggestion that 118 independent parameters were tested; and
+- “118 registered sensitivity values” replaces any suggestion that 118 independent parameters were tested; and
 - exploratory screens are distinguished from confirmatory paired contrasts, with explicit seed, horizon, replication, tie, and conditioning rules.
 
 Every cache depending on capability heterogeneity, resource allocation, or survival was treated as invalid until regenerated with provenance. All of them have since been regenerated against the frozen model and carry its SHA-256; `tools/check_release.py` fails closed if any of them drifts.

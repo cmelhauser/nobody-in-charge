@@ -31,13 +31,18 @@ person. Two is worth having. One is worth having and should be described as one.
 
 \section{Collecting the forms}
 
-Store each completed form in the repository as
-\texttt{research/governance-elicitation-<initials>.md}. The script reads every file matching that
-pattern: a markdown table whose first column is the Tradition and whose remaining eight columns
-are the resources in the order given on the form. Blank and \texttt{0} both mean empty.
+Give each respondent an anonymous code (R01, R02 and so on) and store each completed form in the
+repository as \texttt{research/governance-\allowbreak elicitation-<code>.md}. The script reads every file matching that pattern: a
+markdown table whose first column is the Tradition and whose remaining eight columns are the
+resources in the order given on the form. Blank and \texttt{0} both mean empty.
 
-Record in \texttt{research/SOURCES.md} who filled each one in, what they were told, and whether
-they had seen the book. \textbf{Whether the respondent has read Part Four is the single most
+\textbf{Never put a name, initials, an email address or any other identifying detail in the
+repository}, which is public: not in a file name, a form, the ledger, a commit message or the
+progress log. Respondents are told they will not be named. Strip any name from a returned form
+before saving it, and keep the mapping from code to person outside the repository.
+
+Record in \texttt{research/SOURCES.md}, under the code only, what each respondent was told and
+whether they had seen the book. \textbf{Whether the respondent has read Part Four is the single most
 important thing to record}, because a reader who has is not independent and their form should be
 reported separately rather than pooled.
 
@@ -49,7 +54,7 @@ python3 model/elicitation\_compare.py -{}-self-test\\
 python3 model/elicitation\_compare.py
 \end{quote}
 
-Run the self-test before sending any forms out. It passed on 10 August 2026.
+Run the self-test before sending any forms out. It passed on 10 August and 28 September 2026.
 
 \section{What the script reports, and why in that order}
 

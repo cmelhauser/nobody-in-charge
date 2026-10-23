@@ -12,7 +12,26 @@ someone who wants to know what changed between two tags does not have to read it
 
 ## [Unreleased]
 
+Canonical model SHA-256 for the whole of this block, which changes no model value:
+`c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`
+
 ### Changed
+
+- A line-by-line staleness audit corrected statements the tree had outgrown, across the documents,
+  plans, records and tools: present-tense claims about work since done, counts and pointers that
+  had moved, and statements a later decision had superseded. The handoff's section 10 now also
+  lists what was left undone on purpose (a regex defect in `build_corpus.py`, two stale pointers in
+  hash-pinned scripts, a non-public-domain source in git history, the public collator notes, the
+  runner-image move and the scope of Dependabot). Plain `python3 -m pytest` is now described as
+  running the tests without measuring coverage, which `--cov` adds. No model change.
+
+- The book is dated 17 October 2026 and the primer 16 October 2026, because their sources last
+  changed on those days (`DRAFT_DATE` in `tools/build_book.py`, `REVISED_DATE` in
+  `tools/build_primer.py`). No model change.
+
+- `ruff.toml` pins `target-version = "py311"`, the repository's floor, so the upgrade rules no
+  longer depend on which ruff version guesses the target, and three tools and two test files use
+  `datetime.UTC` in place of `timezone.utc`. No model change.
 
 - Optional pre-commit hooks (`.pre-commit-config.yaml`) run the fast CI checks before a commit. No model change.
 
@@ -90,7 +109,7 @@ someone who wants to know what changed between two tags does not have to read it
   Runner time per push to `main` falls by about two minutes of about six and a half.
 
 - `tools/check_docs.py` holds the Python versions the documents say CI tests to the workflow's
-  matrix, and counts its own checks against the handoff's verification table. It ran 28 checks when added and runs 31 now (the paper's page count and its decimal count were added later).
+  matrix, and counts its own checks against the handoff's verification table. It has grown with the drift it was written to catch, and runs 35 checks now.
 
 - The tracked `paper/anonymity-as-an-aggregation-condition.xdv`, a stale 10 August build
   intermediate, is removed and ignored, as the other LaTeX intermediates already were.
@@ -236,7 +255,7 @@ someone who wants to know what changed between two tags does not have to read it
   ordering at the default decay rate and at 25, 50 and 75 per cent lower, 400 paired seeds per
   cell, 4,800 runs, model `c3823f72`. It confirms the one-at-a-time screen's membership reversals
   and finds the ordering still holds on endpoint viability and existence at 25 per cent lower.
-  Registered in the release gate, now 142 checks, 136 of them run under `--skip-artifacts`, in both
+  Registered in the release gate, then 142 checks, 136 of them run under `--skip-artifacts`, in both
   notebooks and in `research/ROBUSTNESS-RESULTS.md`; Chapters 1, 4, 12 and 24, appendix A7 and
   A11, the paper, the primer and `research/PARAMETERS.md` report it. No released number changes.
 - Tests that compare generated files with what generates them: both notebooks are executed, their
@@ -245,7 +264,7 @@ someone who wants to know what changed between two tags does not have to read it
   executed the notebooks.
 - Seven open-access papers held git-ignored: five the paper cites (Angrist 2014,
   Cunha and Heckman 2007, Cunha, Heckman and Schennach 2010, Hu and Schennach 2008, Lembke n.d.)
-  and two from the skill-depreciation literature Chapter 12 has not consulted (Dinerstein,
+  and two from the skill-depreciation literature, which Chapter 12 had not then consulted and now does (Dinerstein,
   Megalokonomou and Yannelis; Cohen, Johnston and Lindner), bringing the corpus to 40 sources.
 
 - Copies of six sources that were record only, held git-ignored at the Human Author's direction:
@@ -258,8 +277,8 @@ someone who wants to know what changed between two tags does not have to read it
 - `WorkingManuscript_1939`: Hazelden's 2010 facsimile of the annotated 1939 multilith, read on
   every page and held as a git-ignored reading copy at the Human Author's direction, with a
   written account of the edits and where they bear on the manuscript. It changes no model
-  number, cache or release check. It implies a correction to Chapter 4 and a recount in
-  Appendix A13, both recorded in `HANDOFF.md` section 10 and neither yet made.
+  number, cache or release check. It implied a correction to Chapter 4 and a recount in
+  Appendix A13, both made on 13 September 2026 and recorded under Fixed below.
 - `tools/build_note.py`, which typesets that account to
   `build/WorkingManuscript_1939-edits-and-suggested-uses.pdf` with the primer's typography. The
   PDF is a reading copy, not a release artifact, and the release gate does not check it.
@@ -362,7 +381,7 @@ someone who wants to know what changed between two tags does not have to read it
   from. The builders themselves are not among those sources, because tidying an assembler is not
   changing the text. The primer's clock-derived date had been a deliberate fix for a hard-coded
   date that went stale unnoticed; what was missing then was a checker, which now exists.
-  `check_docs.py` runs 23 checks. The comparison against Git is skipped, and says so, in a shallow
+  `check_docs.py` then ran 23 checks. The comparison against Git is skipped, and says so, in a shallow
   clone, which is what continuous integration checks out: there the only commit is a merge GitHub
   synthesises on the day the job runs, so every source appears to have changed that day. It runs
   wherever the history is whole, including `tools/run_ci_locally.sh`, and ignores merge commits,

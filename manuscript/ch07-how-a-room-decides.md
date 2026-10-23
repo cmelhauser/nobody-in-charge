@@ -33,7 +33,7 @@ I am not claiming this is a complete account of what happens in a meeting. It pl
 
 Here is the first property, and it is the one that answers the question this chapter opened with.
 
-**The room settles fast.** Three rounds, in the example above, from a spread of seven points down to agreement. Not because anybody surrendered, but because mutual adjustment converges, and it converges quickly once everybody is at least somewhat connected to everybody else.
+**The room settles fast.** Four rounds, in the example above, from a spread of seven points down to agreement. Not because anybody surrendered, but because mutual adjustment converges, and it converges quickly once everybody is at least somewhat connected to everybody else.
 
 That is why a group with no authority does not deadlock. Authority is one way to end a discussion. Mutual adjustment is another, and it is a great deal more reliable than political theory would predict, provided one condition holds.
 
@@ -83,7 +83,7 @@ There is an exact answer to when it can be trusted, and it was proved in 2010. T
 
 The process described in this chapter is DeGroot updating, and it is the foundation for everything in Part Two. Three properties do the work.
 
-**Convergence.** A room settles, and settles fast, provided attention flows through the whole group rather than pooling in sealed compartments. In the five-member example the spread collapses from seven points to under a tenth in two rounds and to identity in three. This is a general feature rather than a property of the example: mutual adjustment among connected agents converges geometrically.
+**Convergence.** A room settles, and settles fast, provided attention flows through the whole group rather than pooling in sealed compartments. In the five-member example the spread collapses from seven points to under a tenth in two rounds and to agreement at two decimal places in four. This is a general feature rather than a property of the example: mutual adjustment among connected agents converges geometrically.
 
 **Weighted, not plain, averaging.** The settling point is the influence-weighted average of the starting views, not their arithmetic mean. In the example the room lands on 5.74 while the plain average is 5.60. The gap is small here because the weights are only moderately uneven. It grows with the unevenness, and Chapters Eight and Nine are about what happens when it grows a lot.
 

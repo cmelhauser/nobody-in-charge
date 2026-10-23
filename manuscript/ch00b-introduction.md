@@ -27,7 +27,7 @@ Golub and Jackson prove that it does if and only if one condition holds: the lar
 
 That is the condition. Three of the Twelve Traditions look very much like the conditions for satisfying it: the one that says leaders do not govern, the one that forbids hierarchy, and the one that keeps names out of the room. A fellowship of alcoholics with no theoretical apparatus at all appears to have arrived, in 1946, at the requirements of a result published in 2010.
 
-That is the book's central claim and I want to be exact about its status before anything else. **The theorem is proved and I have read it. The mapping from those three Traditions onto its condition is a reading of three sentences, it is mine, and nothing computational in this book touches it.** It is the largest unverified step here, and Chapter Twenty-Four says what would settle it.
+That is the book's central claim and I want to be exact about its status before anything else. **The theorem is proved and I have read it. The mapping from those three Traditions onto its condition is a reading of three sentences, it is mine, and nothing computational in this book touches it.** It is among the largest unverified steps here, and Chapter Twenty-Four says what would settle it.
 
 ---
 
@@ -57,9 +57,9 @@ A note on the first fellowship, because it is not only a control case.
 
 The Washingtonians are usually described, in the literature that descends from AA, as a movement that died of having no rules. That description turns out to be false, and I only discovered it late, when the movement's own manual finally came into my hands. They had rules. They wrote them down within two years of founding, printed them in a pocket edition, and circulated a model constitution through a convention and a newspaper.
 
-What they had, in writing, were analogues of four of the Traditions this book calls protective: each society independent and subordinate to none, its funds controlled by its own members, nothing political or sectarian admitted to its meetings. What they did not have was any of the seven this book calls enabling, and on anonymity they took the opposite position deliberately and with an argument, preferring publicity to what their manual calls whisperings and secrecy.
+What they had, in writing, were analogues of four of the Traditions this book calls protective: each society independent and subordinate to none, its funds controlled by its own members, nothing political or sectarian admitted to its meetings. What they did not have, apart from a preference for reformed men as officers and, in Baltimore's first year, a rule on who could speak, was any of the seven this book calls enabling, and on anonymity they took the opposite position deliberately and with an argument, preferring publicity to what their manual calls whisperings and secrecy.
 
-They committed the protective half of the code to paper and none of the rest, and they were finished inside ten years.
+They committed the protective half of the code to paper and almost none of the rest, and they were finished inside ten years.
 
 That is the comparison this book actually makes, and it is a better one than the version I started with, because it is not rules against no rules. It is one written code against another, and the ones missing from the first are the ones the theorem points at.
 

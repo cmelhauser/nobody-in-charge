@@ -27,6 +27,13 @@ The project's response, recorded so a reader can judge it:
 
 Any quotation must be checked against a lawfully obtained edition before release.
 
+**Resolved 17 August 2026.** The Human Author holds a lawfully obtained copy, which is what the
+objection required, since it concerned the project's access resting on an unauthorized posting and
+not the accuracy of the reading. The source stays record only because no copy has been supplied to
+the corpus, and the unauthorized file must never become the corpus copy. `metadata.json` records
+the resolution under `provenance_resolved`. Neither claim carries a page citation, so the edition
+difference is immaterial.
+
 ## What it supports
 
 **A book-length treatment of the Steps that never mentions the Traditions.** The word does not

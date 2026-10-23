@@ -7,11 +7,6 @@
  "status": "read_in_full",
  "rights_note": "Pre-1929 public-domain scan as labeled by Internet Archive source item.",
  "source_url": "https://archive.org/details/annualreportamer00amer_5",
- "files": {
-  "pdf": "ATU_Annual_Report_1841.pdf",
-  "ocr": "ATU_Annual_Report_1841_ocr.txt",
-  "sha256": "67f0fba2fcbd85ba3fb4804d1e758b5f5610c0e8a2d1d650e452613125a4174a"
- },
  "ocr_quality": "extracted_pdf_text; verify quotations against scan",
  "legacy_stem": null,
  "documents": {
@@ -26,6 +21,6 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "read_date": "2026-09-13"
 }

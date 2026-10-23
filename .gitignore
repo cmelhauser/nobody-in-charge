@@ -8,9 +8,10 @@ build/pandoc.log
 build/primer-pandoc.log
 build/primer-header.tex
 
-# Local git deploy key. Never commit it. It is scoped to this repository, and if it is ever
-# exposed the fix is to delete the deploy key on GitHub and generate a new pair, not to rotate
-# anything else.
+# Historical leftover: a local git deploy key used earlier in this repository's life. No
+# deploy key is registered on GitHub now and the remote is HTTPS. The entries stay so that a
+# key pair recreated here can never be committed by accident. If one is ever exposed, delete
+# the deploy key on GitHub and generate a new pair, not rotate anything else.
 .git-deploy-key
 .git-deploy-key.pub
 
@@ -47,7 +48,9 @@ paper/*.toc
 paper/*.xdv
 paper/*.tmp
 
-# Local pre-rewrite backup bundle. Not part of the project.
+# Historical leftover: a local backup bundle made before the history rewrite recorded in
+# CHANGELOG.md. The file no longer exists here; the entry stays so a restored copy is never
+# committed. Not part of the project.
 nobody-in-charge-pre-rewrite.bundle
 
 # Elicitation packet: LaTeX intermediates. build.sh removes these, but a manual

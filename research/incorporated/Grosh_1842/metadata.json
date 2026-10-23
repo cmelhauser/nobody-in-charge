@@ -1,6 +1,6 @@
 {
  "id": "Grosh_1842",
- "rights_note": "Pre-1929 United States publication; public domain. Internet Archive scan.",
+ "rights_note": "Pre-1929 United States publication; public domain. Harvard copy, digitised by Google, from HathiTrust.",
  "legacy_stem": "grosh-1842-washingtonian-pocket-companion",
  "documents": {
   "Grosh_1842.pdf": {
@@ -14,5 +14,6 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
+ "source_url": "https://hdl.handle.net/2027/hvd.32044004487591"
 }

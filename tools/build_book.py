@@ -22,7 +22,7 @@ WRITTEN TO.
      on the next. Those are merged into `# Chapter Nine: Confident and Wrong`, so that
      pandoc's --top-level-division=chapter gives one chapter per file and the table of
      contents at depth 1 lists chapters rather than every section inside them.
-  2. Four Unicode subscripts are mapped to plain digits, because the body font lacks
+  2. The ten Unicode subscript digits are mapped to plain ones, because the body font lacks
      the glyphs and the book's own convention already writes T11 and delta0 that way.
   3. YAML front matter in an included file is stripped, since only the assembled
      document carries a header.
@@ -68,7 +68,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..'))
 # book on every push to main. Change it in the same commit as a change to the book's sources.
 # tools/check_docs.py fails if it is older than the newest commit touching them, and
 # `--date` overrides it for a one-off build.
-DRAFT_DATE = '17 October 2026'
+DRAFT_DATE = '23 October 2026'
 
 BUILD = os.path.join(ROOT, 'build')
 OUT_MD = os.path.join(BUILD, 'nobody-in-charge.md')

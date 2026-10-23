@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 18 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 23 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -62,7 +62,10 @@ Do not change any of these without the user saying so explicitly, in the current
 5. **Do not delete source material or completed caches.**
 6. **Run `python3 tools/check_portability.py` before any commit.** No host-specific absolute path
    may enter tracked files.
-7. **Do not push, merge, or delete branches** unless the user authorizes those actions.
+7. **Do not push, merge, or delete branches** unless the user authorizes those actions. Work on a
+   branch and merge through a pull request; `main` is protected (the ruleset requires a pull
+   request for everyone, owner included, and blocks deletion and force-push), so a direct commit
+   to `main` is refused. `CLAUDE.md` gives the branch names and `RELEASING.md` the tag rules.
 
 ---
 
@@ -94,19 +97,19 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 - hash-linked caches, ledgers and the source corpus, `research/`
 - the elicitation packet, `research/elicitation/`
 - checkers and builders, `tools/`
-- three built PDFs: book 320 pages, paper 36, primer 24
+- three built PDFs: book 321 pages, paper 36, primer 25
 
 ---
 
 ## 4. Verification state
 
-As of 18 October 2026, everything passes:
+As of 23 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `python3 -m pytest --cov` | 493 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,240 statements) |
+| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 498 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,242 statements) |
 | `ruff check .` | clean, with no `noqa` comment and no waiver outside `model/` and the notebook generator's line length |
-| `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `RELEASING.md`) |
+| `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `CHANGELOG.md` under [0.9.0]) |
 | `tools/check_book.py` | 0 failures, 45 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
@@ -143,10 +146,13 @@ From the repository root, in this order. The PDFs must be built before the final
 that check requires each rendered artifact to be newer than every source feeding it.
 
 ```bash
+python3 -m pytest --cov --cov-report=term-missing
+ruff check .
 python3 tools/inventory_model_choices.py
 python3 tools/summarize_release_gate.py
 python3 tools/summarize_robustness.py
 python3 tools/build_corpus.py
+python3 tools/build_corpus.py --check
 python3 tools/regenerate_notebooks.py
 python3 tools/run_notebook.py
 python3 tools/run_notebook.py --paper
@@ -164,7 +170,7 @@ python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
 
-Then open all three PDFs and look at them. The release rule requires visual inspection: no
+`tools/run_ci_locally.sh` runs the same checks as the four CI jobs in one go. Then open all three PDFs and look at them. The release rule requires visual inspection: no
 clipping, no broken tables, no blank pages, no retired language.
 
 ---
@@ -176,8 +182,9 @@ every affected layer:
 
 analysis scripts and caches; both notebooks; manuscript chapters and preface;
 `appendix/APPENDIX.md`; `paper/anonymity-as-an-aggregation-condition.tex`;
-`reference/PRIMER-steps-and-traditions.md` including its plain-language paragraph;
-`research/PARAMETERS.md`, `research/SOURCES.md`, and the claim registers; `README.md`, the
+`reference/PRIMER-steps-and-traditions.md` including its plain-language paragraph and, for any change
+to `S`, `GOV`, a step speed or the gate ramp, the **What was assumed** block of every entry that
+quotes the changed value; `research/PARAMETERS.md`, `research/SOURCES.md`, and the claim registers; `README.md`, the
 applicable plans, `research/progress-log.md`, `AGENTS.md`, this file, and `AGENT_VERIFY.md`; then
 the book, paper and primer PDFs.
 
@@ -324,7 +331,10 @@ Markdown, a style file and `build.sh`.
 
 **Never send `4-collator-notes.pdf` to a respondent.** It states that the book leaves five rows
 empty and names them. That is the answer the exercise exists to elicit independently, and sending
-it destroys the round.
+it destroys the round. The file is nonetheless **public**: it is committed in this public
+repository, and a respondent who browses `research/elicitation/` can read it. The Human Author
+weighed that on 16 October 2026 and chose to leave it, because Chapter 18 states the same rows. Ask
+respondents not to look, and treat that as a limit of the exercise.
 
 The analysis is preregistered: `model/elicitation_compare.py` was written before any form came
 back and **must not be edited once forms start arriving**. It has not changed since the initial
@@ -343,8 +353,9 @@ empty, it reports that Chapter 18 is contradicted. Hold the project to that.
 
 Nothing is blocked on engineering, and nothing here blocks release. Every checker passes, both
 notebooks execute, all three PDFs render with zero overfull boxes, and continuous integration is
-green. This is the complete list and the only place these are recorded; anything claiming a
-shorter one is out of date.
+green. This is the complete list of open items; anything claiming a shorter one is out of date. Its
+last group, the standing notes, records things left undone by decision, so that no one mistakes
+them for oversights. Each is also in `research/progress-log.md` under its date.
 
 **One item could change a conclusion.**
 
@@ -428,9 +439,41 @@ each moves a record-only source onto the ordinary footing.
    - **Other statuses:** Ben-Porath (1967), read at source, and Hufford et al. (2003), read in
      abstract only.
 
+**Standing notes: left undone on purpose, or waiting on an outside event.** None changes a
+conclusion.
+
+7. **A latent defect in `tools/build_corpus.py`.** Its `TOKEN` regex lists the straight apostrophe
+   twice, so it never matches the typographic one. It is left alone and commented, because fixing
+   it would change every committed verification index (18 October 2026).
+8. **Two stale pointers in hash-pinned scripts.** `model/scenarios_hiseed.py` (line 9) and
+   `model/part5_runs.py` (line 4) still say "notebook section 1" for the endpoint table. Editing a
+   comment changes the script hash, which makes the cache stale and forces a rerun of 2,400 and
+   4,800 runs for no change in any number. If either script is ever rerun for another reason,
+   correct the pointer in the same commit (17 October 2026).
+9. **A source document in git history.** The first import of 6 August 2026 committed twelve source
+   files, and the history still holds them. Eleven of the files are public-domain works. The
+   twelfth, the Fatimah et al. (2025) NIH author manuscript, is not. The Human Author chose on 16 October 2026 to document it
+   (`research/SOURCES.md`, `SECURITY.md`) and not to rewrite history, since a rewrite would change
+   every hash and would not clear GitHub's pull-request references without a Support request. The
+   current tree commits no source document.
+10. **The collator notes are public.** `research/elicitation/4-collator-notes.pdf` names the answer
+    the exercise elicits and is committed in the public repository. Left public by the Human
+    Author's decision of 16 October 2026 (section 9).
+11. **The runner image.** Every job uses `ubuntu-latest`, which GitHub has announced moves to Ubuntu
+    26.04 between 19 October and 19 November 2026. The jobs passed on 26.04 on 1 and 12 October by
+    manual dispatch, before the CI actions, pandoc and tectonic were pinned by hash on 16 October.
+    Once the move happens, dispatch both workflows and confirm that the documents job and the
+    release workflow still pass, in particular the pinned tectonic against the new image's
+    libraries. The `ubuntu-26.04` label itself cannot be named yet, because actionlint rejects it.
+12. **Dependabot watches only GitHub Actions** (`.github/dependabot.yml`), monthly. The
+    `requirements-dev.txt` floors are deliberate and unwatched; pandoc and tectonic are installed by
+    URL and checksum and are not covered. A raise of any pin must be reviewed and merged by hand,
+    and a pin raise should be proved by dispatching the full workflow, including the 3.11 leg,
+    which pull requests do not run.
+
 ### Closed on 3 October 2026
 
-- **The paper's sparsity table, which was item 7, is computed exactly and strictly.** Its claims
+- **The paper's sparsity table, which was then an item on this list, is computed exactly and strictly.** Its claims
   take the strongest Tradition for each Step from `S @ G.T`, and a flipped cell's value of 0.5
   makes exact ties common. Floating point had been breaking them in the last bit, in an order that
   depends on the processor, and an emulated x86 printed 53.2 per cent where the paper printed 53.0.
@@ -453,7 +496,7 @@ each moves a record-only source onto the ordinary footing.
 ### Closed on 21 September 2026
 
 - **Where the referral-versus-attraction ordering first reverses on final membership**, which was
-  item 7 and was optional. `model/decay_reversal.py` ran the `decay_ordering.py` design at 10, 15
+  an optional item on this list. `model/decay_reversal.py` ran the `decay_ordering.py` design at 10, 15
   and 20 per cent lower decay, 3,600 runs on seeds 0 to 399, cached in
   `research/decay_reversal.json`. The membership ordering holds at 10 and 15 per cent lower, at
   10.92 members [10.18, 11.66] and 6.35 [5.03, 7.68], and is reversed at 20 per cent lower, at
@@ -564,8 +607,8 @@ each moves a record-only source onto the ordinary footing.
   `AGENT_VERIFY.md` and both workflows said the flag omits seven checks; it omits six and now
   reports them as skipped. New tests execute both notebooks, compare them and
   `research/ROBUSTNESS-RESULTS.md` with their generators, and recompute three cached cells of
-  `research/decay_ordering.json` from its script. Items 5 to 8 above were recorded elsewhere and
-  are now here.
+  `research/decay_ordering.json` from its script. Four further items
+  were recorded elsewhere and were moved onto the list at the time.
 - **The referral-versus-attraction ordering at slower decay.** `model/decay_ordering.py` re-ran
   the one-at-a-time screen's three `delta0` reversals at 400 paired seeds, 4,800 runs cached in
   `research/decay_ordering.json`. The screen was right about direction, and only on final
@@ -653,6 +696,10 @@ publisher gives them away.
   the last in every chapter; a required heading with nothing to list says "Nothing.", and the
   other two appear only when they have entries. A source read after it was first listed moves to
   Read in full rather than being marked read where it stands.
+- Primer entries carry three parts, in this order: **Technical**, **What was assumed**,
+  **In plain terms**. The middle part states which numbers in that row were authored rather than
+  measured, quotes them, and says what would follow if the choice were wrong. Do not add an entry
+  with only two parts, and keep the middle part in step with `model/aa_group_model.py`.
 - A number from a stochastic run carries its uncertainty and design. Deterministic algebra is
   labeled deterministic.
 - **Nothing in the project may be written as advice about an individual's recovery.**
@@ -684,6 +731,9 @@ Language that must stay exact:
 
 ## 13. If you change anything
 
+0. Work on a branch (`docs/`, `fix/`, `model/`, `ci/`) and merge through a pull request; `main` is
+   protected and refuses direct commits. Run `tools/run_ci_locally.sh` before the pull request,
+   because `documents` does not run on pull requests.
 1. Say what layer you are changing and why, before you change it.
 2. Re-run the affected scripts so no cache goes stale.
 3. Propagate through every layer in section 6.

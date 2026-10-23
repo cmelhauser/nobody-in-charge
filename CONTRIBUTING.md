@@ -7,7 +7,7 @@ are disabled.
 ## The flow
 
 `main` is protected: nothing is committed to it directly and it cannot be force-pushed or deleted.
-Work on a branch named for what it is for (`docs/`, `fix/`, `ci/`, `model/`), run the local gate, and open
+Work on a branch named for what it is for (`docs/`, `fix/`, `ci/`, `model/`, `source/`, `chore/`), run the local gate, and open
 a pull request.
 
 ```bash
@@ -40,7 +40,7 @@ versions and tags.
 
 Python under `tools/` and `tests/` must pass `ruff check .` with no `noqa` comments, carry a docstring on
 every module, class and function, and keep `tools/` and the canonical model at 100 per cent test coverage
-(`python3 -m pytest` enforces it). The analysis scripts under `model/` are frozen: each records its SHA-256
+(`python3 -m pytest --cov` enforces it). The analysis scripts under `model/` are frozen: each records its SHA-256
 in the cache it produced, so a linter, formatter or comment edit there invalidates hours of computation. Do
 not let a tool touch them.
 

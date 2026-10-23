@@ -91,7 +91,7 @@ But watch what happens to 1845 inside that courtroom. His own counsel takes him 
 
 > I signed the pledge the last Monday night in October, 1842, and violated that pledge in the beginning of 1843.
 
-He states the first relapse plainly, in open court, thirteen years on. Then counsel reaches September 1845, and the exchange is this, in full:
+He states the first relapse plainly, in open court, fifteen years on. Then counsel reaches September 1845, and the exchange is this, in full:
 
 > In 1845, I believe, you had a short illness? Yes.
 
@@ -204,7 +204,7 @@ outcome and derivative. None is estimated here.
 
 ### 3. Notes on sources
 
-**This chapter has been substantially rewritten after reading Gough's own account.** An earlier draft characterised his framing of the 1845 episode from his chapter headings, since the relevant chapters were unread, and concluded he had treated it as a charge to be rebutted rather than a relapse to be owned. Having now read Chapters X and XIII in full, that was wrong. His September 1845 statement contains the words *I have fallen*, an explicit acceptance of blame for going with a stranger and for the brandy, a submission to his church's judgment, and an explicit statement that he does not blame anyone for disbelieving him. The error was mine and it ran in the direction of making my own argument easier, which is the direction errors usually run.
+**This chapter has been substantially rewritten after reading Gough's own account.** An earlier draft characterised his framing of the 1845 episode from his chapter headings, since the relevant chapters were unread, and concluded he had treated it as a charge to be rebutted rather than a relapse to be owned. Having read Chapters X and XIII in full, and the rest of the book on 13 September 2026, that was wrong. His September 1845 statement contains the words *I have fallen*, an explicit acceptance of blame for going with a stranger and for the brandy, a submission to his church's judgment, and an explicit statement that he does not blame anyone for disbelieving him. The error was mine and it ran in the direction of making my own argument easier, which is the direction errors usually run.
 
 **The corrected reading is stronger.** With both relapses documented in his own words, the chapter no longer depends on any claim about Gough's character. It depends on the difference between the institutional responses, which is documented on both sides: the Washingtonian meeting at Worcester in April 1843, reported in the *Cataract and Washingtonian*, and the Mount Vernon Church examining committee of September and October 1845, whose report Gough reproduces.
 
@@ -224,7 +224,7 @@ outcome and derivative. None is estimated here.
 
 **Read in full:**
 
-Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough, with Twenty-Six Years' Experience as a Public Speaker.* Springfield, Mass.: Bill, Nichols & Co. Public domain; full text via the Internet Archive. Chapters I to V for the early life; Chapter X for the 1843 relapse in full; Chapter XIII for the 1845 episode, the September 22 statement, and the Mount Vernon Church committee report of October 31; Chapters XXVII to XXIX for the Dead Letter controversy of 1857, Gough's stated reasons for publishing the whole record, and the trial transcript of 21 June 1858 including the examination quoted in the text; the contents apparatus for the structure discussed in the text.
+Gough, J. B. (1869). *Autobiography and Personal Recollections of John B. Gough, with Twenty-Six Years' Experience as a Public Speaker.* Springfield, Mass.: Bill, Nichols & Co. Public domain; full text via the Internet Archive. Chapters I to V for the early life; Chapter X for the 1843 relapse in full; Chapter XIII for the 1845 episode, the September 22 statement, and the Mount Vernon Church committee report of October 31; Chapters XXVII to XXIX for the Dead Letter controversy of 1857, Gough's stated reasons for publishing the whole record, and the trial transcript of 21 June 1858 including the examination quoted in the text; the contents apparatus for the structure discussed in the text. The remaining chapters were read in full on 13 September 2026, and `research/SOURCES.md` records what that reading found.
 
 Maxwell, M. A. (1950). "The Washingtonian Movement." *Quarterly Journal of Studies on Alcohol* 11: 410-452. The assessment of anonymity's survival value; the judgment that opponents seized on the lapse and that public confidence was impaired; the generalisation to less prominent but publicly known Washingtonians.
 

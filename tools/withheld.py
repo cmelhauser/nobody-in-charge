@@ -38,10 +38,10 @@ WITHHELD = {
     '4d8d163722179946e84391aa25ab3a73b3a02b3202d0eebd0d0d882e51a1431c',  # surname alone
 }
 
-# Both tools' tokenizers keep a possessive or a hyphenated compound as one token, and its
-# digest is not the name's, so each piece is tested as well as the whole. The right single
-# quotation mark is written as an escape (U+2019) so the source holds no ambiguous character;
-# the pattern strings are identical to the literal-character form.
+# The tokenizers of the tools that use this module keep a possessive or a hyphenated compound
+# as one token, and its digest is not the name's, so each piece is tested as well as the whole.
+# The right single quotation mark is written as an escape (U+2019) so the source holds no
+# ambiguous character; the pattern strings are identical to the literal-character form.
 JOINERS = re.compile("['\u2019-]")
 WORD = re.compile("[A-Za-z][A-Za-z'\u2019-]+")
 

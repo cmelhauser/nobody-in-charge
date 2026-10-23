@@ -13,8 +13,10 @@ notebooks execute clean. All three PDFs are rebuilt and visually inspected with 
 and no margin overflow.
 
 The release criteria in section 4 are met. What remains is the unresolved scientific limitations
-recorded in `../HANDOFF.md` section 9, which the criteria explicitly permit and which must not be
-written up as though they were resolved.
+recorded in `../appendix/APPENDIX.md` A11 (threats to validity) and `../HANDOFF.md` section 12
+(claims that must not be made), with the one open test that could change a conclusion, the
+elicitation round, in `../HANDOFF.md` section 9. The criteria explicitly permit these limitations,
+and they must not be written up as though they were resolved.
 
 The original V1-V18 audit findings were resolved into the decisions below. The current
 `../AGENT_VERIFY.md` is the independent, fail-closed verification brief for the corrected

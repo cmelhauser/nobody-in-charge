@@ -7,12 +7,14 @@ stock `python3` on some machines is 3.9, where they fail.
 
 ```bash
 python3 -m pip install -r requirements-dev.txt
-python3 -m pytest
+python3 -m pytest --cov --cov-report=term-missing
 ```
 
-This needs no source document and finishes in seconds. It asserts the canonical model hash,
+This needs no source document and takes about a minute. It asserts the canonical model hash,
 room capacity 60, viability threshold 5, the 22 + 12 + 49 + 35 = 118 decomposition, and the
-semantics the appendix describes, at 100 per cent coverage of `model/aa_group_model.py`. A
+semantics the appendix describes. With `--cov`, `.coveragerc` also enforces 100 per cent coverage
+of `model/aa_group_model.py` and of every script under `tools/`; plain `python3 -m pytest` runs
+the same tests but measures and enforces no coverage. A
 failure here tells you the model or its invariants moved, which is worth establishing before
 reading anything else. GitHub Actions runs the same suite plus, on `main`, a job that rebuilds
 the PDFs and runs the release gate.
@@ -100,9 +102,10 @@ of the copy consulted, and the passages verified from it.
 
 `RecoveryDharma_2023`, added 16 August 2026, is **not** in that category. It is an ordinary
 git-ignored source with a document, a SHA-256 and a verification index. It is worth one line here
-only because its licence, CC BY-NC-SA 4.0, is the single licence in the corpus that would permit
-committing the document; the project git-ignores it anyway, so the uniform rule holds without
-exception.
+only because its licence, CC BY-NC-SA 4.0, is the corpus's most permissive-looking grant of
+redistribution for a whole book (other open-access sources, such as Edgren et al. (2025) under CC
+BY 4.0, are licensed too, though they are articles). The project git-ignores every document
+whatever its licence, so the uniform rule holds without exception.
 
 Rohr (2011) carries the corpus's strongest provenance objection, recorded in its `metadata.json`:
 the copy consulted was an unauthorized posting of a current in-print title. It was not retained,
@@ -338,9 +341,9 @@ remain withheld: `delta0` returns `S1 = 0.421` against `ST = 0.417` and the prac
 sum is 1.074. Quoting any practice first-order index in public prose is a release failure.
 
 **Generating platform.** Caches are hash-linked to the model and generating script, not to a
-platform. The three screens above were executed on Linux x86-64 under NumPy 2.2.6; the eight
-`oat_full.json` jobs completed before the pause and the 400-seed confirmatory caches were
-generated on macOS. Cross-platform re-execution reproduces discrete outcomes exactly and
+platform. The three screens above were executed on Linux x86-64 under NumPy 2.2.6, and the 400-seed
+confirmatory caches were generated on macOS (`release_gate_results.json` records the platform and
+NumPy version it used). Cross-platform re-execution reproduces discrete outcomes exactly and
 continuous outcomes to within about 1e-16, which changed no classification. Expect agreement to
 reported precision, not bit-identical reproduction. A last-digit difference is not a release
 defect; a difference at reported precision is.
@@ -375,7 +378,7 @@ two extra cells:
    release-gate conditions, the paired T3 and T11 contrasts, the recipient contrast's interval
    crossing zero, the Sobol first-order admissibility split between membership and practice, and
    the structural ordering in all five architectures.
-2. **Paper traceability.** Every decimal the paper prints, currently 498 of them after excluding
+2. **Paper traceability.** Every decimal the paper prints, currently 505 of them after excluding
    DOIs and the five figures quoted from cited literature, must be reachable from the model
    source, a hash-linked cache, or a derivation shown in the notebook. This is the paper's
    equivalent of the figure check `tools/check_book.py` performs for the chapters, which the paper
@@ -420,7 +423,13 @@ Required PDFs:
 - `paper/anonymity-as-an-aggregation-condition.pdf`
 - `reference/PRIMER-steps-and-traditions.pdf`
 
-Build each only after all prose and notebooks are final. Render every PDF to page images and
+Build each only after all prose and notebooks are final, with the commands in `HANDOFF.md`
+section 5 (`tools/build_book.py`, the paper through `tectonic` with `SOURCE_DATE_EPOCH` set from
+`tools/source_date.py paper`, then `tools/build_primer.py`). CI pins pandoc 3.10.2, so a book or
+primer built with another version may differ from the committed PDFs; judge it by `check_pdfs.py`
+and the overfull count, not by a byte match. Then run `python3 tools/check_pdfs.py` (21 checks;
+without poppler the three ink measurements report themselves skipped), and `check_release.py`
+without `--skip-artifacts` last. Render every PDF to page images and
 inspect for clipped tables, margin overflow, broken equations, unresolved references, blank or
 duplicated pages, malformed headings, stale generated dates, and unreadable type. Machine
 success is not visual verification.

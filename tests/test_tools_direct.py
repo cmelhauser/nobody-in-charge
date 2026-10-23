@@ -4,7 +4,10 @@
 functions, with every output redirected into a temporary directory, so that a branch that the
 real repository never takes (a corrupt PDF, an incomplete cache, a note with the wrong shape)
 is exercised on purpose rather than discovered when it happens. Nothing here writes into the
-repository. None of it is in the coverage gate, which is the canonical model; see `.coveragerc`.
+repository. The seven tools are inside the 100 per cent coverage gate (`.coveragerc` measures
+the canonical model and every script under `tools/`), and these tests are what holds them to it
+on the Python versions that do not run the subprocess tests (`.coveragerc-model` gates only the
+model there).
 
 The tools covered are freeze_release_manifest, check_pdfs, build_note, summarize_release_gate,
 inventory_model_choices, check_docs and check_fonts, plus tools/run_ci_locally.sh. Run with

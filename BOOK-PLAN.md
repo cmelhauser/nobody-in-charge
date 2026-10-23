@@ -68,23 +68,39 @@ rewritten as one code against another rather than as rules against none.
 
 ## 2. Structure
 
-Six parts, 25 chapters, roughly 80,000 words.
+Six parts and 25 chapters. The first plan estimated roughly 80,000 words; as written, with each
+chapter's Machinery included, the manuscript runs to about 107,000 (table below).
 
 | Part | Chapters | Subject | Research needed |
 |---|---|---|---|
 | I | 1 to 6 | Two fellowships, 1840 and 1935 | Done, with optional archive items remaining |
 | II | 7 to 11 | The group: the condition and its failure modes | **None. Complete.** |
-| III | 12 to 15 | The individual: steps as a technology | One literature check |
+| III | 12 to 15 | The individual: steps as a technology | None. The step-ordering search is done (below). |
 | IV | 16 to 18 | How the two halves connect | None |
 | V | 19 to 22 | How groups die | None |
 | VI | 23 to 25 | What we do not know | None |
 
-**Seventeen of twenty-five chapters need no new research.** The burden sits almost
-entirely in Part One.
+*Superseded.* This section once tallied seventeen of twenty-five chapters as needing no new
+research. All 25 are drafted; what remains outstanding is listed in `HANDOFF.md` section 10.
+
+**Length as written, 22 October 2026** (`wc -w` of each chapter file as it stands, Machinery
+included; the planning estimates this table replaces were 21,000, 12,200, 14,000, 11,000, 12,000 and
+10,000 words and are not comparable):
+
+| Part | Words |
+|---|---:|
+| I (Chapters 1 to 6) | about 35,400 |
+| II (Chapters 7 to 11) | about 17,300 |
+| III (Chapters 12 to 15) | about 18,100 |
+| IV (Chapters 16 to 18) | about 12,800 |
+| V (Chapters 19 to 22) | about 10,500 |
+| VI (Chapters 23 to 25) | about 9,500 |
+| Preface and introduction | about 3,800 |
+| Whole manuscript | about 107,000 |
 
 ---
 
-### Part I. Two Fellowships (drafted, ~21,000 words)
+### Part I. Two Fellowships (drafted)
 
 | Ch | Title | Status |
 |----|-------|--------|
@@ -99,7 +115,7 @@ Full detail, including what is needed from the author, in `plans/PART-1-PLAN.md`
 
 ---
 
-### Part II. The Group (drafted, ~12,200 words)
+### Part II. The Group (drafted)
 
 | Ch | Title | Status |
 |----|-------|--------|
@@ -114,7 +130,7 @@ Consolidated from six chapters to five: the original "Three Ways It Breaks" and
 
 ---
 
-### Part III. The Individual (~14,000 words)
+### Part III. The Individual (drafted)
 
 | Ch | Title | Content | Status |
 |----|-------|---------|--------|
@@ -140,17 +156,17 @@ bistability, a separatrix, or hysteresis in its released baseline.
 
 ---
 
-### Part IV. How the Two Halves Connect (~11,000 words)
+### Part IV. How the Two Halves Connect (drafted)
 
 | Ch | Title | Content |
 |----|-------|---------|
 | 16 | The Pairing That Isn't | The natural index-pairing conjecture, tested and rejected on all twelve steps. The two inversions: Step 5 is served by Tradition 12, Step 12 by Tradition 5. |
-| 17 | What a Step Needs From a Room | **Rescoped.** Chapter 12 has already spent the resource derivation and the group-dependence coefficients, so this chapter cannot be the introduction to them. It becomes the chapter on what the coupling says about *Traditions* rather than about steps: why unity is the most load-bearing at 6.52 against a next-highest of 3.89, and why being diffuse rather than strong is what makes it so. |
+| 17 | What a Tradition Carries | **Rescoped** from "What a Step Needs From a Room". Chapter 12 has already spent the resource derivation and the group-dependence coefficients, so this chapter cannot be the introduction to them. It becomes the chapter on what the coupling says about *Traditions* rather than about steps: why unity is the most load-bearing at 6.52 against a next-highest of 3.89, and why being diffuse rather than strong is what makes it so. |
 | 18 | Two Kinds of Rule | Enabling and protective traditions, derived rather than asserted. Five of the twelve give members nothing directly. Note that this claim cannot be tested by multiplicative perturbation and must not be reported as surviving it. |
 
 ---
 
-### Part V. How Groups Die (~12,000 words)
+### Part V. How Groups Die (drafted)
 
 | Ch | Title | Content |
 |----|-------|---------|
@@ -161,7 +177,7 @@ bistability, a separatrix, or hysteresis in its released baseline.
 
 ---
 
-### Part VI. What We Do Not Know (~10,000 words)
+### Part VI. What We Do Not Know (drafted)
 
 | Ch | Title | Content |
 |----|-------|---------|
@@ -205,13 +221,18 @@ three-way split is the chapter.
 **Every chapter ends with a section called The Machinery**, in four parts: what
 the model says about the chapter, the technical version, notes on how far the
 sources can be trusted, and the references. Part 2 is skippable by construction.
-All six drafted chapters conform.
+All 25 chapters conform; the preface, introduction and primer are exempt from the
+structure.
 
 **No em-dashes** in the author's prose. Quoted primary material keeps its
 punctuation. Verified across all files.
 
-**References separate what was read from what was not.** Every reference list is
-divided into read in full, cited at one or more removes, and still to obtain.
+**References separate what was read from what was not.** The references part carries
+fixed status headings, in this order: Read in full; Cited at a remove; Referenced but not
+reproduced; Internal, and reproducible from this repository; What was not read. The first, the
+second and the last are required in every chapter, with "Nothing." under any that has no
+entries; the other two appear only when they have entries. `tools/check_chapter.py` enforces
+this, including that an entry marked read does not sit under another heading.
 
 **Every chapter is checked mechanically before it is called done.** Run
 `python3 tools/check_chapter.py <file>` from the repository root. It enforces all of
@@ -240,10 +261,11 @@ introduced no errors but the ch03 normalisation did, and the checker caught it.
 `model/book-calculations.ipynb` regenerates every number quoted in the book, organised by
 chapter, and asserts each against the value printed. If a cell fails, either the model
 changed or a chapter is wrong. Run it after any change to `model/aa_group_model.py` and before
-calling any chapter done. It currently reports all figures matching.
+calling any chapter done. It reports all figures matching (8 cells, 114 assertions as of 22 October 2026).
 
 **Sources are archived.** `research/SOURCES.md` records provenance for everything cited,
-split into obtained-and-read, obtained-and-partly-read, and not-obtained. Since 9 August 2026
+under headings for sources obtained and read in full, read in two passes, of limited status,
+identified but not obtained, and the paper-only bibliography's read status. Since 9 August 2026
 each source is a directory under `research/incorporated/<ShortAuthor>_<Year>/`, and no source
 document is committed: what is published is the citation, the rights position, the provenance
 URL, the SHA-256 and a vocabulary-only verification index. Gough (1869), the primary source for
@@ -291,11 +313,12 @@ Chapter 8 is where it either works or fails.
 | Chapter 1 completeness | Alexander 1988 | You. **Partly relieved** by Grosh 1842 on the women's societies. |
 | Chapter 6's 1944 material | A Mann biography, or Kurtz reread for the NCEA sequence | Me, in part |
 | Chapter 3 definitiveness | AAS Gough scrapbook | You, and optional |
-| Chapter 13 | Step-ordering literature search | Me |
+| ~~Chapter 13~~ | ~~Step-ordering literature search~~ **Done.** See the struck note under Part III. | Done |
 | **Everything else** | **Nothing** | **Me** |
 
-**Parts II, IV, V and VI can be written now, in full, with no acquisitions.** Parts II and III
-are done. That leaves ten chapters and roughly 33,000 words with nothing blocking them.
+~~**Parts II, IV, V and VI can be written now, in full, with no acquisitions.**~~ **Superseded
+9 August 2026: all six parts are drafted.** The rows above that are not struck record what the
+sources in Part One still lack; `HANDOFF.md` section 10 is the current list.
 
 **The *Washingtonian Pocket Companion*, obtained 2 August 2026, changed what Part One
 argues.** The comparison is no longer between a fellowship that wrote rules and one that did
@@ -321,9 +344,9 @@ falsified outright.
 7. **Introduction**, written last, once the thesis has stopped moving.
 
 **Superseded 9 August 2026. The book is complete.** All six parts are drafted: 25 chapters plus
-the preface and the introduction, assembled by `tools/build_book.py` into a PDF that now runs to 320 pages. Part Six
+the preface and the introduction, assembled by `tools/build_book.py` into a PDF that now runs to 321 pages. Part Six
 and the introduction, described below as outstanding, were written. Chapter 22 is no longer
-provisional: it stands at about 2,300 words and cites Carrell, Sacerdote and West, whose three
+provisional: it now runs to about 2,800 words (Machinery included) and cites Carrell, Sacerdote and West, whose three
 figures are registered as source figures in `tools/check_book.py`.
 
 The paragraph below is kept as the record of where the project stood on 2 August 2026.
@@ -372,7 +395,11 @@ reconstruction was verified by rebuilding the previous book and diffing: it repr
 
 ---
 
-## 8. Release-gate correction round, opened 6 August 2026
+## 8. Release-gate correction round, opened 6 August 2026 (historical)
+
+*This section records the round as it was opened. The round closed with the `v0.9.0` pre-release
+of 23 August 2026 (`CHANGELOG.md`), and release status was restored by it. The present
+obligations are in `CLAUDE.md` and `plans/RELEASE-GATE-PLAN.md`.*
 
 plans/RELEASE-GATE-PLAN.md is now the controlling plan for the final audit and correction round. Its release criteria supersede earlier statements in this file that the project was “fully audited,” universally checked, or release-ready.
 
@@ -385,7 +412,7 @@ The approved model semantics for this round are:
 - zero membership is permanently closed, while existence, endpoint viability, final membership, first passage, recovery, and closure are separate estimands; and
 - lognormal heterogeneity is mean-centred so its scale parameter does not silently change average capability.
 
-All affected caches, notebooks, appendix tables, manuscript claims, paper claims, primer wording, source ledgers, and generated PDFs must be regenerated or revised before the release status can be restored.
+At the time, all affected caches, notebooks, appendix tables, manuscript claims, paper claims, primer wording, source ledgers, and generated PDFs had to be regenerated or revised before release status could be restored.
 
 The robustness expansion distinguishes modeled group size, confirmatory replication and
 perturbation coverage. Room capacity remains 60 and ordinary stochastic claims retain the

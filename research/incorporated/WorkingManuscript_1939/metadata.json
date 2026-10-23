@@ -11,7 +11,7 @@
  "provenance_url": null,
  "pages_missing": "Book pages 22-23 were not photographed. Hazelden's apparatus places the multilith title page and Lois W.'s presentation leaf in the front papers, so these are probably those two pages; both are described in Hazelden's essays. The Human Author will photograph them for adding.",
  "record_only": false,
- "holding_note": "Held rather than record only, at the Human Author's direction on 12 September 2026: the reading copy and its OCR text are git-ignored like every other document in the corpus and are never committed. This departs from the record-only treatment given to the other in-print copyrighted works here (Rohr 2011, AAWS literature), and is recorded so that nobody mistakes it for drift.",
+ "holding_note": "Held rather than record only, at the Human Author's direction on 12 September 2026: the reading copy and its OCR text are git-ignored like every other document in the corpus and are never committed. On 12 September it departed from the record-only treatment then given to the other in-print copyrighted works (Rohr 2011, AAWS literature); the AAWS works have been held too since 13 September 2026, and Rohr 2011 remains record only. The note is kept so that nobody mistakes the original departure for drift.",
  "topics": [
   "Big Book",
   "1939 multilith",
@@ -41,5 +41,5 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above."
 }

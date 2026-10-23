@@ -31,7 +31,8 @@ checksum with a URL is a stronger provenance record than a copy, because it can 
 against the original rather than trusted.
 
 So the documents are local working files. Re-acquire any of them from the URL in its
-`metadata.json` and check the recorded SHA-256.
+`metadata.json` (`source_url` or `provenance_url`), or from the identifier in `../SOURCES.md` where
+no URL is recorded, and check the recorded SHA-256.
 
 ## Why that does not weaken citation checking
 

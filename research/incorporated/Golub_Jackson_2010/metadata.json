@@ -10,11 +10,6 @@
  "status": "incorporated",
  "doi": "10.1257/mic.2.1.112",
  "source_url": "https://bengolub.net/papers/naivelearning.pdf",
- "files": {
-  "pdf": "Golub_Jackson_2010.pdf",
-  "ocr": "Golub_Jackson_2010_ocr.txt",
-  "sha256": "3ef06a9f25ffdde8e8b213f40a10bf0d96160b9034f2da33d77cc4ede470a20e"
- },
  "note": "Author-hosted article PDF; retain source attribution and journal citation. Incorporated into the project evidence record on 2026-08-06.",
  "rights_note": "Author-hosted PDF. Not redistributed here.",
  "legacy_stem": null,
@@ -30,5 +25,5 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above."
 }

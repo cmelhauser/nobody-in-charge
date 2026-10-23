@@ -241,7 +241,7 @@ Golub, B. and M. O. Jackson (2010). "Naive Learning in Social Networks and the W
 
 Cunha, F., J. J. Heckman, and S. M. Schennach (2010). "Estimating the Technology of Cognitive and Noncognitive Skill Formation." *Econometrica* 78(3): 883-931. The stage technology into which maintenance enters. The depreciation structure is not theirs, since their technology carries a stock forward without a separate decay term; it is Ben-Porath's, below.
 
-Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. The ancestry of the depreciation structure, described in Chapter Twelve rather than here.
+Ben-Porath, Y. (1967). "The Production of Human Capital and the Life Cycle of Earnings." *Journal of Political Economy* 75(4): 352-365. **Read at source**, confirmed by the Human Author on 14 September 2026; no copy is held. The ancestry of the depreciation structure, described in Chapter Twelve rather than here.
 
 Witkiewitz, K. and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738. Read in full on 14 September 2026 from the author manuscript at PubMed Central; no copy is held. The general argument that relapse is a discontinuous process which linear models predict badly, and a refit of the cusp model to Project MATCH in which it fits better than linear and logistic models among those still drinking at twelve months. Abstainers are excluded from that fit, and the fitting program gives no test of significance.
 

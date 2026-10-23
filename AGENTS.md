@@ -52,12 +52,15 @@ a checker says otherwise. Your job is almost certainly not to re-derive anything
 When two things disagree, believe them in this order:
 
 1. `model/aa_group_model.py` for executable semantics
-2. hash-linked JSON caches in `research/` whose model and script hashes match
-3. generated `research/RELEASE-GATE-RESULTS.md` and `research/ROBUSTNESS-RESULTS.md`
-4. the executed notebooks
-5. appendix, paper, primer, manuscript, plans, README, PDFs
+2. hash-linked analysis scripts and complete JSON caches in `research/` whose model and script
+   hashes match, for numerical results
+3. manuscript, paper, appendix, primer, plans, and ledgers, for interpretation
+4. generated Markdown and PDFs
 
-A PDF or a Markdown table never overrides a cache.
+This is `CLAUDE.md`'s order and `CLAUDE.md` governs. The generated results reports
+(`research/RELEASE-GATE-RESULTS.md`, `research/ROBUSTNESS-RESULTS.md`) are summaries of the
+caches, so when one disagrees with a cache, the cache wins. A PDF or a Markdown table never
+overrides a cache.
 
 ## Where to look
 
@@ -87,7 +90,8 @@ copyright. What is committed is the record, a citation, rights, provenance URL, 
 and a vocabulary-only verification index.
 
 Citation checking does not need the documents. Add or repair a source with
-`python3 tools/build_corpus.py`, never by hand; `--check` audits without changing anything.
+`python3 tools/build_corpus.py`, never by hand; `--check` reports drift and changes no file,
+though it can create an empty directory for a registered source that has none.
 
 Six of the 45 sources are **record only**: no document exists at any time, which is a stronger
 condition than git-ignored. Each carries `"record_only": true` in its metadata. Kurtz (1991) and
@@ -105,8 +109,10 @@ corpus, because `tools/check_book.py` identifies a source in prose by that token
 features older interpreters lack, and the stock `python3` on some machines is 3.9. No source document
 is needed.
 
-The coverage gate is 100 per cent of `model/aa_group_model.py` and of every script under `tools/`, enforced by `.coveragerc`.
-**Never edit that file to make a test pass**: its SHA-256 is the release identity, and
+The coverage gate is 100 per cent of `model/aa_group_model.py` and of every script under `tools/`,
+enforced by `.coveragerc` when the suite runs as `python3 -m pytest --cov`; plain
+`python3 -m pytest` does not measure coverage.
+**Never edit `model/aa_group_model.py` to make a test pass**: its SHA-256 is the release identity, and
 `tests/test_release_invariants.py` pins the digest along with capacity 60, viability 5, and the
 118-value decomposition. If a test there fails, find out whether the model was changed on
 purpose and run the synchronization rule before touching anything.
@@ -114,7 +120,8 @@ purpose and run the synchronization rule before touching anything.
 The tools are tested by calling their functions (`tests/test_tools_direct.py` and the per-group
 test files) and by running them for real as subprocesses (`tests/test_tools_integration.py`);
 coverage follows the subprocesses. Use `# pragma: no cover` only for a line that needs an external
-toolchain or an operating-system failure, and give the reason on the line. The analysis scripts
+toolchain or an operating-system failure, and give the reason on the line; none is used in
+`tools/` today. The analysis scripts
 under `model/` (other than the canonical model) sit outside the gate on purpose: their bytes are
 frozen, so a test hook or a pragma would invalidate their caches. Slow work behind `NIC_SLOW_TESTS=1`.
 
@@ -134,7 +141,7 @@ whole point of the split is that a CTAN timeout must not stop the release checks
 `RELEASING.md` is the authority. The short version:
 
 - **Never commit to `main`.** Branch, open a pull request, let CI run. Prefixes: `model/`,
-  `fix/`, `docs/`, `ci/`, `source/`.
+  `fix/`, `docs/`, `ci/`, `source/`, `chore/`.
 - `lint`, `unit-tests` and `checkers` run on pull requests; `documents` renders the PDFs and runs only on
   `main`, so **a green pull request is not a green release**. Run `tools/run_ci_locally.sh`
   before merging, which covers all four.
@@ -154,7 +161,9 @@ whole point of the split is that a CTAN timeout must not stop the release checks
 docstring on every function, class and module, and no `noqa` comments), and the original narrow set
 for the pinned code under `model/`. **Never let it edit a file under `model/`**: those record their SHA-256 in the caches they produced and a reformat
 invalidates hours of computation. They carry per-rule waivers.
-`model/aa_group_model.py` takes none and CI asserts it with `--isolated`.
+`model/aa_group_model.py` passes the original narrow set (syntax errors, pyflakes, bugbear) with no
+waiver, and CI asserts exactly that with `--isolated --select E9,F,B`; for the production rules it falls
+under the same `model/*.py` block, a documented exemption because the file cannot be edited to meet them.
 
 ## Before you commit
 

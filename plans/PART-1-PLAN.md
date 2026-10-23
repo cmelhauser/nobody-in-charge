@@ -1,5 +1,7 @@
 # Part One: Status and Plan
 
+**Status as of 22 October 2026: all chapters written; sections below are the plan as made; superseded items marked.**
+
 Consolidated. Part-level detail for Part One. Master plan: `../BOOK-PLAN.md`. Companion: `PART-2-PLAN.md`.
 
 ---
@@ -11,6 +13,13 @@ four-part Machinery sections, no em-dashes outside quoted sources.
 
 Word counts are whole-file, as in earlier versions of this table, and include the Machinery.
 `tools/check_chapter.py` reports a smaller main-text figure for each.
+
+**The Words column is as written in August 2026.** Whole-file `wc -w` on 22 October 2026, to the
+nearest ten and still moving as chapters are revised: Chapter 1, 9,020; Chapter 2, 8,740;
+Chapter 3, 4,650; Chapter 4, 4,030; Chapter 5, 5,480; Chapter 6, 3,660. The part now runs to
+about 35,600 words, not the roughly 29,000 above. In the same way, the Chapter 5 status below
+(fifteen of sixteen claims read directly) is as written on 2 August 2026; the register now counts
+20 of 22 after the six working-manuscript rows were added (`../research/part1-claim-register.md`).
 
 | Ch | Title | Words | Status |
 |----|-------|-------|--------|
@@ -63,7 +72,8 @@ pass `../tools/check_chapter.py` with no failures. The normalisation removed em-
 LaTeX, main-text subheadings and main-text tables, and corrected Chapter Three's
 section structure. Two standing warnings are accepted rather than fixed:
 
-- **Chapter Six reads at Flesch-Kincaid 11.0**, the hardest in the book. It is a
+- **Chapter Six reads at Flesch-Kincaid 11.0** (as measured in August 2026; `check_chapter.py`
+  now reports one sentence over 45 words and no grade level), the hardest in the book. It is a
   chapter about a sociologist's argument and its limits, so some of that is
   inherent, but it is a candidate for a simplifying pass.
 - **Several chapters carry sentences over forty-five words.** Mostly deliberate
@@ -79,14 +89,16 @@ Everything reachable by reading public-domain sources, running the model, or
 reasoning about what is already drafted has now been done: Gough read at source
 including the trial chapters, the model numbers audited and one error corrected,
 the paper's Monte Carlo figures replaced with closed form, the claim register
-built, the timing objection researched and answered, the Martha Washington and
-Black societies incorporated.
+built, the timing objection researched and answered, the
+Martha Washington societies and juvenile auxiliaries noted (the separate Black societies are
+flagged as a gap and not incorporated; Alexander 1988 is the source that would close it).
 
-Two small items remain that need no acquisition and can be done any time:
+Two small items remained that needed no acquisition when this section was written:
 
-- A light pass over Chapters 4 and 5 once Kurtz is in hand, to rewrite rather than
-  patch.
-- Final cross-chapter consistency check after any further revision.
+- ~~A light pass over Chapters 4 and 5 once Kurtz is in hand, to rewrite rather than
+  patch.~~ **Done 2 August 2026**: Kurtz was read and both chapters were reworked on it
+  (see section 5, Tier 1).
+- Final cross-chapter consistency check after any further revision. This is the standing item.
 
 ---
 
@@ -97,7 +109,7 @@ them.**
 
 ### Tier 1: acquired, and what remains of it
 
-~~**Kurtz, E. (1979). *Not-God.* Hazelden.**~~ **Obtained and read in full, 2 August 2026.**
+~~**Kurtz, E. (1979/1991). *Not-God.* Hazelden.**~~ **Obtained and read in full, 2 August 2026.**
 Chapter 4's founding narrative is now first-hand and Chapter 2 gained the author, date and
 motive of the story AA tells about the Washingtonians. In copyright, so the full text is not
 stored here; a vocabulary-only verification index is, and `check_book.py` reads it. ~~**Chapter 5 has not yet been reworked with Kurtz.**~~ **Done 2 August 2026.**
@@ -130,7 +142,7 @@ the argument, and I would rather know now.
 - **An independent account of the 1944 NCEA episode.** Currently the whole
   sequence rests on AA's *Pass It On* at one remove, and it is load-bearing for
   the timing objection. Either Kurtz, or Brown and Brown's biography of Marty
-  Mann.
+  Mann. (Chapter 6 still asks for this check; it is not on the list in `HANDOFF.md` section 10.)
 - **White, W. L. *Slaying the Dragon*, 2nd ed.** Cited second-hand throughout.
 
 ### Tier 3: would make Chapter Three definitive, not required
@@ -208,7 +220,12 @@ The remaining work is not writing. It is four books and an archive enquiry.
 
 ## 8. Release-gate corrections, opened 6 August 2026
 
-This plan is now subordinate to plans/RELEASE-GATE-PLAN.md. The documentary argument will be tightened as follows:
+**Done in the release-gate round.** The release-gate analyses were complete on 9 August 2026 and
+every checker passed on 28 September 2026 (`RELEASE-GATE-PLAN.md`); Chapter 3 now calls the Gough
+material a "same-person contrast, not a natural experiment". The list below is kept as the record
+of what the round required.
+
+This plan is subordinate to plans/RELEASE-GATE-PLAN.md. The documentary argument was to be tightened as follows:
 
 - treat the Gough material as a same-person contrast and historical observation, not as a causal identification of influence;
 - qualify claims that governance mechanisms “cost nothing” so that they refer to low material or enforcement cost, not literally zero burden;
