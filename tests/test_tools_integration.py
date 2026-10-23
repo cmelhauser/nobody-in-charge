@@ -1,8 +1,9 @@
 """Integration tests for the command-line tools.
 
 These run each tool for real against the repository and assert it succeeds. They are
-not unit tests and they are not in the coverage gate; see the scope note in
-`.coveragerc` for why. What they buy is the thing that actually breaks in a project
+not unit tests. The tools they run are inside the 100 per cent coverage gate, because
+`.coveragerc` sets `patch = subprocess` and so counts the lines these subprocess runs reach;
+see its scope note. What they buy is the thing that actually breaks in a project
 like this: a checker that stops importing, a builder whose pandoc invocation rots, or
 a release gate that starts passing because it stopped looking.
 
@@ -135,8 +136,9 @@ def test_document_dates_are_declared_not_computed():
 
     Both builders took their date from `date.today()` until 27 September 2026, so continuous
     integration moved the printed date on every push. The dates are declared now, and
-    `check_docs.py` enforces them against Git; this asserts the declarations exist and that the
-    committed artifacts carry them, which is the part a checker cannot see if nobody rebuilds.
+    `check_docs.py` enforces them against Git and against the rendered primer; this asserts both
+    declarations exist and that the committed assembled book, build/nobody-in-charge.md, carries
+    the draft date, which is the part a checker cannot see if nobody rebuilds.
     """
     book = (ROOT / "tools" / "build_book.py").read_text()
     primer = (ROOT / "tools" / "build_primer.py").read_text()

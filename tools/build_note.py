@@ -8,9 +8,11 @@ take a second PDF in that directory for the source itself. It is written to buil
 the book, and rebuilt by this script rather than by a hand-typed pandoc command, for the
 reason given at the top of tools/build_primer.py.
 
-The typography matches the primer: A4, one inch margins, TeX Gyre Pagella, and the same
-tolerance and table settings. Four things are specific to the note, and none changes a word
-of it. They are made to a scratch copy; the source is only read.
+The typography follows the primer: A4, one inch margins, TeX Gyre Pagella, and the same
+tolerance and hyphenation settings. Its tables are set in small type with the default column
+padding, where the primer sets footnotesize type with 4pt padding. Four things are specific
+to the note, and none changes a word of it. They are made to a scratch copy; the source is
+only read.
 
   title block     the H1 becomes the title, broken after its colon, and the italic dateline
                   under it is set beneath at text size, where it fits on one line
@@ -30,7 +32,7 @@ Run from anywhere:
 
 Reads:      research/incorporated/WorkingManuscript_1939/edits_and_suggested_uses.md, which is
             tracked and never written to. The source document of that directory is not used.
-Writes:     build/WorkingManuscript_1939-edits-and-suggested-uses.pdf, which is not tracked.
+Writes:     build/WorkingManuscript_1939-edits-and-suggested-uses.pdf, which is tracked.
             The scratch Markdown and LaTeX header live in a temporary directory that is
             removed afterwards.
 Needs:      pandoc and either xelatex or tectonic on the PATH, and the TeX Gyre Pagella font.

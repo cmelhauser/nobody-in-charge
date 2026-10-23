@@ -5,9 +5,9 @@
  "year": 1939,
  "reprint": "BBSG, 1999, titled 'The 4th Edition of Alcoholics Anonymous'",
  "type": "primary_organizational_text",
- "status": "acquired",
+ "status": "read_in_part",
  "rights_note": "The 1939 first-edition text is widely asserted to be public domain in the United States on the ground of a defective copyright renewal, and the reprint held here asserts 'No Copyright. No rights reserved.' That status has been contested by AAWS and should not be stated as settled. The document is git-ignored like every other source in this corpus, so nothing is redistributed from this repository either way.",
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "topics": [
   "Big Book",
   "1939 first edition",
@@ -25,5 +25,7 @@
    "bytes": 618258,
    "tracked_in_git": false
   }
- }
+ },
+ "read_scope": "The thirty personal stories, in full, on 17 August 2026 (counted as twenty-nine until 13 September 2026); the printed wording quoted in Chapter 4 (printed pp. 71 and 95) checked 13 September 2026. Reading beyond those is not recorded.",
+ "source_url_note": "No URL: a 1999 third-party reprint held from a copy the Human Author supplied. research/SOURCES.md records the citation."
 }

@@ -97,7 +97,6 @@ as such.
 | Fehlandt 1904 dates the waning to 1843, which Maxwell corrects | Fehlandt 1904, **read at source** | S |
 | Jellinek: not equipped with an ideology distinctive enough to prevent its dissolution | Personal communication to Maxwell | S |
 | Iannaccone's club-good theory predicts the Sons should outcompete | Iannaccone 1992 | S |
-
 | The Washingtonians had a written rule against outside issues, in the definition of principles and in Article 3 of the model constitution | Grosh 1842, **read at source** | P |
 | The rule bound a society's own doings and did not reach a convention of delegates | Grosh 1842, **read at source**; Marsh 1866 for the Connecticut convention | P |
 | The movement's own definition of principles claims all classes, sexes, ages and conditions, so the porous boundary was doctrine | Grosh 1842, **read at source** | P |
@@ -254,8 +253,10 @@ independent biography of Mann.
 ## Summary
 
 Counted by status letter on each row: P, S and P/S count as read directly; R and I do not.
-The counts below were recomputed from the table rows on 2 August 2026 and four of the six had
-drifted by one or two from the previously recorded figures.
+The counts below were first recomputed from the table rows on 2 August 2026, when four of the
+six had drifted by one or two from the previously recorded figures. They were recomputed again
+on 22 October 2026 against the current tables, which include the working-manuscript rows added
+on 13 and 15 September 2026, and all six rows of the table agree.
 
 Dropped claims are excluded from the counts and left in the tables struck through, so a
 future session can see what was removed and why.
@@ -269,7 +270,7 @@ future session can see what was removed and why.
 | 5 | 22 | 20 | 2 | **Solid.** Rewritten on Kurtz 2 Aug 2026; the two remaining items are at a remove or inferred, one of them the Holmström application, which is mine |
 | 6 | 16 | 9 | 7 | Solid on Maxwell, weak on 1944 |
 
-**Updated 2 August 2026 after acquiring Marsh 1866** (`marsh-1866-temperance-recollections.txt`).
+**Updated 2 August 2026 after acquiring Marsh 1866** (held as `research/incorporated/Marsh_1866/Marsh_1866.txt`, git-ignored).
 Four claims moved from "at a remove" to "primary, read at source": the Beecher letter of
 21 January 1845, now quoted in full rather than paraphrased through Maxwell; the statement
 that the movement's fruits were gathered into new organisations, which is the absorption
@@ -307,8 +308,8 @@ from solid to well-sourced, and it does not need a library.
 ---
 
 **Updated 2 August 2026 after acquiring Grosh 1842**, the *Washingtonian Pocket Companion*,
-supplied as plain text and page images and saved as
-`grosh-1842-washingtonian-pocket-companion.txt` and `.pdf`. Twelve claims are new and all
+supplied as plain text and page images and now held, git-ignored,
+as `research/incorporated/Grosh_1842/Grosh_1842.txt` and `.pdf`. Twelve claims are new and all
 twelve are primary, and one existing claim, the pledge text, gained an independent
 contemporaneous witness: nine in Chapter 1 and three in Chapter 2. One existing claim was
 falsified, that the Washingtonians had no rule against outside issues, and both chapters

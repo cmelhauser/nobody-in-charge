@@ -2,7 +2,7 @@
 
 Grosh, A. B., comp. (1842).  Washingtonian Pocket Companion: containing a choice collection of temperance hymns, songs, &c. With brief directions for commencing, organizing, and conducting the meetings of Washingtonian Temperance Societies; and for the private action of Washingtonians.  Second edition. Utica, N.Y.: B. S. Merrell.
 
-**Rights.** Pre-1929 United States publication; public domain. Internet Archive scan.
+**Rights.** Pre-1929 United States publication; public domain. Harvard copy, digitised by Google, from HathiTrust.
 
 **What this repository holds.** Records only: this summary, `citation.md`, `metadata.json` with
 the SHA-256 of each document, and a vocabulary-only verification index built from the text

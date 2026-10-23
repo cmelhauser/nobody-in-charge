@@ -3,20 +3,17 @@
 # but cannot hold the tools to it: the tools are exercised mostly by running them as
 # subprocesses, which only the full suite on 3.12 does. `.coveragerc` is the full gate.
 #
-# SCOPE. The 100 per cent gate covers `model/aa_group_model.py`, the canonical model.
-# That file is the one the whole project rests on: it is hash-frozen at the release
-# digest, every cache is linked to it, and its semantics are what the manuscript, the
-# paper and the primer describe. It is pure computation with no I/O and is therefore
-# both worth testing exhaustively and cheap to test.
+# SCOPE. This file gates `model/aa_group_model.py`, the canonical model, at 100 per cent. That
+# file is the one the whole project rests on: it is hash-frozen at the release digest, every
+# cache is linked to it, and its semantics are what the manuscript, the paper and the primer
+# describe. It is pure computation with no I/O and is therefore both worth testing
+# exhaustively and cheap to test.
 #
-# The scripts under `tools/` and the analysis scripts under `model/` are deliberately
-# NOT in this gate. They are batch jobs and command-line entry points: they read and
-# write hash-linked caches, render PDFs, and execute Monte Carlo designs that take
-# minutes to hours. Unit-testing them to 100 per cent would mean either running the
-# release designs on every commit or mocking so much that the tests stopped meaning
-# anything. They are covered instead by `tests/test_tools_integration.py`, which runs
-# each one for real and asserts it succeeds, by `tests/test_tools_direct.py`, which calls
-# the functions of seven of them and of the local CI runner with their outputs redirected, and by the release gate itself.
+# The scripts under `tools/` are held to 100 per cent too, but only by `.coveragerc`, which the
+# full suite on 3.12 uses because it follows the tools' subprocess runs. The analysis scripts
+# under `model/` other than the canonical model are outside both gates: they are batch Monte
+# Carlo jobs, and their bytes are frozen (each records its SHA-256 in its cache), so a test hook
+# or a pragma would invalidate hours of computation. The release gate verifies them instead.
 #
 # `model/aa_group_model.py` cannot carry `# pragma: no cover` comments, because editing
 # the file at all changes its SHA-256 and invalidates the release. The single

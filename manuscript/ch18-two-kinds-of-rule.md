@@ -109,7 +109,7 @@ Whether the twelve sentences really divide that way is, in the end, a judgement 
 
 ### 1. What the model says
 
-The two-tier split is a property of the governance matrix G, which is twelve Traditions by eight group resources. Five of its rows are identically zero: Traditions 4, 6, 7, 9 and 10. The consequence for the coupling B = S G' is that those five Traditions have zero columns, so they supply nothing to any Step.
+The two-tier split is a property of the governance matrix G, which is twelve Traditions by eight group resources. Five of its rows are identically zero: Traditions 4, 6, 7, 9 and 10. The consequence for B = S G', which is semantic overlap and not executable coupling, is that those five Traditions have zero columns, so they supply nothing to any Step.
 
 They are not absent from the simulation. They enter it as multipliers on the effective adherence of the Traditions they guard, described in Part One's last chapter and specified in appendix A2. That is a modelling choice and not a derivation: the derivation says only that the five govern no consumed resource, and says nothing about how they should act instead. The multiplier form is the simplest thing that gives them a role, and it is the reason they appear near the top of the degradation comparison, which is noted there as consistent with their derived role rather than as evidence for it.
 
@@ -160,7 +160,7 @@ Setting *c* to the mean live entry of 0.374 for every Step simultaneously, all t
 
 **What the reader is being asked to supply.** Whether the five rows should be empty. This is named in `plans/PART-4-PLAN.md` as the reader pass and it is still outstanding. It is the single largest unresolved item in Part Four and no further computation will close it.
 
-**What has been done in the meantime, and what it is worth.** The elicitation form now exists at `research/GOVERNANCE-MATRIX-ELICITATION.md`, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, the rejection of index-pairing survives in 86 per cent of draws when four of fifty-six cells differ and in 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
+**What has been done in the meantime, and what it is worth.** The elicitation form now exists, as `research/elicitation/1-respondent-form.pdf` with `research/GOVERNANCE-MATRIX-ELICITATION.md` as the collator's master, and so does the script that will analyse the completed forms, written before any came back so the analysis cannot be chosen after seeing the answers. Appendix A8 also prices disagreement in the abstract: flipping cells of the governance matrix at random, confined to the enabling rows so the split is held fixed, the rejection of index-pairing survives in 86 per cent of draws when four of fifty-six cells differ and in 52 per cent when sixteen do. That says Part Four tolerates a reader who differs on a handful and not one who differs on a third. It does not say which cells a real reader would pick, which is the thing that matters and the thing only a reader can supply.
 
 ### 4. References
 

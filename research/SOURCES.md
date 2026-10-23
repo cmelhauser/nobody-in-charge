@@ -48,9 +48,12 @@ document how the corpus arrived.
 
 ## Incorporated source storage
 
-`research/incorporated/` contains Maxwell (1950) and Golub and Jackson (2010), which overlapped
-the staged acquisition package, and the six items promoted out of it, four on 9 August 2026 and
-the two journal articles on 10 August:
+`research/incorporated/` holds all 45 sources, one directory each. This table covers the first
+twelve entries, those that came in with or out of the staged acquisition package and the three
+copyrighted works and Recovery Dharma catalogued in August: Maxwell (1950) and Golub and Jackson
+(2010), which overlapped the staged package, and six items promoted out of it, four on 9 August
+2026 and the two journal articles on 10 August, with the later August additions beside them.
+The papers held in September have their own tables below:
 
 | Item | Rights | Local files | Read status |
 |---|---|---|---|
@@ -62,7 +65,7 @@ the two journal articles on 10 August:
 | Greenfield and Tonigan, "General AA Tools of Recovery" (2013) | NIH author manuscript, open access | PDF and extracted text | read in full; cited in Chapter 12 as an objection to one dial per step |
 | Wilson, "Twelve Suggested Points for A. A. Tradition", *A.A. Grapevine* (April 1946) | **A.A. Grapevine copyright; not archived** | record only | read at source; Chapter 5's opening quotation verified, and the two-title problem explained |
 | DeGroot, "Reaching a Consensus" (1974) | **ASA / Taylor & Francis; not archived** | record only | read at source; the updating rule behind Part Two |
-| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | **thirty personal stories read in full 17 August 2026** (counted as twenty-nine until 13 September 2026); supports appendix A13, the census of arrival channels against the model's arrival term; the printed wording quoted in Chapter 4 (printed pp. 71 and 95) checked 13 September 2026 |
+| *Alcoholics Anonymous*, first edition 1939, in the 1999 BBSG reprint | reprint asserts no copyright; 1939 status contested | PDF and extracted text | **thirty personal stories read in full 17 August 2026** (counted as twenty-nine until 13 September 2026); supports appendix A13, the census of arrival channels against the model's arrival term; the printed wording quoted in Chapter 4 (printed pp. 71 and 95) checked 13 September 2026; also cited by Chapters 9, 15 and 18, each for printed wording checked against it (the passages Dr. Howard marked, three edited passages, and the printed "principle" that replaced "rule") |
 | AAWS, *Twelve Steps and Twelve Traditions* (1953) | **copyrighted; published free per chapter by AAWS** | assembled PDF and extracted text since 13 September 2026 | **read in full 10 August 2026**; supplies the elder-statesman objection to Chapters 8 and 10, the rotating-leadership text for Chapter 10, the cross-reference count for Chapter 16, and the unity/purpose distinction for Chapter 17 |
 | Rohr, *Breathing Under Water* (2011) | **in copyright and in print; not archived** | record only | read in full 10 August 2026; cited only for its reading of anonymity and for containing no discussion of the Traditions; see the provenance note below |
 | Kurtz, "A Talk About the History of Alcoholics Anonymous" (about 1984) | **sold as an audiobook; the Human Author's own transcription** | PDF and extracted text since 13 September 2026 | read in full 10 August 2026; the closing survival answer in Chapter 25; distinct from Kurtz (1991) |
@@ -282,14 +285,15 @@ the citation, the official URL, the SHA-256 of the July 2024 file, and the verif
 verifier should download it from aa.org. Removing the mirror changes nothing about what the book
 may claim from it.
 
-### Recovery Dharma (2023), the one source whose licence would permit committing it
+### Recovery Dharma (2023), a source whose licence would permit committing it
 
-Worth a note because it is the single exception to the reason everything else is git-ignored. The
-book is published under CC BY-NC-SA 4.0, which expressly permits copying, redistribution and
-adaptation with attribution. Nothing in its rights position would prevent committing the document.
-It is git-ignored anyway, because the rule is uniform and because the repository does not carry
-source documents of any kind. Stating this keeps a later reader from inferring a copyright
-constraint that does not exist here.
+Worth a note because it is an exception to the reason most sources are git-ignored. The book is
+published under CC BY-NC-SA 4.0, which expressly permits copying, redistribution and adaptation
+with attribution. Nothing in its rights position would prevent committing the document. It is not
+alone: Edgren, Baretta and Inauen (2025) is CC BY 4.0, and its record says the same. Both are
+git-ignored anyway, because the rule is uniform and because the repository does not carry source
+documents of any kind. Stating this keeps a later reader from inferring a copyright constraint
+that does not exist here.
 
 **Provenance is a two-step record and is written that way deliberately.** The copy first read on
 16 August 2026 was an ephemeral session attachment that was removed from disk before it could be
@@ -303,7 +307,7 @@ project prefers and is the one open item on this source.
 and the fourteen personal recovery stories were read on 16 August 2026, and the selected meditations
 and inquiry questions on 13 September 2026. The second pass found practice material only and no
 governance text, so appendix A12's one absence claim, scoped to what had been read when it was made,
-now holds over the whole book. The appendix still states the narrower scope, which remains true.
+now holds over the whole book, and appendix A12 and the primer state it that way.
 
 **On its `subjects_present`.** The index reports `chase`, `utica` and `washingtonian`. All three are
 artifacts of the shared OCR-tolerant matcher over-including short tokens, the same limitation the
@@ -451,8 +455,9 @@ What the second reading supplied, all of it new to the book:
 the April 1946 *Grapevine* publication twice with different details: as "Alcoholics Anonymous
 Tradition: Twelve Points to Assure Our Future," *AAGV* 2:10 (April 1946), 7-9, and as the long
 form in *AAGV* 2:11 (April 1946), 2-3. Same month, different issue, different pages. One is a
-slip. The *Grapevine* itself is AA copyright and the 1946 issues have not been obtained, so the
-conflict stands recorded in Chapter 5 rather than settled.
+slip. The *Grapevine* itself is AA copyright. The April 1946 article was later read at source from a
+scan on 10 August 2026 (`Grapevine_1946`, record only), but that scan carries no issue or page
+markers, so the conflict still stands recorded in Chapter 5 rather than settled.
 
 **A conflict with Maxwell, resolved in Kurtz's favour.** Maxwell dates the emergence of the
 Traditions to 1947 and 1948, in *Grapevine* editorials and then a booklet. Kurtz dates first
@@ -472,7 +477,7 @@ Effects*, and before that, per the NBER record, as *Beware of Economists Bearing
 An Experiment in How Not To Improve Student Outcomes.*
 
 **In copyright; the full text is not stored here.** Same treatment as Kurtz. What is recorded is
-the four figures Chapter 22 uses, each taken from the paper's own text:
+the figures Chapter 22 uses, each taken from the paper's own text:
 
 | Figure | Where it appears in Chapter 22 |
 |---|---|
@@ -491,7 +496,8 @@ prediction is recorded for the bottom third while the result is recorded for the
 in `plans/PART-5-PLAN.md` not to write it at full length without this paper. It was 1,297
 words when first rewritten, has grown since, and the paper carries it.
 
-**One acquisition attempted on 2 August 2026 and not obtained. The other has since been read.**
+**Two acquisitions attempted on 2 August 2026 and not obtained then. Both were obtained by hand
+on 10 August 2026 and read in full.**
 
 *Pagano, M. E., K. B. Friend, J. S. Tonigan and R. L. Stout (2004).* **Obtained and read in full
 on 10 August 2026**, as the NIH author manuscript, PMCID PMC3008319, supplied by the project's
@@ -532,8 +538,8 @@ free posting, and held under `research/incorporated/SMF132_2020/`, record only u
 git-ignored copy since. It is the
 group-and-member series by year that Chapter 21 proposes as the starting point for an
 out-of-sample test, and it now supplies one. Dividing reported members by reported groups gives
-18.4 members per group on average across 2001 to 2020, ranging from 16.5 to 22.1 and falling
-steadily; the model's endpoint membership at full adherence is 17.80 [16.92, 18.68]. **Read that
+18.4 members per group on average across 2001 to 2020, ranging from 16.5 to 22.1 and trending
+down, with a rise in seven of the nineteen year-to-year steps; the model's endpoint membership at full adherence is 17.80 [16.92, 18.68]. **Read that
 as a consistency check and not a validation.** AA keeps no membership lists, the figures are
 reports from groups registered with general service offices, and a ratio of two estimated
 aggregates is not a sample of group sizes: it carries no interval and describes no distribution.
@@ -551,8 +557,9 @@ Participation, asks for voting representation in reasonable proportion to the re
 element of the structure discharges, so AA does hold a proportionality principle about service.
 It proportions voting weight to responsibility, not the rotating pool to the size of the group,
 and a structure could satisfy it exactly while rotating twelve people through a fellowship of
-eight hundred. Supports Chapter 10 and the primer's Tradition 9 entry. The long-form Concepts and
-their essays were read on 13 September 2026 in `ServiceManual_2024`, below.
+eight hundred. Supports Chapter 10 and the primer's Tradition 9 entry. Three of the long-form
+Concepts, IV, V and XI, with their essays, were read on 13 September 2026 in `ServiceManual_2024`,
+below; the other nine long-form essays have not been read.
 
 *Alcoholics Anonymous World Services, The A.A. Service Manual Combined with Twelve Concepts for
 World Service by Bill W., 2024-2026 edition (BM-31).* **Read in part on 13 September 2026**: Concepts
@@ -899,7 +906,8 @@ Addiction Relapse Via the Double-Well Potential System." *Journal of Psychopatho
 Clinical Science* 134(1): 69-80.** doi:10.1037/abn0000960.
 
 **Saved as `incorporated/Fatimah_2025/Fatimah_2025.txt`** (~10,400 words). NIH author manuscript,
-public access. Supplied by the author 2 August 2026. Model code deposited at osf.io/tkg9s;
+public access. Supplied by the author 2 August 2026 and read at source (Chapter 14 records it as
+read at source; no fuller status is on file). Model code deposited at osf.io/tkg9s;
 study protocol at osf.io/kysdt.
 
 **Rights exposure, recorded 16 October 2026.** The text of this manuscript was committed in the first import
@@ -985,12 +993,15 @@ Chapter 2.
 **A terminological finding that bears on Part Four.** Kurtz's note 16 to Chapter Five records
 that in some later AA literature the concept properly conveyed by *single-purposed* was
 obfuscated by substituting *unity* as its supposed exact equivalent, and that after Wilson's
-death AA itself at times fell into this. Chapter 17 is planned around Tradition 1 (unity)
+death AA itself at times fell into this. Chapter 17 was planned around Tradition 1 (unity)
 coming out as the most load-bearing in the derived coupling, with Tradition 5 (single
-purpose) close behind. If the two terms were historically conflated, that finding needs
-re-examining before the chapter is written. Flagged in `plans/PART-4-PLAN.md`.
+purpose) close behind, and this note was flagged in `plans/PART-4-PLAN.md` as needing the
+finding re-examined if the two terms had been historically conflated. Chapter 17 is written and
+takes the note up (its notes on sources and the paragraph that cites Kurtz's note 16), and Part
+Four is marked complete in that plan.
 
-**Chapters 4 and 5 material now first-hand**, though not yet fully worked in: the failed
+**Chapters 4 and 5 material first-hand from this reading** (Chapter 4 now carries the
+Mayflower episode and the December 1937 board room): the failed
 Akron proxy fight of early May 1935; Wilson pacing the Mayflower Hotel lobby on Saturday 11
 May, the day before Mother's Day, with the bar at one end and the church directory at the
 other; *God, I am going to get drunk*, and the panic that followed it; Dr Bob Smith's last
@@ -1004,7 +1015,8 @@ above under Maxwell.
 
 ## Obtained, read in two passes
 
-The four sources in this section were entered as partly read and finished on 13 September 2026.
+The sources in this section (Recovery Dharma, the three American Temperance Union volumes, and
+Gough) were entered as partly read and finished on 13 September 2026.
 They stay here rather than moving, so that what each first pass covered, and what it supported,
 remains visible beside what the second pass found.
 
@@ -1049,8 +1061,8 @@ presents its program as an application of early Buddhist teaching. The absence c
 fellowship has no Traditions-equivalent charter was scoped, when made, to the table of contents,
 Section I and the Section III appendix, where a charter would be a listed item. Since the pages then
 unread were read on 13 September 2026, it holds over the whole book. Appendix A12 and the primer
-still state the narrower scope, which remains true; widening it waits for the next rebuild of the
-book and primer.
+now state it over the whole book too (appendix A12 says "the full text" and the primer says
+"the whole book"), so no narrower statement remains to be widened.
 
 **American Temperance Union (1841). *Annual Report of the American Temperance Union.***
 
@@ -1205,7 +1217,9 @@ blanket “abstract only” heading, which was false for Hunter-Reel and colleag
 **Hufford, M. R., K. Witkiewitz, A. L. Shields, S. Kodya, and J. C. Caruso (2003).
 "Relapse as a Nonlinear Dynamic System: Application to Patients with Alcohol Use
 Disorders." *Journal of Abnormal Psychology* 112(2): 219-227.**
-The empirical warrant for the threshold shape in Chapter 14. What the abstract states:
+Originally the empirical warrant for the threshold shape in Chapter 14, now corroborating rather
+than load-bearing, since Fatimah, Hunter and Bornovalova (2025) supersedes it (see above and
+Chapter 14). What the abstract states:
 two preliminary studies, 51 inpatients and 43 outpatients, six-month follow-up, and a
 cusp catastrophe model with "more predictive utility than traditional linear models".
 **The comparison statistics have not been seen.** The Part Three plan described this as
@@ -1238,7 +1252,7 @@ September 2026, so it presumably comes from their 2004 paper, which is unread.
 
 **Greenfield, B. L., and J. S. Tonigan (2013).** *Psychology of Addictive Behaviors* 27(3):
 553-561. **Status upgraded: read in full on 10 August 2026** and moved out of this section's
-limited status. The full entry is under "Obtained and read in full" below. Kept here as a pointer
+limited status. The full entry is under "Obtained and read in full" above. Kept here as a pointer
 because Chapters 13 and 24 cited it while it was abstract-only, and a reader tracing those
 citations should land on the current status rather than the old one.
 
@@ -1246,7 +1260,8 @@ citations should land on the current status rather than the old one.
 
 ## Identified but not obtained
 
-These are the binding constraints on finishing Part One. None is reachable without a
+These were the constraints on finishing Part One, which is finished; HANDOFF.md section 10
+now lists them as outstanding citations, none load-bearing. None is reachable without a
 library, a purchase, or an Internet Archive borrowing account.
 
 | Source | Needed for | Status |
@@ -1262,7 +1277,8 @@ library, a purchase, or an Internet Archive borrowing account.
 
 ## Paper-only bibliography: current read status
 
-**On obtaining these.** Five of the works below were read at PubMed Central on 14 September 2026
+**On obtaining these.** Five works, four of them in the table below and Witkiewitz and Marlatt (2007) in
+the journal-sources section above, were read at PubMed Central on 14 September 2026
 and recorded then as impossible to hold, because the PDF routes refuse scripted access. That was
 half right. The PDF routes do refuse, and PMC's serves a proof-of-work interstitial, which is a bot
 check this project does not attempt. But the **deposited full text** is served by ordinary
@@ -1278,12 +1294,14 @@ bibliography often omitted read status. The current-project record supports the 
 
 | Source | Current status | Use and limitation |
 |---|---|---|
-| Angrist (2014) | **Read in full 13 September 2026** in its working-paper version (`Angrist_2014`) | General warning about peer-effect interventions; do not treat as read-at-source evidence. |
+| Angrist (2014) | **Read in full 13 September 2026** in its working-paper version (`Angrist_2014`); page references are the working paper's, not *Labour Economics*'s | General warning about peer-effect interventions; the paper's section 5 account of Carrell, Sacerdote and West was checked against it. |
 | Banks et al. (2014) | **Cited at a remove**, through Banks et al. (2017), which describes its method; the AMS PDF refused scripted access on 14 September 2026 and no free copy is indexed elsewhere | Background on dynamic behavior-change models only. |
 | Banks et al. (2017) | **Read in full 14 September 2026** from the PMC author manuscript (PMC5551482); the model equations did not render there and were read through the authors' term-by-term description. **Held since 24 September 2026** as `BanksBekeleMaxwell_2017`, the deposited full text from the NCBI E-utilities API; the equations are MathML and are not in the held text | Background on dynamic behavior-change models only. It fits one patient's daily data, so it shows a method rather than a population result. |
 | Ben-Porath (1967) | **Read at source**, confirmed by the Human Author 14 September 2026; no copy is held, and the paper's bibliography now says so | Background analogy for stock accumulation only. |
+| Carroll (1993) | **Not obtained**; read status not documented. Chapter 13 lists it as "Carroll, S. (1993). On adherence to the twelve steps", with no venue; `plans/PART-3-PLAN.md` names it with a surname and year only, no initials, title or venue, and the initial and title are unverified | Named as the most likely place for a prior treatment of step sequencing. No claim rests on it. |
+| Cloud and colleagues (2004) | **Cited at a remove.** Chapter 13 reaches the definition of twelve-step affiliation (attendance, self-identification, sum of steps completed) through a later reviewing paper that is itself unidentified; the original has not been located and the co-authors are not known; no copy is held | The standard way of measuring step work, as Chapter 13 describes it. Background only; the chapter reports it at a remove and no figure depends on it. |
 | Cunha and Heckman (2007) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckman_2007`) | Background on dynamic complementarity. |
-| Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; current project has not recorded pages used. |
+| Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; pages used are recorded in the findings above and in the summary in `CunhaHeckmanSchennach_2010`, as the working paper's. |
 | Galanter (1981) | Read status not documented | Background on large-group therapy. |
 | Gorman et al. (2006) | **Read in full 14 September 2026** at PMC (PMC1751811); no copy is held | Agent-based drinking-model background. The model is social contagion among agents on a one-dimensional lattice, with a single bar that clusters drinkers; it models neither outlet density nor groups. |
 | Hu and Schennach (2008) | Read in part 13 September 2026, abstract, introduction and assumptions (195 to 200) (`HuSchennach_2008`) | Identification literature; the project does not implement its estimator. |
@@ -1325,8 +1343,10 @@ reports their content it does so at one or more removes and says so. *Comes of A
 most conspicuous gap: Kurtz names pages 97 to 98 as the passage that settles a question Chapter 17
 depends on, and it is the one source the project most needs and has not read.
 
-The 1939 first edition of *Alcoholics Anonymous* appears to be public domain in the US:
-the copyright was not renewed and facsimile reprints are commercially available. It
+The 1939 first edition of *Alcoholics Anonymous* is widely asserted to be public domain in the US
+(the copyright was said not to have been renewed, and facsimile reprints are commercially
+available), but AAWS has contested that, and `BigBook_1939/metadata.json` says the status should not
+be stated as settled. It
 contains the Steps but not the Traditions, which were written in 1946. **This should be
 verified against US Copyright Office renewal records before any text is quoted.**
 

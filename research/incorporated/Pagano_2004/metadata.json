@@ -11,7 +11,7 @@
  "pmcid": "PMC3008319",
  "nihmsid": "nihms253314",
  "acquired": "2026-08-10, supplied by the author of this project after automated retrieval was blocked by an access challenge",
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "topics": [
   "helping",
   "Project MATCH",

@@ -71,7 +71,7 @@ The twenty-six per cent stands as far as it goes. A group that rotates a dozen p
 
 And the practical advice has to change shape accordingly. Counting names on a service roster is still worth doing, and it is still the most checkable thing in this book. But a group that wanted to know whether it satisfies the condition would have to ask a second question, which no roster can answer: when something difficult comes up, how many different people does this room turn to, and is that number growing as the room does?
 
-I do not know how to measure that without asking members, which is why Chapter Twenty-Four's survey now has a second thing to ask about.
+I do not know how to measure that without asking members. A survey like the one Chapter Twenty-Four describes could add such an item, and none of its present items measures it.
 
 ---
 
@@ -110,7 +110,7 @@ The rotation matrix is constructed by averaging over a cycle: for each of R term
 | 12 | 0.031 | 0.089 | 0.029 |
 | 25 | 0.016 | 0.067 | 0.014 |
 | 50 | 0.009 | 0.054 | 0.007 |
-| 100 | 0.005 | 0.047 | 0.004 |
+| 100 | 0.005 | 0.047 | 0.0035 |
 | 400 | 0.003 | 0.040 | 0.001 |
 
 Flat benchmark at N = 400: max influence 0.0025, error 0.040. The alpha over R approximation tracks the computed value closely for small pools, up to about twenty-five, which is the check that the mechanism is what the text says it is; at larger pools the flat share, (1 - alpha)/N for everyone outside the pool, is no longer negligible.
@@ -183,6 +183,6 @@ The pool sweep at N = 400; the fixed-pool scaling series from N = 50 to 800; the
 
 **What was not read:**
 
-The rest of the Service Manual beyond the passages named above. Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is the second thing that survey would have to ask, and it is harder, because a service roster records offices and nothing records deference.
+The rest of the Service Manual beyond the passages named above. Anything about how AA groups in fact rotate service, and anything about how many people a group turns to on a hard question. The claim that rotation must scale with the group is derived from the theorem and from a constructed matrix; whether real groups rotate a fixed dozen or a fixed proportion is an empirical question I have not investigated and that Chapter Twenty-Four proposes as a survey. The elder-statesman question is a second thing such a survey would have to ask, and none of Chapter Twenty-Four's present items does, and it is harder, because a service roster records offices and nothing records deference.
 
 The long-form essays on the Concepts other than IV, V and XI were not read. The short form was read on 17 August 2026, and the three essays named above on 13 September 2026.

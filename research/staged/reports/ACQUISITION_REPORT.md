@@ -1,5 +1,7 @@
 # Acquisition report
 
+> **Acquisition-time record, superseded by `../../SOURCES.md`.** This report describes the staged package as it stood on 4 August 2026. Everything it lists as acquired or still staged has since been moved to `../../incorporated/` or recorded there as record only, and the read status of every source is in `../../SOURCES.md`. Where this report disagrees with that file, with the `metadata.json` of the source, or with `../../../CLAUDE.md`, those win. Left unaltered otherwise.
+
 Created 2026-08-04. This report distinguishes files actually present from verified locations.
 
 ## Acquired documents

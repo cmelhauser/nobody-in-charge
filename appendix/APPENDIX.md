@@ -342,7 +342,7 @@ high, at 0.348, 0.348, 0.355 and 0.364 at years 5, 10, 20 and 30 against 0.322, 
 
 At the baseline thirty-year horizon, mean final membership is 17.80 at `dt=0.5`. In 200 paired
 seeds, changes relative to that step are 1.535 plus or minus 1.777 at `dt=1`, 0.865 plus or minus
-1.836 at `dt=0.25`, and -0.405 plus or minus 1.742 at `dt=0.125`. All intervals cross zero, at
+1.836 at `dt=0.25`, and -0.405 plus or minus 1.741 at `dt=0.125`. All intervals cross zero, at
 half-widths of about 1.8 and against a 200-seed baseline of 17.32. With no equivalence margin that is
 unresolved, not evidence of equality; it is consistent with the tested half-week resolution for the
 reported comparisons and does not prove convergence at arbitrary resolution.
@@ -629,28 +629,36 @@ research/model-choice-inventory.json       values, zeros, and constants
 tools/check_release.py                     fail-closed release gate
 ```
 
-From the repository root, after every cache is complete. All three PDFs are built before the
-release check, because that check requires each rendered artifact to postdate every source that
-feeds it:
+From the repository root, after every cache is complete. This is the sequence `README.md` gives.
+All three PDFs are built before the release check, because that check requires each rendered
+artifact to postdate every source that feeds it:
 
 ```bash
+python3 tools/inventory_model_choices.py
+python3 tools/summarize_release_gate.py
 python3 tools/summarize_robustness.py
+python3 tools/build_corpus.py
 python3 tools/regenerate_notebooks.py
 python3 tools/run_notebook.py
 python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
+python3 tools/check_docs.py
 python3 tools/build_book.py
-tectonic --outdir paper \
-  paper/anonymity-as-an-aggregation-condition.tex
+export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
+(cd paper && tectonic anonymity-as-an-aggregation-condition.tex)
+unset SOURCE_DATE_EPOCH
 python3 tools/build_primer.py
+python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
 
+The test suite and the font check are separate steps that `README.md` and `CLAUDE.md` describe.
+
 `build_book.py` and `build_primer.py` each report an overfull-box count, and release requires
-zero from both. A nonzero count means text is sitting outside the type block. All three PDFs use
-one inch margins, the book at 1.05 inches.
+zero from both. A nonzero count means text is sitting outside the type block. The primer and the
+paper use one inch margins and the book uses 1.05 inches.
 
 Release also requires rendering all three PDFs to page images and inspecting them for overflow,
 clipped tables, broken references, duplicated headings, blank pages, and stale text.
@@ -669,7 +677,7 @@ instead.
 | A4.6, A5.5 | A7.5, Morris and Sobol |
 | A5.4b, A5.4c, A5.4e | A8 for the sparsity pricing; the threshold test is in Chapter Eighteen's Machinery and the reassignment test in Chapter Seventeen's, with the notebook blocks of those names |
 | A5.4d | A5.2, the degradation ranking |
-| A5.6 | A7.1, the design registry and what no design covers |
+| A5.6 | A7.1, the design registry (which lists no design that combines failure modes) |
 | A9 as structural variants | A7.3 |
 | A9.5 | A7.6, the resource-list test |
 
@@ -691,7 +699,8 @@ instead.
    selected member quality is not a population outcome.
 7. Sensitivity screens cover stated ranges and architectures only. Low-replication parameter
    points rank robustness; they do not estimate real-world probabilities.
-8. The staged corpus is deliberately outside this release's evidence record.
+8. The staged corpus is fully incorporated; what remains under `research/staged/` is the
+   acquisition report and metadata, which are provenance rather than evidence.
 9. The decay rate `delta0` is authored and, after the ordering exponent, the most influential
    registered value. Nothing measures the quantity it represents. Four papers read for
    comparable quantities bracket it: two on skill depreciation, read on 13 September 2026,
@@ -1072,12 +1081,13 @@ nothing whatever about an individual's recovery.
 
 ### A12.8 The Machinery
 
-This section was written to be self-contained and is now depended on in one place. Chapter
-Twenty-Four cites the 2019 schism described in A12.4 as the closest thing to a live case the book
-has, and states there that it corroborates rather than confirms. Nothing else in Parts One through
-Five, in A1 through A11, or in the paper depends on this section; the primer carries a short
-follow-up of its own. Removing A12 would require removing four paragraphs of Chapter Twenty-Four
-with it.
+This section was written to be self-contained and is now depended on in one place in the
+manuscript. Chapter Twenty-Four cites the 2019 schism described in A12.4 as the closest thing to a
+live case the book has, and states there that it corroborates rather than confirms. Nothing else in
+Parts One through Five, in A1 through A11, or in the paper depends on this section; the primer
+carries a short follow-up of its own, and A13.5 and A13.6 cite A12.5 as the other half of their
+bound. Removing A12 would require removing four paragraphs of Chapter Twenty-Four with it, and
+revising those two places in A13.
 
 **1. What the comparison says.** Four findings, in descending order of how well they are supported.
 
@@ -1184,7 +1194,7 @@ the meeting format (147 to 151) and the dedication of merit (152). The meditatio
 questions were read on 13 September 2026 and the rest on 16 August 2026. Source of every page
 reference in this section and of the four paragraphs in Chapter Twenty-Four. Stored as
 `research/incorporated/RecoveryDharma_2023/`, git-ignored with a SHA-256 and a verification index.
-It is the one source in the corpus whose licence would permit committing the document; the project
+Its licence is among those in the corpus that would permit committing the document; the project
 git-ignores it anyway, because the rule is uniform.
 
 Jensen, K., and M. Abrahams (2019). "Buddha Buzz Weekly: Refuge Recovery Splits." *Tricycle: The

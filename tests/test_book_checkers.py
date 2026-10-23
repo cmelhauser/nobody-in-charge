@@ -763,13 +763,13 @@ def test_check_history_flags_unsupported_duration_claims_only(book, tmp_path):
     write(tmp_path / "plans" / "PLAN.md", "It has been wrong for a long time.\nOK for 3 weeks.\n")
     book.check_history()
     failed = messages(book.FAILS, "history")
+    tail = ("; a bare duration cannot be checked against the progress log, "
+            "so cite the dated entry instead")
     assert failed == [
-        "README.md:1 claims a duration; the progress log is undated, so this cannot be checked",
-        "README.md:7 claims a duration; the progress log is undated, so this cannot be checked",
-        str(Path("plans") / "PLAN.md") + ":1 claims a duration; the progress log is undated, "
-        "so this cannot be checked",
-        str(Path("plans") / "PLAN.md") + ":2 claims a duration; the progress log is undated, "
-        "so this cannot be checked",
+        "README.md:1 claims a duration" + tail,
+        "README.md:7 claims a duration" + tail,
+        str(Path("plans") / "PLAN.md") + ":1 claims a duration" + tail,
+        str(Path("plans") / "PLAN.md") + ":2 claims a duration" + tail,
     ]
     assert book.WARNS == [] and book.NOTES == []
 

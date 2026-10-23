@@ -155,7 +155,7 @@ On leadership there is no rotation and no doctrine of service. Officers and comm
 
 And on singleness of purpose the manual is not silent but expansive: its opening definition claims the whole of society for the movement's efforts and puts curing intemperance alongside preventing it, a passage Chapter Two quotes in full because that is where it does its damage. The section on differences between societies records that some admitted only those who had made, sold or used liquor within the past year, others everyone but young children, others children too with a parent's consent. The porous boundary that Chapter Two will identify as the thing that killed the movement was not drift. It was written into the definition of principles as a virtue, and the variation between societies was recorded without embarrassment, because nothing bound them to agree.
 
-I want to be careful about what I have just done, because it has the shape of a fit. This book will argue in Part Two that three Traditions, the second, the ninth and the twelfth, do the load-bearing work, and I have just reported that the Washingtonians had four others and lacked exactly those three. The selection of those three does not come from this history. It comes from a theorem, and Part Two derives it without reference to 1842. But a reader is entitled to suspicion, so the fair test is what the *Pocket Companion* could have contained and does not. Had it prescribed rotation of the chair, or advised societies against giving members' names to newspapers, the argument of this book would be in serious trouble, and I would have had to say so here. It prescribes the reverse of the second and says nothing about the first.
+I want to be careful about what I have just done, because it has the shape of a fit. This book will argue in Part Two that three Traditions, the second, the ninth and the twelfth, do the load-bearing work, and I have just reported that the Washingtonians had analogues of four protective Traditions, only the between-society half of the ninth among them, and lacked what those three ask for: servants who do not govern, rotation and anonymity. The selection of those three does not come from this history. It comes from a theorem, and Part Two derives it without reference to 1842. But a reader is entitled to suspicion, so the fair test is what the *Pocket Companion* could have contained and does not. Had it prescribed rotation of the chair, or advised societies against giving members' names to newspapers, the argument of this book would be in serious trouble, and I would have had to say so here. It prescribes the reverse of the second and says nothing about the first.
 
 The limits are worth stating too. This is one compiler's manual, in one edition, from Utica rather than Baltimore, and it is prescriptive: it says what a society ought to do, not what any society did. Its own section on differences is the evidence that societies varied. But that cuts the way the argument goes rather than against it. A movement whose manual has to include a chapter on how much its societies disagree is a movement whose rules had no purchase, and the *Pocket Companion* tells you which rules those were.
 
@@ -290,8 +290,6 @@ Grosh, A. B. comp. (1842). *Washingtonian Pocket Companion: containing a choice 
 
 Marsh, J. (1866). *Temperance Recollections.* New York: Charles Scribner & Co. **Read at source**; saved as `research/incorporated/Marsh_1866/`. Used here for the second version of the founding scene, taken by Marsh from the eleventh annual report of the Maryland State Temperance Society, and for the contemporary dispute over whether a sermon triggered it at all.
 
-Lincoln, A. (1842). Address before the Springfield Washington Temperance Society, 22 February. The occasion is noted by Maxwell; the address itself was not read for this chapter.
-
 The pledge text dates from 1840 and is in the public domain.
 
 **Cited at a remove:**
@@ -301,6 +299,8 @@ American Temperance Union (1840-1849). *Annual Reports of the Executive Committe
 
 
 Jellinek, E. M. (n.d.). Per-capita consumption estimates for 1840-1850. Quoted by Maxwell (1950); the original is not identified there and has not been traced.
+
+Lincoln, A. (1842). Address before the Springfield Washington Temperance Society, 22 February. The occasion is noted by Maxwell; the address itself was not read for this chapter.
 
 **What was not read:**
 

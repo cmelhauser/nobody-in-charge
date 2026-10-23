@@ -95,7 +95,7 @@ The single most robust comparison in the simulation is between a group starved o
 
 I never said what worse meant.
 
-The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and a piecewise-linear clipped capacity response, which still saturates. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
+The release audit retested five architectures at 400 paired seeds per condition: the base model, a flat step gate, Tradition Three moved to admission, capacity supplied by all members, and a piecewise-linear clipped capacity response, which still saturates. In the corrected model the referral-loss condition has lower existence, lower endpoint viability and lower mean final membership than pure attraction loss in all five, although the Tradition Three row equals the base at full adherence, so four distinct architectures are compared. The former three-of-four size reversal does not reproduce. Parameter screens still report strict, tied and reversed draws separately, because agreement across five architectures is evidence over those architectures, not a universal theorem.
 
 That correction is the argument for this whole chapter. A result can change because the model changed, because the estimand changed, or because the earlier audit sampled too narrowly. Keeping the old structural conclusion after changing the capability distribution would have been as misleading as never testing the architecture at all.
 
@@ -157,13 +157,13 @@ distributional, semantic, estimand and reproducibility errors that cross the ear
 That loss of neatness is itself accurate: code inspection, simulation, source reading,
 institutional review and cross-artifact verification caught different classes of failure.
 
-**A count I am not going to give.** How long each error was in the manuscript before it was caught. The progress log carries no dates, so any such claim would be unverifiable, and this project has already written two duration claims it could not support.
+**A count I am not going to give.** How long each error was in the manuscript before it was caught. The progress log's early sessions carry no dates, though its later entries do, so any such claim for the early errors would be unverifiable, and this project has already written two duration claims it could not support.
 
 ### 3. Notes on sources
 
 **This chapter is sourced entirely from `research/progress-log.md`**, which is the running record of corrections, and every entry above is traceable to an entry there. Where the log and my memory disagree, the log wins, and it has won twice.
 
-**Two claims about this project's own history were themselves wrong** and were removed rather than corrected, because there was nothing to correct them to. One asserted a number of shared phrases between two chapters that appears nowhere in the log. One asserted that an error had stood for months, which the log cannot support because it is undated. Both were written by me about my own work, which is the least reliable kind of testimony in this book and the kind a reader can least easily check.
+**Two claims about this project's own history were themselves wrong** and were removed rather than corrected, because there was nothing to correct them to. One asserted a number of shared phrases between two chapters that appears nowhere in the log. One asserted that an error had stood for months, which the log cannot support for its undated early sessions. Both were written by me about my own work, which is the least reliable kind of testimony in this book and the kind a reader can least easily check.
 
 **The institutional correction is reported at one remove and cannot be otherwise.** It came from a reader rather than a document. I have recorded what was said and what it changed, and there is nothing to cite.
 

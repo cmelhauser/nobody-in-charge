@@ -66,11 +66,17 @@ independently. Sending it destroys the round.
       your own replies to their questions short: the likeliest way to spoil the round is a helpful
       answer to a follow-up.
 
-\item \textbf{Save each completed form} in the repository as
-      \texttt{research/governance-elicitation-<initials>.md}. The script reads every file matching
-      that pattern: a markdown table whose first column is the Tradition and whose remaining eight
-      columns are the resources in the order given on the form. Blank and \texttt{0} both mean
-      empty.
+\item \textbf{Give each respondent an anonymous code} (R01, R02 and so on) and save each
+      completed form in the repository as
+      \texttt{research/governance-\allowbreak elicitation-<code>.md}. The script reads every file matching that pattern:
+      a markdown table whose first column is the Tradition and whose remaining eight columns are
+      the resources in the order given on the form. Blank and \texttt{0} both mean empty.
+
+      \textbf{Never put a name, initials, an email address or any other identifying detail in
+      the repository}, which is public: not in a file name, the form, the ledger, a commit message
+      or the progress log. Respondents are told they will not be named. Strip any name from the
+      returned form before saving it, and keep the mapping from code to person outside the
+      repository.
 
 \item \textbf{Run the comparison:}
 
@@ -79,18 +85,19 @@ python3 model/elicitation\_compare.py -{}-self-test\\
 python3 model/elicitation\_compare.py
 \end{quote}
 
-      Run the self-test before sending any forms out. It passed on 10 August 2026.
+      Run the self-test before sending any forms out.
 
-\item \textbf{Record who filled each one in}, what they were told, and whether they had seen the
-      book, in \texttt{research/SOURCES.md}. Then propagate whatever the result says through the
+\item \textbf{Record, under the code only}, what each respondent was told and whether they had
+      seen the book, in \texttt{research/SOURCES.md}. Then propagate whatever the result says through the
       layers listed in \texttt{CLAUDE.md}, exactly as any other change to a public claim.
 \end{enumerate}
 
 \section{The instrument was checked before this packet was made}
 
-\texttt{model/elicitation\_compare.py -{}-self-test} passed on 10 August 2026. It exercises two
-synthetic respondents: one who matches the book's empty rows, and one who differs by a single row.
-The second is correctly reported as contradicting Chapter 18 rather than smoothed over, which is
+\texttt{model/elicitation\_compare.py -{}-self-test} passed on 10 August 2026 and again on 28
+September 2026. It exercises three synthetic respondents: one identical to the book, one with six
+cells flipped and the protective rows intact, and one who differs by a single row (a filled T7).
+The third is correctly reported as contradicting Chapter 18 rather than smoothed over, which is
 the behaviour that matters, since an instrument that only confirms is not an instrument.
 
 The analysis is preregistered. \texttt{model/elicitation\_compare.py} was written before any form

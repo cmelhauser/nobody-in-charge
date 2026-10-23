@@ -284,7 +284,7 @@ def show(label, value, pct=False):
 
 
 def emit():
-    """Print derived public figures. This is the body that will move into the notebook."""
+    """Print derived public figures at the precisions the chapters use."""
     # ---- part4: matrix tests that Chapters Sixteen to Eighteen quote ------------------------
     # The threshold test, the principal-supplier counts and the index-mate ranks were computed
     # for those chapters in an earlier notebook whose sections 11 to 11d no longer exist; they
@@ -1103,7 +1103,7 @@ def _reachable(n):
 _tex = (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
 _tex = _re.sub(r"(?<!\\)%.*", "", _tex)                      # LaTeX comments are not claims
 _tex = _re.sub(r"doi:\S+|10\.\d{4,}/\S+|ISBN[\s:0-9X-]+", " ", _tex, flags=_re.I)
-_SOURCE_FIGURES = {"14.3", "4.9", "0.053", "0.061", "0.055"}  # quoted from cited literature
+_SOURCE_FIGURES = {"0.053", "0.061"}  # Carrell, Sacerdote and West (2013), as the paper cites it
 _nums = sorted(set(_re.findall(r"\d+\.\d+", _tex)) - _SOURCE_FIGURES)
 _missing = [n for n in _nums if not _reachable(n)]
 print(f"  INFO decimals printed in the paper: {len(_nums)}")

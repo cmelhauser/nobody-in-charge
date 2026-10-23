@@ -2,8 +2,10 @@
 %  Anonymity as an Aggregation Condition
 %  Working paper. LaTeX is the single source of truth for THIS DOCUMENT.
 %  The book (manuscript/*.md) is the single source of truth for the
-%  substantive claims; every figure below is traceable to
-%  model/book-calculations.ipynb and appendix/APPENDIX.md.
+%  substantive claims; every figure below is traceable to the caches in
+%  research/ through model/book-calculations.ipynb and
+%  paper/anonymity-as-an-aggregation-condition.ipynb (the latter also checks
+%  that every decimal printed here is reachable), and to appendix/APPENDIX.md.
 %
 %  Build, from this directory, with the timestamp its date declares:
 %    SOURCE_DATE_EPOCH="$(python3 ../tools/source_date.py paper)" \
@@ -478,7 +480,7 @@ bounded below and the wisdom condition fails despite rotation.
 
 At $N=400$ and $\alpha = 0.35$, the sweep over $R$ gives maximum influence 0.118,
 0.060, 0.031, 0.016, 0.009, 0.005 and 0.003 at $R = 3, 6, 12, 25, 50, 100$ and
-400, against a flat benchmark of 0.0025. The $\alpha/R$ approximation tracks the
+400, against a flat benchmark of 0.0025 (at $R = 400$ the pool is the whole group and the value is exactly 0.0025, which three places print as 0.003). The $\alpha/R$ approximation tracks the
 computed value closely for pools up to about twenty-five; beyond that the flat
 share $(1-\alpha)/N$ is no longer negligible and the approximation falls below the
 computed value, which is the check that the mechanism is the one claimed. Holding the pool at twelve while the group grows, maximum
@@ -531,10 +533,12 @@ penalty of one per cent at $N = 10$ rising to a factor of 2.08 at $N = 1000$.
 The decision-relevant contrast is whether the twenty-six per cent corollary
 rescues such a group. It does not. Fixing $R = \lceil 0.26 N \rceil$ at every size
 and reporting $\max_j s_j$ as a multiple of the flat benchmark: rotation alone
-holds at 2.0, 2.0, 2.0 at $N = 50, 250, 1000$, which is a self-consistency check
-since twenty-six per cent was defined as the within-a-factor-of-two pool. Adding
-three elders at $\alpha_e = 0.10$ gives 2.5, 9.2, 34.2. At $\alpha_e = 0.20$,
-4.1, 17.4, 67.4. With five elders at $\alpha_e = 0.20$, 2.8, 10.8, 40.8.
+(office share 0.35) holds at 2.0, 2.0, 2.0 at $N = 50, 250, 1000$, which is a
+self-consistency check since twenty-six per cent was defined as the
+within-a-factor-of-two pool. Adding three elders at $\alpha_e = 0.10$ and cutting
+the office share to 0.05 gives 2.5, 9.2, 34.2; at office share 0.35 it gives 2.2,
+8.9, 33.9. At $\alpha_e = 0.20$ (office share 0.05), 4.1, 17.4, 67.4. With five
+elders at $\alpha_e = 0.20$ (office share 0.05), 2.8, 10.8, 40.8.
 
 \smallnote{\textbf{Scope, and what these numbers are not.} The parameters are
 illustrative, not estimated. No source counts how many members a group defers to
@@ -558,7 +562,7 @@ membership. Then
 \text{speakers' share of total influence} \;=\; \frac{\text{out}}{\text{out} + \text{back}},
 \label{eq:speakers}
 \end{equation}
-exact to twelve decimal places, \textbf{independent of the number of members and
+exact to better than $10^{-11}$, \textbf{independent of the number of members and
 of the number of speakers}. Five speakers receiving three tenths of the movement's
 attention and returning two tenths of their own hold six tenths of the influence
 in a movement of ten and in a movement of a thousand alike.
@@ -585,7 +589,7 @@ had that defect and reporting it would have been a vacuous-robustness error.}
 Two ordered lists of twelve, printed in a single volume, invite the conjecture
 that Step $i$ draws on Tradition $i$. The conjecture merits testing rather than
 adoption. The historical record gives grounds for doubt: the Traditions were
-codified from 1946 essays written roughly a decade after the Steps, in response to
+codified from 1946 essays written roughly seven years after the Steps (1938--39), in response to
 specific organizational crises, and no AA doctrine pairs the lists by index.
 
 That last clause was previously an assertion about literature the project had not
@@ -791,9 +795,9 @@ analysis of a judgment, not a test of it.
 \paragraph{Design 4, the resource-list test.} Delete each of the eight resources
 in turn, then merge each pair, then delete each pair: sixty-four resource lists in
 all. Only Step~1 and Step~2 ever regain their index-mates, in fifteen variants and
-one respectively, and every one of the fifteen Step~1 failures involves removing
-or merging the admission resource, which is precisely what gives the open door its
-lead there. This establishes that the list is no \emph{finer} than it needs to be.
+one respectively. Eleven of the fifteen Step~1 failures involve removing or merging
+the admission resource, which is precisely what gives the open door its lead there;
+the other four merge identification or proof with another resource. This establishes that the list is no \emph{finer} than it needs to be.
 It cannot establish that the list is fine \emph{enough}, because inventing a ninth
 resource requires a judgment about what it contains and cannot be done by
 rearranging the eight.
@@ -1201,7 +1205,7 @@ registered values at four distances in each direction; a twenty-trajectory Morri
 elementary-effects screen over all 118; a Sobol decomposition on a 1,024-row base
 design over the eight Morris membership leaders; four structural variants that
 change the model's architecture rather than its numbers; and a resource-list test.
-Full specifications are in the book's technical appendix, sections A3 to A9.
+Full specifications are in the book's technical appendix, sections A5 to A7, the sensitivity designs themselves being specified in A7.1 to A7.6.
 
 \paragraph{Which parameters matter.} The ordering exponent $p$ has the largest
 single influence of any parameter on every outcome the multi-level sweep scores at
@@ -1499,7 +1503,8 @@ known aggregation criterion does not establish that this is why they were writte
 or why AA has endured.
 
 \item \textbf{The decay rate is uncalibrated and consequential.} $\delta_0$ is second only
-to $p$ in every sensitivity design. The two estimates read for anything comparable measure
+to $p$ on membership in the Morris screen, the Sobol decomposition and the
+plus-or-minus 25 per cent sweep, and first on mean practice in the Morris screen. The two estimates read for anything comparable measure
 skills, not practices: Dinerstein, Megalokonomou, and Yannelis (2022) put the depreciation of
 teaching skill at 4.3 per cent a year for early-career teachers, and Cohen, Johnston, and
 Lindner (2023) find no measurable decline in cognitive skills over up to three years of
@@ -1656,7 +1661,7 @@ verification index.
 
 \begin{list}{}{\setlength{\leftmargin}{1.5em}\setlength{\itemindent}{-1.5em}\setlength{\itemsep}{2pt}}\small
 
-\item Alcoholics Anonymous World Services (1953). \textit{Twelve Steps and Twelve Traditions.} New York: AAWS. \textbf{Read in full} 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. Source for the elder-statesman structure of Section~\ref{sec:elders} (Tradition 2, printed pp.\ 132-138), the statement that rotating leadership is best and the warning against entrenched power (Tradition 9, pp.\ 174-178), the two functions of anonymity (Tradition 12, pp.\ 187-191), and the unity/singleness-of-purpose distinction (Traditions 1 and 5, pp.\ 129-131 and 151-155). Also the cross-reference count reported in Section~\ref{sec:conjecture}. \textbf{In copyright; a lawful local copy is held, git-ignored and never committed.}
+\item Alcoholics Anonymous World Services (1953). \textit{Twelve Steps and Twelve Traditions.} New York: AAWS. \textbf{Read in full} 10 August 2026, from the per-chapter files AAWS publishes free at aa.org. Source for the elder-statesman structure of Section~\ref{sec:elders} (Tradition 2, printed pp.\ 132-138) and the unity/singleness-of-purpose distinction (Traditions 1 and 5, pp.\ 129-131 and 151-155). Also the cross-reference count reported in Section~\ref{sec:conjecture}. \textbf{In copyright; a lawful local copy is held, git-ignored and never committed.}
 
 \item Alexander, R. M. (1988). ```We Are Engaged as a Band of Sisters': Class and Domesticity in the Washingtonian Temperance Movement, 1840-1850.'' \textit{Journal of American History} 75(3): 763-785. \textbf{Not read}; cited for the women's dimension of the movement, which this paper does not develop.
 
@@ -1704,7 +1709,7 @@ verification index.
 
 \item Gough, J. B. (1869). \textit{Autobiography and Personal Recollections of John B. Gough.} Springfield, Mass.: Bill, Nichols \& Co. \textbf{Read at source}; public domain. The September 1845 episode in his own words.
 
-\item Greenfield, B. L., and J. S. Tonigan (2013). ``The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs.'' \textit{Psychology of Addictive Behaviors} 27(3): 553-561. \textbf{Read in full}; NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026. Source for the two-factor structure of step-work and the disagreement between instruments on nine of twelve steps.
+\item Greenfield, B. L., and J. S. Tonigan (2013). ``The General Alcoholics Anonymous Tools of Recovery: The Adoption of 12-Step Practices and Beliefs.'' \textit{Psychology of Addictive Behaviors} 27(3): 553-561. \textbf{Read in full}; NIH author manuscript, PMCID PMC3707937, obtained 10 August 2026. Cited among the established measurement instruments.
 
 \item Grosh, A. B., comp. (1842). \textit{Washingtonian Pocket Companion.} Second edition. Utica, N.Y.: B. S. Merrell. \textbf{Read at source}; Harvard copy digitized by Google, via HathiTrust, \url{https://hdl.handle.net/2027/hvd.32044004487591}. Public domain. The definition of principles, the model constitution's articles, the Utica mass convention of 22 February 1842, and the directions for taking names publicly.
 
@@ -1730,7 +1735,7 @@ verification index.
 
 \item Krout, J. A. (1925). \textit{The Origins of Prohibition.} New York: Alfred A. Knopf. \textbf{Read at source}; public domain. Independent corroboration of the founding, the officers, the fee and the dues.
 
-\item Kurtz, E. (c.\ 1984). ``A Talk About the History of Alcoholics Anonymous From the Letters of Bill Wilson.'' Undated recorded talk; transcript restored by historyofrecovery.com. \textbf{Read in full} 10 August 2026. The year is inferred from internal evidence and is given as approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted within it from memory and without page citations, so anything attributed to Wilson through this source is at a remove. \textbf{Held as a git-ignored transcription since 13 September 2026, never committed.}
+\item Kurtz, E. (c.\ 1984). ``A Talk About the History of Alcoholics Anonymous From the Letters of Bill Wilson.'' Undated recorded talk; transcript restored by historyofrecovery.com. \textbf{Read in full} 10 August 2026. The year is inferred from internal evidence and is given as approximate throughout. Distinct from Kurtz (1979/1991). Wilson's letters are quoted within it from memory and without page citations, so anything attributed to Wilson through this source is at a remove. Consulted, not cited in the text. \textbf{Held as a git-ignored transcription since 13 September 2026, never committed.}
 
 \item Kurtz, E. (1991). \textit{Not-God: A History of Alcoholics Anonymous.} Expanded edition. Center City, Minn.: Hazelden. \textbf{Consulted at source}; in copyright, full text not stored. The Traditions' drafting history. A vocabulary-only verification index is retained at \texttt{research/incorporated/Kurtz\_1991/} in place of the text.
 
@@ -1742,11 +1747,11 @@ verification index.
 
 \item Ostrom, E. (1990). \textit{Governing the Commons: The Evolution of Institutions for Collective Action.} Cambridge: Cambridge University Press.
 
-\item Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). ``Helping other alcoholics in Alcoholics Anonymous and drinking outcomes.'' \textit{Journal of Studies on Alcohol} 65(6): 766-773. \textbf{Read in full}; NIH author manuscript, PMCID PMC3008319, obtained 10 August 2026. Source for the 40 against 22 per cent abstinence contrast, its independence from meeting attendance, and the authors' 8 per cent helping-rate limitation.
+\item Pagano, M. E., K. B. Friend, J. S. Tonigan, and R. L. Stout (2004). ``Helping other alcoholics in Alcoholics Anonymous and drinking outcomes.'' \textit{Journal of Studies on Alcohol} 65(6): 766-773. \textbf{Read in full}; NIH author manuscript, PMCID PMC3008319, obtained 10 August 2026. Cited as the AA-specific test of the helper-therapy principle.
 
 \item Riessman, F. (1965). ``The `helper' therapy principle.'' \textit{Social Work} 10(2): 27-32.
 
-\item Rohr, R. (2011). \textit{Breathing Under Water: Spirituality and the Twelve Steps.} Cincinnati: Franciscan Media. \textbf{Read in full} 10 August 2026. Cited only for its reading of anonymity as confidentiality and for containing no discussion of the Traditions. The copy consulted was an unauthorised posting; the bibliographic record was confirmed independently of it, no copy is held, and nothing is quoted at length. See \texttt{research/incorporated/Rohr\_2011/} for the rights position in full.
+\item Rohr, R. (2011). \textit{Breathing Under Water: Spirituality and the Twelve Steps.} Cincinnati: Franciscan Media. \textbf{Read in full} 10 August 2026. Consulted, not cited in the text; recorded for its reading of anonymity as confidentiality and for containing no discussion of the Traditions. The copy first consulted was an unauthorised posting and was not retained; the Human Author has held a lawfully obtained copy since 17 August 2026, which resolved the provenance objection, and the corpus holds no copy. Nothing is quoted at length. See \texttt{research/incorporated/Rohr\_2011/} for the rights position in full.
 
 \item Rynes, K. N., and J. S. Tonigan (2012). ``Do social networks explain 12-step sponsorship effects? A prospective lagged mediation analysis.'' \textit{Psychology of Addictive Behaviors} 26(3): 432-439. \textbf{Read in full} in its author-manuscript version.
 
@@ -1885,7 +1890,7 @@ forever. Severity is not the test. Scaling is the test.
 
 It is tempting to think Step 1 goes with Tradition 1, Step 2 with Tradition 2, and
 so on down the line. It sounds neat. But it does not hold up, and it was never AA
-teaching. The Traditions were written about ten years after the Steps, to fix real
+teaching. The Traditions were written about seven years after the Steps, to fix real
 problems groups were having.
 
 Instead of matching them by number, we asked a different question for each step:

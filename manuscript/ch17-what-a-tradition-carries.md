@@ -57,7 +57,7 @@ I think that judgement is right, and I think it is the most defensible cell in t
 
 But I want to be exact about what has and has not been established. Kurtz's charge is that the terms were conflated in some later literature, and my defence is that my assignment tracks the published wording rather than the later usage.
 
-That defence has since acquired a second leg, and the source is Wilson himself. *Twelve Steps and Twelve Traditions* gives each Tradition a chapter, and the two chapters keep the terms apart about as cleanly as prose can. The chapter on Tradition 1 is about the fellowship holding together: unity is the most cherished quality the Society has, without it the heart of AA would stop, the group must survive or the individual will not. The chapter on Tradition 5 opens with the shoemaker sticking to his last and argues that a group should do one thing supremely well rather than many badly. Counting the words is cruder than reading them and says the same thing: the Tradition 1 chapter uses "unity" five times and "purpose" once, and the Tradition 5 chapter reverses it exactly.
+That defence has since acquired a second leg, and the source is Wilson himself. *Twelve Steps and Twelve Traditions* gives each Tradition a chapter, and the two chapters keep the terms apart about as cleanly as prose can. The chapter on Tradition 1 is about the fellowship holding together: unity is the most cherished quality the Society has, without it the heart of AA would stop, the group must survive or the individual will not. The chapter on Tradition 5 opens with the shoemaker sticking to his last and argues that a group should do one thing supremely well rather than many badly. Counting the words is cruder than reading them and says the same thing: the Tradition 1 chapter uses "unity" five times and "purpose" once, and the Tradition 5 chapter runs the other way, with "purpose" four times and "unity" once.
 
 So in the fellowship's own commentary the First Tradition is about persisting and the Fifth is about what you do while you persist, which is the distinction the matrix encodes.
 
@@ -91,7 +91,7 @@ That is precisely the failure this book opened with. The Washingtonians did not 
 
 ### 1. What the model says
 
-The load on Tradition *j* is the column sum of the coupling B = S G', which is the total demand every Step places on resources that Tradition *j* governs. It is a summary of the same object Chapter Sixteen reads row-wise, and it is used nowhere in the simulation itself.
+The load on Tradition *j* is the column sum of B = S G', the semantic overlap between the two authored matrices and not an executable coupling, which is the total demand every Step places on resources that Tradition *j* governs. It is a summary of the same object Chapter Sixteen reads row-wise, and it is used nowhere in the simulation itself.
 
 The load has a useful decomposition. Because B = S G', the contribution of resource *r* to Tradition *j*'s load is the total demand for that resource across all Steps, times *j*'s governance coefficient for it. That factorisation is what makes the reassignment test below one multiplication rather than a re-derivation, and it is why the test is exact.
 

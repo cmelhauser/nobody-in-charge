@@ -14,8 +14,10 @@ the repository. Two techniques are used:
   temporary tree, with a stub `pandoc` and `tectonic` on the PATH, so the `__main__` blocks and
   exit codes are checked as a user would meet them.
 
-The byte-for-byte output of the real builds is checked elsewhere (the release gate); these
-tests check the logic that produces it.
+The real builds are exercised by the `documents` job, the release workflow and
+`tools/run_ci_locally.sh`, and the release gate checks that each PDF is newer than its sources
+and `tools/check_pdfs.py` that it is a sound document. Nothing compares PDF bytes. These tests
+check the logic that produces them.
 """
 from __future__ import annotations
 

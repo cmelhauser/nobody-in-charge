@@ -156,7 +156,7 @@ the tools fail on it, so check `python3 --version` first.
 
 ```bash
 python3 -m pip install -r requirements-dev.txt
-python3 -m pytest
+python3 -m pytest --cov
 ```
 
 The suite runs without any source document, because every source under
@@ -164,7 +164,8 @@ The suite runs without any source document, because every source under
 verification indexes.
 
 The coverage gate is 100 per cent of `model/aa_group_model.py`, the canonical model, and of every
-script under `tools/`, enforced by `.coveragerc`. The model is hash-frozen and pure computation, so it
+script under `tools/`, enforced by `.coveragerc` when the suite runs with `--cov` (plain
+`python3 -m pytest` runs the tests without measuring coverage). The model is hash-frozen and pure computation, so it
 is tested exhaustively; `tests/test_release_invariants.py` also pins its SHA-256, the room capacity of
 60, the viability threshold of 5, and the 22 + 12 + 49 + 35 = 118 decomposition. The scripts
 under `tools/` are command-line entry points, so the suite both calls their functions with every
@@ -192,7 +193,7 @@ whether a fresh runner can obtain pandoc, tectonic and the font.
 
 GitHub Actions runs four jobs, split by what can be checked without a network and by what depends
 on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
-model takes no lint waiver. `unit-tests` runs pytest and the model hash: on pull requests it uses
+model passes the original narrow ruleset (syntax errors, pyflakes, bugbear) with ruff's configuration ignored. `unit-tests` runs pytest and the model hash: on pull requests it uses
 Python 3.12 only; on `main` it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
 others with the model tests, the release invariants, the direct tool tests and a byte-compile of every tool and script. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate
@@ -223,6 +224,7 @@ export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
 (cd paper && tectonic anonymity-as-an-aggregation-condition.tex)
 unset SOURCE_DATE_EPOCH
 python3 tools/build_primer.py
+python3 tools/check_fonts.py
 python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
@@ -234,8 +236,10 @@ The pandoc version is not incidental. Pandoc computes the column widths of every
 book, and it does not compute them the same way across versions: a different release gave the
 paper's seven-column scenario table a first column of 0.1154 where 3.10.2 gives 0.2577, which put
 a row outside the type block. Continuous integration installs 3.10.2 for that reason, and a local
-build with a different pandoc may place tables differently. Raise the pin deliberately, in
-`.github/workflows/ci.yml`, and re-read the rendered PDFs when you do. On Debian or Ubuntu that font is
+build with a different pandoc may place tables differently. The pandoc pin (version and checksum) and
+the tectonic pin (URL and checksum) are set in both `.github/workflows/ci.yml` and
+`.github/workflows/release.yml`; raise them in both together, deliberately, and re-read the
+rendered PDFs when you do. On Debian or Ubuntu that font is
 `fonts-texgyre`; on macOS install the OTFs from the TeX Gyre project or a TeX distribution.
 Without it XeTeX stops with an unrecoverable error before it typesets anything, which is what
 CI did on 17 August 2026 when the font turned out to be present only in the author's personal
@@ -300,7 +304,8 @@ vocabulary-only verification index. The documents are local working files, exclu
 That does not weaken citation checking. `tools/check_book.py` confirms that a chapter citing a
 source for a subject is citing a work that contains it, using the indexes; with no documents
 present at all, every citation-subject pair still verifies. Rebuild the corpus and its indexes
-with `python3 tools/build_corpus.py`, or audit it with `--check`.
+with `python3 tools/build_corpus.py`, or audit it with `--check`, which reports drift and changes no
+file, though it can create an empty directory for a registered source that has none.
 
 Six of the 45 sources are held as record only, with no document at any time: Kurtz (1991), in
 copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have
@@ -316,9 +321,9 @@ edition of the Big Book. The same day added the 2024-26 *A.A. Service Manual* wi
 Twelve Concepts.
 
 Recovery Dharma (2023), added 16 August 2026 for appendix A12, is held on the ordinary footing:
-document present locally, git-ignored, hashed, and indexed. It is the one source in the corpus
-whose licence, CC BY-NC-SA 4.0, would permit committing the document outright. It is git-ignored
-anyway, because the rule is uniform.
+document present locally, git-ignored, hashed, and indexed. Its licence, CC BY-NC-SA 4.0, is among
+those in the corpus that would permit committing the document outright; Edgren, Baretta and Inauen
+(2025), under CC BY 4.0, is another. It is git-ignored anyway, because the rule is uniform.
 
 The 1939 working manuscript (`WorkingManuscript_1939`, Hazelden's 2010 facsimile), added 12
 September 2026, is held on the same footing at the Human Author's direction, although it is in

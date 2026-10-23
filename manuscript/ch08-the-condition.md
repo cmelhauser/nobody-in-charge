@@ -260,7 +260,7 @@ The two readings turn out not to compete, which I did not expect. The Twelve and
 
 **DeGroot averaging is a strong simplification of how a group conscience works.** Real members argue rather than average. They defer selectively, on some questions and not others. They abstain. They update out of order, and sometimes they harden rather than converge. The model captures a room settling toward a shared view and captures nothing about the texture of how that happens. Golub and Jackson's result is a statement about naive averaging specifically, and a group that deliberated some other way would need a different analysis.
 
-**Nothing in this chapter is reported at a remove.** The theorem is read at source, the updating model is read at source, and the numbers are computed rather than cited. This is the only chapter so far with no outstanding acquisitions, which is a property of the material rather than a virtue of the research: the whole argument rests on one paper and some arithmetic.
+**Nothing in this chapter is reported at a remove.** The theorem is read at source, the updating model is read at source, and the numbers are computed rather than cited. Like Chapter Seven, this chapter has no outstanding acquisitions, which is a property of the material rather than a virtue of the research: the whole argument rests on one paper and some arithmetic.
 
 **Exchangeability is an idealisation.** Proposition 1 in the underlying paper assumes trust weights are genuinely uniform under full adherence to the three Traditions. Real trust is never exactly uniform, even in a perfectly run group. The claim is asymptotic and approximate: the Traditions push maximum influence toward 1/N, not exactly to it.
 

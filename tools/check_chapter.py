@@ -159,10 +159,11 @@ def check(path):
     try:
         import textstat
         fk = textstat.flesch_kincaid_grade(prose)
-        # Drafted chapters run FK 6.7 (ch08) to 11.0 (ch06). Target is under 10;
-        # above that a chapter is probably carrying too much abstraction per sentence.
+        # Target is under 10; above that a chapter is probably carrying too much abstraction
+        # per sentence. (textstat is optional and not in requirements-dev.txt, so the grades
+        # drafted chapters actually get are not recorded here.)
         if fk > 10.0:
-            warns.append(f"FK grade {fk:.1f}; aim under 10, book runs 6.7 to 11.0")
+            warns.append(f"FK grade {fk:.1f}; aim under 10")
         grade = f"FK {fk:.1f}"
     except ImportError:
         grade = "FK n/a"
