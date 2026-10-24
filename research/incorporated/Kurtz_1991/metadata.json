@@ -3,7 +3,8 @@
  "rights_note": "In copyright, all rights reserved. Never stored as full text.",
  "legacy_stem": "kurtz-1991",
  "documents": {},
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "record_only": true,
- "record_only_reason": "In copyright; never stored as full text."
+ "record_only_reason": "In copyright; never stored as full text.",
+ "index_note": "The verification index records source_sha256 as the literal placeholder 'stale' and carries no subjects_checked or subjects_present. No hash of the copy it was built from was kept, and none is invented here. Because it has no document in this repository to rebuild it from, tools/build_corpus.py does not test it, and tools/check_book.py falls back to matching a cited subject against its vocabulary. It is the oldest index and the pattern the others follow."
 }

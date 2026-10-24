@@ -6,7 +6,8 @@ Alcoholics Anonymous Publishing (now AAWS). First printing April 1953. Reformatt
 June 2021 in accordance with Advisory Actions of the 71st General Service Conference.
 https://www.aa.org/twelve-steps-twelve-traditions
 
-Consulted 10 August 2026 as the thirty per-chapter PDFs AAWS publishes free on aa.org, assembled
+Consulted 10 August 2026 as the twenty-nine per-chapter PDFs AAWS publishes free on aa.org
+(an earlier version of this citation said thirty; the page lists twenty-nine), assembled
 locally into one document for reading. The assembly is a reading convenience and is not
 redistributed. Page references follow the printed pagination shown in the PDFs, which is the
 pagination of the book.

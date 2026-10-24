@@ -139,7 +139,7 @@ Silkworth, W. D. (1939). An article in the *Journal-Lancet*, July 1939, as quote
 
 **Internal, and reproducible from this repository:**
 
-`model/part5_runs.py` for the composition experiment and for the three lines it duplicates from `simulate()` in order to seed founders individually. `research/part5.json`, `model/book-calculations.ipynb`, its "part5 founder composition" block and the "ch22" lines of the published-figures cell.
+`model/part5_runs.py` for the composition experiment, which calls `simulate()` with an `initial_practice` vector to seed founders individually. `research/part5.json`, `model/book-calculations.ipynb`, its "part5 founder composition" block and the "ch22" lines of the published-figures cell.
 
 **What was not read:**
 

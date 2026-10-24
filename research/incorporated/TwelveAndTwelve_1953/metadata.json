@@ -9,11 +9,9 @@
  "source_url": "https://www.aa.org/twelve-steps-twelve-traditions",
  "record_only": false,
  "files": {
-  "pdf": null,
-  "ocr": null,
-  "note": "Held git-ignored since 13 September 2026; see holding_note.",
-  "sha256_of_assembled_reading_copy": "5e85bfac052d682abca2251b3fb5d64052302e8cef4d56252cfefd01347cf368",
-  "assembled_reading_copy": "The thirty per-chapter PDFs from aa.org, concatenated in printed order: copyright, introduction, contents, foreword, Steps One to Twelve, Traditions One to Twelve, long form of the Traditions. 187 pages. Held outside the repository."
+  "note": "Held git-ignored since 13 September 2026; see holding_note and documents. The entries below describe the August 2026 reading copy, which was not retained.",
+  "sha256_of_august_reading_copy": "5e85bfac052d682abca2251b3fb5d64052302e8cef4d56252cfefd01347cf368",
+  "august_reading_copy": "The twenty-nine per-chapter PDFs from aa.org, concatenated in printed order: copyright, introduction, contents, foreword, Steps One to Twelve, Traditions One to Twelve, long form of the Traditions. 187 pages. Not retained; the copy now held is a fresh assembly of the same twenty-nine files, whose hash is under documents."
  },
  "topics": [
   "Traditions",
@@ -43,7 +41,7 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "formerly_record_only": {
   "until": "2026-09-13",
   "reason_then": "Not mirrored. Copyrighted AAWS literature; this repository is public. Same treatment as pamphlet P-17."

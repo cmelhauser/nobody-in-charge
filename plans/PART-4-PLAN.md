@@ -1,6 +1,17 @@
 # Part Four: How the Two Halves Connect
 
-Chapters 16 to 18, roughly 11,000 words.
+**Status as of 22 October 2026: all chapters written; sections below are the plan as made; superseded items marked.**
+
+Chapters 16 to 18, roughly 11,000 words as planned (whole-file `wc -w` on 22 October 2026, still
+moving as chapters are revised: 4,640, 3,800 and 4,380, about 12,800 in all). The "words of main
+text" figures given for each chapter below are as drafted on 2 August 2026; `check_chapter.py`
+now reports 2,485 for Chapter 16.
+
+**Appendix pointers.** The appendix was renumbered during the release-gate round. The identifiers
+A5.4, A5.4b and A5.4c used below are retired; the mapping is in the appendix's renumbering note
+(A10.1): the robustness figures for the coupling are in the Machinery of Chapters 16 to 18 and in
+A8, the threshold test is in Chapter 18's Machinery and the reassignment test in Chapter 17's.
+A5.4 now means "Trajectories and selection" and has nothing to do with Part Four.
 
 Master plan: `../BOOK-PLAN.md`. Companions: `PART-1-PLAN.md`, `PART-2-PLAN.md`,
 `PART-3-PLAN.md`. Technical apparatus: `../appendix/APPENDIX.md`.
@@ -104,7 +115,8 @@ The chapter's argument:
    cent on every matrix entry, index-pairing fails on all twelve in 85.5 per cent of draws.
    But the Step 5 inversion holds at 99.5 per cent and the Step 12 inversion at only 67.4,
    because Tradition 3 is a close competitor for the recipient resource. **Chapter 16 must
-   not present the twelve counts as equally secure.** See appendix A5.4.
+   not present the twelve counts as equally secure.** See the Machinery of Chapter 16 and appendix A8 (the identifier A5.4 used when this plan
+was written is retired).
 6. **And report the degradation curve, not one level.** The claim weakens smoothly as the
    permitted disagreement widens, and disappears under structural randomisation. The chapter
    should give the whole curve and let the reader decide how much disagreement with my
@@ -163,7 +175,7 @@ unity's governance of one resource to singleness of purpose, wholesale, one reso
 flips the lead for two of the eight and not for the other six. The two are continuity and
 pressure. So the finding is conditional on the judgement that unity rather than singleness of
 purpose governs whether the group persists and whether it exerts expectations, and on nothing
-else in the matrix. Appendix A5.4c, notebook 11d (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). **What is still not settled** is what Wilson
+else in the matrix. Appendix A5.4c (retired; now Chapter 17's Machinery), notebook 11d (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). **What is still not settled** is what Wilson
 says in *AA Comes of Age* pp. 97-98, which Kurtz names as decisive and which this project does
 not hold: it is sold, and it is item 2 of `HANDOFF.md` section 10. The chapter says so in its own notes.
 
@@ -209,7 +221,7 @@ into a non-zero. Any claim that it "survives" perturbation is vacuous.
 > index-mate the principal supplier including the five with empty rows. Every threshold exceeds
 > both the mean and the median live entry of the governance matrix, and at the mean live
 > strength no index-mate wins. This is the only design in Part Four that could have overturned
-> the five protective counts, and it does not. Appendix A5.4b, notebook 11c (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). **It prices the
+> the five protective counts, and it does not. Appendix A5.4b (retired; now Chapter 18's Machinery), notebook 11c (a numbered notebook section of the time; the rebuilt notebook uses labelled blocks). **It prices the
 > zeros; it does not test whether they belong there.**
 
 The remaining and unsolved test is
@@ -227,7 +239,8 @@ the model.
 
 ## 3. Definition of done, per chapter
 
-Unchanged from Part Three, plus the appendix standard now in `../CLAUDE.md`:
+Unchanged from Part Three, plus the synchronization rule in `../CLAUDE.md`, which requires the
+appendix to change in the same session as any change to a public number:
 
 1. Drafted with the four-part Machinery.
 2. Every number added to `../model/book-calculations.ipynb` with an assertion, and the
@@ -301,13 +314,16 @@ made this part's central claim stronger than the chapters allow.
 
 ## 6. Release-gate corrections, opened 6 August 2026
 
-The computational architecture will distinguish:
+**Done in the release-gate round** (analyses complete 9 August 2026; every checker passed on 28
+September 2026, `RELEASE-GATE-PLAN.md`; the release checker is `tools/check_release.py`). The list
+is kept as the record of what the round required. The computational architecture was to
+distinguish:
 
 - semantic overlap \(B=S G^{\mathsf T}\);
 - normalized executable coupling \(C=S_{\mathrm{norm}}G_{W}^{\mathsf T}\);
 - the state-update map; and
 - trajectory-level finite-difference effects.
 
-Competition ranks will be tie-aware, structurally absent cells will be authored as such rather than numerically imputed, and the global interaction summary will report the 17 relevant cells rather than treating all 35 screen cells as substantively defined.
+Competition ranks were to be tie-aware, structurally absent cells authored as such rather than numerically imputed, and the global interaction summary to report the 17 relevant cells rather than treating all 35 screen cells as substantively defined.
 
-Tradition Three and Tradition Eleven will each be decomposed into paired \(2\times2\) mechanism checks. This round will also add an executable release checker for cache provenance, notebook execution, citation coverage, structural-null handling, and propagated headline values.
+Tradition Three and Tradition Eleven were each to be decomposed into paired \(2\times2\) mechanism checks. The round was also to add an executable release checker for cache provenance, notebook execution, citation coverage, structural-null handling, and propagated headline values.

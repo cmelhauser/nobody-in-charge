@@ -1,6 +1,8 @@
 # The 1939 working manuscript: what the edits show, and where they could go
 
-*Working note for the Human Author, 12 September 2026. Source: `WorkingManuscript_1939`.*
+*Working note for the Human Author, 12 September 2026, updated 13 and 15 September 2026 (the
+"Suggested uses" section below records which suggestions have been carried out). Source:
+`WorkingManuscript_1939`.*
 
 Every facsimile page of Hazelden's *The Book That Started It All* (2010) was read from the 241
 photographs and every change that mattered was checked against the 1939
@@ -17,7 +19,7 @@ by initial, as elsewhere in the project.
 1. **The edits change who is speaking far more than how firmly.** Across the programme chapters,
    instruction to "you" becomes a report of what "we" did. The modal usually survives: typed "You must
    take the lead" became "we found we had to" in pencil and "We must take the lead" in print (MS
-   p. 41). Nowhere does "you must" become "we ought", which is how Chapter 4 describes the change.
+   p. 41). Nowhere does "you must" become "we ought", which is how Chapter 4 described the change until its correction on 13 September 2026.
 2. **The qualifier on God is older than the comment round in one place and younger in two.** "As we
    understood Him" is typed in Step 3 of the circulated draft. In Step 11 it is written in by hand
    over a struck "a Power above us" (MS pp. 30-31). And the "Why don't you choose your own conception
@@ -107,7 +109,8 @@ people into moulds, the book should give specific instructions at all. The metap
 moulds" (p. 89, and again p. 91). The reviewers turned the text's complaint against religion back on
 the text.
 
-**What happened to the modal.** This is where Chapter 4 needs changing.
+**What happened to the modal.** This is where Chapter 4 needed changing; it was corrected on 13
+September 2026.
 
 - p. 41: typed "You must take the lead" became "we found we had to"; print has "We must take the lead".
 - p. 41: typed "you ought to say" lost its "ought to" in pencil; print has "We feel we ought to say".
@@ -369,9 +372,9 @@ resolution checked.
    the draft circulated, so the census mixes the draft's nineteen with ten late additions and one
    restored story. The one arrival by book alone, Lone Endeavor, is a late addition whose subject received
    this multilith. The book-alone line in To Employers was added in pencil, so the fellowship expected the
-   book to work alone as a stopgap even while, in Lone Endeavor's frame, it doubted that. And A13 says
+   book to work alone as a stopgap even while, in Lone Endeavor's frame, it doubted that. And A13 said
    twenty-nine stories where the 1939 contents page in `BigBook_1939` lists thirty titles from The
-   Doctor's Nightmare to Ace Full.
+   Doctor's Nightmare to Ace Full; it was recounted to thirty on 13 September 2026.
 
 ---
 

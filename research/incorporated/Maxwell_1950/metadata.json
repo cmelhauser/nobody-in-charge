@@ -14,5 +14,6 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above."
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
+ "source_url_note": "No URL recorded: a retyped reproduction circulated on the web, with 'CHIPS on the WEB' footers. research/SOURCES.md records the citation and the transcription errors found."
 }

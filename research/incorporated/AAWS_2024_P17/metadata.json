@@ -8,9 +8,7 @@
  "rights_note": "Copyrighted AAWS literature, published free as an official PDF on aa.org. Held git-ignored since 13 September 2026 at the Human Author's direction; never committed. Byte-identical to the file read in August.",
  "source_url": "https://www.aa.org/sites/default/files/literature/P-17_0724.pdf",
  "files": {
-  "pdf": null,
-  "ocr": null,
-  "note": "Held git-ignored since 13 September 2026; see holding_note.",
+  "note": "Held git-ignored since 13 September 2026; see holding_note and documents.",
   "sha256_of_official_pdf": "ceb4d61aed0d58b61599260089f8d620edd293380a89d2bf15b277326df42d0f"
  },
  "topics": [
@@ -36,9 +34,9 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "record_only": false,
- "verification_index": "none: no text was retained to build one from. Citations naming this source are checked against prose context only. Rebuild by re-acquiring the document, confirming the recorded SHA-256, and running tools/build_corpus.py with the text present.",
+ "verification_index": "Built by tools/build_corpus.py from the text held here.",
  "formerly_record_only": {
   "until": "2026-09-13",
   "reason_then": "Copyrighted AAWS literature; the project chose never to store it."

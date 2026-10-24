@@ -1,6 +1,9 @@
 # Part Five: How Groups Die
 
-Chapters 19 to 22, roughly 12,000 words.
+**Status as of 22 October 2026: all chapters written; sections below are the plan as made; superseded items marked.**
+
+Chapters 19 to 22, roughly 12,000 words as planned (whole-file `wc -w` on 22 October 2026, still
+moving as chapters are revised: 2,580, 2,490, 2,680 and 2,780, about 10,500 in all).
 
 Master plan: `../BOOK-PLAN.md`. Companions: `PART-1-PLAN.md` to `PART-4-PLAN.md`. Technical
 apparatus: `../appendix/APPENDIX.md`. Computation: `../model/part5_runs.py`, cached in
@@ -41,7 +44,7 @@ conditional on endpoint viability, defined as more than five members.
 | Failure mode | Viable, y10 | Members if viable, y10 | Quality y10 | Viable, y30 | Quality y30 |
 |---|---|---|---|---|---|
 | nothing wrong | 0.9975 | 29.40 | 0.302 | 0.985 | 0.265 |
-| invisible: pure attraction loss | 0.9925 | 12.99 | 0.295 | 0.985 | 0.259 |
+| invisible: pure attraction loss | 0.9925 | 12.98 | 0.295 | 0.985 | 0.259 |
 | unreferred: no exogenous inflow | 0.660 | 16.47 | 0.348 | 0.0275 | 0.364 |
 | unwelcoming: both Tradition 3 paths lost | 0.905 | 15.70 | 0.360 | 0.5475 | 0.321 |
 
@@ -152,10 +155,12 @@ As Parts Three and Four, plus:
 2. **Every quality figure states whether it conditions on survival**, because in this part the
    conditioning is the finding rather than a caveat.
 3. `python3 ../tools/check_chapter.py <file>` and `python3 ../tools/check_book.py` clear.
-4. Appendix updated in the same session if the model is touched. It was not touched: every run
-   here uses the model as it stands, and `part5_runs.py` duplicates three lines of `simulate()`
-   for the composition experiment rather than changing its signature, because eleven other
-   scripts reference it and a signature change would invalidate their caches.
+4. Appendix updated in the same session if the model is touched. It was not touched by the
+   Part Five runs: every run here uses the model as it stands. (When this plan was written,
+   `part5_runs.py` duplicated three lines of `simulate()` for the composition experiment rather
+   than changing its signature. That is superseded: `simulate()` in the frozen model has an
+   `initial_practice` argument, and the composition runs call it directly, so `part5_runs.py`
+   duplicates nothing.)
 
 ---
 
@@ -171,7 +176,9 @@ checked against the missing evidence. State it as a candidate mechanism, not as 
 
 **The composition contrast is unresolved, not an equality result.** See section 3.
 
-**Nothing here is validated against a real group.** Threat 2 in appendix A7 applies to this part
+**Nothing here is validated against a real group.** The threats to validity in appendix A11 (the
+parameters are unfitted, item 1; finite-horizon persistence and selected member quality are not
+survival or population outcomes, item 6) apply to this part
 more than to any other, because Part Five is the only place where the model's *trajectories*,
 rather than endpoint contrasts, are the object of interest. Endpoint orderings and
 trajectories have different robustness records and must be reported with their design and
@@ -197,7 +204,9 @@ existence and endpoint viability.
 
 ## 6. Release-gate corrections, opened 6 August 2026
 
-Outcome reporting will separate endpoint existence, endpoint viability, final membership, first crossing below the viability threshold, recovery after crossing, and permanent closure. \(N=0\) remains absorbing; \(0<N\leq5\) is an outcome threshold, not an absorbing model state. “Steady state,” “survives forever,” and similar language is prohibited unless mathematically established.
+**Done in the release-gate round** (the Part Five caches were regenerated and complete by 9 August
+2026; every checker passed on 28 September 2026, `RELEASE-GATE-PLAN.md`). The text is kept as the
+record of what the round required. Outcome reporting was to separate endpoint existence, endpoint viability, final membership, first crossing below the viability threshold, recovery after crossing, and permanent closure. \(N=0\) remains absorbing; \(0<N\leq5\) is an outcome threshold, not an absorbing model state. “Steady state,” “survives forever,” and similar language is prohibited unless mathematically established.
 
 The Tradition Eleven headline will use the clean attraction-only contrast, with the mixed governance-plus-attraction intervention reported separately. Tradition Three will likewise separate the governance and dropout-friction paths and will use the low-practice label rather than “newcomer” where tenure is not measured.
 

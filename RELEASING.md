@@ -19,6 +19,7 @@ pull request from a short-lived topic branch, named for what it is for:
 | `docs/` | documentation, plans, ledgers, the progress log |
 | `ci/` | the workflow, tooling, lint, tests |
 | `source/` | adding or re-reading a corpus source |
+| `chore/` | housekeeping that fits no other prefix: licence holder, repository hygiene, dependency pins |
 
 A `model/` branch is the serious one. Changing `model/aa_group_model.py` changes the release
 identity, invalidates every cache that records it, and obliges the synchronisation rule in

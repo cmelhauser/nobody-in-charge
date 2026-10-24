@@ -577,8 +577,8 @@ def test_check_passes_when_stored_output_matches_and_never_writes(tmp_path, caps
 def test_check_fails_on_stale_stored_output(tmp_path, capsys):
     """With check=True a stored 460 against a fresh 451 fails and prints both lines.
 
-    It leaves the file untouched; this is the staleness that went unnoticed in the paper
-    notebook.
+    It leaves the file untouched; this is the kind of staleness that went unnoticed in the
+    paper notebook, whose stored count lagged the paper's.
     """
     nb = _make_nb(tmp_path / "n.ipynb", "print('  OK 451')", stored={1: "  OK 460\n"})
     original = nb.read_bytes()

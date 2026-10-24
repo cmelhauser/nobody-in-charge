@@ -7,11 +7,6 @@
  "status": "read_in_full",
  "rights_note": "Pre-1929 public-domain scan as labeled by Internet Archive source item.",
  "source_url": "https://archive.org/details/almanacofamerica00amer",
- "files": {
-  "pdf": "ATU_Almanac_1849.pdf",
-  "ocr": "ATU_Almanac_1849_ocr.txt",
-  "sha256": "6081a7b3ecf78be8899df4cc4a5b83dd90576633fcc29696c457d30d513cc7a3"
- },
  "ocr_quality": "extracted_pdf_text; verify quotations against scan",
  "legacy_stem": null,
  "documents": {
@@ -26,6 +21,6 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "read_date": "2026-09-13"
 }

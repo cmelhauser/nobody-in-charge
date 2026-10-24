@@ -5,8 +5,8 @@ name: CI
 #
 # `unit-tests` runs pytest and the model hash. On pull requests it uses Python 3.12 only;
 # on `main` and on demand it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
-# others with the model tests, the direct tool tests and a byte-compile of every tool
-# and analysis script. The version-independent checkers live in
+# others with the model tests, the release invariants, the direct tool tests and a
+# byte-compile of every tool and analysis script. The version-independent checkers live in
 # `checkers`, which runs once on 3.12, so the release gate and the book-level checks are not
 # repeated across the matrix.
 #
@@ -84,7 +84,9 @@ jobs:
         run: ruff check --output-format=github .
 
       # Ignoring ruff.toml, so the per-file waivers cannot reach the one file whose bytes
-      # are the release identity. It passes the full ruleset unaided; this keeps it that way.
+      # are the release identity. It passes the original narrow set (E9, F, B: syntax errors,
+      # pyflakes, bugbear) unaided; this keeps it that way. It is not held to the production
+      # rules that tools/ and tests/ meet: ruff.toml exempts it from those, as it must be.
       - name: The canonical model takes no lint waiver
         run: ruff check model/aa_group_model.py --isolated --select E9,F,B
 
@@ -292,6 +294,9 @@ jobs:
           # from this cache, ahead of ubuntu-latest moving there, and on 12 October every
           # job passed there again with 3.14 in the matrix, except that actionlint rejects
           # the ubuntu-26.04 label as unknown, which is why the label is not used here.
+          # ubuntu-latest moved to 26.04 on 19 October 2026. The last run on main before the
+          # move (19 October, 01:41 UTC) used ubuntu-24.04, so the pins below were verified
+          # on 24.04 and a workflow_dispatch run is needed to confirm them on the new image.
           # Tectonic 0.17.0, from its release page, checked against the SHA-256 GitHub records for
           # that asset. It used to be fetched with a piped installer that took whatever was newest.
           # Raise it deliberately: change the URL and the hash together, and bump the cache key.

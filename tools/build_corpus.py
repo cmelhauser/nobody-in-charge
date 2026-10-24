@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Normalize the research corpus and build verification indexes.
 
-Every source now lives in one directory under `research/incorporated/` or
-`research/staged/`, named `<ShortAuthor>_<Year>`, holding:
+Every source lives in one directory under `research/incorporated/`, named
+`<ShortAuthor>_<Year>`, holding:
 
     <Dir>.<ext>                     the document itself, git-ignored
     citation.md                     the bibliographic entry
@@ -23,18 +23,22 @@ the sorted set of word tokens and no running prose. That pattern already existed
 
 An index is only as good as the document it was built from, so each one records the SHA-256 of
 its source file. If the file is re-acquired and the hash differs, the index is stale and must be
-rebuilt rather than trusted.
+rebuilt rather than trusted. It is also stale when it does not record every subject currently
+registered in `tools/check_book.py`, because the list of subjects it says the document contains
+was decided against the real text at build time and a subject added since was never decided.
+An index with no document to rebuild it from (a record-only source) is not held to either test.
 
 Idempotent. Run from anywhere:  python3 tools/build_corpus.py [--check]
 
 Without `--check` it rewrites each source's `metadata.json`, copies a missing `citation.md` from
 research/SOURCES.md, rebuilds any verification index whose stored hash no longer matches its
-document, strips a withheld name from every existing vocabulary, and moves loose or misnamed
-documents into place. With `--check` it makes none of those changes (it will create an empty
-directory for a registered source that has none) and instead lists what it would have done.
+document or which omits a registered subject, strips a withheld name from every existing
+vocabulary, and moves loose or misnamed documents into place. With `--check` it changes nothing
+on disk and instead lists what it would have done.
 
 Reads: research/SOURCES.md, tools/check_book.py (for the registered subjects), and every
-research/incorporated/<Dir>/ directory. Writes: only inside research/incorporated/.
+research/incorporated/<Dir>/ directory. Writes: only inside research/incorporated/, and in
+`--check` mode nowhere.
 
 Exit status: 0 when the build finishes, or when `--check` finds no problem; 1 when `--check`
 finds drift. A record-only source that holds a document, or a summary that opens "Record only"
@@ -86,6 +90,9 @@ RENAMES = {
 RIGHTS = {
     "Fatimah_2025": "NIH author manuscript, PMC. Not redistributed here.",
     "Krout_1925": "Published 1925 in the United States; public domain.",
+    # The Harvard copy digitised by Google, from HathiTrust, not an Internet Archive scan.
+    "Grosh_1842": ("Pre-1929 United States publication; public domain. Harvard copy, digitised "
+                   "by Google, from HathiTrust."),
     "AAWS_2024_P17": ("Copyrighted AAWS literature, published free as an official PDF on "
                      "aa.org. Held git-ignored since 13 September 2026 at the Human Author's "
                      "direction; never committed. Byte-identical to the file read in August."),
@@ -95,8 +102,9 @@ RIGHTS = {
     "Kurtz_1991": "In copyright, all rights reserved. Never stored as full text.",
     # Catalogued 16 August 2026. Named here rather than left to DEFAULT_RIGHTS for the same
     # reason as the three below: the default asserts a pre-1929 public-domain position, which
-    # is false for a 2023 book. This is the one source whose licence would permit committing
-    # the document; it is git-ignored anyway, because the rule is uniform.
+    # is false for a 2023 book. Its licence is among those in the corpus that would permit
+    # committing the document (Edgren 2025 is CC BY 4.0 too); it is git-ignored anyway,
+    # because the rule is uniform.
     "RecoveryDharma_2023": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 "
                            "International. Sharing and adaptation permitted with attribution; "
                            "no commercial use. Not committed, per the uniform rule.",
@@ -141,8 +149,9 @@ RIGHTS = {
                            "file host. Held git-ignored since 13 September 2026 at the Human "
                            "Author's direction; never committed."),
     # Added 13 September 2026: five papers the paper cites and two from the skill-depreciation
-    # literature Chapter 12 has not consulted, each posted free by its publisher or an author.
-    # None has been read since it was obtained; research/SOURCES.md keeps each read status.
+    # literature Chapter 12 had not consulted, each posted free by its publisher or an author.
+    # All seven were read the day they were obtained, six in full and one in part;
+    # research/SOURCES.md keeps each read status.
     "Angrist_2014": ("NBER Working Paper 19774, posted free by NBER; copyright the author. "
                      "Held git-ignored since 13 September 2026; never committed."),
     "CunhaHeckman_2007": ("NBER Working Paper 12840, posted free by NBER; copyright the "
@@ -278,6 +287,19 @@ def build_index(doc: Path, work: str, digest: str) -> dict:
     }
 
 
+def index_is_stale(index: dict, digest: str, subjects: list[str]) -> bool:
+    """Return True if `index` was not built from a file with hash `digest` against `subjects`.
+
+    Two things make an index stale. Its stored hash differs from the document's, so the
+    document was re-acquired. Or it does not list every currently registered subject under
+    `subjects_checked`, so a subject added to `tools/check_book.py` after it was built was never
+    decided against the text, and a citation of that subject would be refused as unsupported
+    whether or not the document contains it.
+    """
+    checked = set(index.get("subjects_checked", []))
+    return index.get("source_sha256") != digest or not set(subjects) <= checked
+
+
 def fuzzy_in(term: str, blob: str, thresh: float = 0.72) -> bool:
     """Presence allowing OCR noise. Mirrors tools/check_book.py's matcher."""
     if term in blob:
@@ -322,6 +344,7 @@ def main() -> int:
     """Normalize the corpus (or, with `--check`, report drift) and return the exit status."""
     check_only = "--check" in sys.argv
     problems: list[str] = []
+    subjects = registered_subjects()
 
     for old, new in RENAMES.items():
         src, dst = INCORP / old, INCORP / new
@@ -333,15 +356,13 @@ def main() -> int:
 
     # Pull loose documents into their own directories.
     for stem, dirname in REGISTRY.items():
-        target = ensure_dir(dirname)
         for doc in sorted(RESEARCH.glob(stem + ".*")):
             if doc.suffix.lower() not in DOC_SUFFIXES:
                 continue
-            dest = target / (dirname + doc.suffix.lower())
             if check_only:
                 problems.append(f"loose document: {doc.name}")
             else:
-                move(doc, dest)
+                move(doc, ensure_dir(dirname) / (dirname + doc.suffix.lower()))
 
     # Normalize document filenames inside every source directory, then write records.
     written = []
@@ -376,8 +397,9 @@ def main() -> int:
                 "sha256": sha256(doc), "bytes": doc.stat().st_size,
                 "tracked_in_git": False,
             }
-        meta["documents_note"] = ("Documents are git-ignored. Re-acquire from the recorded URL "
-                                  "and check the SHA-256 above.")
+        meta["documents_note"] = ("Documents are git-ignored. Re-acquire from the URL recorded "
+                                  "here, or from the identifier in research/SOURCES.md where "
+                                  "no URL is recorded, and check the SHA-256 above.")
         if not check_only:
             meta_file.write_text(json.dumps(meta, indent=1) + "\n")
 
@@ -393,7 +415,7 @@ def main() -> int:
             stale = True
             if idx_file.exists():
                 try:
-                    stale = json.loads(idx_file.read_text()).get("source_sha256") != digest
+                    stale = index_is_stale(json.loads(idx_file.read_text()), digest, subjects)
                 except Exception:
                     stale = True
             if stale:

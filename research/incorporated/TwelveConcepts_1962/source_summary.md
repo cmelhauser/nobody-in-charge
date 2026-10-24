@@ -35,6 +35,9 @@ statement than "A.A. does not say", and it is what the source actually supports.
 
 ## What was not read
 
-The long-form Concepts and the essays accompanying them in the A.A. Service Manual. The short
-form states each Concept in full; the essays elaborate. If a size rule exists anywhere it would
-most likely be in the Concept 4 essay, and that remains unchecked.
+Most of the long-form Concepts and the essays accompanying them in the A.A. Service Manual. The
+short form states each Concept in full; the essays elaborate. This was written on the day the
+short form was read, when the Concept 4 essay, where a size rule would most likely sit, was
+unchecked. It was read on 13 September 2026 in `ServiceManual_2024`, together with Concepts V and
+XI, and holds no rule about the size of a rotating pool. The other nine long-form essays remain
+unread.

@@ -48,7 +48,8 @@ Pick one:
 >
 > Three things worth saying plainly. There are no right answers and I am not testing you: a
 > disagreement with my version is worth more to me than agreement, because agreement I already
-> have. Nothing you write will be published under your name. And you do not need to tell me
+> have. Nothing you write will be published under your name, and your name will not be recorded in the
+> project: your form is filed under an anonymous code. And you do not need to tell me
 > anything about your own membership or your own recovery; the form does not ask and neither do I.
 >
 > The condition is that you fill it in before I tell you anything more about the project, and
@@ -105,9 +106,11 @@ Keep these short when you use them. Every extra sentence about the project costs
 Traditions do in practice. If you have never encountered them, the short form on the grid is
 probably not enough to work from.
 
-**Will I be named?** No. The record keeps who filled in each form, what they were told, and whether
-they had read the relevant part, because the analysis has to report that. Nothing is published
-under your name.
+**Will I be named?** No. Your form is filed under an anonymous code (R01, R02 and so on), and the
+record keeps, under that code only, what you were told and whether you had read the relevant part,
+because the analysis has to report that. Your name does not appear anywhere in the project, and
+nothing is published under it. The link from code to person is held by me, outside the
+repository.
 
 **What if I think the whole framing is wrong?** Then say so on question two, which asks exactly
 that. An objection to the list of eight things is a more serious objection to the book than any
@@ -143,7 +146,7 @@ you what your form did to it.
 ## The thank-you, once the form is back
 
 Send this after you have saved their form as
-`research/governance-elicitation-<initials>.md` and run `python3 model/elicitation_compare.py`.
+`research/governance-elicitation-<code>.md` (the anonymous code, never initials) and run `python3 model/elicitation_compare.py`.
 
 > Thank you. That is now recorded, and it is the only part of the project that came from someone
 > other than me.
@@ -158,8 +161,8 @@ Send this after you have saved their form as
 
 ## After the round, for the record
 
-The steps that follow are in `0-start-here.pdf`: save each form, run the comparison, record in
-`research/SOURCES.md` who filled each one in and what they were told, and propagate the result
+The steps that follow are in `0-start-here.pdf`: save each form under an anonymous code, run the comparison, record in
+`research/SOURCES.md`, under the code only, what each respondent was told, and propagate the result
 through the layers in `CLAUDE.md` exactly as any other change to a public claim. Do not edit
 `model/elicitation_compare.py` once forms start arriving; if it has to change, make the change,
 record it in `research/progress-log.md`, and report both analyses.

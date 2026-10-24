@@ -4,7 +4,7 @@ Every test builds a small scratch repository under `tmp_path` in which one claim
 asserts that the matching check fails with the right message, and a twin in which the claim is
 right and the check passes. Nothing here needs pandoc, tectonic, fontconfig, Git history, or a
 network, and nothing is written into the repository tree: `check_docs.ROOT` is redirected to
-the scratch tree, `tracked_markdown` is replaced by a glob of it, and the two places the
+the scratch tree, `tracked_markdown` is replaced by a glob of it, and the four places the
 checkers shell out (`git`, `fc-list`, `pdftotext`, the release gate) are replaced by fakes.
 
 The older tests in `tests/test_tools_direct.py` cover other parts of the same three tools; this

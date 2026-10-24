@@ -714,3 +714,80 @@ def test_an_unreadable_index_on_a_record_only_source_is_reported_not_raised(
 
     assert run_main(corpus, monkeypatch, "--check") == 1
     assert "verification index is not valid JSON: Record_2000" in capsys.readouterr().out
+
+
+def test_index_is_stale_for_a_changed_hash_or_an_unrecorded_subject(corpus):
+    """Check `index_is_stale` against a changed hash and against a missing or extra subject.
+
+    An index must be refused when its document was re-acquired, or when a subject was
+    registered after it was built; a subject registered and since removed must not matter.
+    """
+    subjects = ["group conscience", "rotating leadership"]
+    index = {"source_sha256": "a" * 64, "subjects_checked": list(subjects)}
+    assert not corpus.index_is_stale(index, "a" * 64, subjects)
+    assert corpus.index_is_stale(index, "b" * 64, subjects)                # hash differs
+    assert corpus.index_is_stale(index, "a" * 64, [*subjects, "new subject"])   # not recorded
+    assert not corpus.index_is_stale(index, "a" * 64, subjects[:1])        # extra is harmless
+    assert corpus.index_is_stale({"source_sha256": "a" * 64}, "a" * 64, subjects)  # none at all
+
+
+def test_an_index_that_omits_a_registered_subject_is_flagged_then_rebuilt(
+        corpus, monkeypatch, capsys):
+    """Check that an index built before a subject was registered is reported and rebuilt.
+
+    The document is unchanged, so the hash still matches; only the subject list is out of date.
+    `--check` must report it without writing, and a build must refresh it.
+    """
+    _source, index = _source_with_index(corpus, text="the group conscience met\n")
+    assert run_main(corpus, monkeypatch) == 0
+    record = json.loads(index.read_text())
+    assert record["subjects_present"] == ["group conscience"]
+
+    record["subjects_checked"].remove("rotating leadership")           # registered later
+    index.write_text(json.dumps(record) + "\n")
+    older = index.read_text()
+    capsys.readouterr()
+    assert run_main(corpus, monkeypatch, "--check") == 1
+    assert "verification index missing or stale: Held_2002" in capsys.readouterr().out
+    assert index.read_text() == older                                  # check mode wrote nothing
+
+    assert run_main(corpus, monkeypatch) == 0
+    assert "  Held_2002" in capsys.readouterr().out
+    assert "rotating leadership" in json.loads(index.read_text())["subjects_checked"]
+    assert run_main(corpus, monkeypatch, "--check") == 0
+
+
+def test_neither_mode_creates_an_empty_directory_for_a_registered_source(
+        corpus, monkeypatch):
+    """Check that no directory is created for a registered source that has no document.
+
+    `--check` promises to change nothing, and a build has nothing to put in such a directory.
+    """
+    assert run_main(corpus, monkeypatch, "--check") == 0
+    assert list(corpus.INCORP.iterdir()) == []
+    assert run_main(corpus, monkeypatch) == 0
+    assert list(corpus.INCORP.iterdir()) == []
+
+
+def test_the_documents_note_does_not_promise_a_url_for_every_source(corpus, monkeypatch):
+    """Check that the generated `documents_note` also points to SOURCES.md for sources with no URL.
+
+    Some sources record no URL, so the note must not say every one has a recorded URL.
+    """
+    source = corpus.INCORP / "NoUrl_2001"
+    source.mkdir()
+    assert run_main(corpus, monkeypatch) == 0
+    note = json.loads((source / "metadata.json").read_text())["documents_note"]
+    assert "research/SOURCES.md" in note and "where no URL is recorded" in note
+
+
+def test_grosh_is_not_described_as_an_internet_archive_scan(corpus, monkeypatch):
+    """Check that the Grosh rights note names its HathiTrust provenance, not the default.
+
+    The default asserts an Internet Archive scan, which is false for this Google-digitised copy.
+    """
+    source = corpus.INCORP / "Grosh_1842"
+    source.mkdir()
+    assert run_main(corpus, monkeypatch) == 0
+    note = json.loads((source / "metadata.json").read_text())["rights_note"]
+    assert "HathiTrust" in note and "Internet Archive" not in note

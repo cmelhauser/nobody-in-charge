@@ -14,7 +14,7 @@
  "nihmsid": "nihms-451211",
  "acquired": "2026-08-10, supplied by the author of this project after automated retrieval was blocked by an access challenge",
  "corrects_staged_record": "staged record gave 27(2): 553-560; the article gives 27(3): 553-561",
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "topics": [
   "step-work measurement",
   "GAATOR",
