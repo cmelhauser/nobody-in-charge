@@ -125,6 +125,7 @@ The corrections, with what found each one and where the corrected version lives.
 | Baseline calibrated on ten years, reported at thirty | horizon study | A3 |
 | Noise floor using the same seeds twice | reading the check | A4 |
 | Three significant figures from ten seeds | recomputing at 400 | Ch 1, 2, 4, 14, preface, A4 |
+| Tradition ranking judged unresolvable, from thirty replications | rerun at 400 paired seeds (2 August 2026), where it resolves the other way up | Ch 5, Ch 6 |
 | Uncentred lognormal capability changed both mean and dispersion | release-gate distribution audit | Ch 4, Ch 12, appendix |
 | Semantic overlap published as executable coupling | source-to-code trace | Parts Three and Four, paper, appendix |
 | Recipient ablation changed several mechanisms | one-mechanism override | Ch 15, primer, appendix |
