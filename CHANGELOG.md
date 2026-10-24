@@ -17,6 +17,9 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- Chapter 23's ledger gains the row for the thirty-replication Tradition ranking that Chapters 5 and 6 describe as
+  corrected at 400 paired seeds on 2 August 2026. No model change.
+
 - A line-by-line staleness audit corrected statements the tree had outgrown, across the documents,
   plans, records and tools: present-tense claims about work since done, counts and pointers that
   had moved, and statements a later decision had superseded. The handoff's section 10 now also

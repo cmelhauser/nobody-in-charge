@@ -6162,3 +6162,9 @@ the README layout line for `tests/`, and the optional pre-commit hooks (#78). No
 scripts keep their stale pointers and unit slips (for example `mc_error.py` and `tradition_paired.py` say "half-weeks" where the
 unit is weeks, and several appendix section pointers predate the renumbering), because editing them invalidates their caches.
 No model change.
+
+### 24 October 2026: a ledger row
+
+Chapter 23's table of corrections omitted the one that Chapters 5 and 6 narrate at length: the Tradition ranking judged
+unresolvable from thirty replications, which resolves the other way up at 400 paired seeds (corrected 2 August 2026). The row
+is added. The audit of 22 to 23 October had flagged the omission. No number and no model changed.
