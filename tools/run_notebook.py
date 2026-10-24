@@ -45,6 +45,7 @@ import sys
 import time
 import traceback
 from itertools import zip_longest
+from typing import Any
 
 NUMBER = re.compile(r'-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?')
 
@@ -53,7 +54,7 @@ BOOK_NB = os.path.join(ROOT, 'model', 'book-calculations.ipynb')
 PAPER_NB = os.path.join(ROOT, 'paper', 'anonymity-as-an-aggregation-condition.ipynb')
 
 
-def same_number(x, y):
+def same_number(x: str, y: str) -> bool:
     """Return True if two printed numbers (given as strings) agree to the precision printed.
 
     Whole numbers must match exactly, since they are counts. Otherwise a decimal may differ by
@@ -72,7 +73,7 @@ def same_number(x, y):
     return math.isclose(a, b, rel_tol=1e-9, abs_tol=1e-12)
 
 
-def same_output(stored, fresh):
+def same_output(stored: str, fresh: str) -> bool:
     """Return True if two outputs are equal text, with every number equal per same_number.
 
     Numbers are masked out and the remaining text compared first, so a changed word or a
@@ -93,7 +94,7 @@ def same_output(stored, fresh):
     return True
 
 
-def stale_lines(nb, outs):
+def stale_lines(nb: dict[str, Any], outs: dict[int, str]) -> list[tuple[int, str, str]]:
     """Return (cell index, stored line, fresh line) for every line a fresh run prints differently.
 
     `nb` is the parsed notebook and `outs` maps cell index to the stdout the run just produced.
@@ -111,7 +112,7 @@ def stale_lines(nb, outs):
     return stale
 
 
-def main(notebook=BOOK_NB, write=True, check=False):
+def main(notebook: str = BOOK_NB, write: bool = True, check: bool = False) -> int:
     """Execute `notebook`, report problems, optionally write outputs back; return 0 or 1.
 
     All code cells run in one shared namespace (`g`), in order, so a later cell can use an
@@ -126,8 +127,9 @@ def main(notebook=BOOK_NB, write=True, check=False):
         nb = json.load(fh)
     cwd = os.getcwd()
     os.chdir(os.path.dirname(notebook))
-    g = {'__name__': '__main__'}
-    outs, errs = {}, []
+    g: dict[str, Any] = {'__name__': '__main__'}
+    outs: dict[int, str] = {}
+    errs: list[tuple[int, str]] = []
     t0 = time.time()
     try:
         for i, c in enumerate(nb['cells']):
@@ -143,7 +145,7 @@ def main(notebook=BOOK_NB, write=True, check=False):
                 errs.append((i, traceback.format_exc()[-900:]))
     finally:
         os.chdir(cwd)
-    fails = g.get('FAILURES', [])
+    fails: list[Any] = g.get('FAILURES', [])
     nchk = sum(o.count('  OK ') + o.count('  FAIL') for o in outs.values())
     print(f'{len(outs)} code cells run in {time.time()-t0:.1f}s, {nchk} assertions')
     for i, tb in errs:

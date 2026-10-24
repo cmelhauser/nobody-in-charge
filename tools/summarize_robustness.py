@@ -23,21 +23,24 @@ import collections
 import hashlib
 import json
 import math
+from collections.abc import Iterable, Mapping
 from pathlib import Path
+from typing import Any
 
 import numpy as np
+import numpy.typing as npt
 
 ROOT = Path(__file__).resolve().parents[1]
 R = ROOT / "research"
 OUT = R / "ROBUSTNESS-RESULTS.md"
 
 
-def load(name):
+def load(name: str) -> Any:
     """Parse the JSON cache `research/<name>`."""
     return json.loads((R / name).read_text())
 
 
-def hw(values):
+def hw(values: npt.ArrayLike) -> float:
     """Half-width of a normal 95% interval for the mean of `values` (1.96 standard errors).
 
     The sample SD uses ddof=1, so `values` needs at least two entries.
@@ -46,7 +49,7 @@ def hw(values):
     return 1.96 * a.std(ddof=1) / math.sqrt(len(a))
 
 
-def classify(rows, left, right):
+def classify(rows: Iterable[Mapping[str, float]], left: str, right: str) -> tuple[int, int, int]:
     """Count seeds or draws where `left` beats, ties, or loses to `right`.
 
     Returns (strict, tied, reversed) for the paired difference `row[left] - row[right]`. The
@@ -213,7 +216,7 @@ def render() -> str:
     ]
 
     morris = load("morris.json")
-    cells = collections.defaultdict(dict)
+    cells: collections.defaultdict[tuple[Any, Any], dict[Any, Any]] = collections.defaultdict(dict)
     for name in ("decay_ordering.json", "decay_reversal.json"):
         for key, row in load(name).items():
             if key != "meta":
@@ -285,19 +288,19 @@ def render() -> str:
         "|---|---:|---:|---:|---:|",
     ]
     for i, factor in enumerate(factors):
-        cells = []
+        sobol_cells: list[str] = []
         for outcome in ("membership", "mean_practice"):
             r = sobol["result"][outcome]
-            cells += [f"{r['S1'][i]:.3f} [{r['S1_lo'][i]:.3f}, {r['S1_hi'][i]:.3f}]",
+            sobol_cells += [f"{r['S1'][i]:.3f} [{r['S1_lo'][i]:.3f}, {r['S1_hi'][i]:.3f}]",
                       f"{r['ST'][i]:.3f} [{r['ST_lo'][i]:.3f}, {r['ST_hi'][i]:.3f}]"]
-        lines.append(f"| {factor} | " + " | ".join(cells) + " |")
+        lines.append(f"| {factor} | " + " | ".join(sobol_cells) + " |")
     lines += ["", f"Noise-replicate total-order diagnostics: {sobol['result']['noise_floor_ST']}.",
               ""]
 
     return "\n".join(lines)
 
 
-def main():
+def main() -> None:
     """Write the rendered report to `OUT` and print its repository-relative path."""
     OUT.write_text(render())
     print(OUT.relative_to(ROOT))

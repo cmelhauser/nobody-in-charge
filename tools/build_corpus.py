@@ -378,10 +378,10 @@ def main() -> int:
                 move(doc, want)
         docs = [p for p in sorted(d.iterdir()) if p.suffix.lower() in DOC_SUFFIXES]
 
-        stem = next((s for s, n in REGISTRY.items() if n == d.name), None)
+        ledger_stem = next((s for s, n in REGISTRY.items() if n == d.name), None)
         citation_file = d / "citation.md"
-        if stem and not citation_file.exists() and not check_only:
-            cite = citation_from_ledger(stem)
+        if ledger_stem and not citation_file.exists() and not check_only:
+            cite = citation_from_ledger(ledger_stem)
             if cite:
                 citation_file.write_text(
                     f"# Citation\n\n{cite}\n\n"
@@ -392,7 +392,7 @@ def main() -> int:
         meta = json.loads(meta_file.read_text()) if meta_file.exists() else {}
         meta.setdefault("id", d.name)
         meta["rights_note"] = RIGHTS.get(d.name, meta.get("rights_note") or DEFAULT_RIGHTS)
-        meta["legacy_stem"] = stem or meta.get("legacy_stem")
+        meta["legacy_stem"] = ledger_stem or meta.get("legacy_stem")
         meta["documents"] = {}
         for doc in docs:
             meta["documents"][doc.name] = {

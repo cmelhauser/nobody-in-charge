@@ -46,7 +46,7 @@ FRONT_MATTER = ('ch00-preface', 'ch00b-introduction')
 BACK_MATTER = ('PRIMER-steps-and-traditions',)
 
 
-def check(path):
+def check(path: str) -> bool:
     """Check one chapter file against the house style and print its verdict.
 
     Prints a status line (OK, warn or FAIL, the word count and the Flesch-Kincaid grade)
@@ -180,7 +180,7 @@ def check(path):
     return not fails
 
 
-def main(argv=None):
+def main(argv: list[str] | None = None) -> int:
     """Check the files named in `argv` (default `sys.argv[1:]`) and return an exit code.
 
     With no files named, look for chapters from the repository root, the manuscript folder or

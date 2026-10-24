@@ -622,7 +622,9 @@ def test_ci_python_versions_reads_both_lists():
 def test_the_real_workflow_has_the_two_lists():
     """The real ci.yml carries both lists, and the pull-request list is a subset of main's."""
     workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
-    on_pull_request, on_main = check_docs.ci_python_versions(workflow)
+    versions = check_docs.ci_python_versions(workflow)
+    assert versions is not None
+    on_pull_request, on_main = versions
     assert on_pull_request == ["3.12"] and set(on_pull_request) <= set(on_main)
 
 
@@ -715,7 +717,9 @@ def test_local_ci_says_when_a_job_could_not_run(tmp_path):
     bare.mkdir()
     (bare / "dirname").symlink_to(shutil.which("dirname"))
     script = str(ROOT / "tools" / "run_ci_locally.sh")
-    result = subprocess.run([shutil.which("bash"), script, "documents"],
+    bash = shutil.which("bash")
+    assert bash is not None
+    result = subprocess.run([bash, script, "documents"],
                             cwd=ROOT, capture_output=True, text=True, check=False,
                             env={"PATH": str(bare)})
     assert result.returncode == 1, result.stdout + result.stderr    # nothing ran is not a pass
@@ -773,7 +777,7 @@ def test_check_fonts_finds_files_by_any_case_and_guards_its_arguments(tmp_path, 
     """locate() ignores filename case, and main() rejects a --dir with no value."""
     (tmp_path / "TeXGyrePagella-Regular.otf").write_bytes(b"x")
     found = check_fonts.locate("texgyrepagella-regular.otf", [tmp_path])
-    assert found.name.lower() == "texgyrepagella-regular.otf"
+    assert found is not None and found.name.lower() == "texgyrepagella-regular.otf"
     assert check_fonts.locate("texgyrepagella-bold.otf", [tmp_path]) is None
     with pytest.raises(SystemExit):
         check_fonts.main(["--dir", "--strict"])

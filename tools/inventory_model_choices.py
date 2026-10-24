@@ -23,6 +23,7 @@ import json
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
@@ -32,7 +33,7 @@ JSON_OUT = ROOT / "research" / "model-choice-inventory.json"
 MD_OUT = ROOT / "research" / "MODEL-CHOICE-INVENTORY.md"
 
 
-def sha(path):
+def sha(path: Path) -> str:
     """Return the SHA-256 hex digest of the file at `path`."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -45,20 +46,20 @@ class Visitor(ast.NodeVisitor):
     alone, so it is a code-audit label and not a statement about the value's meaning.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Start with no enclosing function or assignment and no rows."""
-        self.function = None
-        self.assignment = None
-        self.rows = []
+        self.function: str | None = None
+        self.assignment: str | None = None
+        self.rows: list[dict[str, Any]] = []
 
-    def visit_FunctionDef(self, node):
+    def visit_FunctionDef(self, node: ast.FunctionDef) -> None:
         """Track the enclosing function name while visiting its body, then restore it."""
         old = self.function
         self.function = node.name
         self.generic_visit(node)
         self.function = old
 
-    def visit_Assign(self, node):
+    def visit_Assign(self, node: ast.Assign) -> None:
         """Track the first plain-name target of a statement while visiting its right side.
 
         A tuple or attribute target leaves the previous name in force rather than clearing it.
@@ -69,14 +70,14 @@ class Visitor(ast.NodeVisitor):
         self.generic_visit(node)
         self.assignment = old
 
-    def visit_AnnAssign(self, node):
+    def visit_AnnAssign(self, node: ast.AnnAssign) -> None:
         """Track the target name of an annotated assignment, as `visit_Assign` does."""
         old = self.assignment
         self.assignment = node.target.id if isinstance(node.target, ast.Name) else old
         self.generic_visit(node)
         self.assignment = old
 
-    def visit_Constant(self, node):
+    def visit_Constant(self, node: ast.Constant) -> None:
         """Record an int or float literal (never a bool) with its category and position.
 
         The first matching rule wins, so a literal inside `S` or `GOV` is a structural zero or
@@ -110,19 +111,19 @@ class Visitor(ast.NodeVisitor):
             })
 
 
-def load_model():
+def load_model() -> dict[str, Any]:
     """Execute the model source in a scratch namespace and return that namespace.
 
     `__name__` is set to something other than "__main__" so the model's own entry-point
     guard cannot fire. The model is executed, not imported, so nothing is cached in
     `sys.modules`.
     """
-    namespace = {"__name__": "choice_inventory_model"}
+    namespace: dict[str, Any] = {"__name__": "choice_inventory_model"}
     exec(compile(MODEL.read_text(), str(MODEL), "exec"), namespace)
     return namespace
 
 
-def build():
+def build() -> dict[str, Any]:
     """Return the inventory as a dict ready for JSON: counts, zeros, literals and a scope note.
 
     `created_utc` is stamped with the current time here; `main` replaces it with the committed
@@ -134,7 +135,7 @@ def build():
     ns = load_model()
     S, GOV, defaults = ns["S"], ns["GOV"], ns["DEFAULTS"]
     scalar_defaults = [k for k, v in defaults.items() if np.isscalar(v)]
-    registered = {
+    registered: dict[str, Any] = {
         "scalar_defaults": len(scalar_defaults),
         "scalar_default_names": scalar_defaults,
         "step_speeds": len(defaults["a"]),
@@ -149,7 +150,7 @@ def build():
     # counts the nonzero resource-consumption cells those Steps actually carry.
     protective_rows = [3, 5, 6, 8, 9]
     relevant_cells = int(sum(np.count_nonzero(S[i]) for i in protective_rows))
-    summary = {
+    summary: dict[str, Any] = {
         "schema_version": 1,
         "created_utc": datetime.now(UTC).isoformat(),
         "model_sha256": sha(MODEL),
@@ -175,7 +176,7 @@ def build():
     return summary
 
 
-def markdown(data):
+def markdown(data: dict[str, Any]) -> str:
     """Render the human-readable inventory report from the dict `build` returns."""
     r = data["registered_set"]
     z = data["authored_structural_zeros"]
@@ -227,7 +228,7 @@ def markdown(data):
     return "\n".join(lines)
 
 
-def unchanged_apart_from_timestamp(data):
+def unchanged_apart_from_timestamp(data: dict[str, Any]) -> str | None:
     """Return the committed inventory's timestamp if nothing else in it has changed, else None.
 
     Every regeneration used to stamp a new `created_utc`, so a run of the local CI left this
@@ -242,13 +243,13 @@ def unchanged_apart_from_timestamp(data):
     except ValueError:
         return None
 
-    def body(d):
+    def body(d: dict[str, Any]) -> str:
         """Return the inventory minus its timestamp, as a canonical string for comparison."""
         return json.dumps({k: v for k, v in d.items() if k != "created_utc"}, sort_keys=True)
     return old.get("created_utc") if body(old) == body(data) else None
 
 
-def main():
+def main() -> None:
     """Build the inventory and write the JSON and Markdown files, preserving an old timestamp."""
     data = build()
     data["created_utc"] = unchanged_apart_from_timestamp(data) or data["created_utc"]

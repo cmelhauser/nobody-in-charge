@@ -20,9 +20,13 @@ from __future__ import annotations
 
 import importlib.util
 import json
+from collections.abc import Mapping
 from pathlib import Path
+from types import ModuleType
+from typing import Any
 
 import numpy as np
+import numpy.typing as npt
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "research" / "release_gate_results.json"
@@ -30,19 +34,20 @@ MODEL = ROOT / "model" / "aa_group_model.py"
 OUT = ROOT / "research" / "RELEASE-GATE-RESULTS.md"
 
 
-def load_model():
+def load_model() -> ModuleType:
     """Load the canonical model from its file path as a throwaway module and return it.
 
     A path-based load, not `import`, so the caller gets exactly the file at `MODEL` even if a
     different `aa_group_model` is importable.
     """
     spec = importlib.util.spec_from_file_location("summary_model", MODEL)
+    assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
-def pct(x):
+def pct(x: float) -> str:
     """Format a proportion as a percentage to one decimal, rounding half away from zero.
 
     This is what the book does.
@@ -55,17 +60,17 @@ def pct(x):
     return f"{exact.quantize(Decimal('0.1'), rounding=ROUND_HALF_UP)}%"
 
 
-def ci_mean(s):
+def ci_mean(s: Mapping[str, float]) -> str:
     """Format a continuous summary dict (mean, lo, hi) as `mean [lo, hi]` to three places."""
     return f"{s['mean']:.3f} [{s['lo']:.3f}, {s['hi']:.3f}]"
 
 
-def ci_prop(s):
+def ci_prop(s: Mapping[str, float]) -> str:
     """Format a binary summary dict (proportion, lo, hi) as percentages with its interval."""
     return f"{pct(s['proportion'])} [{pct(s['lo'])}, {pct(s['hi'])}]"
 
 
-def top_sets(M):
+def top_sets(M: npt.NDArray[np.float64]) -> list[list[int]]:
     """Per row of M, the 1-based column indices that attain the row maximum, ties included.
 
     `isclose` rather than `==` so that ties which differ only by floating-point noise are
@@ -74,7 +79,7 @@ def top_sets(M):
     return [[int(j)+1 for j in np.flatnonzero(np.isclose(row, row.max()))] for row in M]
 
 
-def ranks(M):
+def ranks(M: npt.NDArray[np.float64]) -> list[int]:
     """Competition rank of each diagonal entry within its row: 1 + count of larger entries.
 
     Equal values share a rank and structural zeros are not dropped, as the project requires.
@@ -82,12 +87,12 @@ def ranks(M):
     return [int(1 + np.sum(row > row[i])) for i, row in enumerate(M)]
 
 
-def rows(cache, cond):
+def rows(cache: Mapping[str, Any], cond: str) -> list[Any]:
     """Return the per-seed result rows of condition `cond`, in seed order 0..nseed-1."""
     return [cache[f"{cond}|{seed}"] for seed in range(cache["meta"]["nseed"])]
 
 
-def main():
+def main() -> None:
     """Build the report from the cache and write it to `OUT`.
 
     Raises RuntimeError, before touching `OUT`, if the cache is not marked complete.

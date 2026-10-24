@@ -146,7 +146,8 @@ def prepare(text: str) -> tuple[str, str, str, str]:
     if not colon or not when or not dateline.startswith("*"):
         raise SystemExit(f"unexpected title or dateline: {title!r} / {dateline!r}")
 
-    body, tables = [], 0
+    body: list[str] = []
+    tables = 0
     for i, line in enumerate(lines[4:], start=4):
         if line == "---":
             # The rule is dropped, since each section opens with a hairline of its own, but
