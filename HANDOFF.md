@@ -442,9 +442,10 @@ each moves a record-only source onto the ordinary footing.
 **Standing notes: left undone on purpose, or waiting on an outside event.** None changes a
 conclusion.
 
-7. **A latent defect in `tools/build_corpus.py`.** Its `TOKEN` regex lists the straight apostrophe
-   twice, so it never matches the typographic one. It is left alone and commented, because fixing
-   it would change every committed verification index (18 October 2026).
+7. **Closed on 24 October 2026: the `TOKEN` apostrophe defect in `tools/build_corpus.py`.** The
+   regex listed the straight apostrophe twice and so split a word set in typographic quotes. A
+   typographic apostrophe is now normalized to the straight one before tokenizing, and all 39
+   document-backed indexes were rebuilt (25 changed; no index holds the withheld name).
 8. **Two stale pointers in hash-pinned scripts.** `model/scenarios_hiseed.py` (line 9) and
    `model/part5_runs.py` (line 4) still say "notebook section 1" for the endpoint table. Editing a
    comment changes the script hash, which makes the cache stale and forces a rerun of 2,400 and

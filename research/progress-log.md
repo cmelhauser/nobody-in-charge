@@ -6168,3 +6168,12 @@ No model change.
 Chapter 23's table of corrections omitted the one that Chapters 5 and 6 narrate at length: the Tradition ranking judged
 unresolvable from thirty replications, which resolves the other way up at 400 paired seeds (corrected 2 August 2026). The row
 is added. The audit of 22 to 23 October had flagged the omission. No number and no model changed.
+
+### 24 October 2026: the corpus tokenizer
+
+`tools/build_corpus.py`'s `TOKEN` class listed the straight apostrophe twice, so a source set in typographic quotes had its
+possessives and contractions split ("book" and a dropped single letter). The tokenizer now normalizes the typographic
+apostrophe first. All 39 document-backed verification indexes were rebuilt; 25 changed, by gaining tokens such as "book's";
+none holds the withheld name (checked with `tools/withheld.py` over every vocabulary token); `build_corpus.py --check` reports
+0 problems and `check_book.py` still clears 55 citation-subject pairs over 38 sources. The record-only indexes (Kurtz, Rohr)
+have no document and were not touched. The 18 October note that this defect was left alone is closed. No model change.
