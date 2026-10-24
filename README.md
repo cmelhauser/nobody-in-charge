@@ -193,7 +193,7 @@ whether a fresh runner can obtain pandoc, tectonic and the font.
 
 GitHub Actions runs four jobs, split by what can be checked without a network and by what depends
 on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
-model passes the original narrow ruleset (syntax errors, pyflakes, bugbear) with ruff's configuration ignored. `unit-tests` runs pytest and the model hash: on pull requests it uses
+model passes the original narrow ruleset (syntax errors, pyflakes, bugbear) with ruff's configuration ignored. `unit-tests` runs pytest, the `mypy` type checks (`mypy.ini`; 3.12 only) and the model hash: on pull requests it uses
 Python 3.12 only; on `main` it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
 others with the model tests, the release invariants, the direct tool tests and a byte-compile of every tool and script. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate

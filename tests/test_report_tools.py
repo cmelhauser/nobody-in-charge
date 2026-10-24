@@ -309,6 +309,7 @@ def load_corpus_tool(tmp_path, monkeypatch):
     """Import a private copy of build_corpus with every path constant inside `tmp_path`."""
     spec = importlib.util.spec_from_file_location("nic_report_build_corpus",
                                                   ROOT / "tools" / "build_corpus.py")
+    assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     root = tmp_path / "repo"

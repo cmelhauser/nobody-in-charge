@@ -31,10 +31,22 @@ import sys
 import types
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def first_group(pattern: str, text: str, flags: int = 0) -> str:
+    """Return group 1 of the first match of `pattern` in `text`, failing the test if none.
+
+    Narrows `re.search`'s optional result so a missing declaration reads as an assertion
+    failure and not as an AttributeError on None.
+    """
+    match = re.search(pattern, text, flags)
+    assert match is not None, f"pattern not found: {pattern}"
+    return match.group(1)
 sys.path.insert(0, str(ROOT / "tools"))
 
 # Imported by name once `tools/` is on the path, rather than with import statements below the
@@ -146,13 +158,12 @@ def test_epoch_matches_each_documents_declared_date():
     If the patterns in `DECLARED` drifted from those files, PDFs would be stamped with the
     wrong time and stop being reproducible.
     """
-    book = re.search(r"^DRAFT_DATE = '([^']+)'", (ROOT / "tools/build_book.py").read_text(),
-                     re.MULTILINE).group(1)
-    primer = re.search(r"^REVISED_DATE = '([^']+)'",
-                       (ROOT / "tools/build_primer.py").read_text(), re.MULTILINE).group(1)
-    paper = re.search(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})",
-                      (ROOT / "paper/anonymity-as-an-aggregation-condition.tex").read_text()
-                      ).group(1)
+    book = first_group(r"^DRAFT_DATE = '([^']+)'", (ROOT / "tools/build_book.py").read_text(),
+                       re.MULTILINE)
+    primer = first_group(r"^REVISED_DATE = '([^']+)'",
+                         (ROOT / "tools/build_primer.py").read_text(), re.MULTILINE)
+    paper = first_group(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})",
+                        (ROOT / "paper/anonymity-as-an-aggregation-condition.tex").read_text())
     assert source_date.epoch("book") == midnight(book, "%d %B %Y")
     assert source_date.epoch("primer") == midnight(primer, "%d %B %Y")
     assert source_date.epoch("paper") == midnight(paper, "%B %Y")
@@ -475,7 +486,7 @@ def test_note_main_builds_with_the_running_head_filled_in(monkeypatch, note_tree
     It checks the YAML-led Markdown, the title and geometry options and the success message.
     A leftover placeholder would print literally in every page header.
     """
-    seen = {}
+    seen: dict[str, Any] = {}
 
     def run(cmd, **kwargs):
         """Fake pandoc that captures the scratch header, Markdown and options, then succeeds."""

@@ -171,6 +171,10 @@ if [ "$job" = all ] || [ "$job" = checks ] || [ "$job" = unit-tests ]; then
   # --cov enforces the coverage floor set in .coveragerc, so a drop fails this step.
   step "tests and the 100 per cent coverage gate" \
        "$PY" -m pytest --cov --cov-report=term-missing -q
+  # Types: tools/ must be fully annotated, tests/ only has to be free of type errors. mypy.ini
+  # holds the settings; model/ is not checked because annotating it would change its hash.
+  step "types: tools fully annotated" "$PY" -m mypy --disallow-untyped-defs tools
+  step "types: tests" "$PY" -m mypy tests
   step "canonical model hash" model_hash
 fi
 

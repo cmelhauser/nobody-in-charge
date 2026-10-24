@@ -49,6 +49,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
 from withheld import prints_withheld
 
@@ -74,7 +75,7 @@ def require(ok: bool, message: str) -> None:
     (notes if ok else failures).append(("OK: " if ok else "FAIL: ") + message)
 
 
-def embedded(font_ref) -> bool:
+def embedded(font_ref: Any) -> bool:  # Any: pypdf IndirectObject; pypdf is imported lazily
     """Return True if this font object carries its own glyph program.
 
     A composite (Type 0) font keeps its descriptor on the first descendant font, so that is
