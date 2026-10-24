@@ -218,13 +218,13 @@ PARTS = [
 ]
 
 
-def read(path):
+def read(path: str | os.PathLike[str]) -> str:
     """Return the UTF-8 text of `path`; a missing file raises OSError rather than being skipped."""
     with open(path, encoding='utf-8') as fh:
         return fh.read()
 
 
-def strip_front_matter(text):
+def strip_front_matter(text: str) -> str:
     """Remove a leading YAML block. Only the assembled document carries a header."""
     if text.startswith('---\n'):
         end = text.find('\n---\n', 4)
@@ -233,25 +233,25 @@ def strip_front_matter(text):
     return text
 
 
-def demote_subscripts(text):
+def demote_subscripts(text: str) -> str:
     """Replace each Unicode subscript digit in `text` with the plain digit (see SUBSCRIPTS)."""
     for k, v in SUBSCRIPTS.items():
         text = text.replace(k, v)
     return text
 
 
-def merge_title(text):
+def merge_title(text: str) -> str:
     """`# Chapter Nine` + `## Confident and Wrong` -> `# Chapter Nine: Confident and Wrong`."""
     return re.sub(r'^# ([^\n]+)\n+## ([^\n]+)\n', r'# \1: \2\n', text, count=1)
 
 
-def part_page(title, subtitle=None):
+def part_page(title: str, subtitle: str | None = None) -> str:
     """Return the LaTeX for a part's title page; the optional subtitle sits under the title."""
     sub = f'\\\\[0.6em]\n{{\\large\\itshape {subtitle}}}' if subtitle else ''
     return PART_PAGE.format(title=title, sub=sub)
 
 
-def chapter(path):
+def chapter(path: str | os.PathLike[str]) -> str:
     """Return one chapter file ready to include: no front matter, merged title, plain digits.
 
     The trailing whitespace is normalized to a single newline so the joined document has a
@@ -260,7 +260,7 @@ def chapter(path):
     return demote_subscripts(merge_title(strip_front_matter(read(path)))).rstrip() + '\n'
 
 
-def convert_paper():
+def convert_paper() -> str:
     r"""Convert the LaTeX paper to markdown, its sections one level down.
 
     Shifting is what keeps the paper's `\section{Introduction}` from becoming a chapter
@@ -285,7 +285,7 @@ def convert_paper():
     return demote_subscripts(unwrap_pm(resolve_paper_crossrefs(md))).strip() + '\n'
 
 
-def unwrap_pm(md):
+def unwrap_pm(md: str) -> str:
     r"""Write the paper's `$a \pm b$` cells as plain text, so a table row can break.
 
     This is a typesetting fix with a real cause. Pandoc sizes each longtable column as a
@@ -325,7 +325,7 @@ def unwrap_pm(md):
 _SUFFIXES = ('tion', 'sion', 'ment', 'ness', 'able', 'ible', 'ing')
 
 
-def soften(row):
+def soften(row: str) -> str:
     r"""Give an over-long word in a table cell somewhere to break.
 
     Pandoc fixes each column's width as a fraction of the table, and the fractions are
@@ -347,7 +347,7 @@ def soften(row):
 
     Applied to a whole table row, it only touches ASCII words of eleven or more letters.
     """
-    def split_word(match):
+    def split_word(match: re.Match[str]) -> str:
         # Insert the soft hyphen before the first matching suffix, if enough stem remains.
         word = match.group(0)
         for suffix in _SUFFIXES:
@@ -357,7 +357,7 @@ def soften(row):
     return re.sub(r'[A-Za-z]{11,}', split_word, row)
 
 
-def resolve_paper_crossrefs(md):
+def resolve_paper_crossrefs(md: str) -> str:
     r"""Neutralize LaTeX cross-reference markup that does not survive the round trip.
 
     The paper is LaTeX, and its `\label`/`\eqref` machinery converts to pandoc link
@@ -370,7 +370,7 @@ def resolve_paper_crossrefs(md):
     # Anchor spans that pandoc emits for \label, e.g. [\[prop:one\]]{#prop:one label="..."}
     md = re.sub(r'\[\\\[[^\]]*?\\\]\]\{#[^}]*?\}\s*', '', md)
 
-    def _ref(match):
+    def _ref(match: re.Match[str]) -> str:
         # Reference links, e.g. [\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"},
         # become a noun phrase chosen by the label's prefix.
         target = match.group(1)
@@ -404,7 +404,7 @@ def resolve_paper_crossrefs(md):
     return md
 
 
-def assemble(build_date):
+def assemble(build_date: str) -> str:
     """Return the whole book as one Markdown string, headed with `build_date` as its draft date.
 
     Reads the manuscript, appendix, primer and paper sources and writes nothing. Order is the
@@ -458,7 +458,7 @@ def assemble(build_date):
     return '\n'.join(out)
 
 
-def main():
+def main() -> None:
     """Assemble the book into build/, then render the PDF unless `--no-pdf` was given.
 
     Reads `--date VALUE` and `--no-pdf` from `sys.argv`; a trailing `--date` with no value is

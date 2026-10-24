@@ -6177,3 +6177,11 @@ apostrophe first. All 39 document-backed verification indexes were rebuilt; 25 c
 none holds the withheld name (checked with `tools/withheld.py` over every vocabulary token); `build_corpus.py --check` reports
 0 problems and `check_book.py` still clears 55 citation-subject pairs over 38 sources. The record-only indexes (Kurtz, Rohr)
 have no document and were not touched. The 18 October note that this defect was left alone is closed. No model change.
+
+### 24 October 2026: type checking
+
+`mypy` now checks the code: every function in `tools/` carries parameter and return annotations
+(`mypy --disallow-untyped-defs tools`) and `tests/` is free of type errors (`mypy tests`), under `mypy.ini`. The checks run in the
+3.12 `unit-tests` job, in `tools/run_ci_locally.sh` and as two optional pre-commit hooks. The test fixes were narrowings the
+checker asked for (an optional `re.search` result or module spec asserted present before use, one `dict` annotation). `model/` is
+not checked because annotating a frozen script changes its SHA-256. No behaviour and no model change.

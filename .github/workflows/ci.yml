@@ -137,6 +137,14 @@ jobs:
           python -m pytest tests/test_model.py tests/test_release_invariants.py
           tests/test_tools_direct.py --cov --cov-config=.coveragerc-model --cov-report=term-missing
 
+      # mypy.ini holds the settings. tools/ must be fully annotated; tests/ must be free of type
+      # errors. model/ is not checked: annotating the hash-frozen scripts would change their hashes.
+      - name: Type check the tools and the tests
+        if: matrix.python-version == '3.12'
+        run: |
+          python -m mypy --disallow-untyped-defs tools
+          python -m mypy tests
+
       - name: Byte-compile every tool and script under this version
         if: matrix.python-version != '3.12'
         run: python -m compileall -q tools model

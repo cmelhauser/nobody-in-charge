@@ -656,9 +656,9 @@ def check_document_dates() -> None:
     not changing the text, and a date that moved when a builder was tidied would be the old
     fault wearing a different hat.
     """
-    from datetime import datetime
+    from datetime import date, datetime
 
-    def declared(tool: str, name: str) -> tuple[str, object] | None:
+    def declared(tool: str, name: str) -> tuple[str, date] | None:
         """Return (text, date) of `name = '...'` in `tools/{tool}`, or None after a failure."""
         text = (ROOT / "tools" / tool).read_text(encoding="utf-8")
         found = re.search(rf"^{name} = '([^']+)'", text, re.MULTILINE)
@@ -682,7 +682,7 @@ def check_document_dates() -> None:
         ["git", "-C", str(ROOT), "rev-parse", "--is-shallow-repository"],
         capture_output=True, text=True, check=False).stdout.strip() == "true"
 
-    def not_older(label: str, value: str, when, sources: list[str]) -> None:
+    def not_older(label: str, value: str, when: date, sources: list[str]) -> None:
         """Pass if date `when` is on or after the last non-merge change to `sources`.
 
         Skips, rather than passes, when the history needed to date that change is absent.
