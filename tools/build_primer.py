@@ -10,8 +10,11 @@ put raw LaTeX into a Markdown source that `tools/check_chapter.py` reads as pros
 checker correctly objected. The settings therefore live here, exactly as the book's live in
 `tools/build_book.py`, and the Markdown stays clean.
 
-The typography deliberately matches the book, so the standalone primer and the copy bound
-into the book as an appendix look like the same document.
+The typography is close to the book's, so the standalone primer and the copy bound into the
+book as an appendix look like the same document, but it is not identical. The primer uses one
+inch margins where the book uses 1.05 inches, and a 4pt `\tabcolsep` where the book uses 3pt
+(its comment in `tools/build_book.py` says why 4pt was too tight there). Both differences
+are deliberate.
 
   geometry        a4paper, 1 inch margins
   mainfont        TeX Gyre Pagella, as the book
@@ -25,10 +28,10 @@ Run from anywhere:
     python3 tools/build_primer.py
 
 Reads:      reference/PRIMER-steps-and-traditions.md (never written to).
-Writes:     reference/PRIMER-steps-and-traditions.pdf, which is tracked and checked byte for
-            byte; build/primer-header.tex, the LaTeX preamble; and build/primer-pandoc.log,
-            the engine's full output. The PDF timestamp comes from `SOURCE_DATE_EPOCH`
-            (see tools/source_date.py) unless the caller has set it.
+Writes:     reference/PRIMER-steps-and-traditions.pdf, which is tracked; build/primer-header.tex,
+            the LaTeX preamble; and build/primer-pandoc.log, the engine's full output. The PDF
+            timestamp comes from `SOURCE_DATE_EPOCH` (see tools/source_date.py) unless the
+            caller has set it.
 Needs:      pandoc and either xelatex or tectonic on the PATH, and the TeX Gyre Pagella font.
 Exit codes: 0 on success, including when overfull boxes are reported (this tool only prints
             a warning; the CI documents job is what requires zero); 1 with a message if the
@@ -51,11 +54,12 @@ SRC = ROOT / "reference" / "PRIMER-steps-and-traditions.md"
 OUT = ROOT / "reference" / "PRIMER-steps-and-traditions.pdf"
 
 # The revision date printed on the primer, declared rather than read off the clock.
-# See the note in build() for why it is neither computed nor hard-coded and unchecked.
-REVISED_DATE = '16 October 2026'
+# See the note in main() for why it is neither computed nor hard-coded and unchecked.
+REVISED_DATE = '23 October 2026'
 
 # Passed as pandoc -V variables rather than written into the source, so that the Markdown
-# contains no LaTeX. Keep in step with the HEADER in tools/build_book.py.
+# contains no LaTeX. These follow the HEADER in tools/build_book.py except where the module
+# docstring says they differ (margins and table padding).
 VARIABLES = [
     ("documentclass", "article"),
     ("classoption", "11pt"),

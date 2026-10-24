@@ -24,7 +24,7 @@ by old-timers how long AA would last and whether it was still AA, Kurtz answers 
 individual encounter, one alcoholic seeing in another neither a believer nor an unbeliever but
 another alcoholic to be reached out to. The historian with the fullest access to AA's archives
 locates the fellowship's persistence in the character of that meeting rather than in the formal
-properties of its rules. Chapter Twenty-Five should carry this.
+properties of its rules. Chapter Twenty-Five carries it, as its closing survival answer.
 
 **Wilson on the hazard of the confident individual.** Kurtz quotes a Wilson letter: "Nobody can
 cause more grief than a power-driven guy who thinks he has got it straight from God." Wilson adds

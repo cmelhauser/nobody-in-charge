@@ -2,7 +2,9 @@
 
 Running record of what has been verified, corrected, and found. Updated as work proceeds.
 
-Part One sessions are below. Part Two begins at the end.
+Part One sessions are below. Part Two begins at the heading "Part Two" a little further on, and Parts Three to Six and the later dated entries follow it in order.
+
+*This is a dated, append-only working record. Current state lives in `HANDOFF.md` and in the newest entry at the bottom of this file. The sections before "Staged research corpus organized" predate dating, so their present-tense statements (status tables, "still to do", "next actions") describe the moment they were written and are not kept current.*
 
 ---
 
@@ -159,6 +161,8 @@ Part One.
 | 5 | Provisional. Needs Kurtz. |
 | 6 | Solid on Maxwell. 1944 NCEA episode second-hand, needs verification. |
 
+*Superseded: this table is the state at the end of Session 2. Kurtz was acquired (see "Kurtz acquired, and it changed the opening of Chapter 2"), Chapters 4 and 5 were rebuilt on it (see "Chapter 5 rewritten on Kurtz"), Marsh and Krout answered the Chapter 2 political question, and the April 1946 Grapevine article and AAWS pamphlet P-17 were read. Current read status is in `research/SOURCES.md`*
+
 ### Step 4 complete: paper corrected, claim register built
 
 **Paper corrected.** The Monte Carlo accuracy figures in
@@ -187,6 +191,8 @@ Chapter Four currently has no claim sourced to a document I have read. Kurtz wou
 move roughly twenty-six claims from "at a remove" to "scholarly, read directly"
 in a single reading.
 
+*Superseded: Kurtz was supplied and read later (see "Kurtz acquired, and it changed the opening of Chapter 2"); Chapter 4 is no longer unsourced. Current counts are in `research/part1-claim-register.md`*
+
 ### Acquisition attempt: unsuccessful
 
 Kurtz's *Not-God* is held by the Internet Archive under lending restriction
@@ -197,6 +203,8 @@ available as full text. Search-inside returned nothing. Blumberg and Pittman's
 Neither is obtainable by the means available to me. Both require a library, a
 purchase, or an Internet Archive borrowing account. This is the binding constraint
 on finishing Part One, and no amount of further searching will remove it.
+
+*Superseded: Kurtz was later supplied by the Human Author. Blumberg and Pittman (1991), Blumberg (1980) and Alexander (1988) remain unobtained; see `research/SOURCES.md`*
 
 ---
 
@@ -209,6 +217,8 @@ on finishing Part One, and no amount of further searching will remove it.
 3. Incorporate the Martha Washington Societies and the Black Washingtonian
    societies into Chapter One rather than merely flagging them.
 4. Reader passes: one historian, one AA member.
+
+*Superseded: item 1 (Kurtz) and item 2 (Gough chapters XXVII to XXIX, read on 13 September 2026) are done, and item 3 was done in hedged form. The single open-items list is `HANDOFF.md` section 10*
 
 
 ---
@@ -350,6 +360,8 @@ because the conditional figure alone would mislead.
 underwrites the preface is not reproducible from the repository, which is the fragility
 this whole exercise exists to remove.
 
+*Superseded: done; see "Whole-book consistency pass", where notebook section 7 derives the figures from the caches*
+
 
 ---
 
@@ -376,6 +388,8 @@ chapter's design section addresses.
 
 **Still to check:** Carroll (1993) on step adherence; whether any treatment-manual
 literature has tested sequence effects experimentally.
+
+*Superseded: Carroll (1993) remains unconsulted (`research/SOURCES.md` has no entry for it); the rest of this block is history*
 
 
 ### Chapter 13 drafted
@@ -407,6 +421,8 @@ tripped it despite having four such statements. Pattern widened.
 **Outstanding for this chapter:** the Greenfield and Tonigan paper is read via abstract
 only and should be obtained; Carroll (1993) on step adherence has not been consulted and is
 the likeliest place for a prior treatment of sequencing.
+
+*Superseded: Greenfield and Tonigan (2013) was read in full; see "Greenfield and Tonigan read, and the staged corpus closes"*
 
 
 ### Chapter 14 drafted, and it falsified a figure carried in four other files
@@ -488,6 +504,8 @@ result, but its stored output is from an earlier session.
 **Still to do on this chapter:** obtain the Hufford full text; the fit statistics would
 either strengthen the shape claim or weaken it, and at present the chapter rests on an
 abstract.
+
+*Superseded: Fatimah, Hunter and Bornovalova (2025) replaced Hufford as the warrant (see "The strongest external evidence in the book arrived"), and Witkiewitz and Marlatt (2007) was read in full on 14 September 2026*
 
 
 ### Whole-book consistency pass
@@ -718,6 +736,8 @@ of every parameter class, and seven threats to validity stated plainly. Written 
 standard a dissertation committee would referee. CLAUDE.md now carries that standard as six
 numbered rules and a 400-seed minimum, so future chapters are held to it.
 
+*Superseded: `CLAUDE.md` no longer carries numbered rules of this kind; the rules are now prose under "Statistical rules" and "Release discipline", and the references to "rule 4" and "rule 5" below point at wording that no longer exists*
+
 **Still outstanding, and named in the appendix rather than hidden.** No design run so far
 can see interactions: the global sweeps confound them all together and the one-at-a-time
 sweep is a star around the nominal point that cannot see them at all. A Morris
@@ -725,6 +745,8 @@ elementary-effects screen over all 118 factors, followed by Sobol indices on the
 subset, is the standard remedy and has not been run. No claim in the book currently depends
 on an interaction, so nothing is asserted beyond what is supported, but the gap is real and
 appendix A5.5 says so.
+
+*Superseded: the Morris screen and the Sobol run were done; see "Morris screen, and two more small-sample errors", "Sobol run, and it half succeeded" and "The three remaining screens finished"*
 
 Notebook: **182 assertions, zero failures.**
 
@@ -792,6 +814,8 @@ total-order indices on the top eight factors, to separate interaction from non-l
 where Morris cannot. About 1,300 further evaluations. Nothing in the book depends on it;
 appendix A5.5 and threat 5 in A7 both name it.
 
+*Superseded: the Sobol run was done; see "Sobol run, and it half succeeded" and "The three remaining screens finished, and the Sobol factor set was wrong"*
+
 Notebook: **182 assertions, zero failures**, every cell executed.
 
 
@@ -811,6 +835,8 @@ prohibition, with Marsh's parenthesis *for a great change had come over the Wash
 this matter*; and Marsh's own exclusion from the Sons of Temperance for not being a reformed
 man, which bears on Chapter 2's costly-screening argument.
 
+*Superseded as to location: the Marsh text is now under `research/incorporated/Marsh_1866/`, git-ignored; see "The corpus, normalized, and the documents taken out of the repository". The `research/*.txt` paths named in this and the next few entries no longer exist*
+
 **The Beecher letter names a mechanism the model cannot represent.** Beecher does not say
 the Washingtonians failed or were absorbed. He says their *thunder is worn out* and *the
 novelty of the common-place narrative is used up*. That is a resource depleting through use,
@@ -827,6 +853,8 @@ staying in the room, and having no rule against it they had no way to decline.
 **Krout, *The Origins of Prohibition* (1925).** The first scholarly history of American
 temperance, written twenty-five years before Maxwell and independent of him. Chapter IX read
 in full. Saved as `research/krout-1925-origins-of-prohibition.txt`.
+
+*Superseded as to location: now `research/incorporated/Krout_1925/`, git-ignored*
 
 **It contains this book's thesis, stated in 1925.** Krout reports two fundamental weaknesses
 contemporaries saw in the movement. The first: there was no connection between societies,
@@ -984,6 +1012,8 @@ jobs.
 currently unverifiable. It would cost nothing to add a date line per session and would make
 the project's account of itself checkable in the way the rest of the book aims to be.
 
+*Superseded: entries from "Staged research corpus organized" onward are dated, and the earlier remark that this log carries no dates applies only to the undated sections above that point*
+
 
 ### The Part Four plan was falsified within the hour of being written
 
@@ -1030,6 +1060,8 @@ test only tests what the design can vary. The ±30 per cent design cannot vary t
 by enough to matter, so reporting it alone made a magnitude-dependent claim look structural.
 Both of today's methodological findings are the same shape: *check what the test could in
 principle have found before quoting what it found.* That is now rule 4 in CLAUDE.md.
+
+*Superseded: see the note on numbered rules under "Numerical audit: the decline table was wrong, and ten seeds is why"; the principle now sits under "Statistical rules" in `CLAUDE.md`*
 
 **Notebook at the close of this session: 225 assertions, zero failures, every code cell
 executed and stored.** The earlier figures of 182 and 205 in entries above were correct when
@@ -1176,6 +1208,8 @@ Double-Well Potential System", *Journal of Psychopathology and Clinical Science*
 69-80. Supplied by the author. Read in full from the NIH author manuscript, saved as
 `research/fatimah-2025-double-well-relapse.txt`.
 
+*Superseded as to location: now `research/incorporated/Fatimah_2025/`, git-ignored*
+
 **It supersedes Hufford (2003) as Chapter 14's empirical warrant, and the upgrade is large.**
 When Chapter 14 was drafted, the shape rested on two preliminary samples of 51 and 43
 patients, a cusp catastrophe model, and an abstract I had not been able to get behind. It now
@@ -1241,6 +1275,8 @@ stored. What is stored is `kurtz-1991-verification-index.json`, a vocabulary ind
 running text, so `tools/check_book.py` can still confirm a cited subject appears in the work.
 The checker now reads any `*-verification-index.json` alongside the full texts and reports 39
 citation-subject pairs against 11 sources.
+
+*Superseded as to location: the vocabulary index now lives in `research/incorporated/Kurtz_1991/`*
 
 **The find that mattered most.** Chapter 2 opened by calling the standard account of the
 Washingtonians' death a story you hear in meeting rooms, treating it as folk history. Kurtz
@@ -1549,6 +1585,8 @@ of the per-step table and Wilson intervals at n = 2,000 on every Monte Carlo pro
 exact matrix products are labelled exact and carry no interval, which is the distinction
 CLAUDE.md rule 5 asks for.
 
+*Superseded: `CLAUDE.md` has no numbered rule 5; the distinction between exact and Monte Carlo figures is now stated under "Statistical rules" and "Manuscript conventions"*
+
 ### Sobol run, and it half succeeded
 
 1,408 evaluations, N = 128, Saltelli for first order and Jansen for total order, on the eight
@@ -1638,6 +1676,8 @@ pressure. So the finding is conditional on two assignments and nothing else in t
 the chapter defends those two from the published short text of the two Traditions. What it cannot
 do is read *AA Comes of Age* pp. 97-98, which Kurtz names as decisive and which this project does
 not acquire. Appendix A5.4c, notebook 11d.
+
+*Superseded as to the rule: "which this project does not acquire" is the retired wording; see "10 August 2026, later: three copyrighted works read, and a rule corrected". The sentence is left as the record of what was believed then*
 
 **A second assertion failed and corrected Chapter 17.** The text said that stripped of continuity
 and pressure, unity falls below the open door. It falls to 2.77 against the open door's 2.69, so
@@ -1786,6 +1826,8 @@ a single printed copy, and this project does not acquire AAWS publications. Chap
 it and records two limitations that would remain with it in hand: it is worldwide rather than
 regional, and a count of groups nets births against deaths.
 
+*Superseded: "this project does not acquire AAWS publications" is the retired rule, corrected in "10 August 2026, later: three copyrighted works read, and a rule corrected" and in "10 August 2026, later still". SMF-132 was read on 17 August 2026*
+
 **Step 5, acquisitions: one of three.**
 
 *Carrell, Sacerdote and West (2013), obtained and read in full* from the lead author's university
@@ -1812,6 +1854,8 @@ and three caught by notebook assertions. It makes one observation I had not seen
 the nine model errors were errors in which the model was **too well behaved**, and a model that
 behaves smoothly is finished while one that misbehaves gets debugged. It declines to say how long
 any error stood, because the progress log is undated.
+
+*Superseded as to the log being undated: later entries are dated. Chapter 23's text is the book's own and is unchanged here*
 
 **Chapter 24, What Would Settle It**, is six measurements in order of how much they would settle,
 each with the result that would falsify the book. Item one is the elicitation and is the only one
@@ -2126,6 +2170,8 @@ the paper's source of truth as the markdown is the book's. The old `.ipynb` was 
 is now superseded by `model/book-calculations.ipynb`; it should probably go, and has not been
 touched without asking.
 
+*Superseded: the paper notebook was kept and made a separate artifact; see "The paper notebook stops being a copy of the book's"*
+
 **Nine substantive defects in the old draft were repaired.** Two were found this session and the
 rest were corrections the book had already made and the paper had not. They were first written up
 as a section of the paper and that section was then removed at the author's instruction, since a
@@ -2422,6 +2468,8 @@ incorporation. No model equation, parameter, result, manuscript claim, paper cla
 entry, cache or generated artifact was changed in this installation pass. Release remains open
 pending independent verdicts and the user's decisions on the identified design choices.
 
+*Superseded: the release gate closed (see "Publication review of the whole repository") and `v0.9.0` was published (see "23 August 2026: the release itself, published and verified")*
+
 ---
 
 ## Maxwell and Golub-Jackson moved from staged to incorporated
@@ -2644,6 +2692,8 @@ styles, and a verification index for Kurtz sitting on its own. Everything is now
 Each source is a directory, `research/incorporated/<ShortAuthor>_<Year>/`, holding the document,
 `citation.md`, `metadata.json`, `source_summary.md` and a verification index. `tools/build_corpus.py`
 does the normalization and is idempotent; `--check` reports drift without touching anything.
+
+*Superseded: `--check` makes no repair but will create an empty directory for a registered source that has none (see the docstring of `tools/build_corpus.py`). "Without touching anything" overstates it, as do the same words in `CLAUDE.md` and `AGENTS.md` at the time of writing*
 Citations were lifted out of `research/SOURCES.md` rather than retyped, so there is still one place
 for a citation to be wrong.
 
@@ -3303,6 +3353,8 @@ the unsearched literature on Buddhist and mindfulness-based recovery programs.
 Makefile or pre-commit configuration anywhere in the repository. The release gate is local and
 manual, which is what `AGENT_VERIFY.md` already describes. This is recorded so that a later reader
 does not assume a green build exists somewhere.
+
+*Superseded the next day: see "17 August 2026: test suite, coverage gate, and continuous integration". CI now runs four jobs from `.github/workflows/ci.yml`, and a `.pre-commit-config.yaml` exists*
 
 **Staleness check.** `model/aa_group_model.py` hashes to the canonical
 `c3823f72cabd454a778464a5a31c13fd09161f2a533b95b315ce833c7add3952`. No retired room size, no
@@ -6078,4 +6130,35 @@ reformat would invalidate hours of computation. Two latent defects were found on
 a corrupt index belonging to a record-only source (fixed, reported as a problem instead); and its `TOKEN` regex lists the
 straight apostrophe twice, so it never matches the typographic one (left alone and commented, because fixing it would change
 every committed index). The book, primer and paper PDFs were rebuilt with the pinned pandoc 3.10.2 and are byte-identical.
+No model change.
+
+### 23 October 2026: a line-by-line staleness audit
+
+Every tracked file was read line by line by eleven read-only audit passes (root documents and CI, the handoff and verification
+documents, this log, the source records, the research reports and plans, the three thirds of the manuscript, the appendix
+and primer, the paper and notebooks, and the tools and tests), and the findings were then fixed in one branch. The numbers
+held: every model figure, every cache hash, every generated report (regenerated byte for byte) and the assembled build file
+matched the tree. What was stale was prose. The substantive corrections were these. (1) Chapter Four said zero membership is
+not absorbing when exogenous arrivals are positive; closure is checked before arrivals and is permanent. Chapter Two weighted
+the Tradition Three friction by tenure; the model weights it by inverse practice. Chapters Five and Fifteen described the
+recipient resource with a newcomer discount or arrival link it does not have. (2) Chapter Twenty-Four said the comparison script
+does not exist; it has existed since 6 August and is self-tested. Chapter Twenty-Two said `part5_runs.py` duplicates lines of
+`simulate()`; it calls it with `initial_practice`. Chapter Seventeen's Tradition Five count was wrong (purpose four times, unity
+once). Chapter Twenty-Five still said the twelve counts became seven and used "survival" for endpoint viability. Chapter Ten
+promised a Chapter Twenty-Four survey item that is not there. (3) The paper said all fifteen Step 1 failures involve admission
+(eleven do), ranked the decay rate second in every design (first on mean practice in the Morris screen) and left the elder
+multiples without their office share; its printed-decimal count moves from 498 to 505. (4) The claim that Recovery Dharma's
+licence is the one in the corpus that would permit committing a document was false (Edgren 2025 is CC BY 4.0); it was reworded in
+seven files. Four source records still said no verification index existed, and nineteen indexes recorded 20 of the 26 registered
+subjects; `build_corpus.py` now treats an index as stale when it omits a registered subject, and they were rebuilt. (5) The lint
+and coverage prose said the canonical model "takes no waiver" under the production ruleset (it passes the original narrow set,
+which is what CI asserts) and that plain `pytest` enforces the coverage gate (only `pytest --cov` does). (6) The elicitation
+workflow documents now file returned forms under anonymous codes (R01, R02, ...) with no names or initials in the repository,
+matching what the invitation promises; the five elicitation PDFs were rebuilt. (7) This log gained a dated-history banner and
+26 "Superseded:" notes under stale present-tense blocks; no original sentence was rewritten. (8) The plans, the book plan, the
+claim register and `HANDOFF.md` section 10 were brought current, and section 10 now lists the standing left-undone items. Items
+recorded here that the 18 October entries omitted: the ruff `target-version` pin to Python 3.11 and `datetime.UTC` (f63d39b),
+the README layout line for `tests/`, and the optional pre-commit hooks (#78). Not changed on purpose: the frozen `model/*.py`
+scripts keep their stale pointers and unit slips (for example `mc_error.py` and `tradition_paired.py` say "half-weeks" where the
+unit is weeks, and several appendix section pointers predate the renumbering), because editing them invalidates their caches.
 No model change.

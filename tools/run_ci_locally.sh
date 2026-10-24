@@ -82,7 +82,9 @@ step() {
 }
 
 # Fail if model/aa_group_model.py is not the canonical release file. The digest is also pinned
-# in CLAUDE.md and tests/test_release_invariants.py; change all three together or not at all.
+# in .github/workflows/ci.yml, tools/check_docs.py, CLAUDE.md and
+# tests/test_release_invariants.py, and quoted in the README, the appendix and other documents;
+# change every place together or not at all.
 model_hash() {
   "$PY" - <<'PYEOF'
 import hashlib, pathlib, sys
@@ -198,8 +200,9 @@ if [ "$job" = all ] || [ "$job" = documents ]; then
     step "PDFs are sound documents" "$PY" tools/check_pdfs.py
     step "documentation, including page counts" "$PY" tools/check_docs.py
     step "full release gate"   "$PY" tools/check_release.py
-    # Slow tests run here only: they repeat the gate and the builds, so the pull-request jobs
-    # skip them. NIC_SLOW_TESTS=1 is what un-skips them.
+    # Slow tests run here and in the release workflow only: they repeat the gate and the
+    # builds, so the pull-request jobs and CI's documents job skip them. NIC_SLOW_TESTS=1 is
+    # what un-skips them.
     step "slow integration tests" env NIC_SLOW_TESTS=1 "$PY" -m pytest tests/test_tools_integration.py -q
   fi
 fi

@@ -45,10 +45,13 @@ known-first-party = []
 # The exemption is by rule, not wholesale, so a genuine defect in one of these files still
 # fails: an undefined name (F821) or a syntax error is not waived here.
 #
-# It does cover model/aa_group_model.py, which is only a convenience, because that file
-# passes clean. CI asserts that separately with `ruff check model/aa_group_model.py
-# --isolated`, which ignores this configuration entirely, so the most pinned file in the
-# project cannot quietly acquire a waiver it did not need.
+# The glob also matches model/aa_group_model.py, and for the production rules that is a
+# documented exemption: the file would not pass them (it has one-line compound statements,
+# `dict()` calls and long lines), and it cannot be edited to. What it does pass, with no
+# waiver, is the original narrow set (E9, F, B). CI asserts exactly that with
+# `ruff check model/aa_group_model.py --isolated --select E9,F,B`, which ignores this
+# configuration entirely, so the most pinned file in the project cannot quietly acquire a
+# defect the narrow set would catch.
 "model/*.py" = [
     "F401", "F841", "B905", "B007",
     "E", "W", "I", "UP", "C4", "SIM", "RUF", "A", "D", "PLW1510",

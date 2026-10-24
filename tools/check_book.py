@@ -400,12 +400,12 @@ def check_history():
             if re.search(r'cannot be supported|was written by me|do not say it'
                          r'|unverifiable|no dates', line, re.I):
                 continue
-            # The rule is about claims regarding THIS PROJECT's history, which the undated
-            # progress log cannot support. A duration inside the simulated world is a model
-            # output with a notebook assertion behind it and is checkable in the ordinary
-            # way. Added 2 August 2026 when PART-5-PLAN.md said a starved group "looks
-            # completely healthy for years", which is in the notebook's part5 blocks and not a
-            # claim about the project at all.
+            # The rule is about claims regarding THIS PROJECT's history, which a bare
+            # duration cannot tie to a dated progress-log entry. A duration inside the
+            # simulated world is a model output with a notebook assertion behind it and is
+            # checkable in the ordinary way. Added 2 August 2026 when PART-5-PLAN.md said a
+            # starved group "looks completely healthy for years", which is in the notebook's
+            # part5 blocks and not a claim about the project at all.
             # NOTE the first attempt at this exemption keyed on words like "group" and
             # "member" and would have silenced the check across most of the plans. It was
             # narrowed to markers that only appear when the sentence is about the runs, and
@@ -415,7 +415,8 @@ def check_history():
                          r'model says|in the model|per cent of draws)\b', line, re.I):
                 continue
             fail('history', f'{os.path.relpath(p, ROOT)}:{ln} claims a duration; '
-                            'the progress log is undated, so this cannot be checked')
+                            'a bare duration cannot be checked against the progress log, '
+                            'so cite the dated entry instead')
     if not dated:
         warn('history', 'research/progress-log.md carries no dates, so no duration claim '
                         'anywhere in the project is verifiable')

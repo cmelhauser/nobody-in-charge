@@ -6,7 +6,9 @@
 # The local hooks run under the Python that pre-commit itself runs under, in an environment of
 # their own, so that interpreter must be 3.11 or newer (the stock python3 on some machines is 3.9).
 #
-# CI remains the authority: these hooks are the same checks, run earlier, and a commit made with
+# CI remains the authority: these hooks are the same checks, run earlier, with one limit. The docs
+# hook has pypdf, so its page-count and date checks run, but check_docs.py still skips its
+# release-gate totals check here, which CI's `checkers` job runs in full. A commit made with
 # --no-verify is still caught by the lint, unit-tests and checkers jobs. They stay fast on
 # purpose (seconds). The slow work (the full suite, the PDF builds, the full release gate) is
 # left to tools/run_ci_locally.sh.
@@ -49,6 +51,7 @@ repos:
         name: documentation matches the tree
         entry: python tools/check_docs.py
         language: python
+        additional_dependencies: [pypdf]
         pass_filenames: false
 
       # Corpus records and verification indexes against the source files, and the withheld

@@ -106,8 +106,8 @@ that search; it does not replace reading the surrounding claim.
 
 ## Source boundary
 
-The staged corpus was worked through on 9 August 2026 and is now mostly incorporated. Four items
-moved to `research/incorporated/`: the three American Temperance Union documents and the source
+The staged corpus was worked through on 9 August 2026, and by 10 August it was fully incorporated
+(see below). Four items moved to `research/incorporated/`: the three American Temperance Union documents and the source
 record for AA pamphlet P-17. Maxwell (1950) and Golub and Jackson (2010) were already there.
 
 Three copyrighted works were read and catalogued on 10 August 2026, bringing the corpus to 26
@@ -176,8 +176,8 @@ saturating form is the book's.
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book
 is now read. It supports appendix A12 and four
 paragraphs of Chapter 24. It is held on the ordinary footing, git-ignored with a hash and an index.
-Its CC BY-NC-SA 4.0 licence is the one licence in the corpus that would permit committing the
-document; it is git-ignored anyway, because the rule is uniform.
+Its CC BY-NC-SA 4.0 licence is among the licences in the corpus that would permit committing the
+document (Edgren et al. 2025 is CC BY 4.0); it is git-ignored anyway, because the rule is uniform.
 
 Two rules attach to it. **The founder of the predecessor organization it split from is named in that
 source and is named nowhere in this project.** The structural claim does not need the name and
@@ -202,7 +202,8 @@ the record: `citation.md`, `metadata.json` with rights, provenance URL and SHA-2
 
 Do not commit a source document, and do not add a source by hand. Run
 `python3 tools/build_corpus.py`, which normalizes the layout and rebuilds any index whose stored
-SHA-256 no longer matches its file. `--check` reports drift without changing anything.
+SHA-256 no longer matches its file. `--check` reports drift and changes no file, though it can
+create an empty directory for a registered source that has none.
 
 Citation checking does not depend on the documents. Each index records the source's vocabulary
 and, because a vocabulary set has no word order, which registered subjects the document contains,
@@ -281,8 +282,9 @@ reproduced, and not obtained.
 Run from the repository root:
 
 ```bash
-python3 -m pytest
+python3 -m pytest --cov
 python3 tools/run_notebook.py
+python3 tools/run_notebook.py --paper
 python3 tools/check_book.py
 python3 tools/check_chapter.py reference/PRIMER-steps-and-traditions.md
 python3 tools/check_portability.py
@@ -292,9 +294,13 @@ python3 tools/build_primer.py
 export SOURCE_DATE_EPOCH="$(python3 tools/source_date.py paper)"
 cd paper && tectonic anonymity-as-an-aggregation-condition.tex && cd ..
 unset SOURCE_DATE_EPOCH
+python3 tools/check_fonts.py
 python3 tools/check_pdfs.py
 python3 tools/check_release.py
 ```
+
+`tools/check_fonts.py` only reports on a developer machine; CI runs it with `--strict`, which exits
+1 when a font file differs from the pinned hashes, and a local copy of the font usually does.
 
 `tools/run_ci_locally.sh` runs all four continuous-integration jobs in this order on the local
 machine, and takes an optional `lint`, `unit-tests`, `checkers`, `checks` or `documents` argument
@@ -316,7 +322,8 @@ derived reports this block assumes are already current, is in `README.md`.
 ## Branch and pull request flow
 
 Work on a branch and merge through a pull request. Do not commit to `main` directly. The
-branch name should say what the change is for: `ci/`, `fix/`, `docs/`, `model/`.
+branch name should say what the change is for: `ci/`, `fix/`, `docs/`, `model/`, `source/` or
+`chore/`.
 
 ```bash
 git checkout -b fix/what-this-is
@@ -353,13 +360,18 @@ rejected, because clearing it would mean editing files whose bytes are pinned.
 one would invalidate a cache that took hours to compute. They carry per-file waivers, by rule
 rather than wholesale, so a genuine defect in them still fails.
 
-`model/aa_group_model.py` is the exception and takes no waiver. It passes the full ruleset
-clean, and CI asserts that with `--isolated`, which ignores `ruff.toml` entirely so the
-waivers cannot reach it.
+`model/aa_group_model.py` is the exception in one respect. It passes the original narrow set
+(syntax errors, pyflakes and bugbear) with no waiver, and CI asserts exactly that with
+`ruff check model/aa_group_model.py --isolated --select E9,F,B`, which ignores `ruff.toml`
+entirely so the waivers cannot reach it. For the production rules it falls under the
+`model/*.py` block like the analysis scripts, a documented exemption: it would not pass
+them (it has one-line compound statements, `dict()` calls and long lines) and cannot be
+edited to.
 
 ## Tests and CI
 
-`python3 -m pytest` runs the suite. It needs `requirements-dev.txt` and nothing else, and it
+`python3 -m pytest` runs the suite, and `python3 -m pytest --cov` runs it under the coverage gate.
+It needs `requirements-dev.txt` and nothing else, and it
 does not need any source document: every source under `research/incorporated/` is git-ignored
 and the citation checker works from the committed verification indexes.
 
@@ -369,8 +381,8 @@ hash-frozen and pure computation, so it is tested exhaustively. The tools are co
 entry points, so the suite both calls their functions (`tests/test_tools_direct.py` and one
 test file per group of tools) and runs them as subprocesses (`tests/test_tools_integration.py`);
 `patch = subprocess` in `.coveragerc` makes coverage follow the subprocesses. Only lines that
-need an external toolchain or an operating-system failure carry `# pragma: no cover`, each
-with its reason. The analysis scripts under `model/` other than the canonical model are
+need an external toolchain or an operating-system failure may carry `# pragma: no cover`, each
+with its reason; none is used in `tools/` today. The analysis scripts under `model/` other than the canonical model are
 deliberately outside the gate: they are batch Monte Carlo jobs, their bytes are frozen (each
 records its SHA-256 in its cache, so a test hook or a pragma would invalidate hours of
 computation), and the release gate verifies every cache against the script that made it.
@@ -392,8 +404,8 @@ require a rendered PDF: corpus drift, portability, the book-level checks, `check
 142 of the 148 release-gate checks via `check_release.py --skip-artifacts`, which reports the
 other six as skipped.
 
-`documents` renders the three PDFs, asserts zero overfull boxes, checks the PDFs and runs the full
-gate. The slow integration tests run in `tools/run_ci_locally.sh` and in the release workflow, not
+`documents` renders the three PDFs, asserts zero overfull boxes, checks the font files against
+their pinned hashes (`tools/check_fonts.py`), checks the PDFs and runs the full gate. The slow integration tests run in `tools/run_ci_locally.sh` and in the release workflow, not
 here, because here they would only repeat the gate and the builds. It runs on `main` and on demand, not on pull requests, and it rebuilds
 rather than trusting the committed PDFs because a fresh clone gives every file one checkout
 timestamp.
@@ -408,8 +420,9 @@ declaring it fresh. Run the full gate before a release.
 
 Continuous integration pins **pandoc 3.10.2**, and the pin is load-bearing rather than tidy.
 Pandoc computes the column widths of every table in the book and does not compute them the same
-way across versions, so an unpinned build can push a table row outside the type block. Raise it
-deliberately and re-read the PDFs.
+way across versions, so an unpinned build can push a table row outside the type block. The pandoc
+version and checksum, and the tectonic URL and checksum, are set in both `.github/workflows/ci.yml`
+and `.github/workflows/release.yml`; raise them in both together, deliberately, and re-read the PDFs.
 
 Both PDF builds ask fontconfig for **TeX Gyre Pagella** by name, so that font is a build
 dependency and not a nicety. Missing, XeTeX halts with an unrecoverable error before typesetting

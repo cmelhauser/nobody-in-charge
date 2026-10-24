@@ -13,7 +13,9 @@ This is a reference document, not a chapter. It gives one short finding for each
 Step and each Tradition, and it exists so that a reader who wants to know what the
 model says about a particular item does not have to reconstruct it from six chapters.
 Everything here is drawn from the manuscript and is reproducible from
-`model/book-calculations.ipynb`. Nothing here is new.
+`model/book-calculations.ipynb`, except the follow-up section near the end, which reports
+textual codings from appendix sections A12 and A13 and has no calculation to reproduce.
+Nothing here is new.
 
 Every entry comes in three parts. **Technical** states the result and its provenance.
 **What was assumed** says, in the same plain language as the rest, which numbers in that
@@ -22,6 +24,9 @@ row somebody chose rather than measured, and what would follow if the choice wer
 says so without arithmetic. The third part is an interpretation of the first and is
 softer than it. Where the plain reading would carry further than the technical one
 supports, the entry says where it stops.
+
+The five standing cautions and the two "taken together" blocks are not entries. They carry two
+parts, **Technical** and **In plain terms**, because they state no matrix values to be assumed.
 
 The middle part is there because the arithmetic in this document is exact and its inputs
 are not. Every figure in Part Four is a correct calculation on two tables that one person
@@ -1171,8 +1176,9 @@ in them recovered.
 
 ## Where every figure comes from
 
-The five headings below are the book's canonical reference headings, in the order
-`tools/check_chapter.py` requires of a chapter. The primer is exempt from that rule,
+The four headings below are the book's canonical reference headings, in the order
+`tools/check_chapter.py` requires of a chapter. The fifth, "Referenced but not reproduced",
+is omitted because the primer has nothing to put under it. The primer is exempt from that rule,
 because it is an appendix rather than a chapter and the checker skips its structural
 block entirely. It keeps the convention anyway, and the exemption is the reason a reader
 should not assume anything enforced it.
@@ -1217,8 +1223,9 @@ the Step of its own number.
 Alcoholics Anonymous World Services. *The Twelve Concepts for World Service* (Short Form),
 SMF-114 (adopted 1962), read at source on 17 August 2026, and *The A.A. Service Manual
 Combined with Twelve Concepts for World Service* (2024-2026 edition, BM-31), read in part on
-13 September 2026: Concepts IV and V in full, Concept XI on rotation, and every passage
-mentioning rotation. Both held git-ignored. Behind the Tradition 9 entry: Concept IV
+13 September 2026: the passages named here were read in full and the rest of the manual
+was not (see "What was not read"). They are Concepts IV and V, Concept XI on rotation, and every
+passage mentioning rotation. Both held git-ignored. Behind the Tradition 9 entry: Concept IV
 proportions voting weight to responsibility and holds no rule about the size of a rotating
 pool.
 
@@ -1242,7 +1249,8 @@ with the predecessor falls (appendix A12.4).
 
 **Cited at a remove:**
 
-Nothing. Every source named here was read at source. The primer restates findings from
+Nothing. Every source named here was read directly, though Maxwell from a retyped reproduction
+the Service Manual in part, and four papers apart from the portions named above. The primer restates findings from
 chapters that do cite at a remove, and those removes are recorded in the chapters rather
 than repeated here.
 
@@ -1280,6 +1288,8 @@ Manuscript chapters 8, 9, 10, 12, 13, 15, 16, 17, 18, 19 and 20, whose Machinery
 sections carry the full designs and estimands for every figure quoted above.
 
 **What was not read:**
+
+The rest of *The A.A. Service Manual*, beyond the passages named above.
 
 The AA literature was said here to gesture at a parallel between the Steps and the
 Traditions. That was written without having read it. The 1953 commentary, listed above, was

@@ -1,6 +1,10 @@
 # Part Two: The Group
 
-The central claim of the book. Chapters 7 to 11, roughly 16,000 words.
+**Status as of 22 October 2026: all chapters written; sections below are the plan as made; superseded items marked.**
+
+The central claim of the book. Chapters 7 to 11, roughly 16,000 words as planned (whole-file
+`wc -w` on 22 October 2026, still moving as chapters are revised: 2,480, 5,820, 2,840, 3,430 and
+2,830, about 17,400 in all).
 
 Master plan: `../BOOK-PLAN.md`. Companion: `PART-1-PLAN.md`.
 
@@ -26,6 +30,10 @@ why.
 
 ## 2. Chapter plan
 
+**The statuses and targets in this section are as written in August 2026** ("partly drafted in
+the paper", "exists in the paper, needs translating", "exists", "new synthesis"). All five chapters
+are now written, in `manuscript/ch07-*.md` to `ch11-*.md`, and the sequence in section 4 is the
+order they were written in.
 ### Chapter 7. How a Room Decides
 *Target 3,000 words. Status: partly drafted in the paper.*
 
@@ -112,7 +120,9 @@ what it could be. That is a real permanent cost, though well short of a caucus.
 The sharper result is the scaling failure: a fixed pool floors at roughly the
 officeholder's share divided by the pool size and stays there, so the gap against
 an evenly weighted room widens without limit as the group grows. Clearing the bar
-takes a pool of about twenty-six per cent of the group, at every size tested.
+takes a pool of about twenty-six per cent of the group, at every size tested. (Chapter 10 now
+treats the 26 per cent as "a property of my parameter choices", an order of magnitude and not a
+threshold, and says meeting it deals with one channel only.)
 
 This is the one prediction in the book that a single AA group could test against
 its own service records this year, and the chapter should say so plainly and tell
@@ -222,7 +232,9 @@ the circling risk above: it is a lookup table, not another telling.
 
 ## 7. Release-gate corrections, opened 6 August 2026
 
-The mathematical exposition will be corrected and standardized around four points:
+**Done in the release-gate round** (analyses complete 9 August 2026; every checker passed on 28
+September 2026, `RELEASE-GATE-PLAN.md`). The list is kept as the record of what the round
+required. The mathematical exposition was to be corrected and standardized around four points:
 
 1. Rows of the influence matrix are outgoing choices; columns receive direct attention; the stationary distribution is a left eigenvector under the project’s row-stochastic convention.
 2. The empirical mapping from governance text to network operators is a proposed operationalization, not itself a theorem. Violating one mapped principle is not sufficient for capture unless the resulting perturbation actually concentrates stationary influence.

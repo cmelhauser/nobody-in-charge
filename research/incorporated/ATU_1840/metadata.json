@@ -7,11 +7,6 @@
  "status": "read_in_full",
  "rights_note": "Pre-1929 public-domain scan as labeled by Internet Archive source item.",
  "source_url": "https://archive.org/details/reportexecutive00uniogoog",
- "files": {
-  "pdf": "ATU_Report_1840.pdf",
-  "ocr": "ATU_Report_1840_ocr.txt",
-  "sha256": "3161895669f0f4a7c0e3d702869c1c3859e3a33ec6d47af7c40e61955cee07be"
- },
  "ocr_quality": "archive_djvu_ocr; verify quotations against scan",
  "legacy_stem": null,
  "documents": {
@@ -26,6 +21,6 @@
    "tracked_in_git": false
   }
  },
- "documents_note": "Documents are git-ignored. Re-acquire from the recorded URL and check the SHA-256 above.",
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above.",
  "read_date": "2026-09-13"
 }
