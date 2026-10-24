@@ -58,7 +58,7 @@ def test_viability_threshold_remains_five():
 def test_registered_sensitivity_values_decompose_to_one_hundred_and_eighteen():
     """22 scalar defaults, 12 step speeds, 49 nonzero S cells, 35 nonzero GOV cells."""
     scalars = [k for k, v in m.DEFAULTS.items() if not isinstance(v, np.ndarray)]
-    step_speeds = len(m.DEFAULTS["a"])
+    step_speeds = len(np.asarray(m.DEFAULTS["a"]))
     s_cells = int((m.S != 0).sum())
     gov_cells = int((m.GOV != 0).sum())
     assert (len(scalars), step_speeds, s_cells, gov_cells) == (22, 12, 49, 35)

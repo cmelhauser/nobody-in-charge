@@ -256,7 +256,7 @@ def no_textstat(monkeypatch):
 def fake_textstat(monkeypatch, grade: float) -> None:
     """Install a stand-in `textstat` module whose grade is fixed."""
     module = types.ModuleType("textstat")
-    module.flesch_kincaid_grade = lambda text: grade
+    module.__dict__["flesch_kincaid_grade"] = lambda text: grade
     monkeypatch.setitem(sys.modules, "textstat", module)
 
 

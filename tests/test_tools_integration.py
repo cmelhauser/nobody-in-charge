@@ -38,6 +38,26 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def first_group(pattern: str, text: str, flags: int = 0) -> str:
+    """Return group 1 of the first match of `pattern` in `text`, failing the test if none.
+
+    Narrows `re.search`'s optional result so a missing declaration reads as an assertion
+    failure and not as an AttributeError on None.
+    """
+    match = re.search(pattern, text, flags)
+    assert match is not None, f"pattern not found: {pattern}"
+    return match.group(1)
+
+
+def load_private_copy(name: str, path: Path) -> types.ModuleType:
+    """Import `path` as a module called `name`, without registering it in `sys.modules`."""
+    spec = importlib.util.spec_from_file_location(name, path)
+    assert spec is not None and spec.loader is not None, f"cannot load {path}"
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 SLOW = os.environ.get("NIC_SLOW_TESTS") == "1"
 requires_slow = pytest.mark.skipif(not SLOW, reason="set NIC_SLOW_TESTS=1 to run")
 
@@ -111,8 +131,9 @@ def test_check_docs_holds_the_release_gate_totals():
     totals = check_docs.release_gate_totals()
     assert totals is not None, "the gate could not read a cache, so it ran short"
     gate = run("tools/check_release.py", "--skip-artifacts").stdout
-    passed, failed, skipped = (int(n) for n in re.search(
-        r"(\d+) checks passed; (\d+) failed; (\d+) skipped", gate).groups())
+    tally = re.search(r"(\d+) checks passed; (\d+) failed; (\d+) skipped", gate)
+    assert tally is not None, "the gate printed no tally"
+    passed, failed, skipped = (int(n) for n in tally.groups())
     assert (totals["run"], totals["skipped"]) == (passed + failed, skipped)
     assert totals["full"] == totals["run"] + totals["skipped"]
 
@@ -169,13 +190,12 @@ def test_build_timestamps_follow_the_declared_dates():
     def midnight(text, fmt):
         return int(datetime.strptime(text, fmt).replace(tzinfo=UTC).timestamp())
 
-    book = re.search(r"^DRAFT_DATE = '([^']+)'",
-                     (ROOT / "tools" / "build_book.py").read_text(), re.MULTILINE).group(1)
-    primer = re.search(r"^REVISED_DATE = '([^']+)'",
-                       (ROOT / "tools" / "build_primer.py").read_text(), re.MULTILINE).group(1)
-    paper = re.search(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})",
-                      (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text()
-                      ).group(1)
+    book = first_group(r"^DRAFT_DATE = '([^']+)'",
+                       (ROOT / "tools" / "build_book.py").read_text(), re.MULTILINE)
+    primer = first_group(r"^REVISED_DATE = '([^']+)'",
+                         (ROOT / "tools" / "build_primer.py").read_text(), re.MULTILINE)
+    paper = first_group(r"\\date\{\\normalsize ([A-Z][a-z]+ \d{4})",
+                        (ROOT / "paper" / "anonymity-as-an-aggregation-condition.tex").read_text())
     assert source_date.epoch("book") == midnight(book, "%d %B %Y")
     assert source_date.epoch("primer") == midnight(primer, "%d %B %Y")
     assert source_date.epoch("paper") == midnight(paper, "%B %Y")
@@ -563,18 +583,12 @@ def load_tool(name: str, monkeypatch):
                         {hashlib.sha256(term.encode()).hexdigest() for term in INVENTED})
     if name == "withheld":
         return withheld
-    spec = importlib.util.spec_from_file_location(f"nic_{name}", ROOT / "tools" / f"{name}.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    return load_private_copy(f"nic_{name}", ROOT / "tools" / f"{name}.py")
 
 
 def test_the_withheld_set_still_holds_both_digests():
     """Emptying the set would pass every test below while enforcing nothing."""
-    spec = importlib.util.spec_from_file_location("nic_withheld_as_committed",
-                                                  ROOT / "tools" / "withheld.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    module = load_private_copy("nic_withheld_as_committed", ROOT / "tools" / "withheld.py")
     assert len(module.WITHHELD) == 2
     assert all(re.fullmatch(r"[0-9a-f]{64}", digest) for digest in module.WITHHELD)
 

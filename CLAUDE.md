@@ -368,6 +368,15 @@ entirely so the waivers cannot reach it. For the production rules it falls under
 them (it has one-line compound statements, `dict()` calls and long lines) and cannot be
 edited to.
 
+## Types
+
+`mypy`, configured in `mypy.ini`, run as `mypy --disallow-untyped-defs tools` and `mypy tests`
+from the repository root. Every function in `tools/` carries parameter and return annotations;
+`tests/` is checked for type errors in the bodies of its functions and is not required to
+annotate them, since a test's parameters are pytest fixtures. `model/` is not checked: annotating
+a hash-frozen script would change the SHA-256 its cache records. CI runs both commands in the
+3.12 `unit-tests` job and `tools/run_ci_locally.sh unit-tests` runs them too.
+
 ## Tests and CI
 
 `python3 -m pytest` runs the suite, and `python3 -m pytest --cov` runs it under the coverage gate.

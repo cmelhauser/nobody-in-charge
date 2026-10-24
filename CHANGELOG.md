@@ -17,6 +17,11 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- Type checking. `tools/` is fully type annotated and `tests/` is free of type errors, checked by `mypy` (`mypy.ini`;
+  `mypy --disallow-untyped-defs tools` and `mypy tests`) in the 3.12 `unit-tests` job, in `tools/run_ci_locally.sh` and
+  as two optional pre-commit hooks. `model/` is not checked, since annotating the hash-frozen scripts would change their
+  hashes. `mypy` joins `requirements-dev.txt` as a floor. No model change.
+
 - `tools/build_corpus.py` now normalizes the typographic apostrophe before tokenizing, so a word such as "book's" is one
   token however the source was set; its `TOKEN` class had listed the straight apostrophe twice. All document-backed
   verification indexes were rebuilt (25 changed, vocabulary only; no index holds the withheld name; `check_book.py` still

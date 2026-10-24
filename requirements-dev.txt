@@ -12,6 +12,9 @@ coverage>=7.10
 # production one, so a newer ruff can add a finding and fail the build. ruff.toml pins
 # target-version for that reason; raise the floor or fix the finding when it happens.
 ruff>=0.6
+# Type checking for tools/ and tests/ (mypy.ini), run in the 3.12 unit-tests job. A floor, so a
+# newer mypy can add a finding and fail the build; fix the finding or raise the floor.
+mypy>=1.10
 # Shell lint, so tools/run_ci_locally.sh can check the shell scripts the way CI
 # does. The wheel bundles the shellcheck binary, so no system package is needed.
 shellcheck-py>=0.10

@@ -40,10 +40,11 @@ versions and tags.
 
 Python under `tools/` and `tests/` must pass `ruff check .` with no `noqa` comments, carry a docstring on
 every module, class and function, and keep `tools/` and the canonical model at 100 per cent test coverage
-(`python3 -m pytest --cov` enforces it). The analysis scripts under `model/` are frozen: each records its SHA-256
+(`python3 -m pytest --cov` enforces it). `tools/` is fully type annotated and `mypy.ini` configures the check
+(`mypy --disallow-untyped-defs tools` and `mypy tests`). The analysis scripts under `model/` are frozen: each records its SHA-256
 in the cache it produced, so a linter, formatter or comment edit there invalidates hours of computation. Do
 not let a tool touch them.
 
-Optional: `pip install pre-commit && pre-commit install` runs the fast CI checks (ruff, the model's release
+Optional: `pip install pre-commit && pre-commit install` runs the fast CI checks (ruff, the type checks, the model's release
 invariants, portability, the documentation counts and corpus drift) before each commit. It needs Python 3.11 or
 newer; CI stays the authority.

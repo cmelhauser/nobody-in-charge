@@ -39,6 +39,23 @@ repos:
         pass_filenames: false
         files: ^(model/aa_group_model\.py|tests/test_release_invariants\.py)$
 
+      # tools/ must be fully annotated and tests/ free of type errors (mypy.ini).
+      - id: types-tools
+        name: tools are fully type annotated
+        entry: python -m mypy --disallow-untyped-defs tools
+        language: python
+        additional_dependencies: [mypy, pytest, numpy, pypdf]
+        pass_filenames: false
+        files: ^(tools/.*\.py|mypy\.ini)$
+
+      - id: types-tests
+        name: tests are free of type errors
+        entry: python -m mypy tests
+        language: python
+        additional_dependencies: [mypy, pytest, numpy, pypdf]
+        pass_filenames: false
+        files: ^(tests/.*\.py|tools/.*\.py|mypy\.ini)$
+
       # No tracked file may carry a machine-specific absolute path.
       - id: portability
         name: no machine-specific paths

@@ -35,6 +35,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from types import ModuleType
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "model" / "aa_group_model.py"
@@ -68,7 +69,7 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def load_model():
+def load_model() -> ModuleType:
     """Import the canonical model from its file path and return the module.
 
     It is loaded under a private name rather than imported from `model/`, so the gate
@@ -76,6 +77,7 @@ def load_model():
     `sys.modules` entry or an installed copy.
     """
     spec = importlib.util.spec_from_file_location("release_check_model", MODEL)
+    assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -91,7 +93,7 @@ def main() -> int:
     notes: list[str] = []
     model_hash = sha256(MODEL)
 
-    def require(ok: bool, message: str):
+    def require(ok: bool, message: str) -> None:
         """Record a passed or failed check; a failure never raises."""
         (notes if ok else failures).append(("OK: " if ok else "FAIL: ") + message)
 

@@ -107,7 +107,8 @@ As of 24 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 498 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,242 statements) |
+| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 499 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,262 statements) |
+| `mypy --disallow-untyped-defs tools` and `mypy tests` | no issues (`mypy.ini`) |
 | `ruff check .` | clean, with no `noqa` comment and no waiver outside `model/` and the notebook generator's line length |
 | `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `CHANGELOG.md` under [0.9.0]) |
 | `tools/check_book.py` | 0 failures, 45 warnings |
@@ -148,6 +149,7 @@ that check requires each rendered artifact to be newer than every source feeding
 ```bash
 python3 -m pytest --cov --cov-report=term-missing
 ruff check .
+mypy --disallow-untyped-defs tools && mypy tests
 python3 tools/inventory_model_choices.py
 python3 tools/summarize_release_gate.py
 python3 tools/summarize_robustness.py

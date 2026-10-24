@@ -38,24 +38,27 @@ import os
 import re
 import subprocess
 import sys
+from collections.abc import Iterable
+from typing import Any, cast
 
 from withheld import prints_withheld
 
+PathLike = str | os.PathLike[str]
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def P(*parts):
+def P(*parts: str) -> str:
     """Join `parts` onto the repository root (looked up at call time, so tests can move it)."""
     return os.path.join(ROOT, *parts)
 
 
-def read_text(path, **kwargs):
+def read_text(path: PathLike, **kwargs: Any) -> str:
     """Return the whole text of `path`; `kwargs` (for example `errors`) go to `open`."""
     with open(path, **kwargs) as fh:
         return fh.read()
 
 
-def read_json(path):
+def read_json(path: PathLike) -> Any:
     """Return the parsed JSON document at `path`."""
     with open(path) as fh:
         return json.load(fh)
@@ -64,20 +67,22 @@ def read_json(path):
 # Findings, as (section, message) pairs, appended to by the three functions below. They are
 # module-level so every check contributes to one report, and a few checks look back at what
 # earlier ones recorded.
-FAILS, WARNS, NOTES = [], [], []
+FAILS: list[tuple[str, str]] = []
+WARNS: list[tuple[str, str]] = []
+NOTES: list[tuple[str, str]] = []
 
 
-def fail(sec, msg):
+def fail(sec: str, msg: str) -> None:
     """Record a failure in section `sec`; any failure makes the run exit 1."""
     FAILS.append((sec, msg))
 
 
-def warn(sec, msg):
+def warn(sec: str, msg: str) -> None:
     """Record a warning in section `sec`; warnings are printed but never fail the run."""
     WARNS.append((sec, msg))
 
 
-def note(sec, msg):
+def note(sec: str, msg: str) -> None:
     """Record a passing note in section `sec`, printed as an `ok` line."""
     NOTES.append((sec, msg))
 
@@ -85,7 +90,7 @@ def note(sec, msg):
 CHAPTERS = sorted(glob.glob(P('manuscript', 'ch*.md')))
 
 
-def body(path, main_only=True):
+def body(path: PathLike, main_only: bool = True) -> str:
     """Return the text of a chapter, cut before `## The Machinery` when `main_only`."""
     t = read_text(path)
     if main_only:
@@ -95,13 +100,13 @@ def body(path, main_only=True):
     return t
 
 
-def words(path, main_only=True):
+def words(path: PathLike, main_only: bool = True) -> list[str]:
     """Return a chapter as lowercase alphabetic words with inline code removed."""
     t = re.sub(r'`[^`]*`', ' ', body(path, main_only))
     return re.sub(r'[^a-z ]', ' ', t.lower()).split()
 
 
-def grams(w, n):
+def grams(w: list[str], n: int) -> set[tuple[str, ...]]:
     """Return the set of all runs of `n` consecutive words in the list `w`, as tuples."""
     return {tuple(w[i:i + n]) for i in range(len(w) - n + 1)}
 
@@ -126,7 +131,7 @@ SOURCE_FIGURES = {
 }
 
 
-def reachable(n, blob):
+def reachable(n: str, blob: str) -> bool:
     """Return whether decimal string `n` is in `blob`, as written or as a rounding.
 
     Roundings of an asserted value are acceptable; only what cannot be reached is flagged.
@@ -146,7 +151,7 @@ def reachable(n, blob):
     return False
 
 
-def check_figures():
+def check_figures() -> None:
     """Fail on any decimal in a chapter that no notebook, model or cache can account for."""
     nbp = P('model', 'book-calculations.ipynb')
     if not os.path.exists(nbp):
@@ -193,7 +198,7 @@ INTV = re.compile(r'standard error|interval|\bSE\b|plus or minus|±|\+/-'
 SMALL = re.compile(r'\b(?:ten|10|three|3|five|5)\s*seeds\b', re.I)
 
 
-def check_intervals():
+def check_intervals() -> None:
     """Fail when a chapter's Machinery shows simulation output without size and interval.
 
     A Machinery must not present simulation output without a sample size and an interval.
@@ -248,7 +253,7 @@ ALLOWED = [
 ]
 
 
-def check_repetition():
+def check_repetition() -> None:
     """Warn about every 8-word run shared by two chapters' main text, bar the allow-list."""
     chapter_words = {p: words(p) for p in CHAPTERS}
     total, flagged = 0, 0
@@ -273,9 +278,11 @@ NUM.update({'Twenty-One': 21, 'Twenty-Two': 22, 'Twenty-Three': 23, 'Twenty-Four
             'Twenty-Five': 25})
 
 
-def check_forward():
+def check_forward() -> None:
     """Warn when a chapter's text names a chapter number that has no file yet."""
-    drafted = {0} | {int(re.search(r'ch(\d+)', os.path.basename(p)).group(1)) for p in CHAPTERS}
+    drafted = {0} | {
+        int(cast(re.Match[str], re.search(r'ch(\d+)', os.path.basename(p))).group(1))
+        for p in CHAPTERS}
     for p in CHAPTERS:
         t = read_text(p)
         refs = set()
@@ -293,12 +300,12 @@ def check_forward():
 
 
 # --- 5. the same quantity stated differently in different files ------------------------
-def _cell_output(cell):
+def _cell_output(cell: dict[str, Any]) -> str:
     """Return all stored output text of a notebook cell as one string."""
     return ''.join(''.join(o.get('text', [])) for o in cell.get('outputs', []))
 
 
-def _calls_check(cell):
+def _calls_check(cell: dict[str, Any]) -> bool:
     """Return whether a notebook cell calls `check(`, other than by defining it.
 
     `def check(` is the setup cell defining the helper, not a cell using it.
@@ -307,9 +314,9 @@ def _calls_check(cell):
     return bool(re.search(r'(?<![\w.])check\(', s))
 
 
-def check_status():
+def check_status() -> None:
     """Compare stored notebook results and README counts with what is actually in the tree."""
-    def read(p):
+    def read(p: str) -> str:
         return read_text(P(p)) if os.path.exists(P(p)) else ''
     readme = read('README.md')
     nbp = P('model', 'book-calculations.ipynb')
@@ -367,7 +374,7 @@ HIST = re.compile(r'for months|for years|for several sessions|had survived sever
                   re.I)
 
 
-def check_history():
+def check_history() -> None:
     """Fail on a duration claim about the project's own past that the log cannot support."""
     log_path = P('research', 'progress-log.md')
     log = read_text(log_path) if os.path.exists(log_path) else ''
@@ -467,7 +474,7 @@ SUBJECTS = ['sons of temperance', 'mitchell', 'beecher', 'washingtonian',
             'total disclosure', 'mental reservation', 'communion of saints']
 
 
-def fuzzy_in(term, blob, thresh=0.72):
+def fuzzy_in(term: str, blob: str, thresh: float = 0.72) -> bool:
     """Return whether `term` is present in `blob`, allowing OCR noise.
 
     Slides a window and scores position-wise character agreement. Needed because these are
@@ -491,7 +498,7 @@ def fuzzy_in(term, blob, thresh=0.72):
         start = k + 1
 
 
-def window(seg, name, texts, sentences=2):
+def window(seg: str, name: str, texts: dict[str, str], sentences: int = 2) -> str:
     """The span in which a source name is taken to be doing the citing.
 
     Originally this was a flat 400 characters on the same line, which is too coarse.
@@ -519,7 +526,7 @@ def window(seg, name, texts, sentences=2):
     return (name + rest[:cut]).lower()
 
 
-def check_sources():
+def check_sources() -> None:
     """Fail when a chapter cites a source for a subject that source does not contain.
 
     For each chapter line that names a saved source, take the window after the name
@@ -527,7 +534,7 @@ def check_sources():
     against the source's full text when this copy holds the document, and otherwise against
     the subject decisions recorded in its verification index.
     """
-    texts = {}
+    texts: dict[str, str] = {}
     # No source document is committed. Every source carries a vocabulary-only verification
     # index instead, which is enough to confirm that a cited subject appears in the work and
     # is not a redistributable copy. That pattern started with Kurtz (1991), which is in
@@ -537,7 +544,7 @@ def check_sources():
     # A vocabulary set has no word order, so a phrase cannot be confirmed from it. Each index
     # therefore also records which registered subjects the real document contains, decided
     # against the text when the index was built and stamped with that file's SHA-256.
-    subjects_present = {}
+    subjects_present: dict[str, set[str]] = {}
 
     # A source is identified in prose by the leading token of its directory name, so that
     # token has to be distinctive. "AA" is not: it appears on nearly every page of a book
@@ -546,7 +553,7 @@ def check_sources():
     # (Grapevine_1946, BigBook_1939, AAWS_2024_P17). Three characters is the floor: "ATU"
     # is distinctive and appears only as that abbreviation, while "AA" is not and is
     # refused here rather than silently trusted.
-    def source_name(path):
+    def source_name(path: str) -> str | None:
         token = os.path.basename(os.path.dirname(path)).split('_')[0]
         return token if len(token) >= 3 else None
 
@@ -564,7 +571,7 @@ def check_sources():
             subjects_present.setdefault(name, set()).update(d['subjects_present'])
     for f in glob.glob(P('research', '*-verification-index.json')):
         d = read_json(f)
-        name = re.match(r'([A-Z][a-z]+)', d['work']).group(1)
+        name = cast(re.Match[str], re.match(r'([A-Z][a-z]+)', d['work'])).group(1)
         texts.setdefault(name, ' ' + ' '.join(d['vocab']) + ' ')
     # A working copy that still has the documents gets the stronger check for free: full
     # text beats a vocabulary set, because it preserves word order. Documents are found by
@@ -636,7 +643,7 @@ TEXT_SUFFIXES = ('.bib', '.cff', '.cfg', '.csv', '.ipynb', '.json', '.md', '.py'
                  '.tex', '.toml', '.tsv', '.txt', '.yaml', '.yml')
 
 
-def tracked_text_files():
+def tracked_text_files() -> list[str]:
     """Tracked files and new untracked ones from Git; without Git, every file on disk."""
     try:
         out = subprocess.run(['git', '-C', ROOT, 'ls-files', '-z', '--cached', '--others',
@@ -651,7 +658,7 @@ def tracked_text_files():
                   and not (p.endswith('.txt') and p.startswith(corpus)))
 
 
-def check_withheld_names(paths=None):
+def check_withheld_names(paths: Iterable[str] | None = None) -> None:
     """Fail if a name the project has undertaken not to print appears in any project text.
 
     That includes the vocabulary of every verification index, which is a list of single
@@ -679,7 +686,7 @@ CHECKS = (check_figures, check_intervals, check_repetition, check_forward,
           check_withheld_names)
 
 
-def main():
+def main() -> int:
     """Run every check, print the report and return the exit code (0 clear, 1 any FAIL)."""
     for fn in CHECKS:
         try:
