@@ -199,9 +199,9 @@ DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Ar
 DOC_SUFFIXES = {".pdf", ".txt", ".djvu", ".epub"}
 # Word tokens for the vocabulary index. The character class keeps the apostrophe and the
 # hyphen inside a token, so "book's" and "co-founder" stay whole, and digits, so years and
-# step numbers are searchable. (The class lists the straight apostrophe twice; it does not
-# match the typographic one. Left as is: changing it would change every committed index.)
-TOKEN = re.compile(r"[a-z0-9''-]+")
+# step numbers are searchable. A typographic apostrophe in a source is first turned into the
+# straight one (see build_index), so "book\u2019s" and "book's" are the same token.
+TOKEN = re.compile(r"[a-z0-9'-]+")
 
 
 def sha256(path: Path) -> str:
@@ -263,7 +263,9 @@ def build_index(doc: Path, work: str, digest: str) -> dict:
     the index so a re-acquired file with a different hash is recognised as stale. The index
     holds the sorted word set and which registered subjects the text contains, never prose.
     """
-    raw = doc.read_text(errors="ignore").lower()
+    # Typographic apostrophes become straight ones so a possessive or contraction is one token
+    # whichever quotation style the source used (the tokenizer used to split such a word).
+    raw = doc.read_text(errors="ignore").lower().replace("\u2019", "'")
     flat = re.sub(r"\s+", " ", raw)
     # A name the project has undertaken not to print is left out, since a committed
     # vocabulary publishes every word in it. See tools/withheld.py.

@@ -426,6 +426,7 @@ def test_build_index_is_vocabulary_only_and_drops_the_withheld_word(corpus, tmp_
     assert index["words"] == len(doc.read_text().split())
     assert "conscience" in index["vocab"]
     assert "a" not in index["vocab"]                          # single characters dropped
+    assert "vexmoor's" not in index["vocab"]                  # the possessive of a withheld word
     assert not [t for t in index["vocab"] if INVENTED in t]
     assert index["subjects_present"] == ["group conscience", "sheer survival value"]
     assert index["subjects_checked"] == sorted(
@@ -791,3 +792,17 @@ def test_grosh_is_not_described_as_an_internet_archive_scan(corpus, monkeypatch)
     assert run_main(corpus, monkeypatch) == 0
     note = json.loads((source / "metadata.json").read_text())["rights_note"]
     assert "HathiTrust" in note and "Internet Archive" not in note
+
+
+def test_a_typographic_apostrophe_makes_the_same_token_as_a_straight_one(corpus, tmp_path):
+    """Check that a typographic apostrophe yields the straight-apostrophe token.
+
+    A source set in curly quotes must not lose "book's" to a split into "book" and a dropped
+    single letter, or its vocabulary would differ from the same text in straight quotes.
+    """
+    doc = tmp_path / "curly.txt"
+    curly = "\N{RIGHT SINGLE QUOTATION MARK}"
+    doc.write_text(f"The book{curly}s co-founder won{curly}t say.\n")
+    vocab = corpus.build_index(doc, "a work", "f" * 64)["vocab"]
+    assert "book's" in vocab and "won't" in vocab and "co-founder" in vocab
+    assert not [t for t in vocab if curly in t]

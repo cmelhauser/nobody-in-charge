@@ -17,6 +17,11 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- `tools/build_corpus.py` now normalizes the typographic apostrophe before tokenizing, so a word such as "book's" is one
+  token however the source was set; its `TOKEN` class had listed the straight apostrophe twice. All document-backed
+  verification indexes were rebuilt (25 changed, vocabulary only; no index holds the withheld name; `check_book.py` still
+  clears all 55 citation-subject pairs). No model change.
+
 - Chapter 23's ledger gains the row for the thirty-replication Tradition ranking that Chapters 5 and 6 describe as
   corrected at 400 paired seeds on 2 August 2026. No model change.
 
