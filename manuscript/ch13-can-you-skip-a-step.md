@@ -163,9 +163,9 @@ Bias never exceeds 0.09 in any cell. The modest result is about proxy averaging:
 
 **The empirical literature has now been read in full, and it did not qualify what the abstract stated.** Greenfield and Tonigan's study previously reached this chapter through its abstract and secondary summaries, and this note recorded that the full paper should be read before the chapter was final. It was obtained and read on 10 August 2026. Every specific claim used here survives: the two-factor structure, the differing predictors and time trends of the two factors, the finding that only spiritual step work predicted percent days abstinent, and the discrepancy between instruments on nine of twelve steps. What full reading adds is scale and design rather than correction, and both are worth stating beside the findings: 130 new AA affiliates, assessed at intake and at three, six and nine months, observationally. That is a small sample over a short horizon, so the two-factor result is a finding to build on rather than a settled fact.
 
-**Cloud and colleagues' definition of twelve-step affiliation** as attendance plus self-identification plus sum of steps completed reaches me through a later methodological paper citing it, not from the original.
+**Cloud and colleagues' definition of twelve-step affiliation** as attendance plus self-identification plus sum of steps completed reaches me through a later methodological paper citing it, not from the original. A bibliographic search identifies the original as Cloud, Ziegler and Blondell (2004), which reduces the twelve-step involvement scale to those three items; I have not read it.
 
-**Carroll (1993) on adherence to the steps has not been consulted**, and it is the most likely place for a prior treatment of sequencing. It should be checked before this chapter is final.
+**Carroll (1993) has not been consulted.** An earlier note named it as a possible prior treatment of sequencing. The only paper I can identify under that name and year is S. Carroll, "Spirituality and purpose in life in alcoholism recovery," which a later paper cites on how little evidence there is for step instruments; I have not read it, and it is unlikely to be a treatment of sequencing. No claim in this chapter rests on it.
 
 **I have not established that no experimental test of sequencing exists**, only that none appeared in a reasonable search and that the standard measurement instrument could not support one. Those are different claims and the chapter states the weaker one.
 
@@ -187,7 +187,7 @@ Greenfield, B. L. and J. S. Tonigan (2013). "The General Alcoholics Anonymous To
 
 **Cited at a remove:**
 
-Cloud, R. N. and colleagues (2004). The definition of twelve-step affiliation as attendance, self-identification and sum of steps completed. Reached through a later methodological review; the original has not been located and the co-authors are therefore not named here, which is a defect in this entry rather than a house style.
+Cloud, R. N., C. H. Ziegler, and R. D. Blondell (2004). "What is Alcoholics Anonymous affiliation?" *Substance Use & Misuse* 39(7): 1117-1136. Identified by a bibliographic search on 26 October 2026; not read. I know its definition of twelve-step affiliation (attendance, self-identification and sum of steps completed) through a later methodological review.
 
 Schennach, S. M. (2004). "Estimation of Nonlinear Models with Measurement Error." *Econometrica* 72(1): 33-75; and Hu, Y. and S. M. Schennach (2008). *Econometrica* 76(1): 195-216. The identification results underlying the measurement strategy, known through their application in Cunha, Heckman and Schennach. Hu and Schennach's abstract, introduction and assumptions were read on 13 September 2026 and match that use; Schennach (2004) was not read.
 
@@ -199,4 +199,4 @@ The substitution table and cross-partial series are checked in `model/book-calcu
 
 Any work estimating a substitution parameter for a sequential practice of this kind. The one estimate of an analogous parameter, for children's skills, is described in the notes above; it concerns stages of childhood, not a practice. The chapter's central move is to say that the folk rule is the limiting case of a family indexed by rho, and that rho is estimable in principle; nobody has estimated it for the steps, and the chapter should not be read as implying that anybody has.
 
-Carroll, S. (1993). On adherence to the twelve steps.
+Carroll, S. (1993). "Spirituality and purpose in life in alcoholism recovery." *Journal of Studies on Alcohol* 54(3): 297-301. Identified by a bibliographic search on 26 October 2026 as the likely paper behind an earlier note; not read.
