@@ -17,6 +17,11 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- Chapter 10 now points to Chapter 24's item Five for the nearest measurement of how many people a room turns to,
+  instead of saying a survey could add a separate item. No new survey item was added: item Five already asks for the
+  most-attended person's share and says a sociometric survey is the wrong instrument for an anonymous fellowship, which a
+  named-nomination item would contradict. `NEXT_STEPS.md` records the decision. No model change.
+
 - A second production-quality pass. `pylint tools tests` is held to 10.00/10 (`.pylintrc`, every disabled check
   justified) beside ruff and mypy, in CI, the local runner and pre-commit. Every module, class, function and nested
   helper in `tools/` and `tests/` has a docstring, enforced by an AST test in `tests/test_release_invariants.py`;
