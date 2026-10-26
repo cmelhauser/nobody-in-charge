@@ -164,13 +164,15 @@ routes refuse scripted access. The deposited full text is served by the NCBI E-u
 is an ordinary interface rather than a bot check, so both are now held git-ignored like every other
 document. Neither read status changes and no claim moves.
 
-`Iannaccone_1992` followed on 29 September 2026, bringing the corpus to its present 45. The record
+`Iannaccone_1992` followed on 29 September 2026, bringing the corpus to 45. The record
 disagreed about whether Iannaccone (1992) had been read, so at the Human Author's request it was
 reread, from the only full text found online: a JSTOR download reposted on a third party's archive
 without verified authorization. It is therefore record only, like DeGroot (1974). The reread
 confirmed Chapter 2's use of it and corrected Chapters 12 and 15, which had credited it with the
 saturating form of the participatory resources; it supplies the diminishing returns, and the
 saturating form is the book's.
+
+Three more followed on 26 October 2026, bringing the corpus to its present 48: Gorman and colleagues (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007). All three were read in full at PubMed Central on 14 September 2026, when no copy was held because the PDF routes refuse scripted access; the Human Author then saved the PDFs from the article pages in a browser and supplied them, and they are held git-ignored like every other document. Read statuses and claims do not change.
 
 `RecoveryDharma_2023` was added on 16 August 2026, bringing the corpus to 27. Sections I and II were
 read in full then, and the meditations and inquiry questions on 13 September 2026, so the whole book
