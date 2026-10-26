@@ -6231,3 +6231,11 @@ three PubMed Central items that were read on 14 September but held by nobody. Th
 indexes, rights entries were added to the tool, and `research/SOURCES.md`, `HANDOFF.md` and the corpus counts (45 to 48) were
 brought current. The held Cochrane PDF contains the per-study tables, forest plots and search strategies that were not read
 earlier; they remain unread. No read status and no claim changed. No model change.
+
+Later on 26 October 2026: the subject matcher that decides `subjects_present` in each verification index was found to be far too
+loose. In `tools/build_corpus.py` it slid a window across the text and accepted 0.72 positional agreement, so a five-letter
+subject such as "chase" matched any word with four letters in the right places, and the substring test found "chase" inside
+"purchase". Both `build_corpus.py` and `tools/check_book.py` now require an exact whole-word match for terms of five characters or
+fewer and for single words, and an anchored 0.85 match for longer terms, which still recovers OCR damage such as "Mitrhell" for
+"Mitchell" in the 1887 scan. All 42 document-backed indexes were rebuilt. Spurious "chase" and "utica" entries fell from most
+sources to the few whose text contains the word. No citation verdict changed. No model change.
