@@ -17,6 +17,9 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- The optional pre-commit hooks (`.pre-commit-config.yaml`) are removed, at the Human Author's request. CI and
+  `tools/run_ci_locally.sh` are the only gates; nothing else referenced the file. No model change.
+
 - The subject matcher in `tools/build_corpus.py` and `tools/check_book.py` is tighter. A term of five characters or fewer must
   match exactly, a single-word term must match as a whole word, and a longer term is anchored on its first letter with a 0.85
   threshold (it was 0.72, unanchored in the index builder). The old index builder listed subjects such as "chase" and "utica"

@@ -37,7 +37,6 @@ None changes a conclusion; each is also in `HANDOFF.md` section 10 or the progre
   asks for the most-attended person's share, and says a sociometric survey is the wrong instrument for an
   anonymous fellowship. A named-nomination design drafted on 26 October 2026 was dropped for that reason.
 - Dependabot watches GitHub Actions only. The `requirements-dev.txt` versions are deliberate floors.
-- The optional pre-commit hooks (`.pre-commit-config.yaml`) are a subset of CI.
 
 ## 5. If the model or a public number changes
 
