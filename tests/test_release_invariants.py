@@ -14,6 +14,7 @@ no source document and no network.
 """
 from __future__ import annotations
 
+import ast
 import hashlib
 import json
 from pathlib import Path
@@ -76,3 +77,42 @@ def test_the_model_choice_inventory_matches_the_current_model():
 def test_semantic_and_executable_objects_stay_distinct():
     """A1 forbids collapsing B and C. A refactor that made them equal would be a bug."""
     assert not np.allclose(m.semantic_overlap(), m.executable_linear_coupling())
+
+
+def _undocumented(path: Path) -> list[tuple[str, int]]:
+    """Return (name, line) for every module, class and function in `path` with no docstring."""
+    tree = ast.parse(path.read_text(encoding="utf-8"))
+    found = [] if ast.get_docstring(tree) else [("<module>", 1)]
+    for node in ast.walk(tree):
+        kinds = (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)
+        if isinstance(node, kinds) and not ast.get_docstring(node):
+            found.append((node.name, node.lineno))
+    return found
+
+
+def test_every_definition_in_the_tools_and_tests_has_a_docstring():
+    """Every module, class, function, method and nested helper in tools/ and tests/ is documented.
+
+    ruff's D rules cover the public definitions; this walk also covers nested helpers and
+    private functions, so the code stays fully commented, not just mostly.
+    """
+    missing = [f"{path.relative_to(ROOT)}:{line} {name}"
+               for folder in ("tools", "tests")
+               for path in sorted((ROOT / folder).glob("*.py"))
+               for name, line in _undocumented(path)]
+    assert missing == []
+
+
+def test_every_undocumented_frozen_definition_is_described_in_the_sidecar():
+    """Each definition in model/*.py without a docstring has a row in model/FUNCTIONS.md.
+
+    The model scripts are hash-frozen and cannot gain docstrings, so model/FUNCTIONS.md carries
+    them. A row is `name (line)`; this fails if a script gains an undocumented definition or the
+    line numbers drift, which means the sidecar needs regenerating (and the script was edited).
+    """
+    sidecar = (ROOT / "model" / "FUNCTIONS.md").read_text(encoding="utf-8")
+    missing = [f"{path.name}:{line} {name}"
+               for path in sorted((ROOT / "model").glob("*.py"))
+               for name, line in _undocumented(path)
+               if f"`{name} ({line})`" not in sidecar]
+    assert missing == []

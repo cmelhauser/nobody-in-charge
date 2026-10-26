@@ -17,6 +17,15 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- A second production-quality pass. `pylint tools tests` is held to 10.00/10 (`.pylintrc`, every disabled check
+  justified) beside ruff and mypy, in CI, the local runner and pre-commit. Every module, class, function and nested
+  helper in `tools/` and `tests/` has a docstring, enforced by an AST test in `tests/test_release_invariants.py`;
+  the 88 undocumented definitions in the hash-frozen `model/*.py` are described in the new sidecar
+  `model/FUNCTIONS.md` (also tested), and their stale pointers and unit slips in `model/ERRATA.md`. New
+  `NEXT_STEPS.md` is the short ordered list of what remains, with a `check_docs.py` check that keeps its "as of"
+  date current with the progress log (36 checks). Text files are opened with an explicit UTF-8 encoding. The
+  pinned pandoc 3.10.2 was re-fetched and the book and primer rebuild byte-identically with it. No model change.
+
 - Type checking. `tools/` is fully type annotated and `tests/` is free of type errors, checked by `mypy` (`mypy.ini`;
   `mypy --disallow-untyped-defs tools` and `mypy tests`) in the 3.12 `unit-tests` job, in `tools/run_ci_locally.sh` and
   as two optional pre-commit hooks. `model/` is not checked, since annotating the hash-frozen scripts would change their

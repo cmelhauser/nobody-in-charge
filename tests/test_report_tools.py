@@ -154,6 +154,7 @@ def _patched_load(monkeypatch, name, edit):
     real = robustness.load
 
     def load(requested):
+        """Return the real cache for `requested`, edited in place when it is the named one."""
         data = real(requested)
         if requested == name:
             edit(data)
@@ -191,6 +192,7 @@ def test_robustness_insists_on_four_hundred_structural_seeds(monkeypatch):
     summarised.
     """
     def drop_one(data):
+        """Delete one non-meta entry so the structural cache is a seed short."""
         victim = next(k for k in data if k != "meta")
         del data[victim]
 
@@ -558,6 +560,7 @@ def test_a_second_run_changes_nothing(corpus, monkeypatch, capsys):
     assert run_main(corpus, monkeypatch) == 0
 
     def snapshot():
+        """Map each file under the corpus to its bytes, to compare before and after a rebuild."""
         return {str(p.relative_to(corpus.INCORP)): p.read_bytes()
                 for p in sorted(corpus.INCORP.rglob("*")) if p.is_file()}
 
@@ -693,7 +696,7 @@ def test_the_three_statements_of_footing_must_agree(corpus, monkeypatch, capsys)
     assert run_main(corpus, monkeypatch, "--check") == 1
     out = capsys.readouterr().out
     assert "FAIL: record-only source holds a document: Holds_2003" in out
-    assert ("FAIL: summary opens as record only but metadata does not: Claims_2004") in out
+    assert "FAIL: summary opens as record only but metadata does not: Claims_2004" in out
     assert "Quoted_2005" not in out and "Consistent_2006" not in out
     assert "2 corpus problems" in out
 

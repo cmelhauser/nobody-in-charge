@@ -132,7 +132,7 @@ def main() -> int:
     out = Path(args.output).resolve() if args.output else default
     payload = build(args.label)
     tmp = out.with_suffix(out.suffix + ".tmp")
-    tmp.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    tmp.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     os.replace(tmp, out)
     print(f"wrote {out} ({payload['file_count']} files)")
     return 0
