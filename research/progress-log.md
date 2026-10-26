@@ -6239,3 +6239,7 @@ subject such as "chase" matched any word with four letters in the right places, 
 fewer and for single words, and an anchored 0.85 match for longer terms, which still recovers OCR damage such as "Mitrhell" for
 "Mitchell" in the 1887 scan. All 42 document-backed indexes were rebuilt. Spurious "chase" and "utica" entries fell from most
 sources to the few whose text contains the word. No citation verdict changed. No model change.
+
+Also on 26 October 2026: the optional pre-commit hooks added on 18 October were removed at the Human Author's request
+(`.pre-commit-config.yaml` deleted, and the paragraph in `CONTRIBUTING.md` and the standing note in `NEXT_STEPS.md`). The same
+checks still run in CI and in `tools/run_ci_locally.sh`. No model change.
