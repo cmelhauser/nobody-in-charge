@@ -56,6 +56,15 @@ repos:
         pass_filenames: false
         files: ^(tests/.*\.py|tools/.*\.py|mypy\.ini)$
 
+      # pylint, 10/10 on tools/ and tests/ (.pylintrc).
+      - id: pylint
+        name: pylint scores 10 out of 10
+        entry: python -m pylint tools tests
+        language: python
+        additional_dependencies: [pylint, pytest, numpy, pypdf]
+        pass_filenames: false
+        files: ^(tools/.*\.py|tests/.*\.py|\.pylintrc)$
+
       # No tracked file may carry a machine-specific absolute path.
       - id: portability
         name: no machine-specific paths

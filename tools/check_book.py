@@ -54,13 +54,14 @@ def P(*parts: str) -> str:
 
 def read_text(path: PathLike, **kwargs: Any) -> str:
     """Return the whole text of `path`; `kwargs` (for example `errors`) go to `open`."""
-    with open(path, **kwargs) as fh:
+    encoding = kwargs.pop("encoding", "utf-8")
+    with open(path, encoding=encoding, **kwargs) as fh:
         return fh.read()
 
 
 def read_json(path: PathLike) -> Any:
     """Return the parsed JSON document at `path`."""
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         return json.load(fh)
 
 
@@ -317,6 +318,7 @@ def _calls_check(cell: dict[str, Any]) -> bool:
 def check_status() -> None:
     """Compare stored notebook results and README counts with what is actually in the tree."""
     def read(p: str) -> str:
+        """Return the file's text if it exists under the repository root, else an empty string."""
         return read_text(P(p)) if os.path.exists(P(p)) else ''
     readme = read('README.md')
     nbp = P('model', 'book-calculations.ipynb')
@@ -554,6 +556,7 @@ def check_sources() -> None:
     # is distinctive and appears only as that abbreviation, while "AA" is not and is
     # refused here rather than silently trusted.
     def source_name(path: str) -> str | None:
+        """Return the leading token of the index's directory, or None if under three characters."""
         token = os.path.basename(os.path.dirname(path)).split('_')[0]
         return token if len(token) >= 3 else None
 

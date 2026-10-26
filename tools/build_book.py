@@ -348,6 +348,7 @@ def soften(row: str) -> str:
     Applied to a whole table row, it only touches ASCII words of eleven or more letters.
     """
     def split_word(match: re.Match[str]) -> str:
+        """Insert a soft hyphen before the first known suffix when four letters or more remain."""
         # Insert the soft hyphen before the first matching suffix, if enough stem remains.
         word = match.group(0)
         for suffix in _SUFFIXES:
@@ -371,6 +372,7 @@ def resolve_paper_crossrefs(md: str) -> str:
     md = re.sub(r'\[\\\[[^\]]*?\\\]\]\{#[^}]*?\}\s*', '', md)
 
     def _ref(match: re.Match[str]) -> str:
+        """Replace a cross-reference link with a noun phrase chosen by its label prefix."""
         # Reference links, e.g. [\[eq:err\]](#eq:err){reference-type="ref" reference="eq:err"},
         # become a noun phrase chosen by the label's prefix.
         target = match.group(1)

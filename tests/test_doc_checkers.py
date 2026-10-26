@@ -640,7 +640,10 @@ def primer_text(monkeypatch):
     state = {"text": "Revised 2 February 2026"}
 
     class Reader:
+        """A stand-in for pypdf.PdfReader whose single page returns the controllable text."""
+
         def __init__(self, _path):
+            """Ignore the path and build one page whose extract_text reads the shared state."""
             self.pages = [types.SimpleNamespace(extract_text=lambda: state["text"])]
 
     monkeypatch.setattr(pypdf, "PdfReader", Reader)
@@ -807,6 +810,43 @@ def test_check_handoff_date_fails_without_a_date_on_either_side(tree):
     assert all("no 'Last updated' date" in f for f in check_docs.failures)
 
 
+def test_check_next_steps_date_enforces_the_lists_staleness_rule(tree):
+    """NEXT_STEPS.md must be current as of a date no earlier than the newest log entry.
+
+    An equal date passes and a list dated 5 March against a 6 March entry fails, naming the log
+    date, so an item finished in a later entry cannot linger on the list unnoticed.
+    """
+    write(tree, "research/progress-log.md", "## 4 March 2026\n\n### 6 March 2026\n\ntext\n")
+    write(tree, "NEXT_STEPS.md", "as of 6 March 2026\n")
+    check_docs.check_next_steps_date()
+    assert check_docs.failures == []
+    assert "NEXT_STEPS.md is current as of 6 March 2026" in check_docs.passes[0]
+
+    write(tree, "NEXT_STEPS.md", "as of 5 March 2026\n")
+    check_docs.check_next_steps_date()
+    assert "the list of next steps is stale" in check_docs.failures[0]
+    assert "06 March 2026" in check_docs.failures[0]
+
+
+def test_check_next_steps_date_fails_when_the_file_or_a_date_is_missing(tree):
+    """A missing NEXT_STEPS.md, a missing 'as of' date or an undated log is a failure.
+
+    A staleness test with nothing to compare must not pass by default, and a deleted file is the
+    stalest state of all.
+    """
+    write(tree, "research/progress-log.md", "## 4 March 2026\n")
+    check_docs.check_next_steps_date()
+    assert "does not exist" in check_docs.failures[0]
+
+    write(tree, "NEXT_STEPS.md", "undated\n")
+    check_docs.check_next_steps_date()
+    write(tree, "research/progress-log.md", "no dated entry\n")
+    write(tree, "NEXT_STEPS.md", "as of 5 March 2026\n")
+    check_docs.check_next_steps_date()
+    assert len(check_docs.failures) == 3
+    assert all("no 'as of' date" in f for f in check_docs.failures[1:])
+
+
 # ------------------------------------------------------------------ own total and notebooks
 
 
@@ -850,7 +890,7 @@ CHECKS = ["check_ci_jobs", "check_checker_inventory", "check_corpus", "check_mod
           "check_chapters", "check_local_runner", "check_model_hash", "check_links",
           "check_release_gate_counts", "check_python_versions", "check_page_counts",
           "check_paper_decimals", "check_notebook_assertions", "check_document_dates",
-          "check_handoff_date", "check_own_total"]
+          "check_handoff_date", "check_next_steps_date", "check_own_total"]
 
 
 def test_main_runs_every_check_in_order_and_reports_a_clean_run(tree, monkeypatch, capsys):
@@ -1104,6 +1144,7 @@ def test_check_pdfs_embedded_looks_for_a_glyph_program_on_the_font_or_its_descen
         """A dict that answers get_object() with itself, like a pypdf indirect reference."""
 
         def get_object(self):
+            """Return the object itself, as a resolved indirect reference would."""
             return self
 
     plain = Obj({"/FontDescriptor": Obj({"/FontFile2": 1})})
@@ -1120,6 +1161,7 @@ def test_check_pdfs_ink_check_measures_pdftotext_boxes(pdf_state, monkeypatch):
     listed, here pages 2 and 3. It catches clipped text that overfull warnings miss.
     """
     def boxes(*extents):
+        """Build pdftotext-style bbox output with one word per extent and a final empty page."""
         pages = "".join(f'<page><word xMin="{lo}" xMax="{hi}"/></page>' for lo, hi in extents)
         return completed(pages + "<page></page>")        # the last page has no words at all
 

@@ -135,7 +135,8 @@ and experiment-design choices.
 
 ```text
 manuscript/             Preface, introduction, and Chapters 1 to 25
-model/                  Canonical model and all analysis scripts
+NEXT_STEPS.md           The short, ordered list of what remains (HANDOFF.md has the detail)
+model/                  Canonical model and all analysis scripts; FUNCTIONS.md and ERRATA.md document them
 research/               Caches, parameters, source ledger, claim register, and results
 research/incorporated/  One directory per source: records committed, documents git-ignored
 research/staged/        Acquisition report and metadata: provenance, not evidence
@@ -193,7 +194,7 @@ whether a fresh runner can obtain pandoc, tectonic and the font.
 
 GitHub Actions runs four jobs, split by what can be checked without a network and by what depends
 on the Python version. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
-model passes the original narrow ruleset (syntax errors, pyflakes, bugbear) with ruff's configuration ignored. `unit-tests` runs pytest, the `mypy` type checks (`mypy.ini`; 3.12 only) and the model hash: on pull requests it uses
+model passes the original narrow ruleset (syntax errors, pyflakes, bugbear) with ruff's configuration ignored. `unit-tests` runs pytest, the `mypy` type checks (`mypy.ini`) and `pylint` at 10.00/10 (`.pylintrc`; both 3.12 only) and the model hash: on pull requests it uses
 Python 3.12 only; on `main` it runs 3.11, 3.12, 3.13 and 3.14, 3.12 with the full suite and the
 others with the model tests, the release invariants, the direct tool tests and a byte-compile of every tool and script. `checkers` runs once on 3.12: corpus
 drift, portability, the book-level checks, `check_docs.py`, and 142 of the 148 release-gate

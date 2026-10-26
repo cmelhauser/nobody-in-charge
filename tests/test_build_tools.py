@@ -454,7 +454,7 @@ def test_note_prepare_requires_exactly_one_three_column_table():
     count must not be rendered with the wrong widths.
     """
     with pytest.raises(SystemExit) as stop:
-        build_note.prepare(NOTE.split("| Page")[0])
+        build_note.prepare(NOTE.split("| Page", maxsplit=1)[0])
     assert "found 0" in str(stop.value)
     with pytest.raises(SystemExit) as stop:
         build_note.prepare(NOTE + "\n" + NOTE.split("## Second section\n\n")[1])
@@ -491,8 +491,8 @@ def test_note_main_builds_with_the_running_head_filled_in(monkeypatch, note_tree
     def run(cmd, **kwargs):
         """Fake pandoc that captures the scratch header, Markdown and options, then succeeds."""
         # The scratch files exist only while pandoc runs, so read them from inside the fake.
-        seen["header"] = Path(cmd[cmd.index("--include-in-header") + 1]).read_text()
-        seen["markdown"] = Path(cmd[1]).read_text()
+        seen["header"] = Path(cmd[cmd.index("--include-in-header") + 1]).read_text(encoding="utf-8")
+        seen["markdown"] = Path(cmd[1]).read_text(encoding="utf-8")
         seen["cmd"], seen["kwargs"] = cmd, kwargs
         return completed(stdout="fine\n")
 

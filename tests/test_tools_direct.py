@@ -140,6 +140,7 @@ class _Obj(dict):
     """A dict that answers get_object() with itself, like a pypdf indirect reference."""
 
     def get_object(self):
+        """Return the object itself, as a resolved indirect reference would."""
         return self
 
 
@@ -333,7 +334,7 @@ def test_prepare_refuses_a_rule_that_does_not_open_a_section():
 def test_prepare_requires_exactly_one_three_column_table():
     """prepare() insists on exactly one three-column table and reports how many it found."""
     with pytest.raises(SystemExit) as stop:
-        build_note.prepare(NOTE.split("| Page")[0])
+        build_note.prepare(NOTE.split("| Page", maxsplit=1)[0])
     assert "found 0" in str(stop.value)
     with pytest.raises(SystemExit) as stop:
         build_note.prepare(NOTE + "\n" + NOTE.split("## Second section\n\n")[1])
@@ -355,6 +356,7 @@ def _fake_pandoc(returncode, output):
     It also asserts the pandoc command line uses tectonic and sets the title metadata.
     """
     def run(cmd, **kwargs):
+        """Check the pandoc command line, then return the canned result."""
         assert cmd[0] == "pandoc" and "--pdf-engine=tectonic" in cmd
         assert any(a.startswith("title-meta=") for a in cmd)
         return types.SimpleNamespace(returncode=returncode, stdout=output, stderr="")

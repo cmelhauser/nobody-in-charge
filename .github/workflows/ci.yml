@@ -87,7 +87,7 @@ jobs:
       # are the release identity. It passes the original narrow set (E9, F, B: syntax errors,
       # pyflakes, bugbear) unaided; this keeps it that way. It is not held to the production
       # rules that tools/ and tests/ meet: ruff.toml exempts it from those, as it must be.
-      - name: The canonical model takes no lint waiver
+      - name: The canonical model passes the original ruleset with no waiver
         run: ruff check model/aa_group_model.py --isolated --select E9,F,B
 
       # The workflow is code too, and a typo in it fails at the worst moment: on push,
@@ -144,6 +144,12 @@ jobs:
         run: |
           python -m mypy --disallow-untyped-defs tools
           python -m mypy tests
+
+      # .pylintrc holds the settings and the justification for each disabled check. The score
+      # must be 10.00/10: pylint exits non-zero on any message.
+      - name: Pylint, scored 10 out of 10
+        if: matrix.python-version == '3.12'
+        run: python -m pylint tools tests
 
       - name: Byte-compile every tool and script under this version
         if: matrix.python-version != '3.12'

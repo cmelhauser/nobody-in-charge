@@ -55,7 +55,7 @@ def check(path: str) -> bool:
     matter (see `FRONT_MATTER` and `BACK_MATTER`) skip the structural rules but keep the
     notation, punctuation and readability rules.
     """
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         t = fh.read()
     name = os.path.basename(path)
     fails, warns = [], []

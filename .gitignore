@@ -76,3 +76,6 @@ htmlcov/
 
 # Scratch worktrees made by the agent tooling.
 .claude/worktrees/
+
+# Type-checker cache.
+.mypy_cache/

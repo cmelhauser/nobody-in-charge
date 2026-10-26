@@ -123,7 +123,7 @@ def main(notebook: str = BOOK_NB, write: bool = True, check: bool = False) -> in
     recorded FAILURES entry) still writes them, so the failure is visible in the file.
     """
     notebook = os.path.abspath(notebook)
-    with open(notebook) as fh:
+    with open(notebook, encoding="utf-8") as fh:
         nb = json.load(fh)
     cwd = os.getcwd()
     os.chdir(os.path.dirname(notebook))
@@ -170,7 +170,7 @@ def main(notebook: str = BOOK_NB, write: bool = True, check: bool = False) -> in
             o = outs.get(i, '')
             c['outputs'] = [{'output_type': 'stream', 'name': 'stdout', 'text': [o]}] if o else []
             c['execution_count'] = None
-        with open(notebook, 'w') as fh:
+        with open(notebook, 'w', encoding='utf-8') as fh:
             json.dump(nb, fh, indent=1)
         print('outputs written back')
     ok = not errs and not fails and not blank and not stale
