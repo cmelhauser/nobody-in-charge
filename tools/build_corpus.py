@@ -317,22 +317,35 @@ def index_is_stale(index: dict, digest: str, subjects: list[str]) -> bool:
     return index.get("source_sha256") != digest or not set(subjects) <= checked
 
 
-def fuzzy_in(term: str, blob: str, thresh: float = 0.72) -> bool:
-    """Presence allowing OCR noise. Mirrors tools/check_book.py's matcher."""
-    if term in blob:
+def fuzzy_in(term: str, blob: str, thresh: float = 0.85) -> bool:
+    """Presence allowing OCR noise. The same algorithm and thresholds as tools/check_book.py.
+
+    A term of five characters or fewer must match exactly, because one wrong letter in five is a
+    different word. A longer term is anchored on its first letter, so a window has to start
+    where the term could start, and may differ in about one position in seven. A single-word
+    term must also match as a whole word, so "chase" is not found inside "purchase".
+    """
+    if " " in term:
+        if term in blob:
+            return True
+    elif re.search(rf"\b{re.escape(term)}\b", blob):
         return True
     n = len(term)
-    if n == 0 or n > len(blob):
+    if n <= 5 or n > len(blob):
         return False
-    step = max(1, n // 4)
-    for i in range(0, len(blob) - n, step):
-        window = blob[i:i + n]
-        # Both are exactly n: n is len(term) and the loop stops at len(blob) - n, so
-        # strict catches a slicing mistake here rather than silently comparing less.
+    first = term[0]
+    start = 0
+    while True:
+        k = blob.find(first, start)
+        if k < 0 or k + n > len(blob):
+            return False
+        window = blob[k:k + n]
+        # Both are exactly n: the guard above rejects a short tail, so strict catches a
+        # slicing mistake here rather than silently comparing less.
         hits = sum(1 for a, b in zip(term, window, strict=True) if a == b)
         if hits / n >= thresh:
             return True
-    return False
+        start = k + 1
 
 
 def ensure_dir(name: str) -> Path:

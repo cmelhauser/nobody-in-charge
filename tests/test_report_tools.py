@@ -402,16 +402,21 @@ def test_registered_subjects_are_read_from_the_checker(corpus):
 
 
 def test_fuzzy_in_tolerates_ocr_noise_but_not_absence(corpus):
-    # The matcher steps a quarter of the term's length, so the phrase is placed on a step.
-    """Pin the fuzzy matcher: it forgives OCR noise but not absence.
+    """Pin the fuzzy matcher: it forgives OCR noise in long terms but not absence.
 
-    It must forgive OCR noise without reporting subjects the document lacks.
+    It must forgive OCR noise without reporting subjects the document lacks. Terms of five
+    characters or fewer match exactly, so "chose" is never mistaken for "chase".
     """
     blob = "." * 20 + "sheer surviv0l value" + " at length, said the committee"
     assert corpus.fuzzy_in("sheer survival value", blob)               # one-character noise
     assert corpus.fuzzy_in("committee", blob)                          # exact substring
     assert not corpus.fuzzy_in("rotating leadership", blob)
     assert not corpus.fuzzy_in("a term longer than the blob itself", "short")
+    assert corpus.fuzzy_in("chase", "a long chase")                     # short term, exact
+    assert not corpus.fuzzy_in("chase", "the purchase of coal")         # inside another word
+    assert not corpus.fuzzy_in("chase", "she chose it, and left")      # one letter off: refused
+    assert not corpus.fuzzy_in("sheer survival value", "z" * 30)       # first letter never occurs
+    assert not corpus.fuzzy_in("sheer survival value", "z" * 30 + "sheer surv")  # tail too short
 
 
 def test_build_index_is_vocabulary_only_and_drops_the_withheld_word(corpus, tmp_path):

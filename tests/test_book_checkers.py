@@ -802,6 +802,9 @@ def test_fuzzy_in_tolerates_ocr_noise_and_rejects_absence(book):
     assert not book.fuzzy_in("mitchell", "nothing relevant here at all")
     assert not book.fuzzy_in("mitchell", "ends with mit")           # window runs past the end
     assert not book.fuzzy_in("zzz", "")
+    assert book.fuzzy_in("chase", "a long chase")                    # short term, exact
+    assert not book.fuzzy_in("chase", "the purchase of coal")        # inside another word
+    assert not book.fuzzy_in("chase", "she chose it, and left")      # one letter off: refused
 
 
 def test_window_stops_at_another_source_name_or_after_two_sentences(book):

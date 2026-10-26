@@ -476,17 +476,31 @@ SUBJECTS = ['sons of temperance', 'mitchell', 'beecher', 'washingtonian',
             'total disclosure', 'mental reservation', 'communion of saints']
 
 
-def fuzzy_in(term: str, blob: str, thresh: float = 0.72) -> bool:
+# Terms this short or shorter are matched exactly; see fuzzy_in.
+EXACT_ONLY_UP_TO = 5
+
+
+def fuzzy_in(term: str, blob: str, thresh: float = 0.85) -> bool:
     """Return whether `term` is present in `blob`, allowing OCR noise.
 
     Slides a window and scores position-wise character agreement. Needed because these are
     1880s scans: Eddy renders Mitchell as Mitrhell, Mituhell and MitrLell on the same page.
-    `blob` is expected to be lowercase already.
+    `blob` is expected to be lowercase already. A term of five characters or fewer must match
+    exactly: one wrong letter in five is already a different word ("chose" for "chase"), so
+    tolerance there manufactures presence instead of recovering it. A single-word term must
+    also match as a whole word, so "chase" is not found inside "purchase". Longer terms may
+    differ by about one letter in seven, which is the damage a bad scan does ("Mitrhell" for
+    "Mitchell").
     """
     term = term.lower()
     length = len(term)
-    if term in blob:
+    if " " in term:
+        if term in blob:
+            return True
+    elif re.search(rf'\b{re.escape(term)}\b', blob):
         return True
+    if length <= EXACT_ONLY_UP_TO:
+        return False
     first = term[0]
     start = 0
     while True:
