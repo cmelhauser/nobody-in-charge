@@ -308,7 +308,7 @@ present at all, every citation-subject pair still verifies. Rebuild the corpus a
 with `python3 tools/build_corpus.py`, or audit it with `--check`, which reports drift and changes no
 file, though it can create an empty directory for a registered source that has none.
 
-Six of the 45 sources are held as record only, with no document at any time: Kurtz (1991), in
+Six of the 48 sources are held as record only, with no document at any time: Kurtz (1991), in
 copyright; DeGroot (1974) and the April 1946 *A.A. Grapevine* article, whose located scans have
 unverified posting authorization and which the project's rights review directs be cited within
 limits rather than archived; Iannaccone (1992), read on the same footing from a reposted JSTOR

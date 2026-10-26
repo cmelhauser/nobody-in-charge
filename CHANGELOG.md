@@ -17,6 +17,11 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- The corpus holds three more sources, supplied by the Human Author on 26 October 2026 as PDFs saved from the article
+  pages: Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007). All three had been read in
+  full at PubMed Central on 14 September 2026 and were recorded as held by nobody. The corpus is now 48 sources, six of them
+  record only. Read statuses and claims do not change. No model change.
+
 - Chapter 13 and `research/SOURCES.md` now carry the web-identified references for two works the chapter could not
   name: Cloud, Ziegler and Blondell (2004), *Substance Use & Misuse* 39(7), and Carroll, S. (1993), *Journal of Studies on
   Alcohol* 54(3) (whose title the chapter had wrong). Both are marked identified by search and not read; no claim rests on
@@ -178,7 +183,7 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
     chapters now say so, and the paper's reference gains its read status.
   - The only full text found online is a JSTOR download reposted on a third party's archive without
     verified authorization, so the source is catalogued as record only, like DeGroot (1974), with
-    the hash of the copy consulted. The corpus holds 45 sources, six of them record only.
+    the hash of the copy consulted. The corpus holds 48 sources, six of them record only.
   - The book's draft date moves to 29 September 2026 because its text changed.
 
 - The paper's title page is dated September 2026, since its text last changed on 28 September.

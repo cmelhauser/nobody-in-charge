@@ -1,0 +1,34 @@
+{
+ "id": "KellyHumphreysFerri_2020",
+ "title": "Alcoholics Anonymous and other 12-step programs for alcohol use disorder",
+ "authors": [
+  "John F. Kelly",
+  "Keith Humphreys",
+  "Marica Ferri"
+ ],
+ "year": 2020,
+ "type": "systematic_review",
+ "status": "read_in_full",
+ "held_version": "Cochrane Library PDF (123 pages), supplied by the Human Author; PMCID PMC7065341; doi:10.1002/14651858.CD012880.pub2",
+ "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7065341/",
+ "retrieved": "2026-10-26",
+ "record_only": false,
+ "note": "Read in full at PubMed Central on 14 September 2026, when no copy was held because the PDF routes refuse scripted access. The Human Author saved the PDF from the article page in a browser and supplied it on 26 October 2026; a copy is held from that date.",
+ "read_date": "2026-09-14",
+ "read_scope": "read in full on 14 September 2026 apart from the per-study characteristics and risk-of-bias tables, the forest plots, the search strategies and the references; the held PDF contains those parts, which have not been read",
+ "rights_note": "Cochrane Database of Systematic Reviews, free to read on the Cochrane Library and in PubMed Central; copyright The Cochrane Collaboration, published by John Wiley & Sons. Held git-ignored since 26 October 2026, supplied by the Human Author; never committed or redistributed.",
+ "legacy_stem": null,
+ "documents": {
+  "KellyHumphreysFerri_2020.pdf": {
+   "sha256": "538ed180066f5f53697da933809fa14e43f81a85a31ca6c846065c18e736a49f",
+   "bytes": 1538369,
+   "tracked_in_git": false
+  },
+  "KellyHumphreysFerri_2020.txt": {
+   "sha256": "7098f9153b4da0358e5f081449e134944ce90e6481b4d18b5ce8677bdfa92368",
+   "bytes": 410073,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above."
+}

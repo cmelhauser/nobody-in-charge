@@ -6223,3 +6223,11 @@ recovery," *Journal of Studies on Alcohol* 54(3): 297-301, cited in Greenfield a
 step instruments. Chapter 13's note and Machinery entries and the two `research/SOURCES.md` rows were corrected, each marked as
 identified by search and not read; the Carroll match rests on the initial and year. The book was rebuilt (pandoc 3.10.2). No
 number and no model change.
+
+Also on 26 October 2026: the Human Author supplied three PDFs saved from the article pages in a browser, which closes the
+three PubMed Central items that were read on 14 September but held by nobody. They are `Gorman_2006` (6 pages),
+`KellyHumphreysFerri_2020` (the Cochrane Library PDF, 123 pages) and `WitkiewitzMarlatt_2007` (the NIH author manuscript,
+22 pages). Each was checked against its title page; `tools/build_corpus.py` recorded the SHA-256 and built the vocabulary
+indexes, rights entries were added to the tool, and `research/SOURCES.md`, `HANDOFF.md` and the corpus counts (45 to 48) were
+brought current. The held Cochrane PDF contains the per-study tables, forest plots and search strategies that were not read
+earlier; they remain unread. No read status and no claim changed. No model change.

@@ -198,7 +198,7 @@ search; it does not replace reading the surrounding claim.
 
 ## 7. The source corpus
 
-45 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
+48 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
 The newest is `Iannaccone_1992` (29 September 2026, record only), after the two NIH author manuscripts
 held on 24 September 2026, `BanksBekeleMaxwell_2017` and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
@@ -425,16 +425,16 @@ each moves a record-only source onto the ordinary footing.
    - Witkiewitz and Marlatt (2004).
 
    Each is cited as background, and the corpus holds none of them. More works are cited and have a
-   read status but no copy:
-   - **Read at PubMed Central on 14 September 2026:** Banks et al. (2017), Gorman et al. (2006),
+   read status; all but one are now held:
+   - **Read at PubMed Central on 14 September 2026, all five now held:** Banks et al. (2017), Gorman et al. (2006),
      Kelly, Humphreys and Ferri (2020), Rynes and Tonigan (2012) and Witkiewitz and Marlatt (2007).
-     Two of the five are now held: the deposited full text of Banks et al. (2017) and Rynes and
-     Tonigan (2012) came back from the NCBI E-utilities API on 24 September 2026, which is an
-     ordinary interface and bypasses nothing. The other three return metadata only from both that
-     service and Europe PMC, so Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and
-     Witkiewitz and Marlatt (2007) still need a PDF saved from the article page in a browser. The
-     PDF routes themselves refuse scripted access, and PMC's serves a proof-of-work interstitial,
-     which is a bot check this project does not attempt.
+     All five are now held. The deposited full text of Banks et al. (2017) and Rynes and Tonigan
+     (2012) came back from the NCBI E-utilities API on 24 September 2026, which is an ordinary
+     interface and bypasses nothing. The other three return metadata only from both that service
+     and Europe PMC, and the PDF routes refuse scripted access (PMC's serves a proof-of-work
+     interstitial, a bot check this project does not attempt), so the Human Author saved the PDFs
+     of Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007)
+     from the article pages in a browser and supplied them on 26 October 2026.
    - **Cited at a remove:** Banks et al. (2014), through the 2017 paper. AMS refuses its PDF to
      scripts, so it needs the same browser save. Should a browser be refused too, NC State's Center
      for Research in Scientific Computation posts a precursor by the same authors, technical report

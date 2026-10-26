@@ -1,0 +1,33 @@
+{
+ "id": "WitkiewitzMarlatt_2007",
+ "title": "Modeling the complexity of post-treatment drinking: It's a rocky road to relapse",
+ "authors": [
+  "Katie Witkiewitz",
+  "G. Alan Marlatt"
+ ],
+ "year": 2007,
+ "type": "journal_article",
+ "status": "read_in_full",
+ "held_version": "NIH author manuscript (nihms26591) saved from PubMed Central, supplied by the Human Author; PMCID PMC1995671; pagination is the manuscript's, not the journal's 724-738",
+ "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1995671/",
+ "retrieved": "2026-10-26",
+ "record_only": false,
+ "note": "Read in full at PubMed Central on 14 September 2026, when no copy was held because the PDF routes refuse scripted access. The Human Author saved the PDF from the article page in a browser and supplied it on 26 October 2026; a copy is held from that date.",
+ "read_date": "2026-09-14",
+ "read_scope": "full text, 22 pages",
+ "rights_note": "NIH author manuscript in PubMed Central under the NIH public access policy; copyright Elsevier. Held git-ignored since 26 October 2026, supplied by the Human Author; never committed or redistributed.",
+ "legacy_stem": null,
+ "documents": {
+  "WitkiewitzMarlatt_2007.pdf": {
+   "sha256": "03a4acca916a65bc5a2f9ec11c3279924930f44e3b72812c763029932722d690",
+   "bytes": 738691,
+   "tracked_in_git": false
+  },
+  "WitkiewitzMarlatt_2007.txt": {
+   "sha256": "be9bdc1e87d59d93ebce233c39b772baa86216b1f8e122e9b1dad08b1031b412",
+   "bytes": 77544,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above."
+}
