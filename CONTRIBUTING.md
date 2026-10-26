@@ -46,7 +46,3 @@ function, nested helper, class and module in `tools/` and `tests/` carries a doc
 scripts are documented in `model/FUNCTIONS.md` and their stale pointers in `model/ERRATA.md`. The analysis scripts under `model/` are frozen: each records its SHA-256
 in the cache it produced, so a linter, formatter or comment edit there invalidates hours of computation. Do
 not let a tool touch them.
-
-Optional: `pip install pre-commit && pre-commit install` runs the fast CI checks (ruff, the type checks, the model's release
-invariants, portability, the documentation counts and corpus drift) before each commit. It needs Python 3.11 or
-newer; CI stays the authority.
