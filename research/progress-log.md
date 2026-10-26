@@ -6200,3 +6200,18 @@ imports, mathematical names, deliberate broad catches around checkers) each carr
 created as the short, ordered twin of `HANDOFF.md` section 10, with a draft Chapter 24 survey item that is not in the manuscript, and
 `check_docs.py` now checks its date. (6) A sweep for orphaned files, retired phrases and stale CI step names found one more
 'the one licence' sentence in `research/SOURCES.md` and the 'takes no lint waiver' step names; both were corrected. No model change.
+
+### 26 October 2026: the Chapter 24 survey item, decided against
+
+The audit of 22 to 23 October had left Chapter 10 promising a Chapter 24 survey item about how many people a room turns to,
+and the first fix removed the promise. A draft item (an anonymous named-nomination survey) was then written for the author to
+approve. On inspection it contradicts Chapter 24's own item Five, which already asks for the most-attended person's share and
+says a sociometric survey is intrusive and the wrong instrument for an anonymous fellowship. The draft was therefore not
+inserted. Chapter 10's two sentences now point to item Five as the nearest measurement and carry its caveat, the book was
+re-dated 26 October 2026 and rebuilt with the pinned pandoc 3.10.2, and `NEXT_STEPS.md` no longer lists the draft. No number and
+no model change.
+
+The same day the elicitation send was dry-run: `model/elicitation_compare.py` still hashes to c9d25c3a... and its self-test passes,
+the five PDFs are newer than their sources, the respondent form and response template carry the anonymous-code line, and the
+form does not name the empty rows. The send checklist kept in the Human Author's Downloads folder was regenerated to use
+anonymous codes and to warn that the collator notes are public. Nothing in the repository changed for this.
