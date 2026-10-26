@@ -17,6 +17,11 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- Chapter 13 and `research/SOURCES.md` now carry the web-identified references for two works the chapter could not
+  name: Cloud, Ziegler and Blondell (2004), *Substance Use & Misuse* 39(7), and Carroll, S. (1993), *Journal of Studies on
+  Alcohol* 54(3) (whose title the chapter had wrong). Both are marked identified by search and not read; no claim rests on
+  either. No model change.
+
 - Chapter 10 now points to Chapter 24's item Five for the nearest measurement of how many people a room turns to,
   instead of saying a survey could add a separate item. No new survey item was added: item Five already asks for the
   most-attended person's share and says a sociometric survey is the wrong instrument for an anonymous fellowship, which a
