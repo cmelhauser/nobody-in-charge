@@ -1,0 +1,35 @@
+{
+ "id": "Gorman_2006",
+ "title": "Agent-based modeling of drinking behavior: A preliminary model and potential applications to theory and practice",
+ "authors": [
+  "Dennis M. Gorman",
+  "Jadranka Mezic",
+  "Igor Mezic",
+  "Paul J. Gruenewald"
+ ],
+ "year": 2006,
+ "type": "journal_article",
+ "status": "read_in_full",
+ "held_version": "PDF saved from the article page at PubMed Central, supplied by the Human Author; PMCID PMC1751811",
+ "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1751811/",
+ "retrieved": "2026-10-26",
+ "record_only": false,
+ "note": "Read in full at PubMed Central on 14 September 2026, when no copy was held because the PDF routes refuse scripted access. The Human Author saved the PDF from the article page in a browser and supplied it on 26 October 2026; a copy is held from that date.",
+ "read_date": "2026-09-14",
+ "read_scope": "full text, 6 pages",
+ "rights_note": "Published in the American Journal of Public Health, free in PubMed Central; copyright the authors/APHA. Held git-ignored since 26 October 2026, supplied by the Human Author; never committed or redistributed.",
+ "legacy_stem": null,
+ "documents": {
+  "Gorman_2006.pdf": {
+   "sha256": "cef5533e88b1940369433e1c9d5e73aead99c1eb6100bc5e9b0e98657edf679d",
+   "bytes": 222854,
+   "tracked_in_git": false
+  },
+  "Gorman_2006.txt": {
+   "sha256": "571059ed7d15fd2c60f90196a4aea14c9c81d1261516580c62db64fdf7ebb502",
+   "bytes": 37114,
+   "tracked_in_git": false
+  }
+ },
+ "documents_note": "Documents are git-ignored. Re-acquire from the URL recorded here, or from the identifier in research/SOURCES.md where no URL is recorded, and check the SHA-256 above."
+}

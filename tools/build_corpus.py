@@ -192,6 +192,21 @@ RIGHTS = {
     "Rynes_2012": ("NIH author manuscript in PubMed Central under the NIH public access policy; "
                    "copyright the American Psychological Association. Held git-ignored since 24 "
                    "September 2026; never committed or redistributed."),
+    # Added 26 October 2026: three papers read at PubMed Central on 14 September 2026 and held
+    # until now by nobody, because the publisher and PMC PDF routes refuse scripted access. The
+    # Human Author saved the PDFs from the article pages in a browser and supplied them.
+    "Gorman_2006": ("Published in the American Journal of Public Health, free in PubMed Central; "
+                    "copyright the authors/APHA. Held git-ignored since 26 October 2026, supplied "
+                    "by the Human Author; never committed or redistributed."),
+    "KellyHumphreysFerri_2020": ("Cochrane Database of Systematic Reviews, free to read on the "
+                                 "Cochrane Library and in PubMed Central; copyright The Cochrane "
+                                 "Collaboration, published by John Wiley & Sons. Held git-ignored "
+                                 "since 26 October 2026, supplied by the Human Author; never "
+                                 "committed or redistributed."),
+    "WitkiewitzMarlatt_2007": ("NIH author manuscript in PubMed Central under the NIH public "
+                               "access policy; copyright Elsevier. Held git-ignored since 26 "
+                               "October 2026, supplied by the Human Author; never committed or "
+                               "redistributed."),
 }
 DEFAULT_RIGHTS = "Pre-1929 United States publication; public domain. Internet Archive scan."
 
