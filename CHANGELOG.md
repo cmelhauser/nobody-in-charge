@@ -17,6 +17,13 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- The subject matcher in `tools/build_corpus.py` and `tools/check_book.py` is tighter. A term of five characters or fewer must
+  match exactly, a single-word term must match as a whole word, and a longer term is anchored on its first letter with a 0.85
+  threshold (it was 0.72, unanchored in the index builder). The old index builder listed subjects such as "chase" and "utica"
+  as present in most papers (a window matching four letters in five, or "chase" inside "purchase"); the 42 document-backed
+  verification indexes were rebuilt, `build_corpus.py --check` reports 0 problems and `check_book.py` still passes. No model
+  change.
+
 - The corpus holds three more sources, supplied by the Human Author on 26 October 2026 as PDFs saved from the article
   pages: Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007). All three had been read in
   full at PubMed Central on 14 September 2026 and were recorded as held by nobody. The corpus is now 48 sources, six of them
