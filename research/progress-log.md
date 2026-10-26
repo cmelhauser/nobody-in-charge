@@ -6215,3 +6215,11 @@ The same day the elicitation send was dry-run: `model/elicitation_compare.py` st
 the five PDFs are newer than their sources, the respondent form and response template carry the anonymous-code line, and the
 form does not name the empty rows. The send checklist kept in the Human Author's Downloads folder was regenerated to use
 anonymous codes and to warn that the collator notes are public. Nothing in the repository changed for this.
+
+Later on 26 October 2026: a web search resolved two references Chapter 13 could not name. Cloud and colleagues (2004) is Cloud,
+Ziegler and Blondell, *Substance Use & Misuse* 39(7): 1117-1136, doi:10.1081/JA-120038032. Carroll (1993), which the chapter
+had titled "On adherence to the twelve steps", appears to be S. Carroll, "Spirituality and purpose in life in alcoholism
+recovery," *Journal of Studies on Alcohol* 54(3): 297-301, cited in Greenfield and Tonigan's paper on the sparse evidence for
+step instruments. Chapter 13's note and Machinery entries and the two `research/SOURCES.md` rows were corrected, each marked as
+identified by search and not read; the Carroll match rests on the initial and year. The book was rebuilt (pandoc 3.10.2). No
+number and no model change.
