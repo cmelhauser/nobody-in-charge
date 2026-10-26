@@ -1231,9 +1231,9 @@ would be improved by knowing how much better the cusp model actually fitted.
 **Witkiewitz, K., and G. A. Marlatt (2007). "Modeling the Complexity of Post-Treatment
 Drinking: It's a Rocky Road to Relapse." *Clinical Psychology Review* 27(6): 724-738.**
 **Read in full 14 September 2026** from the author manuscript at PubMed Central
-(PMC1995671); no copy is held, and the deposit returns metadata only through the E-utilities and
-Europe PMC services that supplied Banks et al. (2017) and Rynes and Tonigan (2012) on 24 September
-2026, so this one still needs a copy saved by hand. Cited in Chapter 14 for the general argument that
+(PMC1995671). **Held since 26 October 2026** as `WitkiewitzMarlatt_2007`, the author manuscript
+(nihms26591) saved from PubMed Central by the Human Author, because the deposit returns metadata only through
+the E-utilities and Europe PMC services that supplied Banks et al. (2017) and Rynes and Tonigan (2012). Cited in Chapter 14 for the general argument that
 post-treatment drinking is nonlinear, not for any specific result. It also refits Hufford's
 cusp specification to Project MATCH. Among those still drinking at twelve months, the cusp
 models fit better than linear and logistic ones on AIC, BIC and pseudo-R². Abstainers are
@@ -1284,9 +1284,10 @@ half right. The PDF routes do refuse, and PMC's serves a proof-of-work interstit
 check this project does not attempt. But the **deposited full text** is served by ordinary
 interfaces, the NCBI E-utilities API and the Europe PMC REST service, and on 24 September 2026 two
 of the five came back that way and are now held: Banks et al. (2017) and Rynes and Tonigan (2012),
-both NIH author manuscripts. The other three are not in either service's full-text set: Gorman et
-al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007) return metadata
-only, so they still need a copy saved by hand. Read statuses below are unchanged by any of this.
+both NIH author manuscripts. The other three were not in either service's full-text set: Gorman et
+al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007) returned metadata
+only, so the Human Author saved their PDFs by hand from the article pages and supplied them on 26
+October 2026; all three are now held. Read statuses below are unchanged by any of this.
 
 The paper cites additional methodological and empirical works that the manuscript does
 not otherwise use. Earlier versions of this register omitted them, and the paper's
@@ -1303,11 +1304,11 @@ bibliography often omitted read status. The current-project record supports the 
 | Cunha and Heckman (2007) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckman_2007`) | Background on dynamic complementarity. |
 | Cunha, Heckman and Schennach (2010) | **Read in full 13 September 2026** in its working-paper version (`CunhaHeckmanSchennach_2010`), which documents the paper's read-at-source claim | Methodological analogy; pages used are recorded in the findings above and in the summary in `CunhaHeckmanSchennach_2010`, as the working paper's. |
 | Galanter (1981) | Read status not documented | Background on large-group therapy. |
-| Gorman et al. (2006) | **Read in full 14 September 2026** at PMC (PMC1751811); no copy is held | Agent-based drinking-model background. The model is social contagion among agents on a one-dimensional lattice, with a single bar that clusters drinkers; it models neither outlet density nor groups. |
+| Gorman et al. (2006) | **Read in full 14 September 2026** at PMC (PMC1751811). **Held since 26 October 2026** as `Gorman_2006` (PDF supplied by the Human Author) | Agent-based drinking-model background. The model is social contagion among agents on a one-dimensional lattice, with a single bar that clusters drinkers; it models neither outlet density nor groups. |
 | Hu and Schennach (2008) | Read in part 13 September 2026, abstract, introduction and assumptions (195 to 200) (`HuSchennach_2008`) | Identification literature; the project does not implement its estimator. |
 | Humphreys, Kaskutas and Weisner (1998) | Read status not documented | Measurement background. |
 | Kaskutas, Bond and Humphreys (2002) | Read status not documented | Social-network mediation background. Not the Kaskutas paper the corpus holds, which is Kaskutas, Bond and Avalos (2009), `KaskutasBondAvalos_2009`; the directory carries all three surnames so that a citation of one is never checked against the text of the other. |
-| Kelly, Humphreys and Ferri (2020) | **Read in full 14 September 2026** at PMC (PMC7065341), apart from the per-study characteristics and risk-of-bias tables, the forest plots, the search strategies and the references; no copy is held | Review background; no numerical claim in this project is upgraded from it. Its headline is that manualized AA/TSF raises continuous abstinence at 12 months over other established treatments such as CBT (risk ratio 1.21, 95% CI 1.03 to 1.42; 2 trials, 1,936 participants; high certainty) and does about as well on most other outcomes. |
+| Kelly, Humphreys and Ferri (2020) | **Read in full 14 September 2026** at PMC (PMC7065341), apart from the per-study characteristics and risk-of-bias tables, the forest plots, the search strategies and the references. **Held since 26 October 2026** as `KellyHumphreysFerri_2020` (the Cochrane Library PDF, supplied by the Human Author; the parts not read are in the held copy and remain unread) | Review background; no numerical claim in this project is upgraded from it. Its headline is that manualized AA/TSF raises continuous abstinence at 12 months over other established treatments such as CBT (risk ratio 1.21, 95% CI 1.03 to 1.42; 2 trials, 1,936 participants; high certainty) and does about as well on most other outcomes. |
 | Lembke (undated) | **Read in full 13 September 2026** (`Lembke_nd`); the paper's bibliography now says so | Economics-of-religion application to AA. |
 | Ostrom (1990) | Read status not documented | Institutional-design analogy only. |
 | Riessman (1965) | Not obtained | Helper-therapy principle; cited at a remove. |
