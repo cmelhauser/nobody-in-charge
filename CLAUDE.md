@@ -377,6 +377,14 @@ annotate them, since a test's parameters are pytest fixtures. `model/` is not ch
 a hash-frozen script would change the SHA-256 its cache records. CI runs both commands in the
 3.12 `unit-tests` job and `tools/run_ci_locally.sh unit-tests` runs them too.
 
+`pylint tools tests` is a second opinion, configured in `.pylintrc` and required to score
+10.00/10; every check it disables there carries its reason (pytest fixtures, optional
+dependencies, deliberate lazy imports, mathematical names). `tests/test_release_invariants.py`
+also walks the syntax trees: every module, class, function and nested helper in `tools/` and
+`tests/` must have a docstring, and every definition in the frozen `model/*.py` that lacks one
+must have a row in `model/FUNCTIONS.md`, the sidecar that documents them without editing them.
+`model/ERRATA.md` records the frozen scripts' stale pointers and unit slips.
+
 ## Tests and CI
 
 `python3 -m pytest` runs the suite, and `python3 -m pytest --cov` runs it under the coverage gate.

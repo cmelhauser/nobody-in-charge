@@ -68,6 +68,8 @@ overrides a cache.
 |---|---|
 | current status, reproduction sequence | `README.md` |
 | what remains, and why | `HANDOFF.md` |
+| the short, ordered list of next steps | `NEXT_STEPS.md` |
+| the frozen scripts' functions and errata | `model/FUNCTIONS.md`, `model/ERRATA.md` |
 | the full rules, statistical and editorial | `CLAUDE.md` |
 | how to verify the release independently | `AGENT_VERIFY.md` |
 | what each source supports, and its read status | `research/SOURCES.md` |
@@ -126,7 +128,7 @@ under `model/` (other than the canonical model) sit outside the gate on purpose:
 frozen, so a test hook or a pragma would invalidate their caches. Slow work behind `NIC_SLOW_TESTS=1`.
 
 CI has four jobs. `lint` runs ruff, actionlint and shellcheck, and asserts that the canonical
-model takes no lint waiver. `unit-tests` runs pytest, the type checks (3.12 only) and the model hash across Python 3.11, 3.12,
+model passes the original narrow ruleset with no waiver. `unit-tests` runs pytest, the type checks (3.12 only) and the model hash across Python 3.11, 3.12,
 3.13 and 3.14 on `main`, and on 3.12 only on pull requests; 3.12 runs the full suite and the other
 versions the model tests, the release invariants and the direct tool tests, under the model-only coverage gate (`.coveragerc-model`), plus a byte-compile of every tool and script. `checkers` needs pip and nothing else and
 gates every push: corpus drift, portability, the book checks, and `check_release.py
@@ -165,7 +167,7 @@ invalidates hours of computation. They carry per-rule waivers.
 waiver, and CI asserts exactly that with `--isolated --select E9,F,B`; for the production rules it falls
 under the same `model/*.py` block, a documented exemption because the file cannot be edited to meet them.
 
-`mypy` (configured in `mypy.ini`): `mypy --disallow-untyped-defs tools` and `mypy tests`. Every function in
+`pylint tools tests` must score 10.00/10 (`.pylintrc`, each disable justified). `mypy` (configured in `mypy.ini`): `mypy --disallow-untyped-defs tools` and `mypy tests`. Every function in
 `tools/` is annotated; `tests/` need only be free of type errors; `model/` is not checked (annotating it would
 change its hash). CI runs both in the 3.12 `unit-tests` job.
 

@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 24 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 26 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -103,18 +103,19 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 24 October 2026, everything passes:
+As of 26 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 499 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,262 statements) |
+| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 503 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,281 statements) |
 | `mypy --disallow-untyped-defs tools` and `mypy tests` | no issues (`mypy.ini`) |
+| `pylint tools tests` | 10.00/10 (`.pylintrc`) |
 | `ruff check .` | clean, with no `noqa` comment and no waiver outside `model/` and the notebook generator's line length |
 | `tools/check_release.py --skip-artifacts` | 142 checks, 0 failed, 6 skipped (the full gate runs all 148 and passes with the artifacts built; it had 136 at the `v0.9.0` tag, see `CHANGELOG.md` under [0.9.0]) |
 | `tools/check_book.py` | 0 failures, 45 warnings |
 | `tools/check_chapter.py` on the primer | clear |
 | `tools/check_portability.py` | clear |
-| `tools/check_docs.py` | 35 checks, 0 failed |
+| `tools/check_docs.py` | 36 checks, 0 failed |
 | `tools/build_corpus.py --check` | 0 corpus problems |
 | `tools/check_pdfs.py` | 21 checks, 0 failed, with poppler present; without it the three ink measurements report themselves skipped |
 | `model/book-calculations.ipynb` | 8 cells, 114 assertions, clean |

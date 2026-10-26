@@ -62,6 +62,10 @@ def _write(path: Path, text: str = "", mtime: int | None = None) -> Path:
 
 
 def _notebook(path: Path, stored: str = "ok") -> None:
+    """Write a two-cell notebook whose code cell has a stored stream output.
+
+    The stored text is what the gate later compares with a fresh run.
+    """
     cell = {"cell_type": "code", "source": ["print(1)\n"],
             "outputs": [{"output_type": "stream", "name": "stdout", "text": [stored]}]}
     _write(path, json.dumps({"cells": [{"cell_type": "markdown", "source": ["x"]}, cell]}),

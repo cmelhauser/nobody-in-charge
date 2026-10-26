@@ -41,7 +41,9 @@ versions and tags.
 Python under `tools/` and `tests/` must pass `ruff check .` with no `noqa` comments, carry a docstring on
 every module, class and function, and keep `tools/` and the canonical model at 100 per cent test coverage
 (`python3 -m pytest --cov` enforces it). `tools/` is fully type annotated and `mypy.ini` configures the check
-(`mypy --disallow-untyped-defs tools` and `mypy tests`). The analysis scripts under `model/` are frozen: each records its SHA-256
+(`mypy --disallow-untyped-defs tools` and `mypy tests`), and `pylint tools tests` must score 10.00/10. Every
+function, nested helper, class and module in `tools/` and `tests/` carries a docstring; the frozen `model/*.py`
+scripts are documented in `model/FUNCTIONS.md` and their stale pointers in `model/ERRATA.md`. The analysis scripts under `model/` are frozen: each records its SHA-256
 in the cache it produced, so a linter, formatter or comment edit there invalidates hours of computation. Do
 not let a tool touch them.
 
