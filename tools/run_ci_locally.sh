@@ -151,7 +151,7 @@ if [ "$job" = all ] || [ "$job" = lint ]; then
   if [ -n "$RUFF" ]; then
     step "python lint" "$RUFF" check .
     # --isolated ignores ruff.toml, so no per-file waiver can reach the canonical model.
-    step "canonical model takes no lint waiver" \
+    step "canonical model passes the original ruleset, no waiver" \
          "$RUFF" check model/aa_group_model.py --isolated --select E9,F,B
   else
     not_run "ruff not installed: lint not run"
@@ -175,6 +175,8 @@ if [ "$job" = all ] || [ "$job" = checks ] || [ "$job" = unit-tests ]; then
   # holds the settings; model/ is not checked because annotating it would change its hash.
   step "types: tools fully annotated" "$PY" -m mypy --disallow-untyped-defs tools
   step "types: tests" "$PY" -m mypy tests
+  # pylint scores tools/ and tests/ at 10.00/10 under .pylintrc; any message fails the step.
+  step "pylint 10/10" "$PY" -m pylint tools tests
   step "canonical model hash" model_hash
 fi
 

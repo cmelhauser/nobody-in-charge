@@ -1,0 +1,73 @@
+# pylint configuration. Run from the repository root:
+#
+#   pylint tools tests
+#
+# The target is a 10.00/10 score on tools/ and tests/, with every disable below justified. ruff
+# and mypy (ruff.toml, mypy.ini) are the primary gates; pylint is a second opinion that catches
+# a few things they do not. model/ is not linted by pylint: the scripts there are hash-frozen, so
+# any edit a linter asked for would invalidate the caches that record their SHA-256.
+[MAIN]
+py-version = 3.11
+# textstat is an optional dependency that tools/check_chapter.py imports inside a try block, and
+# is not in requirements-dev.txt.
+ignored-modules = textstat
+# pypdf returns a lazily typed list whose members pylint cannot see.
+ignored-classes = _VirtualList
+init-hook = 'import sys; sys.path[:0] = ["tools", "model"]'
+
+[FORMAT]
+max-line-length = 100
+# The long linear checkers and the test modules for them run past the 1000-line default.
+max-module-lines = 2000
+
+[DESIGN]
+# The checkers are long, linear, sequential scripts that print as they go; splitting them to
+# satisfy the defaults would scatter one pass over a repository across helpers no one else calls.
+# summarize_robustness.render builds the whole results document in one pass.
+max-locals = 65
+max-branches = 40
+max-statements = 120
+max-args = 8
+max-positional-arguments = 8
+max-nested-blocks = 8
+min-public-methods = 0
+
+[SIMILARITIES]
+# Test modules repeat setup on purpose (each test builds its own scratch tree), so a duplicate
+# block there is not a defect. A high floor keeps the check for genuine copy-paste.
+min-similarity-lines = 40
+
+[BASIC]
+# The model's matrices and the book's constants are written as the mathematics writes them
+# (S, GOV, B, C, H, N), and a lower-case rename would obscure the correspondence with the
+# appendix.
+good-names = i, j, k, n, m, s, e, f, p, x, y, S, GOV, B, C, H, M, N, R, P, _
+# ast.NodeVisitor dispatches on the node class name, so the visitor methods must be spelled
+# visit_FunctionDef and so on.
+method-rgx = ([a-z_][a-z0-9_]*|visit_[A-Za-z]+)$
+const-rgx = [A-Za-z_][A-Za-z0-9_]*
+variable-rgx = [A-Za-z_][A-Za-z0-9_]*
+
+[MESSAGES CONTROL]
+disable =
+    # pytest passes fixtures by argument name, so a test parameter shadows the fixture function
+    # (redefined-outer-name) and one used only for its side effect looks unused (unused-argument).
+    redefined-outer-name,
+    unused-argument,
+    # Optional dependencies (pypdf, textstat, numpy in a few tools) are imported where they are
+    # used so that a checker still runs without them; tests also import inside a test to isolate
+    # a module reload.
+    import-outside-toplevel,
+    # An assertion such as `failures == []` states the expected value, which reads better than
+    # `not failures` and fails with a clearer message.
+    use-implicit-booleaness-not-comparison,
+    # The tests exercise private helpers of the tools directly; that is what a unit test is for.
+    protected-access,
+    # run_notebook.py executes notebook cells by design; that is its job.
+    exec-used,
+    # Fakes standing in for subprocess results and similar test doubles have few methods.
+    too-few-public-methods,
+    # Each checker catches broad errors only where it reports a failure instead of crashing.
+    broad-exception-caught,
+    # pylint's rule about unpacking cannot see through the helper that returns the tuple.
+    unbalanced-tuple-unpacking

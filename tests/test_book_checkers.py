@@ -146,6 +146,7 @@ def test_candidate_files_uses_the_git_index_when_a_git_dir_exists(tmp_path, monk
     calls = []
 
     def fake_run(cmd, **kwargs):
+        """Record the command and keywords of the call and return a fixed NUL-separated listing."""
         calls.append((cmd, kwargs))
         return types.SimpleNamespace(stdout=b"one.md\0sub/two.py\0\0")
 
@@ -163,6 +164,7 @@ def test_a_failing_git_listing_is_not_swallowed(tmp_path, monkeypatch):
     (tmp_path / ".git").mkdir()
 
     def broken(cmd, **kwargs):
+        """Stand in for subprocess.run by always failing as `git ls-files` would outside a repo."""
         raise subprocess.CalledProcessError(128, cmd)
 
     monkeypatch.setattr(check_portability.subprocess, "run", broken)
@@ -910,6 +912,7 @@ def test_tracked_text_files_falls_back_to_a_directory_walk(book, tmp_path, failu
     write(tmp_path / "research" / "incorporated" / "S_1" / "doc.txt", "source document")
 
     def broken(*args, **kwargs):
+        """Stand in for subprocess.run by raising the parametrized failure."""
         raise failure
 
     book.subprocess = types.SimpleNamespace(run=broken,
@@ -950,10 +953,12 @@ def test_check_withheld_names_defaults_to_every_tracked_text_file(book, tmp_path
 def test_main_runs_every_check_and_turns_a_crash_into_a_failure(book, monkeypatch, capsys):
     """A check that raises is reported as a FAIL naming the check; the exit status is 1."""
     def good():
+        """A check that records one note and one warning, then returns normally."""
         book.note("good", "all fine")
         book.warn("good", "but look")
 
     def broken():
+        """A check that crashes, to show main() reports it as a failure."""
         raise RuntimeError("boom")
 
     monkeypatch.setattr(book, "CHECKS", (good, broken))

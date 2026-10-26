@@ -6185,3 +6185,18 @@ have no document and were not touched. The 18 October note that this defect was 
 3.12 `unit-tests` job, in `tools/run_ci_locally.sh` and as two optional pre-commit hooks. The test fixes were narrowings the
 checker asked for (an optional `re.search` result or module spec asserted present before use, one `dict` annotation). `model/` is
 not checked because annotating a frozen script changes its SHA-256. No behaviour and no model change.
+
+### 26 October 2026: a second production-quality pass
+
+Requested as a repeat of the 18 October pass plus a staleness check. (1) The pinned pandoc 3.10.2 was fetched again
+(`gh release download 3.10.2 --repo jgm/pandoc --pattern pandoc-3.10.2-arm64-macOS.zip`, SHA-256 a30bd546...2e99, the digest GitHub
+publishes for the asset) and the book and primer rebuilt with it are byte-identical to the committed PDFs. (2) The frozen
+`model/*.py` scripts cannot gain docstrings or corrected pointers, so two sidecars were written: `model/FUNCTIONS.md` describes the
+88 definitions that lack a docstring (each row tested against an AST walk) and `model/ERRATA.md` lists the stale pointers and unit
+slips. (3) The 25 nested helpers in `tools/` and `tests/` that ruff's D rules do not reach were documented, and an AST test now
+requires a docstring on every definition there. (4) `pylint` was added at 10.00/10 under `.pylintrc`; the fixes were explicit UTF-8
+encodings, `split(maxsplit=1)`, removed re-imports and a parenthesis, and the disabled checks (pytest fixtures, optional lazy
+imports, mathematical names, deliberate broad catches around checkers) each carry a reason in the file. (5) `NEXT_STEPS.md` was
+created as the short, ordered twin of `HANDOFF.md` section 10, with a draft Chapter 24 survey item that is not in the manuscript, and
+`check_docs.py` now checks its date. (6) A sweep for orphaned files, retired phrases and stale CI step names found one more
+'the one licence' sentence in `research/SOURCES.md` and the 'takes no lint waiver' step names; both were corrected. No model change.

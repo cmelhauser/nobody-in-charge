@@ -787,6 +787,34 @@ def check_handoff_date() -> None:
              f"entry dated {newest:%d %B %Y}; by its own rule the handoff is stale")
 
 
+def check_next_steps_date() -> None:
+    """`NEXT_STEPS.md` must say it is current as of a date not before the newest progress-log entry.
+
+    The file is the short, forward-looking twin of `HANDOFF.md` section 10, so it goes stale the
+    same way: an item is done, the log records it, and the list still offers it. Requiring the
+    "as of" date to keep up with the log makes whoever writes the next entry look at the list.
+    """
+    from datetime import datetime
+
+    path = ROOT / "NEXT_STEPS.md"
+    if not path.exists():
+        fail("NEXT_STEPS.md does not exist")
+        return
+    stated = re.search(r"as of (\d{1,2} [A-Z][a-z]+ \d{4})", path.read_text(encoding="utf-8"))
+    log = (ROOT / "research" / "progress-log.md").read_text(encoding="utf-8")
+    entries = re.findall(r"^#{2,3} (\d{1,2} [A-Z][a-z]+ \d{4})", log, re.MULTILINE)
+    if not stated or not entries:
+        fail("NEXT_STEPS.md has no 'as of' date, or the progress log has no dated entry")
+        return
+    listed_on = datetime.strptime(stated.group(1), "%d %B %Y").date()
+    newest = max(datetime.strptime(e, "%d %B %Y").date() for e in entries)
+    if listed_on >= newest:
+        ok(f"NEXT_STEPS.md is current as of {stated.group(1)}, not before the newest log entry")
+    else:
+        fail(f"NEXT_STEPS.md says 'as of {stated.group(1)}' but the progress log has an entry "
+             f"dated {newest:%d %B %Y}; the list of next steps is stale")
+
+
 def check_own_total() -> None:
     """Hold the check count in the handoff's verification table to the number this file runs.
 
@@ -835,6 +863,7 @@ def main() -> int:
     check_notebook_assertions()
     check_document_dates()
     check_handoff_date()
+    check_next_steps_date()
     check_own_total()
 
     for line in passes:

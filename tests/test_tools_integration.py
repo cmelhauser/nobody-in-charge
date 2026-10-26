@@ -166,6 +166,7 @@ def test_document_dates_are_declared_not_computed():
 
     # Both files name the retired call in a comment, on purpose, so look at the code only.
     def code(text: str) -> str:
+        """Return the text without its comment-only lines, so prose mentions do not count."""
         return "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
 
     assert "date.today()" not in code(book) and "date.today()" not in code(primer)
@@ -188,6 +189,7 @@ def test_build_timestamps_follow_the_declared_dates():
     import source_date
 
     def midnight(text, fmt):
+        """Parse a date in the given format to its UTC midnight epoch seconds."""
         return int(datetime.strptime(text, fmt).replace(tzinfo=UTC).timestamp())
 
     book = first_group(r"^DRAFT_DATE = '([^']+)'",
@@ -217,6 +219,7 @@ def test_the_papers_references_are_in_order():
     assert len(items) > 40, "the reference list was not found"
 
     def key(item):
+        """Return a sortable (first author, year) pair from a reference item, accents folded."""
         text = re.sub(r"\\['`^\"~]\{?(\w)\}?", r"\1", item)
         text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
         year = re.search(r"\((?:c\.\\? ?)?(\d{4}|n\.d\.)", text)
@@ -353,9 +356,9 @@ def test_skip_artifacts_skips_exactly_the_artifact_checks():
     seven were omitted. Totals are compared rather than verdicts, so this holds in a fresh
     clone, where the full gate's freshness checks cannot pass.
     """
-    import re
 
     def counts(*args):
+        """Run the release gate and return its passed, failed and skipped totals."""
         out = run("tools/check_release.py", *args).stdout
         found = re.search(r"(\d+) checks passed; (\d+) failed(?:; (\d+) skipped)?", out)
         assert found, out
@@ -411,8 +414,6 @@ def test_notebooks_match_their_generator():
     A cache registered in the generator but not regenerated into the notebooks would leave
     them checking the old set, and nothing else would notice.
     """
-    import json
-
     import regenerate_notebooks
 
     for path, generated in regenerate_notebooks.build().items():
@@ -438,9 +439,6 @@ def test_decay_ordering_reproduces_its_cache(monkeypatch):
     Recomputes one cell of each condition from scratch against the cached row, and checks
     that the job list the script would run is the one the cache recorded.
     """
-    import hashlib
-    import json
-
     import decay_ordering
 
     monkeypatch.setitem(sys.modules, "m", None)  # _load registers the model as "m"
@@ -462,9 +460,6 @@ def test_decay_ordering_reproduces_its_cache(monkeypatch):
 
 def test_decay_reversal_reproduces_its_cache(monkeypatch):
     """`research/decay_reversal.json` must be what `model/decay_reversal.py` computes."""
-    import hashlib
-    import json
-
     import decay_reversal
 
     monkeypatch.setitem(sys.modules, "m", None)  # _load registers the model as "m"
@@ -494,6 +489,7 @@ def test_decay_reversal_is_the_ordering_design_at_other_levels():
     import ast
 
     def body(path: Path) -> str:
+        """Parse the script, drop any module docstring and return the unparsed code."""
         tree = ast.parse(path.read_text())
         if ast.get_docstring(tree) is not None:
             tree.body = tree.body[1:]
@@ -514,8 +510,6 @@ def test_decay_reversal_is_the_ordering_design_at_other_levels():
                             "ignore::pytest.PytestUnraisableExceptionWarning")
 def test_decay_ordering_saves_atomically(tmp_path, monkeypatch):
     """_save() writes the cache through a temporary file and leaves no `.tmp` behind."""
-    import json
-
     import decay_ordering
 
     out = tmp_path / "decay_ordering.json"
@@ -527,8 +521,6 @@ def test_decay_ordering_saves_atomically(tmp_path, monkeypatch):
 
 def test_generator_entry_points_write_what_they_render(tmp_path, monkeypatch, capsys):
     """The robustness-report and notebook generators write their rendered output and name it."""
-    import json
-
     import regenerate_notebooks
     import summarize_robustness
 
@@ -669,6 +661,7 @@ def test_the_name_scan_reads_every_tracked_text_file_and_no_source_document(monk
     corpus = check_book.P("research", "incorporated")
 
     def no_git(*args, **kwargs):
+        """Stand in for subprocess.run on a machine without git."""
         raise OSError("git is not installed")
 
     for label in ("with git", "without git"):
