@@ -1,6 +1,6 @@
 # Next steps
 
-What remains to be done, in the order it should be done, as of 26 October 2026. Nothing here blocks
+What remains to be done, in the order it should be done, as of 31 October 2026. Nothing here blocks
 the release state: every checker passes, both notebooks execute, the three PDFs render with zero
 overfull boxes, and continuous integration is green. `HANDOFF.md` section 10 is the detailed list
 with the evidence for each item and `research/progress-log.md` is the dated record; this file is the
@@ -20,7 +20,6 @@ move its record to the progress log and `CHANGELOG.md`.
 
 | Step | Trigger | What to do |
 |---|---|---|
-| Confirm the pinned pandoc 3.10.2 and tectonic 0.17.0 on the new runner image | GitHub moves `ubuntu-latest` to Ubuntu 26.04 (announced for 19 October 2026; the runner was still 24.04 on 23 October) | Dispatch the workflow: `gh workflow run ci.yml --ref main`, read the "Operating System" lines in the log, and fix the pins in `ci.yml` and `release.yml` together if a step fails. |
 | Raise a pinned GitHub Action | Dependabot opens a monthly pull request | Read the release notes, dispatch the workflow on the branch, then merge. |
 | Rights holder objects to the Fatimah et al. (2025) text in git history | A complaint | Rewrite history with `git filter-repo` and file a GitHub Support request to clear `refs/pull/*`. The rewrite was prepared and verified once and discarded. `SECURITY.md` and `research/SOURCES.md` describe the exposure. |
 

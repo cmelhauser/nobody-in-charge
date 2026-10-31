@@ -6243,3 +6243,14 @@ sources to the few whose text contains the word. No citation verdict changed. No
 Also on 26 October 2026: the optional pre-commit hooks added on 18 October were removed at the Human Author's request
 (`.pre-commit-config.yaml` deleted, and the paragraph in `CONTRIBUTING.md` and the standing note in `NEXT_STEPS.md`). The same
 checks still run in CI and in `tools/run_ci_locally.sh`. No model change.
+
+### 31 October 2026: a review after the October passes
+
+All checkers passed on arrival; a targeted reading of what had changed since the 23 October audit found stale statements the
+later work had left behind. `HANDOFF.md` still named `Iannaccone_1992` as the newest source and quoted 2,281 statements (2,294);
+`research/SOURCES.md` still said 45 sources; `AGENT_VERIFY.md` omitted the three October sources, and its documents-aside figure and
+its matcher limitation predated them and the tightened matcher (a fresh clone now gives 55 pairs across 41 sources, all supported);
+`model/FUNCTIONS.md` said no test reads it, which stopped being true the day the test was written; and `CHANGELOG.md` still
+described pre-commit hooks that were added and removed inside the same unreleased block, so those mentions were taken out. A dispatched
+run on `main` showed `ubuntu-latest` now on Ubuntu 26.04 with every job passing, which closes that waiting item in
+`NEXT_STEPS.md` and `HANDOFF.md` section 10. No model change.
