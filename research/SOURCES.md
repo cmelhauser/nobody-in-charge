@@ -48,7 +48,7 @@ document how the corpus arrived.
 
 ## Incorporated source storage
 
-`research/incorporated/` holds all 45 sources, one directory each. This table covers the first
+`research/incorporated/` holds all 48 sources, one directory each. This table covers the first
 twelve entries, those that came in with or out of the staged acquisition package and the three
 copyrighted works and Recovery Dharma catalogued in August: Maxwell (1950) and Golub and Jackson
 (2010), which overlapped the staged package, and six items promoted out of it, four on 9 August

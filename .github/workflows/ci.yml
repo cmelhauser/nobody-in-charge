@@ -308,9 +308,8 @@ jobs:
           # from this cache, ahead of ubuntu-latest moving there, and on 12 October every
           # job passed there again with 3.14 in the matrix, except that actionlint rejects
           # the ubuntu-26.04 label as unknown, which is why the label is not used here.
-          # ubuntu-latest moved to 26.04 on 19 October 2026. The last run on main before the
-          # move (19 October, 01:41 UTC) used ubuntu-24.04, so the pins below were verified
-          # on 24.04 and a workflow_dispatch run is needed to confirm them on the new image.
+          # ubuntu-latest had moved to 26.04 by 31 October 2026, when a dispatched run on main
+          # passed every job there with the pins below.
           # Tectonic 0.17.0, from its release page, checked against the SHA-256 GitHub records for
           # that asset. It used to be fetched with a piped installer that took whatever was newest.
           # Raise it deliberately: change the URL and the hash together, and bump the cache key.
