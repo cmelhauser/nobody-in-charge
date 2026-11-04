@@ -7,8 +7,9 @@ the hash rules in `CLAUDE.md`). Their functions therefore cannot carry the docst
 
 This file describes every function, nested function and class in `model/*.py` that has no
 docstring of its own. Definitions that already have a docstring are not repeated here. It is
-documentation only: no script, test, cache or checker reads it, nothing depends on its bytes, and
-it can be edited freely. Descriptions were written from the code as it stands; the line number
+documentation only: no script, cache or checker depends on its bytes, and it can be edited freely,
+except that `tests/test_release_invariants.py` requires a `name (line)` row for every undocumented
+definition. Descriptions were written from the code as it stands; the line number
 after each name is the line of the `def` statement in the current file, and will drift only if a
 frozen script is ever rerun and edited, in which case this file should be regenerated.
 
