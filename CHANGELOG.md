@@ -17,8 +17,9 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
-- The optional pre-commit hooks (`.pre-commit-config.yaml`) are removed, at the Human Author's request. CI and
-  `tools/run_ci_locally.sh` are the only gates; nothing else referenced the file. No model change.
+- A review on 31 October 2026 corrected what the earlier passes left behind (corpus counts, the newest-source note, the
+  fresh-clone citation figures, the sidecar's claim that no test reads it) and closed the runner item: every job passes on
+  Ubuntu 26.04 with the pinned toolchain. No model change.
 
 - The subject matcher in `tools/build_corpus.py` and `tools/check_book.py` is tighter. A term of five characters or fewer must
   match exactly, a single-word term must match as a whole word, and a longer term is anchored on its first letter with a 0.85
@@ -43,7 +44,7 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
   named-nomination item would contradict. `NEXT_STEPS.md` records the decision. No model change.
 
 - A second production-quality pass. `pylint tools tests` is held to 10.00/10 (`.pylintrc`, every disabled check
-  justified) beside ruff and mypy, in CI, the local runner and pre-commit. Every module, class, function and nested
+  justified) beside ruff and mypy, in CI and the local runner. Every module, class, function and nested
   helper in `tools/` and `tests/` has a docstring, enforced by an AST test in `tests/test_release_invariants.py`;
   the 88 undocumented definitions in the hash-frozen `model/*.py` are described in the new sidecar
   `model/FUNCTIONS.md` (also tested), and their stale pointers and unit slips in `model/ERRATA.md`. New
@@ -52,8 +53,7 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
   pinned pandoc 3.10.2 was re-fetched and the book and primer rebuild byte-identically with it. No model change.
 
 - Type checking. `tools/` is fully type annotated and `tests/` is free of type errors, checked by `mypy` (`mypy.ini`;
-  `mypy --disallow-untyped-defs tools` and `mypy tests`) in the 3.12 `unit-tests` job, in `tools/run_ci_locally.sh` and
-  as two optional pre-commit hooks. `model/` is not checked, since annotating the hash-frozen scripts would change their
+  `mypy --disallow-untyped-defs tools` and `mypy tests`) in the 3.12 `unit-tests` job and in `tools/run_ci_locally.sh`. `model/` is not checked, since annotating the hash-frozen scripts would change their
   hashes. `mypy` joins `requirements-dev.txt` as a floor. No model change.
 
 - `tools/build_corpus.py` now normalizes the typographic apostrophe before tokenizing, so a word such as "book's" is one
@@ -79,8 +79,6 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 - `ruff.toml` pins `target-version = "py311"`, the repository's floor, so the upgrade rules no
   longer depend on which ruff version guesses the target, and three tools and two test files use
   `datetime.UTC` in place of `timezone.utc`. No model change.
-
-- Optional pre-commit hooks (`.pre-commit-config.yaml`) run the fast CI checks before a commit. No model change.
 
 - Production-quality pass on the code. `ruff check .` now applies a production ruleset to `tools/` and `tests/`
   (pycodestyle, import order, pyupgrade, simplification, ruff's own rules, builtin shadowing, a docstring on every

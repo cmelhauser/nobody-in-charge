@@ -62,7 +62,8 @@ Three statuses must remain distinct.
    open-access papers held the same day; and, added on 22 September 2026, the two papers that
    bracket the decay rate, Edgren, Baretta and Inauen (2025) and Kaskutas, Bond and Avalos (2009);
    and, added on 24 September 2026, two NIH author manuscripts the paper cites, Banks et al. (2017)
-   and Rynes and Tonigan (2012); and, added on 29 September 2026, Iannaccone (1992), held as record only. A directory's leading token
+   and Rynes and Tonigan (2012); and, added on 29 September 2026, Iannaccone (1992), held as record only; and, added on 26 October 2026,
+   Gorman et al. (2006), Kelly, Humphreys and Ferri (2020) and Witkiewitz and Marlatt (2007). A directory's leading token
    must be at least three characters and distinctive, because `check_book.py` identifies a
    source in prose by that token.
    `TwelveAndTwelve` and `KurtzTalk` are deliberately distinct tokens: `AAWS` and `Kurtz` were
@@ -116,16 +117,15 @@ carries a page citation, so there is nothing to confirm against an edition.
 **Citation checking must still pass with no documents present.** Each verification index records
 the source's vocabulary and, because a vocabulary set has no word order, which registered subjects
 the document contains, decided against the real text at build time and stamped with that file's
-SHA-256. Confirm this rather than assume it: move the documents aside and rerun
-`tools/check_book.py`. When last run that way, on 28 September 2026 with all 64 held documents set
-aside, it reported 55 citation-subject pairs across 38 indexed sources, all supported. The 38 is
-fewer than the 45 sources because four record-only sources have no index and the three ATU
-reports and the two Big Book editions each share a leading token. If a re-acquired file's hash differs from its index, the index is stale;
+SHA-256. Confirm this rather than assume it: run `tools/check_book.py` in a fresh clone, which has no
+documents. When last run that way, on 31 October 2026, it reported 55 citation-subject pairs across 41
+indexed sources, all supported. The 41 is fewer than the 48 sources because four record-only sources
+have no index and the three ATU reports and the two Big Book editions each share a leading token. If a re-acquired file's hash differs from its index, the index is stale;
 rebuild with `python3 tools/build_corpus.py` rather than trusting it, and `--check` reports drift.
 
-Two limitations are declared rather than hidden: the subject matcher is deliberately tolerant of
-OCR noise, so short subjects can match spuriously, which was equally true when the check ran
-against full text; and an index shows a word occurs somewhere in a work, which is weaker than a
+Two limitations are declared rather than hidden: the subject matcher tolerates OCR noise in
+longer terms, so a term of six or more characters can still match a near neighbour (single words
+and terms of five characters or fewer match exactly, since 26 October 2026); and an index shows a word occurs somewhere in a work, which is weaker than a
 page reference. Quotations are verified against page images, as the ATU 1841 and P-17 records
 show.
 

@@ -5,7 +5,7 @@ no memory of this project and no access to any prior session. Everything you nee
 repository. Read this file, then `CLAUDE.md`, then `AGENT_VERIFY.md` if you are verifying rather
 than writing.
 
-Last updated 26 October 2026. If the date at the bottom of `research/progress-log.md` is later
+Last updated 31 October 2026. If the date at the bottom of `research/progress-log.md` is later
 than that, this file is stale and the log wins.
 
 `v0.9.0` is tagged and published as a GitHub pre-release; see `RELEASING.md` and `CHANGELOG.md`.
@@ -103,11 +103,11 @@ before: `model/part5_runs.py` was edited without re-running and left the cache s
 
 ## 4. Verification state
 
-As of 26 October 2026, everything passes:
+As of 31 October 2026, everything passes:
 
 | Check | Result |
 |---|---|
-| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 503 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,281 statements) |
+| `python3 -m pytest --cov` (plain `python3 -m pytest` runs the tests but measures and enforces no coverage) | 503 tests, all passed, three skipped: the slow tests, which run with `NIC_SLOW_TESTS=1`; 100 per cent coverage of the canonical model and of every script under `tools/` (2,294 statements) |
 | `mypy --disallow-untyped-defs tools` and `mypy tests` | no issues (`mypy.ini`) |
 | `pylint tools tests` | 10.00/10 (`.pylintrc`) |
 | `ruff check .` | clean, with no `noqa` comment and no waiver outside `model/` and the notebook generator's line length |
@@ -200,9 +200,10 @@ search; it does not replace reading the surrounding claim.
 
 48 sources under `research/incorporated/`, one directory each, named `<ShortAuthor>_<Year>`,
 holding `citation.md`, `metadata.json`, `source_summary.md`, and usually a verification index.
-The newest is `Iannaccone_1992` (29 September 2026, record only), after the two NIH author manuscripts
-held on 24 September 2026, `BanksBekeleMaxwell_2017` and `Rynes_2012`, and the two held on 22 September that bracket the decay rate, `Edgren_2025` and
-`KaskutasBondAvalos_2009`.
+The newest are `Gorman_2006`, `KellyHumphreysFerri_2020` and `WitkiewitzMarlatt_2007` (26 October 2026,
+PDFs the Human Author saved in a browser), after `Iannaccone_1992` (29 September 2026, record only), the
+two NIH author manuscripts held on 24 September 2026, `BanksBekeleMaxwell_2017` and `Rynes_2012`, and the
+two held on 22 September that bracket the decay rate, `Edgren_2025` and `KaskutasBondAvalos_2009`.
 `WorkingManuscript_1939` (12 September 2026) is the 1939 multilith with its pencilled revisions,
 held git-ignored at the Human Author's direction. Its `edits_and_suggested_uses.md` sets out what it
 implies for the manuscript: its two corrections, to Chapter 4 and to Appendix A13, were made on 13
@@ -463,12 +464,10 @@ conclusion.
 10. **The collator notes are public.** `research/elicitation/4-collator-notes.pdf` names the answer
     the exercise elicits and is committed in the public repository. Left public by the Human
     Author's decision of 16 October 2026 (section 9).
-11. **The runner image.** Every job uses `ubuntu-latest`, which GitHub has announced moves to Ubuntu
-    26.04 between 19 October and 19 November 2026. The jobs passed on 26.04 on 1 and 12 October by
-    manual dispatch, before the CI actions, pandoc and tectonic were pinned by hash on 16 October.
-    Once the move happens, dispatch both workflows and confirm that the documents job and the
-    release workflow still pass, in particular the pinned tectonic against the new image's
-    libraries. The `ubuntu-26.04` label itself cannot be named yet, because actionlint rejects it.
+11. **Closed on 31 October 2026: the runner image.** `ubuntu-latest` has moved to Ubuntu 26.04. A
+    dispatched run on `main` that day passed every job there, with the pinned pandoc and tectonic,
+    the documents job included. The `ubuntu-26.04` label itself is still not named in the
+    workflows, because actionlint rejected it when last tried.
 12. **Dependabot watches only GitHub Actions** (`.github/dependabot.yml`), monthly. The
     `requirements-dev.txt` floors are deliberate and unwatched; pandoc and tectonic are installed by
     URL and checksum and are not covered. A raise of any pin must be reviewed and merged by hand,
