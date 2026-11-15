@@ -911,11 +911,12 @@ read at source; no fuller status is on file). Model code deposited at osf.io/tkg
 study protocol at osf.io/kysdt.
 
 **Rights exposure, recorded 16 October 2026.** The text of this manuscript was committed in the first import
-of 6 August 2026 and removed on 10 August 2026 (`39725c9`), when the project stopped committing source
-documents. The repository is public, so it remains in git history. Its record says "Not redistributed here".
-The Human Author decided on 16 October 2026 not to rewrite history, because a rewrite would change every commit
-hash and would not remove the file from GitHub's pull-request refs. If a rights holder asks, the response is a
-history rewrite and a request to GitHub Support to clear those refs. The other eleven files in the same import
+of 6 August 2026 and removed on 10 August 2026 (`8e6d148`), when the project stopped committing source
+documents. Its record says "Not redistributed here". The Human Author decided on 16 October 2026 not to rewrite
+history, and on 15 November 2026 reversed that: the published history was rewritten with `git filter-repo` to
+remove the file from every commit and from the `v0.9.0` tag, and every commit hash changed. GitHub's pull-request
+refs still reach the old commits until GitHub Support clears them, which the Human Author is asked to request. The
+other eleven files in the same import
 (ten works: Blair, Crothers, Eddy, Fehlandt, Gough, Grosh as text and PDF, Harrison, Hawkins, Krout and Marsh, all
 published before 1929) are in the public domain.
 

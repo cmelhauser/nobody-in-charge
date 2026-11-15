@@ -6157,7 +6157,7 @@ workflow documents now file returned forms under anonymous codes (R01, R02, ...)
 matching what the invitation promises; the five elicitation PDFs were rebuilt. (7) This log gained a dated-history banner and
 26 "Superseded:" notes under stale present-tense blocks; no original sentence was rewritten. (8) The plans, the book plan, the
 claim register and `HANDOFF.md` section 10 were brought current, and section 10 now lists the standing left-undone items. Items
-recorded here that the 18 October entries omitted: the ruff `target-version` pin to Python 3.11 and `datetime.UTC` (f63d39b),
+recorded here that the 18 October entries omitted: the ruff `target-version` pin to Python 3.11 and `datetime.UTC` (f500aa9),
 the README layout line for `tests/`, and the optional pre-commit hooks (#78). Not changed on purpose: the frozen `model/*.py`
 scripts keep their stale pointers and unit slips (for example `mc_error.py` and `tradition_paired.py` say "half-weeks" where the
 unit is weeks, and several appendix section pointers predate the renumbering), because editing them invalidates their caches.
@@ -6254,3 +6254,17 @@ its matcher limitation predated them and the tightened matcher (a fresh clone no
 described pre-commit hooks that were added and removed inside the same unreleased block, so those mentions were taken out. A dispatched
 run on `main` showed `ubuntu-latest` now on Ubuntu 26.04 with every job passing, which closes that waiting item in
 `NEXT_STEPS.md` and `HANDOFF.md` section 10. No model change.
+
+### 13 to 15 November 2026: the Fatimah manuscript removed from the published history
+
+The Human Author reversed the 16 October decision and directed the rewrite. `git filter-repo` ran on a fresh clone and
+removed `research/fatimah-2025-double-well-relapse.txt` from all 289 commits of `main` and from the `v0.9.0` tag; a
+mailmap in the same pass changed the author address of two commits of 15 September 2026, a second personal address, to the
+no-reply address, which the 14 September rewrite had been meant to remove. Before the push: the final tree was
+byte-identical to the published one (`a025f595`), the file's blob was in no commit, and no commit carried the second
+address. `main` and the tag were force-pushed with leases while the Human Author had the branch ruleset disabled, and the
+GitHub release for `v0.9.0` follows the tag. Every commit hash changed; the records' two cited hashes were remapped
+(`39725c9` to `8e6d148`, `f63d39b` to `f500aa9`). GitHub still serves the old commits through 90 `refs/pull/*`
+references until Support purges them; the request is drafted for the Human Author. Also merged before the rewrite:
+Dependabot's `actions/setup-python` 7.1.0, after a dispatched run passed every job. No model change.
+
