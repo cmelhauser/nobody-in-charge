@@ -455,12 +455,12 @@ conclusion.
    comment changes the script hash, which makes the cache stale and forces a rerun of 2,400 and
    4,800 runs for no change in any number. If either script is ever rerun for another reason,
    correct the pointer in the same commit (17 October 2026).
-9. **A source document in git history.** The first import of 6 August 2026 committed twelve source
-   files, and the history still holds them. Eleven of the files are public-domain works. The
-   twelfth, the Fatimah et al. (2025) NIH author manuscript, is not. The Human Author chose on 16 October 2026 to document it
-   (`research/SOURCES.md`, `SECURITY.md`) and not to rewrite history, since a rewrite would change
-   every hash and would not clear GitHub's pull-request references without a Support request. The
-   current tree commits no source document.
+9. **Source documents in git history.** The first import of 6 August 2026 committed twelve source
+   files. Eleven are public-domain works and the history still holds them. The twelfth, the
+   Fatimah et al. (2025) NIH author manuscript, was removed from the whole published history on
+   15 November 2026 (closed list below). GitHub's pull-request references still reach the old
+   commits until GitHub Support clears them; the Human Author holds the request. The current tree
+   commits no source document.
 10. **The collator notes are public.** `research/elicitation/4-collator-notes.pdf` names the answer
     the exercise elicits and is committed in the public repository. Left public by the Human
     Author's decision of 16 October 2026 (section 9).
@@ -530,6 +530,23 @@ conclusion.
 
   Chapters 21 and 24 also now record that SMF-132 was read on 17 August 2026 and is held. Whether
   each addition stays is still the Human Author's decision.
+
+### Closed on 15 November 2026
+
+- **The Fatimah et al. (2025) manuscript, removed from the published history.** On 16 October 2026
+  the Human Author had chosen to document it rather than rewrite; on 13 November 2026 they reversed
+  that. `git filter-repo` ran on a fresh clone and removed
+  `research/fatimah-2025-double-well-relapse.txt` from all 289 commits of `main` and from the
+  `v0.9.0` tag. The same pass changed the author address of two commits of 15 September 2026 to
+  the no-reply address, since the 14 September rewrite had been meant to remove that address.
+  - **Verified before the push:** the final tree is byte-identical to the published one, the
+    file's blob is in no commit, and no commit carries the second address.
+  - **What changed:** every commit hash. A clone made before 15 November 2026 must be re-cloned
+    rather than pulled. The two hashes the records cite were remapped: the removal commit
+    `39725c9` is now `8e6d148`, and `f63d39b` is now `f500aa9`.
+  - **What is left:** GitHub serves the old commits by hash through 90 `refs/pull/*`
+    references until GitHub Support purges them and its cached views. The request is drafted for
+    the Human Author to send.
 
 ### Closed on 14 September 2026
 

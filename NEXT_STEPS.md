@@ -21,7 +21,7 @@ move its record to the progress log and `CHANGELOG.md`.
 | Step | Trigger | What to do |
 |---|---|---|
 | Raise a pinned GitHub Action | Dependabot opens a monthly pull request | Read the release notes, dispatch the workflow on the branch, then merge. |
-| Rights holder objects to the Fatimah et al. (2025) text in git history | A complaint | Rewrite history with `git filter-repo` and file a GitHub Support request to clear `refs/pull/*`. The rewrite was prepared and verified once and discarded. `SECURITY.md` and `research/SOURCES.md` describe the exposure. |
+| GitHub Support clears the old Fatimah et al. (2025) commits | Support replies to the Human Author's request | History was rewritten on 15 November 2026. Once Support confirms, check that the old commit `7e2dcc5` no longer serves `research/fatimah-2025-double-well-relapse.txt` and record it in `SECURITY.md`, `research/SOURCES.md` and `HANDOFF.md` section 10. |
 
 ## 3. Standing notes: left undone on purpose
 

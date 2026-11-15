@@ -17,6 +17,13 @@ Canonical model SHA-256 for the whole of this block, which changes no model valu
 
 ### Changed
 
+- The published Git history was rewritten on 15 November 2026 to remove the Fatimah et al. (2025) author manuscript
+  committed in the first import, and the author address of two commits of 15 September 2026. Every commit hash has
+  changed, so a clone made earlier must be re-cloned; `v0.9.0` points at the rewritten commit and its release assets are
+  unchanged. GitHub's pull-request references still reach the old commits until GitHub Support clears them. No model change.
+
+- `actions/setup-python` is pinned at 7.1.0, raised by Dependabot after a dispatched run passed every job.
+
 - A review on 31 October 2026 corrected what the earlier passes left behind (corpus counts, the newest-source note, the
   fresh-clone citation figures, the sidecar's claim that no test reads it) and closed the runner item: every job passes on
   Ubuntu 26.04 with the pinned toolchain. No model change.

@@ -31,4 +31,7 @@ Only the latest commit on `main` and the latest tag are maintained.
 
 `research/progress-log.md` and `research/SOURCES.md` record one: a 2025 NIH author manuscript
 (Fatimah, Hunter and Bornovalova) was committed in the first import of 6 August 2026 and removed on
-10 August 2026 (`39725c9`). It remains in git history. Nothing else that is in copyright is in the history.
+10 August 2026 (`8e6d148`). On 15 November 2026 the published history was rewritten to remove it
+from every commit, so no branch or tag reaches it. GitHub can still serve the old commits by hash
+through the pull-request references it keeps, until GitHub Support clears them. Nothing else that is
+in copyright is in the history.
